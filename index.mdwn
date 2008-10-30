@@ -1,4 +1,4 @@
-Welcome to your new wiki.
+# Welcome to ikiwiki.schottelius.org!
 
 All wikis are supposed to have a...
 so this one does too.
