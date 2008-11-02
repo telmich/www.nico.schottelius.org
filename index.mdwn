@@ -2,8 +2,9 @@
 
 ## Einleitung
 
-Dies ist die Liste der *Viel beantworteten Fragen" von !eof.
-Sie wird neu via git verwaltet.
+Dies ist die Liste der *Viel beantworteten Fragen* (oder
+*viel gefragten Fragen* oder *Frequently (asked|answered) questions*)
+von !eof.  Sie wird neu via git verwaltet.
 Der Quelltext ist auf
 http://git.schottelius.org/?p=faq.eof.name;a=summary zu finden.
 
