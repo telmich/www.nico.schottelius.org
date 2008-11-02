@@ -3,8 +3,9 @@
 ## Einleitung
 
 Dies ist die Liste der *Viel beantworteten Fragen" von !eof.
-Sie wird neu via git verwaltet. Der Quelltext wird bald auf
-http://git.schottelius.org zu finden sein.
+Sie wird neu via git verwaltet.
+Der Quelltext ist auf
+http://git.schottelius.org/?p=faq.eof.name;a=summary zu finden.
 
 ### Änderungen
 Einfach das git-repo klonen, Änderungen machen und sie im Netz
