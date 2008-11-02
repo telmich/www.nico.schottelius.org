@@ -4,9 +4,9 @@
 
 Dies ist die Liste der *Viel beantworteten Fragen* (oder
 *viel gefragten Fragen* oder *Frequently (asked|answered) questions*)
-von !eof.  Sie wird neu via git verwaltet.
-Der Quelltext ist auf
-http://git.schottelius.org/?p=faq.eof.name;a=summary zu finden.
+von !eof.  Sie wird neu via
+[git]([http://git.schottelius.org/?p=faq.eof.name;a=summary) verwaltet.
+
 
 ### Änderungen
 Einfach das git-repo klonen, Änderungen machen und sie im Netz
