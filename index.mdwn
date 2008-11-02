@@ -1,3 +1,13 @@
-# The !eof F.A.Q.
+# Die !eof-Liste der V.B.F.
+
+## Einleitung
+
+Dies ist die Liste der *Viel beantworteten Fragen" von !eof.
+Sie wird neu via git verwaltet. Der Quelltext wird bald auf
+http://git.schottelius.org zu finden sein.
+
+### Änderungen
+Einfach das git-repo klonen, Änderungen machen und sie im Netz
+bereitstellen und telmich Bescheid sagen, dass er sie ziehen kann.
 
 ----
