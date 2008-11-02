@@ -1,6 +1,3 @@
-# Welcome to ikiwiki.schottelius.org!
-
-All wikis are supposed to have a...
-so this one does too.
+# The !eof F.A.Q.
 
 ----
