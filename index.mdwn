@@ -9,5 +9,3 @@ http://git.schottelius.org zu finden sein.
 ### Änderungen
 Einfach das git-repo klonen, Änderungen machen und sie im Netz
 bereitstellen und telmich Bescheid sagen, dass er sie ziehen kann.
-
-----
