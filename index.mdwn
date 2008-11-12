@@ -1,13 +1,7 @@
-# Die !eof-Liste der V.B.F.
+# Was ist sicherheit.schottelius.org?
 
-## Einleitung
+*Sicherheit.schottelius.org* ist ein Projekt von Nico Schottelius,
+das sich mit verschiedenen sicherheitsrelevanten Themen beschäftigt.
 
-Dies ist die Liste der *Viel beantworteten Fragen* (oder
-*viel gefragten Fragen* oder *Frequently (asked|answered) questions*)
-von !eof.  Sie wird neu via
-[git]([http://git.schottelius.org/?p=faq.eof.name;a=summary) verwaltet.
+Ak... [[neuigkeiten]]
 
-
-### Änderungen
-Einfach das git-repo klonen, Änderungen machen und sie im Netz
-bereitstellen und telmich Bescheid sagen, dass er sie ziehen kann.
