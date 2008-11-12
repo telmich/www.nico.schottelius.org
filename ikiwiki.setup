@@ -11,8 +11,8 @@ use IkiWiki::Setup::Standard {
 	adminemail => 'contact@faq.eof.name',
 
 	# Be sure to customise these..
-	srcdir => "/home/user/nico/zt/ikiwiki/src",
-	destdir => "/home/user/nico/zt/ikiwiki/dst",
+	srcdir => "/home/user/nico/zt/ikiwiki/sicherheit.schottelius.org",
+	destdir => "/home/user/nico/zt/ikiwiki/sicherheit.schottelius.org.dst",
 
 	url => "http://faq.eof.name/",
 	###cgiurl => "http://example.org/wiki/ikiwiki.cgi",
