@@ -11,8 +11,8 @@ use IkiWiki::Setup::Standard {
 	adminemail => 'sicherheit@schottelius.org',
 
 	# Be sure to customise these..
-	srcdir => "/home/user/nico/zt/ikiwiki/sicherheit.schottelius.org",
-	destdir => "/home/user/nico/zt/ikiwiki/sicherheit.schottelius.org.dst",
+	srcdir => "/home/user/nico/privat/computer/net/netzseiten/sicherheit.schottelius.org/src",
+	destdir => "/home/user/nico/privat/computer/net/netzseiten/sicherheit.schottelius.org/dst",
 
 	url => "http://sicherheit.schottelius.org/",
 	###cgiurl => "http://example.org/wiki/ikiwiki.cgi",
