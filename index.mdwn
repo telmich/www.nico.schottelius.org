@@ -1,10 +1,10 @@
 ## Was ist sicherheit.schottelius.org?
 
-*Sicherheit.schottelius.org* ist ein Projekt von Nico Schottelius,
+***Sicherheit.schottelius.org*** ist ein Projekt von Nico Schottelius,
 das sich mit verschiedenen sicherheitsrelevanten Themen beschäftigt.
+Der aktuelle Stand kann auf der [[Neuigkeiten|neuigkeiten]]-Seite eingesehen werden.
 
 ## Was für Themen werden hier behandelt?
 
- * [[Videoüberwachung vom öffentlichen Verkehr in der Schweiz|videoueberwachung_schweiz_oeffentlicher_verkehr]]
- * [[Neuigkeiten|neuigkeiten]]
+ * [[Videoüberwachung_vom_öffentlichen_Verkehr_in_der_Schweiz|videoueberwachung_schweiz_oeffentlicher_verkehr]]
 
