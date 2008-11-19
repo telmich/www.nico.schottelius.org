@@ -2,7 +2,8 @@
 
 ***Sicherheit.schottelius.org*** ist ein Projekt von Nico Schottelius,
 das sich mit verschiedenen sicherheitsrelevanten Themen beschäftigt.
-Der aktuelle Stand kann auf der [[Neuigkeiten|neuigkeiten]]-Seite eingesehen werden.
+Auf der [[Neuigkeiten|neuigkeiten]]-Seite ist der aktuelle Stand und kurze
+Nachrichten zu finden.
 
 ## Was für Themen werden hier behandelt?
 
