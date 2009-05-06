@@ -6,15 +6,15 @@
 # Remember to re-run ikiwiki --setup any time you edit this file.
 
 use IkiWiki::Setup::Standard {
-	wikiname => "sicherheit.schottelius.org",
+	wikiname => "Nico Schottelius",
 	#adminuser => ["yourname", ],
-	adminemail => 'sicherheit@schottelius.org',
+	adminemail => 'nico-public@at@schottelius.org',
 
 	# Be sure to customise these..
-	srcdir => "/home/user/nico/privat/computer/net/netzseiten/sicherheit.schottelius.org/src",
-	destdir => "/home/user/nico/privat/computer/net/netzseiten/sicherheit.schottelius.org/dst",
+	srcdir => "/home/users/nico/privat/computer/net/netzseiten/www.nico.schottelius.org/src",
+	destdir => "/home/users/nico/privat/computer/net/netzseiten/www.nico.schottelius.org/dst",
 
-	url => "http://sicherheit.schottelius.org/",
+	url => "http://www.nico.schottelius.org/",
 	###cgiurl => "http://example.org/wiki/ikiwiki.cgi",
 	#templatedir => "/usr/share/ikiwiki/templates",
 	#underlaydir => "/usr/share/ikiwiki/basewiki",
