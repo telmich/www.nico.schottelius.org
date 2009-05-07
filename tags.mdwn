@@ -1,3 +1,1 @@
-[[!pagestats pages="tags/*"]]
-
-[[!tag meta]]
+[[!inline pages="tags/*" archive="yes" show=0]]

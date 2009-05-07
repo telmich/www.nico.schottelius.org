@@ -94,6 +94,6 @@ Otherwise, you may also just
    Nico Schottelius' proposal of a configuration format
 
 </ul>
-Do you know about more projects? Add them to this website! See below, how to do it.
-<!-- ######################################################### -->
+Do you know about more projects? I would be happy, if you let me know!
+
 [[!tag unix net]]
