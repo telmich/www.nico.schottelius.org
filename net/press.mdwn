@@ -1,0 +1,19 @@
+The following is an incomplete list of news and articles about my projects and those I wrote:
+
+* February 2005: [Linux-Magazin about monotone and gnu arch (tla)](http://www.linux-magazin.de/Artikel/ausgabe/2005/02)
+* 26\. August 2004: [OpenNET (russia)](http://www.opennet.ru/opennews/art.shtml?num=4285)
+  about the [[!unixso blacksheep]] project
+* 9\. July 2004: [Pro-Linux](http://www.pro-linux.de/news/2004/7019.html)
+  about the [LinuxDistributionen Wiki](https://wiki.schottelius.org/usemod/cgi-bin/wiki.pl?LinuxDistributionen)
+* 14\. April 2004: [The Linux Documentation Project](http://www.tldp.org/ldpwn/20040414.html)
+  about the document explaining
+  [why cryptoloops offer only partial security](http://nico.schotteli.us/papers/linux/cryptoloop-partial-security)
+* 22\. August 2003: [Newsforge](http://newsvac.newsforge.com/newsvac/03/08/22/134259.shtml)
+  about the [[!unixso blacksheep]] project
+* 31\. July 2003: [Pro-Linux](http://www.pro-linux.de/news/2003/5794.html)
+  about the [[!unixso blacksheep]] project
+
+
+Please [[notify me|contact]], if you find an article not listed here.
+
+[[!tag net schottelius unix]]

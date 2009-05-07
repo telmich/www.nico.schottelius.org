@@ -1,1 +1,3 @@
 * [[!shortcut name=unixso url="http://unix.schottelius.org/%s"]]
+* [[!shortcut name=wikipedia url="http://en.wikipedia.org/wiki/%s"]]
+* [[!shortcut name=google url="http://www.google.com/search?q=%s"]]

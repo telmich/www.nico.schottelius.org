@@ -1,61 +1,5 @@
 [[!meta title="About Nico Schottelius and www.nico.schottelius.org"]]
 
-## About me
-
-Nico Schottelius is the orginator and author of this website.
-He's also a [[FOSS developer|about/foss]].
-
-## About www.nico.schottelius.org
-
-There are plenty of websites currently up and running and this site
-will sooner or later consolidate all of the following ones:
-
-* [very old personal website (to be merged into this one)](http://nico.schotteli.us/)
-* [old personal website (to be merged into this one)](http://nico.schottelius.org/)
-* [UNIX related projects](http://unix.schottelius.org/)
-* [irc related data/information (to be merged into this site)](http://irc.schottelius.org/)
-* [mailing lists](http://l.schottelius.org)
-* Search the searchengines:
-   * [google](http://www.google.com/search?q=%22Nico+Schottelius%22)
-   * [alltheweb](http://www.alltheweb.com/search?q=%22nico+schottelius%22)
-   * [yahoo](http://search.yahoo.com/search?p=nico+schottelius)
-
-
-## My aims and plans
-
-* Create a clean (secure, fast, and comfortable) Linux distribution
-* To stimulate the FOSS development, to boost the acceptance of FOSS.
-* Create tools that are needed for himself and to make them  available for use in other Unices as well (like cinit, ccollect are available already)
-* Group together some people, interested in aiding the success of FOSS
- * Paid people
- * "Normal people" (those, that are just using the computer, not using to hack with it)
- * Try to get different groups to work closer (like *BSD with the Linux community)
-    * I want to study computer science again
-  * Learn more, to create better software
-  * this time without the focus on economy
-
-
-## Press
-
-The following is an incomplete list of news and articles about my projects and those I wrote:
-
-* February 2005: [Linux-Magazin about monotone and gnu arch (tla)](http://www.linux-magazin.de/Artikel/ausgabe/2005/02)
-* 26\. August 2004: [OpenNET (russia)](http://www.opennet.ru/opennews/art.shtml?num=4285)
-  about the [[!unixso blacksheep]] project
-* 9\. July 2004: [Pro-Linux](http://www.pro-linux.de/news/2004/7019.html)
-  about the [LinuxDistributionen Wiki](https://wiki.schottelius.org/usemod/cgi-bin/wiki.pl?LinuxDistributionen)
-* 14\. April 2004: [The Linux Documentation Project](http://www.tldp.org/ldpwn/20040414.html)
-  about the document explaining
-  [why cryptoloops offer only partial security](http://nico.schotteli.us/papers/linux/cryptoloop-partial-security)
-* 22\. August 2003: [Newsforge](http://newsvac.newsforge.com/newsvac/03/08/22/134259.shtml)
-  about the [[!unixso blacksheep]] project
-* 31\. July 2003: [Pro-Linux](http://www.pro-linux.de/news/2003/5794.html)
-  about the [[!unixso blacksheep]] project
-
-
-Please notify me, if you find an article not listed here.
-
-
 ## Contact
 
 You can contact me via E-Mail at
@@ -64,5 +8,26 @@ I recommened using PGP to encrypt any mail.
 The fingerprint of my [[pgp-key|pgp-key-9217A3DF.txt]] is
 
     BFE4 C736 ABE5 406F 8F42  F7CF B8BE F92A 9885 188C
+
+## Personal information
+
+I personally do not think it's wise to publish detailled persoal information
+to the internet, because the internet never forgets, as
+seen on [google](http://www.google.com/search?q=%22nico+schottelius%22),
+[alltheweb](http://www.alltheweb.com/search?q=%22nico+schottelius%22),
+[yahoo](http://search.yahoo.com/search?p=%22nico+schottelius%22), ...
+
+But already from the above search results you may find out that ...
+
+* I work for the [ETH Zurich](http://www.systems.ethz.ch/people/nicosc)
+* ... 
+
+## More information
+
+About my ...
+
+* [[Websites|websites]]
+* [[Aims|aims]]
+* [[Relation to FOSS|foss]]
 
 [[!tag schottelius]]

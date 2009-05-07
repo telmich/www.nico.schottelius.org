@@ -1,0 +1,13 @@
+Over the years I created one and another website for a specific task.
+
+Today there are plenty of websites currently up and running.
+
+The idea of this site is to sooner or later consolidate some of the following ones:
+
+* [very old personal website (to be merged into this one)](http://nico.schotteli.us/)
+* [old personal website (to be merged into this one)](http://nico.schottelius.org/)
+* [UNIX related projects](http://unix.schottelius.org/)
+* [irc related data/information (to be merged into this site)](http://irc.schottelius.org/)
+* [mailing lists](http://l.schottelius.org)
+
+[[!tag schottelius]]
