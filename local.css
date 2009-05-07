@@ -9,14 +9,23 @@
  * */
 
 #sidebar {
-        line-height: 3ex;
         width: 20ex;
-        float: right;
-        margin-left: 40px;
+        float: left;
+        margin-left:10px;
+        margin-top: 10px;
         margin-bottom: 40px;
-        padding: 2ex 2ex;
-        background: white;
-        color: black !important;
+        background: #474747;
+
+        background: #800000;
+   /* font-color: #e6deee; */
+   font-size: 80%;
+   font-family: sans-serif;
+   border: 2px solid #500000;
+}
+
+#sidebar ul {
+        list-style-type: none;
+        padding-left: 1em;
 }
 
 
@@ -26,7 +35,8 @@ body {
 
 #content {
            background: #333333;
-           margin: 10px 0px;
+   margin: 10px 0px;
+   margin-left: 21ex;
 	   border: 1px dotted #c0c0c0;
 	   padding: 10px;
 	   font-family: sans-serif;
@@ -62,11 +72,11 @@ pre {
 .feedbutton { background: #ff0000; }
 
 .header {
-           background: #800000;
-	   border: 2px solid #500000;
-	   padding: 10px;
-	   color: #efefef;
-	   font-family: sans-serif;
+   background: #800000;
+   border: 2px solid #500000;
+   padding: 10px;
+   color: #efefef;
+   font-family: sans-serif;
 }
 
 .header a { margin-right: 1ex; color: #efefef; font-family: sans-serif;}
@@ -77,5 +87,3 @@ pre {
 .actions ul { background: #640000; border: none; padding-bottom: 0px; font-family: sans-serif;}
 .actions a  { margin-right: 1ex; color: #dfdfdf; font-family: sans-serif;}
 #footer { border: none; font-family: sans-serif;}
-
-
