@@ -1,0 +1,113 @@
+<h3>unix 2 unix</h3>
+
+<h4>the "bring unices together" technical and social project</h4>
+<HR>
+<!-- ######################################################### -->
+<h2>Motivation</h2>
+There are many different Unix versions ("Unices") out there today.
+As a
+<a href="http://nico.schottelius.org/documentations/foss/the-term-foss/">FOSS</a>
+developer I interact with many different developers, who, like me, use many
+different versions of Unix.
+Many parts of each Unix are beeing reinvented over and over again, which is not
+bad in general (things are beeing improved).
+The question is:
+<b>Why should one Unix not use the advantages another Unix has?</b>
+The other motivation is to reduce the gap between different Unices: So
+a Unix admin can easily use and hack for Unix B, if she only knows Unix A.
+Thus, if she creates a cool feature for Unix A to speedup the boot process
+to last only 0.5 seconds, she can submit it to developers of Unix C to Z.
+<!-- ######################################################### -->
+<h2>Ideas and status</h2>
+There are already many ongoing efforts in this direction (see below
+for examples), but this is a different idea: It's a platform for Unixers
+
+<ul>
+   <li>to exchange their ideas and code,
+   <li>to improve their Unix,
+   <li>to share cool ideas,
+   <li>to propose standards to be used among Unices,
+</ul>
+<i>independently of the Unix (they|you) are using!</i>
+<p>As most Unixers like easy to use interfaces, I chose to create
+a new <a href="http://l.schottelius.org/mailman/listinfo/u2u">mailing list</a>
+(just because I think that newsreaders suck more than MUAs).
+The difference to existing projects is, that it is <b>not</b> focussed
+<ul>
+
+   <li>on a specific feature,
+   <li>a specific version
+   <li>or a specific area.
+</ul>
+Nor is the idea of this project to create a
+<ul>
+   <li>feature rich, fast development (<b>Linux</b>),
+   <li>everywhere running (<b>NetBSD</b>),
+   <li>fast (<b>FreeBSD</b>),
+   <li>secure (<b>OpenBSD</b>)
+   <li>and commercially supported (<b>Solaris</b>)
+
+</ul>
+<i>Unix</i>.
+What this project may possibly be able to do is
+<ul>
+   <li>to bring people together,
+   <li>to create a spring board into the Unix scene,
+   <li>to prevent you from making the same mistakes others did before
+   <li>and to let people create real projects somewhere else.
+</ul>
+So, written enough for now:
+<ul>
+   <li><a href="http://l.schottelius.org/mailman/listinfo/u2u">Subscribe
+   to the mailing list</a>,
+   <li>blame me for this website,
+   <li>tell me that it is
+   (unecessary|has already been done|&lt;<i>insert flame|praise here</i>&gt;)
+   <li>and then let others know, what cool ideas you've in your mind.
+
+</ul>
+
+<!-- ######################################################### -->
+<h2>Examples</h2>
+<P>Some projects I'm aware of, which bring together Unices:
+<ul>
+   <li><a href="http://wiki.x.org/">Xorg</a> - Which Unix does not have it?
+   <li><a href="http://www.gnu.org">GNU</a> - Although they are not Unix
+   <li><a href="http://www.bsd.org/">The BSDs</a> The fast, secure and portable operating systems
+   <li><a href="http://nico.schottelius.org/documentations/specifications/efsh/">EFSH</a> -
+   Nico Schottelius' proposal of a generic easy filesystem hierarchy
+   (this is <b>not</b> related to LSB
+   <li><a href="http://nico.schotteli.us/papers/linux/cconfig/">cconfig</a> -
+   Nico Schottelius' proposal of a configuration format
+
+</ul>
+Do you know about more projects? Add them to this website! See below, how to do it.
+<!-- ######################################################### -->
+<h2>About this website</h2>
+<P>This website is managed with git.  If you've corrections or improvements,
+I would be happy to receive them:
+<h3>View sources</h3>
+Have a look at
+<a href="http://git.schottelius.org/?p=netzseiten/unix.schottelius.org;a=summary">gitweb</a>.
+<h3>Get a local copy</h3>
+<pre>
+   git clone git://git.schottelius.org/netzseiten/unix.schottelius.org
+   or
+   git clone http://git.schottelius.org/netzseiten/unix.schottelius.org
+</pre>
+
+<h3>Submit changes</h3>
+<pre>
+   server% cd ~/public_html
+   server% git clone --bare git://git.schottelius.org/netzseiten/unix.schottelius.org
+   server% echo 'exec git-update-server-info' > unix.schottelius.org/hooks/post-update
+   server% chmod 0755 djbdns/hooks/post-update
+
+   client% git remote add <i>myserver</i> <i>myserver:/home/$USER/public_html/unix.schottelius.org</i>
+   client% git push <i>myserver</i> master
+   client% export first=nico-u2u-git; export last=schottelius.org; export nico="${first}@${last}"
+   client% echo "Get updates at http://<i>myserver/~$USER/unix.schottelius.org</i>" | \
+            mail -s "Update for unix.schottelius.org" $nico
+</pre>
+
+You can also use git-send-email(1) directly.
