@@ -1,0 +1,1 @@
+* [[!shortcut name=unixso url="http://unix.schottelius.org/%s"]]
