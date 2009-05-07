@@ -22,6 +22,12 @@
    margin-top: 10px;
    margin-left: 0px;
 }
+
+.pagecloud {
+   float: right;
+   margin-top:   0px;
+   margin-right: 0px;
+}
  
 #sidebar ul {
         list-style-type: none;
