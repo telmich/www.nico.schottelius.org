@@ -1,0 +1,21 @@
+[[!meta title="Started to write news again"]]
+
+A long time ago I stopped to publish news on the
+[old newssite](http://nico.schottelius.org/notizbuch-blog), for several reasons.
+The most important one is that
+
+* there have been many other much more important things in my life
+
+As I am currently coming back to my usual technical stuff like
+
+* testing software
+ * finding bugs
+ * writing patches
+* coding software
+ * publishing and getting feedback for it
+* visiting conferences
+* etc.
+
+I thougt it's a good time to start writing news again.
+Especially as one of my biggest software projects seems to reach
+version 1.0...

@@ -1,0 +1,7 @@
+[[!meta title="News archive"]]
+
+## 2009
+
+[[!inline pages="blog/* and creation_year(2009)" archive="yes" show=0]]
+
+[[!tag net]]
