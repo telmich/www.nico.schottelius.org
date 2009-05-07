@@ -1,0 +1,9 @@
+[[!meta robots="noindex, follow"]]
+
+* [[/root|Index]]
+* Global
+   * [[About|about]]
+   * [[Documentation|doc]]
+   * [[News(blog)|blog]]
+* Lokal
+   * [[Neuigkeiten|notizbuch]]
