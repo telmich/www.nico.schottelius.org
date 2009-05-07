@@ -3,9 +3,10 @@
 * [[Index]]
 * Global
    * [[About|about]]
-   * [[Documentation|docs]]
+   * [[Documentations|docs]]
    * [[Net|net]]
    * [[News(blog)|blog]]
+   * [[Tags|tags]]
 * Lokal
    * [[Neuigkeiten|notizbuch]]
 * [[Seitenübersicht / Sitemap|sitemap]]
