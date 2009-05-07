@@ -8,6 +8,18 @@
  * 2008-01-??
  * */
 
+#sidebar {
+        line-height: 3ex;
+        width: 20ex;
+        float: right;
+        margin-left: 40px;
+        margin-bottom: 40px;
+        padding: 2ex 2ex;
+        background: white;
+        color: black !important;
+}
+
+
 body { 
            background: #474747;
 }
