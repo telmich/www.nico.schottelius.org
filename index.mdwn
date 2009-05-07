@@ -1,15 +1,47 @@
-## Was ist sicherheit.schottelius.org?
+## Nico Schottelius?
 
-***Sicherheit.schottelius.org*** ist ein Projekt von Nico Schottelius,
-das sich mit verschiedenen sicherheitsrelevanten Themen beschäftigt.
-Auf der [[Neuigkeiten|neuigkeiten]]-Seite ist der aktuelle Stand und kurze
-Nachrichten zu finden.
+This [[Nico_Schottelius'|about]] ***new*** multilingual website.
 
-## Was für Themen werden hier behandelt?
+Dies ist [[Nico_Schottelius'|about]] ***neue*** mehrsprachige Netzseite.
 
- * Ihre Gesundheit liegt mir am Herzen!
-  * Fordern auch Sie eine [[staatliche_Gesundheitspolizei!|gesundheit/staatliche-gesundheitspolizei]]
+## English (global)
 
-### Noch in Vorbereitung
- * [[Videoüberwachung_vom_öffentlichen_Verkehr_in_der_Schweiz|videoueberwachung_schweiz_oeffentlicher_verkehr]]
+All topics that are of global interest are written in English.
 
+Alle weltweit interessant Seiten sind auf Englisch geschrieben.
+
+## Deutsch (lokal)
+
+All other topics, which are only of local interest, are written
+in German.
+
+Die regional interessanten Seiten sind auf Deutsch geschrieben.
+
+## Why multilingual? Warum mehrsprachig?
+
+### English
+
+My first websites (1998) were written in English, because I thought
+everybody in the Internet can read and understand English.
+As years passed by, I created more websites and German speaking
+people began to complain: They cannot understand the content.
+Then I tried to create a website, which contains all information
+in German and English. This result was that some pages were more
+often updated in one language and soon the pages in the other
+language were outdated.
+
+Let's see whether the split between interest groups is successful or not!
+
+### Deutsch
+
+Als ich 1998 meine erste Netzseite erstellt hatte, war für mich klar,
+daß sie auf Englisch geschrieben werden musste: Zu dieser Zeit war
+ich der Meinung, das jeder Internetbenutzer Englisch lesen und verstehen
+kann. Einige Jahre später hatte ich einige weitere Netzseiten entworfen
+und bekam E-Poste von Leuten, die sie nicht verstehen konnten.
+Deshalb habe ich versucht eine Netzseite zu erstellen, die alle Seiten
+in beiden Sprachen enthält. Nach einiger Zeit wurde mir das jedoch
+zu mühsam. Und so kam es, daß manche Seiten auf Englisch aktuell,
+aber auf deutsch veraltet waren (oder andersherum).
+
+Mal schauen, wie sich dieser Ansatz bewährt!
