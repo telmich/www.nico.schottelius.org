@@ -1,1 +1,3 @@
-[[!inline pages="link(tags/test1) and ./posts/* and !*/Discussion" show="10" actions=yes]]
+All pages, that contain information about other pages.
+
+[[!inline pages="tagged(meta)" archive="yes" show=0]]
