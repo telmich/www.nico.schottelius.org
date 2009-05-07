@@ -1,4 +1,7 @@
+[[!meta title="About Nico Schottelius and www.nico.schottelius.org"]]
 Nico Schottelius is the orginator and author of this website.
+
+## About me
 
 You can read about me and my projects at several sites:
 
@@ -8,44 +11,53 @@ You can read about me and my projects at several sites:
 * [irc related data/information (to be merged into this site)](http://irc.schottelius.org/)
 * [mailing lists](http://l.schottelius.org)
 * Search the searchengines:
-   * http://www.google.com/search?q=%22Nico+Schottelius%22
-   * http://www.alltheweb.com/search?q=%22nico+schottelius%22
+   * [google](http://www.google.com/search?q=%22Nico+Schottelius%22)
+   * [alltheweb](http://www.alltheweb.com/search?q=%22nico+schottelius%22)
+   * [yahoo](http://search.yahoo.com/search?p=nico+schottelius)
 
 
-My aims and plans
+## My aims and plans
 
-    * Create a clean (secure, fast, and comfortable) Linux distribution
-    * To stimulate the FOSS development, to boost the acceptance of FOSS.
-    * Create tools that are needed for himself and to make them  available for use in other Unices as well (like cinit, ccollect are available already)
-    * Group together some people, interested in aiding the success of FOSS
-          o Paid people
-          o "Normal people" (those, that are just using the computer, not using to hack with it)
-          o Try to get different groups to work closer (like *BSD with the Linux community)
+* Create a clean (secure, fast, and comfortable) Linux distribution
+* To stimulate the FOSS development, to boost the acceptance of FOSS.
+* Create tools that are needed for himself and to make them  available for use in other Unices as well (like cinit, ccollect are available already)
+* Group together some people, interested in aiding the success of FOSS
+ * Paid people
+ * "Normal people" (those, that are just using the computer, not using to hack with it)
+ * Try to get different groups to work closer (like *BSD with the Linux community)
     * I want to study computer science again
-          o Learn more, to create better software
-          o this time without the focus on economy
+  * Learn more, to create better software
+  * this time without the focus on economy
 
 
-Press
+## Press
 
 The following is an incomplete list of news and articles about my projects and those I wrote:
 
-    * February 2005: Linux-Magazin about monotone and gnu arch (tla).
-    * 26. August 2004: OpenNET (russia) about the Blacksheep project. 
-    * 9. July 2004: Pro-Linux about the LinuxDistributionen Wiki  
-    * 14. April 2004: The Linux Documentation Project about the document explaining why cryptoloops offer only partial security. 
-    * 22. August 2003: Newsforge about the Blacksheep project. 
-    * 31. July 2003: Pro-Linux about the Blacksheep project.
+* February 2005: [Linux-Magazin about monotone and gnu arch (tla)](http://www.linux-magazin.de/Artikel/ausgabe/2005/02)
+* 26\. August 2004: [OpenNET (russia)](http://www.opennet.ru/opennews/art.shtml?num=4285)
+  about the [[!unixso blacksheep]] project
+* 9\. July 2004: [Pro-Linux](http://www.pro-linux.de/news/2004/7019.html)
+  about the [LinuxDistributionen Wiki](https://wiki.schottelius.org/usemod/cgi-bin/wiki.pl?LinuxDistributionen)
+* 14\. April 2004: [The Linux Documentation Project](http://www.tldp.org/ldpwn/20040414.html)
+  about the document explaining
+  [why cryptoloops offer only partial security](http://nico.schotteli.us/papers/linux/cryptoloop-partial-security)
+* 22\. August 2003: [Newsforge](http://newsvac.newsforge.com/newsvac/03/08/22/134259.shtml)
+  about the [[!unixso blacksheep]] project
+* 31\. July 2003: [Pro-Linux](http://www.pro-linux.de/news/2003/5794.html)
+  about the [[!unixso blacksheep]] project
 
 
 Please notify me, if you find an article not listed here.
 
 
-Contact
+## Contact
 
-You can contact me via E-Mail at nico-webcontact (at the following domain) schottelius.org.
-I recommened using PGP to encrypt any mail. The fingerprint of my pgp-key is
+You can contact me via E-Mail at
+***nico-webcontact*** (at the following domain) ***schottelius.org***.
+I recommened using PGP to encrypt any mail.
+The fingerprint of my [[pgp-key|pgp-key-9217A3DF.txt]] is
 
-BFE4 C736 ABE5 406F 8F42  F7CF B8BE F92A 9885 188C
+    BFE4 C736 ABE5 406F 8F42  F7CF B8BE F92A 9885 188C
 
-[[!tag test1]]
+[[!tag schottelius]]
