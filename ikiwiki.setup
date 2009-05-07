@@ -18,6 +18,7 @@ use IkiWiki::Setup::Standard {
 	###cgiurl => "http://example.org/wiki/ikiwiki.cgi",
 	#templatedir => "/usr/share/ikiwiki/templates",
 	#underlaydir => "/usr/share/ikiwiki/basewiki",
+	underlaydir => "/home/users/nico/privat/computer/net/netzseiten/www.nico.schottelius.org/empty",
 
 	# Subversion stuff.
 	#rcs => "svn",
@@ -145,6 +146,7 @@ use IkiWiki::Setup::Standard {
 	#                   htmltidy fortune sidebar map rst anonok}],
 	# If you want to disable any of the default plugins, list them here.
 	#disable_plugins => [qw{inline htmlscrubber passwordauth openid}],
+	disable_plugins => [qw{smiley openid}],
 	# To add a directory to the perl search path, use this.
 	#libdir => "/home/me/.ikiwiki/",
 	
