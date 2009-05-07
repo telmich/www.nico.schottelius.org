@@ -8,11 +8,7 @@
  * 2008-01-??
  * */
 
-#sidebar {
-   width: 20ex;
-   float: left;
-   margin-top: 10px;
-   margin-left: 0px;
+#sidebar, .pagecloud {
    background: #800000;
    border: 2px solid #500000;
    font-size: 80%;
@@ -20,6 +16,13 @@
    color: #c0c0c0 !important;
 }
 
+#sidebar {
+   width: 20ex;
+   float: left;
+   margin-top: 10px;
+   margin-left: 0px;
+}
+ 
 #sidebar ul {
         list-style-type: none;
         padding-left: 1em;
@@ -77,7 +80,17 @@ pre {
 }
 
 .header a { margin-right: 1ex; color: #efefef; font-family: sans-serif;}
-.pagedate, .tags, #backlinks { background: #640000; border: 2px solid #500000; padding: 4px; color: #efefef; font-family: sans-serif;}
+.tags, #backlinks { background: #640000; border: 2px solid #500000; padding: 4px; color: #efefef; font-family: sans-serif;}
+
+.pagedate {
+   background: #474747;
+   border: none;
+   padding: 4px;
+   color: #efefef;
+   font-family: sans-serif;
+   font-size: 60%;
+}
+
 .tags { color: yellow }
 .selflink { background: yellow; color: black }
 

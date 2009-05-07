@@ -1,0 +1,51 @@
+Nico Schottelius is the orginator and author of this website.
+
+You can read about me and my projects at several sites:
+
+* [very old personal website (to be merged into this one)](http://nico.schotteli.us/)
+* [old personal website (to be merged into this one)](http://nico.schottelius.org/)
+* [UNIX related projects](http://unix.schottelius.org/)
+* [irc related data/information (to be merged into this site)](http://irc.schottelius.org/)
+* [mailing lists](http://l.schottelius.org)
+* Search the searchengines:
+   * http://www.google.com/search?q=%22Nico+Schottelius%22
+   * http://www.alltheweb.com/search?q=%22nico+schottelius%22
+
+
+My aims and plans
+
+    * Create a clean (secure, fast, and comfortable) Linux distribution
+    * To stimulate the FOSS development, to boost the acceptance of FOSS.
+    * Create tools that are needed for himself and to make them  available for use in other Unices as well (like cinit, ccollect are available already)
+    * Group together some people, interested in aiding the success of FOSS
+          o Paid people
+          o "Normal people" (those, that are just using the computer, not using to hack with it)
+          o Try to get different groups to work closer (like *BSD with the Linux community)
+    * I want to study computer science again
+          o Learn more, to create better software
+          o this time without the focus on economy
+
+
+Press
+
+The following is an incomplete list of news and articles about my projects and those I wrote:
+
+    * February 2005: Linux-Magazin about monotone and gnu arch (tla).
+    * 26. August 2004: OpenNET (russia) about the Blacksheep project. 
+    * 9. July 2004: Pro-Linux about the LinuxDistributionen Wiki  
+    * 14. April 2004: The Linux Documentation Project about the document explaining why cryptoloops offer only partial security. 
+    * 22. August 2003: Newsforge about the Blacksheep project. 
+    * 31. July 2003: Pro-Linux about the Blacksheep project.
+
+
+Please notify me, if you find an article not listed here.
+
+
+Contact
+
+You can contact me via E-Mail at nico-webcontact (at the following domain) schottelius.org.
+I recommened using PGP to encrypt any mail. The fingerprint of my pgp-key is
+
+BFE4 C736 ABE5 406F 8F42  F7CF B8BE F92A 9885 188C
+
+[[!tag test1]]
