@@ -1,3 +1,5 @@
+[[!pagestats pages="tags/*"]]
+
 ## Nico Schottelius?
 
 This [[Nico_Schottelius'|about]] ***new*** multilingual website.
@@ -45,3 +47,5 @@ zu mühsam. Und so kam es, daß manche Seiten auf Englisch aktuell,
 aber auf deutsch veraltet waren (oder andersherum).
 
 Mal schauen, wie sich dieser Ansatz bewährt!
+
+[[!tag meta]]
