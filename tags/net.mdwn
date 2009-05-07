@@ -1,0 +1,11 @@
+All net related articles.
+
+Net as in
+
+ * the internet
+ * computer networks
+ * social networks
+
+Because I think those three are deeply related.
+
+[[!inline pages="tagged(net) and !sidebar" archive="yes" show=0]]
