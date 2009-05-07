@@ -48,4 +48,8 @@ aber auf deutsch veraltet waren (oder andersherum).
 
 Mal schauen, wie sich dieser Ansatz bewährt!
 
+---
+This website contains [[!pagecount  pages="*"]] elements
+(pages, images, binaries, ...).
+
 [[!tag meta]]

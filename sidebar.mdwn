@@ -4,6 +4,7 @@
 * Global
    * [[About|about]]
    * [[Documentation|docs]]
+   * [[Net|net]]
    * [[News(blog)|blog]]
 * Lokal
    * [[Neuigkeiten|notizbuch]]

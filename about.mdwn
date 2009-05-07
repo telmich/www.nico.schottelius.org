@@ -1,9 +1,14 @@
 [[!meta title="About Nico Schottelius and www.nico.schottelius.org"]]
-Nico Schottelius is the orginator and author of this website.
 
 ## About me
 
-You can read about me and my projects at several sites:
+Nico Schottelius is the orginator and author of this website.
+He's also a [[FOSS developer|about/foss]].
+
+## About www.nico.schottelius.org
+
+There are plenty of websites currently up and running and this site
+will sooner or later consolidate all of the following ones:
 
 * [very old personal website (to be merged into this one)](http://nico.schotteli.us/)
 * [old personal website (to be merged into this one)](http://nico.schottelius.org/)
