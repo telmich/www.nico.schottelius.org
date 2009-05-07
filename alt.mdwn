@@ -13,3 +13,33 @@ Nachrichten zu finden.
 ### Noch in Vorbereitung
  * [[Videoüberwachung_vom_öffentlichen_Verkehr_in_der_Schweiz|videoueberwachung_schweiz_oeffentlicher_verkehr]]
 
+<h2>About this website</h2>
+<P>This website is managed with git.  If you've corrections or improvements,
+I would be happy to receive them:
+<h3>View sources</h3>
+Have a look at
+<a href="http://git.schottelius.org/?p=netzseiten/unix.schottelius.org;a=summary">gitweb</a>.
+<h3>Get a local copy</h3>
+<pre>
+   git clone git://git.schottelius.org/netzseiten/unix.schottelius.org
+   or
+   git clone http://git.schottelius.org/netzseiten/unix.schottelius.org
+</pre>
+
+<h3>Submit changes</h3>
+<pre>
+   server% cd ~/public_html
+   server% git clone --bare git://git.schottelius.org/netzseiten/unix.schottelius.org
+   server% echo 'exec git-update-server-info' > unix.schottelius.org/hooks/post-update
+   server% chmod 0755 djbdns/hooks/post-update
+
+   client% git remote add <i>myserver</i> <i>myserver:/home/$USER/public_html/unix.schottelius.org</i>
+   client% git push <i>myserver</i> master
+   client% export first=nico-u2u-git; export last=schottelius.org; export nico="${first}@${last}"
+   client% echo "Get updates at http://<i>myserver/~$USER/unix.schottelius.org</i>" | \
+            mail -s "Update for unix.schottelius.org" $nico
+</pre>
+
+You can also use git-send-email(1) directly.
+
+
