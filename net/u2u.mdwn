@@ -6,8 +6,7 @@ the "bring unices together" technical and social project
 
 ---
 
-<!-- ######################################################### -->
-<h2>Motivation</h2>
+## Motivation
 There are many different Unix versions ("Unices") out there today.
 As a
 <a href="http://nico.schottelius.org/documentations/foss/the-term-foss/">FOSS</a>
@@ -71,7 +70,6 @@ so more people join and discuss their ideas.
 
 Remember: This website is just a plattform - you're the one who has to act.
 
-
 * <a href="http://l.schottelius.org/mailman/listinfo/u2u">Subscribe to the mailing list</a>,
 
 Otherwise, you may also just
@@ -79,6 +77,7 @@ Otherwise, you may also just
 * blame me for this website,
 * tell me that it is (unecessary|has already been done|&lt;<i>insert flame|praise here</i>&gt;)
 * and then let others know, what cool ideas you've in your mind.
+* Or visit the [archive](http://l.schottelius.org/pipermail/u2u/).
 
 <!-- ######################################################### -->
 <h2>Examples</h2>

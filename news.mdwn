@@ -1,6 +1,6 @@
 [[!meta title="News archive"]]
 
-This archive contains news from the [[blog]] and [[neuigkeiten]].
+This archive contains news from both the [[blog]] and [[neuigkeiten]].
 
 ## 2009
 

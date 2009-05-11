@@ -5,3 +5,5 @@ This page contains (hopefully) helpful configuration files.
 All configuration files are in use by me and thus are tested.
 
 [[!inline pages="configs/*" archive="yes" show=0]]
+
+[[!tag unix]]

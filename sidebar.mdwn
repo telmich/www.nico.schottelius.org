@@ -3,6 +3,9 @@
 * [[Index]]
 * Global
    * [[About|about]]
+   * [[Code|code]]
+      * [[Configurations|configs]]
+      * [[Software|sw]]
    * [[Documentations|docs]]
    * [[Net|net]]
    * [[News(blog)|blog]]
