@@ -1,0 +1,90 @@
+#
+# 2009      Nico Schottelius (nico-configfiles at schottelius.org)
+# 
+# This file is part of nsconfigfiles.
+#
+# nsconfigfiles is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# nsconfigfiles is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with nsconfigfiles. If not, see <http://www.gnu.org/licenses/>.
+#
+#
+# Green/red/blue Configuration file for ncmpc (~/.ncmpc/config)
+#
+
+## auto center (center the playing track in the playlist)
+auto-center = yes
+
+## wide_cursor - make the cursor as wide as the screen
+wide-cursor = yes
+
+## wrapped cursor movement
+#wrap-around = no
+
+## wrapped find mode
+#find-wrap = yes
+
+## list-format
+#list-format = "%name%|[%artist% - ]%title%|%file%"
+
+## status-format
+#status-format = "[%artist% - ]%title%|%shortfile%"
+
+## sound audible bell on alerts
+audible-bell = no
+
+## enable visible bell on alerts
+#visible-bell = no
+
+## change the xterm title 
+set-xterm-title = mpc
+
+## xterm title format
+#xterm-title-format = "ncmpc: [ %name%|[%artist% - ]%title%|%file%]"
+
+## enable mouse events 
+#enable-mouse = no
+
+## mpd crossfade time 
+##crossfade-time = 10
+
+##
+## Color configuration
+##
+## colors: black,red,green,yellow,blue,magenta,cyan,white 
+##
+
+## enable/disable colors
+enable-colors = yes
+
+## background colors: black,red,green,yellow,blue,magenta,cyan,white, none 
+#color background = black
+
+## text colors: black, red, green, yellow, blue, magenta, cyan, white,
+##              brightblack, brightred, brightgreen, brightyellow, brightblue,
+##              brightmagenta, brightcyan, brightwhite
+
+
+color title = yellow
+color title-bold = brightyellow
+#color line = white
+color line = red
+color line-flags = brightblue
+color list = green
+color list-bold = brightgreen
+color progressbar = red
+color status-state = brightyellow
+color status-song  = yellow
+color status-time  = red
+color alert = brightred
+
+
+

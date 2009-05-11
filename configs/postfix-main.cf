@@ -1,0 +1,203 @@
+#
+# 2009      Nico Schottelius (nico-configfiles at schottelius.org)
+# 
+# This file is part of nsconfigfiles.
+#
+# nsconfigfiles is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# nsconfigfiles is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with nsconfigfiles. If not, see <http://www.gnu.org/licenses/>.
+#
+#
+# Working configuration from mx3.schottelius.org
+#
+
+alias_maps = hash:/etc/aliases
+alias_database = hash:/etc/aliases
+
+myorigin          = mx3.schottelius.org
+myhostname        = mx3.schottelius.org
+mydestination     = mx3.schottelius.org
+inet_interfaces   = mx3.schottelius.org
+
+smtpd_banner = Little Tux serves $myhostname with ESMTP
+biff = no
+
+append_dot_mydomain = no
+readme_directory = no
+
+#
+# TLS parameters
+#
+smtp_use_tls = yes
+smtp_tls_note_starttls_offer = yes
+
+smtpd_use_tls=yes
+smtpd_tls_cert_file=/etc/ssl/mx3.schottelius.org.crt
+smtpd_tls_key_file=/etc/ssl/mx3.schottelius.org.key
+smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
+smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
+
+
+#
+# SASL: cyrus-sasl-SQL!!!!!
+#
+smtpd_sasl_auth_enable = yes
+smtpd_sasl2_auth_enable = yes
+smtpd_sasl_security_options = noanonymous
+broken_sasl_auth_clients = no
+smtpd_tls_auth_only           = yes
+#smtpd_sasl_path = smtpd # not needed
+#smtpd_sasl_local_domain =
+
+
+relayhost = 
+mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 62.65.138.64/27 77.109.138.192/27
+
+mailbox_command = procmail -a "$EXTENSION"
+mailbox_size_limit = 0
+#recipient_delimiter = +
+
+# Groesse: 100MiB
+message_size_limit = 104857600
+virtual_mailbox_limit = 104857600
+
+# Fehler: Wie lange verzoegern, nach wie vielen verzoegern, nach wie vielen abbrechen
+smtpd_error_sleep_time = 23s
+smtpd_soft_error_limit = 1
+smtpd_hard_error_limit = 3
+# Beschraenkung von Nachrichten und Verbindungen pro Zeitraum
+# Zeitraum ist 60 Sekunden
+anvil_rate_time_unit                 = 60s
+
+# Die Rechner sind nicht davon betroffen
+smtpd_client_event_limit_exceptions  = 77.109.138.192/27
+
+# Wie viele Verbindungen maximal parallel
+smtpd_client_connection_count_limit  = 5
+
+# Wie viele Verbindungen maximal innerhalb des spezifizierten Zeitraumes
+smtpd_client_connection_rate_limit   = 30
+
+# Wie viele Nachrichten
+smtpd_client_message_rate_limit      = 30
+
+# Wie viele Empfaenger pro Nachricht maximal
+#smtpd_client_recipient_rate_limit    = 50
+smtpd_client_recipient_rate_limit    = 150
+
+#
+# Client
+#
+
+# sbl = known spammers
+# xbl = known exploited boxes
+# http://dsbl.org/faq = open proxies
+# sorbs: http://www.de.sorbs.net/using.shtml
+
+     # Blocken falsch:
+     #                       reject_rbl_client cbl.anti-spam.org.cn
+                          #  reject_rbl_client problems.dnsbl.sorbs.net
+smtpd_client_restrictions = permit_mynetworks
+                            permit_sasl_authenticated
+                            reject_unknown_client
+                            reject_rbl_client sbl-xbl.spamhaus.org
+                            reject_rbl_client list.dsbl.org
+                            reject_rbl_client combined.rbl.msrbl.net
+                            reject_rbl_client psbl.surriel.com
+
+#
+# HELO: muss da sein
+#
+smtpd_helo_required = yes
+
+# Helo: muss valide sein, wir hoeren nur auf MTAs
+smtpd_helo_restrictions =
+   permit_sasl_authenticated
+   reject_non_fqdn_hostname
+#   reject_unknown_hostname
+ #  reject_invalid_hostname
+
+#
+# Verify-Einsteillungeniziert haben: hier noetig? => jup!
+#
+address_verify_map = btree:/home/server/postfix/cache/verified
+
+# catch greylisting and co with a very small timeout
+address_verify_negative_expire_time = 3m
+
+#
+# Senderbeschraenkungen
+#
+ smtpd_sender_restrictions =
+   permit_mynetworks
+   permit_sasl_authenticated
+   reject_unknown_sender_domain
+   reject_non_fqdn_sender
+   reject_unverified_sender
+
+#
+# Empfaenger
+#
+# check_client_access: fuer smtp-after-pop: hier nicht noetig.
+# reject_unverified_recipient: koennen wir hier machen.
+#
+   #reject_unknown_recipient_domain
+smtpd_recipient_restrictions = 
+   permit_mynetworks
+   permit_sasl_authenticated
+   reject_non_fqdn_recipient
+   reject_unauth_destination
+
+   #reject_unverified_recipient # wir sind nur empfaenger, NICHT VERIFY!
+   #check_client_access mysql:/etc/postfix/mysql-pbs.cf
+
+#
+# Databeschraenkungen
+#
+# Block clients that speak too early.
+smtpd_data_restrictions = reject_unauth_pipelining
+
+# transport: not virtual
+#transport_maps = pgsql:/etc/postfix/virtual-transport.sql
+
+#
+# Virtual Mailboxes
+#
+
+# all virtual domains, like rcphosts != DESTINATION!
+virtual_mailbox_domains = pgsql:/etc/postfix/virtual-domains.sql
+
+# under which directory are all maildirs
+virtual_mailbox_base = /home/server/mail
+
+# the mappings and alias mappings
+# account path_relative_to_virtual_mailbox_base
+# DARF NIE MIT DESTINATION GLEICH SEIN! (laut netzdoku)
+virtual_mailbox_maps = pgsql:/etc/postfix/virtual-mailbox.sql
+
+# spaeter auch die!
+virtual_alias_maps   = pgsql:/etc/postfix/virtual-alias-maps.sql
+
+# mailman stuff (see postfix-to-mailman.py in mailman git)
+relay_domains = l.schottelius.org, l.eof.name, lists.eof.name
+transport_maps = hash:/etc/postfix/transport
+mailman_destination_recipient_limit = 1
+
+# needed?
+# virtual_transport = 
+
+# minimum uid: for securiy
+virtual_minimum_uid = 1000
+virtual_uid_maps = static:1006
+virtual_gid_maps = static:1006
+
+#debug_peer_list = 62.65.149.149 127.0.0.1 62.65.138.77
