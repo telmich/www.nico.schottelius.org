@@ -1,0 +1,1 @@
+[[!inline pages="configs/*" archive="yes" show=0]]

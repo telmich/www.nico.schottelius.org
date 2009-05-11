@@ -1,0 +1,48 @@
+#
+# 2009      Nico Schottelius (nico-configfiles at schottelius.org)
+# 
+# This file is part of nsdotfiles.
+#
+# nsdotfiles is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# nsdotfiles is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with nsdotfiles. If not, see <http://www.gnu.org/licenses/>.
+#
+
+[alias]
+   a  = add
+   b  = branch
+   ba = branch -a
+   bi = bisect
+   c  = commit -s
+   cl = clone
+   ca = commit -a -s
+   co = checkout
+   d  = diff
+   dc = diff --color
+   f  = fetch
+   l  = log
+   lc  = log --color
+   lp = log -p --abbrev-commit
+   lpc = log -p --color --abbrev-commit
+   p  = push
+   s  = status
+   t  = tag
+
+[user]
+   email = nico@ikn.schottelius.org
+   name = Nico Schottelius
+
+[http]
+   sslVerify=false
+
+[pager]
+   status = true
