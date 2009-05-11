@@ -17,6 +17,11 @@ You can clone it using
 
     git clone git://git.schottelius.org/EOF/ceofhack
 
+Git mirrors can be found at
+
+ * [github](http://github.com/telmich/ceofhack/tree/master)
+ * [gitorious](http://gitorious.org/ceofhack)
+
 There are (at least) two branches:
 
  * ***master***: latest "stable" code
