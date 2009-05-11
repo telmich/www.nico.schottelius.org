@@ -1,0 +1,43 @@
+## Introduction
+
+ceofhack is the first implementation of ***EOF*** (Eris Onion Forwarding),
+the secure, peer-to-peer, decentralised anonymous chat network.
+
+## Downloads
+
+ * [[ceofhack-0.5.tar.lzma]] - the first usable version
+
+## Development
+
+The latest development code can be found in git:
+
+ * [gitweb](http://git.schottelius.org/?p=EOF/ceofhack;a=summary)
+
+You can clone it using 
+
+    git clone git://git.schottelius.org/EOF/ceofhack
+
+There are (at least) two branches:
+
+ * ***master***: latest "stable" code
+ * ***hacking***: may not compile, but contains latest ideas
+
+To submit changes, simply follow the instructions
+on [how to setup a public git repo](http://book.git-scm.com/4_setting_up_a_public_repository.html).
+
+
+## Support
+
+There are two IRC (!) channels, in which development takes places:
+
+ * [!eof](irc://IRCNet/!eof) - German
+ * [#cLinux](irc://irc.freenode.org/#cLinux) - Multi language (German/English)
+
+You can also subscribe to the
+[!eof mailinglist](http://l.schottelius.org/mailman/listinfo/eof).
+
+You can also [[contact me directly|about]].
+
+
+
+

@@ -5,7 +5,7 @@
    * [[About|about]]
    * [[Code|code]]
       * [[Configurations|configs]]
-      * [[Software|sw]]
+      * [[Software|software]]
    * [[Documentations|docs]]
    * [[Net|net]]
    * [[News(blog)|blog]]
