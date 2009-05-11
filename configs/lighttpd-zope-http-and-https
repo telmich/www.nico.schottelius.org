@@ -1,0 +1,55 @@
+#
+# 2009      Nico Schottelius (nico-configfiles at schottelius.org)
+# 
+# This file is part of nsconfigfiles.
+#
+# nsconfigfiles is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# nsconfigfiles is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with nsconfigfiles. If not, see <http://www.gnu.org/licenses/>.
+#
+#
+# Configuration file for lighttpd 1.4 to enable http and https
+# proxying for Zope (in this case with plone)
+#
+#
+
+# Create SSL-Socket, do rewrite based on https + IP-number
+$SERVER["socket"] == "62.65.138.66:443" {
+   ssl.engine   = "enable"
+   ssl.pemfile  = "/etc/lighttpd/ssl/nico.schottelius.org.pem"
+   
+   url.rewrite-once = ( "^/(.*)" => "/VirtualHostBase/https/nico.schottelius.org:443/cms/VirtualHostRoot/$1" )
+   var.logdir           = "/home/server/zope/logs/nico.schottelius.org/"
+   accesslog.filename   = logdir    + "access-ssl.log"
+   
+   # multiple zope backends
+   proxy.server =   (
+      "" => (
+         ( "host" => "127.0.0.1", "port" => 9673 ),
+         ( "host" => "127.0.0.1", "port" => 9674 )
+         )
+  )
+
+# Else rewrite to http, if it's the correct host name
+} else $HTTP["host"] =~ "^(nico|nico2)\.schottelius\.org$" {
+   url.rewrite-once = ( "^/(.*)" => "/VirtualHostBase/http/nico.schottelius.org/cms/VirtualHostRoot/$1" )
+   
+   var.logdir           = "/home/server/zope/logs/nico.schottelius.org/"
+   accesslog.filename   = logdir    + "access.log"
+   
+   proxy.server =   (
+      "" => (
+         ( "host" => "127.0.0.1", "port" => 9673 ),
+         ( "host" => "127.0.0.1", "port" => 9674 )
+         )
+  )
+}
