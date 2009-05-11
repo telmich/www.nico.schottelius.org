@@ -1,0 +1,10 @@
+[[!meta title="Configuration files migrated and updated"]]
+
+Due to the migration from
+[nico.schottelius.org](http://nico.schottelius.org),
+the old [Plone](http://www.plone.org) site, the
+old [configurations](http://nico.schottelius.org/documentations/configurations)
+were moved to the local [[configurations folder|configs]].
+
+And additionally, a very good usable configuration file was added:
+[[.gitconfig|configs/dot-gitconfig]]
