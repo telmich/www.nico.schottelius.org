@@ -1,10 +1,17 @@
-Nico Schottelius
-Sandplatte 3
+[[!meta title="Offener Brief an die SBB, ZVV und VZO und THURBO"]]
+
+XX. Mai 2009, offener E-Brief an die
+
+* [SBB](http://www.sbb.ch) (info-infra(bei)sbb.ch),
+* [ZVV](http://www.zvv.ch) (info(bei)zvv.ch),
+* [VZO](http://www.zvo.ch) (info(bei)vzo.ch) und
+* [THURBO](http://www.thurbo.ch) (hallo(bei)thurbo.ch)
+
+von
+
+Nico Schottelius  
+Sandplatte 3  
 8488 Turbenthal
-
-
-
-Offener Brief an die SBB, ZVV und VZO und THURBO
 
 
 
@@ -52,8 +59,9 @@ bequemere Sitze und häufigere Verbindungen.
 
 Ich biete Ihnen an, bei der Umsetzung beratend zur Seite zu stehen.
 
-Diesen Brief und eine Liste weiterer Interessenten finden Sie unter
-http://www.nico.schottelius.org/verkehrssicherheit/sbb-zvv-vzo-thurbo.
+Diesen Brief und eine Liste weiterer [[Unterzeichner|unterzeichner]]
+finden Sie unter
+http://www.nico.schottelius.org/sicherheit/verkehr/offener-brief-sbb-zvv-vzo-thurbo.
 
 Ich bitte Sie um Teilnahme an dieser öffentlichen Diskussion über die
 Sicherheit in den öffentlichen Verkehrsmitteln.
