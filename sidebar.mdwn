@@ -3,12 +3,12 @@
 * [[Index]]
 * Global
    * [[About|about]]
+   * [[Blog|blog]]
    * [[Code|code]]
       * [[Configurations|configs]]
       * [[Software|software]]
    * [[Documentations|docs]]
    * [[Net|net]]
-   * [[News(blog)|blog]]
    * [[Tags|tags]]
 * Lokal
    * [[Neuigkeiten|notizbuch]]
