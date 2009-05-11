@@ -1,33 +1,35 @@
 [[!meta title="About Nico Schottelius and www.nico.schottelius.org"]]
 
+## Who am I?
+
+As you can guess, my name is Nico [[Schottelius|schottelius]].
+I'm living in Switzerland and work for the
+[ETH Zurich](http://www.systems.ethz.ch/people/nicosc).
+I am a [[FOSS developer|foss]], with [[several interests|interests]].
+
+I personally do not think it's wise to publish detailled personal
+information in the internet, because they are personal (versus public).
+
+To get an impression of what I do and who I am,
+you can have a look at [[some press articles|press]]
+or some of my [[websites|websites]].
+
+If you want to know more about me, there are
+[many](http://www.google.com/search?q=%22nico+schottelius%22)
+[public](http://www.alltheweb.com/search?q=%22nico+schottelius%22)
+[information](http://search.yahoo.com/search?p=%22nico+schottelius%22)
+available about me.
+
+
 ## Contact
 
 You can contact me via E-Mail at
-***nico-webcontact*** (at the following domain) ***schottelius.org***.
-I recommened using PGP to encrypt any mail.
-The fingerprint of my [[pgp-key|pgp-key-9217A3DF.txt]] is
+
+    nico-webcontact (at the following domain) schottelius.org
+
+I recommened using PGP to encrypt any mail. The fingerprint of my
+[[pgp-key|pgp-key-9217A3DF.txt]] is
 
     BFE4 C736 ABE5 406F 8F42  F7CF B8BE F92A 9885 188C
-
-## Personal information
-
-I personally do not think it's wise to publish detailled persoal information
-to the internet, because the internet never forgets, as
-seen on [google](http://www.google.com/search?q=%22nico+schottelius%22),
-[alltheweb](http://www.alltheweb.com/search?q=%22nico+schottelius%22),
-[yahoo](http://search.yahoo.com/search?p=%22nico+schottelius%22), ...
-
-But already from the above search results you may find out that ...
-
-* I work for the [ETH Zurich](http://www.systems.ethz.ch/people/nicosc)
-* ... 
-
-## More information
-
-About my ...
-
-* [[Websites|websites]]
-* [[Aims|aims]]
-* [[Relation to FOSS|foss]]
 
 [[!tag schottelius]]

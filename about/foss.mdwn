@@ -1,39 +1,38 @@
 [[!meta title="Nico Schottelius and Free and Open Source Software (FOSS)"]]
 
-[[Nico Schottelius|about]], the author of this website, is a FOSS developer.</p>
-### How did he become a FOSS developer?
+### Why did I become a FOSS developer?
 
-In 1998 he was running Windows 95 on his brand new computer (Pentium
-1, 166Mhz) and it randomly crashed. This was very frustrating. So he
-asked his father, whether there is something else. And his father gave
-him a set of SCO Unixware floppys and cds and a packet labeled "Suse
-Linux 11/94". The SCO package had a blue/white cd box and looked nicer,
-so he began to try to install it to his computer. But it did not work,
-because SCO did not support IDE disks and the computer had an IDE disk
-builtin.
+In 1998 I was running Windows 95 on my brand new computer (Pentium
+1, 166Mhz) and it randomly crashed. This was very frustrating. So I
+asked my father, whether there is something else available.
+And his father gave me a set of SCO Unixware floppys and cds and a
+packet labeled "Suse Linux 11/94". The SCO package had a blue/white
+cd box and looked nicer, so I began to install Unixware my computer.
+But it did not work, because SCO did not support IDE disks and the
+computer had only an IDE disk builtin.
 
-After about two weeks trying around with SCO, he gave up.
-Frustrated he continued to use the old operating system.
+After about two weeks trying around with SCO, I gave up.
+Frustrated I continued to use the old operating system.
 
 About one week later he was again extremly frustrated, that this
 operating system was crashing so often and he remembered, that there
 was another cd set (one source code, one install cd) to try out. After
-about 4 hours he had Linux running. That was really really easy
+about 4 hours I had Linux running. That was really really easy
 compared to SCO. It felt strange, so new, so fast. And it contains only
-text. Strange, like DOS before Windos, he thought.
+text. Strange, like DOS before Windos, I thought.
 
-On the next day he read in the book that there is something called
+On the next day I read in the book that there is something called
 "X11" available, which can destroy the display, when wrongly
-configured. He was shocked, but still tried to do it the correct. He
+configured. I were shocked, but still tried to do it the correct. I
 searched for vertical and horizontal refresh rates and found them after
 some hours searching in the handbook (they were labeled differently
 compared to the SuSE Linux handbook). Created the configuration and
 typed in "X&lt;enter&gt;". Wow, it works. But why is it grey and black?
 Really gross. But after typing 'startx' it looked much better.</p>
 <p>The next confusing thing was that there were no drivers for the
-cdrom. Nothing to load. After about two weeks he found out that they
+cdrom. Nothing to load. After about two weeks I found out that they
 are already integrated into the kernel and that one simply needs to
-"mount" them. And after that experience, he was totally convinced by
+"mount" them. And after that experience, I was totally convinced by
 FOSS, because the FOSS people solved the driver issue much cleaner than
 the cdrom vendor or Windos itself. The whole system has been running
 very stable and it has been really easy to change things (like
