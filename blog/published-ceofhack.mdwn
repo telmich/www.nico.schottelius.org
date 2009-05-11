@@ -1,0 +1,24 @@
+[[!meta title="Published ceofhack"]]
+
+Yesterday I published the first version of [[ceofhack|software/ceofhack]],
+the p2p onion routing chat program.
+
+With this version other developers can begin to implement their own fancy
+stuff to be used in the EOF network. For instance, it is possible to
+create transport protocols that (mis-)use DNS, HTTP, SMTP, ...
+
+Before the release we had a testing night at the
+[Chaosdock](http://www.ccczh.ch/Events/Chaosdock/2009/), which revealed
+something quite interesting:
+
+    Mac OS X does not have a proper poll implementation.
+
+The poll() call on Mac OS X lead to an infinite loop, setting revents to
+***POLLNVAL*** on a file deskriptor used for reading.
+
+But there is a [poll emulation routine](http://www.clapper.org/software/poll/)
+available.
+
+(This issue was reported and debugged by ballessay.)
+
+[[!tag unix net macosx]]
