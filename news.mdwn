@@ -1,0 +1,9 @@
+[[!meta title="News archive"]]
+
+This archive contains news from the [[blog]] and [[neuigkeiten]].
+
+## 2009
+
+[[!inline pages="(blog/* or neuigkeiten/*) and creation_year(2009)" archive="yes" show=0]]
+
+[[!tag net]]
