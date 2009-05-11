@@ -1,0 +1,29 @@
+## Introduction
+
+Efsh is the acronym for ***easy filesystem hierarchy***.
+It is indented to be a ***lightweight***, ***easy to use***
+and ***sysadmin friendly*** standard.
+
+## Downloads
+
+ * [[efsh 0.1.1|efsh-0.1.1.pdf]]
+
+## Development
+
+The latest development version can be found in git:
+
+ * [gitweb](http://git.schottelius.org/?p=nsdocuments)
+
+You can clone it using 
+
+    git clone git://git.schottelius.org/nsdocuments
+
+## Support
+
+There is a IRC channels, in which development takes places:
+
+ * [#cLinux](irc://irc.freenode.org/#cLinux) - Multi language (German/English)
+
+You can also [[contact me directly|about]].
+
+[[!tag unix spec]]

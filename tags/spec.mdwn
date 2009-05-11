@@ -1,0 +1,4 @@
+This tag is added to documents that (should) specify some
+kind of standard.
+
+[[!inline pages="tagged(spec)" archive="yes" show=0]]

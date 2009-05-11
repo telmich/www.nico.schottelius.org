@@ -1,5 +1,5 @@
 [[!meta title="Documentations"]]
 
-[[!inline pages="docs/*" archive="yes" show=0]]
+[[!inline pages="docs/* and !docs/*/*" archive="yes" show=0]]
 
 [[!tag meta]]
