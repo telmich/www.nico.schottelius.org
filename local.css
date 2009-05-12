@@ -1,12 +1,17 @@
 /* This template is based on:
- * "Embedded Moose local.css for use with ikiwiki
- * Written by Josh Triplett <josh@freedesktop.org>
- * Some ideas from the Debian lighttpd index.html page."
- * 
- * The improoved version is made by
- * Csillag Tamas <cstamas@digitus.itk.ppke.hu>
- * 2008-01-??
- * */
+ *
+ * Embedded Moose, Josh Triplett <josh@freedesktop.org>
+ *
+ * Improved by Csillag Tamas <cstamas@digitus.itk.ppke.hu>
+ *
+ *
+ * Nico Schottelius <nico-ikiwiki-css -at- schottelius.org>
+ *
+ *    - Added sidebar and tagcloud support
+ *    - Made links better viewable
+ *    - Smaller footer
+ *
+ */
 
 #sidebar, .pagecloud {
    background: #800000;
