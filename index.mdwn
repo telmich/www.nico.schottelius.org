@@ -2,7 +2,7 @@
 
 ## Nico Schottelius?
 
-This [[Nico_Schottelius'|about]] ***new*** multilingual website.
+This is [[Nico_Schottelius'|about]] ***new*** multilingual website.
 
 Dies ist [[Nico_Schottelius'|about]] ***neue*** mehrsprachige Netzseite.
 
@@ -10,7 +10,7 @@ Dies ist [[Nico_Schottelius'|about]] ***neue*** mehrsprachige Netzseite.
 
 All topics that are of global interest are written in English.
 
-Alle weltweit interessant Seiten sind auf Englisch geschrieben.
+Alle weltweit interessanten Seiten sind auf Englisch geschrieben.
 
 ## Deutsch (lokal)
 
@@ -23,8 +23,8 @@ Die regional interessanten Seiten sind auf Deutsch geschrieben.
 
 ### English
 
-My first websites (1998) were written in English, because I thought
-everybody in the Internet can read and understand English.
+My first websites (published in 1998) were written in English,
+because I thought everybody in the Internet can read and understand English.
 As years passed by, I created more websites and German speaking
 people began to complain: They cannot understand the content.
 Then I tried to create a website, which contains all information
