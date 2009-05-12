@@ -1,0 +1,20 @@
+[[!meta title="The term FOSS"]]
+
+## Existing terms
+<br />
+### Free software
+<br /><a href="http://www.gnu.org/">GNU</a> prefers to use the term "<a href="http://www.gnu.org/philosophy/free-sw.html">Free software</a>".  The reason for me not to use this term are:<br />
+<ul><li>The abreviation is "FS", which is ambiguous. "FS" is often used as the abreviation for "filesystem".</li><li>The term does not tell you directly, that you also have access to the source (main reason one).</li><li>I think people can easily think free software is just free as in "nothing to pay for it" (main reason two).<br /></li><li>I do not like to pronounce it. Think about "I've like effess." Nothing my tongue likes.<br /></li></ul>
+### Open source software
+<br />I liked to use the term "<a href="http://www.opensource.org/docs/definition.php">Open source software</a>"
+some time. Perhaps because it was used often to talk about what I
+associate with GPL'ed or BSD-licensed software. But then, one day, I
+found out about the above mentioned GNU free software definition and I
+began to think about both terms. In contrast to free software, open
+source software (OSS) is much more known, but my reasons not to use it
+are:<br />
+<ul><li>It lacks the "free as in copy it as you like" definition (main reason).</li><li>I think about the "<a href="http://www.opensound.com/">Open sound system</a>", if I read "OSS", which is not what I want to talk about.</li></ul>
+## Free and open source software (FOSS)
+The simplest solution is to combine both terms and finish all problems.
+So using FOSS, I get the following advantages and disadvantages:<br />
+<ul><li>It is neither an abreviation for "filesystem" nor "open sound system".</li><li>I can pronounce it: "foss."</li><li>It is short and simple and contains everything I love about FOSS.</li><li>Other people may not like it, because I introduce yet another acronym.</li><li>It combines the two terms of both "worlds", so everyone can be happy.<br /></li></ul>
