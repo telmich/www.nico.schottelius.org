@@ -40,7 +40,7 @@ Als ich 1998 meine erste Netzseite erstellt hatte, war für mich klar,
 daß sie auf Englisch geschrieben werden musste: Zu dieser Zeit war
 ich der Meinung, das jeder Internetbenutzer Englisch lesen und verstehen
 kann. Einige Jahre später hatte ich einige weitere Netzseiten entworfen
-und bekam E-Poste von Leuten, die sie nicht verstehen konnten.
+und bekam E-Post von Leuten, die sie nicht verstehen konnten.
 Deshalb habe ich versucht eine Netzseite zu erstellen, die alle Seiten
 in beiden Sprachen enthält. Nach einiger Zeit wurde mir das jedoch
 zu mühsam. Und so kam es, daß manche Seiten auf Englisch aktuell,
