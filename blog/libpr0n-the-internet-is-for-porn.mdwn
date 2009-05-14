@@ -1,0 +1,33 @@
+[[!meta title="libpr0n: an image rendering library for Mozilla"]]
+
+It is neither a secret that
+[sex sells](http://en.wikipedia.org/wiki/Sex_sells) nor that
+Internet development is heavily influenced by
+[pornography](http://en.wikipedia.org/wiki/Pornography).
+
+I know the great image viewer
+[pornview](http://pornview.sourceforge.net/)
+(which I replaced with [gthumb](http://gthumb.sourceforge.net/)
+some time ago), but today I found another interesting piece of code made
+for viewing pornography: [libpr0n](http://www.libpr0n.com/). It is
+described as
+
+    "the smallest, fastest and most standards compliant Mozilla image library ever made"
+
+According to the [f.a.q](http://www.libpr0n.com/faq.html), the aim is
+
+    "to render pornographic images in an efficient way"
+
+which reminded me of the sentence
+["The Internet is for porn."](http://en.wikipedia.org/wiki/Avenue_Q).
+
+By the way, I found the library by digging into
+[ikiwiks buglist](http://ikiwiki.info/bugs/), which
+references the
+[lack of html5 support in ikiwiki](http://ikiwiki.info/bugs/html5_support/),
+which made me interested in [HTML5](http://html5.org/), which seems to
+be [developed quite open](http://wiki.whatwg.org/wiki/FAQ) by
+the editor [Ian Hickson](http://ian.hixie.ch/), who writes
+[a blog](http://ln.hixie.ch/) and has
+[an index of websites he is related to](http://index.hixie.ch/), which
+referenced to [libpr0n](http://www.libpr0n.com/).
