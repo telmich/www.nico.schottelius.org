@@ -12,4 +12,5 @@
    * [[Tags|tags]]
 * Lokal
    * [[Neuigkeiten|notizbuch]]
+   * [[Verweise|verweise]]
 * [[Seitenübersicht / Sitemap|sitemap]]
