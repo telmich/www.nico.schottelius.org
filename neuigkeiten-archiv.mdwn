@@ -1,0 +1,5 @@
+[[!meta title="Neuigkeiten-Archiv"]]
+
+## 2009
+
+[[!inline pages="neuigkeiten/* and creation_year(2009)" archive="yes" show=0]]

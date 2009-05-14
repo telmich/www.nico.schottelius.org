@@ -1,0 +1,12 @@
+[[!meta title="Erster Inhalt im deutschsprachigem Bereich"]]
+
+Seit heute ist nun der erste Inhalt im deutschsprachigem Bereich
+dieser Netzseite erschienen: Eine Seite mit [[Verweisen|verweise]] auf
+andere Seiten, wie es in 90ern üblich war.
+
+Ich finde es noch interessant, wenn Leute, von denen ich Sachen benutze
+oder lese solche Listen führen. Häufig komme ich so auf andere interessante
+Seiten und finde dort noch mehr interessante Programme oder Dokumente.
+
+Und in der der selben Tradition möchte ich nun auch den Lesern meiner
+Netzseite die Möglichkeit geben, woanders [["weiterzulesen"|verweise]].

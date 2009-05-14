@@ -1,2 +1,6 @@
 [[!meta title="Neuigkeiten"]]
-[[!inline pages="neuigkeiten/* and !*/Discussion" show="10" rootpage="neuigkeiten"]]
+
+An [[alten Neuigkeiten|neuigkeiten-archiv]] interessiert?
+Sie sind im [[Archiv der Neuigkeiten|neuigkeiten-archiv]] zu finden.
+
+[[!inline pages="neuigkeiten/*" show="10" rootpage="neuigkeiten"]]
