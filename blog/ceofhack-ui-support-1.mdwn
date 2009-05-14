@@ -1,0 +1,8 @@
+[[!meta title="Introducing first code for user interfaces in ceofhack"]]
+
+[[Ceofhack|software/ceofhack]], the first implementation of peer-to-peer,
+onion routing crypto chat protocol, now received some code to support
+user interfaces.
+
+The code can be found in the **user_interface** branch. It will be merged
+into hacking and master later on.

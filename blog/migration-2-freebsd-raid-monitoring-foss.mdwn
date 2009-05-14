@@ -1,0 +1,30 @@
+[[!meta title="Migrated FreeBSD raid monitoring and FOSS article"]]
+
+## FreeBSD Raid monitoring
+
+The well-known article about
+[[FreeBSD raid monitoring|docs/freebsd-raid-monitoring]] is now also
+migrated to this site.
+
+Please update your references from
+
+   * http://nico.schottelius.org/documentations/freebsd/freebsd-raid-monitoring/
+
+to
+
+   * [[http://www.nico.schottelius.org/docs/freebsd-raid-monitoring/|docs/freebsd-raid-monitoring]]
+
+There are also some updates pending for the article, which will soon be
+implemented. I just waited for the new CMS to be available, to do it.
+
+## The term FOSS
+
+Additionally, the [[artice about the term FOSS|docs/foss]] is migrated from
+
+   * http://nico.schottelius.org/documentations/foss/the-term-foss/
+
+to
+
+   * [[http://www.nico.schottelius.org/docs/the-term-foss|docs/the-term-foss]]
+
+[[!tag freebsd]]
