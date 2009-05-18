@@ -1,0 +1,36 @@
+[[!meta title="What went wrong, if accept(2) returns 0?"]]
+
+Today I continued working on the
+[[user interface support|ceofhack-ui-support-1]]
+for [[ceofhack|software/ceofhack]] and created an interesting
+bug, which lead to other interesting "features":
+
+The second time a user interface connected to
+[ceofhack-0.5.4-2-ga1a4b17](http://git.schottelius.org/?p=EOF/ceofhack;a=commit;h=a1a4b17fae050faf3f049b15ee20985c1684f46d)
+it hung, and at the same time ceofhack got the input from cmd_ui on
+stdin:
+
+    Ignoring text (2100) (later versions send this to all peers in channel)
+
+Digging a bit into the source, I found out that the accept() call in ui_read
+returns 0:
+
+    ui_handle.c:35:while((nsock = accept(fds[HP_READ], NULL, NULL)) != -1) {
+
+I've never seen accept returning 0 before. As 0 is the value of
+STDIN\_FILENO, this explained the strange behaviour, because
+**helper\_check\_input()** found the old stdin handler to be responsable
+for that socket (via **helper\_find\_by\_fd()**).
+
+After digging a bit deeper, I found the reason for all the confusion:
+**helper\_disable()** closed all **four** helper file descriptors, of
+which only **two** (HP\_READ and HP\_WRITE) were initialised by
+**helper\_fdonly()**. The other two contained the value 0, because
+the code is compiled and linked with the gcc debugging option **-g**.
+
+As only those two are used in ceofhack, **helper\_disable()** was fixed to
+close only those two.
+
+Interesting, which ways debugging may take, isn't it?
+
+[[!tag programming]]
