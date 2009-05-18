@@ -12,7 +12,7 @@ As a
 <a href="http://nico.schottelius.org/documentations/foss/the-term-foss/">FOSS</a>
 developer I interact with many different developers, who, like me, use many
 different versions of Unix.
-Many parts of each Unix are beeing reinvented over and over again, which is not
+Many parts of each Unix are being reinvented over and over again, which is not
 bad in general (things are beeing improved).
 The question is:
 <b>Why should one Unix not use the advantages another Unix has?</b>
