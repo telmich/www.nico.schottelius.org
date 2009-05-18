@@ -1,0 +1,32 @@
+[[!meta title="Names of remote management systems (rmm, drac, ilom, imm, ilo)"]]
+
+After my meeting with a big hardware vendor today, I just got an additional
+bunch of presentation slides and buzzwords. And yet another name for a
+remote management utility.
+
+Although all of the tested remote management systems comply with
+[IPMI 2.0](http://en.wikipedia.org/wiki/IPMI), every vendor gives its
+baby a "shiny" new name:
+
+ * [Intel](http://www.intel.com) uses
+   [RMM2](http://pixel01.cps.intel.com/design/servers/ISM/rmm2.htm)
+   (remote management 2),
+ * [Dell](http://www.dell.com) uses
+   [DRAC](http://www1.euro.dell.com/content/topics/global.aspx/power/en/ps2q02_bell)
+   (Dell Remote Access Control),
+ * [Sun](http://www.sun.com)
+   (now [Oracle](http://www.sun.com/third-party/global/oracle/)) uses
+   [ILOM](http://www.sun.com/systemmanagement/ilom.jsp)
+   (Integrated Lights Out Manager)
+ * [IBM](http://www.ibm.com) uses
+   [IMM](http://publib.boulder.ibm.com/infocenter/clresctr/vxrx/topic/com.ibm.cluster.csm16.install.doc/am7il_blademm.html)
+   (Integrated Management Module)
+ * and [HP](http://www.hp.com) uses
+   [ILO](http://h18000.www1.hp.com/products/servers/management/ilo/)
+   (Integrated Lights-Out).
+
+What's the reason for this? Why did the car industry manage to have the same
+name for the same feature
+(like [ABS](http://en.wikipedia.org/wiki/Anti-lock_braking_system)
+or [ESP](http://en.wikipedia.org/wiki/Electronic_stability_control)) and
+the IT industry not?
