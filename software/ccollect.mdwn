@@ -1,21 +1,11 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
-<html>
-<head>
-<TITLE>unix.schottelius.org</title>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-</HEAD>
+#### ccollect - (pseudo) incremental backup with different exclude lists using hardlinks and rsync
+----
 
-<BODY>
-<P><A HREF="http://nico.schotteli.us">Nico Schottelius</A>
-<BR><A HREF="../index.html">unix.schottelius.org</A></P>
-<HR>
-<H1>ccollect</H1>
-<h3>(pseudo) incremental backup with different exclude lists using hardlinks and rsync</h3>
-<HR>
-<!-- ######################################################### -->
 <P ALIGN="center">
-<a href="screenshots/"><IMG SRC="screenshots/ccollect-0.6-screenshot-20070816.png" ALT="ccollect 0.6"
-border=0></a>
+<a href="screenshots/">
+![ccollect-0.7.1](screenshots/ccollect-0.7.1.png "Example output of ccollect")
+![ccollect-0.7.1](screenshots/ccollect-0.6-screenshot-20070816.png "Example output of ccollect")
+</a>
 <P>ccollect backups data from local and remote hosts to your local harddisk.
 Although ccollect creates full backups, it requires very less space on
 the backup medium, because ccollect uses hardlinks to create an initial
