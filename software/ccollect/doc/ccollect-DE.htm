@@ -1,0 +1,129 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>ccollect- Installieren, Konfigurieren und Anwenden</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="id2503736"></a>ccollect- Installieren, Konfigurieren und Anwenden</h2></div><div><div class="author"><h3 class="author"><span class="firstname">Julian</span> <span class="surname">Meier</span></h3><div class="affiliation"><div class="address"><p><code class="email">&lt;<a class="email" href="mailto:julian.meier__@__julian.mkr-tech.ch">julian.meier__@__julian.mkr-tech.ch</a>&gt;</code></p></div></div></div></div><div><div class="revhistory"><table border="1" width="100%" summary="Revision history"><tr><th align="left" valign="top" colspan="3"><b>Revision History</b></th></tr><tr><td align="left">Revision 0.1</td><td align="left">Initiale Version vom 2006-03-04</td><td align="left">JM</td></tr></table></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#_einleitung">Einleitung</a></span></dt><dt><span class="section"><a href="#_installation">Installation</a></span></dt><dd><dl><dt><span class="section"><a href="#_anforderungen">Anforderungen</a></span></dt><dt><span class="section"><a href="#_installieren">Installieren</a></span></dt></dl></dd><dt><span class="section"><a href="#_konfiguration">Konfiguration</a></span></dt><dd><dl><dt><span class="section"><a href="#_konfigurationsverzeichnisse">Konfigurationsverzeichnisse</a></span></dt><dt><span class="section"><a href="#_intervalle">Intervalle</a></span></dt><dt><span class="section"><a href="#_sources">Sources</a></span></dt><dt><span class="section"><a href="#_quelle">Quelle</a></span></dt><dt><span class="section"><a href="#_ziel">Ziel</a></span></dt><dt><span class="section"><a href="#_spezielles">Spezielles</a></span></dt></dl></dd></dl></div><p><span class="strong"><strong>DIESE ANLEITUNG IST NICHT AKTUELL UND MUSS
+AKTUALISIERT WERDEN (siehe Englische Version)</strong></span>
+inkrementelle Datensicherung
+mit <span class="emphasis"><em>hardlinks</em></span> und <span class="emphasis"><em>rsync</em></span></p><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_einleitung"></a>Einleitung</h2></div></div></div><p><span class="strong"><strong>DIESE ANLEITUNG IST NICHT AKTUELL UND MUSS
+AKTUALISIERT WERDEN (siehe Englische Version)</strong></span></p><p><span class="emphasis"><em>ccollect</em></span> ist ein Backuptool geschrieben in der sh-skript Programmiersprache.
+Es braucht nichts besonderes nur die <span class="emphasis"><em>/bin/sh</em></span>-Konsole (oder eine kompatible).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_installation"></a>Installation</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_anforderungen"></a>Anforderungen</h3></div></div></div><div class="itemizedlist"><p class="title"><b>Die aufgelisteten Werkzeuge müssen für das Benutzen von ccollect installiert sein:</b></p><ul type="disc"><li>
+bc
+</li><li>
+cp
+</li><li>
+rsync
+</li><li>
+date
+</li><li>
+ssh (optional, wenn man ssh-Verbindungen nutzen moechte)
+</li></ul></div><p>Am besten überprüfen Sie das mit dem Befehl <span class="emphasis"><em>apt-get install bc rsync ssh</em></span>.
+Beim Fehlen eines Werkzeuges wird dieses nachinstalliert.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_installieren"></a>Installieren</h3></div></div></div><div class="orderedlist"><ol type="1"><li>
+Laden Sie sich die neuste Version von ccollect herunter.
+  Diese finden Sie unter: <span class="emphasis"><em>http://linux.schottelius.org/ccollect</em></span>
+</li><li>
+Wechseln Sie in der Konsole mit "cd <span class="emphasis"><em>Pfad" in das Verzeichniss,
+  indem sich das ccollect Archiv befindet.
+  Entpacken Sie das Archiv mit "tar xvfj ccollect-$version.tar.bz2".
+  Am Besten ist es, wenn Sie jetzt in das Verzeichniss mit den
+  entpackten Daten wechseln: "cd 'pfad/'ccollect-'version</em></span>.
+</li><li>
+Danach kopieren Sie die Datei <span class="emphasis"><em>ccollect.sh</em></span> aus dem entpackten Archiv nach
+  /usr/local/bin. Das geht mit dem Befehl "cp ccollect.sh /usr/local/bin".
+</li><li>
+Nun ändern Sie die Rechte für die Datei damit jeder Benutzer das
+  Programm verwenden kann:  "chmod 0755 /usr/local/bin/ccollect.sh"
+</li><li>
+Erstellen Sie nun das Konfigurationsverzeichnis für ccollect:
+  "mkdir /etc/ccollect/"
+</li><li>
+Starten sie nun zum Testen das Programm ccollect mit dem Befehl
+  <code class="literal">ccollect.sh</code> in der Konsole.
+</li></ol></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_konfiguration"></a>Konfiguration</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_konfigurationsverzeichnisse"></a>Konfigurationsverzeichnisse</h3></div></div></div><p>Die Konfigurationsdaten befinden sich bei ccollect im oben erstellten Verzeichnis
+"/etc/ccollect". Um ccollect richtig konfigurieren zu können benötigen Sie
+noch ein paar weitere Verzeichnisse:</p><div class="itemizedlist"><ul type="disc"><li>
+"/etc/ccollect/defaults" mit:
+  <span class="emphasis"><em>mkdir /etc/ccollect/defaults</em></span>
+</li><li>
+"/etc/ccollect/defaults/intervals" mit:
+  <span class="emphasis"><em>mkdir /etc/ccollect/defaults/intervals</em></span>
+</li><li>
+"/etc/ccollect/sources" mit:
+  <span class="emphasis"><em>mkdir /etc/ccollect/sources</em></span>
+</li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_intervalle"></a>Intervalle</h3></div></div></div><p>Der Intervall-Wert definiert, wie viele Backup-Versionen ccollect von
+den gesicherten Daten behalten soll.
+Der Name der Datei, in der der Wert steht, ist zugleich auch der
+Name des Intervalls.</p><pre class="screen">julian@flumy:/etc/ccollect/defaults/intervals$ ls
+daily
+julian@flumy:/etc/ccollect/defaults/intervals$ cat daily
+7
+julian@flumy:/etc/ccollect/defaults/intervals$</pre><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_intervall_erstellen"></a>Intervall erstellen</h4></div></div></div><p>Sie erstellen einen Intervall wie folgt:</p><div class="orderedlist"><ol type="1"><li>
+Wechseln Sie in das Intervall-Verzeichnis: <span class="emphasis"><em>cd /etc/ccollect/defaults/intervals</em></span>.
+</li><li>
+Erstellen Sie einen neuen Intervall mit dem Befehl
+  "echo <span class="emphasis"><em>wert</em></span> &gt; <span class="emphasis"><em>Intervall-Name</em></span>"
+</li></ol></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_sources"></a>Sources</h3></div></div></div><p>Mit Sourcen meint man bei <span class="emphasis"><em>ccollect</em></span> die Quelldaten. Der Wert einer <span class="emphasis"><em>source</em></span>-Datei
+verweist auf einen Pfad in dem sich die zu sichernden Daten befinden.</p><div class="itemizedlist"><p class="title"><b>Im Ordner <span class="emphasis"><em>/etc/ccollect/sources/*</em></span> wird festgelegt:</b></p><ul type="disc"><li>
+Der Sicherungs-Titel
+</li><li>
+Quell- und Ziel-Verzeichnis
+</li><li>
+Spezielle Einstellungen
+</li></ul></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_sicherungs_titel"></a>Sicherungs-Titel</h4></div></div></div><p>Der Sicherungstitel ist der Name eines Ordners in /etc/ccollect/sources.</p><p>Man erstellt also ein neue neue Sicherung mit dem Befehl
+"mkdir <span class="emphasis"><em>/etc/ccollect/sources/'Sicherungs-Titel</em></span>".
+In diesem Verzeichnis folgen dann die spezifischen Konfigurationsdaten
+(nur!) für diese Sicherung.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_quelle"></a>Quelle</h3></div></div></div><p>Mit Quelle ist gemeint welche Daten gesichert werden.
+Dies wird in der Konfigurationsdatei <span class="emphasis"><em>source</em></span> festgelegt.</p><p>Diese liegt im Verzeichnis "/etc/ccollect/sources/<span class="emphasis"><em>Sicherungs-Titel</em></span>".
+Wechseln Sie in das Verzeichnis mit dem Sicherungs-Titel und erstellen Sie die
+Datei mit "echo <span class="emphasis"><em>Quellpfad</em></span> &gt; source".</p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_exclude"></a>Exclude</h4></div></div></div><p>Es kann vorkommen das man in einem Verzeichniss alles sichern will
+bis auf ein paar Unterordner.
+Für dieses Vorhaben gibt es die Datei <span class="emphasis"><em>exclude</em></span>, die sich wiederum
+im Verzeichnis <span class="emphasis"><em>Sicherungs-Titel</em></span> befindet.</p><p>Die Datei wird mit folgenden Schritten angelegt:</p><div class="orderedlist"><ol type="1"><li>
+"echo 'Quellpfad/verzeichnis1 &gt; exclude"
+   Ein Pfad wird weggelassen.
+</li><li>
+"echo <span class="emphasis"><em>Quellpfad/verzeichnis2 &gt;&gt; exclude"
+   Ein weiterer Pfad der weggelassen wird. Das zweite </em></span>&gt;<span class="emphasis"><em> bewirkt,
+   das an die 'exclude</em></span>-Datei angefügt wird (das einfache <span class="emphasis"><em>&gt;</em></span>
+   ueberschreibt eine vorhandene Datei).
+</li></ol></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_ziel"></a>Ziel</h3></div></div></div><p>Mit dem Ziel ist gemeint wohin die Sicherung gespeichert wird.
+Dies geschieht mit einer Verknüpfung (Link), die <span class="emphasis"><em>destination</em></span> heisst.</p><div class="itemizedlist"><p class="title"><b>Erstellen Sie diese mit den Befehlen</b></p><ul type="disc"><li>
+"ln -s <span class="emphasis"><em>/Pfad/zum/Speicherort/</em></span> destination"
+</li><li>
+Mit dem Befehl "ls -l destination" kann man die Richtigkeit der
+  Verknüpfung überprüfen.
+</li></ul></div><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3><p>Es
+darf
+immer
+nur
+eine
+<span class="emphasis"><em>source</em></span>,
+<span class="emphasis"><em>destination</em></span>,
+und
+<span class="emphasis"><em>exclude</em></span>
+Datei
+vorhanden
+sein.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_spezielles"></a>Spezielles</h3></div></div></div><p>Im Ordner "/etc/ccollect/sources/<span class="emphasis"><em>Sicherung</em></span>" kann man weitere Daten einfügen
+und damit Optionen ein- oder auszuschalten.</p><div class="variablelist"><dl><dt><span class="term">
+<span class="emphasis"><em>verbose</em></span>
+</span></dt><dd>
+   Beim Sicherungsvorgang ausführlich berichten (<span class="emphasis"><em>-v</em></span> für <span class="emphasis"><em>rsync</em></span>).
+</dd><dt><span class="term">
+<span class="emphasis"><em>very_verbose</em></span>
+</span></dt><dd>
+   Beim Sicherungsvorgang sehr ausführlich berichten
+   (<span class="emphasis"><em>-v</em></span> für <span class="emphasis"><em>rsync</em></span>, <span class="emphasis"><em>mkdir</em></span>, <span class="emphasis"><em>cp</em></span> und <span class="emphasis"><em>rm</em></span>).
+</dd><dt><span class="term">
+<span class="emphasis"><em>summary</em></span>
+</span></dt><dd>
+   <span class="emphasis"><em>ccollect</em></span> erstellt beim Beenden des Sicherungsvorganges eine
+   Zusammenfassung des Geschehenen.
+</dd><dt><span class="term">
+<span class="emphasis"><em>rsync_option</em></span>
+</span></dt><dd>
+   Alle Befehle in dieser Datei zu <span class="emphasis"><em>rsync</em></span> werden ausgeführt beim Sicherungsvorgang.
+</dd><dt><span class="term">
+<span class="emphasis"><em>pre_exec</em></span>
+</span></dt><dd>
+   Die Befehle im Inhalt dieser Datei werden vor dem Backup ausgeführt.
+</dd><dt><span class="term">
+<span class="emphasis"><em>post_exec</em></span>
+</span></dt><dd>
+   Die Befehle im Inhalt dieser Datei werden nach dem Backup ausgeführt.
+</dd></dl></div></div></div></div></body></html>

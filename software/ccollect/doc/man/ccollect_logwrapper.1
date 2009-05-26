@@ -1,0 +1,53 @@
+.\"     Title: ccollect_logwrapper
+.\"    Author: 
+.\" Generator: DocBook XSL Stylesheets v1.73.2 <http://docbook.sf.net/>
+.\"      Date: 03/17/2008
+.\"    Manual: 
+.\"    Source: 
+.\"
+.TH "CCOLLECT_LOGWRAPPER" "1" "03/17/2008" "" ""
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.SH "NAME"
+ccollect_logwrapper - start ccollect(1) and create a unique logfile
+.SH "SYNOPSIS"
+\fIccollect_logwrapper\.sh\fR <ccollect options>
+.sp
+.SH "DESCRIPTION"
+ccollect_logwrapper\.sh creates a unique logfile below \fI$CCOLLECT_CONF/logwrapper\fR and redirects ccollect(1) output (stdout and stderr) to it\.
+.sp
+.SH "OPTIONS"
+Options are passed directly to ccollect(1)\.
+.sp
+.SH "FILES"
+.PP
+$CCOLLECT_CONF/logwrapper
+.RS 4
+Directory containing the configuration\. $CCOLLECT_CONF is
+\fI/etc/ccollect\fR, if unset\.
+.RE
+.PP
+$CCOLLECT_CONF/logwrapper/destination
+.RS 4
+Link to the destination directory for the logfiles
+.RE
+.SH "SEE ALSO"
+ccollect(1), ccollect_add_source(1), ccollect_analyse_logs(1), ccollect_delete_source(1), ccollect_list_intervals(1)
+.sp
+.SH "AUTHOR"
+Nico Schottelius <nico\-ccollect\-\-@\-\-schottelius\.org>
+.sp
+.SH "RESOURCES"
+Main web site: http://unix\.schottelius\.org/ccollect/
+.sp
+.SH "COPYING"
+Copyright (C) 2007\-2008 Nico Schottelius\. Free use of this software is granted under the terms of the GNU General Public License Version 3 (GPLv3)\.
+.sp
+.SH "NOTES"
+.IP " 1." 4
+nico-ccollect--@--schottelius.org
+.RS 4
+\%mailto:nico-ccollect--@--schottelius.org
+.RE

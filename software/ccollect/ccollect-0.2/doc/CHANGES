@@ -1,0 +1,7 @@
+0.1 to 0.2:
+   * Added plausibility check
+   * Updated and made documentation readable
+   * implemented verbose option
+   * Fixed double exclude parameter bug
+   * Added much better documentation (asciidoc)
+   * added rsync extra parameter option

@@ -1,0 +1,42 @@
+0.4.1 to 0.4.2:
+   * fixed bug when $CCOLLECT_CONF is relative
+   * added Quickstart to documentation
+
+0.4 to 0.4.1:
+   * updated documentation, fixed some English related problems
+   * added Texinfo documentation
+   * added a manpage (English)
+   * fixed problem with 'make install' (strip was used)
+   * fixed possible problem with pre_exec beeing executed to late
+   * fixed small bug in sed expression: using 'source/' made it fail
+
+0.3.3 to 0.4:
+   * `pax` (Posix) is now required, `cp -al` (GNU specific) is removed
+   * "interval" was written with two 'l' (ell), which is wrong in English
+   * Changed the name of backup directories, removed the colon in the interval
+   * ccollect will now exit, when preexec returns non-zero
+   * ccollect now reports when postexec returns non-zero
+
+0.3.2 to 0.3.3:
+   * Fix a small bug, which suppressed information when rsync exits non-zero
+
+0.3.1 to 0.3.2:
+   * ccollect now prints the start time, end time and duration of the backup
+
+0.3 to 0.3.1:
+   * added support for printing a summary
+   * some cosmetic changes
+
+0.2 to 0.3:
+   * added "very_verbose"
+   * normal "verbose" is now less verbose
+   * added general 'pre_exec' and 'post_exec' support
+   * added source specfifc 'pre_exec' and 'post_exec' support
+
+0.1 to 0.2:
+   * Added plausibility check
+   * Updated and made documentation readable
+   * implemented verbose option
+   * Fixed double exclude parameter bug
+   * Added much better documentation (asciidoc)
+   * added rsync extra parameter option

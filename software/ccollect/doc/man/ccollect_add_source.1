@@ -1,0 +1,76 @@
+.\"     Title: ccollect_add_source
+.\"    Author: 
+.\" Generator: DocBook XSL Stylesheets v1.73.2 <http://docbook.sf.net/>
+.\"      Date: 03/17/2008
+.\"    Manual: 
+.\"    Source: 
+.\"
+.TH "CCOLLECT_ADD_SOURCE" "1" "03/17/2008" "" ""
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.SH "NAME"
+ccollect_add_source - create new source for ccollect(1)
+.SH "SYNOPSIS"
+\fIccollect_add_source\.sh\fR <hostnames to create sources for>
+.sp
+.SH "DESCRIPTION"
+ccollect_add_source\.sh creates a new backup source for use with ccollect(1)\. It copies the files from to the source directory with the hostname below \fI$CCOLLECT_CONF/sources\fR\. It is designed to run on a backup server to create new directories for new hosts\.
+.sp
+.SH "FILES"
+.PP
+$CCOLLECT_CONF/defaults/sources
+.RS 4
+Main configuration directory\. $CCOLLECT_CONF is
+\fI/etc/ccollect\fR, if unset\. All the following files reside below this directory\.
+.RE
+.PP
+exclude, summary, intervals, pre_exec, post_exec, rsync_options, verbose, very_verbose
+.RS 4
+Those are the standard configuration files known by ccollect(1)\. If the file exist it will be copied to the newly created source\. Directories (\fIintervals\fR) are copied recursively\.
+.RE
+.PP
+destination_base
+.RS 4
+A link to the directory where to store the backups\. Below this directory
+ccollect_add_source\.sh
+will create a directory with the hostname you specified on the command line\. A common valua for
+destination_base
+is
+\fI/home/server/backup\fR\.
+.RE
+.PP
+source_prefix, source_postfix
+.RS 4
+
+source_prefix
+is put before the hostname,
+source_postfix
+is appended after it\. A common value for
+source_prefix
+maybe
+\fIroot@\fR
+and
+\fI:/\fR
+for
+source_postfix\.
+.RE
+.SH "SEE ALSO"
+ccollect(1), ccollect_analyse_logs\.sh, ccollect_delete_source(1), ccollect_list_intervals(1), ccollect_logwrapper(1),
+.sp
+.SH "AUTHOR"
+Nico Schottelius <nico\-ccollect\-\-@\-\-schottelius\.org>
+.sp
+.SH "RESOURCES"
+Main web site: http://unix\.schottelius\.org/ccollect/
+.sp
+.SH "COPYING"
+Copyright (C) 2007\-2008 Nico Schottelius\. Free use of this software is granted under the terms of the GNU General Public License Version 3 (GPLv3)\.
+.sp
+.SH "NOTES"
+.IP " 1." 4
+nico-ccollect--@--schottelius.org
+.RS 4
+\%mailto:nico-ccollect--@--schottelius.org
+.RE

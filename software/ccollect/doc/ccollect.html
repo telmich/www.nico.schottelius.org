@@ -1,0 +1,1467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.2.7" />
+<style type="text/css">
+/* Debug borders */
+p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
+/*
+  border: 1px solid red;
+*/
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+tt {
+  color: navy;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  font-family: sans-serif;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+
+div.sectionbody {
+  font-family: serif;
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+span#author {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+span#email {
+}
+span#revision {
+  font-family: sans-serif;
+}
+
+div#footer {
+  font-family: sans-serif;
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+div#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+div#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+div#preamble,
+div.tableblock, div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-right: 10%;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid silver;
+  padding: 0.5em;
+}
+
+div.listingblock {
+  margin-right: 0%;
+}
+div.listingblock > div.content {
+  border: 1px solid silver;
+  background: #f4f4f4;
+  padding: 0.5em;
+}
+
+div.quoteblock {
+  padding-left: 2.0em;
+}
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock {
+  padding-left: 2.0em;
+}
+div.verseblock > div.content {
+  white-space: pre;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 2px solid silver;
+}
+
+div.exampleblock > div.content {
+  border-left: 2px solid silver;
+  padding: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+div.imageblock img { border: 1px solid silver; }
+span.image img { border-style: none; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+div.olist > ol {
+  list-style-type: decimal;
+}
+div.olist2 > ol {
+  list-style-type: lower-alpha;
+}
+
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+tfoot {
+  font-weight: bold;
+}
+
+div.hlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hlist td {
+  padding-bottom: 15px;
+}
+td.hlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+}
+td.hlist2 {
+  vertical-align: top;
+}
+
+@media print {
+  div#footer-badges { display: none; }
+}
+
+div#toctitle {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+/* Workarounds for IE6's broken and incomplete CSS2. */
+
+div.sidebar-content {
+  background: #ffffee;
+  border: 1px solid silver;
+  padding: 0.5em;
+}
+div.sidebar-title, div.image-title {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+}
+
+div.listingblock div.content {
+  border: 1px solid silver;
+  background: #f4f4f4;
+  padding: 0.5em;
+}
+
+div.quoteblock-attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock-content {
+  white-space: pre;
+}
+div.verseblock-attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+
+div.exampleblock-content {
+  border-left: 2px solid silver;
+  padding-left: 0.5em;
+}
+
+/* IE6 sets dynamically generated links as visited. */
+div#toc a:visited { color: blue; }
+
+/* Because IE6 child selector is broken. */
+div.olist2 ol {
+  list-style-type: lower-alpha;
+}
+div.olist2 div.olist ol {
+  list-style-type: decimal;
+}
+</style>
+<title>ccollect - Installing, Configuring and Using</title>
+</head>
+<body>
+<div id="header">
+<h1>ccollect - Installing, Configuring and Using</h1>
+<span id="author">Nico Schottelius</span><br />
+<span id="email"><tt>&lt;<a href="mailto:nico-ccollect__@__schottelius.org">nico-ccollect__@__schottelius.org</a>&gt;</tt></span><br />
+<span id="revision">version 0.7.1,</span>
+for ccollect 0.7.1, Initial Version from 2006-01-13
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="para"><p>(pseudo) incremental backup
+with different exclude lists
+using hardlinks and <tt>rsync</tt></p></div>
+</div>
+</div>
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="para"><p><tt>ccollect</tt> is a backup utility written in the sh-scripting language.
+It does not depend on a specific shell, only <tt>/bin/sh</tt> needs to be
+bourne shell compatible (like <em>dash</em>, <em>ksh</em>, <em>zsh</em>, <em>bash</em>, &#8230;).</p></div>
+<h3 id="_supported_and_tested_operating_systems_and_architectures">1.1. Supported and tested operating systems and architectures</h3><div style="clear:left"></div>
+<div class="para"><p><tt>ccollect</tt> was successfully tested on the following platforms:</p></div>
+<div class="ilist"><ul>
+<li>
+<p>
+GNU/Linux on amd64/hppa/i386/ppc
+</p>
+</li>
+<li>
+<p>
+FreeBSD   on amd64/i386
+</p>
+</li>
+<li>
+<p>
+NetBSD    on alpha/amd64/i386/sparc/sparc64
+</p>
+</li>
+<li>
+<p>
+OpenBSD   on amd64
+</p>
+</li>
+</ul></div>
+<div class="para"><p>It <strong>should</strong> run on any Unix that supports <tt>rsync</tt> and has a POSIX-compatible
+bourne shell. If your platform is not listed above and you have it successfully
+running, please drop me a mail.</p></div>
+<h3 id="_why_you_could_only_backup_from_remote_hosts_not_to_them">1.2. Why you COULD only backup from remote hosts, not to them</h3><div style="clear:left"></div>
+<div class="para"><p>While considering the design of ccollect, I thought about enabling
+backup to <strong>remote</strong> hosts. Though this sounds like a nice feature
+(<em>Backup my notebook to the server now.</em>), in my opinion it is a
+bad idea to backup to a remote host.</p></div>
+<div class="para"><p>But as more and more people requested this feature, it was implemented,
+so you have the choice whether you want to use it or not.</p></div>
+<h4 id="_reason">1.2.1. Reason</h4>
+<div class="para"><p>If you want to backup <strong>TO</strong> a remote host, you have to loosen security on it.</p></div>
+<div class="para"><p>Imagine the following situation: You backup your farm of webservers <strong>TO</strong>
+a backup host somewhere else.
+Now one of your webservers which has access to your backup host gets
+compromised.</p></div>
+<div class="para"><p>Your backup server will be compromised, too.</p></div>
+<div class="para"><p>And the attacker will have access to all data on the other webservers.</p></div>
+<h4 id="_doing_it_securely">1.2.2. Doing it securely</h4>
+<div class="para"><p>Think of it the other way round: The backup server (now behind a
+firewall, not accessable from outside) connects to the
+webservers and pulls the data <strong>from</strong> them. If someone gets access to one
+of the webservers, this person will perhaps not even see your machine. If
+the attacker sees connections from a host to the compromised
+machine, she will not be able to log in on the backup machine.
+All other backups are still secure.</p></div>
+<h3 id="_incompatibilities">1.3. Incompatibilities</h3><div style="clear:left"></div>
+<h4 id="_versions_0_6_and_0_7">1.3.1. Versions 0.6 and 0.7</h4>
+<div class="ilist"><div class="title">The format of <tt>destination</tt> changed:</div><ul>
+<li>
+<p>
+Before 0.7 it was a (link to a) directory
+</p>
+</li>
+<li>
+<p>
+As of 0.7 it is a textfile containing the destination
+</p>
+</li>
+</ul></div>
+<div class="para"><p>You can update your configuration using <tt>tools/config-pre-0.7-to-0.7.sh</tt>.</p></div>
+<div class="ilist"><div class="title">Added <em>remote_host</em></div><ul>
+<li>
+<p>
+As of 0.7 it is possible to backup <strong>to</strong> hosts (see section remote_host below).
+</p>
+</li>
+</ul></div>
+<h4 id="_versions_0_5_and_0_6">1.3.2. Versions 0.5 and 0.6</h4>
+<div class="ilist"><div class="title">The format of <tt>rsync_options</tt> changed:</div><ul>
+<li>
+<p>
+Before 0.6 it was whitespace delimeted
+</p>
+</li>
+<li>
+<p>
+As of 0.6 it is newline seperated (so you can pass whitespaces to <tt>rsync</tt>)
+</p>
+</li>
+</ul></div>
+<div class="para"><p>You can update your configuration using <tt>tools/config-pre-0.6-to-0.6.sh</tt>.</p></div>
+<div class="ilist"><div class="title">The name of the backup directories changed:</div><ul>
+<li>
+<p>
+Before 0.6: "date +%Y-%m-%d-%H%M"
+</p>
+</li>
+<li>
+<p>
+As of 0.6:  "date +%Y%m%d-%H%M" (better readable, date is closer together)
+</p>
+</li>
+</ul></div>
+<div class="para"><p>For the second change there is no updated needed, as XXXX- is always before
+XXXXX (- comes before digit).</p></div>
+<h4 id="_versions_0_4_and_0_5">1.3.3. Versions 0.4 and 0.5</h4>
+<div class="para"><p>Not a real incompatibilty, but seems to fit in this section:</p></div>
+<div class="ilist"><div class="title">0.5 does <strong>NOT</strong> require</div><ul>
+<li>
+<p>
+PaX
+</p>
+</li>
+<li>
+<p>
+bc
+</p>
+</li>
+</ul></div>
+<div class="para"><p>anymore!</p></div>
+<h4 id="_versions_lt_0_4_and_0_4">1.3.4. Versions &lt; 0.4 and 0.4</h4>
+<div class="para"><p>Since <tt>ccollect</tt> 0.4 there are several incompatibilities with earlier
+versions:</p></div>
+<div class="ilist"><div class="title">List of incompatibilities</div><ul>
+<li>
+<p>
+<tt>pax</tt> (Posix) is now required, <tt>cp -al</tt> (GNU specific) is removed
+</p>
+</li>
+<li>
+<p>
+"interval" was written with two <em>l</em> (ell), which is wrong in English
+</p>
+</li>
+<li>
+<p>
+Changed the name of backup directories, removed the colon in the interval
+</p>
+</li>
+<li>
+<p>
+ccollect will now exit when preexec returns non-zero
+</p>
+</li>
+<li>
+<p>
+ccollect now reports when postexec returns non-zero
+</p>
+</li>
+</ul></div>
+<div class="para"><p>You can convert your old configuration directory using
+<tt>config-pre-0.4-to-0.4.sh</tt>, which can be found in the <strong>tools/</strong>
+subdirectory:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>[10:05] hydrogenium:ccollect-0.4# ./tools/config-pre-0.4-to-0.4.sh /etc/ccollect</tt></pre>
+</div></div>
+</div>
+<h2 id="_quick_start">2. Quick start</h2>
+<div class="sectionbody">
+<div class="para"><p>For those who do not want to read the whole long document:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt># get latest ccollect tarball from http://unix.schottelius.org/ccollect/
+# replace value for CCV with the current version
+export CCV=0.7.1
+
+#
+# replace 'wget' with 'fetch' on bsd
+#
+holen=wget
+"$holen" http://unix.schottelius.org/ccollect/ccollect-${CCV}.tar.bz2
+
+# extract the tarball, change to the newly created directory
+tar -xvjf ccollect-${CCV}.tar.bz2
+cd ccollect-${CCV}
+
+# create mini-configuration
+# first create directory structure
+mkdir -p miniconfig/defaults/intervals
+mkdir    miniconfig/sources
+
+# create sample intervals
+echo 2 &gt; miniconfig/defaults/intervals/testinterval
+echo 3 &gt; miniconfig/defaults/intervals/testinterval2
+
+# create destination directory, where the backups will be kept
+mkdir ~/DASI
+
+# create sample source, which will be saved
+mkdir miniconfig/sources/testsource
+
+# We will save '/bin' to the directory '~/DASI'
+echo '/bin' &gt; miniconfig/sources/testsource/source
+
+# configure ccollect to use ~/DASI as destination
+echo ~/DASI &gt; miniconfig/sources/testsource/destination
+
+# We want to see what happens and also a small summary at the end
+touch miniconfig/sources/testsource/verbose
+touch miniconfig/sources/testsource/summary
+
+echo "do the backup, twice"
+CCOLLECT_CONF=./miniconfig ./ccollect.sh testinterval testsource
+CCOLLECT_CONF=./miniconfig ./ccollect.sh testinterval testsource
+
+echo "the third time ccollect begins to remove old backups"
+echo -n "Hit enter to see it"
+read
+CCOLLECT_CONF=./miniconfig ./ccollect.sh testinterval testsource
+
+echo "Now we add another interval, ccollect should clone from existent ones"
+echo -n "Hit enter to see it"
+read
+CCOLLECT_CONF=./miniconfig ./ccollect.sh testinterval2 testsource
+
+echo "Let's see how much space we used with two backups and compare it to /bin"
+du -s ~/DASI /bin
+
+# report success
+echo "Please report success using ./tools/report_success.sh"</tt></pre>
+</div></div>
+<div class="para"><p>Cutting and pasting the complete section above to your shell will result in
+the download of ccollect, the creation of a sample configuration and the
+execution of some backups.</p></div>
+</div>
+<h2 id="_requirements">3. Requirements</h2>
+<div class="sectionbody">
+<h3 id="_installing_ccollect">3.1. Installing ccollect</h3><div style="clear:left"></div>
+<div class="para"><p>For the installation you need at least</p></div>
+<div class="ilist"><ul>
+<li>
+<p>
+the latest ccollect package (<a href="http://unix.schottelius.org/ccollect/">http://unix.schottelius.org/ccollect/</a>)
+</p>
+</li>
+<li>
+<p>
+either <tt>cp</tt> and <tt>chmod</tt> or <tt>install</tt>
+</p>
+</li>
+<li>
+<p>
+for more comfort: <tt>make</tt>
+</p>
+</li>
+<li>
+<p>
+for rebuilding the generated documentation: additionally <tt>asciidoc</tt>
+</p>
+</li>
+</ul></div>
+<h3 id="_using_ccollect">3.2. Using ccollect</h3><div style="clear:left"></div>
+<div class="ilist"><div class="title">Running ccollect requires the following tools to be installed:</div><ul>
+<li>
+<p>
+<tt>date</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>rsync</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>ssh</tt> (if you want to use rsync over ssh, which is recommened for security)
+</p>
+</li>
+</ul></div>
+</div>
+<h2 id="_installing">4. Installing</h2>
+<div class="sectionbody">
+<div class="para"><p>Either type <em>make install</em> or simply copy it to a directory in your
+$PATH and execute <em>chmod <strong>0755</strong> /path/to/ccollect.sh</em>. If you would
+like to use the new management scripts (available since 0.6), copy
+the following scripts to a directory in $PATH:</p></div>
+<div class="ilist"><ul>
+<li>
+<p>
+<tt>tools/ccollect_add_source.sh</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>tools/ccollect_analyse_logs.sh.sh</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>tools/ccollect_delete_source.sh</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>tools/ccollect_list_intervals.sh</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>tools/ccollect_logwrapper.sh</tt>
+</p>
+</li>
+</ul></div>
+<div class="para"><p>After having installed and used ccollect, report success using
+<em>./tools/report_success.sh</em>.</p></div>
+</div>
+<h2 id="_configuring">5. Configuring</h2>
+<div class="sectionbody">
+<div class="para"><p>For configuration aid have a look at the above mentioned tools, which can assist
+you quite well. When you are successfully using <tt>ccollect</tt>, report success using
+<tt>tools/report_success.sh</tt>.</p></div>
+<h3 id="_runtime_options">5.1. Runtime options</h3><div style="clear:left"></div>
+<div class="para"><p><tt>ccollect</tt> looks for its configuration in <em>/etc/ccollect</em> or, if set, in
+the directory specified by the variable <em>$CCOLLECT_CONF</em>:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt># sh-compatible (dash, zsh, mksh, ksh, bash, ...)
+$ CCOLLECT_CONF=/your/config/dir ccollect.sh ...
+
+# csh
+$ ( setenv CCOLLECT_CONF /your/config/dir ; ccollect.sh ... )</tt></pre>
+</div></div>
+<div class="para"><p>When you start <tt>ccollect</tt>, you have to specify in which interval
+to backup (daily, weekly, yearly; you can specify the names yourself, see below)
+and which sources to backup (or -a to backup all sources).</p></div>
+<div class="para"><p>The interval specifies how many backups are kept.</p></div>
+<div class="para"><p>There are also some self-explanatory parameters you can pass to ccollect,
+simply use <tt>ccollect.sh &#8212;help</tt> for info.</p></div>
+<h3 id="_general_configuration">5.2. General configuration</h3><div style="clear:left"></div>
+<div class="para"><p>The general configuration can be found in $CCOLLECT_CONF/defaults or
+/etc/ccollect/defaults. All options specified there are generally valid for
+all source definitions, although the values can be overwritten in the source
+configuration.</p></div>
+<div class="para"><p>All configuration entries are plain-text files (use UTF-8 for non-ascii characters).</p></div>
+<h4 id="_interval_definition">5.2.1. Interval definition</h4>
+<div class="para"><p>The interval definition can be found in
+<em>$CCOLLECT_CONF/defaults/intervals/</em> or <em>/etc/ccollect/defaults/intervals</em>.
+Each file in this directory specifies an interval. The name of the file is
+the same as the name of the interval: <tt>intervals/<em>&lt;interval name&gt;</em></tt>.</p></div>
+<div class="para"><p>The content of this file should be a single line containing a number.
+This number defines how many versions of this interval are kept.</p></div>
+<div class="para"><p>Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>   [10:23] zaphodbeeblebrox:ccollect-0.2% ls -l conf/defaults/intervals/
+   insgesamt 12
+   -rw-r--r--  1 nico users 3 2005-12-08 10:24 daily
+   -rw-r--r--  1 nico users 3 2005-12-08 11:36 monthly
+   -rw-r--r--  1 nico users 2 2005-12-08 11:36 weekly
+   [10:23] zaphodbeeblebrox:ccollect-0.2% cat conf/defaults/intervals/*
+   28
+   12
+   4</tt></pre>
+</div></div>
+<div class="para"><p>This means to keep 28 daily backups, 12 monthly backups and 4 weekly.</p></div>
+<h4 id="_general_pre_and_post_execution">5.2.2. General pre- and post-execution</h4>
+<div class="para"><p>If you add <em>$CCOLLECT_CONF/defaults/<tt>pre_exec</tt></em> or
+<em>/etc/ccollect/defaults/<tt>pre_exec</tt></em> (same with <tt>post_exec</tt>), <tt>ccollect</tt>
+will start <tt>pre_exec</tt> before the whole backup process and
+<tt>post_exec</tt> after backup of all sources is done.</p></div>
+<div class="para"><p>The following example describes how to report free disk space in
+human readable format before and after the whole backup process:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>[13:00] hydrogenium:~# mkdir -p /etc/ccollect/defaults/
+[13:00] hydrogenium:~# echo '#!/bin/sh' &gt;  /etc/ccollect/defaults/pre_exec
+[13:01] hydrogenium:~# echo ''          &gt;&gt; /etc/ccollect/defaults/pre_exec
+[13:01] hydrogenium:~# echo 'df -h'     &gt;&gt; /etc/ccollect/defaults/pre_exec
+[13:01] hydrogenium:~# chmod 0755 /etc/ccollect/defaults/pre_exec
+[13:01] hydrogenium:~# ln -s /etc/ccollect/defaults/pre_exec /etc/ccollect/defaults/post_exec</tt></pre>
+</div></div>
+<h4 id="_general_delete_incomplete">5.2.3. General delete_incomplete</h4>
+<div class="para"><p>If you add <em>$CCOLLECT_CONF/defaults/<tt>delete_incomplete</tt></em>, this
+option applies for all sources. See below for a longer
+explanation.</p></div>
+<h3 id="_source_configuration">5.3. Source configuration</h3><div style="clear:left"></div>
+<div class="para"><p>Each source configuration exists in <em>$CCOLLECT_CONF/sources/$name</em> or
+<em>/etc/ccollect/sources/$name</em>.</p></div>
+<div class="para"><p>The name you choose for the subdirectory describes the source.</p></div>
+<div class="para"><p>Each source contains at least the following files:</p></div>
+<div class="ilist"><ul>
+<li>
+<p>
+<tt>source</tt>       (a text file containing the <tt>rsync</tt> compatible path to backup)
+</p>
+</li>
+<li>
+<p>
+<tt>destination</tt>  (a text file containing the directory we should backup to)
+</p>
+</li>
+</ul></div>
+<div class="para"><p>Additionally a source may have the following files:</p></div>
+<div class="ilist"><ul>
+<li>
+<p>
+<tt>verbose</tt>             whether to be verbose (passes -v to <tt>rsync</tt>)
+</p>
+</li>
+<li>
+<p>
+<tt>very_verbose</tt>        be very verbose (<tt>mkdir -v</tt>, <tt>rm -v</tt> and <tt>rsync -vv</tt>)
+</p>
+</li>
+<li>
+<p>
+<tt>summary</tt>             create a transfer summary when <tt>rsync</tt> finished
+</p>
+</li>
+<li>
+<p>
+<tt>exclude</tt>             exclude list  for <tt>rsync</tt>. newline seperated list.
+</p>
+</li>
+<li>
+<p>
+<tt>rsync_options</tt>       extra options for <tt>rsync</tt>. newline seperated list.
+</p>
+</li>
+<li>
+<p>
+<tt>pre_exec</tt>            program to execute before backing up <strong>this</strong> source
+</p>
+</li>
+<li>
+<p>
+<tt>post_exec</tt>           program to execute after backing up <strong>this</strong> source
+</p>
+</li>
+<li>
+<p>
+<tt>delete_incomplete</tt>   delete incomplete backups
+</p>
+</li>
+<li>
+<p>
+<tt>remote_host</tt>         host to backup to
+</p>
+</li>
+</ul></div>
+<div class="para"><p>Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>   [10:47] zaphodbeeblebrox:ccollect-0.2% ls -l  conf/sources/testsource2
+   insgesamt 12
+   lrwxrwxrwx  1 nico users   20 2005-11-17 16:44 destination -&gt; /home/nico/backupdir
+   -rw-r--r--  1 nico users   62 2005-12-07 17:43 exclude
+   drwxr-xr-x  2 nico users 4096 2005-12-07 17:38 intervals
+   -rw-r--r--  1 nico users   15 2005-11-17 16:44 source
+   [10:47] zaphodbeeblebrox:ccollect-0.2% cat conf/sources/testsource2/exclude
+   openvpn-2.0.1.tar.gz
+   nicht_reinnehmen
+   etwas mit leerzeichenli
+   [10:47] zaphodbeeblebrox:ccollect-0.2% ls -l  conf/sources/testsource2/intervals
+   insgesamt 4
+   -rw-r--r--  1 nico users 2 2005-12-07 17:38 daily
+   [10:48] zaphodbeeblebrox:ccollect-0.2% cat conf/sources/testsource2/intervals/daily
+   5
+   [10:48] zaphodbeeblebrox:ccollect-0.2% cat conf/sources/testsource2/source
+   /home/nico/vpn</tt></pre>
+</div></div>
+<h4 id="_detailed_description_of_source">5.3.1. Detailed description of "source"</h4>
+<div class="para"><p><tt>source</tt> describes a <tt>rsync</tt> compatible source (one line only).</p></div>
+<div class="para"><p>For instance <em>backup_user@foreign_host:/home/server/video</em>.
+To use the <tt>rsync</tt> protocol without the <tt>ssh</tt>-tunnel, use
+<em>rsync::USER@HOST/SRC</em>. For more information have a look at the manpage
+of <tt>rsync</tt>(1).</p></div>
+<h4 id="_detailed_description_of_destination">5.3.2. Detailed description of "destination"</h4>
+<div class="para"><p><tt>destination</tt> must be a text file containing the destination directory.
+<tt>destination</tt> <strong>USED</strong> to be a link to the destination directory in
+earlier versions, so do not be confused if you see such examples.</p></div>
+<div class="para"><p>Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>   [11:36] zaphodbeeblebrox:ccollect-0.2% cat conf/sources/testsource2/destination
+   /home/nico/backupdir</tt></pre>
+</div></div>
+<h4 id="_detailed_description_of_remote_host">5.3.3. Detailed description of "remote_host"</h4>
+<div class="para"><p><tt>remote_host</tt> must be a text file containing the destination host.
+If this file is existing, you are backing up your data <strong>TO</strong> this host
+and <strong>not</strong> to you local host.</p></div>
+<div class="para"><p><strong>Warning</strong>: You need to have <tt>ssh</tt> access to the remote host. <tt>rsync</tt> and
+<tt>ccollect</tt> will connect to that host via <tt>ssh</tt>. <tt>ccollect</tt> needs the shell
+access, because it needs to find out how many backups exist on the remote
+host and to be able to delete them.</p></div>
+<div class="para"><p>Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>   [10:17] denkbrett:ccollect-0.7.0% cat conf/sources/remote1/remote_host
+   home.schottelius.org</tt></pre>
+</div></div>
+<div class="para"><p>It may contain all the ssh-specific values like <em>myuser@yourhost.ch</em>.</p></div>
+<h4 id="_detailed_description_of_verbose">5.3.4. Detailed description of "verbose"</h4>
+<div class="para"><p><tt>verbose</tt> tells <tt>ccollect</tt> that the log should contain verbose messages.</p></div>
+<div class="para"><p>If this file exists in the source specification <strong>-v</strong> will be passed to <tt>rsync</tt>.</p></div>
+<div class="para"><p>`
+Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>   [11:35] zaphodbeeblebrox:ccollect-0.2% touch conf/sources/testsource1/verbose</tt></pre>
+</div></div>
+<h4 id="_detailed_description_of_very_verbose">5.3.5. Detailed description of "very_verbose"</h4>
+<div class="para"><p><tt>very_verbose</tt> tells <tt>ccollect</tt> that it should log very verbosely.</p></div>
+<div class="para"><p>If this file exists in the source specification <strong>-v</strong> will be passed to
+<tt>rsync</tt>, <tt>rm</tt> and <tt>mkdir</tt>.</p></div>
+<div class="para"><p>Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>   [23:67] nohost:~% touch conf/sources/testsource1/very_verbose</tt></pre>
+</div></div>
+<h4 id="_detailed_description_of_summary">5.3.6. Detailed description of "summary"</h4>
+<div class="para"><p>If you create the file <tt>summary</tt> in the source definition,
+<tt>ccollect</tt> will present you a nice summary at the end.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>backup:~# touch /etc/ccollect/sources/root/summary
+backup:~# ccollect.sh werktags root
+==&gt; ccollect.sh: Beginning backup using interval werktags &lt;==
+[root] Beginning to backup this source ...
+[root] Currently 3 backup(s) exist, total keeping 50 backup(s).
+[root] Beginning to backup, this may take some time...
+[root] Hard linking...
+[root] Transferring files...
+[root]
+[root] Number of files: 84183
+[root] Number of files transferred: 32
+[root] Total file size: 26234080536 bytes
+[root] Total transferred file size: 9988252 bytes
+[root] Literal data: 9988252 bytes
+[root] Matched data: 0 bytes
+[root] File list size: 3016771
+[root] File list generation time: 1.786 seconds
+[root] File list transfer time: 0.000 seconds
+[root] Total bytes sent: 13009119
+[root] Total bytes received: 2152
+[root]
+[root] sent 13009119 bytes  received 2152 bytes  2891393.56 bytes/sec
+[root] total size is 26234080536  speedup is 2016.26
+[root] Successfully finished backup.
+==&gt; Finished ccollect.sh &lt;==</tt></pre>
+</div></div>
+<div class="para"><p>You could also combine it with <tt>verbose</tt> or <tt>very_verbose</tt>, but these
+already print some statistics (though not all / the same as presented by
+<tt>summary</tt>).</p></div>
+<h4 id="_detailed_description_of_exclude">5.3.7. Detailed description of "exclude"</h4>
+<div class="para"><p><tt>exclude</tt> specifies a list of paths to exclude. The entries are seperated by a newline (\n).</p></div>
+<div class="para"><p>Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>   [11:35] zaphodbeeblebrox:ccollect-0.2% cat conf/sources/testsource2/exclude
+   openvpn-2.0.1.tar.gz
+   nicht_reinnehmen
+   etwas mit leerzeichenli
+   something with spaces is not a problem</tt></pre>
+</div></div>
+<h4 id="_detailed_description_of_intervals">5.3.8. Detailed description of "intervals/"</h4>
+<div class="para"><p>When you create the subdirectory <tt>intervals/</tt> in your source configuration
+directory, you can specify individiual intervals for this specific source.
+Each file in this directory describes an interval.</p></div>
+<div class="para"><p>Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>   [11:37] zaphodbeeblebrox:ccollect-0.2% ls -l conf/sources/testsource2/intervals/
+   insgesamt 8
+   -rw-r--r--  1 nico users 2 2005-12-07 17:38 daily
+   -rw-r--r--  1 nico users 3 2005-12-14 11:33 yearly
+   [11:37] zaphodbeeblebrox:ccollect-0.2% cat  conf/sources/testsource2/intervals/*
+   5
+   20</tt></pre>
+</div></div>
+<h4 id="_detailled_description_of_rsync_options">5.3.9. Detailled description of "rsync_options"</h4>
+<div class="para"><p>When you create the file <tt>rsync_options</tt> in your source configuration,
+all the parameters in this file will be passed to rsync. This
+way you can pass additional options to rsync. For instance you can tell rsync
+to show progress ("&#8212;progress"), or which -password-file ("&#8212;password-file")
+to use for automatic backup over the rsync-protocol.</p></div>
+<div class="para"><p>Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>   [23:42] hydrogenium:ccollect-0.2% cat conf/sources/test_rsync/rsync_options
+   --password-file=/home/user/backup/protected_password_file</tt></pre>
+</div></div>
+<h4 id="_detailled_description_of_pre_exec_and_post_exec">5.3.10. Detailled description of "pre_exec" and "post_exec"</h4>
+<div class="para"><p>When you create <tt>pre_exec</tt> and / or <tt>post_exec</tt> in your source
+configuration, <tt>ccollect</tt> will execute this command before and
+respectively after doing the backup for <strong>this specific</strong> source.
+If you want to have pre-/post-exec before and after <strong>all</strong>
+backups, see above for general configuration.</p></div>
+<div class="para"><p>Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>[13:09] hydrogenium:ccollect-0.3% cat conf/sources/with_exec/pre_exec
+#!/bin/sh
+
+# Show whats free before
+df -h
+[13:09] hydrogenium:ccollect-0.3% cat conf/sources/with_exec/post_exec
+#!/bin/sh
+
+# Show whats free after
+df -h</tt></pre>
+</div></div>
+<h4 id="_detailed_description_of_delete_incomplete">5.3.11. Detailed description of "delete_incomplete"</h4>
+<div class="para"><p>If you create the file <tt>delete_incomplete</tt> in a source specification directory,
+<tt>ccollect</tt> will look for incomplete backups (when the whole <tt>ccollect</tt> process
+was interrupted) and remove them. Without this file <tt>ccollect</tt> will only warn
+the user.</p></div>
+</div>
+<h2 id="_hints">6. Hints</h2>
+<div class="sectionbody">
+<h3 id="_smart_logging">6.1. Smart logging</h3><div style="clear:left"></div>
+<div class="para"><p>Since ccollect-0.6.1 you can use the ccollect-logwrapper.sh(1) for logging.
+You call it the same way you call ccollect.sh and it will create a
+logfile containing the output of ccollect.sh. For more information look
+at the manpage <em>ccollect-logwrapper</em>. The following is an example running
+ccollect-logwrapper.sh:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>u0219 ~ # ~chdscni9/ccollect-logwrapper.sh daily u0160.nshq.ch.netstream.com
+ccollect-logwrapper.sh (11722): Starting with arguments: daily u0160.nshq.ch.netstream.com
+ccollect-logwrapper.sh (11722): Finished.</tt></pre>
+</div></div>
+<h3 id="_using_a_different_ssh_port">6.2. Using a different ssh port</h3><div style="clear:left"></div>
+<div class="para"><p>Mostly easy is to use your ~/.ssh/config file:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>host mx2.schottelius.org
+   Port 2342</tt></pre>
+</div></div>
+<div class="para"><p>If you only use that port for backup only and normally want to use another port,
+you can add <em>HostName</em> and "HostKeyAlias" (if you also have different
+keys on the different ports):</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>Host hhydrogenium
+   Hostname bruehe.schottelius.org
+   Port 666
+   HostKeyAlias hydrogenium
+
+Host bruehe
+   Hostname bruehe.schottelius.org
+   Port 22
+   HostKeyAlias bruehe.schottelius.org</tt></pre>
+</div></div>
+<h3 id="_using_source_names_or_interval_in_pre_post_exec_scripts">6.3. Using source names or interval in pre_/post_exec scripts</h3><div style="clear:left"></div>
+<div class="para"><p>The pre-/post_exec scripts can access some internal variables from <tt>ccollect</tt>:</p></div>
+<div class="ilist"><ul>
+<li>
+<p>
+INTERVAL: The interval specified on the command line
+</p>
+</li>
+<li>
+<p>
+no_sources: number of sources
+</p>
+</li>
+<li>
+<p>
+source_$NUM: the name of the source
+</p>
+</li>
+<li>
+<p>
+name: the name of the currently being backuped source (not available for
+  generic pre_exec script)
+</p>
+</li>
+</ul></div>
+<h3 id="_using_rsync_protocol_without_ssh">6.4. Using rsync protocol without ssh</h3><div style="clear:left"></div>
+<div class="para"><p>When you have a computer with little computing power, it may be useful to use
+rsync without ssh, directly using the rsync protocol
+(specify <em>user@host::share</em> in <tt>source</tt>). You may wish to use
+<tt>rsync_options</tt> to specify a password file to use for automatic backup.</p></div>
+<div class="para"><p>Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>backup:~# cat /etc/ccollect/sources/sample.backup.host.org/source
+backup@webserver::backup-share
+
+backup:~# cat /etc/ccollect/sources/sample.backup.host.org/rsync_options
+--password-file=/etc/ccollect/sources/sample.backup.host.org/rsync_password
+
+backup:~# cat /etc/ccollect/sources/sample.backup.host.org/rsync_password
+this_is_the_rsync_password</tt></pre>
+</div></div>
+<div class="para"><p>This hint was reported by Daniel Aubry.</p></div>
+<h3 id="_not_excluding_top_level_directories">6.5. Not excluding top-level directories</h3><div style="clear:left"></div>
+<div class="para"><p>When you exclude "/proc" or "/mnt" from your backup, you may run into
+trouble when you restore your backup. When you use "/proc/*" or "/mnt/*"
+instead, <tt>ccollect</tt> will backup empty directories.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="para"><p>When those directories contain hidden files
+(those beginning with a dot (<strong>.</strong>)),
+they will still be transferred!</p></div>
+</td>
+</tr></table>
+</div>
+<div class="para"><p>This hint was reported by Marcus Wagner.</p></div>
+<h3 id="_re_using_already_created_rsync_backups">6.6. Re-using already created rsync-backups</h3><div style="clear:left"></div>
+<div class="para"><p>If you used <tt>rsync</tt> directly before you use <tt>ccollect</tt>, you can
+use this old backup as initial backup for <tt>ccollect</tt>: You
+simply move it into a directory below the destination directory
+and name it "<em>interval</em>.0".</p></div>
+<div class="para"><p>Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>backup:/home/backup/web1# ls
+bin   dev  etc   initrd  lost+found  mnt  root  srv  usr  vmlinuz
+boot  doc  home  lib     media       opt  sbin  tmp  var  vmlinuz.old
+
+backup:/home/backup/web1# mkdir daily.0
+
+# ignore error about copying to itself
+backup:/home/backup/web1# mv * daily.0 2&gt;/dev/null
+
+backup:/home/backup/web1# ls
+daily.0</tt></pre>
+</div></div>
+<div class="para"><p>Now you can use /home/backup/web1 as the <tt>destination</tt> for the backup.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="para"><p>It does not matter anymore how you name your directory, as <tt>ccollect</tt> uses
+the -c option from <tt>ls</tt> to find out which directory to clone from.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="para"><p>Older versions (pre 0.6, iirc) had a problem, if you named the first backup
+something like "daily.initial". It was needed to use the "<strong>0</strong>" (or some
+number that is lower than the current year) as extension. <tt>ccollect</tt>
+used <tt>sort</tt> to find the latest backup. <tt>ccollect</tt> itself uses
+<em>interval.YEARMONTHDAY-HOURMINUTE.PID</em>. This notation was <strong>always</strong> before
+"daily.initial", as numbers are earlier in the list
+which is produced by <tt>sort</tt>. So, if you had a directory named "daily.initial",
+<tt>ccollect</tt> always diffed against this backup and transfered and deleted
+files which where deleted in previous backups. This means you simply
+wasted resources, but your backup had beer complete anyway.</p></div>
+</td>
+</tr></table>
+</div>
+<h3 id="_using_pre_post_exec">6.7. Using pre_/post_exec</h3><div style="clear:left"></div>
+<div class="para"><p>Your pre_/post_exec script does not need to be a script, you can also
+use a link to</p></div>
+<div class="ilist"><ul>
+<li>
+<p>
+an existing program
+</p>
+</li>
+<li>
+<p>
+an already written script
+</p>
+</li>
+</ul></div>
+<div class="para"><p>The only requirement is that it is executable.</p></div>
+<h3 id="_using_source_specific_interval_definitions">6.8. Using source specific interval definitions</h3><div style="clear:left"></div>
+<div class="para"><p>When you are backing up multiple hosts via cron each night, it may be
+a problem that host "big_server" may only have 4 daily backups, because
+otherwise its backup device will be full. But for all other hosts
+you want to keep 20 daily backups. In this case you would create
+<tt>/etc/ccollect/default/intervals/daily</tt> containing "20" and
+<tt>/etc/ccollect/sources/big_server/intervals/daily</tt> containing "4".</p></div>
+<div class="para"><p>Source specific intervals always overwrite the default values.
+If you have to specify it individually for every host, because
+of different requirements, you can even omit creating
+<tt>/etc/ccollect/default/intervals/daily</tt>.</p></div>
+<h3 id="_comparing_backups">6.9. Comparing backups</h3><div style="clear:left"></div>
+<div class="para"><p>If you want to see what changed between two backups, you can use
+<tt>rsync</tt> directly:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>[12:00] u0255:ddba034.netstream.ch#  rsync -n -a --delete --stats --progress daily.20080324-0313.17841/ daily.20080325-0313.31148/</tt></pre>
+</div></div>
+<div class="para"><p>This results in a listing of changes. Because we pass -n to rsync no transfer
+is made (i.e. report only mode)"</p></div>
+<div class="para"><p>This hint was reported by Daniel Aubry.</p></div>
+<h3 id="_testing_for_host_reachabilty">6.10. Testing for host reachabilty</h3><div style="clear:left"></div>
+<div class="para"><p>If you want to test whether the host you try to backup is reachable, you can use
+the following script as source specific pre-exec:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>#!/bin/sh
+# ping -c1 -q `cat "/etc/ccollect/sources/$name/source" | cut -d"@" -f2 | cut -d":" -f1`</tt></pre>
+</div></div>
+<div class="para"><p>This prevents the deletion of old backups, if the host is not reachable.</p></div>
+<div class="para"><p>This hint was reported by Daniel Aubry.</p></div>
+<h3 id="_easy_check_for_errors">6.11. Easy check for errors</h3><div style="clear:left"></div>
+<div class="para"><p>If you want to see whether there have been any errors while doing the backup,
+you can run <tt>ccollect</tt> together with <tt>ccollect_analyse_logs.sh</tt>:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>$ ccollect | ccollect_analyse_logs.sh e</tt></pre>
+</div></div>
+</div>
+<h2 id="_f_a_q">7. F.A.Q.</h2>
+<div class="sectionbody">
+<h3 id="_what_happens_if_one_backup_is_broken_or_empty">7.1. What happens if one backup is broken or empty?</h3><div style="clear:left"></div>
+<div class="para"><p>Let us assume that one backup failed (connection broke or the source
+hard disk had some failures). Therefore we've got one incomplete backup in our history.</p></div>
+<div class="para"><p><tt>ccollect</tt> will transfer the missing files the next time you use it.
+This leads to</p></div>
+<div class="ilist"><ul>
+<li>
+<p>
+more transferred files
+</p>
+</li>
+<li>
+<p>
+much greater disk space usage, as no hardlinks can be used
+</p>
+</li>
+</ul></div>
+<div class="para"><p>If the whole <tt>ccollect</tt> process was interrupted, <tt>ccollect</tt> (since 0.6) can
+detect that and remove the incomplete backups, so you can clone from a complete
+backup instead</p></div>
+<h3 id="_when_backing_up_from_localhost_the_destination_is_also_included_is_this_a_bug">7.2. When backing up from localhost the destination is also included. Is this a bug?</h3><div style="clear:left"></div>
+<div class="para"><p>No. <tt>ccollect</tt> passes your source definition directly to <tt>rsync</tt>. It
+does not try to analyze it. So it actually does not know if a source
+comes from local harddisk or from a remote server. And it does not want
+to. When you backup from the local harddisk (which is perhaps not
+even a good idea when thinking of security), add the <tt>destination</tt>
+to <em>source/exclude</em>. (Daniel Aubry reported this problem)</p></div>
+<h3 id="_why_does_ccollect_say_permission_denied_with_my_pre_postexec_script">7.3. Why does ccollect say "Permission denied" with my pre-/postexec script?</h3><div style="clear:left"></div>
+<div class="para"><p>The most common error is that you have not given your script the correct
+permissions. Try <tt>chmod 0755 /etc/ccollect/sources/<em>yoursource</em>/*_exec</tt>`.</p></div>
+<h3 id="_why_does_the_backup_job_fail_when_part_of_the_source_is_a_link">7.4. Why does the backup job fail when part of the source is a link?</h3><div style="clear:left"></div>
+<div class="para"><p>When a part of your path you specified in the source is a
+(symbolic, hard links are not possible for directories) link,
+the backup <strong>must</strong> fail.</p></div>
+<div class="para"><p>First of all, let us have a look at how it looks like:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>==&gt; ccollect 0.4: Beginning backup using interval taeglich &lt;==
+[testsource] Sa Apr 29 00:01:55 CEST 2006 Beginning to backup
+[testsource] Currently 0 backup(s) exist(s), total keeping 10 backup(s).
+[testsource] Beginning to backup, this may take some time...
+[testsource] Creating /etc/ccollect/sources/testsource/destination/taeglich.2006-04-29-0001.3874 ...
+[testsource] Sa Apr 29 00:01:55 CEST 2006 Transferring files...
+[testsource] rsync: recv_generator: mkdir "/etc/ccollect/sources/testsource/destination/taeglich.2006-04-29-0001.3874/home/user/nico/projekte/ccollect" failed: No such file or directory (2)
+[testsource] rsync: stat "/etc/ccollect/sources/testsource/destination/taeglich.2006-04-29-0001.3874/home/user/nico/projekte/ccollect" failed: No such file or directory (2)
+[...]</tt></pre>
+</div></div>
+<div class="para"><p>So what is the problem? It is very obvious when you look deeper into it:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>% cat /etc/ccollect/sources/testsource/source
+/home/user/nico/projekte/ccollect/ccollect-0.4
+% ls -l /home/user/nico/projekte
+lrwxrwxrwx 1 nico nico 29 2005-12-02 23:28 /home/user/nico/projekte -&gt; oeffentlich/computer/projekte
+% ls -l /etc/ccollect/sources/testsource/destination/taeglich.2006-04-29-0001.3874/home/user/nico
+lrwxrwxrwx 1 nico nico 29 2006-04-29 00:01 projekte -&gt; oeffentlich/computer/projekte</tt></pre>
+</div></div>
+<div class="para"><p><tt>rsync</tt> creates the directory structure before it creates the symbolic link.
+This link now links to something not reachable (dead link). It is
+impossible to create subdirectories under the broken link.</p></div>
+<div class="para"><p>In conclusion you cannot use paths with a linked part.</p></div>
+<div class="para"><p>However, you can backup directories containing symbolic links
+(in this case you could backup /home/user/nico, which contains
+/home/user/nico/projekte and oeffentlich/computer/projekte).</p></div>
+<h3 id="_how_can_i_prevent_missing_the_right_time_to_enter_my_password">7.5. How can I prevent missing the right time to enter my password?</h3><div style="clear:left"></div>
+<div class="para"><p>As <tt>ccollect</tt> first deletes the old backups, it may take some time
+until <tt>rsync</tt> requests the password for the <tt>ssh</tt> session from you.</p></div>
+<div class="para"><p>The easiest way not to miss that point is running <tt>ccollect</tt> in <tt>screen</tt>,
+which has the ability to monitor the output for activity. So as soon as
+your screen beeps, after <tt>ccollect</tt> began to remove the last directory,
+you can enter your password (have a look at screen(1), especially "C-a M"
+and "C-a _", for more information).</p></div>
+</div>
+<h2 id="_examples">8. Examples</h2>
+<div class="sectionbody">
+<h3 id="_a_backup_host_configuration_from_scratch">8.1. A backup host configuration from scratch</h3><div style="clear:left"></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>srwali01:~# mkdir /etc/ccollect
+srwali01:~# mkdir -p /etc/ccollect/defaults/intervals/
+srwali01:~# echo 28 &gt; /etc/ccollect/defaults/intervals/taeglich
+srwali01:~# echo 52 &gt; /etc/ccollect/defaults/intervals/woechentlich
+srwali01:~# cd /etc/ccollect/
+srwali01:/etc/ccollect# mkdir sources
+srwali01:/etc/ccollect# cd sources/
+srwali01:/etc/ccollect/sources# ls
+srwali01:/etc/ccollect/sources# mkdir local-root
+srwali01:/etc/ccollect/sources# cd local-root/
+srwali01:/etc/ccollect/sources/local-root# echo / &gt; source
+srwali01:/etc/ccollect/sources/local-root# cat &gt; exclude &lt;&lt; EOF
+&gt; /proc
+&gt; /sys
+&gt; /mnt
+&gt; EOF
+srwali01:/etc/ccollect/sources/local-root# echo /mnt/hdbackup/local-root &gt; destination
+srwali01:/etc/ccollect/sources/local-root# mkdir /mnt/hdbackup/local-root
+srwali01:/etc/ccollect/sources/local-root# ccollect.sh taeglich local-root
+/o&gt; ccollect.sh: Beginning backup using interval taeglich
+/=&gt; Beginning to backup "local-root" ...
+|-&gt; 0 backup(s) already exist, keeping 28 backup(s).</tt></pre>
+</div></div>
+<div class="para"><p>After that, I added some more sources:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>srwali01:~# cd /etc/ccollect/sources
+srwali01:/etc/ccollect/sources# mkdir windos-wl6
+srwali01:/etc/ccollect/sources# cd windos-wl6/
+srwali01:/etc/ccollect/sources/windos-wl6# echo /mnt/win/SYS/WL6 &gt; source
+srwali01:/etc/ccollect/sources/windos-wl6# ln -s /mnt/hdbackup/wl6 destination
+srwali01:/etc/ccollect/sources/windos-wl6# mkdir /mnt/hdbackup/wl6
+srwali01:/etc/ccollect/sources/windos-wl6# cd ..
+srwali01:/etc/ccollect/sources# mkdir windos-daten
+srwali01:/etc/ccollect/sources/windos-daten# echo /mnt/win/Daten &gt; source
+srwali01:/etc/ccollect/sources/windos-daten# ln -s /mnt/hdbackup/windos-daten destination
+srwali01:/etc/ccollect/sources/windos-daten# mkdir /mnt/hdbackup/windos-daten
+
+# Now add some remote source
+srwali01:/etc/ccollect/sources/windos-daten# cd ..
+srwali01:/etc/ccollect/sources# mkdir srwali03
+srwali01:/etc/ccollect/sources# cd srwali03/
+srwali01:/etc/ccollect/sources/srwali03# cat &gt; exclude &lt;&lt; EOF
+&gt; /proc
+&gt; /sys
+&gt; /mnt
+&gt; /home
+&gt; EOF
+srwali01:/etc/ccollect/sources/srwali03# echo 'root@10.103.2.3:/' &gt; source
+srwali01:/etc/ccollect/sources/srwali03# echo /mnt/hdbackup/srwali03 &gt; destination
+srwali01:/etc/ccollect/sources/srwali03# mkdir /mnt/hdbackup/srwali03</tt></pre>
+</div></div>
+<h3 id="_using_hard_links_requires_less_disk_space">8.2. Using hard-links requires less disk space</h3><div style="clear:left"></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt># du (coreutils) 5.2.1
+[10:53] srsyg01:sources% du -sh ~/backupdir
+4.6M    /home/nico/backupdir
+[10:53] srsyg01:sources% du -sh ~/backupdir/*
+4.1M    /home/nico/backupdir/daily.2005-12-08-10:52.28456
+4.1M    /home/nico/backupdir/daily.2005-12-08-10:53.28484
+4.1M    /home/nico/backupdir/daily.2005-12-08-10:53.28507
+4.1M    /home/nico/backupdir/daily.2005-12-08-10:53.28531
+4.1M    /home/nico/backupdir/daily.2005-12-08-10:53.28554
+4.1M    /home/nico/backupdir/daily.2005-12-08-10:53.28577
+
+srwali01:/etc/ccollect/sources# du -sh /mnt/hdbackup/wl6/
+186M    /mnt/hdbackup/wl6/
+srwali01:/etc/ccollect/sources# du -sh /mnt/hdbackup/wl6/*
+147M    /mnt/hdbackup/wl6/taeglich.2005-12-08-14:42.312
+147M    /mnt/hdbackup/wl6/taeglich.2005-12-08-14:45.588</tt></pre>
+</div></div>
+<div class="para"><p>The backup of our main fileserver:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>backup:~# df -h /home/backup/srsyg01/
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/backup--01-srsyg01
+                      591G  451G  111G  81% /home/backup/srsyg01
+backup:~# du -sh /home/backup/srsyg01/*
+432G    /home/backup/srsyg01/daily.2006-01-24-01:00.15990
+432G    /home/backup/srsyg01/daily.2006-01-26-01:00.30152
+434G    /home/backup/srsyg01/daily.2006-01-27-01:00.4596
+435G    /home/backup/srsyg01/daily.2006-01-28-01:00.11998
+437G    /home/backup/srsyg01/daily.2006-01-29-01:00.19115
+437G    /home/backup/srsyg01/daily.2006-01-30-01:00.26405
+438G    /home/backup/srsyg01/daily.2006-01-31-01:00.1148
+439G    /home/backup/srsyg01/daily.2006-02-01-01:00.8321
+439G    /home/backup/srsyg01/daily.2006-02-02-01:00.15383
+439G    /home/backup/srsyg01/daily.2006-02-03-01:00.22567
+16K     /home/backup/srsyg01/lost+found
+backup:~# du --version | head -n1
+du (coreutils) 5.2.1</tt></pre>
+</div></div>
+<div class="para"><p>Newer versions of du also detect the hardlinks, so we can even compare
+the sizes directly with du:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>[8:16] eiche:~# du --version | head -n 1
+du (GNU coreutils) 5.93
+[8:17] eiche:schwarzesloch# du -slh hydrogenium/*
+19G     hydrogenium/durcheinander.0
+18G     hydrogenium/durcheinander.2006-01-17-00:27.13820
+19G     hydrogenium/durcheinander.2006-01-25-23:18.31328
+19G     hydrogenium/durcheinander.2006-01-26-00:11.3332
+[8:22] eiche:schwarzesloch# du -sh hydrogenium/*
+19G     hydrogenium/durcheinander.0
+12G     hydrogenium/durcheinander.2006-01-17-00:27.13820
+1.5G    hydrogenium/durcheinander.2006-01-25-23:18.31328
+200M    hydrogenium/durcheinander.2006-01-26-00:11.3332</tt></pre>
+</div></div>
+<div class="para"><p>In the second report (without -l) the sizes include the space the inodes of
+the hardlinks allocate.</p></div>
+<h3 id="_a_collection_of_backups_on_the_backup_server">8.3. A collection of backups on the backup server</h3><div style="clear:left"></div>
+<div class="para"><p>All the data of my important hosts is backuped to eiche into
+/mnt/schwarzesloch/backup:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>[9:24] eiche:backup# ls *
+creme:
+woechentlich.2006-01-26-22:22.4153   woechentlich.2006-02-12-11:48.2461
+woechentlich.2006-01-26-22:23.4180   woechentlich.2006-02-18-23:00.7898
+woechentlich.2006-02-05-02:43.14281  woechentlich.2006-02-25-23:00.13480
+woechentlich.2006-02-06-00:24.15509  woechentlich.2006-03-04-23:00.25439
+
+hydrogenium:
+durcheinander.2006-01-27-11:16.6391   durcheinander.2006-02-13-01:07.2895
+durcheinander.2006-01-30-19:29.9505   durcheinander.2006-02-17-08:20.6707
+durcheinander.2006-01-30-22:27.9623   durcheinander.2006-02-24-16:24.12461
+durcheinander.2006-02-03-09:52.12885  durcheinander.2006-03-03-19:17.18075
+durcheinander.2006-02-05-23:00.15068  durcheinander.2006-03-17-22:41.5007
+
+scice:
+woechentlich.2006-02-04-10:32.13766  woechentlich.2006-02-16-23:00.6185
+woechentlich.2006-02-05-23:02.15093  woechentlich.2006-02-23-23:00.11783
+woechentlich.2006-02-06-08:22.15994  woechentlich.2006-03-02-23:00.17346
+woechentlich.2006-02-06-19:40.16321  woechentlich.2006-03-09-23:00.29317
+woechentlich.2006-02-12-11:51.2514   woechentlich.2006-03-16-23:00.4218</tt></pre>
+</div></div>
+<div class="para"><p>And this incremental backup and the archive are copied to an external
+usb harddisk (attention: you <strong>should</strong> really use -H to backup the backup):</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>[9:23] eiche:backup# df -h
+Filesystem            Size  Used Avail Use% Mounted on
+rootfs                 14G  8.2G  4.9G  63% /
+/dev/root              14G  8.2G  4.9G  63% /
+/dev/root              14G  8.2G  4.9G  63% /dev/.static/dev
+tmpfs                  10M  444K  9.6M   5% /dev
+/dev/hdh               29G  3.7M   29G   1% /mnt/datenklo
+tmpfs                 110M  4.0K  110M   1% /dev/shm
+/dev/mapper/nirvana   112G   90G   23G  81% /mnt/datennirvana
+/dev/mapper/schwarzes-loch
+                      230G  144G   86G  63% /mnt/schwarzesloch
+/dev/mapper/archiv     38G   20G   19G  52% /mnt/archiv
+/dev/mapper/usb-backup
+                      280G   36M  280G   1% /mnt/usb/backup
+[9:24] eiche:backup# cat ~/bin/sync-to-usb
+DDIR=/mnt/usb/backup
+
+rsync -av -H --delete /mnt/schwarzesloch/ "$DDIR/schwarzesloch/"
+
+rsync -av -H --delete /mnt/archiv/ "$DDIR/archiv/"</tt></pre>
+</div></div>
+<h3 id="_processes_running_when_doing_ccollect_p">8.4. Processes running when doing ccollect -p</h3><div style="clear:left"></div>
+<div class="para"><p>Truncated output from <tt>ps axuwwwf</tt>:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>   S+   11:40   0:00  |   |   |   \_ /bin/sh /usr/local/bin/ccollect.sh daily -p ddba034 ddba045 ddba046 ddba047 ddba049 ddna010 ddna011
+   S+   11:40   0:00  |   |   |       \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba034
+   S+   11:40   0:00  |   |   |       |   \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba034
+   R+   11:40  23:40  |   |   |       |   |   \_ rsync -a --delete --numeric-ids --relative --delete-excluded --link-dest=/home/server/backup/ddba034
+   S+   11:40   0:00  |   |   |       |   |       \_ ssh -l root ddba034.netstream.ch rsync --server --sender -vlogDtprR --numeric-ids . /
+   S+   11:41   0:11  |   |   |       |   |       \_ rsync -a --delete --numeric-ids --relative --delete-excluded --link-dest=/home/server/backup/ddb
+   S+   11:40   0:00  |   |   |       |   \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba034
+   S+   11:40   0:00  |   |   |       |       \_ sed s:^:\[ddba034\] :
+   S+   11:40   0:00  |   |   |       \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba045
+   S+   11:40   0:00  |   |   |       |   \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba045
+   R+   11:40   0:02  |   |   |       |   |   \_ rm -rf /etc/ccollect/sources/ddba045/destination/daily.2006-10-19-1807.6934
+   S+   11:40   0:00  |   |   |       |   \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba045
+   S+   11:40   0:00  |   |   |       |       \_ sed s:^:\[ddba045\] :
+   S+   11:40   0:00  |   |   |       \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba046
+   S+   11:40   0:00  |   |   |       |   \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba046
+   R+   11:40   0:02  |   |   |       |   |   \_ rm -rf /etc/ccollect/sources/ddba046/destination/daily.2006-10-19-1810.7072
+   S+   11:40   0:00  |   |   |       |   \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba046
+   S+   11:40   0:00  |   |   |       |       \_ sed s:^:\[ddba046\] :
+   S+   11:40   0:00  |   |   |       \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba047
+   S+   11:40   0:00  |   |   |       |   \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba047
+   R+   11:40   0:03  |   |   |       |   |   \_ rm -rf /etc/ccollect/sources/ddba047/destination/daily.2006-10-19-1816.7268
+   S+   11:40   0:00  |   |   |       |   \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba047
+   S+   11:40   0:00  |   |   |       |       \_ sed s:^:\[ddba047\] :
+   S+   11:40   0:00  |   |   |       \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba049
+   S+   11:40   0:00  |   |   |       |   \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba049
+   D+   11:40   0:03  |   |   |       |   |   \_ rm -rf /etc/ccollect/sources/ddba049/destination/daily.2006-10-19-1821.7504
+   S+   11:40   0:00  |   |   |       |   \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba049
+   S+   11:40   0:00  |   |   |       |       \_ sed s:^:\[ddba049\] :
+   S+   11:40   0:00  |   |   |       \_ /bin/sh /usr/local/bin/ccollect.sh daily ddna010
+   S+   11:40   0:00  |   |   |       |   \_ /bin/sh /usr/local/bin/ccollect.sh daily ddna010
+   R+   11:40   0:03  |   |   |       |   |   \_ rm -rf /etc/ccollect/sources/ddna010/destination/daily.2006-10-19-1805.6849
+   S+   11:40   0:00  |   |   |       |   \_ /bin/sh /usr/local/bin/ccollect.sh daily ddna010
+   S+   11:40   0:00  |   |   |       |       \_ sed s:^:\[ddna010\] :
+   S+   11:40   0:00  |   |   |       \_ /bin/sh /usr/local/bin/ccollect.sh daily ddna011
+   S+   11:40   0:00  |   |   |           \_ /bin/sh /usr/local/bin/ccollect.sh daily ddna011
+   R+   12:08   0:00  |   |   |           |   \_ rm -rf /etc/ccollect/sources/ddna011/destination/daily.2006-10-20-1502.7824
+   S+   11:40   0:00  |   |   |           \_ /bin/sh /usr/local/bin/ccollect.sh daily ddna011
+   S+   11:40   0:00  |   |   |               \_ sed s:^:\[ddna011\] :</tt></pre>
+</div></div>
+<div class="para"><p>As you can see, six processes are deleting old backups, while one backup
+(ddba034) is already copying data.</p></div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 0.7.1<br />
+Last updated 2009-01-13 12:04:33 CEST
+</div>
+</div>
+</body>
+</html>

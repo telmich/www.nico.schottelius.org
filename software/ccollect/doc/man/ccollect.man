@@ -1,0 +1,33 @@
+.TH ccollect.sh 1   
+.SH NAME
+ccollect \- (pseudo) incremental backup with different exclude lists using hardlinks and rsync
+.SH SYNOPSIS
+\fIccollect.sh\fR <interval name> [args] <sources to backup>
+.SH DESCRIPTION
+ccollect is a backup utility written in the sh\-scripting language.
+It does not depend on a specific shell, only \fB/bin/sh\fR needs to be
+bourne shell compatibel (like \fIdash\fR, \fIksh\fR, \fIzsh\fR, \fIbash\fR, \&...).
+.PP
+For more information refer to the texinfo or html documentation.
+.SH OPTIONS
+.TP 
+\-h, \-\-help 
+Show the help screen
+.TP 
+\-p, \-\-parallel 
+Parallelise backup processes
+.TP 
+\-a, \-\-all 
+Backup all sources specified in /etc/ccollect/sources
+.TP 
+\-v, \-\-verbose 
+Be very verbose (uses set \-x).
+.SH BUGS
+None.
+.SH AUTHOR
+Nico Schottelius <nico\-linux\-ccollect__@__schottelius.org>
+.SH RESOURCES
+Main web site: http://unix.schottelius.org/ccollect/
+.SH COPYING
+Copyright (C) 2006 Nico Schottelius. Free use of this software is
+granted under the terms of the GNU General Public License (GPL).

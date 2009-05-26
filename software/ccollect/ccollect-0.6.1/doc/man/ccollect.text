@@ -1,0 +1,59 @@
+ccollect(1)
+===========
+Nico Schottelius <nico-ccollect--@--schottelius.org>
+
+
+NAME
+----
+ccollect - (pseudo) incremental backup with different exclude lists using hardlinks and rsync
+
+
+SYNOPSIS
+--------
+'ccollect.sh' <interval name> [args] <sources to backup>
+
+
+DESCRIPTION
+-----------
+`ccollect` is a backup utility written in the sh-scripting language.
+It does not depend on a specific shell, only `/bin/sh` needs to be
+bourne shell compatibel (like 'dash', 'ksh', 'zsh', 'bash', ...).
+
+For more information refer to the manual titled
+"ccollect - Installing, Configuring and Using" (available as texinfo or html).
+
+
+OPTIONS
+-------
+-h, --help::
+   Show the help screen
+
+-p, --parallel::
+   Parallelise backup processes
+
+-a, --all::
+   Backup all sources specified in /etc/ccollect/sources
+
+-v, --verbose::
+   Be very verbose (uses set -x).
+
+SEE ALSO
+--------
+add_ccollect_source(1), ccollect-logwrapper(1)
+delete_ccollect_source(1), list_ccollect_intervals(1)
+
+
+AUTHOR
+------
+Nico Schottelius <mailto:nico-ccollect--@--schottelius.org[]>
+
+
+RESOURCES
+---------
+Main web site: http://unix.schottelius.org/ccollect/[]
+
+
+COPYING
+-------
+Copyright \(C) 2006-2007 Nico Schottelius. Free use of this software is
+granted under the terms of the GNU General Public License Version 3 (GPLv3).

@@ -1,0 +1,48 @@
+.\"     Title: ccollect_delete_source
+.\"    Author: 
+.\" Generator: DocBook XSL Stylesheets v1.73.2 <http://docbook.sf.net/>
+.\"      Date: 03/17/2008
+.\"    Manual: 
+.\"    Source: 
+.\"
+.TH "CCOLLECT_DELETE_SOUR" "1" "03/17/2008" "" ""
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.SH "NAME"
+ccollect_delete_source - delete sources from ccollect(1)
+.SH "SYNOPSIS"
+\fIccollect_delete_source\.sh\fR [\-d] [\-f] <hostnames to create sources for>
+.sp
+.SH "DESCRIPTION"
+ccollect_delete_source\.sh deletes backup sources from ccollect(1) and optional also the backups created for that source\.
+.sp
+.SH "OPTIONS"
+\-d: Delete also the destination directory\. add_ccollect_source\.sh will change to the source/\fIname\fR/destination directory, get the absolute name and delete it recursively\. \-f: Force deletion\. Do not ask\. Very handy for people who know what they do\. Very dangerous for everyone else\.
+.sp
+.SH "FILES"
+.PP
+$CCOLLECT_CONF/sources
+.RS 4
+Directory containing the sources\. $CCOLLECT_CONF is
+\fI/etc/ccollect\fR, if unset\.
+.RE
+.SH "SEE ALSO"
+ccollect(1), ccollect_add_source(1), ccollect_add_source(1), ccollect_logwrapper(1), ccollect_list_intervals(1)
+.sp
+.SH "AUTHOR"
+Nico Schottelius <nico\-ccollect\-\-@\-\-schottelius\.org>
+.sp
+.SH "RESOURCES"
+Main web site: http://unix\.schottelius\.org/ccollect/
+.sp
+.SH "COPYING"
+Copyright (C) 2007\-2008 Nico Schottelius\. Free use of this software is granted under the terms of the GNU General Public License Version 3 (GPLv3)\.
+.sp
+.SH "NOTES"
+.IP " 1." 4
+nico-ccollect--@--schottelius.org
+.RS 4
+\%mailto:nico-ccollect--@--schottelius.org
+.RE

@@ -1,0 +1,86 @@
+\input texinfo
+@setfilename untitled.info
+@documentencoding us-ascii
+@direntry
+* ccollect_sh[1]: .             ??? 
+@end direntry
+
+@node Top, NAME, , (dir)
+@top ccollect.sh(1)
+@documentlanguage en
+
+@menu
+* NAME::
+* SYNOPSIS::
+* DESCRIPTION::
+* OPTIONS::
+* BUGS::
+* AUTHOR::
+* RESOURCES::
+* COPYING::
+
+@detailmenu
+--- The Detailed Node Listing ---
+
+@end detailmenu
+@end menu
+
+@node NAME, SYNOPSIS, Top, Top
+@chapter NAME
+
+ccollect - (pseudo) incremental backup with different exclude lists using hardlinks and rsync
+
+@node SYNOPSIS, DESCRIPTION, NAME, Top
+@chapter SYNOPSIS
+
+@i{ccollect.sh} <interval name> [args] <sources to backup>
+
+@node DESCRIPTION, OPTIONS, SYNOPSIS, Top
+@chapter DESCRIPTION
+
+ccollect is a backup utility written in the sh-scripting language.
+It does not depend on a specific shell, only @samp{/bin/sh} needs to be
+bourne shell compatibel (like @i{dash}, @i{ksh}, @i{zsh}, @i{bash}, @dots{}).
+
+For more information refer to the texinfo or html documentation.
+
+@node OPTIONS, BUGS, DESCRIPTION, Top
+@chapter OPTIONS
+
+@table @asis
+
+@item  -h, ---help 
+ Show the help screen
+
+@item  -p, ---parallel 
+ Parallelise backup processes
+
+@item  -a, ---all 
+ Backup all sources specified in /etc/ccollect/sources
+
+@item  -v, ---verbose 
+ Be very verbose (uses set -x).
+@end table
+
+@node BUGS, AUTHOR, OPTIONS, Top
+@chapter BUGS
+
+None.
+
+@node AUTHOR, RESOURCES, BUGS, Top
+@chapter AUTHOR
+
+Nico Schottelius <@uref{mailto:nico-linux-ccollect__@@__schottelius.org,nico-linux-ccollect__@@__schottelius.org}>
+
+@node RESOURCES, COPYING, AUTHOR, Top
+@chapter RESOURCES
+
+Main web site: @uref{http://unix.schottelius.org/ccollect/,http://unix.schottelius.org/ccollect/}
+
+@node COPYING, , RESOURCES, Top
+@chapter COPYING
+
+Copyright (C) 2006 Nico Schottelius. Free use of this software is
+granted under the terms of the GNU General Public License (GPL).
+
+@bye

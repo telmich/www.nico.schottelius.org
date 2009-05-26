@@ -1,0 +1,46 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>ccollect_add_source(1)</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="id2504039"></a>ccollect_add_source(1)</h2></div><div><div class="author"><h3 class="author"><span class="firstname">Nico</span> <span class="surname">Schottelius</span></h3><div class="affiliation"><div class="address"><p><code class="email">&lt;<a class="email" href="mailto:nico-ccollect--@--schottelius.org">nico-ccollect--@--schottelius.org</a>&gt;</code></p></div></div></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#_name">NAME</a></span></dt><dt><span class="section"><a href="#_synopsis">SYNOPSIS</a></span></dt><dt><span class="section"><a href="#_description">DESCRIPTION</a></span></dt><dt><span class="section"><a href="#_files">FILES</a></span></dt><dt><span class="section"><a href="#_see_also">SEE ALSO</a></span></dt><dt><span class="section"><a href="#_author">AUTHOR</a></span></dt><dt><span class="section"><a href="#_resources">RESOURCES</a></span></dt><dt><span class="section"><a href="#_copying">COPYING</a></span></dt></dl></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_name"></a>NAME</h2></div></div></div><p>ccollect_add_source - create new source for ccollect(1)</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_synopsis"></a>SYNOPSIS</h2></div></div></div><p><span class="emphasis"><em>ccollect_add_source.sh</em></span> &lt;hostnames to create sources for&gt;</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_description"></a>DESCRIPTION</h2></div></div></div><p>ccollect_add_source.sh creates a new backup source for use with ccollect(1).
+It copies the files from to the source directory with the hostname below
+<span class="emphasis"><em>$CCOLLECT_CONF/sources</em></span>. It is designed to run on a backup server to create
+new directories for new hosts.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_files"></a>FILES</h2></div></div></div><div class="variablelist"><dl><dt><span class="term">
+$CCOLLECT_CONF/defaults/sources
+</span></dt><dd>
+   Main configuration directory. $CCOLLECT_CONF is <span class="emphasis"><em>/etc/ccollect</em></span>, if unset.
+   All the following files reside below this directory.
+</dd><dt><span class="term">
+exclude
+, </span><span class="term">
+summary
+, </span><span class="term">
+intervals
+, </span><span class="term">
+pre_exec
+, </span><span class="term">
+post_exec
+, </span><span class="term">
+rsync_options
+, </span><span class="term">
+verbose
+, </span><span class="term">
+very_verbose
+</span></dt><dd>
+   Those are the standard configuration files known by ccollect(1).
+   If the file exist it will be copied to the newly created source.
+   Directories (<span class="emphasis"><em>intervals</em></span>) are copied recursively.
+</dd><dt><span class="term">
+destination_base
+</span></dt><dd>
+   A link to the directory where to store the backups. Below this directory
+   <code class="literal">ccollect_add_source.sh</code> will create a directory with the hostname you
+   specified on the command line. A common valua for <code class="literal">destination_base</code> is
+   <span class="emphasis"><em>/home/server/backup</em></span>.
+</dd><dt><span class="term">
+source_prefix
+, </span><span class="term">
+source_postfix
+</span></dt><dd>
+   <code class="literal">source_prefix</code> is put before the hostname, <code class="literal">source_postfix</code> is appended
+   after it. A common value for <code class="literal">source_prefix</code> maybe <span class="emphasis"><em>root@</em></span> and <span class="emphasis"><em>:/</em></span>
+   for <code class="literal">source_postfix</code>.
+</dd></dl></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_see_also"></a>SEE ALSO</h2></div></div></div><p>ccollect(1), ccollect_analyse_logs.sh, ccollect_delete_source(1),
+ccollect_list_intervals(1), ccollect_logwrapper(1),</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_author"></a>AUTHOR</h2></div></div></div><p>Nico Schottelius &lt;<a class="ulink" href="mailto:nico-ccollect%E2%80%94@--schottelius.org" target="_top">nico-ccollect&#8212;@--schottelius.org</a>&gt;</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_resources"></a>RESOURCES</h2></div></div></div><p>Main web site: <a class="ulink" href="http://unix.schottelius.org/ccollect/" target="_top">http://unix.schottelius.org/ccollect/</a></p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_copying"></a>COPYING</h2></div></div></div><p>Copyright (C) 2007-2008 Nico Schottelius. Free use of this software is
+granted under the terms of the GNU General Public License Version 3 (GPLv3).</p></div></div></body></html>

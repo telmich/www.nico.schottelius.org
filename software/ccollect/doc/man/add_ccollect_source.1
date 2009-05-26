@@ -1,0 +1,73 @@
+.\"     Title: add_ccollect_source
+.\"    Author: 
+.\" Generator: DocBook XSL Stylesheets v1.73.1 <http://docbook.sf.net/>
+.\"      Date: 08/27/2007
+.\"    Manual: 
+.\"    Source: 
+.\"
+.TH "ADD_CCOLLECT_SOURCE" "1" "08/27/2007" "" ""
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.SH "NAME"
+add_ccollect_source - create new source for ccollect(1)
+.SH "SYNOPSIS"
+\fIadd_ccollect_source\.sh\fR <hostnames to create sources for>
+.sp
+.SH "DESCRIPTION"
+add_ccollect_source\.sh creates a new backup source for use with ccollect(1)\. It copies the files from to the source directory with the hostname below \fI$CCOLLECT_CONF/sources\fR\.
+.sp
+.SH "FILES"
+.PP
+$CCOLLECT_CONF/defaults/sources
+.RS 4
+Main configuration directory\. $CCOLLECT_CONF is
+\fI/etc/ccollect\fR, if unset\. All the following files reside below this directory\.
+.RE
+.PP
+exclude, summary, intervals, pre_exec, post_exec, rsync_options, verbose, very_verbose
+.RS 4
+Those are the standard configuration files known by ccollect(1)\. If the file exist it will be copied to the newly created source\. Directories (\fIintervals\fR) are copied recursively\.
+.RE
+.PP
+destination_base
+.RS 4
+A link to the directory where to store the backups\. Below this directory
+add_ccollect_source\.sh
+will create a directory with the hostname you specified on the command line\.
+.RE
+.PP
+source_prefix, source_postfix
+.RS 4
+
+source_prefix
+is put before the hostname,
+source_postfix
+is appended after it\. A common value for
+source_prefix
+maybe
+\fIroot@\fR
+and
+\fI:/\fR
+for
+source_postfix\.
+.RE
+.SH "SEE ALSO"
+ccollect(1), ccollect\-logwrapper(1), delete_ccollect_source(1), list_ccollect_intervals(1)
+.sp
+.SH "AUTHOR"
+Nico Schottelius <nico\-ccollect\-\-@\-\-schottelius\.org>
+.sp
+.SH "RESOURCES"
+Main web site: http://unix\.schottelius\.org/ccollect/
+.sp
+.SH "COPYING"
+Copyright (C) 2007 Nico Schottelius\. Free use of this software is granted under the terms of the GNU General Public License Version 3 (GPLv3)\.
+.sp
+.SH "NOTES"
+.IP " 1." 4
+nico-ccollect--@--schottelius.org
+.RS 4
+\%mailto:nico-ccollect--@--schottelius.org
+.RE

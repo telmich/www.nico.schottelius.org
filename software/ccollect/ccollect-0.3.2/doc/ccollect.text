@@ -1,0 +1,573 @@
+ccollect - Installing, Configuring and Using
+============================================
+Nico Schottelius <nico-linux-ccollect__@__schottelius.org>
+0.3.1, for ccollect 0.3.1, Initial Version from 2005-01-13
+:Author Initials: NS
+
+(pseudo) incremental backup
+with different exclude lists
+using hardlinks and `rsync`
+
+Introduction
+------------
+ccollect is a backup utitily written in the sh-scripting language.
+It does not depend on a specific shell, only `/bin/sh` needs to be
+bourne shell compatibel (like 'dash', 'ksh', 'zsh', 'bash', ...).
+
+
+Why you can only backup TO localhost
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+While thinking about the design of ccollect, I thought about enabling
+backup to *remote* hosts. Though this sounds like a nice feature
+('Backup my notebook to the server now.'), it is in my opinion a
+bad idea to backup to a remote host, because you have to open
+security at your backup host. Think of the following situation: You backup
+your farm of webservers *to* a backup host somewhere else. One of
+your webservers gets compromised, then your backup server will be compromised,
+too. Think of it the other way round: The backup server (now behind a
+firewall using NAT and strong firewall rules) connects to the
+webservers and pulls the data to it. If someone gets access to the
+webserver, the person will perhaps not even see your machine. If
+he/she sees that there are connections from a host to the compromised
+machine, he/she will not be able to login to the backup machine.
+All other backups are still secure.
+
+
+Requirements
+------------
+
+Installing ccollect
+~~~~~~~~~~~~~~~~~~~
+
+For the installation, you need at least
+
+  - either `cp` and `chmod` or `install`
+  - for more comfort: `make`
+  - for rebuilding the generated documentation: additionally `asciidoc`
+
+
+Using ccollect
+~~~~~~~~~~~~~~
+.Running ccollect requires the following tools installed:
+   - `bc`
+   - `cp` with support for hard links ('cp -al')
+   - `date`
+   - `rsync`
+   - `ssh` (if you want to use rsync over ssh, which is recommened for security)
+
+
+Installing
+----------
+Either type 'make install' or simply copy it to a directory in your
+$PATH and execute 'chmod *0755* /path/to/ccollect.sh'.
+
+
+Configuring
+-----------
+
+Runtime options
+~~~~~~~~~~~~~~~
+`ccollect` looks for its configuration in '/etc/ccollect' or, if set, in
+the directory specified by the variable '$CCOLLECT_CONF'
+(use 'CCOLLECT_CONF=/your/config/dir ccollect.sh' on the shell).
+
+When you start `ccollect`, you have either to specify which intervall
+to backup (daily, weekly, yearly; you can specify the names yourself, see below).
+
+The intervall is used to specify how many backups to keep.
+
+There are also some self explaining parameters you can pass to ccollect, simply use
+"ccollect.sh --help" for info.
+
+
+General configuration
+~~~~~~~~~~~~~~~~~~~~~
+The general configuration can be found below $CCOLLECT_CONF/defaults or
+/etc/ccollect/defaults. All options specified here are generally valid for
+all source definitions. Though the values can be overwritten in the source
+configuration.
+
+All configuration entries are plain-text (use UTF-8 if you use
+non ASCII characters) files.
+
+
+Intervall definition
+^^^^^^^^^^^^^^^^^^^^
+The intervall definition can be found below
+'$CCOLLECT_CONF/defaults/intervalls/' or '/etc/ccollect/defaults/intervalls'. 
+Every file below this directory specifies an intervall. The name of the file is the
+name of the intervall: `intervalls/'<intervall name>'`.
+
+The content of this file should be a single line containing a number.
+This number defines how many versions of this intervall to keep.
+
+Example:
+-------------------------------------------------------------------------
+   [10:23] zaphodbeeblebrox:ccollect-0.2% ls -l conf/defaults/intervalls/
+   insgesamt 12
+   -rw-r--r--  1 nico users 3 2005-12-08 10:24 daily
+   -rw-r--r--  1 nico users 3 2005-12-08 11:36 monthly
+   -rw-r--r--  1 nico users 2 2005-12-08 11:36 weekly
+   [10:23] zaphodbeeblebrox:ccollect-0.2% cat conf/defaults/intervalls/*
+   28
+   12
+   4
+--------------------------------------------------------------------------------
+This means to keep 28 daily backups, 12 monthly backups and 4 weekly.
+
+General pre- and post-execution
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you add '$CCOLLECT_CONF/defaults/`pre_exec`' or
+'/etc/ccollect/defaults/`pre_exec`' (same with `post_exec`), `ccollect`
+will start `pre_exec` before the whole backup process and
+`post_exec` after backup of all sources is done.
+
+The following Example describes how to report free disk space in
+human readable format before and after the whole backup process:
+-------------------------------------------------------------------------
+[13:00] hydrogenium:~# mkdir -p /etc/ccollect/defaults/
+[13:00] hydrogenium:~# echo '!/bin/sh' >  /etc/ccollect/defaults/pre_exec
+[13:01] hydrogenium:~# echo ''         >> /etc/ccollect/defaults/pre_exec 
+[13:01] hydrogenium:~# echo 'df -h'    >> /etc/ccollect/defaults/pre_exec
+[13:01] hydrogenium:~# chmod 0755 /etc/ccollect/defaults/pre_exec
+[13:01] hydrogenium:~# ln -s /etc/ccollect/defaults/pre_exec /etc/ccollect/defaults/post_exec
+-------------------------------------------------------------------------
+
+Source configuration
+~~~~~~~~~~~~~~~~~~~~
+Each source configuration exists below '$CCOLLECT_CONF/sources/$name' or
+'/etc/ccollect/sources/$name'.
+
+The name you choose for the subdirectory describes the source.
+
+Each source has at least the following files:
+
+   - `source`       (a text file containing the `rsync` compatible path to backup)
+   - `destination`  (a link to the directory we should backup to)
+
+Additionally a source may have the following files:
+
+   - `verbose`       whether to be verbose (passes -v to `rsync`)
+   - `very_verbose`  be very verbose (-v also for `mkdir`, `cp`, `rm`)
+   - `summary`       create a transfer summary when `rsync` finished
+
+   - `exclude`       exclude list for `rsync`. newline ('\n') seperated list.
+   - `rsync_options' extra options to pass to `rsync`
+
+   - `pre_exec`      program to execute before backuping this source
+   - `post_exec`     program to execute after backuping this source
+
+Example:
+--------------------------------------------------------------------------------
+   [10:47] zaphodbeeblebrox:ccollect-0.2% ls -l  conf/sources/testsource2
+   insgesamt 12
+   lrwxrwxrwx  1 nico users   20 2005-11-17 16:44 destination -> /home/nico/backupdir
+   -rw-r--r--  1 nico users   62 2005-12-07 17:43 exclude
+   drwxr-xr-x  2 nico users 4096 2005-12-07 17:38 intervalls
+   -rw-r--r--  1 nico users   15 2005-11-17 16:44 source
+   [10:47] zaphodbeeblebrox:ccollect-0.2% cat conf/sources/testsource2/exclude 
+   openvpn-2.0.1.tar.gz
+   nicht_reinnehmen
+   etwas mit leerzeichenli
+   [10:47] zaphodbeeblebrox:ccollect-0.2% ls -l  conf/sources/testsource2/intervalls
+   insgesamt 4
+   -rw-r--r--  1 nico users 2 2005-12-07 17:38 daily
+   [10:48] zaphodbeeblebrox:ccollect-0.2% cat conf/sources/testsource2/intervalls/daily 
+   5
+   [10:48] zaphodbeeblebrox:ccollect-0.2% cat conf/sources/testsource2/source 
+   /home/nico/vpn
+--------------------------------------------------------------------------------
+
+Detailled description of "source"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`source` describes a `rsync` compatible source (one line only).
+ 
+For instance 'backup_user@foreign_host:/home/server/video'.
+To use the `rsync` protocol without the `ssh`-tunnel, use
+'rsync::USER@HOST/SRC'. For more information have a look at `rsync`(1).
+ 
+Detailled description of "verbose"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`verbose` tells `ccollect` that the log should contain verbose messages.
+
+If this file exists in the source specification *-v* will be passed to `rsync`.
+
+Example:
+--------------------------------------------------------------------------------
+   [11:35] zaphodbeeblebrox:ccollect-0.2% touch conf/sources/testsource1/verbose
+--------------------------------------------------------------------------------
+
+Detailled description of "very_verbose"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`very_verbose` tells `ccollect` that it should log very verbose.
+
+If this file exists in the source specification *-v* will be passed to
+`rsync`, `cp`, `rm` and `mkdir`.
+
+Example:
+--------------------------------------------------------------------------------
+   [23:67] nohost:~% touch conf/sources/testsource1/very_verbose
+--------------------------------------------------------------------------------
+
+Detailled description of "summary"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you create the file `summary` below the source definition,
+`ccollect` will present you with a nice summary at the end.
+
+-------------------------------------------------------------------------------
+backup:~# touch /etc/ccollect/sources/root/summary
+backup:~# ccollect.sh werktags root
+==> ccollect.sh: Beginning backup using intervall werktags <==
+[root] Beginning to backup this source ...
+[root] Currently 3 backup(s) exist, total keeping 50 backup(s).
+[root] Beginning to backup, this may take some time...
+[root] Hard linking...
+[root] Transferring files...
+[root] 
+[root] Number of files: 84183
+[root] Number of files transferred: 32
+[root] Total file size: 26234080536 bytes
+[root] Total transferred file size: 9988252 bytes
+[root] Literal data: 9988252 bytes
+[root] Matched data: 0 bytes
+[root] File list size: 3016771
+[root] File list generation time: 1.786 seconds
+[root] File list transfer time: 0.000 seconds
+[root] Total bytes sent: 13009119
+[root] Total bytes received: 2152
+[root] 
+[root] sent 13009119 bytes  received 2152 bytes  2891393.56 bytes/sec
+[root] total size is 26234080536  speedup is 2016.26
+[root] Successfully finished backup.
+==> Finished ccollect.sh <==
+-------------------------------------------------------------------------------
+
+You could also combine it with `verbose` or `very_verbose`, but they
+already print some statistics (but not all / the same as presented by
+`summary`).
+
+
+Detailled description of "exclude"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`exclude` specifies a list of paths to exclude. The entries are new line (\n)
+seperated.
+
+Example:
+--------------------------------------------------------------------------------
+   [11:35] zaphodbeeblebrox:ccollect-0.2% cat conf/sources/testsource2/exclude 
+   openvpn-2.0.1.tar.gz
+   nicht_reinnehmen
+   etwas mit leerzeichenli
+   something with spaces is not a problem
+--------------------------------------------------------------------------------
+
+
+Detailled description of "destination"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`destination` must be a link to the destination directory.
+
+Example:
+--------------------------------------------------------------------------------
+   [11:36] zaphodbeeblebrox:ccollect-0.2% ls -l conf/sources/testsource2/destination 
+   lrwxrwxrwx  1 nico users 20 2005-11-17 16:44 conf/sources/testsource2/destination -> /home/nico/backupdir
+--------------------------------------------------------------------------------
+
+
+Detailled description of "intervalls/"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+When you create a subdirectory `intervalls/` within your source configuration
+directory, you can specify individiual intervalls for this specific source.
+Each file below this directory describes an intervall.
+
+Example:
+--------------------------------------------------------------------------------
+   [11:37] zaphodbeeblebrox:ccollect-0.2% ls -l conf/sources/testsource2/intervalls/      
+   insgesamt 8
+   -rw-r--r--  1 nico users 2 2005-12-07 17:38 daily
+   -rw-r--r--  1 nico users 3 2005-12-14 11:33 yearly
+   [11:37] zaphodbeeblebrox:ccollect-0.2% cat  conf/sources/testsource2/intervalls/*
+   5
+   20
+--------------------------------------------------------------------------------
+
+Detailled description of "rsync_options"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When you create the file `rsync_options` below your source configuration,
+all the parameters found in this file will be passed to rsync. This
+way you can pass additional options to rsync. For instance you can tell rsync
+to show progress ("--progress") or which -password-file ("--password-file")
+to use for automatic backup over the rsync-protocol.
+
+Example:
+--------------------------------------------------------------------------------
+   [23:42] hydrogenium:ccollect-0.2% cat conf/sources/test_rsync/rsync_options
+   --password-file=/home/user/backup/protected_password_file
+--------------------------------------------------------------------------------
+
+Detailled description of "pre_exec" and "post_exec"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When you create `pre_exec` and / or `post_exec` below your source
+configuration, `ccollect` will execute this command before,
+respective after doing the backup for *this specific* source.
+If you want to have pre-/post-exec before and after *all*
+backups, see above for general configuration.
+
+Example:
+--------------------------------------------------------------------------------
+[13:09] hydrogenium:ccollect-0.3% cat conf/sources/with_exec/pre_exec 
+#!/bin/sh
+
+# Show whats free before
+df -h
+[13:09] hydrogenium:ccollect-0.3% cat conf/sources/with_exec/post_exec 
+#!/bin/sh
+
+# Show whats free after
+df -h
+--------------------------------------------------------------------------------
+
+Hints
+-----
+
+Using rsync protocol without ssh
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When you have a computer with little computing power, it may be useful to use
+rsync without ssh, directly using the rsync protocol
+(specify 'user@host::share' in `source`). You may wish to use
+`rsync_options` to specify a password file to use for automatic backup.
+
+
+Example:
+--------------------------------------------------------------------------------
+backup:~# cat /etc/ccollect/sources/sample.backup.host.org/source         
+backup@webserver::backup-share
+
+backup:~# cat /etc/ccollect/sources/sample.backup.host.org/rsync_options 
+--password-file=/etc/ccollect/sources/sample.backup.host.org/rsync_password
+
+backup:~# cat /etc/ccollect/sources/sample.backup.host.org/rsync_password 
+this_is_the_rsync_password
+--------------------------------------------------------------------------------
+This hint was reported by Daniel Aubry.
+
+
+Not-excluding top-level directories
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When you exclude "/proc" or "/mnt" from your backup, you may run into
+trouble when you restore your backup. When you use "/proc/\*" or "/mnt/\*"
+instead `ccollect` will backup empty directories.
+
+[NOTE]
+===========================================
+When those directories contain hidden files
+(those beginning with a dot (*.*)),
+they will still be transferred!
+===========================================
+This hint was reported by Marcus Wagner.
+
+
+Re-using already created rsync-backups
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you used `rsync` directly before you use `ccollect`, you can
+use this old backup as initial backup for `ccollect`: You
+simply move it into a subdirectory named "'intervall'.0".
+
+Example:
+-------------------------------------------------------------------------------
+backup:/home/backup/web1# ls
+bin   dev  etc   initrd  lost+found  mnt  root  srv  usr  vmlinuz
+boot  doc  home  lib     media       opt  sbin  tmp  var  vmlinuz.old
+
+backup:/home/backup/web1# mkdir daily.0
+
+# ignore error about copying to itself
+backup:/home/backup/web1# mv * daily.0 2>/dev/null
+
+backup:/home/backup/web1# ls
+daily.0
+-------------------------------------------------------------------------------
+Now you could use /home/backup/web1 as the `destination` for the backup.
+
+[NOTE]
+===============================================================================
+Do *not* name the first backup something like "daily.initial", but use
+the "*0*" (or some very low number, at least lower than the current year)
+as extension. `ccollect` uses `sort` to find the latest backup. `ccollect`
+itself uses 'intervall.YEAR-MONTH-DAY-HOUR:MINUTE.PID'. This notation will
+*always* be before "daily.initial", as numbers are earlier in the list
+which is produced by `sort`. So, if you have a directory named "daily.initial",
+`ccollect` will always diff against this backup and transfer and delete
+files which where deleted in previous backups. This means you simply
+waste resources, but your backup will be complete.
+===============================================================================
+
+
+Using pre_/post_exec
+~~~~~~~~~~~~~~~~~~~~
+Your pre_/post_exec script does not need to be a script, you can also
+use a link to
+
+   - an existing program
+   - an already written script
+
+The only requirement is that it is executable.
+
+F.A.Q.
+------
+
+What happens, if one backup is broken or empty?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Let us assume, that one backup failed (connection broke or hard disk had
+some failures). So we've one backup in our history, which is incomplete.
+
+The next time you use `ccollect`, it will transfer the missing files
+
+
+When backing up from localhost the destination is also included. Is this a bug?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+No. `ccollect` passes your source definition directly to `rsync`. It
+does not try to analyze it. So it actually does not know if a source
+comes from local harddisk or from a remote server. And it does not want
+to. When you backup from the local harddisk (which is perhaps not
+even a good idea when thinking of security) add the `destination`
+to 'source/exclude'. (Daniel Aubry reported this problem)
+
+
+Why does ccollect say "Permission denied" with my pre-/postexec script?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The most common error is to not give your script the correct
+permissions. Try `chmod 0755 /etc/ccollect/sources/'yoursource'/*_exec``.
+
+
+Examples
+--------
+
+A backup host configuration from scratch
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+--------------------------------------------------------------------------------
+srwali01:~# mkdir /etc/ccollect
+srwali01:~# mkdir -p /etc/ccollect/defaults/intervalls/
+srwali01:~# echo 28 > /etc/ccollect/defaults/intervalls/taeglich
+srwali01:~# echo 52 > /etc/ccollect/defaults/intervalls/woechentlich
+srwali01:~# cd /etc/ccollect/
+srwali01:/etc/ccollect# mkdir sources
+srwali01:/etc/ccollect# cd sources/
+srwali01:/etc/ccollect/sources# ls
+srwali01:/etc/ccollect/sources# mkdir local-root
+srwali01:/etc/ccollect/sources# cd local-root/
+srwali01:/etc/ccollect/sources/local-root# echo / > source
+srwali01:/etc/ccollect/sources/local-root# cat > exclude << EOF
+> /proc
+> /sys
+> /mnt
+> EOF
+srwali01:/etc/ccollect/sources/local-root# ln -s /mnt/hdbackup/local-root destination
+srwali01:/etc/ccollect/sources/local-root# mkdir /mnt/hdbackup/local-root
+srwali01:/etc/ccollect/sources/local-root# ccollect.sh taeglich local-root
+/o> ccollect.sh: Beginning backup using intervall taeglich
+/=> Beginning to backup "local-root" ...
+|-> 0 backup(s) already exist, keeping 28 backup(s).
+--------------------------------------------------------------------------------
+
+After that, I added some more sources:
+--------------------------------------------------------------------------------
+srwali01:~# cd /etc/ccollect/sources
+srwali01:/etc/ccollect/sources# mkdir windos-wl6
+srwali01:/etc/ccollect/sources# cd windos-wl6/
+srwali01:/etc/ccollect/sources/windos-wl6# echo /mnt/win/SYS/WL6 > source
+srwali01:/etc/ccollect/sources/windos-wl6# ln -s /mnt/hdbackup/wl6 destination
+srwali01:/etc/ccollect/sources/windos-wl6# mkdir /mnt/hdbackup/wl6
+srwali01:/etc/ccollect/sources/windos-wl6# cd ..
+srwali01:/etc/ccollect/sources# mkdir windos-daten
+srwali01:/etc/ccollect/sources/windos-daten# echo /mnt/win/Daten > source
+srwali01:/etc/ccollect/sources/windos-daten# ln -s /mnt/hdbackup/windos-daten destination
+srwali01:/etc/ccollect/sources/windos-daten# mkdir /mnt/hdbackup/windos-daten
+
+# Now add some remote source
+srwali01:/etc/ccollect/sources/windos-daten# cd ..
+srwali01:/etc/ccollect/sources# mkdir srwali03
+srwali01:/etc/ccollect/sources# cd srwali03/
+srwali01:/etc/ccollect/sources/srwali03# cat > exclude << EOF
+> /proc
+> /sys
+> /mnt
+> /home
+> EOF
+srwali01:/etc/ccollect/sources/srwali03# echo 'root@10.103.2.3:/' > source
+srwali01:/etc/ccollect/sources/srwali03# ln -s /mnt/hdbackup/srwali03 destination
+srwali01:/etc/ccollect/sources/srwali03# mkdir /mnt/hdbackup/srwali03
+--------------------------------------------------------------------------------
+
+Using hard-links requires less disk space
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-------------------------------------------------------------------------
+# du (coreutils) 5.2.1
+[10:53] srsyg01:sources% du -sh ~/backupdir 
+4.6M    /home/nico/backupdir
+[10:53] srsyg01:sources% du -sh ~/backupdir/*
+4.1M    /home/nico/backupdir/daily.2005-12-08-10:52.28456
+4.1M    /home/nico/backupdir/daily.2005-12-08-10:53.28484
+4.1M    /home/nico/backupdir/daily.2005-12-08-10:53.28507
+4.1M    /home/nico/backupdir/daily.2005-12-08-10:53.28531
+4.1M    /home/nico/backupdir/daily.2005-12-08-10:53.28554
+4.1M    /home/nico/backupdir/daily.2005-12-08-10:53.28577
+
+srwali01:/etc/ccollect/sources# du -sh /mnt/hdbackup/wl6/         
+186M    /mnt/hdbackup/wl6/
+srwali01:/etc/ccollect/sources# du -sh /mnt/hdbackup/wl6/*
+147M    /mnt/hdbackup/wl6/taeglich.2005-12-08-14:42.312
+147M    /mnt/hdbackup/wl6/taeglich.2005-12-08-14:45.588
+-------------------------------------------------------------------------
+
+The backup of our main fileserver:
+-------------------------------------------------------------------------
+backup:~# df -h /home/backup/srsyg01/ 
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/backup--01-srsyg01
+                      591G  451G  111G  81% /home/backup/srsyg01
+backup:~# du -sh /home/backup/srsyg01/*
+432G    /home/backup/srsyg01/daily.2006-01-24-01:00.15990
+432G    /home/backup/srsyg01/daily.2006-01-26-01:00.30152
+434G    /home/backup/srsyg01/daily.2006-01-27-01:00.4596
+435G    /home/backup/srsyg01/daily.2006-01-28-01:00.11998
+437G    /home/backup/srsyg01/daily.2006-01-29-01:00.19115
+437G    /home/backup/srsyg01/daily.2006-01-30-01:00.26405
+438G    /home/backup/srsyg01/daily.2006-01-31-01:00.1148
+439G    /home/backup/srsyg01/daily.2006-02-01-01:00.8321
+439G    /home/backup/srsyg01/daily.2006-02-02-01:00.15383
+439G    /home/backup/srsyg01/daily.2006-02-03-01:00.22567
+16K     /home/backup/srsyg01/lost+found
+backup:~# du --version | head -n1
+du (coreutils) 5.2.1
+-------------------------------------------------------------------------
+
+Newer versions of du also detect the hardlinks, so we can even compare
+the sizes directly with du:
+-------------------------------------------------------------------------
+[8:16] eiche:~# du --version | head -n 1
+du (GNU coreutils) 5.93
+[8:17] eiche:schwarzesloch# du -slh hydrogenium/*                                  
+19G     hydrogenium/durcheinander.0
+18G     hydrogenium/durcheinander.2006-01-17-00:27.13820
+19G     hydrogenium/durcheinander.2006-01-25-23:18.31328
+19G     hydrogenium/durcheinander.2006-01-26-00:11.3332
+[8:22] eiche:schwarzesloch# du -sh hydrogenium/* 
+19G     hydrogenium/durcheinander.0
+12G     hydrogenium/durcheinander.2006-01-17-00:27.13820
+1.5G    hydrogenium/durcheinander.2006-01-25-23:18.31328
+200M    hydrogenium/durcheinander.2006-01-26-00:11.3332
+-------------------------------------------------------------------------
+
+In the second report the sizes include the space the inodes of
+the hardlinks allocate.

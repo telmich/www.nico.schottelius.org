@@ -1,0 +1,319 @@
+\input texinfo
+@setfilename untitled.info
+@documentencoding us-ascii
+@direntry
+* ccollect- Installieren; Konfigurieren und Anwenden: .
+                                                  ??? 
+@end direntry
+
+@node Top, Einleitung, , (dir)
+@top ccollect- Installieren, Konfigurieren und Anwenden
+@documentlanguage en
+
+inkrementelle Datensicherung
+mit @i{hardlinks} und @i{rsync}
+
+@menu
+* Einleitung::
+* Installation::
+* Konfiguration::
+
+@detailmenu
+--- The Detailed Node Listing ---
+
+Installation
+
+* Anforderungen::
+* Installieren::
+
+Konfiguration
+
+* Konfigurationsverzeichnisse::
+* Intervalle::
+* Sources::
+* Quelle::
+* Ziel::
+* Spezielles::
+
+@end detailmenu
+@end menu
+
+@node Einleitung, Installation, Top, Top
+@chapter Einleitung
+
+@i{ccollect} ist ein Backuptool geschrieben in der sh-skript Programmiersprache.
+Es braucht nichts besonderes nur die @i{/bin/sh}-Konsole (oder eine kompatible).
+
+@node Installation, Konfiguration, Einleitung, Top
+@chapter Installation
+
+@menu
+* Anforderungen::
+* Installieren::
+@end menu
+
+@node Anforderungen, Installieren, , Installation
+@section Anforderungen
+
+@strong{Die aufgelisteten Werkzeuge m@"ussen f@"ur das Benutzen von ccollect installiert sein:}
+
+@itemize @bullet{}
+
+@item
+bc
+
+@item
+cp
+
+@item
+rsync
+
+@item
+date
+
+@item
+ssh (optional, wenn man ssh-Verbindungen nutzen moechte)
+@end itemize
+
+Am besten @"uberpr@"ufen Sie das mit dem Befehl @i{apt-get install bc rsync ssh}.
+Beim Fehlen eines Werkzeuges wird dieses nachinstalliert.
+
+@node Installieren, , Anforderungen, Installation
+@section Installieren
+
+@enumerate 
+
+@item
+Laden Sie sich die neuste Version von ccollect herunter.
+ Diese finden Sie unter: @i{http://linux.schottelius.org/ccollect}
+
+@item
+Wechseln Sie in der Konsole mit "cd @i{Pfad" in das Verzeichniss,
+ indem sich das ccollect Archiv befindet.
+ Entpacken Sie das Archiv mit "tar xvfj ccollect-$version.tar.bz2".
+ Am Besten ist es, wenn Sie jetzt in das Verzeichniss mit den
+ entpackten Daten wechseln: "cd 'pfad/'ccollect-'version}.
+
+@item
+Danach kopieren Sie die Datei @i{ccollect.sh} aus dem entpackten Archiv nach
+ /usr/local/bin. Das geht mit dem Befehl "cp ccollect.sh /usr/local/bin".
+
+@item
+Nun @"andern Sie die Rechte f@"ur die Datei damit jeder Benutzer das
+ Programm verwenden kann: "chmod 0755 /usr/local/bin/ccollect.sh"
+
+@item
+Erstellen Sie nun das Konfigurationsverzeichnis f@"ur ccollect:
+ "mkdir /etc/ccollect/"
+
+@item
+Starten sie nun zum Testen das Programm ccollect mit dem Befehl
+ @samp{ccollect.sh} in der Konsole.
+@end enumerate
+
+@node Konfiguration, , Installation, Top
+@chapter Konfiguration
+
+@menu
+* Konfigurationsverzeichnisse::
+* Intervalle::
+* Sources::
+* Quelle::
+* Ziel::
+* Spezielles::
+@end menu
+
+@node Konfigurationsverzeichnisse, Intervalle, , Konfiguration
+@section Konfigurationsverzeichnisse
+
+Die Konfigurationsdaten befinden sich bei ccollect im oben erstellten Verzeichnis
+"/etc/ccollect". Um ccollect richtig konfigurieren zu k@"onnen ben@"otigen Sie
+noch ein paar weitere Verzeichnisse:
+
+@itemize @bullet{}
+
+@item
+"/etc/ccollect/defaults" mit:
+ @i{mkdir /etc/ccollect/defaults}
+
+@item
+"/etc/ccollect/defaults/intervals" mit:
+ @i{mkdir /etc/ccollect/defaults/intervals}
+
+@item
+"/etc/ccollect/sources" mit:
+ @i{mkdir /etc/ccollect/sources}
+@end itemize
+
+@node Intervalle, Sources, Konfigurationsverzeichnisse, Konfiguration
+@section Intervalle
+
+Der Intervall-Wert definiert, wie viele Backup-Versionen ccollect von
+den gesicherten Daten behalten soll.
+Der Name der Datei, in der der Wert steht, ist zugleich auch der
+Name des Intervalls.
+
+@example
+julian@@flumy:/etc/ccollect/defaults/intervals$ ls
+daily
+julian@@flumy:/etc/ccollect/defaults/intervals$ cat daily
+7
+julian@@flumy:/etc/ccollect/defaults/intervals$
+@end example
+
+@menu
+* Intervall erstellen::
+@end menu
+
+@node Intervall erstellen, , , Intervalle
+@subsection Intervall erstellen
+
+Sie erstellen einen Intervall wie folgt:
+
+@enumerate 
+
+@item
+Wechseln Sie in das Intervall-Verzeichnis: @i{cd /etc/ccollect/defaults/intervals}.
+
+@item
+Erstellen Sie einen neuen Intervall mit dem Befehl
+ "echo @i{wert} > @i{Intervall-Name}"
+@end enumerate
+
+@node Sources, Quelle, Intervalle, Konfiguration
+@section Sources
+
+Mit Sourcen meint man bei @i{ccollect} die Quelldaten. Der Wert einer @i{source}-Datei
+verweist auf einen Pfad in dem sich die zu sichernden Daten befinden.
+
+@strong{Im Ordner /etc/ccollect/sources/* wird festgelegt:}
+
+@itemize @bullet{}
+
+@item
+Der Sicherungs-Titel
+
+@item
+Quell- und Ziel-Verzeichnis
+
+@item
+Spezielle Einstellungen
+@end itemize
+
+@menu
+* Sicherungs-Titel::
+@end menu
+
+@node Sicherungs-Titel, , , Sources
+@subsection Sicherungs-Titel
+
+Der Sicherungstitel ist der Name eines Ordners in /etc/ccollect/sources.
+
+Man erstellt also ein neue neue Sicherung mit dem Befehl
+"mkdir @i{/etc/ccollect/sources/'Sicherungs-Titel}".
+In diesem Verzeichnis folgen dann die spezifischen Konfigurationsdaten
+(nur!) f@"ur diese Sicherung.
+
+@node Quelle, Ziel, Sources, Konfiguration
+@section Quelle
+
+Mit Quelle ist gemeint welche Daten gesichert werden.
+Dies wird in der Konfigurationsdatei @i{source} festgelegt.
+
+Diese liegt im Verzeichnis "/etc/ccollect/sources/@i{Sicherungs-Titel}".
+Wechseln Sie in das Verzeichnis mit dem Sicherungs-Titel und erstellen Sie die
+Datei mit "echo @i{Quellpfad} > source".
+
+@menu
+* Exclude::
+@end menu
+
+@node Exclude, , , Quelle
+@subsection Exclude
+
+Es kann vorkommen das man in einem Verzeichniss alles sichern will
+bis auf ein paar Unterordner.
+F@"ur dieses Vorhaben gibt es die Datei @i{exclude}, die sich wiederum
+im Verzeichnis @i{Sicherungs-Titel} befindet.
+
+Die Datei wird mit folgenden Schritten angelegt:
+
+@enumerate 
+
+@item
+"echo 'Quellpfad/verzeichnis1 > exclude"
+ Ein Pfad wird weggelassen.
+
+@item
+"echo @i{Quellpfad/verzeichnis2 >> exclude"
+ Ein weiterer Pfad der weggelassen wird. Das zweite }>@i{ bewirkt,
+ das an die 'exclude}-Datei angef@"ugt wird (das einfache @i{>}
+ ueberschreibt eine vorhandene Datei).
+@end enumerate
+
+@node Ziel, Spezielles, Quelle, Konfiguration
+@section Ziel
+
+Mit dem Ziel ist gemeint wohin die Sicherung gespeichert wird.
+Dies geschieht mit einer Verkn@"upfung (Link), die @i{destination} heisst.
+
+@strong{Erstellen Sie diese mit den Befehlen}
+
+@itemize @bullet{}
+
+@item
+"ln -s @i{/Pfad/zum/Speicherort/} destination"
+
+@item
+Mit dem Befehl "ls -l destination" kann man die Richtigkeit der
+ Verkn@"upfung @"uberpr@"ufen.
+@end itemize
+
+@quotation
+
+@strong{Important}
+
+Es
+darf
+immer
+nur
+eine
+@i{source},
+@i{destination},
+und
+@i{exclude}
+Datei
+vorhanden
+sein.
+@end quotation
+
+@node Spezielles, , Ziel, Konfiguration
+@section Spezielles
+
+Im Ordner "/etc/ccollect/sources/@i{Sicherung}" kann man weitere Daten einf@"ugen
+und damit Optionen ein- oder auszuschalten.
+
+@table @asis
+
+@item  @i{verbose} 
+ Beim Sicherungsvorgang ausf@"uhrlich berichten (@i{-v} f@"ur @i{rsync}).
+
+@item  @i{very_verbose} 
+ Beim Sicherungsvorgang sehr ausf@"uhrlich berichten
+ (@i{-v} f@"ur @i{rsync}, @i{mkdir}, @i{cp} und @i{rm}).
+
+@item  @i{summary} 
+ @i{ccollect} erstellt beim Beenden des Sicherungsvorganges eine
+ Zusammenfassung des Geschehenen.
+
+@item  @i{rsync_option} 
+ Alle Befehle in dieser Datei zu @i{rsync} werden ausgef@"uhrt beim Sicherungsvorgang.
+
+@item  @i{pre_exec} 
+ Die Befehle im Inhalt dieser Datei werden vor dem Backup ausgef@"uhrt.
+
+@item  @i{post_exec} 
+ Die Befehle im Inhalt dieser Datei werden nach dem Backup ausgef@"uhrt.
+@end table
+
+@bye

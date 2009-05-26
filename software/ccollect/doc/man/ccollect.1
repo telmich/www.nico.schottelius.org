@@ -1,0 +1,61 @@
+.\"     Title: ccollect
+.\"    Author: 
+.\" Generator: DocBook XSL Stylesheets v1.73.2 <http://docbook.sf.net/>
+.\"      Date: 03/17/2008
+.\"    Manual: 
+.\"    Source: 
+.\"
+.TH "CCOLLECT" "1" "03/17/2008" "" ""
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.SH "NAME"
+ccollect - (pseudo) incremental backup with different exclude lists using hardlinks and rsync
+.SH "SYNOPSIS"
+\fIccollect\.sh\fR <interval name> [args] <sources to backup>
+.sp
+.SH "DESCRIPTION"
+ccollect is a backup utility written in the sh\-scripting language\. It does not depend on a specific shell, only /bin/sh needs to be bourne shell compatibel (like \fIdash\fR, \fIksh\fR, \fIzsh\fR, \fIbash\fR, \&...)\.
+.sp
+For more information refer to the manual titled "ccollect \- Installing, Configuring and Using" (available as text (asciidoc), texinfo or html)\.
+.sp
+.SH "OPTIONS"
+.PP
+\-h, \-\-help
+.RS 4
+Show the help screen
+.RE
+.PP
+\-p, \-\-parallel
+.RS 4
+Parallelise backup processes
+.RE
+.PP
+\-a, \-\-all
+.RS 4
+Backup all sources specified in /etc/ccollect/sources
+.RE
+.PP
+\-v, \-\-verbose
+.RS 4
+Be very verbose (uses set \-x)\.
+.RE
+.SH "SEE ALSO"
+ccollect_add_source(1), ccollect_analyse_logs(1), ccollect_logwrapper(1) ccollect_delete_source(1), ccollect_list_intervals(1)
+.sp
+.SH "AUTHOR"
+Nico Schottelius <nico\-ccollect\-\-@\-\-schottelius\.org>
+.sp
+.SH "RESOURCES"
+Main web site: http://unix\.schottelius\.org/ccollect/
+.sp
+.SH "COPYING"
+Copyright (C) 2006\-2008 Nico Schottelius\. Free use of this software is granted under the terms of the GNU General Public License Version 3 (GPLv3)\.
+.sp
+.SH "NOTES"
+.IP " 1." 4
+nico-ccollect--@--schottelius.org
+.RS 4
+\%mailto:nico-ccollect--@--schottelius.org
+.RE
