@@ -1,5 +1,4 @@
 #### ccollect - (pseudo) incremental backup with different exclude lists using hardlinks and rsync
-----
 
 <P ALIGN="center">
 <a href="screenshots/">
@@ -11,18 +10,20 @@ Although ccollect creates full backups, it requires very less space on
 the backup medium, because ccollect uses hardlinks to create an initial
 copy of the last backup. Only the inodes used by the hardlinks and
 the changed files need additional space.
-<BR>ccollect uses rsync for synchronisation. Since ccollect-0.2 there is asciidoc
-based documentation included in the distribution, see below.
+
+ccollect uses [rsync](http://www.samba.org/rsync/)
+for synchronisation. Since ccollect-0.2 there is
+[asciidoc](http://www.methods.co.nz/asciidoc/)
+based documentation included in the distribution (see below).
 You should also be able to configure ccollect with the help of the example
 configuration in conf/.
-<h3><A NAME="doc">Documentation</A></h3>
-Latest documentation is available in the following formats and languages:
-(English is the primary documentation, others may be outdated)
-<ul>
-   <li>English:
-                <a href="doc/ccollect.text">Text</a>
-                <a href="doc/ccollect.html">HTML</a>
-                <a href="doc/ccollect.htm">HTML (docbook)</a>
+
+### Documentation
+
+Latest documentation is available in the following formats:
+   * <a href="doc/ccollect.text">Text</a>
+   * <a href="doc/ccollect.html">HTML</a>
+   * <a href="doc/ccollect.htm">HTML (docbook)</a>
    <li>English (manpage): 
                 <a href="doc/man/ccollect.text">Text</a>
                 <a href="doc/man/ccollect.1">Troff</a>
