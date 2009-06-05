@@ -1,0 +1,16 @@
+[[!meta title="QT4 user interface prototype added to ceofhack"]]
+
+In the last weeks there has been a lot of stuff
+done in the **user_interface** branch of [[ceofhack|software/ceofhack]].
+
+The communication between a user interface (UI) and ceofhack
+is described (read as in: finished!). Thus, if you are a (G)UI programmer
+and like the idea of ceofhack, you can now begin to implement your
+user interface.
+
+This is what someone already did and thus there is now a prototype of
+a QT4 gui in the **user_interface** branch available!
+
+This new UI does indeed look much better than the included command line
+user interface (**ui-cmd**), but it's your decision what to use with
+[[ceofhack|software/ceofhack]].
