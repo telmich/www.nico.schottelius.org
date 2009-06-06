@@ -1,7 +1,8 @@
 The following is an incomplete list of news and articles about my projects and those I wrote:
 
-* February 2005: [Linux-Magazin about monotone and gnu arch (tla)](http://www.linux-magazin.de/Artikel/ausgabe/2005/02)
-* 26\. August 2004: [OpenNET (russia)](http://www.opennet.ru/opennews/art.shtml?num=4285)
+* February 2005: [[Linux-Magazin about monotone and gnu arch (tla)|dokumentationen/linux-magazin-monotone-gnu-arch-tla/]]
+* 26\. August 2004:
+   [OpenNET (russia)](http://www.opennet.ru/opennews/art.shtml?num=4285)
   about the [[!unixso blacksheep]] project
 * 9\. July 2004: [Pro-Linux](http://www.pro-linux.de/news/2004/7019.html)
   about the [LinuxDistributionen Wiki](https://wiki.schottelius.org/usemod/cgi-bin/wiki.pl?LinuxDistributionen)

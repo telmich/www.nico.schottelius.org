@@ -10,4 +10,3 @@ Wer sich an (beinahe)
 [[historischen Berichten über
 Versionskontrollsysteme|dokumentationen/linux-magazin-monotone-gnu-arch-tla]]
 interessiert wird hier fündig.
-
