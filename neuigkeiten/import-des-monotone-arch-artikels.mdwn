@@ -1,0 +1,13 @@
+[[!meta title="Import des Linux-Magazin Artikels über Monotone und Arch"]]
+
+Ich habe heute
+[[den Artikel aus dem Linux-Magazin|dokumentationen/linux-magazin-monotone-gnu-arch-tla]]
+über die beiden Versionskontrollsysteme
+[Monotone](http://www.monotone.ca/)
+und [GNU arch](http://www.gnu.org/software/gnu-arch/) von 2005 importiert.
+
+Wer sich an (beinahe)
+[[historischen Berichten über
+Versionskontrollsysteme|dokumentationen/linux-magazin-monotone-gnu-arch-tla]]
+interessiert wird hier fündig.
+
