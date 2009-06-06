@@ -11,6 +11,7 @@
    * [[Net|net]]
    * [[Tags|tags]]
 * Lokal
+   * [[Dokumentationen|dokumentationen]]
    * [[Neuigkeiten|neuigkeiten]]
    * [[Verweise|verweise]]
 * [[Seitenübersicht / Sitemap|sitemap]]
