@@ -1,0 +1,11 @@
+[[!meta title="Monotone und Arch (Linux Magazin)"]]
+[[!meta date="2005-02-01"]]
+
+Dieser Artikel erschien im [Linux-Magazin](http://www.linux-magazin.de/)
+im Februar 2005.
+
+ * [Mehrseitige Version beim Linux-Magazin](http://www.linux-magazin.de/Heft-Abo/Ausgaben/2005/02/Verteilung-steuern)
+ * [Einseitige Version beim Linux-Magazin](http://www.linux-magazin.de/layout/set/print/content/view/full/3695)
+ * [[Lokale Kopie der einseitigen Version|www.linux-magazin.de/layout/set/print/content/view/full/3695]]
+
+[[!tag publication]]

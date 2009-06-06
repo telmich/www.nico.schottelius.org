@@ -1,0 +1,1066 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-DE" lang="de-DE">
+
+<head>    <script language="JavaScript" type="text/javascript" src="../../../../../../design/standard/javascript/tools/ezjsselection.js"></script>    <script language="JavaScript" type="text/javascript" src="../../../../../../design/standard/javascript/yui/2.5.2/build/utilities/utilities.js"></script>    <script language="JavaScript" type="text/javascript" src="../../../../../../extension/ezclasslists/design/standard/javascript/classlists.js"></script>    <link rel="stylesheet" type="text/css" href="../../../../../../design/base/stylesheets/core.css" />
+
+<style type="text/css"></style>	
+<title>
+		
+												
+																													Monotone und Arch &#171;
+											  
+																
+																						02 &#171;
+											  
+																
+																						2005 &#171;
+											  
+																
+																						Ausgaben &#171;
+											  
+																
+																						Heft &amp; Abo &#171;
+											  
+																
+																				
+														Linux-Magazin Online
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="author" content="Linux-Magazin Online" />
+<meta name="description" content="Open Source im professionellen Einsatz">
+<meta name="copyright" content="Linux-Magazin Online" />
+<meta name="email" content="online-redaktion@linux-magazin.de" />
+<meta name="keywords" content="Backup, Dateisysteme, Debian, Distributionen, Firewall, FTP, Gentoo, Migration, Python, SQLite, Suse, TCP, C++, Administration, SVN, Subversion, Speicher, SFTP, SQL, E-Mail, BSD, Development, HTTP" />
+<link rel="alternate" type="application/rss+xml" title="Linux-Magazin Online News als RSS-Feed" href="http://www.linux-magazin.de/rss/feed/news" />
+<link rel="Shortcut icon" href="../../../../../../extension/lnm/design/linux_magazin/images/favicon.ico" type="image/x-icon" />
+<meta name="robots" content="index,follow">
+<meta name="verify-v1" content="xECPevxEcyGZ0lHgBkuN8lPyeESUZVPT9F/G3ty4DF8=" />
+
+
+<script type="text/javascript">
+function FensterOeffnen (Adresse) {
+  Fenster1 = window.open(Adresse, "_blank", "width=1024, height=768, left=50, top=50, menubar=no, location=no, resizable=no, scrollbars=no, status=no, toolbar=no");
+  Fenster1.focus();
+}
+</script>
+
+<script type="text/javascript">
+function PollFenster (Adresse) {
+  Fenster1 = window.open(Adresse, "_blank", "width=740, height=768, left=50, top=50, menubar=no, location=no, resizable=no, scrollbars=yes, status=no, toolbar=no");
+    Fenster1.focus();
+    }
+    </script>
+
+<style type="text/css">
+<!--
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+-->
+</style>
+
+<link rel="stylesheet" href="../../../../../../static/dhtml/dhtmlwindow.css" type="text/css" />
+<script type="text/javascript" src="../../../../../../static/dhtml/dhtmlwindow.js">
+
+/***********************************************
+* DHTML Window Widget- © Dynamic Drive (www.dynamicdrive.com)
+* This notice must stay intact for legal use.
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+			
+		<script type="text/javascript">
+		function ajaxwin(img, name){ 
+		var IVW="http://linuxmag.ivwbox.de/cgi-bin/ivw/CP/content;";
+		var ivwtag='<img src="'+IVW+'?r='+escape(document.referrer)+'&amp;d='+(Math.random()*100000)+'" width="1" height="1" alt="szmtag" />';
+		var html = '<img src="http://www.linux-magazin.de/'+img+'" alt="" />'+ivwtag;
+		dhtmlwindow.open('ajaxbox', 'inline', html ,name, 'width=750px,height=450px,left=100px,top=100px,resize=1,scrolling=1');
+
+		}
+		</script>
+		
+</head>
+
+<body><!-- SZM VERSION="1.5" -->
+<script type="text/javascript">
+<!--
+var IVW="http://linuxmag.ivwbox.de/cgi-bin/ivw/CP/content;";
+document.write("<img src=\""+IVW+"?r="+escape(document.referrer)+"&d="+(Math.random()*100000)+"\" width=\"1\" height=\"1\" alt=\"szmtag\" />");
+//-->
+</script>
+<noscript>
+<img src="http://linuxmag.ivwbox.de/cgi-bin/ivw/CP/content;"
+width="1" height="1" alt="szmtag" />
+</noscript>
+<!-- /SZM -->
+
+
+
+
+
+
+
+
+<!--- Titelbild -->
+
+
+<div style="float:right; margin: 12px 0px 5px 10px; text-align: right; padding:0px;">
+	
+	<!-- a href="/var/linux_magazin/storage/images/media/linux_magazin/ausgabe/2005/02/verteilung_steuern/ab_jpg/19273-1-ger-DE/ab_jpg.jpg" target="_blank" -->
+	
+
+    
+        
+    
+                    <img src="../../../../../../var/linux_magazin/storage/images/media/linux_magazin/ausgabe/2005/02/verteilung_steuern/ab_jpg/19273-1-ger-DE/ab_jpg_large.jpg" width="346" height="229"  style="border: 0px;" alt="" title="" />
+            
+    
+    
+    	<!-- /a -->
+	
+	
+	<!-- content_banner.tpl -->
+                <div class="banner-336" id="cb">
+
+
+<script language='JavaScript' type='text/javascript'>
+<!--
+   var m3_u = (location.protocol=='https:'?'https://rotation.linuxnewmedia.de/www/delivery/ajs.php':'http://rotation.linuxnewmedia.de/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=5");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   document.write("&amp;what=" + "LmocEntwicklung" + "&amp;withText=1");   //document.write ("&amp;source=" + quelle + "&amp;exclude=" + document.phpAds_used + openAdsPostfix);
+			  
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://rotation.linuxnewmedia.de/www/delivery/ck.php?n=a63a519a&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://rotation.linuxnewmedia.de/www/delivery/avw.php?zoneid=5&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a63a519a' border='0' alt='' /></a></noscript>	
+		
+
+</div>	
+	
+	
+	
+	
+	
+	
+</div><div style="text-align: left;">
+	
+	<!--- Dachzeile -->
+	<h1 class="article_dachzeile">
+	Monotone und Arch
+	</h1>
+	
+	<!--- Titel -->
+	<h2 class="article_title">
+	Verteilung steuern
+	</h2>
+
+	
+	<!--- Autor -->
+	<div style="margin-top: 10px;">
+	 
+	von Nico Schottelius
+		</div>
+	
+	
+	<!--- Veroeffentlichung -->
+			<div style="margin-bottom: 30px;">
+		Erschienen im Linux-Magazin 
+				2005/02
+		</div>
+	
+	
+		
+	
+	<!--- Intro -->
+	<div class="article_intro">
+            
+<p>
+Open-Source-Programme entstehen meist örtlich und zeitlich versetzt. Im Gegensatz zu CVS und Subversion, die einen zentralen Server voraussetzen, versuchen sich die beiden Systeme Monotone und Arch mit einem dezentralen Ansatz, der bestehende Probleme zu lösen verspricht.
+</p>
+
+	</div><div style="height:15px"></div>
+
+</div>
+
+	
+	<!--- Artikel -->
+	
+          
+        
+	
+	
+	
+         
+	
+
+<p>
+Versionskontrolle unter Linux bedeutet für die meisten Programmierer CVS. Dass dieses System auch einige Schwächen hat, ist allgemein bekannt. So kennt CVS weder einfaches Umbenennen noch Atomic Commits (siehe Kasten &quot;Begriffe&quot;). Es gibt verschiedene Alternativen, die diese Probleme lösen wollen, siehe[1].
+</p>
+
+<p>
+Versionskontrollsysteme (Version Control Systems, kurz VCS, oder Source Control Management, kurz SCM) lassen sich anhand der Art, wie sie ihre Daten speichern und verwalten, in zwei Grundkategorien einteilen:
+</p>
+
+<ul>
+
+<li>Zentrale Datenhaltung und Administration</li>
+
+<li>Dezentrale, verteilte Speicherung und Organisation</li>
+
+</ul>
+
+<p>
+Abbildung 1 zeigt den Unterschied zwischen den beiden Ansätzen. Das zentrale Modell dient vor allem dazu, den Wildwuchs an unterschiedlichen Programmvarianten zu verhindern. Jede bleibende Änderung findet ihren Niederschlag im Repository. Bevor Programmierer ihre Modifikationen in das Repository überführen, müssen sie sich erst die aktuelle Version herunterladen und entstandene Konflikte lösen. Der zentrale Server vergibt Versionsnummern und macht damit eine fortlaufende Nummerierung möglich (1.1 wird zu 1.2). Subversion[2] gehört zur ersten Art und war Thema im Linux-Magazin 06/03. Im Folgenden geht es um zwei freie Programme der dezentralen Variante: Gnu Arch[3] und Monotone[4].
+</p>
+<a name="eztoc0_0_1" id="eztoc0_0_1"></a><h4>Verteiltes gegen zentrales Entwickeln</h4>
+<p>
+Beim zentralen VCS ist der Server ein Single Point of Failure: Fällt er aus, kann kein Entwickler Daten aktualisieren oder verändern. Mit anderen unter VCS-Kontrolle Code austauschen ist dann nicht möglich. Wer ohne Zugriff aufs Dateisystem einen CVS-Server repliziert, verliert meist alle Änderungsinformationen. Die bleiben nur beim direkten Kopieren auf Dateisystemebene erhalten.
+</p>
+
+<p>
+Die dezentralen oder auch verteilten Versionsverwaltungssysteme (Distributed Version Control Systems, kurz DVCS) erlauben mehrere (fast) identische Server. Jeder von ihnen führt sämtliche Informationen über Änderungen am Programmcode.
+</p>
+
+<p>
+Jede Datei muss zu allen Zeiten eine eindeutige Versionsnummer besitzen. Ohne eine zentrale Vergabe der Nummern gibt es dafür zwei Ansätze: entweder über so genannte Hashes (zum Beispiel SHA1 oder MD5) oder mit Hilfe einer eindeutigen Namenskonvention.
+</p>
+
+<p>
+In verteilten Versionsverwaltungssystemen tauschen die Benutzer ihre Daten direkt miteinander aus. Wenn die Arbeit untereinander abgeschlossen ist, transferiert ein Entwickler das gesammelte Ergebnis ins Hauptverzeichnis. Arbeitet ein anderer in der Zwischenzeit an einer älteren Version, müssen die Teile eventuell von Hand zusammengeführt werden. Dieser Fall ist jedoch äußerst selten, denn die meisten Systeme kennen dafür komplexe Algorithmen. Ein Beispiel ist das dreifache Zusammenfügen (Three Way Merge) in Monotone, das die meisten Konflikte selber löst.
+</p>
+<a name="eztoc0_0_2" id="eztoc0_0_2"></a><h4>Kandidat Nummer eins: Gnu Arch</h4>
+<p>
+Das Hauptprogramm von Gnu Arch[2] heißt »tla« (Tom Lord\'s Arch). Um Arch selbst zu kompilieren, ist das Quelltextpaket von[5] nötig, das nur von wenigen anderen Paketen abhängt[6]. Nach dem Entpacken des Quelltextpakets mit »tar xfz tla-Version.tar.gz« übersetzen die Standardschritte »./configure &amp;&amp; make &amp;&amp; make install« die Software. Per Default installiert das Skript das Programm nicht wie sonst üblich nach »/usr/ local«, sondern in ein Unterverzeichnis des Übersetzungsverzeichnisses. Abhilfe schafft »./configure --prefix= <i>/Zielpfad</i>«. So setzt man das Präfix gleich »/usr/packages/tla-Version«, um das Paket einfach entfernen zu können: »rm -rf /usr/ packages/tla-Version«.
+</p>
+
+<p>
+<table class="inline-image">
+	<tr>
+		<td class="thumbnail">
+			
+<a href="3695#" onclick="ajaxwin('var/linux_magazin/storage/images/media/linux_magazin/ausgabe/2005/02/verteilung_steuern/abb1_jpg/19276-1-ger-DE/abb1_jpg_reference.jpg','../ausgaben/2005/02/104_versionskontrolle/abb1.jpg' ); return false;">
+			<img src="../../../../../../var/linux_magazin/storage/images/media/linux_magazin/ausgabe/2005/02/verteilung_steuern/abb1_jpg/19276-1-ger-DE/abb1_jpg_medium.jpg" alt="
+			" 
+			/><br>
+			</a>
+		</td>
+		<td class="bildunterschrift">
+			
+
+<p>
+Abbildung 1: Zentrale und dezentrale Sourcecode-Kontrolle.
+</p>
+			
+		</td>
+	</tr>
+</table>
+
+</p>
+
+<p>
+In diesem Fall ist es nötig, den Suchpfad mit »export PATH=:/usr/packages/tla-Version« anzupassen oder das »link_script« von[7] unter Angabe des Präfix einzusetzen. Einige aktuelle Distributionen bringen Arch mit, zum Beispiel Debian Sid (»apt-get install tla«), Gentoo oder Suse 9.1 (über Yast).
+</p>
+
+<p>
+Hinter dem Kommando »tla« folgt ein Befehl, der angibt, was das Programm machen soll - ähnlich wie bei CVS. Alle verfügbaren Befehle zeigt »tla help«, eine Übersicht der weiteren Parameter und eine kurze Erklärung gibt »tla <i>Kommando</i> -H« .
+</p>
+
+<p>
+Bei Arbeitsbeginn teilt der Entwickler dem Arch-System seine Identität mit, zum Beispiel »tla my-id <i>&quot;Nico Schottelius &lt;my-tla@mx0.info&gt;&quot;</i>«. Solche Parameter speichert das Programm in der Datei »~/.arch-params«. In der sollte auch suchen, wer »tla«-Fehlermeldungen erhält.
+</p>
+
+<table class="renderedtable"  border="1" cellpadding="2" cellspacing="0"  width="100%">
+
+<tr>
+
+<th valign="top"  class="header_level_3">  
+<p>
+Begriffe
+</p>
+
+  </th>
+</tr>
+
+<tr>
+
+<td valign="top">  
+<ul>
+
+<li>
+Ein Versionskontrollsystem (Version Control System, VCS) stellt<br />
+die Infrastruktur dafür bereit, dass mehrere Programmierer an<br />
+unterschiedlichen Orten an demselben Projekt arbeiten<br />können.</li>
+
+<li>
+Atomic Commits bezeichnen einen Zugriff auf ein VCS, der in<br />
+einem konsistenten Status endet. Nach einem Verbindungsabbruch sind<br />
+also entweder alle oder keine Änderungen wirksam geworden.<br />Dies wird auch als Transaktion bezeichnet.</li>
+
+<li>
+Branches unterteilen die Daten in Zweige (zum Beispiel Branch<br />»GUI« und »Console«).</li>
+
+<li>
+Tags sind Bezeichnungen der Daten im VCS zu einem bestimmten<br />Zeitpunkt (Beispiel: »Sommerversion 2004«).</li>
+
+</ul>
+
+  </td>
+
+</tr>
+
+</table>
+<a name="eztoc0_0_3" id="eztoc0_0_3"></a><h4>Eigenes Archiv</h4>
+<p>
+Als Nächstes braucht Arch ein Archivverzeichnis, in dem es die verwalteten Daten ablegt. Dazu dient folgendes Kommando:
+</p>
+<pre>
+$ tla make-archive my-tla@mx0.info--&lt;$&gt;U
+  2004-gpm ~/lm/tla/my-archive</pre>
+<p>
+Das Default-Archiv setzt der Tla-Befehl »my-default-archive«:
+</p>
+<pre>
+$ tla my-default-archive my-tla@mx0.
+  info--2004-gpm</pre>
+<p>
+Wer vergessen hat, »my-default-archive« zu setzen, erhält die Fehlermeldung »arch: no default archive set«. Alle vorhandenen Archive zeigt Tla mit dem Kommando »archives«:
+</p>
+<pre>
+$ tla archives
+my-tla@mx0.info--2004-gpm
+    /home/user/nico/lm/tla/gpm</pre>
+<p>
+Den vollständigen Pfad des Archivs zeigt folgender Befehl an:
+</p>
+<pre>
+$ tla whereis-archive my-tla@mx0.
+  info--2004-gpm
+/home/user/nico/lm/tla/gpm</pre>
+<p>
+Ein Tla-konformer Archivname setzt sich wie folgt zusammen: E-Mail-Adresse--Archivname--Suffix. Das kann zum Beispiel »my-tla@mx0.info--2004 --gpm« sein. Die E-Mail-Adresse identifiziert jenen Nutzer, der das Archiv verwaltet. Programmautor Tom Lord rät zur Benennung der Archive nach Jahreszahlen, im Beispiel »2004«, um zu große Archive zu vermeiden. Das Suffix verwendet man für die eigentliche Projektbezeichnung, hier »gpm«.
+</p>
+
+<p>
+Im angelegten Archiv finden die einzelnen Projekte ihren Platz. Den zu reservieren ist Aufgabe des Kommandos »archive -setup«, es erhält als Parameter den Projektnamen in der Form: Projektname--Branch--Version. Verletzt man diese Namenskonvention, lässt zum Beispiel ein »-« weg, beschwert sich Arch:
+</p>
+<pre>
+$ tla archive-setup gpm--main-1.20.1
+archive-setup: invalid package name 
+  gpm--main-1.20.1</pre>
+<p>
+Mit den richtigen Argumenten gibt Arch entsprechende Erfolgsmeldungen aus:
+</p>
+<pre>
+$ tla archive-setup gpm--main--1.20.1
+* creating category my-tla@mx0.info--2004
+  -gpm/gpm
+* creating branch my-tla@mx0.info--2004
+  -gpm/gpm--main
+* creating version my-tla@mx0.info--2004
+  -gpm/gpm--main--1.20.1</pre>
+<p>
+Das Archiv enthält nun ein Verzeichnis »gpm« für das neue Projekt:
+</p>
+<pre>
+$ ls ~/lm/tla/my-archive
+=meta-info  gpm</pre>
+<p>
+Projekte unterteilen sich weiter in so genannte Branches, zum Beispiel »gpm --stable« und »gpm--Development«. Die folgende Versionsnummer lässt eine weitere Unterteilung zu, beispielsweise Version 1.20.1. Das Ganze ergibt dann den Archivnamen »gpm--stable--1.20.1«. Ist das Archiv angelegt, können die Quellen selbst dorthin wandern, im Beispiel jene des Gpm-Pakets[8].
+</p>
+<a name="eztoc0_0_4" id="eztoc0_0_4"></a><h4>Alte Sourcen initialisieren</h4>
+<p>
+Zuerst ist es erforderlich, die Sourcen in ihrem Verzeichnis (im folgenden Beispiel »~/lm/gpm«) mit »tla init-tree« zu initialisieren. Damit wird das Quellenverzeichnis zu einem Projektverzeichnis in Archs Sinn:
+</p>
+<pre>
+$ cd ~/lm/gpm
+$ tla init-tree gpm--main--1.20.1</pre>
+<p>
+Nach diesem Kommando enthält das Verzeichnis »~/lm/gpm« ein Verzeichnis »{arch}« (inklusive der geschweiften Klammern). Die Arch-Befehle »tree-root« und »tree-version« verifizieren die bisherigen Eingaben:
+</p>
+<pre>
+$ tla tree-root
+/home/user/nico/lm/gpm
+
+$ tla tree-version
+my-tla@mx0.info--2004-gpm/gpm--main--&lt;$&gt;U
+1.20.1</pre>
+<p>
+Die Initialisierung bewirkt nur Veränderungen im Unterverzeichnis »{arch}«, sie registriert das Projekt nicht im Archiv. Der Befehl »tla inventory --names --source« zeigt, welche Dateien Arch als Quellcode anerkennt. Es ignoriert zum Beispiel Dateinamen, die mit einer Tilde »~« enden, da es sich hierbei normalerweise um Backups handelt (für deren Anzeige sorgt »tla inventory --names --backups«). Die Eingabe »tla inventory --source« zeigt die Dateien an, die Arch ins Archiv aufgenommen hat. Da es bisher noch keine Dateien enthält, gibt der Befehl auch nichts aus.
+</p>
+
+<table class="renderedtable"  border="1" cellpadding="2" cellspacing="0"  width="100%">
+
+<tr>
+
+<th valign="top"  class="header_level_3">  
+<p>
+
+Vorteile verteilter<br />Kontrollsysteme
+</p>
+
+  </th>
+</tr>
+
+<tr>
+
+<td valign="top">  
+<p>
+Entwickler arbeiten in diesem Modell miteinander, ohne auf den zentralen Server angewiesen zu sein. So können sie Quelltext untereinander austauschen und testen. Das hat mehrere Vorteile:
+</p>
+
+<ul>
+
+<li>
+Der Quelltext wird an verschiedenen Stellen getestet, bevor er<br />in das Hauptlager gelangt.</li>
+
+<li>
+Entwickler können auch bei Ausfall des zentralen Servers<br />miteinander arbeiten.</li>
+
+<li>
+Der Maintainer des Projekts wird von manuellen<br />Quelltext-Aktualisierungen entlastet.</li>
+
+</ul>
+
+<p>
+Ein Nachteil ist jedoch, dass durch die Übertragung aller Änderungen der Kommunikationsaufwand steigt.
+</p>
+
+  </td>
+
+</tr>
+
+</table>
+<a name="eztoc0_0_5" id="eztoc0_0_5"></a><h4>Dateien ins Archiv übernehmen</h4>
+<p>
+Die Kombination »tla add <i>Dateien</i>« fügt endlich die Sourcefiles zum Archiv hinzu, mit einer Wildcard etwa alle im aktuellen Verzeichnis: »tla add *«. Der Befehl legt im Projektverzeichnis ein Unterverzeichnis ».arch-ids« an, in dem er die Dateien zum Hinzufügen vormerkt. Mit der Option »--source« zeigt der Arch-Befehl »inventory« die aufgenommenen Dateien, die Sourcecode enthalten: »tla inventory --source«. Andere im Archiv enthaltene Dateien listet Tla mit folgenden Parametern: »tla inventory --source --both«. Alle - auch nicht aufgenommene - Sourcen zeigt dagegen folgendes Arch-Idiom: »tla inventory --names --source«.
+</p>
+
+<p>
+Entsprechend löscht »tla delete <i>Datei(en)</i>« im Archiv enthaltene Sourcefiles. Sind alle Dateien hinzugefügt, fehlt noch ein Logeintrag, der diese Aktion für die Nachwelt dokumentiert. Bei dieser Aufgabe hilft »tla make-log« und legt eine Datei an, in die der Entwickler mit einem Texteditor diesen Eintrag schreibt. In der Shell geht das auch in einem Schritt: »vi `tla make-log`«. Zum Abschluss überträgt »tla import« die Dateien in das Archiv:
+</p>
+<pre>
+$ tla import
+* imported my-tla@mx0.info--2004-gpm/
+gpm--main--1.20.1</pre>
+<p>
+Die hier angezeigten Dateien erkennt Arch als Sourcecode, obwohl sie niemand mit »tla add« hinzugefügt hat. Deshalb nimmt »tla make-log« sie nicht in das Logfile auf, sondern zeigt sie nur zur Information an.
+</p>
+<a name="eztoc0_0_6" id="eztoc0_0_6"></a><h4>Archivstatus anzeigen</h4>
+<p>
+Die Kombination »tla revisions --summary --creator --date« liefert Informationen über Revisionen des Projekts. Will ein Entwickler Dateien zu einer neuen Revision hinzufügen, geht er die Schritte »add«, »make-log« und anschließend »commit« durch. Aus der ersten Revision »base-0« wird nach dem Commit »patch-1«. Eine Übersicht über die Revisionen gibt »tla revisions« aus.
+</p>
+
+<p>
+Mit dem Parameter »--summary« zeigt Tla zusätzlich die Logeinträge. Beim Verschieben von Dateien hilft »tla move <i>Quelle</i> <i>Ziel</i>«. Das File auf dem Dateisystem muss der Entwickler jedoch selbst verschieben. Warum das so ist, erklärt der Wiki-Eintrag[9].
+</p>
+
+<p>
+Gnu Arch überträgt seine Archive via FTP, SFTP, WebDAV oder HTTP. Im Folgenden soll sich das Archiv beispielsweise unter »http://linux.schottelius.org/archives/my-tla@mx0.info--2004-gpm« befinden.
+</p>
+
+<p>
+<table class="inline-image">
+	<tr>
+		<td class="thumbnail">
+			
+<a href="3695#" onclick="ajaxwin('var/linux_magazin/storage/images/media/linux_magazin/ausgabe/2005/02/verteilung_steuern/abb2_jpg/19279-1-ger-DE/abb2_jpg_reference.jpg','../ausgaben/2005/02/104_versionskontrolle/abb2.jpg' ); return false;">
+			<img src="../../../../../../var/linux_magazin/storage/images/media/linux_magazin/ausgabe/2005/02/verteilung_steuern/abb2_jpg/19279-1-ger-DE/abb2_jpg_medium.jpg" alt="
+			" 
+			/><br>
+			</a>
+		</td>
+		<td class="bildunterschrift">
+			
+
+<p>
+Abbildung 2: Für Arch gibt es das Webfrontend Archview, mit dem das Browsen der Archivinhalte möglich ist.
+</p>
+			
+		</td>
+	</tr>
+</table>
+
+</p>
+<a name="eztoc0_0_7" id="eztoc0_0_7"></a><h4>Zusammenarbeit im Netz</h4>
+<p>
+Andere Entwickler müssen dieses Archiv zunächst noch beim eigenen Arch registrieren:
+</p>
+<pre>
+tla register-archive U my-tla@mx0.info--2004-gpm U http://linux.schottelius.org/archives/U my-tla@mx0.info--2004-gpm</pre>
+<p>
+Anschließend können sie es mit »tla get my-tla@mx0.info--2004-gpm <i>Zielverzeichnis</i>« herunterladen. Es besteht auch die Möglichkeit, eine ältere Version zu holen. Dazu ist zusätzlich noch die Revision anzugeben: »tla get my-tla@mx0.info--2004-gpm--base-0 <i>Zielverzeichnis</i>«.
+</p>
+<a name="eztoc0_0_8" id="eztoc0_0_8"></a><h4>Migration von CVS</h4>
+<p>
+Arch selbst bietet kein Kommando dafür, ein CVS-Repository umzuwandeln. Es gibt jedoch ein Tool namens Cscvs[10], das dabei hilft. Laut Homepage gibt es aber noch einige Probleme beim Import, sodass der Einsatz in einem Produktivsystem nicht unbedingt zu empfehlen ist. Für mehr Informationen zu Arch sei auf die Homepage[2] verwiesen, auf der sich eine sehr gute (englische) Anleitung[11] findet. Eine Hilfe speziell für CVS-Benutzer gibt[12]. Die Mailingliste ist meist recht hilfreich, jedoch wenig empfänglich für Kritik. Tla besitzt viele, teilweise kryptische Kommandos, von denen einige sich in ihrer Funktion überschneiden.
+</p>
+
+<p>
+Arch gibt es nicht für Windows, jedoch soll Py Arch[13] einen Tla-Wrapper mit derselben Funktionalität bereitstellen. Beim Austausch mit anderen Betriebssystemen kann es zu Problemen mit der Dateinamensbegrenzung kommen, da Tla grundsätzlich alle Zeichen erlaubt, die das Dateisystem zulässt.
+</p>
+
+<p>
+Die eigenartige Versionsbezeichnung von Archiven ist bedingt durch die dezentrale Architektur. Nach Meinung der Programmautoren ist das jedoch vor allem eine Frage der Gewöhnung. Wer sich nicht daran gewöhnen kann und Argumentationshilfe gegen Arch braucht, findet sie unter[14].
+</p>
+<a name="eztoc0_0_9" id="eztoc0_0_9"></a><h4>Kandidat Nummer zwei: Monotone</h4>
+<p>
+Entwickler Graydon Hoare ist der geistige Vater des ebenfalls dezentralen Versionskontrollsystems Monotone. Dessen Architektur beschrieb er auf der Entwickler-Mailingliste so: Verteilt, dezentral, ohne Server. Es gibt keinen einzelnen Punkt für Ausfall, Vertrauen oder Kommunikation und keinen Unterschied zwischen Clients und Servern.
+</p>
+
+<p>
+Monotone ist bei allen großen Distribution nicht von Haus aus enthalten. Die Homepage[4] führt aber Pakete für Fedora und Debian, ja sogar einen Win32-Port. Um Monotone aus dem Quelltext zu kompilieren, braucht man einige Entwicklungspakete von Boost (siehe[15] und den Artikel in diesem Heft).
+</p>
+
+<p>
+Unter Debian: »libboost-date-time-dev«, »libboost-filesystem-dev«, »libboost-regex- dev«, »libboost-test-dev«, »libboost -dev« und »libpopt-dev«. Eine Übersicht über die Abhängigkeiten gibt[16]. Ist das Paket entpackt, folgen »./configure &amp;&amp; make« und »make install« als Administrator. Bewährt hat sich dafür folgende Kommandozeile:
+</p>
+<pre>
+./configure --prefix=/usr/packages/monotone -0.13 &amp;&amp; make &amp;&amp; su -c &quot;make install &amp;&amp; U link-packages /usr/packages/monotone-0.13&quot;</pre>
+<p>
+Das Skript »link-packages« findet sich wiederum unter[7].
+</p>
+
+<p>
+Erster Schritt ist das Anlegen der SQLite-Datenbank, die Monotone voraussetzt:
+</p>
+<pre>
+monotone --db=Name.db db init</pre>
+<p>
+Anschließend ist es wie bei Arch üblich, sich dem VCS vorzustellen. Die Identität des Benutzers stellt Monotone mit einem Public-Key-Verfahren sicher. Das Schlüsselpaar (privat und öffentlich) erzeugt man über den Befehl »monotone --db= <i>Name.db</i> genkey <i>my-tla@mx0 .info</i>«. Alle Schlüssel zeigt das Kommando »monotone --db= <i>Name.db</i> list keys«. Wer Dateien hinzufügen will, wechselt ins Projektverzeichnis und führt das Monotone-Kommando »add« aus, beispielsweise:
+</p>
+<pre>
+monotone --db=../Name.db --branch=org. schottelius.gpm add *</pre>
+<p>
+Auch Monotone ignoriert einige Dateitypen, insbesondere CVS-Verzeichnisse. Der aktuell bearbeitete Zweig (Branch) sollte dem umgedrehten Domainnamen des Projekts entsprechen, im Beispiel »org.schottelius.gpm«.
+</p>
+
+<p>
+Unterprojekte werden einfach angehängt. So könnte der BSD-Port von »gpm« den Namen »org.schottelius.gpm .bsd-port« erhalten. Der Befehl verursacht keine Änderung an der Monotone-Datenbank, legt aber ein Verzeichnis »MT« an. In diesem Verzeichnis gibt es zwei neue Dateien: »work« speichert Änderungen, die noch nicht in die Datenbank geschrieben wurden. In »options« stehen Parameter wie der Branch oder der Speicherort der Datenbank.
+</p>
+
+<p>
+Die Dateien der Datenbank hinzufügen ist Aufgabe des Monotone-Befehls »commit« - jetzt ohne »--db=...«, da die Datenbank bereits in »options« vermerkt ist. Der Befehl startet den Editor, den die Umgebungsvariable »EDITOR« enthält, um einen Kommentar einzutragen. Danach fordert Monotone zur Eingabe des Passworts auf, um die Daten mit dem privaten Schlüssel zu signieren und in die Datenbank zu übertragen.
+</p>
+
+<p>
+Dabei gibt es eine Zeile ähnlich »monotone: committing a334960b9a773c4b5b5 21f8bffb9d3bb31f5e3e0« aus. Diese kryptische Mitteilung enthält den SHA1-Hash der aktuellen Daten. Monotone verwendet solche Hashes als Versionsbezeichnung. Der Befehl »cat MT/manifest« gibt die Hashes aller Dateien aus.
+</p>
+
+<p>
+Monotone hat wie Arch eine spezielle Eigenart bei der Bezeichnung von Versionen: Die angesprochenen SHA1-Hashes identifizieren zwar eine Datei eindeutig, sie können jedoch nicht ansteigend verlaufen. Um nicht jedes Mal den kompletten Hash tippen zu müssen, enthält Monotone einen Algorithmus zur Vervollständigung. Eine Alternative zum obigen Beispiel verwendet deshalb nur den Hash-Anfang »a334«: »monotone --db= <i>Name.db</i> cat manifest a334«.
+</p>
+<a name="eztoc0_0_10" id="eztoc0_0_10"></a><h4>Für die Öffentlichkeit</h4>
+<p>
+Monotone ist Client- und Serverprogramm in einem. Vor dem Start des Servers extrahiert man den Public-Key aus der Datenbank: »monotone --db= <i>Name.db</i> pubkey <i>my-tla@mx0.info</i> &gt; server-key.pub«. Die Option »serve« startet Monotone im Servermodus:
+</p>
+<pre>
+monotone --db=Name.db serve 
+ linux.schottelius.org org.schottelius.gpm 
+ 2&gt;&amp;1 | tee -a monotone.log</pre>
+<p>
+Dieses Kommando startet den Monotone-Server auf »linux.schottelius.org« mit der so genannten Kollektion (einer Sammlung von Branches) »org.schottelius.gpm«. Der Teil hinter »2&gt;&amp;1« schreibt die Ausgabe in die Logdatei »monotone.log«. Wer eine Firewall betreibt, muss für Monotone den Port 5253 (TCP) freigeben.
+</p>
+
+<p>
+Will ein Entwickler die Kollektion herunterladen, holt er sich zuerst den Public-Key und gibt ihn mit »monotone --db= <i>Neu.db</i> read &lt; server-key.pub« ein. Dann lädt er die Daten mit dem Befehl »monotone --db= <i>Neu.db</i> pull linux .schottelius.org org.schottelius.gpm« in seine neue Datenbank. Anschließend extrahiert er die aktuelle Version mit »monotone --db=Neu.db --branch=org.schottelius.gpm co gpm« in das Verzeichnis »gpm«. Bei Änderungen an den Dateien schreibt er diese mit »commit« in die lokale Datenbank und teilt sie schließlich noch dem Monotone-Server mit:
+</p>
+<pre>
+monotone --db=Neu.db --branch=org.schottelius.gpm push linux.schottelius.org org.schottelius.gpm</pre>
+<p>
+Monotone kennt auch die Möglichkeit, ein Push und ein Pull gleichzeitig durchzuführen, also in beiden Richtungen auf einmal zu synchronisieren. Dazu dient die Monotone-Option »sync«.
+</p>
+
+<p>
+<table class="inline-image">
+	<tr>
+		<td class="thumbnail">
+			
+<a href="3695#" onclick="ajaxwin('var/linux_magazin/storage/images/media/linux_magazin/ausgabe/2005/02/verteilung_steuern/abb3_jpg/19282-1-ger-DE/abb3_jpg_reference.jpg','../ausgaben/2005/02/104_versionskontrolle/abb3.jpg' ); return false;">
+			<img src="../../../../../../var/linux_magazin/storage/images/media/linux_magazin/ausgabe/2005/02/verteilung_steuern/abb3_jpg/19282-1-ger-DE/abb3_jpg_medium.jpg" alt="
+			" 
+			/><br>
+			</a>
+		</td>
+		<td class="bildunterschrift">
+			
+
+<p>
+Abbildung 3: Monotone erlaubt es, von einer Ursprungsversion Abzweigungen zu bilden, die Entwickler getrennt bearbeiten. Danach fügen sie sie wieder zu einer gemeinsamen Version zusammen.
+</p>
+			
+		</td>
+	</tr>
+</table>
+
+</p>
+<a name="eztoc0_0_11" id="eztoc0_0_11"></a><h4>Zusammenarbeit mit Köpfchen</h4>
+<p>
+Wenn zwei Entwickler an einer Version arbeiten, produzieren sie zwei neue Abzweigungen, auch Heads genannt, siehe Abbildung 3. Normalerweise lassen sich diese Heads mit »monotone merge« zusammenfügen. Klappt das nicht, hilft nur Handarbeit. Um eine alte Version wieder hervorzuholen, ist zusätzlich die ID erforderlich:
+</p>
+<pre>
+monotone co f22d21778173b3f5df04cb9524e722cdabcd7cd4 ~/Alte-Version</pre>
+<p>
+Für das Übernehmen einer CVS-Datenbank (Repository) in Monotones Datenbank bringt das Paket den Befehl »cvs_import« mit: »monotone --db= <i>Name.db</i> --branch= <i>org.schottelius.cvs-import</i> cvs_import <i>CVS-Repository</i>«.
+</p>
+<a name="eztoc0_0_12" id="eztoc0_0_12"></a><h4>Gesamteindruck und Eigenarten</h4>
+<p>
+Ein großer Vorteil von Monotone ist die einfache Handhabung. Auch die Mailingliste ist sehr hilfreich: Meist liefern die Teilnehmer innerhalb eines Tages Lösungen zu den Problemen. Ebenso schnell nehmen die Entwickler Änderungen an. Ein ausführliches Tutorial ist unter[17] zu finden.
+</p>
+
+<p>
+Häufig wird in den Monotone-Foren die Frage gestellt: Kann man einen Public Key auch löschen, um Zugriffe zu verhindern? Die Antwort lautet: Nein, das wäre sinnlos! Dann wüsste man nicht mehr, von wem der Quelltext kommt. Um jemandem den Zugang zu entziehen, widerruft der Datenbankbesitzer daher einfach die Gültigkeit des Schlüssels.
+</p>
+
+<p>
+Tabelle 1 vergleicht die wichtigsten Eigenschaften der Versionskontrollsysteme CVS, SVN, Arch und Monotone. Eine detaillierte Aufstellung gibt[1]. Monotone und Arch lassen sich jedoch nur bedingt mit CVS und SVN vergleichen, da der Ansatz (zentral vs. dezentral) grundverschieden ist.
+</p>
+
+<table class="renderedtable"  border="1" cellpadding="2" cellspacing="0"  width="100%">
+
+<tr>
+
+<th valign="top"  class="header_level_3" colspan="5">  
+<p>
+
+Tabelle 1: Vergleich<br />der Systeme
+</p>
+
+  </th>
+</tr>
+
+<tr>
+
+<td valign="top">  &nbsp;
+  </td>
+
+</tr>
+
+<tr>
+
+<td valign="top">  
+<p>
+Merkmal
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+CVS
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+Subversion
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+Gnu Arch
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+Monotone
+</p>
+
+  </td>
+
+</tr>
+
+<tr>
+
+<td valign="top">  
+<p>
+Bedienungskomfort
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+gut
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+gut
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+mäßig
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+gut
+</p>
+
+  </td>
+
+</tr>
+
+<tr>
+
+<td valign="top">  
+<p>
+Changesets
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+nein
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+ja
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+ja
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+ja
+</p>
+
+  </td>
+
+</tr>
+
+<tr>
+
+<td valign="top">  
+<p>
+Atomic Commits
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+nein
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+nein
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+ja
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+ja
+</p>
+
+  </td>
+
+</tr>
+
+<tr>
+
+<td valign="top">  
+<p>
+Zentral/dezentral
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+zentral
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+zentral
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+dezentral
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+dezentral
+</p>
+
+  </td>
+
+</tr>
+
+<tr>
+
+<td valign="top">  
+<p>
+Binärdiff
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+nein
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+Vdelta
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+nein
+</p>
+
+  </td>
+
+<td valign="top">  
+<p>
+Xdelta
+</p>
+
+  </td>
+
+</tr>
+
+</table>
+<a name="eztoc0_0_13" id="eztoc0_0_13"></a><h4>Noch unentschieden</h4>
+<p>
+Der Unix-Quasistandard CVS ist weit verbreitet, viele Zusatztools erleichtern die Arbeit mit diesem System. Fehlende Features wie Atomic Commit schränken die Nützlichkeit jedoch stark ein. Subversion als designierter Nachfolger des zentralen CVS behebt viele Fehler des älteren Systems und besitzt ebenfalls schon eine große Sammlung an praktischen Zusatztools.
+</p>
+
+<p>
+Gerade im Bereich der Open-Source-Entwicklung ist die zentrale Architektur aber ein Nachteil. Gnu Arch nutzt die bereits vorhandene Linux-Infrastruktur und verfolgt damit das Unix-Prinzip, kleiner kombinierbarer Programme. Ansonsten stützt es sich zur Datenspeicherung nur auf den Funktionsumfang des Dateisystems. Leider ist Archs Handhabung sehr kompliziert.
+</p>
+
+<p>
+Monotone vereint Server und Client in einem Programm und ist trotz C++-Code und eigener SQLite-Datenbank performant. Es funktioniert an einigen Stellen noch nicht hundertprozentig, scheint aber trotzdem das größere Potenzial zu besitzen. <i>(ofr)</i> 
+</p>
+
+<table class="renderedtable"  border="1" cellpadding="2" cellspacing="0"  width="100%">
+
+<tr>
+
+<th valign="top"  class="header_level_3">  
+<p>
+Infos
+</p>
+
+  </th>
+</tr>
+
+<tr>
+
+<td valign="top">  
+<p>
+[1] VCS-Vergleich: [<a href="http://better-scm.berlios.de/comparison/comparison.html" target="_self">http://better-scm.berlios.de/comparison/comparison.html</a>]
+</p>
+
+<p>
+[2] Subversion: [<a href="http://subversion.tigris.org" target="_self">http://subversion.tigris.org</a>]
+</p>
+
+<p>
+[3] Gnu-Arch-Homepage: [<a href="http://regexps.srparish.net/www/#Gnu-arch" target="_self">http://regexps.srparish.net/www/#Gnu-arch</a>]
+</p>
+
+<p>
+[4] Monotone-Homepage: [<a href="http://www.venge.net/monotone/" target="_self">http://www.venge.net/monotone/</a>]
+</p>
+
+<p>
+[5] Arch-Quelltextarchiv: [<a href="ftp://ftp.gnu.org/gnu/gnu-arch" target="_self">ftp://ftp.gnu.org/gnu/gnu-arch</a>]
+</p>
+
+<p>
+[6] Arch-Abhängigkeiten: [<a href="http://regexps.srparish.net/www/arch-facts.html" target="_self">http://regexps.srparish.net/www/arch-facts.html</a>]
+</p>
+
+<p>
+[7] »link-script«: [<a href="http://linux.schottelius.org/clinux/scripts/link-packages" target="_self">http://linux.schottelius.org/clinux/scripts/link-packages</a>]
+</p>
+
+<p>
+[8] Gpm: [<a href="http://linux.schottelius.org/gpm/" target="_self">http://linux.schottelius.org/gpm/</a>]
+</p>
+
+<p>
+[9] Dateien verschieben mit Arch: [<a href="http://www.linux-magazin.de/layout/set/print" target="_self">http://regexps.srparish.net/www/tutorial/html/inventory-ids.html#Why_is_it_Like_This _--_Why_tla_move_Doesn\'t_Move_Files</a>]
+</p>
+
+<p>
+[10] CVS-Arch-Migration mit Cscvs: [<a href="http://wiki.gnuarch.org/moin.cgi/cscvs" target="_self">http://wiki.gnuarch.org/moin.cgi/cscvs</a>]
+</p>
+
+<p>
+[11] Arch-Tutorial: [<a href="http://regexps.srparish.net/www/tutorial/html/arch.html" target="_self">http://regexps.srparish.net/www/tutorial/html/arch.html</a>]
+</p>
+
+<p>
+[12] Arch-Befehle für CVS-Benutzer: [<a href="http://wiki.gnuarch.org/moin.cgi/Learning_20Arch_20commands_20for_20CVS_20users" target="_self">http://wiki.gnuarch.org/moin.cgi/Learning_20Arch_20commands_20for_20CVS_20users</a>]
+</p>
+
+<p>
+[13] Tla-Python: [<a href="http://ddaa.net/pyarch.html" target="_self">http://ddaa.net/pyarch.html</a>]
+</p>
+
+<p>
+[14] Warum kein Arch?: [<a href="http://wiki.gnuarch.org/moin.cgi/Why_20not_20Arch" target="_self">http://wiki.gnuarch.org/moin.cgi/Why_20not_20Arch</a>]
+</p>
+
+<p>
+[15] Boost: [<a href="http://www.boost.org" target="_self">http://www.boost.org</a>]
+</p>
+
+<p>
+[16] Monotone-Abhängigkeiten: [<a href="http://www.venge.net/monotone/INSTALL" target="_self">http://www.venge.net/monotone/INSTALL</a>]
+</p>
+
+<p>
+[17] Monotone-Tutorial [<a href="http://www.venge.net/monotone/docs/index.html" target="_self">http://www.venge.net/monotone/docs/index.html</a>]
+</p>
+
+<p>
+[18] Blacksheep: [<a href="http://linux.schottelius.org/blacksheep/" target="_self">http://linux.schottelius.org/blacksheep/</a>]
+</p>
+
+  </td>
+
+</tr>
+
+</table>
+
+<table class="renderedtable"  border="1" cellpadding="2" cellspacing="0"  width="100%">
+
+<tr>
+
+<th valign="top"  class="header_level_3">  
+<p>
+Der Autor
+</p>
+
+  </th>
+</tr>
+
+<tr>
+
+<td valign="top">  
+<p>
+Nico Schottelius ist mit Linux 2.0 zur Open- Source-Gemeinde gestoßen. Er arbeitet an verschiedenen Linux-Projekten mit, unter anderem an Blacksheep [18]. Im Berufsleben hilft er Unternehmen dabei, zu Linux zu migrieren. Wenn er sich nicht gerade beim Rock\'n\'Roll-Tanzen entspannt, ist er unter [<a href="mailto:nico-linux-magazin@schottelius.org" target="_self">nico-linux-magazin@schottelius.org</a>] zu erreichen.
+</p>
+
+  </td>
+
+</tr>
+
+</table>
+
+
+
+
+
+
+
+	<br />
+<div class="broken-links">Dieser Online-Artikel kann Links enthalten, die auf nicht mehr vorhandene Seiten verweisen. Wir &auml;ndern solche "broken links"
+nur in wenigen Ausnahmef&auml;llen. Der Online-Artikel soll m&ouml;glichst unver&auml;ndert der gedrucken Fassung entsprechen.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+			<center><small>
+<a href="http://www.linux-magazin.de/layout/set/print/Impressum" class="themen">Impressum</a> |<a href="http://www.linux-magazin.de/static/pdf-public/datenschutzerklaerung.pdf" class="themen">Datenschutzerkl&auml;rung</a> | &#169; 2009<a href="http://www.linuxnewmedia.de" class="themen" target="_blank">Linux New Media AG</a><br />
+ Partner-Sites
+ <br>
+ Deutschland:
+ <span class="footer">
+ [<a href="http://www.linux-user.de"   target="_blank">LinuxUser</a>]
+ [<a href="http://www.easylinux.de"   target="_blank">EasyLinux</a>]
+ [<a href="http://www.linux-community.de" target="_blank">Linux-Community</a>] 
+ <br>
+
+ Europa:
+ [<a href="http://www.easylinux.pl"   target="_blank">EasyLinux Polen</a>]
+ [<a href="http://www.linux-magazine.pl"   target="_blank">Linux Magazine Polen</a>]
+ [<a href="http://www.linux-magazine.es"   target="_blank">Linux Magazine Spanien</a>]
+ <br>
+ International:
+ [<a href="http://www.linux-magazine.com"   target="_blank">Linux Magazine International</a>]
+ [<a href="http://www.linuxpromagazine.com"   target="_blank">Linux Pro Magazine</a>]
+ [<a href="http://www.linux-magazine.com.br"   target="_blank">Linux Magazine Brasilien</a>]
+ [<a href="http://www.revistaeasylinux.com.br"   target="_blank">EasyLinux Brasilien</a>]
+</span>
+
+</small></center>
+
+
+</body>
+</html>
