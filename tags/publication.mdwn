@@ -1,0 +1,3 @@
+Veröffentlichungen / Publications
+
+[[!inline pages="tagged(publication)" archive="yes" show=0]]
