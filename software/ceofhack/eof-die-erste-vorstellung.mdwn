@@ -1,0 +1,9 @@
+[[!meta title="EOF - die erste Vorstellung"]]
+[[!meta date="2007-09-05"]]
+
+This is the first public presentation about EOF (in German).
+
+ * [[View as PDF|eof-die-erste-vorstellung.pdf]]
+ * [[View LaTeX source|eof-die-erste-vorstellung.tex]]
+
+[[!tag publication]]
