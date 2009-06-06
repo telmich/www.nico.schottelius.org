@@ -1,19 +1,20 @@
 ## Introduction
 
 ceofhack is the first implementation of ***EOF*** (Eris Onion Forwarding),
-the secure, peer-to-peer, decentralised anonymous chat network.
+the secure, peer-to-peer (p2), decentralised anonymous chat network.
 
-## Downloads
+## How to get ceofhack?
+
+### Official releases
 
  * [[ceofhack-0.5.tar.lzma]] - the first usable version
 
-## Development
+### Development
 
-The latest development code can be found in git:
-
- * [gitweb](http://git.schottelius.org/?p=EOF/ceofhack;a=summary)
-
-You can clone it using 
+The latest development code can be found in git.
+You can view latest changes in
+[gitweb](http://git.schottelius.org/?p=EOF/ceofhack;a=summary)
+or clone the latest sources using 
 
     git clone git://git.schottelius.org/EOF/ceofhack
 
@@ -22,10 +23,11 @@ Git mirrors can be found at
  * [github](http://github.com/telmich/ceofhack/tree/master)
  * [gitorious](http://gitorious.org/ceofhack)
 
-There are (at least) two branches:
+There are (at least) these branches:
 
  * ***master***: latest "stable" code
  * ***hacking***: may not compile, but contains latest ideas
+ * ***user_interface***: latest work regarding user interfaces
 
 To submit changes, simply follow the instructions
 on [how to setup a public git repo](http://book.git-scm.com/4_setting_up_a_public_repository.html).
@@ -34,6 +36,12 @@ There are also some
 [CIA bot statistics](http://cia.vc/stats/project/EOF/ceofhack) available.
 
 ## Support
+
+### Documentation
+
+ * [[The first presentation (in German)|eof-die-erste-vorstellung]]
+
+### IRC
 
 There are two IRC (!) channels, in which development takes places:
 
@@ -44,7 +52,6 @@ You can also subscribe to the
 [!eof mailinglist](http://l.schottelius.org/mailman/listinfo/eof).
 
 You can also [[contact me directly|about]].
-
 
 
 [[!tag unix]]
