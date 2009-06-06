@@ -22,7 +22,8 @@ configuration in conf/.
 
 You can read
 
- * the ccollect handbook as <a href="doc/ccollect.text">text</a>,
+ * the ccollect handbook as
+   <a href="doc/ccollect.text">text</a>,
    <a href="doc/ccollect.html">HTML</a>,
    <a href="doc/ccollect.htm">HTML (docbook)</a>,
  * the ccollect manpage as 
@@ -36,7 +37,6 @@ There used to be a German translation of the handbook, but it
 is outdated and thus removed.
 
 ### Portability
-<!-- ######################################################### -->
 As ccollect is written in simple sh-script, it should run on
 any POSIX compatible OS. It is known or reported to run on:
 
@@ -48,8 +48,8 @@ any POSIX compatible OS. It is known or reported to run on:
 </ul>
 Feel free to send me an e-mail if you've ccollect running on another
 OS or architecture.
-<!-- ######################################################### -->
-<h4><A NAME="config">Sample configurations</A></h4>
+
+### Sample configurations
 <ul>
    <li><a href="config/ccollect-buche-2006-06-16.tar.bz2">Configuration
    for ccollect 0.4 or later from buche.intern.schottelius.org</a>
