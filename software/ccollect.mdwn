@@ -39,19 +39,19 @@ As ccollect is a simple shell script, it should run on
 any POSIX compatible OS. It is known or reported to run on:
 
 <ul>
-   <li>FreeBSD:   amd64/i386
-   <li>Linux:     alpha/hppa/ppc/i386
-   <li>NetBSD:    alpha/sparc64/i386/amd64
-   <li>OpenBSD:   amd64
+ * FreeBSD:   amd64/i386
+ * Linux:     alpha/hppa/ppc/i386
+ * NetBSD:    alpha/sparc64/i386/amd64
+ * OpenBSD:   amd64
 </ul>
 Feel free to send an e-mail if you are running ccollect on another
 OS or architecture.
 
 ### Sample configurations
 <ul>
-   <li><a href="config/ccollect-buche-2006-06-16.tar.bz2">Configuration
+ * <a href="config/ccollect-buche-2006-06-16.tar.bz2">Configuration
    for ccollect 0.4 or later from buche.intern.schottelius.org</a>
-   <li><a href="config/ccollect-eiche-2006-02-05.tar.bz2">Configuration
+ * <a href="config/ccollect-eiche-2006-02-05.tar.bz2">Configuration
    for ccollect 0.3.3 or earlier from eiche.intern.schottelius.org</a>
 </ul>
 
@@ -69,85 +69,77 @@ Alternatively, you can
 status in gitweb](http://git.schottelius.org/?p=cLinux/ccollect.git;a=summary).
 
 ### Releases
-<ul>
-   <li><A HREF="ccollect-0.7.1.tar.bz2">ccollect-0.7.1.tar.bz2</A>
+ * <A HREF="ccollect-0.7.1.tar.bz2">ccollect-0.7.1.tar.bz2</A>
    (<A HREF="ccollect-0.7.1">browse source</A>)
    (<A HREF="ccollect-0.7.1/doc/changes/0.7.1">Changes</A>)
-   <li><A HREF="ccollect-0.7.0.tar.bz2">ccollect-0.7.0.tar.bz2</A>
+   <!-- -------------------------------------------------------- -->
+ * <A HREF="ccollect-0.7.0.tar.bz2">ccollect-0.7.0.tar.bz2</A>
    (<A HREF="ccollect-0.7.0">browse source</A>)
    (<A HREF="ccollect-0.7.0/doc/CHANGES">Changes</A>)
-<!-- ######################################################### -->
-   <li><A HREF="ccollect-0.6.2.tar.bz2">ccollect-0.6.2.tar.bz2</A>
+   <!-- -------------------------------------------------------- -->
+ * <A HREF="ccollect-0.6.2.tar.bz2">ccollect-0.6.2.tar.bz2</A>
    (<A HREF="ccollect-0.6.2">browse source</A>)
    (<A HREF="ccollect-0.6.2/doc/CHANGES">Changes</A>)
-<!-- ######################################################### -->
-   <li><A HREF="ccollect-0.6.1.tar.bz2">ccollect-0.6.1.tar.bz2</A>
+   <!-- -------------------------------------------------------- -->
+ * <A HREF="ccollect-0.6.1.tar.bz2">ccollect-0.6.1.tar.bz2</A>
    (<A HREF="ccollect-0.6.1">browse source</A>)
    (<A HREF="ccollect-0.6.1/doc/CHANGES">Changes</A>)
    <!-- -------------------------------------------------------- -->
-   <li><A HREF="ccollect-0.6.tar.bz2">ccollect-0.6.tar.bz2</A>
+ * <A HREF="ccollect-0.6.tar.bz2">ccollect-0.6.tar.bz2</A>
    (<A HREF="ccollect-0.6">browse source</A>)
    (<A HREF="ccollect-0.6/doc/CHANGES">Changes</A>)
    <!-- -------------------------------------------------------- -->
-   <li><A HREF="ccollect-0.5.2.tar.bz2">ccollect-0.5.2.tar.bz2</A>
+ * <A HREF="ccollect-0.5.2.tar.bz2">ccollect-0.5.2.tar.bz2</A>
    (<A HREF="ccollect-0.5.2">browse source</A>)
    (<A HREF="ccollect-0.5.2/doc/CHANGES">Changes</A>)
    <!-- -------------------------------------------------------- -->
-   <li><A HREF="ccollect-0.5.1.tar.bz2">ccollect-0.5.1.tar.bz2</A>
+ * <A HREF="ccollect-0.5.1.tar.bz2">ccollect-0.5.1.tar.bz2</A>
    (<A HREF="ccollect-0.5.1">browse source</A>)
    (<A HREF="ccollect-0.5.1/doc/CHANGES">Changes</A>)
    <!-- -------------------------------------------------------- -->
-   <li><A HREF="ccollect-0.5.tar.bz2">ccollect-0.5.tar.bz2</A>
+ * <A HREF="ccollect-0.5.tar.bz2">ccollect-0.5.tar.bz2</A>
    (<A HREF="ccollect-0.5">browse source</A>)
    (<A HREF="ccollect-0.5/doc/CHANGES">Changes</A>)
    <!-- -------------------------------------------------------- -->
-   <li><A HREF="ccollect-0.4.2.tar.bz2">ccollect-0.4.2.tar.bz2</A>
+ * <A HREF="ccollect-0.4.2.tar.bz2">ccollect-0.4.2.tar.bz2</A>
    (<A HREF="ccollect-0.4.2">browse source</A>)
    (<A HREF="ccollect-0.4.2/doc/CHANGES">Changes</A>)
    <!-- -------------------------------------------------------- -->
-   <li><A HREF="ccollect-0.4.1.tar.bz2">ccollect-0.4.1.tar.bz2</A>
+ * <A HREF="ccollect-0.4.1.tar.bz2">ccollect-0.4.1.tar.bz2</A>
    (<A HREF="ccollect-0.4.1">browse source</A>)
    (<A HREF="ccollect-0.4.1/doc/CHANGES">Changes</A>)
    <!-- -------------------------------------------------------- -->
-   <li><A HREF="ccollect-0.4.tar.bz2">ccollect-0.4.tar.bz2</A>
+ * <A HREF="ccollect-0.4.tar.bz2">ccollect-0.4.tar.bz2</A>
    (<A HREF="ccollect-0.4">browse source</A>)
    (<A HREF="ccollect-0.4/doc/CHANGES">Changes</A>)
    <!-- -------------------------------------------------------- -->
-   <li><A HREF="ccollect-0.3.3.tar.bz2">ccollect-0.3.3.tar.bz2</A>
+ * <A HREF="ccollect-0.3.3.tar.bz2">ccollect-0.3.3.tar.bz2</A>
    (<A HREF="ccollect-0.3.3">browse source</A>)
    (<A HREF="ccollect-0.3.3/doc/CHANGES">Changes</A>)
    <!-- -------------------------------------------------------- -->
-   <li><A HREF="ccollect-0.3.2.tar.bz2">ccollect-0.3.2.tar.bz2</A>
+ * <A HREF="ccollect-0.3.2.tar.bz2">ccollect-0.3.2.tar.bz2</A>
    (<A HREF="ccollect-0.3.2">browse source</A>)
    (<A HREF="ccollect-0.3.2/doc/CHANGES">Changes</A>)
    <!-- -------------------------------------------------------- -->
-   <li><A HREF="ccollect-0.3.1.tar.bz2">ccollect-0.3.1.tar.bz2</A>
+ * <A HREF="ccollect-0.3.1.tar.bz2">ccollect-0.3.1.tar.bz2</A>
    (<A HREF="ccollect-0.3.1">browse source</A>)
    (<A HREF="ccollect-0.3.1/doc/CHANGES">Changes</A>)
    <!-- -------------------------------------------------------- -->
-   <li><A HREF="ccollect-0.3.tar.bz2">ccollect-0.3.tar.bz2</A>
+ * <A HREF="ccollect-0.3.tar.bz2">ccollect-0.3.tar.bz2</A>
    (<A HREF="ccollect-0.3">browse source</A>)
    (<A HREF="ccollect-0.3/doc/CHANGES">Changes</A>)
    <!-- -------------------------------------------------------- -->
-   (<A HREF="ccollect-0.3/doc/ccollect.html">HTML documentation</A>)
-   (<A HREF="ccollect-0.3/doc/ccollect.text">Text documentation</A>)
-
-   <li><A HREF="ccollect-0.2.tar.bz2">ccollect-0.2.tar.bz2</A>
+ * <A HREF="ccollect-0.2.tar.bz2">ccollect-0.2.tar.bz2</A>
    (<A HREF="ccollect-0.2">browse source</A>)
    (<A HREF="ccollect-0.2/doc/CHANGES">Changes</A>)
    <!-- -------------------------------------------------------- -->
-   (<A HREF="ccollect-0.2/doc/ccollect.html">HTML documentation</A>)
-   (<A HREF="ccollect-0.2/doc/ccollect.text">Text documentation</A>)
-   <!-- -------------------------------------------------------- -->
-   <li><A HREF="ccollect-0.1.tar.bz2">ccollect-0.1.tar.bz2</A>
+ * <A HREF="ccollect-0.1.tar.bz2">ccollect-0.1.tar.bz2</A>
    (<A HREF="ccollect-0.1">browse source</A>)
-   <!-- -------------------------------------------------------- -->
-<!-- ######################################################### -->
-<h4><A NAME="gentoo">gentoo</A></h4>
-<P>ccollect is included into gentoo portage.
-Thanks to Ren&eacute; Nussbaumer.
-<!-- ######################################################### -->
-<h4><A NAME="debian">Debian packages</A></h4>
+
+#### Gentoo
+<P>ccollect is included into gentoo portage. Thanks to Ren&eacute; Nussbaumer.
+
+### Debian
 <P>Marcus Wagner makes ccollect available as Debian packages.
 <BR>To get ccollect insert the following line into your /etc/apt/sources.list:
 <PRE>
@@ -163,19 +155,20 @@ To use his archive, add the following line into your /etc/apt/sources.list:
 <P>
 After adding one of the above sources.list entries do
 <PRE>apt-get update && apt-get install ccollect</PRE>
+
 ### Support
 <ul>
-   <li><a name="ml">Mailing list</a>
+ * <a name="ml">Mailing list</a>
    <ul>
-      <li>Subscribe: Send an e-mail to
+ * Subscribe: Send an e-mail to
           <b>ccollect-subscribe at lists.schottelius.org</b>
-      <li>Sending: Send e-mails to ccollect [at] lists.schottelius.org
-      <li>Unsubscribe: Send an e-mail to
+ * Sending: Send e-mails to ccollect [at] lists.schottelius.org
+ * Unsubscribe: Send an e-mail to
           <b>ccollect-unsubscribe at lists.schottelius.org</b>
    </ul>
-   <li><a name="irc">IRC</a>
+ * <a name="irc">IRC</a>
    <ul>
-      <li>Join
+ * Join
       <a href="irc://irc.freenode.org/#cLinux">#cLinux on irc.freenode.org</a>
    </ul>
 </ul>
