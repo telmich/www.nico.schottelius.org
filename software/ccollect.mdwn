@@ -2,18 +2,16 @@
 
 <P ALIGN="center">
 <a href="screenshots/">
-![ccollect-0.7.1](screenshots/ccollect-0.7.1.png "Example output of ccollect")
-![ccollect-0.7.1](screenshots/ccollect-0.6-screenshot-20070816.png "Example output of ccollect")
+![ccollect-0.7.1](screenshots/ccollect-0.7.1-screenshot-20090527.png "Example output of ccollect-0.6")
 </a>
 <P>ccollect backups data from local and remote hosts to your local harddisk.
-Although ccollect creates full backups, it requires very less space on
-the backup medium, because ccollect uses hardlinks to create an initial
-copy of the last backup. Only the inodes used by the hardlinks and
-the changed files need additional space.
+Although ccollect creates full backups, it requires very less space on the
+backup medium, because ccollect uses hardlinks to create an initial copy of
+the last backup. Only the inodes used by the hardlinks and the changed files
+need additional space.
 
-ccollect uses [rsync](http://www.samba.org/rsync/)
-for synchronisation. Since ccollect-0.2 there is
-[asciidoc](http://www.methods.co.nz/asciidoc/)
+ccollect uses [rsync](http://www.samba.org/rsync/) for synchronisation.
+Since ccollect-0.2 there is [asciidoc](http://www.methods.co.nz/asciidoc/)
 based documentation included in the distribution (see below).
 You should also be able to configure ccollect with the help of the example
 configuration in conf/.
@@ -37,7 +35,7 @@ There used to be a German translation of the handbook, but it
 is outdated and thus removed.
 
 ### Portability
-As ccollect is written in simple sh-script, it should run on
+As ccollect is a simple shell script, it should run on
 any POSIX compatible OS. It is known or reported to run on:
 
 <ul>
@@ -46,7 +44,7 @@ any POSIX compatible OS. It is known or reported to run on:
    <li>NetBSD:    alpha/sparc64/i386/amd64
    <li>OpenBSD:   amd64
 </ul>
-Feel free to send me an e-mail if you've ccollect running on another
+Feel free to send an e-mail if you are running ccollect on another
 OS or architecture.
 
 ### Sample configurations
@@ -56,16 +54,20 @@ OS or architecture.
    <li><a href="config/ccollect-eiche-2006-02-05.tar.bz2">Configuration
    for ccollect 0.3.3 or earlier from eiche.intern.schottelius.org</a>
 </ul>
-<h3>Getting ccollect</h3>
-<h4>via git</h4>
-<pre>
-git clone git://git.schottelius.org/cLinux/ccollect.git
-or
-git clone http://git.schottelius.org/cLinux/ccollect.git
-</pre>
+
+### Getting ccollect
+You can get the latest (development) version via git:
+
+    git clone git://git.schottelius.org/cLinux/ccollect.git
+
+A git mirror can be found at
+
+ * [github](http://github.com/telmich/ccollect/tree/master)
+
 Alternatively, you can
-<A HREF="http://git.schottelius.org/?p=cLinux/ccollect.git;a=summary">look
-at the current status in gitweb</A>.
+[look at the current
+status in gitweb](http://git.schottelius.org/?p=cLinux/ccollect.git;a=summary).
+
 <!-- ######################################################### -->
 <h4>Releases</h4>
 <ul>
