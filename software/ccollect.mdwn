@@ -68,8 +68,7 @@ Alternatively, you can
 [look at the current
 status in gitweb](http://git.schottelius.org/?p=cLinux/ccollect.git;a=summary).
 
-<!-- ######################################################### -->
-<h4>Releases</h4>
+### Releases
 <ul>
    <li><A HREF="ccollect-0.7.1.tar.bz2">ccollect-0.7.1.tar.bz2</A>
    (<A HREF="ccollect-0.7.1">browse source</A>)
@@ -81,192 +80,68 @@ status in gitweb](http://git.schottelius.org/?p=cLinux/ccollect.git;a=summary).
    <li><A HREF="ccollect-0.6.2.tar.bz2">ccollect-0.6.2.tar.bz2</A>
    (<A HREF="ccollect-0.6.2">browse source</A>)
    (<A HREF="ccollect-0.6.2/doc/CHANGES">Changes</A>)
-      <ul>
-         <li>Manpage:
-         (<A HREF="ccollect-0.6.2/doc/man/ccollect.text">Text</A>)
-         (<A HREF="ccollect-0.6.2/doc/man/ccollect.1">Troff</A>)
-         (<A HREF="ccollect-0.6.2/doc/man/ccollect.html">HTML</A>)
-         <li>English documentation:
-         (<A HREF="ccollect-0.6.2/doc/ccollect.text">Text</A>)
-         (<A HREF="ccollect-0.6.2/doc/ccollect.html">HTML</A>)
-         (<A HREF="ccollect-0.6.2/doc/ccollect.htm">HTML (docbook)</A>)
-         <li>German documentation:
-         (<A HREF="ccollect-0.6.2/doc/ccollect-DE.text">Text</A>)
-         (<A HREF="ccollect-0.6.2/doc/ccollect-DE.html">HTML</A>)
-         (<A HREF="ccollect-0.6.2/doc/ccollect-DE.html">HTML (docbook)</A>)
-         (<b>EXTREMLY OUT OF DATE</b>)
-      </ul>
 <!-- ######################################################### -->
-               <li><A HREF="ccollect-0.6.1.tar.bz2">ccollect-0.6.1.tar.bz2</A>
+   <li><A HREF="ccollect-0.6.1.tar.bz2">ccollect-0.6.1.tar.bz2</A>
    (<A HREF="ccollect-0.6.1">browse source</A>)
    (<A HREF="ccollect-0.6.1/doc/CHANGES">Changes</A>)
-      <ul>
-         <li>Manpage:
-         (<A HREF="ccollect-0.6.1/doc/man/ccollect.text">Text</A>)
-         (<A HREF="ccollect-0.6.1/doc/man/ccollect.1">Troff</A>)
-         (<A HREF="ccollect-0.6.1/doc/man/ccollect.html">HTML</A>)
-         <li>English documentation:
-         (<A HREF="ccollect-0.6.1/doc/ccollect.text">Text</A>)
-         (<A HREF="ccollect-0.6.1/doc/ccollect.html">HTML</A>)
-         (<A HREF="ccollect-0.6.1/doc/ccollect.htm">HTML (docbook)</A>)
-         <li>German documentation:
-         (<A HREF="ccollect-0.6.1/doc/ccollect-DE.text">Text</A>)
-         (<A HREF="ccollect-0.6.1/doc/ccollect-DE.html">HTML</A>)
-         (<A HREF="ccollect-0.6.1/doc/ccollect-DE.html">HTML (docbook)</A>)
-         (<b>VERY OUT OF DATE</b>)
-      </ul>
-            <!-- -------------------------------------------------------- -->
+   <!-- -------------------------------------------------------- -->
    <li><A HREF="ccollect-0.6.tar.bz2">ccollect-0.6.tar.bz2</A>
    (<A HREF="ccollect-0.6">browse source</A>)
    (<A HREF="ccollect-0.6/doc/CHANGES">Changes</A>)
-      <ul>
-         <li>Manpage:
-         (<A HREF="ccollect-0.6/doc/man/ccollect.text">Text</A>)
-         (<A HREF="ccollect-0.6/doc/man/ccollect.1">Troff</A>)
-         (<A HREF="ccollect-0.6/doc/man/ccollect.html">HTML</A>)
-         <li>English documentation:
-         (<A HREF="ccollect-0.6/doc/ccollect.text">Text</A>)
-         (<A HREF="ccollect-0.6/doc/ccollect.html">HTML</A>)
-         (<A HREF="ccollect-0.6/doc/ccollect.htm">HTML (docbook)</A>)
-         <li>German documentation:
-         (<A HREF="ccollect-0.6/doc/ccollect-DE.text">Text</A>)
-         (<A HREF="ccollect-0.6/doc/ccollect-DE.html">HTML</A>)
-         (<A HREF="ccollect-0.6/doc/ccollect-DE.html">HTML (docbook)</A>)
-         (<b>VERY OUT OF DATE</b>)
-      </ul>
-      <!-- -------------------------------------------------------- -->
+   <!-- -------------------------------------------------------- -->
    <li><A HREF="ccollect-0.5.2.tar.bz2">ccollect-0.5.2.tar.bz2</A>
    (<A HREF="ccollect-0.5.2">browse source</A>)
    (<A HREF="ccollect-0.5.2/doc/CHANGES">Changes</A>)
-      <ul>
-         <li>Manpage:
-         (<A HREF="ccollect-0.5.2/doc/man/ccollect.text">Text</A>)
-         (<A HREF="ccollect-0.5.2/doc/man/ccollect.man">Troff</A>)
-         (<A HREF="ccollect-0.5.2/doc/man/ccollect.html">HTML</A>)
-         <li>English documentation:
-         (<A HREF="ccollect-0.5.2/doc/ccollect.text">Text</A>)
-         (<A HREF="ccollect-0.5.2/doc/ccollect.html">HTML</A>)
-         (<A HREF="ccollect-0.5.2/doc/ccollect.texi">Texinfo</A>)
-         <li>German documentation:
-         (<A HREF="ccollect-0.5.2/doc/ccollect-DE.text">Text</A>)
-         (<A HREF="ccollect-0.5.2/doc/ccollect-DE.html">HTML</A>)
-         (<A HREF="ccollect-0.5.2/doc/ccollect-DE.texi">Texinfo</A>)
-         (<b>OUT OF DATE</b>)
-      </ul>
    <!-- -------------------------------------------------------- -->
    <li><A HREF="ccollect-0.5.1.tar.bz2">ccollect-0.5.1.tar.bz2</A>
    (<A HREF="ccollect-0.5.1">browse source</A>)
    (<A HREF="ccollect-0.5.1/doc/CHANGES">Changes</A>)
-      <ul>
-         <li>Manpage:
-         (<A HREF="ccollect-0.5.1/doc/man/ccollect.text">Text</A>)
-         (<A HREF="ccollect-0.5.1/doc/man/ccollect.man">Troff</A>)
-         (<A HREF="ccollect-0.5.1/doc/man/ccollect.html">HTML</A>)
-         <li>English documentation:
-         (<A HREF="ccollect-0.5.1/doc/ccollect.text">Text</A>)
-         (<A HREF="ccollect-0.5.1/doc/ccollect.html">HTML</A>)
-         (<A HREF="ccollect-0.5.1/doc/ccollect.texi">Texinfo</A>)
-         <li>German documentation:
-         (<A HREF="ccollect-0.5.1/doc/ccollect-DE.text">Text</A>)
-         (<A HREF="ccollect-0.5.1/doc/ccollect-DE.html">HTML</A>)
-         (<A HREF="ccollect-0.5.1/doc/ccollect-DE.texi">Texinfo</A>)
-         (<b>OUT OF DATE</b>)
-      </ul>
    <!-- -------------------------------------------------------- -->
    <li><A HREF="ccollect-0.5.tar.bz2">ccollect-0.5.tar.bz2</A>
    (<A HREF="ccollect-0.5">browse source</A>)
    (<A HREF="ccollect-0.5/doc/CHANGES">Changes</A>)
-      <ul>
-         <li>Manpage:
-         (<A HREF="ccollect-0.5/doc/man/ccollect.text">Text</A>)
-         (<A HREF="ccollect-0.5/doc/man/ccollect.man">Troff</A>)
-         (<A HREF="ccollect-0.5/doc/man/ccollect.html">HTML</A>)
-         <li>English documentation:
-         (<A HREF="ccollect-0.5/doc/ccollect.text">Text</A>)
-         (<A HREF="ccollect-0.5/doc/ccollect.html">HTML</A>)
-         (<A HREF="ccollect-0.5/doc/ccollect.texi">Texinfo</A>)
-         <li>German documentation:
-         (<A HREF="ccollect-0.5/doc/ccollect-DE.text">Text</A>)
-         (<A HREF="ccollect-0.5/doc/ccollect-DE.html">HTML</A>)
-         (<A HREF="ccollect-0.5/doc/ccollect-DE.texi">Texinfo</A>)
-         (<b>OUT OF DATE</b>)
-      </ul>
    <!-- -------------------------------------------------------- -->
    <li><A HREF="ccollect-0.4.2.tar.bz2">ccollect-0.4.2.tar.bz2</A>
    (<A HREF="ccollect-0.4.2">browse source</A>)
    (<A HREF="ccollect-0.4.2/doc/CHANGES">Changes</A>)
-      <ul>
-         <li>Manpage:
-         (<A HREF="ccollect-0.4.2/doc/man/ccollect.text">Text</A>)
-         (<A HREF="ccollect-0.4.2/doc/man/ccollect.man">Troff</A>)
-         (<A HREF="ccollect-0.4.2/doc/man/ccollect.html">HTML</A>)
-         <li>English documentation:
-         (<A HREF="ccollect-0.4.2/doc/ccollect.text">Text</A>)
-         (<A HREF="ccollect-0.4.2/doc/ccollect.html">HTML</A>)
-         (<A HREF="ccollect-0.4.2/doc/ccollect.texi">Texinfo</A>)
-         <li>German documentation:
-         (<A HREF="ccollect-0.4.2/doc/ccollect-DE.text">Text</A>)
-         (<A HREF="ccollect-0.4.2/doc/ccollect-DE.html">HTML</A>)
-         (<A HREF="ccollect-0.4.2/doc/ccollect-DE.texi">Texinfo</A>)
-      </ul>
    <!-- -------------------------------------------------------- -->
    <li><A HREF="ccollect-0.4.1.tar.bz2">ccollect-0.4.1.tar.bz2</A>
    (<A HREF="ccollect-0.4.1">browse source</A>)
    (<A HREF="ccollect-0.4.1/doc/CHANGES">Changes</A>)
-      <ul>
-         <li>Manpage:
-         (<A HREF="ccollect-0.4.1/doc/man/ccollect.text">Text</A>)
-         (<A HREF="ccollect-0.4.1/doc/man/ccollect.man">Troff</A>)
-         (<A HREF="ccollect-0.4.1/doc/man/ccollect.html">HTML</A>)
-         <li>English documentation:
-         (<A HREF="ccollect-0.4.1/doc/ccollect.text">Text</A>)
-         (<A HREF="ccollect-0.4.1/doc/ccollect.html">HTML</A>)
-         (<A HREF="ccollect-0.4.1/doc/ccollect.texi">Texinfo</A>)
-         <li>German documentation:
-         (<A HREF="ccollect-0.4.1/doc/ccollect-DE.text">Text</A>)
-         (<A HREF="ccollect-0.4.1/doc/ccollect-DE.html">HTML</A>)
-         (<A HREF="ccollect-0.4.1/doc/ccollect-DE.texi">Texinfo</A>)
-      </ul>
    <!-- -------------------------------------------------------- -->
    <li><A HREF="ccollect-0.4.tar.bz2">ccollect-0.4.tar.bz2</A>
    (<A HREF="ccollect-0.4">browse source</A>)
    (<A HREF="ccollect-0.4/doc/CHANGES">Changes</A>)
-   (<A HREF="ccollect-0.4/doc/ccollect.html">HTML documentation</A>)
-   (<A HREF="ccollect-0.4/doc/ccollect.text">Text documentation</A>)
-
+   <!-- -------------------------------------------------------- -->
    <li><A HREF="ccollect-0.3.3.tar.bz2">ccollect-0.3.3.tar.bz2</A>
    (<A HREF="ccollect-0.3.3">browse source</A>)
    (<A HREF="ccollect-0.3.3/doc/CHANGES">Changes</A>)
-   (<A HREF="ccollect-0.3.3/doc/ccollect.html">HTML documentation</A>)
-   (<A HREF="ccollect-0.3.3/doc/ccollect.text">Text documentation</A>)
-
+   <!-- -------------------------------------------------------- -->
    <li><A HREF="ccollect-0.3.2.tar.bz2">ccollect-0.3.2.tar.bz2</A>
    (<A HREF="ccollect-0.3.2">browse source</A>)
    (<A HREF="ccollect-0.3.2/doc/CHANGES">Changes</A>)
-   (<A HREF="ccollect-0.3.2/doc/ccollect.html">HTML documentation</A>)
-   (<A HREF="ccollect-0.3.2/doc/ccollect.text">Text documentation</A>)
-
+   <!-- -------------------------------------------------------- -->
    <li><A HREF="ccollect-0.3.1.tar.bz2">ccollect-0.3.1.tar.bz2</A>
    (<A HREF="ccollect-0.3.1">browse source</A>)
    (<A HREF="ccollect-0.3.1/doc/CHANGES">Changes</A>)
-   (<A HREF="ccollect-0.3.1/doc/ccollect.html">HTML documentation</A>)
-   (<A HREF="ccollect-0.3.1/doc/ccollect.text">Text documentation</A>)
-
+   <!-- -------------------------------------------------------- -->
    <li><A HREF="ccollect-0.3.tar.bz2">ccollect-0.3.tar.bz2</A>
    (<A HREF="ccollect-0.3">browse source</A>)
    (<A HREF="ccollect-0.3/doc/CHANGES">Changes</A>)
+   <!-- -------------------------------------------------------- -->
    (<A HREF="ccollect-0.3/doc/ccollect.html">HTML documentation</A>)
    (<A HREF="ccollect-0.3/doc/ccollect.text">Text documentation</A>)
 
    <li><A HREF="ccollect-0.2.tar.bz2">ccollect-0.2.tar.bz2</A>
    (<A HREF="ccollect-0.2">browse source</A>)
    (<A HREF="ccollect-0.2/doc/CHANGES">Changes</A>)
+   <!-- -------------------------------------------------------- -->
    (<A HREF="ccollect-0.2/doc/ccollect.html">HTML documentation</A>)
    (<A HREF="ccollect-0.2/doc/ccollect.text">Text documentation</A>)
-
+   <!-- -------------------------------------------------------- -->
    <li><A HREF="ccollect-0.1.tar.bz2">ccollect-0.1.tar.bz2</A>
    (<A HREF="ccollect-0.1">browse source</A>)
-</ul>
+   <!-- -------------------------------------------------------- -->
 <!-- ######################################################### -->
 <h4><A NAME="gentoo">gentoo</A></h4>
 <P>ccollect is included into gentoo portage.
@@ -288,7 +163,7 @@ To use his archive, add the following line into your /etc/apt/sources.list:
 <P>
 After adding one of the above sources.list entries do
 <PRE>apt-get update && apt-get install ccollect</PRE>
-<h3><A name="support">Support</a></h3>
+### Support
 <ul>
    <li><a name="ml">Mailing list</a>
    <ul>
@@ -305,14 +180,10 @@ After adding one of the above sources.list entries do
    </ul>
 </ul>
 
-<h4><A NAME="links">Related websites</A></h4>
-<ul>
-   <li><A HREF="http://0xf00.de/ccollect-config.html">ccollect-config</A>,
+### Related websites
+ * <A HREF="http://0xf00.de/ccollect-config.html">ccollect-config</A>,
    a configuration tool written by Frederic Jaeckel
-   <li><A HREF="http://www.juame.ch/index.php?go=ccollect">German ccollect
+ * <A HREF="http://www.juame.ch/index.php?go=ccollect">Original German ccollect
    documentation</A> by Julian Meier
-   <li><A HREF="http://muasch.ch/article/show/ccollect-backup-software">German report about
+ * <A HREF="http://muasch.ch/article/show/ccollect-backup-software">German report about
    ccollect by Benedikt K&ouml;ppel, which includes a description of reverse ssh tunnels</a>
-</ul>
-</BODY>
-</HTML>
