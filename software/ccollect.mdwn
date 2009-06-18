@@ -38,22 +38,18 @@ is outdated and thus removed.
 As ccollect is a simple shell script, it should run on
 any POSIX compatible OS. It is known or reported to run on:
 
-<ul>
  * FreeBSD:   amd64/i386
  * Linux:     alpha/hppa/ppc/i386
  * NetBSD:    alpha/sparc64/i386/amd64
  * OpenBSD:   amd64
-</ul>
 Feel free to send an e-mail if you are running ccollect on another
 OS or architecture.
 
 ### Sample configurations
-<ul>
  * <a href="config/ccollect-buche-2006-06-16.tar.bz2">Configuration
    for ccollect 0.4 or later from buche.intern.schottelius.org</a>
  * <a href="config/ccollect-eiche-2006-02-05.tar.bz2">Configuration
    for ccollect 0.3.3 or earlier from eiche.intern.schottelius.org</a>
-</ul>
 
 ### Getting ccollect
 You can get the latest (development) version via git:
@@ -142,36 +138,22 @@ status in gitweb](http://git.schottelius.org/?p=cLinux/ccollect.git;a=summary).
 ### Debian
 <P>Marcus Wagner makes ccollect available as Debian packages.
 <BR>To get ccollect insert the following line into your /etc/apt/sources.list:
-<PRE>
-<A HREF="http://deb.notestc.de/clinux/">deb http://deb.notestc.de/ clinux/</A>
-</PRE>
+    <A HREF="http://deb.notestc.de/clinux/">deb http://deb.notestc.de/ clinux/</A>
 <HR>
 Daniel Aubry also created a Debian package containing ccollect.
 To use his archive, add the following line into your /etc/apt/sources.list:
-<PRE>
-<A HREF="http://debian.syhosting.ch/software/">deb http://debian.syhosting.ch/ software/</A>
-</PRE>
-<HR>
-<P>
+    <A HREF="http://debian.syhosting.ch/software/">deb http://debian.syhosting.ch/ software/</A>
+
 After adding one of the above sources.list entries do
-<PRE>apt-get update && apt-get install ccollect</PRE>
+
+    apt-get update && apt-get install ccollect
 
 ### Support
-<ul>
- * <a name="ml">Mailing list</a>
-   <ul>
- * Subscribe: Send an e-mail to
-          <b>ccollect-subscribe at lists.schottelius.org</b>
- * Sending: Send e-mails to ccollect [at] lists.schottelius.org
- * Unsubscribe: Send an e-mail to
-          <b>ccollect-unsubscribe at lists.schottelius.org</b>
-   </ul>
- * <a name="irc">IRC</a>
-   <ul>
- * Join
-      <a href="irc://irc.freenode.org/#cLinux">#cLinux on irc.freenode.org</a>
-   </ul>
-</ul>
+ * There is a general
+ [ccollect mailing list](http://l.schottelius.org/mailman/listinfo/ccollect)
+ available.
+ * You can join the development ***IRC channel***
+   [#cLinux on irc.freenode.org](irc://irc.freenode.org/#cLinux).
 
 ### Related websites
  * <A HREF="http://0xf00.de/ccollect-config.html">ccollect-config</A>,
