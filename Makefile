@@ -11,6 +11,7 @@ clean: all
 	rm -rf ${DESTDIR}
 
 public: all
+	git push --mirror
 	rsync -av --delete ${DESTDIR} ${PUBDIR}
 
 
