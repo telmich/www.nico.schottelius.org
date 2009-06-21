@@ -1,0 +1,5 @@
+Artikel, die in der Presse waren
+
+Publications found in the press
+
+[[!inline pages="tagged(press)" archive="yes" show=0]]
