@@ -1,4 +1,4 @@
-#### ccollect - (pseudo) incremental backup with different exclude lists using hardlinks and rsync
+## ccollect - (pseudo) incremental backup with different exclude lists using hardlinks and rsync
 
 <P ALIGN="center">
 <a href="screenshots/">
@@ -16,7 +16,7 @@ based documentation included in the distribution (see below).
 You should also be able to configure ccollect with the help of the example
 configuration in conf/.
 
-### Documentation
+## Documentation
 
 You can read
 
@@ -34,7 +34,7 @@ You can read
 There used to be a German translation of the handbook, but it
 is outdated and thus removed.
 
-### Portability
+## Portability
 As ccollect is a simple shell script, it should run on
 any POSIX compatible OS. It is known or reported to run on:
 
@@ -42,27 +42,31 @@ any POSIX compatible OS. It is known or reported to run on:
  * Linux:     alpha/hppa/ppc/i386
  * NetBSD:    alpha/sparc64/i386/amd64
  * OpenBSD:   amd64
-Feel free to send an e-mail if you are running ccollect on another
-OS or architecture.
 
-### Sample configurations
+Feel free to send an e-mail if you are running ccollect on
+another OS or architecture.
+
+For more information regarding portability have a look at the [[u2u|net/u2u]] idea.
+
+## Sample configurations
  * <a href="config/ccollect-buche-2006-06-16.tar.bz2">Configuration
    for ccollect 0.4 or later from buche.intern.schottelius.org</a>
  * <a href="config/ccollect-eiche-2006-02-05.tar.bz2">Configuration
    for ccollect 0.3.3 or earlier from eiche.intern.schottelius.org</a>
 
-### Getting ccollect
+## Getting ccollect
+
+### Development versions
 You can get the latest (development) version via git:
 
     git clone git://git.schottelius.org/cLinux/ccollect.git
 
-A git mirror can be found at
+Additionally, the following other git ressources are available:
 
- * [github](http://github.com/telmich/ccollect/tree/master)
+ * [Gitweb](http://git.schottelius.org/?p=cLinux/ccollect.git;a=summary).
+ * [Mirror at github](http://github.com/telmich/ccollect/tree/master)
+<!-- * [John's tree](http://github.com/jll2/ccollect/) -->
 
-Alternatively, you can
-[look at the current
-status in gitweb](http://git.schottelius.org/?p=cLinux/ccollect.git;a=summary).
 
 ### Releases
  * <A HREF="ccollect-0.7.1.tar.bz2">ccollect-0.7.1.tar.bz2</A>
@@ -148,14 +152,14 @@ After adding one of the above sources.list entries do
 
     apt-get update && apt-get install ccollect
 
-### Support
+## Support
  * There is a general
  [ccollect mailing list](http://l.schottelius.org/mailman/listinfo/ccollect)
  available.
  * You can join the development ***IRC channel***
    [#cLinux on irc.freenode.org](irc://irc.freenode.org/#cLinux).
 
-### Related websites
+## Related websites
  * <A HREF="http://0xf00.de/ccollect-config.html">ccollect-config</A>,
    a configuration tool written by Frederic Jaeckel
  * [German report about ccollect including a description
