@@ -158,7 +158,6 @@ After adding one of the above sources.list entries do
 ### Related websites
  * <A HREF="http://0xf00.de/ccollect-config.html">ccollect-config</A>,
    a configuration tool written by Frederic Jaeckel
- * <A HREF="http://www.juame.ch/index.php?go=ccollect">Original German ccollect
-   documentation</A> by Julian Meier
- * <A HREF="http://muasch.ch/article/show/ccollect-backup-software">German report about
-   ccollect by Benedikt K&ouml;ppel, which includes a description of reverse ssh tunnels</a>
+ * [German report about ccollect including a description
+   of reverse ssh tunnels](http://muasch.ch/article/show/ccollect-backup-software)
+   by Benedikt K&ouml;ppel,
