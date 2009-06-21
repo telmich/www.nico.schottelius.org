@@ -8,4 +8,4 @@ im Februar 2005.
  * [Einseitige Version beim Linux-Magazin](http://www.linux-magazin.de/layout/set/print/content/view/full/3695)
  * [[Lokale Kopie der einseitigen Version|www.linux-magazin.de/layout/set/print/content/view/full/3695]]
 
-[[!tag publication press]]
+[[!tag publication]]
