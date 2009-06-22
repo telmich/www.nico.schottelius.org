@@ -1,0 +1,21 @@
+[[!meta title="Migrated ccollect"]]
+
+## Ccollect - the simple backup tool
+
+The first software from the old
+[unix.schottelius.org](http://unix.schottelius.org) website
+(previously [linux.schottelius.org](http://linux.schottelius.org))
+has been migrated to this website: From today on, the old ***ccollect***
+home
+
+   * http://unix.schottelius.org/ccollect/
+
+moved to
+
+   * [[http://www.nico.schottelius.org/software/ccollect/|software/ccollect]]
+
+Please update your links.
+
+More stuff will be migrated soon!
+
+[[!tag unix backup]]
