@@ -1,3 +1,5 @@
+[[!meta title="Press articles"]]
+
 The following is an incomplete list of news and articles about my projects and those I wrote:
 
 * February 2005: [[Linux-Magazin about monotone and gnu arch (tla)|dokumentationen/linux-magazin-monotone-gnu-arch-tla/]]
