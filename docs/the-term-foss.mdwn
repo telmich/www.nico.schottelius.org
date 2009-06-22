@@ -1,8 +1,15 @@
-[[!meta title="The term FOSS"]]
+[[!meta title="The terms FOSS and the relation to FS, OSS and FLOSS"]]
 
-## Existing terms
+## Introduction
+
+Today, there are different terms in use to describe ***free*** and
+***open source software***. This article gives you a short overview
+about those terms and a short reason why I prefer to use ***FOSS***.
+
 ### Free software
-<br /><a href="http://www.gnu.org/">GNU</a> prefers to use the term "<a href="http://www.gnu.org/philosophy/free-sw.html">Free software</a>".  The reason for me not to use this term are:<br />
+[GNU](http://www.gnu.org) prefers to use the term
+"<a href="http://www.gnu.org/philosophy/free-sw.html">Free software</a>".
+The reason for me not to use this term are:<br />
 <ul><li>The abreviation is "FS", which is ambiguous. "FS" is often used as the abreviation for "filesystem".</li><li>The term does not tell you directly, that you also have access to the source (main reason one).</li><li>I think people can easily think free software is just free as in "nothing to pay for it" (main reason two).<br /></li><li>I do not like to pronounce it. Think about "I've like effess." Nothing my tongue likes.<br /></li></ul>
 ### Open source software
 <br />I liked to use the term "<a href="http://www.opensource.org/docs/definition.php">Open source software</a>"

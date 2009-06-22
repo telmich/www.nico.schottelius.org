@@ -29,6 +29,8 @@ configuration of lighttpd looks like this:
 ([[a more detailled version can be found here|configs/lighttpd-zope-http-and-https]])
 
 
+## The idea
+
 Now I created a new [[about page here|about]] and want to redirect
 the old URLs **"^/ueber/nico-schottelius$"** and **"^/about/nico-schottelius$"**
 from the Plone site to it.
@@ -37,6 +39,8 @@ First I tried the normal redirect like this:
 
        url.redirect = ( "^/ueber/nico-schottelius$" => "http://www.nico.schottelius.org/about/",
                         "^/about/nico-schottelius$" => "http://www.nico.schottelius.org/about/" )
+
+## The solution
 
 Unfortunately, this did not work. You may already have spotted the bug...
 The correct way to redirect pages from lighttpd in front of
