@@ -1,4 +1,0 @@
-[web](http://en.wikipedia.org/wiki/Www)
-related stuff. Webservers, websites, etc.
-
-[[!inline pages="tagged(www)" archive="yes" show=0]]

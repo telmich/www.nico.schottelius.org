@@ -1,0 +1,63 @@
+[[!meta title="Mixing redirects and rewrites with lighttpd and Plone"]]
+
+## The situation
+
+As you may already know,
+[[I am|blog/restart-to-write-news]]
+[[migrating|blog/migration-1-configs]]
+[[many of|migration-2-freebsd-raid-monitoring-foss]]
+[[my websites|migration-3-ccollect]] into this one.
+
+Today I also began to redirect stuff from my
+previous personal website, http://nico.schottelius.org. 
+I am (still) running [Plone](http://www.plone.org) on that
+site, behind [lighttpd](http://www.lighttpd.net/). The
+configuration of lighttpd looks like this:
+
+    $HTTP["host"] =~ "^(nico|nico2)\.schottelius\.org$" {
+       url.rewrite-once = ( "^/(.*)" => "/VirtualHostBase/http/nico.schottelius.org/cms/VirtualHostRoot/$1" )
+      
+       var.logdir           = "/home/server/www/nico/nico.schottelius.org/logs/"
+       accesslog.filename   = logdir    + "access.log"
+
+       proxy.server =   ( "" => (                                                           
+          ( "host" => "192.168.6.2", "port" => 8082 ),                                      
+          ( "host" => "192.168.6.2", "port" => 8083 )
+       ))
+    }
+
+([[a more detailled version can be found here|configs/lighttpd-zope-http-and-https]])
+
+
+Now I created a new [[about page here|about]] and want to redirect
+the old URLs **"^/ueber/nico-schottelius$"** and **"^/about/nico-schottelius$"**
+from the Plone site to it.
+
+First I tried the normal redirect like this:
+
+       url.redirect = ( "^/ueber/nico-schottelius$" => "http://www.nico.schottelius.org/about/",
+                        "^/about/nico-schottelius$" => "http://www.nico.schottelius.org/about/" )
+
+Unfortunately, this did not work. You may already have spotted the bug...
+The correct way to redirect pages from lighttpd in front of
+[Zope](http://www.zope.org), which does ***rewriting*** is to match on the
+**rewritten** path! Thus, the following code does the
+[correct redirect](http://nico.schottelius.org/about/nico-schottelius):
+
+    url.redirect = (
+      "^/VirtualHostBase/http/nico.schottelius.org/cms/VirtualHostRoot/ueber/nico-schottelius$"
+          => "http://www.nico.schottelius.org/about/",
+      "^/VirtualHostBase/http/nico.schottelius.org/cms/VirtualHostRoot/about/nico-schottelius$"
+          => "http://www.nico.schottelius.org/about/"
+    )
+
+You can use [curl](http://curl.haxx.se) to verify the redirect:
+
+    [22:54] ikn% curl -i http://nico.schottelius.org/about/nico-schottelius
+    HTTP/1.1 301 Moved Permanently
+    Location: http://www.nico.schottelius.org/about/
+    Content-Length: 0
+    Date: Mon, 22 Jun 2009 21:01:39 GMT
+    Server: lighttpd/1.4.19
+
+[[!tag lighttpd plone]]
