@@ -1,0 +1,4 @@
+Pages related to the content management system
+[Plone](http://www.plone.org).
+
+[[!inline pages="tagged(plone)" archive="yes" show=0]]
