@@ -165,3 +165,5 @@ After adding one of the above sources.list entries do
  * [German report about ccollect including a description
    of reverse ssh tunnels](http://muasch.ch/article/show/ccollect-backup-software)
    by Benedikt K&ouml;ppel,
+
+[[!tag unix backup]]
