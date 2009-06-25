@@ -1,0 +1,31 @@
+[[!meta title="Wikiversity - die virtuelle Universität im Internet"]]
+
+Ich bin heute bei der Suche nach einem bestimmten Java-Buch
+auf **ein**
+[Java-Buch](http://de.wikibooks.org/wiki/Java) auf der
+[Wikibooks](http://de.wikibooks.org/)-Seite gestossen.
+
+Mir war bis jetzt nicht bewusst, dass es neben
+[Wikipedia](http://de.wikipedia.org/) und
+[Wiktionary](http://de.wiktionary.org/) 
+auch eine Seite mit Büchern gibt.
+
+Aber nicht nur das, sondern auch die Lernplattform
+[Wikiversity](http://de.wikiversity.org) war mir bis heute
+nicht bekannt.
+
+Ein recht interessanter Ansatz sind dort insbesondere die Kurse,
+wie zum Beispiel
+[dieser Java-Kurs](http://de.wikiversity.org/wiki/Kurs:Programmierung_in_Java).
+
+Denn meiner Meinung nach kann ein Kurs genau die Probleme erschlagen,
+die sonst beim autodidaktischen Lernen mit einem Buch auftreten:
+
+ * Probleme und Fragen können mit anderen diskutiert werden
+ * Der Betreuer kann die definitiv richtigen Antworten herausgeben
+ * Es ist eine gute Lernstruktur vorhanden
+
+Noch habe ich mir nicht viel von Wikiversity angeschaut, aber
+es sieht nach einem recht interessantem Ansatz aus.
+Nicht umbedingt als Ersatz, aber als Ergänzung zu echten
+Universitäten.
