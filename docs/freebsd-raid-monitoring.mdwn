@@ -12,9 +12,12 @@ monitor it actively).
 
 ### Status of this document
 This document was initially written on the 2nd of August 2007.
-It was last updated on the 11th of February 2009 and
-migrated to [www.nico.schottelius.org](http://www.nico.schottelius.org)
+It was migrated to
+[www.nico.schottelius.org](http://www.nico.schottelius.org)
 on the 12th of May 2009.
+
+You can have a look into [[git|about/websites]], to see when it was
+last updated.
 
 ## List of raid systems and how to monitor them
 
@@ -43,14 +46,18 @@ And the one that is called by cron:<br />
 <br />mpt based devices can be monitored under Linux with the kernel module "mptctl" and the <a title="The term &quot;FOSS&quot;" href="../../documentations/foss/the-term-foss">FOSS</a> tool "<a href="http://www.drugphish.ch/~ratz/mpt-status/">mpt-status</a>". There seems to be no support under FreeBSD available currently. For more information about mpt have a look at <a href="http://www.freebsd.org/cgi/man.cgi?query=mpt&amp;apropos=0&amp;sektion=4&amp;manpath=FreeBSD+6.2-RELEASE&amp;format=html">mpt(4)</a>.<br /><br />
 
 ### ciss
-Known tools:<br />
-<ul><li>camcontrol<a id="acu" name="acu"></a></li><li><a id="acu" name="acu">hpacucli</a></li></ul>
-### <a id="acu" name="acu"></a>
+
+Known tools:
+
+ * camcontrol
+ * hpacucli
+
 <br />This driver is used for most HP / Compaq controllers and is (afaik) found in almost all modern SAS/SATA systems provided by HP. As described in http://www.unixadmintalk.com/f41/monitoring-raid-arrays-51889/, you can monitor it via <b>camcontrol</b>:<br /><br />
 <pre># camcontrol inquiry da0<br />pass0: &lt;COMPAQ RAID 1 VOLUME OK&gt; Fixed Direct Access SCSI-0 device<br />pass0: 135.168MB/s transfers<br /></pre>
 <p>(This is untested by me, just found it on the net). On <a href="http://lists.freebsd.org/pipermail/freebsd-proliant/2006-October/000169.html">http://lists.freebsd.org/pipermail/freebsd-proliant/2006-October/000169.html</a> I also found the relevant strings to look for:<br /></p>
 <pre>During normal operation of the raid:<br /># camcontrol inquiry da0 -D<br />pass0: &lt;COMPAQ RAID 1  VOLUME OK&gt; Fixed Direct Access SCSI-0 device<br /><br />After removing one of the raid member disks:<br /># camcontrol inquiry da0 -D<br />pass0: &lt;COMPAQ RAID 1  VOLUME inte&gt; Fixed Direct Access SCSI-0 device<br /><br />After re-inserting the raid member disk:<br /># camcontrol inquiry da0 -D<br />pass0: &lt;COMPAQ RAID 1  VOLUME reco&gt; Fixed Direct Access SCSI-0 device<br /><br />And about 45 minutes later:<br /># camcontrol inquiry da0 -D<br />pass0: &lt;COMPAQ RAID 1  VOLUME OK&gt; Fixed Direct Access SCSI-0 device<br /></pre>
 <p>You could also use <a id="acu" name="acu">hpacucli, which can be found at </a>http://people.freebsd.org/~jcagle/. I have no experience with it. So if you have, you can send report or scripts to monitor it to me, so I can include it here (the hint to it was send by Jaimie Sirovich.<br /></p>
+
 ### 3ware raid: twa/twe
 <p>Install and configure <b>sysutils/3dm</b>. This installs a daemon that provides a webinterface and which is also capable to notify you via e-mail if something happens. This is perhaps the easiest way of monitoring raid in FreeBSD. The other possibility to monitor 3ware raids is via <b>tw_cli</b>.</p>
 
