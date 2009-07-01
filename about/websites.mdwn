@@ -12,8 +12,8 @@ The idea of this site is to (sooner or later) consolidate some of the following 
 ## This website
 
 This website is generated using the [ikiwiki software](http://www.ikiwiki.info).
-Its source is maintained via [git](http://git-scm.com/) and can be found
-in [gitweb](http://git.schottelius.org/?p=netzseiten/www.nico.schottelius.org;a=summary)
+Its source is maintained via [git](http://git-scm.com/) and can be found in
+[gitweb](http://git.schottelius.org/?p=netzseiten/www.nico.schottelius.org;a=summary)
 and cloned via
 
     git clone git://git.schottelius.org/netzseiten/www.nico.schottelius.org

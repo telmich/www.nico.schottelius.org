@@ -10,9 +10,8 @@ I am a [[FOSS developer|foss]], with [[several interests|interests]].
 I personally do not think it's wise to publish detailled personal
 information in the internet, because they are personal (versus public).
 
-To get an impression of what I do and who I am,
-you can have a look at [[some press articles|press]]
-or some of my [[websites|websites]].
+To get an impression of what I do and who I am, you can have a look at
+[[some press articles|press]] or some of my [[websites|websites]].
 
 If you want to know more about me, there are
 [many](http://www.google.com/search?q=%22nico+schottelius%22)
