@@ -1,0 +1,14 @@
+[[!meta title="ccollect 0.8 will soon be released"]]
+
+I'm just pretty impressed by a
+[great discussion on the ccollect mailinglist](http://l.schottelius.org/pipermail/ccollect/2009-July/000003.html), in which the automatic selection of the right interval was
+discussed.
+
+Just some hours before I started to do
+[some cleanups](http://git.schottelius.org/?p=cLinux/ccollect.git;a=summary) on
+[[ccollect|software/ccollect]] and now I'm pretty motivated to finish
+those changes and to include the proposed one.
+
+So stay tuned and expect ccollect-0.8 to be available soon!
+
+[[!tag backup unix]]
