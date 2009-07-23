@@ -165,5 +165,8 @@ After adding one of the above sources.list entries do
  * [German report about ccollect including a description
    of reverse ssh tunnels](http://muasch.ch/article/show/ccollect-backup-software)
    by Benedikt K&ouml;ppel,
+ * The German magazine [Linux User](http://www.linuxuser.de/)
+   writes about ccollect in the
+   [2009/08 edition](http://www.linux-community.de/Internal/Artikel/Print-Artikel/LinuxUser/2009/08).
 
 [[!tag unix backup]]
