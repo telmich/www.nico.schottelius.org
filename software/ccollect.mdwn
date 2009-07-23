@@ -137,20 +137,17 @@ Additionally, the following other git ressources are available:
    (<A HREF="ccollect-0.1">browse source</A>)
 
 #### Gentoo
-<P>ccollect is included into gentoo portage. Thanks to Ren&eacute; Nussbaumer.
+ccollect is included into gentoo portage.
+Thanks to Ren&eacute; Nussbaumer.
 
 ### Debian
-<P>Marcus Wagner makes ccollect available as Debian packages.
-<BR>To get ccollect insert the following line into your /etc/apt/sources.list:
-    <A HREF="http://deb.notestc.de/clinux/">deb http://deb.notestc.de/ clinux/</A>
-<HR>
-Daniel Aubry also created a Debian package containing ccollect.
-To use his archive, add the following line into your /etc/apt/sources.list:
-    <A HREF="http://debian.syhosting.ch/software/">deb http://debian.syhosting.ch/ software/</A>
+The Debian archives provided by
+Marcus Wagner (deb http://deb.notestc.de/ clinux/) and
+Daniel Aubry (deb http://debian.syhosting.ch/ software/)
+are currently outdated.
 
-After adding one of the above sources.list entries do
-
-    apt-get update && apt-get install ccollect
+Feel free to use their work to create recent debs or
+even include it into Debian.
 
 ## Support
  * There is a general
