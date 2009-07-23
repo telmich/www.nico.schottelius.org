@@ -1,0 +1,40 @@
+[[!meta title="Migrated ccollect"]]
+
+
+As i started to hack on [cinit](http://unix.schottelius.org) again,
+I tried to get it running on Debian in a VM.
+
+I took the old configuration from my last computer and tried to boot
+with cinit, which failed, because the udev stuff changed.
+
+So I added a udev service, which uses /etc/init.d/udev for switching
+on.
+
+After booting the VM, I recognized, that the service
+***mount/proc*** (which mounts /proc...) fails. Mount claims that
+/proc it is already mounted!
+
+    237    [ -d /proc/1 ] || mount -n /proc
+
+But /proc needs /writable, to write into mtab.
+/ is not being fscked, because udev is not started 
+
+## Ccollect - the simple backup tool
+
+The first software from the old
+[unix.schottelius.org](http://unix.schottelius.org) website
+(previously [linux.schottelius.org](http://linux.schottelius.org))
+has been migrated to this website: From today on, the old ***ccollect***
+home
+
+   * http://unix.schottelius.org/ccollect/
+
+moved to
+
+   * [[http://www.nico.schottelius.org/software/ccollect/|software/ccollect]]
+
+Please update your links.
+
+More stuff will be migrated soon!
+
+[[!tag unix backup]]
