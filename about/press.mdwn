@@ -2,18 +2,31 @@
 
 The following is an incomplete list of news and articles about my projects and those I wrote:
 
-* February 2005: [[Linux-Magazin about monotone and gnu arch (tla)|dokumentationen/linux-magazin-monotone-gnu-arch-tla/]]
+* August 2009:
+  The German magazine [Linux User](http://www.linuxuser.de/)
+  writes about [[ccollect|software/ccollect]] in the
+  [2009/08 edition](http://www.linux-community.de/Internal/Artikel/Print-Artikel/LinuxUser/2009/08).
+* February 2005: The German magazine
+  [Linux-Magazin](http://www.linux-magazin.de/) contains my article
+  [[about monotone and gnu arch (tla)|dokumentationen/linux-magazin-monotone-gnu-arch-tla/]].
 * 26\. August 2004:
-   [OpenNET (russia)](http://www.opennet.ru/opennews/art.shtml?num=4285)
-  about the [[!unixso blacksheep]] project
-* 9\. July 2004: [Pro-Linux](http://www.pro-linux.de/news/2004/7019.html)
-  about the [LinuxDistributionen Wiki](https://wiki.schottelius.org/usemod/cgi-bin/wiki.pl?LinuxDistributionen)
-* 14\. April 2004: [The Linux Documentation Project](http://www.tldp.org/ldpwn/20040414.html)
+  The Russian newssite [OpenNET](http://www.opennet.ru)
+  [writes about](http://www.opennet.ru/opennews/art.shtml?num=4285)
+  the [[!unixso blacksheep]] project.
+* 9\. July 2004:
+  The German newssite [Pro-Linux](http://www.pro-linux.de) writes about the
+  [LinuxDistributionen Wiki](http://www.pro-linux.de/news/2004/7019.html)
+  (which was located at
+  https://wiki.schottelius.org/usemod/cgi-bin/wiki.pl?LinuxDistributionen).
+* 14\. April 2004:
+  [The Linux Documentation Project](http://www.tldp.org/ldpwn/20040414.html)
   about the document explaining
   [why cryptoloops offer only partial security](http://nico.schotteli.us/papers/linux/cryptoloop-partial-security)
-* 22\. August 2003: [Newsforge](http://newsvac.newsforge.com/newsvac/03/08/22/134259.shtml)
+* 22\. August 2003:
+  [Newsforge](http://newsvac.newsforge.com/newsvac/03/08/22/134259.shtml)
   about the [[!unixso blacksheep]] project
-* 31\. July 2003: [Pro-Linux](http://www.pro-linux.de/news/2003/5794.html)
+* 31\. July 2003:
+  [Pro-Linux](http://www.pro-linux.de/news/2003/5794.html)
   about the [[!unixso blacksheep]] project
 
 
