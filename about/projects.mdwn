@@ -2,31 +2,31 @@
 
 The following is an incomplete list of projects I'm working on:
 
- * carbon
- * cconf / chamelon: autoconf replacements
- * ccollaborate
- * cinit: fast and intelligent init system
+ * [carbon / corpus](http://git.schottelius.org/?p=cLinux/carbon.git): Package management
+ * [cconf / chamelon](http://unix.schottelius.org/cconf/): autoconf replacements
+ * [ccollaborate](http://unix.schottelius.org/ccollaborate/): web application framework
+ * [cinit](http://unix.schottelius.org/cinit/): a fast, small and simple init with support for profiles. 
  * cLinux: communities Linux distribution
  * cnp: create new project (assistant for new FOSS projects)
- * ccollect: 
- * corein: Complete remote, automatic installation and configuration
- * cvoktrainer
+ * [[ccollect|software/ccollect]]: (pseudo) incremental backup with different exclude lists using hardlinks and rsync
+ * [corein](http://git.schottelius.org/?p=cLinux/corein): Complete remote, automatic installation and configuration
+ * cvoktrainer: vocabulary trainer
  * cvpn: manage vpns
  * crassh: Encrypted, easy-to-use user authentification for Unix systems
  * decr-f: packet description format
- * dmp3find
+ * [dmp3find](http://unix.schottelius.org/dmp3find/): find doubled mp3s
  * easyC / shcl
  * ecml / saml
  * EOF / ceof / ceofhack
  * fsdb: filesystem database
- * gpm: general purpose mouse
- * id3tagger
+ * [gpm](http://unix.schottelius.org/gpm): general purpose mouse
+ * id3tagger: tag mp3s with ID3 tags
  * intsize: reliable print intsizes
- * mini-pld
+ * mini-lpd
  * nsdocuments
  * nsfortunes
  * rlmanager
- * schwanz3
+ * [schwanz3](http://home.schottelius.org/~nico/schwanz3/)
  * smtp_logger
  * ssa2: server side admin
  * tcpserver_blocker
