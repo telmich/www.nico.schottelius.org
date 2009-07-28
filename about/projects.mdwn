@@ -1,0 +1,40 @@
+[[!meta title="Projects"]]
+
+The following is an incomplete list of projects I'm working on:
+
+ * carbon
+ * cconf / chamelon: autoconf replacements
+ * ccollaborate
+ * cinit: fast and intelligent init system
+ * cLinux: communities Linux distribution
+ * cnp: create new project (assistant for new FOSS projects)
+ * ccollect: 
+ * corein: Complete remote, automatic installation and configuration
+ * cvoktrainer
+ * cvpn: manage vpns
+ * crassh: Encrypted, easy-to-use user authentification for Unix systems
+ * decr-f: packet description format
+ * dmp3find
+ * easyC / shcl
+ * ecml / saml
+ * EOF / ceof / ceofhack
+ * fsdb: filesystem database
+ * gpm: general purpose mouse
+ * id3tagger
+ * intsize: reliable print intsizes
+ * mini-pld
+ * nsdocuments
+ * nsfortunes
+ * rlmanager
+ * schwanz3
+ * smtp_logger
+ * ssa2: server side admin
+ * tcpserver_blocker
+ * unix_installer
+ * [[u2u|net/u2u]]
+ * urm: unix raid monitor
+
+A lot of those projects are just ideas, most of them have some code
+or documentation and some are even implemented and working.
+
+[[!tag net schottelius unix]]

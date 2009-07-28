@@ -1,0 +1,25 @@
+[[!meta title="ccollect 0.8 includes many changes like quiet_if_down"]]
+
+I'm currently updating the changes file (**doc/changes/next**) of
+[[ccollect|software/ccollect]] and realised that version 0.8 will be
+one of the greatest releases of ccollect:
+
+Months ago, when I went through my [[projects list|about/projects]],
+I thought that there will not be many changes for ccollect anymore:
+
+It is running stable, has a lot of features and is still very short
+(around 600 lines of code).
+
+Now I have a list of more than 10 big changes
+for the upcoming 0.8 release of ccollect!
+
+## Be quiet!
+
+One of the new features is "***quiet_if_down***": If you enable this
+option, ccollect will be much more quiet, if the source is not
+reachable. Very useful for backing up mobile devices
+(cell phones, notebooks, watches, etc.)!
+
+Thanks to John, who implemented this feature!
+
+[[!tag backup unix]]
