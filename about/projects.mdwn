@@ -5,18 +5,20 @@ The following is an incomplete list of projects I'm working on:
  * [carbon / corpus](http://git.schottelius.org/?p=cLinux/carbon.git): Package management
  * [cconf / chamelon](http://unix.schottelius.org/cconf/): autoconf replacements
  * [ccollaborate](http://unix.schottelius.org/ccollaborate/): web application framework
- * [cinit](http://unix.schottelius.org/cinit/): a fast, small and simple init with support for profiles. 
+ * [cinit](http://unix.schottelius.org/cinit/):
+   a fast, small and simple init with support for profiles. 
  * cLinux: communities Linux distribution
  * cnp: create new project (assistant for new FOSS projects)
- * [[ccollect|software/ccollect]]: (pseudo) incremental backup with different exclude lists using hardlinks and rsync
- * [corein](http://git.schottelius.org/?p=cLinux/corein): Complete remote, automatic installation and configuration
+ * [[ccollect|software/ccollect]]:
+   (pseudo) incremental backup with different exclude lists using hardlinks and rsync
+ * [corein](http://git.schottelius.org/?p=cLinux/corein):
+   Complete remote, automatic installation and configuration
  * cvoktrainer: vocabulary trainer
  * cvpn: manage vpns
  * crassh: Encrypted, easy-to-use user authentification for Unix systems
  * decr-f: packet description format
  * [dmp3find](http://unix.schottelius.org/dmp3find/): find doubled mp3s
- * easyC / shcl
- * ecml / saml
+ * ecml: Encrypted mailinglist
  * EOF / ceof / ceofhack
  * fsdb: filesystem database
  * [gpm](http://unix.schottelius.org/gpm): general purpose mouse
@@ -27,7 +29,9 @@ The following is an incomplete list of projects I'm working on:
  * nsfortunes
  * rlmanager
  * [schwanz3](http://home.schottelius.org/~nico/schwanz3/)
- * smtp_logger
+ * shcl: Small helper c library
+ * [smtp_logger](http://git.schottelius.org/?p=smtp_logger):
+   Logs smtp sessions
  * ssa2: server side admin
  * tcpserver_blocker
  * unix_installer
@@ -36,5 +40,8 @@ The following is an incomplete list of projects I'm working on:
 
 A lot of those projects are just ideas, most of them have some code
 or documentation and some are even implemented and working.
+
+Most of the projects, which have code or documentation, can be found on
+[git.schottelius.org](http://git.schottelius.org/).
 
 [[!tag net schottelius unix]]
