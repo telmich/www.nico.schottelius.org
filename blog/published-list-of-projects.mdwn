@@ -1,0 +1,25 @@
+[[!meta title="Published list of projects"]]
+
+The day before yesterday I was hacking on [[ccollect|software/ccollect]]
+and finished a lot of things to be done for version 0.8.
+
+When I was done, I was sitting in the train and thought:
+
+    Which project to hack on, after this release?
+
+There are a lot of projects I started, many of them not nearly finished.
+And even more ideas, what I **could** work on
+(a lot of my ideas can be found in the
+[nsdocuments](http://git.schottelius.org/?p=nsdocuments) repository).
+
+A listing of my project directory shows over 30 different projects.
+To get an overview of what I am working on already, I used the listing
+as a base to create the new [[projects listing page|about/projects]].
+
+I'm now cleaning up the projects directory and may also publish some
+(already finished) projects, which never made it to the public.
+
+And until **ccollect** 0.8 is released, I will continue to think about
+the next interesting project to work on.
+
+[[!tag schottelius net]]
