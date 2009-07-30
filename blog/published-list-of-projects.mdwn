@@ -14,7 +14,7 @@ And even more ideas, what I **could** work on
 
 A listing of my project directory shows over 30 different projects.
 To get an overview of what I am working on already, I used the listing
-as a base to create the new [[projects listing page|about/projects]].
+as a base to create the new [[project list page|about/projects]].
 
 I'm now cleaning up the projects directory and may also publish some
 (already finished) projects, which never made it to the public.
