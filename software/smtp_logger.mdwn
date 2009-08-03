@@ -3,8 +3,6 @@
 smtp_logger is a logging smtp proxy. It is designed to aid mail server
 administrators debugging their smtp connections.
 
-Have a look at the README file for further instructions.
-
 ## How does it work?
 
        ------------------
@@ -29,11 +27,13 @@ Have a look at the README file for further instructions.
        | smtp-real      | processes the mail
        ------------------
 
+Have a look at the README file for further instructions.
+
 ## How to get smtp_logger
 
 ### Releases
 
- * smtp_logger-0.1: the first public release
+ * **smtp_logger-0.1**: the first public release
    ([[tar|smtp_logger-0.1.tar]]
     [[lzma|smtp_logger-0.1.tar.lzma]]
     [[gz|smtp_logger-0.1.tar.gz]]
