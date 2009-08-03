@@ -1,0 +1,67 @@
+## Introduction
+
+smtp_logger is a logging smtp proxy. It is designed to aid mail server
+administrators debugging their smtp connections.
+
+Have a look at the README file for further instructions.
+
+## How does it work?
+
+       ------------------
+       | SMTP Client(s) |
+       ------------------
+              |   
+              | want to connect to smtp-real.example.org
+              |   
+       ------------------
+       | Router/firewall|
+       ------------------
+              |   
+              | redirects data to loghost
+              |   
+       ------------------
+       | loghost        |   
+       ------------------
+              |   
+              | Saves connection data and forwards them
+              |   
+       ------------------
+       | smtp-real      | processes the mail
+       ------------------
+
+## How to get smtp_logger
+
+### Releases
+
+ * smtp_logger-0.1: the first public release
+   ([[tar|smtp_logger-0.1.tar]]
+    [[lzma|smtp_logger-0.1.tar.lzma]]
+    [[gz|smtp_logger-0.1.tar.gz]]
+    [[bz2|smtp_logger-0.1.tar.bz2]])
+
+### Development
+
+The latest development code can be found in git.
+You can view latest changes in
+[gitweb](http://git.schottelius.org/?p=smtp_logger)
+or clone the latest sources using 
+
+    git clone git://git.schottelius.org/smtp_logger
+
+To submit changes, simply follow the instructions
+on [how to setup a public git repo](http://book.git-scm.com/4_setting_up_a_public_repository.html).
+
+There are also some
+[CIA bot statistics](http://cia.vc/stats/project/smtp_logger) available.
+
+## Support
+
+### IRC
+
+ * [#cLinux](irc://irc.freenode.org/#cLinux) - Multi language (German/English)
+
+### Mail
+
+You can also [[contact me directly|about]].
+
+[[!tag unix]]
