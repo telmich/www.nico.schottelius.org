@@ -1,4 +1,4 @@
-[[!meta title="Migrated ccollect"]]
+[[!meta title="About init dependencies"]]
 
 
 As i started to hack on [cinit](http://unix.schottelius.org) again,
@@ -14,27 +14,24 @@ After booting the VM, I recognized, that the service
 ***mount/proc*** (which mounts /proc...) fails. Mount claims that
 /proc it is already mounted!
 
+This is caused by the udev script, which contains:
+
     237    [ -d /proc/1 ] || mount -n /proc
 
-But /proc needs /writable, to write into mtab.
-/ is not being fscked, because udev is not started 
+Besides the problematic of using a sys-v-init script with an
+intelligent init system, it's interesting to see, **why**
+this happens:
 
-## Ccollect - the simple backup tool
+The ***service*** mount/root **needs** the device files in /dev
+to be able to run mount/root/fsck (the filesystem check).
 
-The first software from the old
-[unix.schottelius.org](http://unix.schottelius.org) website
-(previously [linux.schottelius.org](http://linux.schottelius.org))
-has been migrated to this website: From today on, the old ***ccollect***
-home
+Thus mount/root requires the service ***udev*** to be started before.
 
-   * http://unix.schottelius.org/ccollect/
+The ***service*** mount/proc **needs** the root filesystems writable,
+to write into /etc/mtab and thus **needs** mount/root.
 
-moved to
+This also demonstrates the problematic of the historical grown
+init scripts, which do way more than one job and their lack of
+real dependencies.
 
-   * [[http://www.nico.schottelius.org/software/ccollect/|software/ccollect]]
-
-Please update your links.
-
-More stuff will be migrated soon!
-
-[[!tag unix backup]]
+[[!tag unix]]
