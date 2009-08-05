@@ -1,14 +1,13 @@
 [[!meta title="About init dependencies"]]
 
 
-As i started to hack on [cinit](http://unix.schottelius.org) again,
+As i started to hack on [cinit](http://unix.schottelius.org/cinit/) again,
 I tried to get it running on Debian in a VM.
 
 I took the old configuration from my last computer and tried to boot
 with cinit, which failed, because the udev stuff changed.
 
-So I added a udev service, which uses /etc/init.d/udev for switching
-on.
+So I added a udev service, which uses /etc/init.d/udev for switching on.
 
 After booting the VM, I recognized, that the service
 ***mount/proc*** (which mounts /proc...) fails. Mount claims that
@@ -22,13 +21,13 @@ Besides the problematic of using a sys-v-init script with an
 intelligent init system, it's interesting to see, **why**
 this happens:
 
-The ***service*** mount/root **needs** the device files in /dev
+The service mount/root needs the device files in /dev
 to be able to run mount/root/fsck (the filesystem check).
 
-Thus mount/root requires the service ***udev*** to be started before.
+Thus mount/root requires the service udev to be started before.
 
-The ***service*** mount/proc **needs** the root filesystems writable,
-to write into /etc/mtab and thus **needs** mount/root.
+The service mount/proc needs the root filesystems writable,
+to write into /etc/mtab and thus needs mount/root.
 
 This also demonstrates the problematic of the historical grown
 init scripts, which do way more than one job and their lack of
