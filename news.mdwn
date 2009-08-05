@@ -1,6 +1,9 @@
-[[!meta title="News archive"]]
+[[!meta title="News archive / Neuigkeitenarchiv"]]
 
 This archive contains news from both the [[blog]] and [[neuigkeiten]].
+
+Dieses Archiv enthält die
+[[Englischen|blog]] und [[Deutschen|neuigkeiten]] Neuigkeiten.
 
 ## 2009
 

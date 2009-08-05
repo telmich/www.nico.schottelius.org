@@ -9,15 +9,29 @@ Dies ist [[Nico_Schottelius'|about]] ***neue*** mehrsprachige Netzseite.
 ## English (global)
 
 All topics that are of global interest are written in English.
+The English news can be found in the [[blog]].
 
 Alle weltweit interessanten Seiten sind auf Englisch geschrieben.
+Die englischen Neuigkeiten befinden sich im "[[Blog|blog]]".
 
 ## Deutsch (lokal)
 
 All other topics, which are only of local interest, are written
-in German.
+in German. The German news can be found in the [[neuigkeiten area|neuigkeiten]].
 
 Die regional interessanten Seiten sind auf Deutsch geschrieben.
+Auch auf Deutsch gibt es
+[[Neuigkeiten und kurze Berichte|neuigkeiten]], die erstaunlicherweise
+im [[Neuigkeiten-Bereich|neuigkeiten]] zuhause sind.
+
+## Updates / Aktualisierungen
+
+If you want to track both, the [[English|blog]] and the [[German|neuigkeiten]]
+news, you can subscribe to both in the [[general news area|news]].
+
+Um Neuigkeiten aus [[beiden|blog]] [[Bereichen|neuigkeiten]]
+zu bekommen, können Sie sich vom [[Archiv|news]] benachrichtigen lassen.
+
 
 ## Why multilingual? Warum mehrsprachig?
 

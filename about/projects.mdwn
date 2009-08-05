@@ -1,0 +1,51 @@
+[[!meta title="Projects"]]
+
+The following is an incomplete list of projects I'm working on:
+
+ * [carbon / corpus](http://git.schottelius.org/?p=cLinux/carbon.git): Package management
+ * [cconf / chamelon](http://unix.schottelius.org/cconf/): autoconf replacements
+ * [ccollaborate](http://unix.schottelius.org/ccollaborate/): web application framework
+ * [cinit](http://unix.schottelius.org/cinit/):
+   a fast, small and simple init with support for profiles. 
+ * cLinux: communities Linux distribution
+ * cnp: create new project (assistant for new FOSS projects)
+ * [[ccollect|software/ccollect]]:
+   (pseudo) incremental backup with different exclude lists using hardlinks and rsync
+ * [corein](http://git.schottelius.org/?p=cLinux/corein):
+   Complete remote, automatic installation and configuration
+ * cvoktrainer: vocabulary trainer
+ * cvpn: manage vpns
+ * crassh: Encrypted, easy-to-use user authentification for Unix systems
+ * decr-f: packet description format
+ * [dmp3find](http://unix.schottelius.org/dmp3find/): find doubled mp3s
+ * ecml: Encrypted mailinglist
+ * EOF / ceof / ceofhack
+ * fsdb: filesystem database
+ * [gpm](http://unix.schottelius.org/gpm): general purpose mouse
+ * id3tagger: tag mp3s with ID3 tags
+ * intsize: reliable print intsizes
+ * mini-lpd
+ * nsdocuments
+ * nsfortunes
+ * rlmanager
+ * [schwanz3](http://home.schottelius.org/~nico/schwanz3/)
+ * shcl: Small helper c library
+ * [smtp_logger](http://git.schottelius.org/?p=smtp_logger):
+   Logs smtp sessions
+ * ssa2: server side admin
+ * tcpserver_blocker
+ * unix_installer
+ * [[u2u|net/u2u]]
+ * urm: unix raid monitor
+
+A lot of those projects are just ideas, most of them have some code
+or documentation and some are even implemented and working.
+
+Most of the projects, which have code or documentation, can be found on
+[git.schottelius.org](http://git.schottelius.org/).
+
+You can see on which projects I am currently working on
+in the [archive](http://l.schottelius.org/pipermail/commits/)
+of the [commits mailing list](http://l.schottelius.org/mailman/listinfo/commits).
+
+[[!tag net schottelius unix]]
