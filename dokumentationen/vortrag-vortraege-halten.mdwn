@@ -1,0 +1,11 @@
+[[!meta title="Vortrag über Vorträge halten (beim Easter(h)egg 2007"]]
+[[!meta date="2007-04-05"]]
+
+![Titelseite](vorschau.png "Die erste Seite des Vortrags")
+
+[[Diesen Vortrag|vortraege_halten_easterhegg-2007-04-05.pdf]]
+habe ich beim [Easter(h)egg](http://www.easterhegg.de/) 2007
+in Hamburg
+am 5. April gehalten.
+
+[[!tag publication]]

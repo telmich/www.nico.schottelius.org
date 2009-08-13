@@ -7,6 +7,6 @@ Some days ago I cleaned up my
 I cleaned it a bit up and made it compile with **-Werror**.
 
 So, another piece of [[free and open source software|foss]]
-released.
+released, have fun with it!
 
 [[!tag unix net]]
