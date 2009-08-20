@@ -66,6 +66,10 @@ Additionally, the following other git ressources are available:
 
 
 ### Releases
+ * [[ccollect-0.8.tar.bz2]]
+   ([browse source](ccollect-0.8))
+   ([[Changes|ccollect-0.8/doc/changes/0.8]])
+   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.7.1.tar.bz2">ccollect-0.7.1.tar.bz2</A>
    (<A HREF="ccollect-0.7.1">browse source</A>)
    (<A HREF="ccollect-0.7.1/doc/changes/0.7.1">Changes</A>)
