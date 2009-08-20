@@ -18,21 +18,18 @@ configuration in conf/.
 
 ## Documentation
 
-You can read
+The latest documentation that is based on the current development version:
 
- * the ccollect handbook as
+ * the ccollect handbook
    <a href="doc/ccollect.text">text</a>,
    <a href="doc/ccollect.html">HTML</a>,
    <a href="doc/ccollect.htm">HTML (docbook)</a>,
- * the ccollect manpage as 
+ * the ccollect manpage
    <a href="doc/man/ccollect.text">text</a>,
    <a href="doc/man/ccollect.1">troff</a>
    <a href="doc/man/ccollect.html">HTML</a>
    <a href="doc/man/ccollect.htm">HTML (docbook)</a>
- * or view some <a href="screenshots/">screenshots</a>.
-
-There used to be a German translation of the handbook, but it
-is outdated and thus removed.
+ * <a href="screenshots/">screenshots</a>.
 
 ## Portability
 As ccollect is a simple shell script, it should run on
