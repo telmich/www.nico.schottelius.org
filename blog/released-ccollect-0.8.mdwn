@@ -1,0 +1,18 @@
+[[!meta title="Released ccollect 0.8"]]
+
+Finally!
+
+After [[some|ccollect-0.8-many-changes-quiet-if-down]]
+[[previous announcements|ccollect-0.8-to-be-released-soon]],
+[[ccollect 0.8|software/ccollect]] is released!
+
+There have been about
+[*100* commits](http://git.schottelius.org/?p=cLinux/ccollect.git;a=log)
+and a lot of
+[[changes from 0.7.1 to 0.8|software/ccollect/ccollect-0.8/doc/changes/0.8]].
+
+So, have fun with it and
+[let me know](http://l.schottelius.org/mailman/listinfo/ccollect) if
+you spot a bug or if you like [[ccollect|software/ccollect]]!
+
+[[!tag unix backup]]
