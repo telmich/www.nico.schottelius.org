@@ -1,0 +1,13 @@
+[[!meta title="Webzugriff auf eine Datenbank via PHP"]]
+[[!meta date="2004-04-30"]]
+
+Diese Arbeit entstand im Rahmen der Ausbildung zum
+Fachinformatiker (Anwendungsentwicklung) an der
+[Industrie- und Handeskammer in Hannover](http://www.hannover.ihk.de)
+im Jahr 2004.
+
+ * [[Dokumentation im PDF-Format|ihk-doku.pdf]]
+ * [[Dokumentation im LaTeX-format|ihk-doku.tex]]
+ * [[Präsentation im OpenOffice-format|praesi07.sxi]]
+
+[[!tag publication]]

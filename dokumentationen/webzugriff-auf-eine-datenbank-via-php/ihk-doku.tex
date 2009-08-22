@@ -1,0 +1,1672 @@
+% header
+% Dies ist version-0.9.8 der IHK Doku [FINAL]
+% let's go...
+%\documentclass[10pt,a4paper,ngerman]{article}
+\documentclass[11pt,a4paper]{article}
+\usepackage[latin1]{inputenc}   % Ascii-Format dieses Dokuments
+%\usepackage{babel}                   % neue deutsche Rechtschreibung
+% Teutsch
+\usepackage{german}
+% lange Tabellen
+\usepackage{longtable}
+% pagestyle..
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%\fancyhf{}                              % bisherige Kopf- und Fusszeilen loeschen
+\fancyhead[R]{Nico Schottelius}            % rechter Kopfzeileneintrag
+%\fancyhead[L]{Projekdokumentation}      % linker Kopfzeileneintrag
+%\fancyhead[L]{\thepage}      % linker Kopfzeileneintrag
+%\fancyfoot[C]{\thepage}                % Fusszeileneintrag (Seitenzahl zentriert)
+\renewcommand{\headrulewidth}{0.4pt}  % Strichstaerke unter der Kopfzeile
+% let's start
+\begin{document}
+\title{Projektdokumentation: Webzugriff auf eine Datenbank via PHP}
+\date{01.03.2004 - 30.04.2004}
+\author{
+Nico Schottelius\\
+Rodenstra\ss{}e 12\\
+30826 Garbsen\\
+nico-ihk@schottelius.org\\
+\\
+Ausbildungsbetrieb:\\
+Wirtschaftsgenossenschaft deutscher Tier\"arzte eG\\
+Siemensstra\ss{}e 14\\
+30827 Garbsen\\
+http://www.wdt.de\\
+}
+% Title
+\maketitle
+\newpage
+% Inhaltsverzeichnis
+\tableofcontents
+\newpage
+\section{Pers\"onliche Erkl\"arung}
+Ich versichere durch meine Unterschrift, dass ich die betriebliche Projektarbeit
+und die dazugeh\"orige Dokumentation selbst\"andig in der vorgegebenen Zeit
+erarbeitet habe. Ich habe keine anderen als die von mir angegebenen Quellen und
+Hilfsmittel verwendet.\\
+\begin{verbatim}
+
+
+\end{verbatim}
+\begin{tabbing}
+xxxxxxxxxxxxxxxxx\=xxxxxxxxx\kill
+$\overline{\mbox{\large{Ort, Datum}}}$
+\>$\overline{\mbox{\large{Unterschrift des Pr\"uflings}}}$\\
+\end{tabbing}
+\begin{verbatim}
+
+\end{verbatim}
+Zur Kenntnis genommen:
+\begin{verbatim}
+
+
+\end{verbatim}
+$\overline{\mbox{\large{Ausbilder/-in}}}$
+\newpage
+\section{Einleitung}
+\subsection{Projektumfeld}
+Das Projekt fand in der Wirtschaftsgenossenschaft deutscher Tier\"arzte eG
+("`\textit{WDT}"') am Standort in Garbsen statt. Die WDT liefert Arzneimittel und
+medizinisches Zubeh\"or f\"ur tier\"arztliche Praxen in ganz Deutschland. Zur Zeit
+arbeiten circa 170 Mitarbeiter an drei Firmenstandorten, davon sind 14
+Aussendienstmitarbeiter ("`\textit{ADM}"') in der Kundenbetreuung t\"atig. Ein
+Gro\ss{}teil der Arbeitsabl\"aufe wird durch das
+\textit{ERP-System}\footnote{ERP-System: Enterprise Resource Planing System}
+unterst\"utzt.
+So erfolgt die gesamte Auftragsbearbeitung, die Kommissionierung, der Versand, 
+der Einkauf sowie die Buchhaltung mit Hilfe dieses Systems.
+Die Aussendiensmitarbeiter erhalten monatlich einen f\"ur sie relevanten,
+individuellen Auszug aus der Datenbank.
+\subsection{Ist-Zustand}
+Zur Zeit werden Informationen zur Planung der Kundenberatung an die
+Aussendienstmitarbeiter als \textit{Excel-Tabelle}\footnote{Excel ist ein Produkt
+von Microsoft. Excel-Tabellen stellen ein properit\"ares Format zur Speicherung
+von Tabellen dar}
+via E-Mail versandt. Aufgrund der Verbindungsart
+(\textit{HSCSD/GSM}\footnote{GSM ist die Technik die zum Verbinden der
+Mobiltelefone verwendet wird, HSCSD ist die Daten\"ubertragung \"uber GSM}, ISDN
+oder Modem) und der Gr\"o\ss{}e (circa 16 \textit{MiB}\footnote{KiB, MiB, GiB
+sind Alternativbezeichnungen zu KB, MB und GB. Bei der
+Verwendung von den letztern ist nicht klar, ob der Faktor 1000 oder 1024 gemeint
+ist, 1024Byte entsprechen \textbf{immer} 1KiB. So sind z.B. manche 80GB Platten
+nur 80000000000 Byte gross, was 74,51GiB entspricht.})
+der Datei kommt es zu Problemen bei der \"Ubertragung. Diese Probleme
+\"au\ss{}ern sich wie folgt:
+\begin{itemize}
+\item der Transfer der Datei dauert sehr lange (\"uber 30 Minuten)
+\item durch eine Zwangstrennung im Funknetz nach 30 Minuten kann die Datei nicht
+vollst\"andig \"ubertragen werden
+\end{itemize}
+Da E-Mail ein
+\textit{Push-System}\footnote{Als "`Push-Systeme"' werden Systeme bezeichnet,
+die die Informationen ohne Aufforderung des Benutzers zu selbigen senden
+(neben E-Mail auch z.B.  Plakate). Bei "`Pull-Sytemen"' hingegen muss der
+Benutzer interaktiv die Informationen anfordern (z.B. Webseite).} ist,
+ergibt sich zus\"atzlich das Problem, dass grunds\"atzlich in dreifacher
+Hinsicht unn\"otige Daten \"ubertragen werden k\"onnen:
+\begin{enumerate}
+\item der ADM ben\"otigt die Informationen z.Z. nicht:
+komplett unn\"otiger Versand.\\
+Eine Filterung nach Anforderung ist mit dem momentanen System schwer zu realisieren
+und k\"onnte bestenfalls manuell mit R\"ucksprache geschehen.
+\item selbst wenn sich die Daten nicht ge\"andert haben, wird ein Update versandt\\
+Dies hat zwei Gr\"unde:
+\begin{enumerate}
+\item die regelm\"assig empfangene E-Mail ist ein
+Indiz f\"ur den ADM, dass das System ordnungsgem\"ass{} funktioniert
+\item zum Zweiten wird keine Versionsverwaltung betrieben, sondern die
+Excel-Tabellen jedes Mal komplett neu generiert
+\end{enumerate}
+\item Der ADM ben\"otigt nur einen Teil der Daten, bekommt
+jedoch immer eine vorgefertigte Version mit gro\ss{}em Umfang (Daten\"uberfluss)
+\item Bei jeder Aktualisierung werden auch die unver\"anderten Stammdaten
+transferiert
+\end{enumerate}
+\subsection{Soll-Zustand}
+Auf den Transfer via E-Mail soll grunds\"atzlich verzichtet und der
+Zugriff in ein Pull-System umgewandelt werden.
+Der Zugriff soll \"uber das
+Internet auf ein Webinterface geschehen. Die Implementation muss auf dem
+\textit{LAMP-System}\footnote{LAMP ist die Abk\"urzung f\"ur ein \textbf{L}inux,
+\textbf{A}pache, \textbf{M}ySQL, \textbf{P}HP Kombination, wobei Linux das
+Betriebssystem, Apache der Webserver, MySQL die Datenbank und PHP die
+Programmiersprache ist.}
+des Providers lauff\"ahig sein. Dazu soll ein m\"oglichst identisches Testsystem
+intern verf\"ugbar sein. Die Daten m\"ussen aus dem ERP-System in einem
+f\"ur MySQL importf\"ahigen Format bereitgestellt werden. Die entsprechenden
+Aufgaben sollen gem\"a\ss{} der Qualifizierung der Mitarbeiter delegiert werden:
+\begin{itemize}
+\item das LAMP-System soll durch die Systemintegration bereitgestellt werden
+\item der Export der Daten aus dem ERP-System soll durch die hauseigenen
+Programmierer bereitgestellt werden
+\item die Erstellung des Webzugriffs und der Dokumentation (inklusive Handbuch
+f\"ur Benutzer und Entwickler, Schnittstellendefinitionen und Pflichtenheft) soll
+vom Pr\"ufling erledigt werden
+\end{itemize}
+Ziel ist es, ein verwendbares System zu entwickeln und die Machbarkeit zu beweisen.
+\section{Planung}
+\subsection{Ablauf des Projektes}
+Zu Beginn des Projektes wurden die Projektgrundsteine "`gelegt"':
+\begin{enumerate}
+\item es wurde ein Zeitplan f\"ur die einzelnen Phasen festgelegt, inklusive der
+Festlegung von Besprechungsterminen
+\item es wurden f\"ur die  einzelnen Teams Schnittstellen definiert, damit diese
+unabh\"angig voneinander arbeiten konnten und um eine klare Trennung zwischen den
+einzelnen Modulen zu schaffen
+\end{enumerate}
+\subsection{Schnittstellendefinition}
+Durch den sauberen Einsatz von Schnittstellen kann zum Beispiel ein Mitarbeiter
+die Daten aus dem ERP-System auslesen und sie in einem definierten Format
+speichern, w\"ahrend ein anderer schon die Umwandlung in die neue Datenbank
+mit Hilfe von Testdaten programmiert. \\
+Es sollen folgende Schnittstellendefinitionen erzeugt werden:
+\begin{enumerate}
+\item Benutzer/Weboberfl\"ache: Layoutdefiniton
+\item Weboberfl\"ache/Datenbank: Zugriffsdefiniton
+\item Datenbank/Quelldaten: Importformatdefiniton
+\end{enumerate}
+\subsection{Kompatibilit\"at}
+Die Skripte m\"ussen ein identisches Verhalten auf dem Testsystem und auf dem
+Echtsystem vorweisen. Um dies zu gew\"ahrleisten sind Modifizierungen, die im
+Rahmen der Installation von Programmen als normal zu betrachten sind
+(z.B. Pfad-, Limitierungs- oder Namensmodifikationen), n\"otig.
+Das Erscheinungsbild dem Benutzer gegen\"uber soll soweit wie m\"oglich
+identisch bleiben.
+Eine Absprache mit dem \textit{ISP}\footnote{Internet Service Provider
+bieten Internetanbindungen und Service an}
+soll vor Beginn der Entwicklung stattfinden, damit eventuelle
+Inkompatibilit\"aten vermieden werden k\"onnen.\\
+Ein System, das nur In-House funktioniert, w\"are f\"ur die bestehende Situation keine
+ad\"aquate L\"osung. Da die Kompatibilit\"at ein wichtiger Punkt im Rahmen des
+Projektes ist, wurde diese in einer eigenen Schnittstelle definiert
+("`Test /Echtsystem"').
+\subsection{Layout (Benutzerschnittstelle)}
+Das Layout muss vor Beginn der Entwicklung der Weboberfl\"ache definiert sein
+und den spezifischen Anforderungen entsprechen. An dieses Layout sollen
+s\"amtliche Skripte angepasst sein.
+\section{Durchf\"uhrung}
+\subsection{Erzeugen des PHP Such-Skripts}
+Das PHP Skript wurde nach der Vorlage des Excel Dokumentes erzeugt. Zuerst
+wurde das Skript monolithisch erzeugt, d.h. es enthielt keinerlei Module und
+s\"amtliche Einstellungen waren in dem Skript selbst zu finden. Da sich
+schnell herausstellte, dass eine solche Struktur schlecht zu erweitern ist,
+wurde das Skript in mehrere Teile aufgeteilt, welche wiederum modularisiert sind.
+Die Module wurden in ein Unterverzeichnis "`modules"' verschoben.
+Konfigurationen k\"onnen nun zentral in den dazu passenden Dateien im
+"`includes"' Verzeichnis vorgenommen werden.
+Es soll die M\"oglichkeit geben, dass die Skripte sp\"ater extern gepflegt oder
+erweitert werden. Da dies auch durch Dienstleistungen ausl\"andischer Firmen
+geschehen k\"onnte, sind die Kommentare in Englisch. Da ein Gro\ss{}teil der
+technischen Literatur in
+Englisch geschrieben ist, werden deutsche Informatiker mit den englischen
+Kommentaren keine Probleme haben.
+Mit einigen Problemen behaftet war der Wechsel von Apache 1.3 zu Apache 2.0.
+Der Letztere setzt keine globalen Variablen, wenn selbige durch eine Form
+an ein PHP Skript gesendet werden. Dadurch musste nach dem Wechsel der Inhalt der
+Formvariablen aus einem speziellen Parameterarray namens "`\_REQUEST"' ausgelesen
+werden.
+\subsection{Erzeugen des Importfilters}
+Der Importfilter ist dem Layout des Hauptskriptes, und damit der allgemeinen
+Definition, nachempfunden. Er wurde ebenfalls in PHP geschrieben und importiert
+die hochgeladenen ASCII Tabellen in die MySQL Datenbank. Das Format der
+ASCII-Tabellen wurde in der entsprechenden Schnittstellendefinition hinterlegt. \\
+Das Standardverhalten bei identischen Primary Key Feldern ist, den alten Wert mit
+dem neuen zu \"uberschreiben. Die Alternative, Werte zu addieren ist nur in
+wenigen F\"allen sinnvoll und w\"urde in der praktischen Anwendung zu komplizierten
+Abh\"angigkeiten und einigen zus\"atzlichen Definitionen und Tests f\"uhren. So
+m\"usste man z.B. Felder wie die Postleitzahl oder die Telefonnummer gesondert
+behandeln. Ebenfalls problematisch w\"are das Ergebnis, wenn jemand aus Versehen
+zweimal den Upload Knopf bet\"atigt und somit zum Beispiel den Umsatz f\"ur
+einen bestimmten Zeitraum verdoppelt. \\
+Problematisch ist auch das Standardverhalten von PHP, welches nur eine maximale
+Dateigr\"o\ss{}e von 2MiB vorsieht und einem Skript nur 8MiB Arbeitsspeicher
+erlaubt. Wenn die Dateien dieses Limit \"uberschreiten, erzeugt PHP keine
+Fehlermeldung, sondern ignoriert die hochzuladende Datei
+(verifiziert bei PHP 4.3.4 und 4.3.5RC3).
+\subsection{Erzeugen des Initialdatenbankgenerators}
+Zur Vereinfachung der Arbeit wurde zus\"atzlich ein Skript eingerichtet, welches
+eine initiale Datenbank mit den entsprechenden Tabellen anlegt. Die entsprechenden
+Tabellen wurden in den Quelltext integriert, da eine Auslagerung der
+Tabellenspezifikation einen zus\"atzlichen Parser erfordert h\"atte. 
+\subsection{Transfer in das Echtsystem}
+Der Transfer in das Echtsystem verlief problemlos.
+Der Einsatz im Echtsystem wurde mit dem ISP der WDT abgesprochen und
+getestet.
+Zuerst wurden die Sicherheitseinstellungen transferiert.
+Danach wurden die PHP-Skripte hochgeladen, welche dann gleich zur Initialisierung der
+Datenbank und dem Transfer der Echtdaten benutzt wurden. Da die Verbindung
+\"uber das \textit{HTTPS}\footnote{Sicheres, verschl\"usselt \"ubertragen von
+Dateien; Alternative zu HTTP} Protokoll erfolgt, sind die Daten w\"ahrend des
+Transfers verschl\"usselt und f\"alschungssicher.
+Die maximale Dateigr\"o\ss{}e f\"ur einen Upload durch PHP ist beim ISP
+auf 8MB beschr\"ankt.
+Deswegen mussten die Umsatz Tabellen, die pro Jahr eine Gr\"o\ss{}e von 22MiB
+haben, aufgeteilt werden.
+\section{Dokumentationsphase}
+\subsection{Erstellen der Programmdokumentation}
+Die Programmdokumentation ist f\"ur die Verwendung durch Entwickler und
+Administratoren konzipiert und enth\"alt technische Fachbegriffe.
+Sie wurde in Stichw\"ortern w\"ahrend der Durchf\"uhrungsphase niedergeschrieben
+und danach zusammengefasst in ein Latex-Dokument. \textit{Latex}\footnote{
+Siehe auch die deutsche TeX Webseite http://www.dante.de} ist ein Textsatzsystem,
+welches insbesondere f\"ur wissenschaftliche und technische Dokumentation verwendet
+wird. Die Programmdokumentation ist entsprechend der Bed\"urfnisse von
+Administratoren und Entwicklern gegliedert und aufgebaut. Dies bedeutet z.B.,
+dass der Administrator schnell die entsprechenden Sektionen zur Installation
+und der Entwickler ebenso einfach den Aufbau der Programme finden kann.
+Als Ausgabeformat wurde PDF gew\"ahlt, da dieses Format auf jeder Plattform
+lesbar ist.
+\subsection{Erstellen des Benutzerhandbuches}
+Das Benutzerhandbuch wurde nach der Durchf\"uhrung erstellt. Dadurch
+wurde garantiert, dass die Screenshots der Oberfl\"ache sich nicht mehr
+ver\"andern k\"onnen. Vom Aufraggeber wurde eine Dokumentation gefordert, die den
+Ablauf m\"oglichst pr\"azise und zugleich simpel beschreibt. Dies wurde durch den
+Einsatz von Screenshots bewerkstelligt. Als Ausgabeformat wurde eine 
+Pr\"asentation (entweder im \textit{PowerPoint oder OpenOffice}\footnote{
+PowerPoint ist ein Programm aus der Programmgruppe "`Microsoft Office"' von
+Microsoft, OpenOffice ist ein OpenSource Konkurrenzprodukt zu Microsoft Office}
+Format) gew\"ahlt, da in einer Pr\"asentation wie in einem Buch am Bildschirm
+gebl\"attert werden kann.
+\subsection{Erstellen der IHK-Projektdokumentation}
+Bei der Erstellung dieser Dokumentation wurde \"ahnlich verfahren wie
+bei der Erstellung der Programmdokumentation. Jedoch wurde diese Dokumentation
+zuerst in OpenOffice geschrieben und nachher in Latex konvertiert, da Latex
+wesentlich effektiver f\"ur die Erstellung von gro\ss{}en Dokumenten ist.
+\section{Testphase}
+\subsection{Testabschnitte w\"ahrend der Erstellung}
+W\"ahrend der Entwicklungsphase wurde die Funktionalit\"at der Skripte mit Hilfe
+einer Datenbank mit Pseudodaten getestet. Da die Anzahl der S\"atze in der
+Datenbank sehr gering war, waren die Ergebnisse schnell verf\"ugbar und es
+musste in Betracht gezogen werden, dass die Arbeit mit Echtdaten wesentlich
+langsamer laufen k\"onnte. Dies best\"atigte sich jedoch nicht, die Auslieferung
+der Daten durch die MySQL Datenbank verlief weiterhin gewohnt schnell. Die Ausgabe
+erfolgte teilweise mit Debug Informationen. Diese beinhalteten z.B.
+Variableninhalte oder R\"uckgabewerte von Funktionen.
+\subsection{Eigentest aller Programme}
+Nach der Entwicklungsphase wurden die Programme auf Funktionalit\"at und saubere
+Ausgaben \"uberpr\"uft. So durften keine Debug-Nachrichten mehr erscheinen und es
+sollten keine Fehler beim "`normalen Benutzen"' auftreten. Es wurde kritisch darauf
+geachtet, dass keine Situation auftritt, die ein normaler Benutzer nicht verstehen
+kann (z.B. Bildschirm ohne Inhalt). Des weiteren wurden generelle Sicherheitsl\"ucken
+\"uberpr\"uft, wie
+\textit{Buffer Overflows, SQL-Injektion und Cross-Site-Scripting}\footnote{Buffer
+Overflows, SQL-Injektion und Cross-Site-Scripting sind
+bekannte Fehler die bei der Programmierung auftreten. Die letzteren beiden
+besonders bei der Programmierung von Skripten mit Webzugriff}.
+\subsection{Fremdtest aller Programme}
+Zum Abschlu\ss{} wurden die Programme von Mitarbeitern aus der EDV Abteilung
+getestet und zus\"atzlich auf Sicherheitsl\"ucken gepr\"uft. Durch diese Hilfe
+konnten Fehler entdeckt werden, die ein Entwickler selbst nicht bemerkt. So
+wurde z.B. bemerkt, dass auf einer Seite ein Teil des Firmenlogos anders angezeigt
+wurde ("`stehende Karawane"', sollte "`bewegte Karawane"' sein).
+\section{Fazit}
+\subsection{R\"uckblick}
+Die Programmierung des Skriptes und die Einrichtung des Apache 2.0 mit PHP 4.3.4
+aus dem Quelltext verliefen ohne Probleme. Dies wurde durch den Einsatz des
+LAMP-Systems gef\"ordert, denn die einzelnen Komponenten,
+Linux, Apache, MySQL und PHP, sind sehr gut aufeinander abgestimmt.
+Einen Gro\ss{}teil der Zeit musste in die Entwicklung der Schnittstellen und
+das Testen investiert werden.  \\
+Das Teamwork erleichterte die Entwicklungsarbeit, da durch vorhergehende Schulungen
+und Tipps w\"ahrend der Entwicklung Probleme im Design fr\"uhzeitig vermieden
+werden konnten.
+So empfahlen Kollegen das Datenbankdesign in die dritte Form
+der Normalisierung zu \"ubertragen um eine Umsetzung in eine relationale Datenbank
+zu erleichtern und zeigten an Beispielen, wie dies zu geschehen hat.
+Die strikte Trennung der einzelnen Aufgaben erleichterte die Arbeit. Dadurch konnte
+problemlos an einem anderen Teil weitergearbeitet werden, w\"ahrend noch die
+Echtdaten f\"ur die Datenbank fehlten.
+\newpage
+\subsection{Zeitplan mit Abweichungen}
+\setlongtables
+\begin{longtable}{||l|c|c||}
+\caption{Zeitplan}
+\endfirsthead
+\hline \hline
+\textbf{Aufgabe} & \textbf{ben\"otigte Zeit} & \textbf{geplante Zeit} \\
+                 &  (in h)                   & (in h) \\
+\hline \hline
+\textbf{1 Vorarbeiten [Differenz: -1h]} & \textbf{10} & \textbf{11} \\
+\hline \hline
+1.1 Vorbesprechung mit unserem Au\ss{}endienst & 1 & 3 \\
+\hline
+1.2 Eruieren und dokumentieren des genauen Problems & 4 & 3 \\
+und Definition des IST-Status &  & \\
+\hline
+1.3 R\"ucksprache mit dem Au\ss{}endienst und Abgleich & 1  & 1   \\
+des dokumentierten IST-Status mit dem Au\ss{}endienst  &    &     \\
+\hline
+1.4 Definieren des SOLL-Status & 3 & 3 \\
+\hline
+1.5 R\"ucksprache mit dem Au\ss{}endienst und Abgleich & 1  & 1   \\
+des dokumentierten SOLL-Status mit dem Au\ss{}endienst &    &     \\
+\hline \hline
+\textbf{2 Planungsphase [-2h (gesamt: -3h)]} & \textbf{10} & \textbf{12}\\
+\hline \hline
+2.1 Grob-Modell entwickeln, das die Anforderungen des & 2 & 2 \\
+Soll-Status widerspiegelt & & \\
+\hline
+2.2 Schnittstellen definieren & & \\
+\hline
+2.2.1 Benutzer/Webinterface ("`Layoutdefinition"') & 1 & 2 \\
+\hline
+2.2.2 Webinterface/Datenbank & 2 & 2 \\
+\hline
+2.2.3 Datenbank/Quelldaten & 1 & 2 \\
+\hline
+2.2.4 Echtsystem/Testsystem & 2 & 2 \\
+\hline
+2.3 Pflichtenheft erstellen & 2 & 2 \\
+\hline \hline
+\textbf{3 Realisierungs- und Testphase [+2h (gesamt: -1h)]} & \textbf{28} & \textbf{25} \\
+\hline \hline
+\multicolumn{3}{||l||}{3.1 Erstellen des Webinterfaces} \\
+\hline \hline
+3.1.1 Erstellen der Zugriffseinstellungen & 1 & 1 \\
+\hline
+3.1.2 Erstellen des Hauptprogrammes inklusive  & 3 & 2 \\
+Datenbankverbindung & & \\
+\hline
+3.1.3 Erstellen der Loginprozedur & 2 & 2 \\
+\hline
+3.1.4 Erstellen der Suchprozedur & 3 & 4 \\
+\hline
+3.1.5 Erstellen der Anzeigeprozedur & 5 & 2  \\
+\hline
+3.2 Testen des Webinterface in der Testumgebung & 5 & 5 \\
+\hline
+3.3 Erstellen des Konverters     & 3   & 4 \\
+(CSV Datenbank in MySQL-Format)  &     &   \\
+\hline
+3.4 Testen des Konverters in der Testumgebung & 2 & 2 \\
+\hline
+3.5 Fremdtest des Webinterface in der Testumgebung & 1 & 1 \\
+\hline
+3.6 Fremdtest des Konverters in der Testumgebung & 1 & 1 \\
+\hline
+3.7 Transfer des Testsystems in das Echtsystem des Providers & 2 & 2 \\
+\hline \hline
+\textbf{4 Dokumentationsphase [-5h (gesamt: -6h)]} & \textbf{12} & \textbf{17} \\
+\hline \hline
+4.1 Erstellen der Programmdokumentation & 7 & 7 \\
+\hline
+4.2 Erstellen des Benutzerhandbuches & 5 & 10 \\
+\hline \hline
+\textbf{5 Abschlussphase [(gesamt: -6h)]} & \textbf{1} & \textbf{1} \\
+\hline \hline
+5.1 Vorstellung des Systems in der Au\ss{}endienstleitung & 1 & 1 \\
+\hline \hline
+\textbf{6. Pufferzeit f\"ur nicht vorhersehbare Ereignisse} & \textbf{9} & \textbf{3} \\
+\hline \hline \hline
+\textbf{Gesamtzeit} & \textbf{70} & \textbf{70} \\
+\hline \hline
+\end{longtable}
+Einige Differenzen erl\"autere ich detaillierter, da sie wichtige Aspekte
+der Projektentwicklung widerspiegeln.\\
+Vorarbeiten:
+\begin{itemize}
+\item  Die Besprechung mit dem Au\ss{}endienst verk\"urzte sich,
+da diesem die Problematik des alten Systems schon bekannt war
+\end{itemize}
+Realisierungs- und Testphase:
+\begin{itemize}
+\item Die Anbindung an die Datenbank verlief nicht so problemlos wie erwartet, da
+w\"ahrend der Entwicklung der Datenbankserver zwei kurze Ausf\"alle hatte. Dies
+f\"uhrte zu unvermuteten Ergebnissen im Hauptprogramm.
+\item Die Gestaltung der Anzeigeprozedur erwies sich als wesentlich komplexer als
+anfangs angenommen, da das Aussehen so wenig wie m\"oglich vom alten System
+abweichen sollte.
+\end{itemize}
+Dokumentationsphase:
+\begin{itemize}
+\item Die Benutzerhandb\"ucher wurden als einfache Pr\"asentation realisiert und
+bedurften kein spezielles Layout oder des Drucks.
+\end{itemize}
+Pufferzeit f\"ur nicht vorhersehbare Ereignisse:
+\begin{itemize}
+\item Im Zeitplan wurde der Punkt "`Erstellung der Projektdokumentation"' vergessen
+und musste deswegen hier einsortiert werden.
+\end{itemize}
+\subsection{Ausblick}
+\subsubsection{Erweiterung der bestehenden Programme}
+Zus\"atzlich zu den bestehenden Anzeigen k\"onnten noch Auswertungen programmiert
+werden, die sowohl schriftlich als auch graphisch pr\"asentiert werden.
+Des weiteren k\"onnte die Tabellenspezifikation aus init-database.php ausgelagert
+und selbiges Skript um einen Parser erweitert werden.
+\subsubsection{Hinzuf\"ugen weiterer Programme}
+Die Verwaltung der Benutzer k\"onnte durch ein Skript vereinfacht werden, welches
+das Hinzuf\"ugen, L\"oschen oder Modifizieren der MySQL Datenbank und der htpasswd
+Datei \"ubernimmt. Die Aktualisierung k\"onnte automatisiert werden, wenn von
+ProAlpha aus regelm\"assig (z.B. tagesweise) die aktuellen Ums\"atze an ein
+Programm \"ubermittelt werden, welches die Daten via HTTPS an das Upload Skript
+\"ubertr\"agt. 
+\subsection{Kostenrechnung}
+\subsubsection{altes System}
+Die Kosten vorher setzten sich wie folgt zusammen:
+14 Au\ss{}endienstler holen 15 MiB gro\ss{}e Dateien zweimal im Monat ab.
+Die Internetverbindung erlaubt eine Transferrate von ca. 4 KiB pro Sekunde.\\
+\textbf{Rechnung:}
+$$\mbox{Transferrate} = \frac{4\mbox{KiB}}{\mbox{s}}$$\\
+$$15 \mbox{MiB} * 14 \mbox{ADM} = 210 \mbox{MiB} = 210 * \mbox{1024 KiB} =
+215040 \mbox{KiB}$$\\
+$$\frac{215040 \mbox{ KiB}}{\frac{4\mbox{ KiB}}{\mbox{s}}} = 53760\mbox{ Sekunden}
+= 896\mbox{ Minuten}$$\\
+$$1 \mbox{ Minute } \hat{=} 0,39 \mbox{Euro}$$\\
+$$896\mbox{ Minuten } * \frac{0,39 \mbox{ Euro}}{\mbox{Minute}} = 349,44
+\mbox{ Euro pro Update}$$\\
+2 $*$ Monatlich wird das Update gesendet.\\
+$$349,44\mbox{ Euro } * 2 = 698,88\mbox{ Euro pro Monat}$$
+Dies ergibt eine Online-Nutzdauer von 53.760 Sekunden, was 896 Minuten entspricht.
+Bei einem Minutenpreis von 39 Cent pro Minute enstehen \textbf{698,88 Euro}
+monatliche Kosten.
+\subsubsection{neues System}
+Die momentane Kosten setzen sich zusammen aus den Kosten f\"ur das Hosting
+des Webinterfaces und den Onlinekosten.
+Der Provider bietet einen Webauftritt, der \"uber eine
+HTTPS Verbindung abgesichert ist und eine Unterst\"utzung f\"ur PHP und MySQL
+enth\"alt, f\"ur 50 Euro pro Monat an. \\
+\textbf{Rechnung:}\\
+$$\mbox{MySQL Datenbank + PHP + Webspace } =
+\mbox{"`Webauftritt"' }= 50\mbox{ Euro pro Monat}$$
+$$\mbox{Nutzh\"aufigkeit} = \frac{\mbox{2mal}}{\mbox{Tag}}\mbox{ (benutzt der
+ADM das Webinterface)}$$\\
+Dies macht er an 20 Tagen (Arbeitstage) im Monat.
+$$\frac{\mbox{zweimal}}{\mbox{Tag}} * \frac{\mbox{Arbeitstage}}{\mbox{Monat}} = 40
+\mbox{mal Nachsehen pro Monat (pro ADM)}$$\\
+$$14 \mbox{ ADM} * 40\mbox{mal} \mbox{ Nachsehen} = 560\mbox{mal}
+\frac{\mbox{Nachsehen}}{\mbox{Monat}}$$\\
+Einmal Nachsehen entspricht statistisch nach einer Umfrage einer Minute
+(da nicht jeder das Angebot nutzen w\"urde und manche l\"anger brauchen).\\
+$$560 \mbox{Minuten} * \frac{0,39\mbox{ Euro}}{\mbox{Minute}} = 218.40
+\mbox{Euro}$$\\
+$$218,40 + 50,00 = 268,40 \frac{\mbox{Euro}}{\mbox{Monat}}$$
+Damit ergeben sich kumuliert Kosten von \textbf{268,40 Euro} pro Monat.\\
+In dieser Rechnung sind jedoch nicht die Entwicklungskosten f\"ur das neue
+System enthalten. Diese setzen sich zusammen aus dem Stundenlohn und der Anzahl
+der ben\"otigten Stunden.\\
+\textbf{Rechnung:}
+$$70\mbox{ Stunden} * 5\mbox{ Euro} = 350\mbox{ Euro}$$
+Dieser Betrag ist nur einmal f\"allig und amortisiert sich im Normalfall \"uber
+die Jahre. In unserem speziellen Fall sind die Entwicklungskosten sogar schon nach
+einem Monat kompensiert.\\
+\subsubsection{Kostenvergleich}
+Das neue System erbringt eine Kostenvorteil von \textbf{430,48 Euro}
+beziehungsweise verbraucht nur \textbf{38\%} der alten Kosten pro Monat.
+\section{Anhang}
+\subsection{Literatur}
+\subsubsection{PHP}
+\begin{itemize}
+\item "`PHP kurz \& gut"', O'Reilly, ISBN 3-89721-225-0
+\item "`Programmieren lernen in PHP4"', Hanser, ISBN 3-446-21754-1
+\item http://www.php.net
+\end{itemize}
+\subsubsection{Apache}
+\begin{itemize}
+\item http://httpd.apache.org/
+\end{itemize}
+\subsubsection{HTTP}
+\begin{itemize}
+\item HTTP Pocket Reference, O'Reilly, ISBN 1-56592-862-8
+\end{itemize}
+\subsubsection{MySQL}
+\begin{itemize}
+\item Managing and Using MySQL, 2nd Edition, O'Reilly, ISBN 0-596-00211-4
+\end{itemize}
+\subsection{Schnittstellen}
+\subsubsection{Benutzer/Weboberfl\"ache: Layoutdefiniton}
+\begin{verbatim}
+
+--------------------------------------------------------------------------------
+Nico Schottelius, v0.6
+Schnittstelle: Webinterface/Layout
+--------------------------------------------------------------------------------
+
+1. Generelle Layoutdefiniton
+2. Benutzerinteraktion
+3. Authentifizierung
+4. Sicherheit
+5. Einstiegsbildschirm
+6. Suchergebnisse
+7. Suchdetails
+
+
+1. Generelle Layoutdefiniton
+   
+   Die Weboberfläche sollte von der Farbwahl der Firmenhomepage [WL1] ähneln.
+   Zudem sollte ein firmentypisches Objekt (Logo, Motto, etc.) präsent sein.
+
+2. Benutzerinteraktion
+   
+   Der Benutzer soll die Oberfläche intuitiv bedienen können.
+   Fachwörter und technische Details sind zu verbergen, Fehlermeldungen wenn
+   möglich durch einfache Hinweise zu ersetzen.
+
+3. Authentifizierung
+
+   Der Webserver (hier: Apache) sendet nach dem GET Aufruf des Clients
+   einen 401 (Unauthorized) Code und den WWW-Authenticate Header an den Browser. [WL2]
+   Dieser Header kann zusätzlich noch einen Text enthalten, wie z.B.
+   "Nur für Außendienstler erlaubt".
+
+   Die Authentifizierung wird dann in einem vom Browser selbstdefinierten
+   Authentifizierungsfenster durchgeführt, das den zusätzlichen Text 
+   des Serverheaders beinhalten kann, jedoch nicht muss.
+
+   Das bedeutet das man Serverseitig nur definieren kann, das sich der Client
+   authentifizieren muss, jedoch nicht wie dieses Fenster aussieht (im Gegensatz
+   zu Javascript basierten Authentifizierungen, die jedoch keine echte Sicherheit bieten).
+
+   Die Authentifizierung wird Serverseitig durch die htaccess Methodik [WL3]
+   definiert. Diese benötigt die htaccess Einstellungen selbst [WL4] und
+   zur Benutzerverwaltung die htpasswd [WL5].
+   
+   Des weiteren müssen die in der htpasswd vorhandenen Benutzer noch in der
+   MySOL Benutzerverwaltung angelegt werden. Diese erhalten dort ein
+   leeres Passwort vergeben, da die htaccess Authentifizierung ausreichend ist.
+
+4. Sicherheit
+
+   Folgende Sicherheitsanforderungen sind vorhanden:
+
+      - Datenintegrität: die Daten müssen gewährleistet unveränderbar sein
+      - Vertraulichkeit: niemand darf unauthorisiertes Daten lesen können
+      - Verfügbarkeit: die Datenverbindung muss ständig verfügbar sein
+
+   Die ersten beiden Anforderungen werden durch das TLS Protokoll [WL5] erfüllt.
+   
+   Die Verfügbarkeit des Webinterface im Internet ist abhängig von der Verfügbarkeit des Web- und MySQL Servers.
+
+
+5. Einstiegsbildschirm
+
+   Die Einstiegsseite zeigt den Namen des aktuell angemeldeten Benutzers an.
+   Des weiteren befindet sich ein Auswahlfeld, das die Suchoptionen enthält,
+   und des Suchbegrifffeld auf dieser Seite.
+
+   Dem Benutzer muss eine angemessen Suchfunktion zur Verfügung stehen, die
+   das Suchen nach den erforderlichen Parametern erlaubt.
+
+   Als Suchoptionen müssen die folgenden vorhanden sein:
+
+   - Kundennummer
+   - Kundenname
+   - Praxennummer
+   - Telefon
+   - PLZ
+   - Ort
+
+
+6. Suchergebnisse
+   
+   Auf der Seite der Ergebnisse sollen der Suchbegriff und das Suchkriterium
+   als Überschrift dargestellt werden.
+   
+   Die Suchergebnisse werden tabellarisch dargestellt, die Ergebnisse sind
+   geordnet nach Kundennummern, aufsteigend.
+   
+   Des weiteren muss die Möglichkeit bestehen die Ergebnisse nach
+   den anderen angezeigten Feldern zu sortieren.
+
+
+7. Suchdetails
+
+   Diese Seite soll sich an dem Beispiel Excel Dokument [WL6] orientieren.
+   Sie muss Details über den Kunden enhalten, u.a. die Anschrift
+   und soweit vorhanden die Telefonnummer.
+
+
+[WL1]: http://www.wdt.de
+[WL2]: RFC 2616
+[WL3]: http://httpd.apache.org/docs-2.0/howto/auth.html
+[WL4]: Beispiel: siehe Anhang dot-htaccess
+[WL5]: RFC 2246, RFC 3546, Beispiel: htpasswd
+[WL6]: Internes Dokument: Beispiel_Excel.xls
+\end{verbatim}
+\subsubsection{Weboberfl\"ache/Datenbank: Zugriffsdefiniton}
+\begin{verbatim}
+
+--------------------------------------------------------------------------------
+Nico Schottelius, v0.2
+Schnittstelle: Webinterface/Datenbank
+--------------------------------------------------------------------------------
+
+Tabellen und Felder in der Datenbank
+------------------------------------
+
+Die Typen der Felder und Tabellen sind in [WED1] dokumentiert.
+Die Namen der Felder und Tabellen sind in [WED2] definiert.
+Der Datenbankname und Datenbankserver sind frei wählbar, muessen
+jedoch in der Konfigurationsdatei [WED3] angegeben werden.
+
+
+Quellen:
+[WED1]: Siehe Anhang: 2.2.3 Schnittstelle Datenbank/Quelldaten
+[WED2]: Siehe Anhang: Quellcode zu modules/init-db-create.php,
+                      Funktion create_db, array "$creat_query"
+[WED3]: Siehe Anhang: Quellcode zu includes/db-settings.php
+
+\end{verbatim}
+\subsubsection{Datenbank/Quelldaten: Importformatdefiniton}
+\begin{verbatim}
+
+--------------------------------------------------------------------------------
+Nico Schottelius, v0.6
+Schnittstelle: Quelldaten/Datenbank
+--------------------------------------------------------------------------------
+
+1. Quelldaten
+2. Zielform
+3. Ziellayout / Typdefinition
+4. Verhalten beim Import
+
+1. Quelldaten
+
+Die Quelldaten liegen in der Progressdatenbank [QDD1]. Sie müssen mithilfe von
+Progress oder Alternativ ProAlpha [QDD2] ausgelesen werden.
+
+2. Zielform
+
+Es sollen CSV Tabellen entsprechend der Typdefinition erstellt werden, wobei pro Tabelle eine Datei erstellt wird.
+Der Trenner soll jedoch kein Komma sein, sondern ein Semikolon.
+
+Tabellenspalten sind getrennt durch Semikolen, Tabellenzeilen getrennt durch
+Zeilenumbruch, kein Header (wie z.B. ADM Name; ADM Nr) ist vorhanden,
+Reihenfolge wie unten in der Typdefinition.
+
+3. Ziellayout / Typdefinition
+
+      Feldnamen(*)                  genutzte Feldergroessen
+      * = Bemerkung vorhanden
+      
+   0. ADM-Tabelle
+      ADM-Nr.*                      [int]
+      ADM-Name.                     [text 255 stellig]
+
+      ADM-Nr. ist >=0 und <=999.
+      Nummern >=1000 und <=9999 werden fuer adminstrative Zwecke genutzt.
+   
+   1. Kundentabelle
+      KundenNr.*                    [int]
+      Prax.Nr.*                     [int]
+      ADM-Nr.                       [int] [wie oben]
+      Name                          [text 255 stellig]
+      Strasse                       [text 255 stellig]
+      Strassennummer                [text 255 stellig]
+      PLZ                           [text 255 stellig]
+      Ort                           [text 255 stellig]
+      Telefon                       [text 255 stellig]
+
+      KundenNr sind 6 stellig
+      PraxNr sind 6 stellig
+
+   2. Umsatztabelle
+      KundenNr.                     [int] [wie oben]
+      ArtNr.                        [int] [wie unten]
+
+      Umsatz                        [float]
+      Menge                         [int]
+
+      Tag                           [int]
+      Monat                         [int]
+      Jahr*                         [int]
+
+      Jahr ist vierstellig
+      
+   3. Artikeltabelle
+      ArtNr.                        [int]
+      ArtName                       [text 255 stellig]
+      GruppenName                   [text 255 stellig]
+
+
+4. Verhalten beim Import
+
+Wenn ein Datensatz mit identischen Primary Key vorhanden ist,
+so werden die alten Daten in der Zieldatenbank mit den neuen Werten
+überschrieben.
+
+
+Quellen:
+[QDD1]: http://www.progress.de/, http://www.progress.com/
+[QDD2]: http://www.proalpha.de/
+
+\end{verbatim}
+\subsubsection{Test-/Echtsystem}
+\begin{verbatim}
+
+--------------------------------------------------------------------------------
+Nico Schottelius, v0.2
+Schnittstelle: Test-/Echtsystem
+--------------------------------------------------------------------------------
+
+1 generelle Anpassungen
+2 Probleme mit anderen PHP oder Apache Versionen oder Konfigurationen
+
+
+1 generelle Anpassungen
+
+Der Datenbankname und Datenbankserver müssen in der Konfiguration
+"includes/db-settings.php" angepasst werden.
+
+
+2 Probleme mit anderen PHP oder Apache Versionen oder Konfigurationen
+
+Der Apache 2.0 bietet bei PHP keine globalen Variablen.
+Der Aufruf von "/script.php?option=test" setzt nur im Apache 1.3.x die Variable
+"option". Im Apache 1.3.x und im Apache 2.0 kann man jedoch über den Array
+_REQUEST und dem index des Variablennamens (z.B. $_REQUEST['option']) den Inhalt
+auslesen.
+
+Für das Verzeichnis in dem die Skripte liegen muss in der Apache Config
+"AllowOverride Auth" angeschaltet sein, damit die .htaccess Datei beachtet wird.
+
+In der Standard Installation von PHP dürfen Dateien beim Upload nicht
+größer sein als 2MiB.
+Somit muss unter Umständen die Tabellengröße auf 2MiB limitiert werden.
+Dies ist jedoch unproblematisch, da die Aktualisierung der Datenbank
+inkrementell geschehen kann. Somit ist die Möglichkeit gegeben z.B.
+monatlich, wöchentlich, oder sogar täglich eine Aktualisierung vorzunehmen.
+Je kleiner die Abstände sind, desto kleiner sind logischerweise auch die Dateien.
+Sollte eine Tabelle größer werden als 2MiB, so kann man sie auch teilen und
+in mehreren Schritten hochladen.
+
+Das Limit muss mit dem Provider abgeklärt werden.
+
+\end{verbatim}
+\subsection{Quelltext}
+\subsubsection{includes/search.php}
+\begin{verbatim}
+
+<?php   
+
+/* definiere die suchbegriffe nach feldern in der DB */
+
+   /* suche in welcher tabelle, modular ergaenzbar */
+   $suchbegriff_tabelle = array(
+            "Kundennummer" => "kunden", 
+            "Kundenname"   => "kunden", 
+            "Praxennummer" => "kunden",
+            "Telefon"      => "kunden",
+            "PLZ"          => "kunden",
+            "Ort"          => "kunden"
+            );
+   
+   /* felder in den tabellen */
+   $suchbegriff_felder = array(
+            "Kundennummer" => "nr", 
+            "Praxennummer" => "praxisnr",
+            "Kundenname"   => "name", 
+            "Telefon"      => "telefon",
+            "PLZ"          => "plz",
+            "Ort"          => "ort",
+            );
+   
+   /* felder in den tabellen */
+   $suchbegriff_map_field_eqto_kdnr = array(
+            "Kundennummer" => "nr", 
+            "Praxennummer" => "praxisnr",
+            "Kundenname"   => "name", 
+            "Telefon"      => "telefon",
+            "PLZ"          => "plz",
+            "Ort"          => "ort",
+            );
+
+
+/* 
+   Ausgabe: wie in excel
+
+   PraxenNummer
+   Kundennummer
+   Kundenname
+   PLZ
+   Telefon
+   Ort
+   WDT-Laufendes Jahr
+   Differenz Vorjahr
+   PRX-Laufendes Jahr
+   Differenz Vorjahr
+   GRO-Laufendes Jahr
+   Differenz Vorjahr
+
+*/
+
+
+
+?>
+
+\end{verbatim}
+\subsubsection{includes/db-settings.php}
+\begin{verbatim}
+
+<?php
+   $dbserver   = "localhost";
+//   $dbserver   = "fs1";
+   $database   = "projekt06";
+?>
+
+\end{verbatim}
+\subsubsection{init-database.php}
+\begin{verbatim}
+
+<?php
+/*******************************************************************
+ * Nico Schottelius (c) 2004
+ * create the initial database
+ *******************************************************************/
+
+   $HEADER='
+      <HTML>
+      <HEAD>
+         <TITLE>Initialisieren der Datenbank</title>
+         <META NAME="Author" CONTENT="Nico Schottelius <nico-wdt@schottelius.org>">
+      </head>
+      <body bgcolor="#ffffff" LINK="#133E70" VLINK="#B52243" TEXT="#000000">
+      <P><IMG SRC="images/logo-wdt.png" ALT="WDT" HEIGHT="30" WIDTH="150"></P>
+   ';
+
+   $FOOTER='
+      <P ALIGN=RIGHT><IMG SRC="images/tiere-animiert.gif"></P>
+      </BODY>
+      </HTML>
+   ';
+
+   /* output header */
+   echo $HEADER;
+
+   /* select what todo */
+   switch($_REQUEST["option"]) {
+      case 1: /* create it */
+         include "modules/init-db-create.php";
+         create_db($_REQUEST['dbserver'],
+                   $_REQUEST['database'],
+                   $_REQUEST['dbuser'],
+                   $_REQUEST['dbpass']);
+      break;
+
+      default: /* login */
+         include "modules/init-db-login.php";
+         login($dbserver,$database,$_SERVER["PHP_SELF"]);
+      break;
+   }
+
+   echo $FOOTER;
+
+?>
+\end{verbatim}
+
+\subsubsection{modules/init-db-login.php}
+\begin{verbatim}
+
+<?php
+/*******************************************************************
+ * Nico Schottelius (c) 2004
+ * create the initial database - login
+ * v0.4
+ *******************************************************************/
+
+/* default function */
+function login($dbserver,$database,$self)
+{
+
+   include "includes/db-settings.php";
+   
+   echo "<h3>Erzeugen der initialen Datenbank</h3>\n";
+
+   /* the upload form */
+   echo "<FORM ACTION=\"$self\" METHOD=POST>\n";
+
+   $dbserver_name="Datenbankserver";
+   $dbuser_name="Benutzer";
+   $dbpass_name="Passwort";
+   $database_name="Name der Datenbank";
+
+   /* fields */
+   echo "<TABLE>\n";
+   echo "<TR><TD>$dbserver_name:</TD>"
+   . '<TD><INPUT TYPE="text" name="dbserver" value="' . "$dbserver" . '" size="30">' . "</TD></TR>\n";
+   echo "<TR><TD>$dbuser_name:</TD>"
+   . '<TD><INPUT TYPE="text" name="dbuser" size="30">' . "</TD></TR>\n";
+   echo "<TR><TD>$dbpass_name:</TD>"
+   . '<TD><INPUT TYPE="password" name="dbpass" size="30">' . "</TD></TR>\n";
+   echo "<TR><TD>$database_name:</TD>"
+   . '<TD><INPUT TYPE="text" name="database" value="' . "$database" . '" size="30">' . "</TD></TR>\n";
+   echo "</TABLE>\n";
+
+   /* hidden */
+   echo '<input type="hidden" name="option" value="1">' . "\n";
+   echo '<INPUT TYPE="submit" value="Erstellen">' . "\n";
+   echo '</form>' . "\n";
+
+}
+?>
+
+\end{verbatim}
+
+\subsubsection{modules/init-db-create.php}
+\begin{verbatim}
+
+<?php
+/*******************************************************************
+ * Nico Schottelius (c) 2004
+ * create the initial database - do the create
+ * v0.3
+ *******************************************************************/
+
+function create_db($server, $database, $user, $pass)
+{
+
+   echo "<h3>Initialisere die Datenbank '$database' auf $server als $user</h3>";
+   
+   /* open connection */
+   $conn = mysql_connect($server,$user,$pass) or
+   die("<H3>Verbindung zur Datenbank fehlgeschlagen: ". mysql_error() ."</h3>");
+      
+   /* choose database */
+
+   /* initial query */
+   $query= "CREATE DATABASE IF NOT EXISTS $database;";
+   $resultcode = mysql_query($query,$conn) or
+   die("<H3>Query fehlgeschlagen: ". mysql_error() ."</h3>");
+   
+   echo "<P><B>Datenbank ist angelegt.</B></P>";
+
+   /* select the new db */
+   $db_check = mysql_select_db($database,$conn) or 
+   die("<H3>Selektion der Datenbank fehlgeschlagen: ". mysql_error() ."</h3>");
+   
+   /* create tables */
+   $create_query = array(
+      "CREATE TABLE IF NOT EXISTS adm ( 
+         nr       INT PRIMARY KEY,
+         name     TINYTEXT NOT NULL
+         );", 
+      "CREATE TABLE IF NOT EXISTS kunden (
+         nr       INT PRIMARY KEY,
+         praxisnr INT NOT NULL,
+         admnr    INT NOT NULL,
+         name     TINYTEXT NOT NULL,
+         strasse  TINYTEXT NOT NULL,
+         strnr    TINYTEXT NOT NULL,
+         plz      TINYTEXT NOT NULL,
+         ort      TINYTEXT NOT NULL,
+         telefon  TINYTEXT NOT NULL
+         );",
+      "CREATE TABLE IF NOT EXISTS umsatz ( 
+         kundennr    INT NOT NULL,
+         artikelnr   INT NOT NULL,
+         umsatz      FLOAT,
+         menge       INT,
+         tag         INT,
+         monat       INT,
+         jahr        INT
+         );", 
+      "CREATE TABLE IF NOT EXISTS artikel ( 
+         nr       INT PRIMARY KEY,
+         name     TINYTEXT NOT NULL,
+         gruppe   TINYTEXT NOT NULL
+         );"
+   );
+   
+   foreach($create_query as $query) {
+      echo "<P><B>SQL-Kommando:</B> $query ...\n";
+      $resultcode = mysql_query($query,$conn) or
+      die("<H3>Query fehlgeschlagen: ". mysql_error() ."</h3>");
+      echo "done</p>";
+   }
+
+   echo "<P><B>Datenbank und die Tabellen sind angelegt.</B></P>";
+}
+
+?>
+
+\end{verbatim}
+
+\subsubsection{search.php}
+\begin{verbatim}
+
+<?php
+/* Nico Schottelius (c) 2004  *
+ * Suchen in der Datenbank    *
+ * v0.4                       */
+
+   $HEADER='
+      <HTML>
+      <HEAD>
+         <TITLE>WDT Datenbankzugriff</title>
+         <META NAME="Author" CONTENT="Nico Schottelius <nico-wdt@schottelius.org>">
+      </head>
+      <body bgcolor="#ffffff" LINK="#133E70" VLINK="#B52243" TEXT="#000000">
+      <P><IMG SRC="images/logo-wdt.png" ALT="WDT" HEIGHT="30" WIDTH="150"></P>
+   ';
+
+   $FOOTER='
+      <P ALIGN=RIGHt><IMG SRC="images/tiere-animiert.gif"></P>
+      </BODY>
+      </HTML>
+   ';
+
+
+   /* database settings */
+   $dbuser = $_SERVER["REMOTE_USER"];
+   $dbpass     = "";
+   include "includes/db-settings.php";
+   
+   /* output header */
+   echo $HEADER;
+
+   /* select option */
+   switch($_REQUEST['option']) {
+      case 1: /* display list of results */
+         include "modules/search_results.php";
+         search_results($dbserver,$database,$dbuser,$dbpass,$_REQUEST['finde'],$_REQUEST['suchoption'],$_REQUEST['sortby']);
+         break;
+
+      case 2: /* display details */
+         include "modules/search_details.php";
+         search_details($dbserver,$database,$dbuser,$dbpass,$_REQUEST['kdnr']);
+         break;
+
+      default: /* login */
+         include "modules/search_login.php";
+         search_login($dbserver,$database,$dbuser,$dbpass,$PHP_SELF);
+         break;
+   }
+
+   echo $FOOTER;
+
+?>
+
+\end{verbatim}
+
+\subsubsection{modules/search\_results.php}
+\begin{verbatim}
+
+<?php
+/* (c) 2004 Nico Schottelius 
+ * display search results
+ * code: missing sanity checks */
+
+function search_results($server, $database, $user, $pass, $begriff, $kriterium, $sortby)
+{
+
+   include "includes/search.php";
+
+   /* open connection */
+   $conn = mysql_connect($server,$user,$pass) or
+   die("<H3>Verbindung zur Datenbank fehlgeschlagen: ". mysql_error() ."</h3>");
+      
+   /* choose database */
+   $db_check = mysql_select_db($database,$conn) or 
+   die("<H3>Selektion der Datenbank fehlgeschlagen: ". mysql_error() ."</h3>");
+
+   /* display name of ADM */
+   echo "<h3>Suchergebnisse: (gesucht in \"$kriterium\", nach \"$begriff\")</h3>\n";
+
+   /* do the query */
+   $table   = $suchbegriff_tabelle[$kriterium];
+   $field   = $suchbegriff_felder[$kriterium];
+
+   /* really sort by */
+   $rsortby = $suchbegriff_felder[$sortby];
+
+   /*****************************************************/
+   /* table begin */
+   /*****************************************************/
+   echo "<TABLE BORDER=1>\n";
+   
+   /* table headers */
+   $query="DESCRIBE $table;";
+   $resultcode = mysql_query($query,$conn) or
+   die("<H3>Query1 fehlgeschlagen: ". mysql_error() ."</h3>");
+
+   /* display header */
+   echo "<TR>\n";
+
+   /* create links to sort */
+   while ($row = mysql_fetch_array($resultcode) ) {
+      echo "<TH><A HREF=\"$self?option=1&suchoption=$kriterium&finde=$begriff&sortby=$row[0]\">$row[0]</A></TH>\n";
+   }
+   echo "</TR>\n";
+   
+   /* construct the query */
+   $query_begin="SELECT * FROM `$table` ";
+   $query_end=" admnr = '$user' ORDER BY ";
+
+   $query = $query_begin;
+   
+   /* sort */
+   if($sortby != "") $query_end .= " '$sortby'; ";
+   else $query_end .= " 'nr'; ";
+
+   /* search string */
+   if($begriff == "") $query .= " WHERE ";
+   else $query .= " WHERE $field LIKE " . "'$begriff" . "%'" .
+                  " AND ";
+   
+   /* complete the search */
+   $query .= $query_end;
+   
+   $resultcode = mysql_query($query,$conn) or
+   die("<H3>Query fehlgeschlagen: ". mysql_error() ."</h3>");
+
+   /* count if we got results */
+   $count=0;
+
+   /* get number of fields */
+   $size=mysql_num_fields ($resultcode);
+
+   /* print all entries */
+   while ($row = mysql_fetch_array($resultcode) ) {
+      $count++;
+
+      echo "<TR>\n";
+
+      for($i=0;$i<$size;$i++) {
+         if($i == 0) {
+             $TD="<TD><A HREF=\"$PHP_SELF?option=2&kdnr=$row[$i]\">$row[$i]</A></TD>\n";
+         } else {
+            $TD="<TD>$row[$i]</TD>\n";
+         }
+         echo "$TD";
+      }
+      echo "</TR>\n";
+   }
+   echo "</TABLE>\n";
+   
+   /* sanity check */
+   if(!$count) {
+      echo "<p><B>Keine Ergebnisse gefunden.</B></p>\n";
+   }
+   
+}
+
+?>
+
+\end{verbatim}
+
+\subsubsection{modules/seach\_details.php}
+\begin{verbatim}
+
+<?php
+/*******************************************************************
+ * (c) 2004 Nico Schottelius
+ * display customer details
+ *******************************************************************/
+
+function search_details($server, $database, $user, $pass, $nr)
+{
+
+   /****************************************************************/
+   /* includes */
+   /****************************************************************/
+   include "includes/search.php";
+
+   /****************************************************************/
+   /* get times */
+   /****************************************************************/
+   $date_info     =  getdate();
+   $this_year     =  $date_info['year'];
+   $last_year     =  $this_year -1;
+   $oldest_year   =  $last_year -1;
+   $this_month    =  $date_info['mon'];
+   $this_day      =  $date_info['mday'];
+   $all_years     =  array("$oldest_year",
+                           "$last_year",
+                           "$this_year");
+
+
+   /****************************************************************/
+   /* sanity checks for variables FIXME! */
+   /****************************************************************/
+
+
+   /****************************************************************/
+   /* start database connection */
+   /****************************************************************/
+
+   /* open connection */
+   $conn = mysql_connect($server,$user,$pass) or
+   die("<H3>Verbindung zur Datenbank fehlgeschlagen: ". mysql_error() ."</h3>");
+      
+   /* choose database */
+   $db_check = mysql_select_db($database,$conn) or 
+   die("<H3>Selektion der Datenbank fehlgeschlagen: ". mysql_error() ."</h3>");
+
+   echo "<h3>Details f&uuml;r Kunde $nr</h3>\n";
+
+   /******************************************************/
+   /* table begin / headers                              */
+   /******************************************************/
+   $TABLE_BEGIN="<TABLE BORDER=0>\n";
+   $TABLE_END="</TABLE>\n";
+
+   echo $TABLE_BEGIN;
+   
+   $query=  "SELECT praxisnr , name , strasse , strnr ," .
+            "plz , ort , telefon FROM kunden WHERE nr = $nr " . 
+            "AND admnr = $user;";
+
+   $resultcode = mysql_query($query,$conn) or
+   die("<H3>Query fehlgeschlagen: ". mysql_error() ."</h3>");
+
+   $row  =  mysql_fetch_array($resultcode);
+   $size =  mysql_num_fields ($resultcode);
+
+   echo "<TR><TH ALIGN=LEFT>".$row['name']."</TH></TR>";
+   echo "<TR><TH ALIGN=LEFT>".$row['strasse']. " " . $row['strnr'] . "</TR>";
+   echo "<TR><TH ALIGN=LEFT>".$row['plz'].     " " . $row['ort'] . "</TR>";
+   echo "<TR><TH ALIGN=LEFT>".$row['telefon']."</TH></TR>";
+   echo "<TR><TH ALIGN=LEFT>".$nr ."</TH></TR>";
+
+   echo $TABLE_END;
+
+   /****************************************************************/
+   /* last 3 months FIXME */
+   /****************************************************************/
+   echo $TABLE_BEGIN;
+   
+   $last_month = $this_month-1;
+   $before_last_month = $last_month-1;
+   
+   /* get data like in .xls */
+   $query=  "SELECT umsatz FROM umsatz WHERE " . 
+            "kundennr = $nr " .             /* Kunde */
+            "AND jahr  = $this_year " .     /* Jahr  */
+            "AND monat = ($this_month OR $last_month OR $before_last_month);" ;    /* Monat */
+
+   $resultcode = mysql_query($query,$conn) or
+   die("<H3>Query fehlgeschlagen: ". mysql_error() ."</h3>");
+
+   $row  =  mysql_fetch_array($resultcode);
+   $size =  mysql_num_fields ($resultcode);
+
+   echo "<TR><TD>A: $row[0]</td></tr>";
+   echo "<TR><TD>B: $query</td></tr>";
+   echo "<TR><TD>C: $row[1] :: $row[2]</td></tr>";
+
+   echo $TABLE_END;
+   
+   /****************************************************************/
+   /* kummultative results */
+   /****************************************************************/
+   echo $TABLE_BEGIN;
+   
+   /* get data like in .xls */
+   $query=  "SELECT praxisnr , name , strasse , strnr ," .
+            "plz , ort , telefon FROM kunden WHERE nr = $nr " . 
+            "AND admnr = $user;";
+
+   echo $TABLE_END;
+   
+   /****************************************************************/
+   /* display all articles (details) */
+   /****************************************************************/
+   
+   echo $TABLE_BEGIN;
+   
+   /* get all articles from this customer */
+   /*
+   $query=  "SELECT artikelnr FROM umsatz WHERE kundennr = $nr " .
+            "GROUP BY artikelnr;";
+   */
+   $query=  "SELECT umsatz.artikelnr FROM umsatz,kunden WHERE " .
+            "umsatz.kundennr = $nr AND umsatz.kundennr = kunden.nr " .
+            "AND kunden.admnr = $user " .
+            "GROUP BY artikelnr;";
+
+   $rs_all_artikel = mysql_query($query,$conn) or
+   die("<H3>Query fehlgeschlagen: ". mysql_error() ."</h3>");
+
+   /* display table header */
+   echo "<TR><TD>&nbsp;</td></tr>\n";
+   echo "<TR>\n";
+   echo "\t<TH ALIGN=LEFT>Artikelnummer</TH>\n";
+   echo "\t<TH ALIGN=LEFT>Umsatz $oldest_year</TH>\n";
+   echo "\t<TH ALIGN=LEFT>Menge $oldest_year</TH>\n";
+   echo "\t<TH ALIGN=LEFT>Umsatz $last_year</TH>\n";
+   echo "\t<TH ALIGN=LEFT>Menge $last_year</TH>\n";
+   echo "\t<TH ALIGN=LEFT>Umsatz $this_year</TH>\n";
+   echo "\t<TH ALIGN=LEFT>Menge $this_year</TH>\n";
+   echo "</TR>\n";
+
+   /* count columns */
+   $count=0;
+
+   /* go through all articles */
+   while ($row = mysql_fetch_array($rs_all_artikel) ) {
+      $count++;
+      $artikelnr="$row[0]";
+      echo "<TR>\n";
+      echo "<TD>$artikelnr</TD>\n";
+      
+      /* go through all years */
+      foreach($all_years as $work_year) {
+         $query =
+            "SELECT SUM(umsatz.umsatz) , SUM(umsatz.menge) " .
+            "FROM umsatz WHERE umsatz.kundennr = $nr AND " .
+            "umsatz.artikelnr = $artikelnr AND umsatz.jahr = $work_year;";
+
+         $rs_cur_artikel = mysql_query($query,$conn) or
+         die("<H3>Query fehlgeschlagen: ". mysql_error() ."</h3>");
+
+         $cur_umsatz_menge =  mysql_fetch_array($rs_cur_artikel); 
+         $cur_umsatz=$cur_umsatz_menge[0];
+         $cur_menge=$cur_umsatz_menge[1];
+         
+         /* select 0 if nothing was found */
+         if($cur_umsatz == "") {
+            echo "\t<TD>0</TD>\n";
+         } else {
+            echo "\t<TD>" . $cur_umsatz . "</TD>\n";
+         }
+         
+         /* same here */
+         if($cur_menge == "") {
+            echo "\t<TD>0</TD>\n";
+         } else {
+            echo "\t<TD>" . $cur_menge . "</TD>\n";
+         }
+
+      }
+      echo "</TR>\n";
+   }
+
+   echo $TABLE_END;
+
+   /* sanity check if there were no articles bought*/
+   if(!$count) {
+      echo "<p><B>Keine Ergebnisse gefunden.</B></p>\n";
+   }
+}
+
+?>
+
+\end{verbatim}
+
+\subsubsection{upload.php}
+\label{upload.php}
+\begin{verbatim}
+
+<?php
+/*******************************************************************
+ * Nico Schottelius (c) 2004
+ * Update der Datenbank
+ *******************************************************************/
+
+   $HEADER='
+      <HTML>
+      <HEAD>
+         <TITLE>Update der Datenbank</title>
+         <META NAME="Author" CONTENT="Nico Schottelius <nico-wdt@schottelius.org>">
+      </head>
+      <body bgcolor="#ffffff" LINK="#133E70" VLINK="#B52243" TEXT="#000000">
+      <P><IMG SRC="images/logo-wdt.png" ALT="WDT" HEIGHT="30" WIDTH="150"></P>
+   ';
+
+   $FOOTER='
+      <P ALIGN=RIGHt><IMG SRC="images/tiere-animiert.gif"></P>
+      </BODY>
+      </HTML>
+   ';
+
+
+   /* DB settings */
+   include "includes/db-settings.php";
+
+   /* database settings */
+   $dbuser = $_SERVER["REMOTE_USER"];
+   $dbpass     = "";
+   
+   /* output header */
+   echo $HEADER;
+
+   /* select option */
+   switch($_REQUEST["option"]) {
+      case 1: /* do the update */
+         $filenames=array( 'adm'     => $_FILES['tabelle_adm'],
+                           'kunden'  => $_FILES['tabelle_kunden'], 
+                           'umsatz'  => $_FILES['tabelle_umsatz'], 
+                           'artikel' => $_FILES['tabelle_artikel']
+                           );
+         include "modules/upload-it.php";
+         update_it($dbserver,$database,$dbuser,$dbpass,$filenames);
+         break;
+
+      default: /* login */
+         include "modules/upload-login.php";
+         login($dbserver,$database,$dbuser,$dbpass,$PHP_SELF);
+         break;
+   }
+
+   echo $FOOTER;
+
+?>
+
+\end{verbatim}
+
+\subsubsection{modules/upload-login.php}
+\begin{verbatim}
+
+<?php
+/*******************************************************************
+ * Nico Schottelius (c) 2004
+ * create the initial database - do the create
+ * v0.5
+ *******************************************************************/
+
+/* default function */
+function login($dbserver, $database, $dbuser, $pass, $self)
+{
+
+   $adm_tab       = "ADM Tabelle";
+   $kunden_tab    = "Kunden Tabelle";
+   $umsatz_tab    = "Umsatz Tabelle";
+   $artikel_tab   = "Artikel Tabelle";
+
+   /* 120 MB */
+   $max_tab_size  = 120 * 1024 * 1024;
+
+   echo "<H3>Update der Datenbank...</h3>\n";
+   
+   /* the upload form */
+   echo "<FORM enctype=\"multipart/form-data\" ACTION=\"$self\" METHOD=POST>\n";
+
+   /* fields */
+   echo "<TABLE>\n";
+   echo "<TR><TD>$adm_tab:</TD>"
+   . '<TD><INPUT TYPE="file" name="tabelle_adm" size="30">' . "</TD></TR>\n";
+   echo "<TR><TD>$kunden_tab:</TD>"
+   . '<TD><INPUT TYPE="file" name="tabelle_kunden" size="30">' . "</TD></TR>\n";
+   echo "<TR><TD>$umsatz_tab:</TD>"
+   . '<TD><INPUT TYPE="file" name="tabelle_umsatz" size="30">' . "</TD></TR>\n";
+   echo "<TR><TD>$artikel_tab:</TD>"
+   . '<TD><INPUT TYPE="file" name="tabelle_artikel" size="30">' . "</TD></TR>\n";
+   echo "</TABLE>\n";
+
+   /* hidden */
+   echo '<input type="hidden" name="MAX_FILE_SIZE" value="' . "$max_tab_size\">\n";
+   echo '<input type="hidden" name="option" value="1">' . "\n";
+   echo '<INPUT TYPE="submit" value="Update!">' . "\n";
+   echo '<INPUT TYPE="reset" value="Zur&uuml;cksetzen">' . "\n";
+   echo '</form>' . "\n";
+
+}
+?>
+
+\end{verbatim}
+
+\subsubsection{modules/upload-it.php}
+\begin{verbatim}
+
+<?php
+/*******************************************************************
+ * Nico Schottelius (c) 2004
+ * Update der Datenbank
+ * v0.3
+ *******************************************************************/
+
+function update_it($dbserver, $database, $dbuser, $pass, $filenames)
+{
+
+   /* open connection */
+   $conn = mysql_connect($dbserver,$dbuser,$pass) or
+   die("<H3>Verbindung zur Datenbank fehlgeschlagen: ". mysql_error() ."</h3>");
+      
+   /* choose database */
+   $db_check = mysql_select_db($database,$conn) or 
+   die("<H3>Selektion der Datenbank fehlgeschlagen: ". mysql_error() ."</h3>");
+
+   $i=0;
+   foreach($filenames as $tablename => $tableinfo) {
+
+      /* debug */
+//      echo "<P>table: $tablename\n";
+//      echo "<BR>tableinfo: $tableinfo</P>\n";
+
+
+      $wert = $tableinfo["tmp_name"];
+      $filename = $tableinfo["name"];
+
+      /* check if this table should get updated */
+      if($wert != "none" and $wert != "") {
+
+         echo  "<P><B>Update die Tabelle '$tablename' " .
+               "aus Datei $filename ...</B>\n";
+         
+         /* reset query */
+         $query = "";
+
+         /* basic query array */
+         $sql = array ('LOAD DATA LOCAL INFILE', " '$wert'", ' REPLACE INTO TABLE ',
+                       " `$tablename` ", 'FIELDS TERMINATED BY \';\' ENCLOSED BY \'"\' ESCAPED BY \'\\\\\' LINES TERMINATED BY \'\\n\';');
+
+         /* construct query */
+         foreach($sql as $partofquery) {
+            $query .= $partofquery;
+         }
+
+         /* query() */
+         echo "<P>$query </P>";
+         $resultcode = mysql_query($query,$conn) or
+         die("<H3>Query fehlgeschlagen: ". mysql_error() ."</h3>");
+         echo "<B>done</B><br>\n";
+         $i++;
+      }
+   }
+   
+   /* result display */
+   echo "<p>$i Tabelle(n) verarbeitet.</p>\n";
+}
+
+?>
+
+\end{verbatim}
+
+\subsection{Testtabellen}
+Diese Tabellen wurden zum Testen benutzt, w\"ahrend noch keine Echtdaten
+verf\"ugbar waren. Sie werden von upload.php verarbeitet (siehe Seite
+\pageref{upload.php}).
+\subsubsection{Aussendienstmitarbeiter ("`adm.test"')}
+\begin{verbatim}
+
+120; Heinz Martin
+140; Mutter Albert
+150; Kruenling
+1000; Der Admin
+
+\end{verbatim}
+\subsubsection{Artikel ("`artikel.test"')}
+\begin{verbatim}
+
+12345; Elefantenpritze; wdt
+12346; Elefantenbesteck; wdt
+12347; Kaenguruhnapf; prx
+
+\end{verbatim}
+\subsubsection{Kunden ("`kunden.test"')}
+\begin{verbatim}
+
+019066; 201749; 120;prakt. Tierärztin aus Test;Testwegrein;23;22527;Hamburg;01234/4555
+010646; 201749; 120;prakt. Tieraerztin2 aus Test3;Testwegrein;23;22527;Hamburg;01234/4555
+019067; 019066; 140; Tierliebhaber Burgberg; veilenweg; 42; 30456; Hannover; 00123/123
+019068; 019069; 150; Tierer Bargberg;blumenstarre;235;33334; Testhause; 0042455/5533
+
+\end{verbatim}
+\subsubsection{Umsatz ("`umsatz.test"')}
+\begin{verbatim}
+
+019066;12345;120,00;12; 01; 07; 2004
+019066;12346;120,00;12; 02; 06; 2004
+019066;12347;120,00;12; 03; 05; 2004
+019066;12347;150,00;12; 19; 04; 2003
+019066;12347;140,00;12; 19; 03; 2003
+019066;12346;110,00;12; 19; 02; 2002
+019066;12345;100,00;12; 10; 01; 2002
+019066;12346;150,00;12; 12; 01; 2004
+019067;12347;160,00;12; 12; 01; 2004
+019068;12346;160,00;12; 22; 01; 2004
+
+\end{verbatim}
+
+\subsection{Konfigurationsdateien}
+\subsubsection{Apache: .htaccess (oder "`dot-htaccess"')}
+.htaccess ist die Standardmethode f\"ur Authentfizierung beim Apache Webserver.
+In der gleichnamigen Datei wird definiert,
+um was f\"ur eine Art Authentifizierung es sich handelt ("`AuthType"'),
+welcher Text optional angezeigt wird beim Darstellen der Passwortbox
+("`AuthName"'),
+woraus die Authentifizierungsinformationen gelesen werden ("`AuthUserFile"') und
+welche Bedingung erf\"ullt sein muss ("`Require"').
+\begin{verbatim}
+
+AuthType Basic
+AuthName "Willkommen zum WDT Aussendienstler Programm"
+AuthUserFile /home/user/nico/www/projekt/source/testpasswd
+Require valid-user
+
+\end{verbatim}
+\subsubsection{Apache: htpasswd}
+In der htpasswd werden die Passw\"orter f\"ur die Authentifizierung \"uber das
+Webinterface definiert.
+\begin{verbatim}
+
+120:8ZnzPTAQ5IJkM
+9999:$apr1$/9xFh...$/Qy28iJzLaPWfhFWwsy1C/
+1000:$apr1$shOFt...$xoRiz8F4lClo2hv/MGi7n.
+
+\end{verbatim}
+\subsubsection{PHP: Auszug php.ini}
+Im Gegensatz zur normalen Konfiguration ist hier die maximale Dateigr\"o\ss{}e 120MB
+erh\"oht. Es ist der \textit{Manpage} nicht zu entnehmen, ob MB hier MiB
+entspricht oder der Faktor 1000 als Basis genommen wurde.
+\begin{verbatim}
+
+;;;;;;;;;;;;;;;;;;;
+; Resource Limits ;
+;;;;;;;;;;;;;;;;;;;
+
+max_execution_time = 30     ; Maximum execution time of each script, in seconds
+max_input_time = 60	; Maximum amount of time each script may spend parsing request data
+memory_limit = 128M      ; Maximum amount of memory a script may consume (8MB)
+;;memory_limit = 8M      ; Maximum amount of memory a script may consume (8MB)
+
+; Maximum size of POST data that PHP will accept.
+;;post_max_size = 8M
+post_max_size = 120M
+
+;;;;;;;;;;;;;;;;
+; File Uploads ;
+;;;;;;;;;;;;;;;;
+
+; Whether to allow HTTP file uploads.
+file_uploads = On
+
+; Temporary directory for HTTP uploaded files (will use system default if not
+; specified).
+;upload_tmp_dir =
+
+; Maximum allowed size for uploaded files.
+;;upload_max_filesize = 2M
+upload_max_filesize = 120M
+\end{verbatim}
+\end{document}

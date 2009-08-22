@@ -1,0 +1,15 @@
+[[!meta title="IHK Arbeit, Webzugriff auf eine Datenbank via PHP, importiert"]]
+
+Bei Aufräumarbeiten habe ich heute die Projektdokumentation zur
+IHK Arbeit
+"[[Webzugriff auf eine
+Datenbank via PHP|dokumentationen/webzugriff-auf-eine-datenbank-via-php]]"
+"wiedergefunden".
+
+Der alte URL dazu war
+
+   * http://nico.schotteli.us/papers/examinations/ihk2004/
+
+der neue ist
+
+   * [[http://www.nico.schottelius.org/dokumentationen/webzugriff-auf-eine-datenbank-via-php/|dokumentationen/webzugriff-auf-eine-datenbank-via-php]].
