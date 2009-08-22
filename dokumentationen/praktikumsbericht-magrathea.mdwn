@@ -1,0 +1,11 @@
+[[!meta title="Praktikumsbericht Magrathea"]]
+[[!meta date="2000-01-28"]]
+
+Damals, ***im Jahre 2000***, war es üblich in der Schule
+ein zweiwöchiges Praktikum zu absolvieren. Dieses Praktikum
+habe ich bei der [Magrathea Informatik GmbH](http://magrathea.eu/)
+im Zeitraum vom 17. - 28. Januar 2000 absolviert.
+
+ * [[Der Bericht im PDF-Format|praktikumsbericht-magrathea-2000-01-26.pdf]]
+
+[[!tag publication]]
