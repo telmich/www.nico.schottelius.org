@@ -5,7 +5,7 @@
 Unter diesem Stern steht mein Fund, den ich gerade beim Aufräumen gefunden
 habe: Der [[Praktikumsbericht|dokumentationen/praktikumsbericht-magrathea]]
 vom Jahre 2000 weckt tolle Erinnerungen an ein großartiges Praktikum bei einer
-ebenso [[großartigen Firma, der Magrathea Informatik GmbH|http://magrathea.eu/]].
+ebenso [großartigen Firma, der Magrathea Informatik GmbH](http://magrathea.eu/).
 
 Es sind zwar nun bereits über 9 Jahre vergangen und auch bei Magrathea
 hat es viele Änderungen gegeben. Doch denke ich, daß die Truppe um

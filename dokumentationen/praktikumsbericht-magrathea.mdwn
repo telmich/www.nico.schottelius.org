@@ -6,6 +6,6 @@ ein zweiwöchiges Praktikum zu absolvieren. Dieses Praktikum
 habe ich bei der [Magrathea Informatik GmbH](http://magrathea.eu/)
 im Zeitraum vom 17. - 28. Januar 2000 absolviert.
 
- * [[Der Bericht im PDF-Format|praktikumsbericht-magrathea-2000-01-26.pdf]]
+ * [[Hier liegt der Bericht im PDF-Format.|praktikumsbericht-magrathea-2000-01-26.pdf]]
 
 [[!tag publication]]
