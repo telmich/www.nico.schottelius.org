@@ -2,7 +2,8 @@
 [[!meta date="2001-03-25"]]
 
 Im Rahmen des Mathematik-Unterrichts im
-[Johannes-Kepler-Gymnasium](http://www.jkg-garbsen.de) entstand zusammen mit
+[Johannes-Kepler-Gymnasium](http://www.jkg-garbsen.de)
+in der 12. Klasse entstand zusammen mit
 [[Marcus Przyklink|verweise]] diese Facharbeit zum Thema
 "***Die Landung eines Objektes im Flächenland: Ansichten und
 Erklärungen eines mathematisch vorgebildeten Bewohners***".
