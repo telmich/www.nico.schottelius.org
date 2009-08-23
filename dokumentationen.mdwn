@@ -1,5 +1,5 @@
 [[!meta title="Dokumentationen"]]
 
-[[!inline pages="dokumentationen/* and !Dokumentationen/*/*" archive="yes" show=0]]
+[[!inline pages="dokumentationen/* and !dokumentationen/*/* and !dokumentationen/gerd-dreske*" archive="yes" show=0]]
 
 [[!tag meta]]
