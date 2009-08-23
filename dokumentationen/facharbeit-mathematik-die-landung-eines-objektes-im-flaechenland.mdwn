@@ -1,0 +1,12 @@
+[[!meta title="Facharbeit Mathematik: Die Landung eines Objektes im Flächenland"]]
+[[!meta date="2001-03-25"]]
+
+Im Rahmen des Mathematik-Unterrichts im
+[Johannes-Kepler-Gymnasium](jkg) entstand zusammen mit
+[[Marcus Przyklink|verweise]] diese Facharbeit zum Thema
+"***Die Landung eines Objektes im Flächenland: Ansichten und
+Erklärungen eines mathematisch vorgebildeten Bewohners***".
+
+ * [[Die Facharbeit im PDF-Format|die-landung-eines-objektes-im-flaechenland.pdf]]
+
+[[!tag publication]]
