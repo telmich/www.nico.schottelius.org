@@ -1,0 +1,15 @@
+[[!meta title="Artikel über lernende Organisationen importiert"]]
+
+Und wieder ein weiteres Stück in der Netzwelt gesäubert, einen
+weiteren Teil meiner alten Netzseite
+[nico.schotteli.us](http://nico.schotteli.us) in diese importiert:
+
+Seit heute ist der Artikel über
+[[lernende Organsationen|dokumentationen/lernende_organisationen-learning_organizations]]
+umgezogen: Die alte Adresse war
+
+   * http://nico.schotteli.us/papers/examinations/ihk2004/
+
+der neue ist
+
+   * [[http://www.nico.schottelius.org/dokumentationen/webzugriff-auf-eine-datenbank-via-php/|dokumentationen/webzugriff-auf-eine-datenbank-via-php]].
