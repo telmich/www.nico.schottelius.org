@@ -8,8 +8,8 @@ Seit heute ist der Artikel über
 [[lernende Organsationen|dokumentationen/lernende_organisationen-learning_organizations]]
 umgezogen: Die alte Adresse war
 
-   * http://nico.schotteli.us/papers/examinations/ihk2004/
+  *  http://nico.schotteli.us/papers/examinations/la-ha2004/personal-learning-organization.*
 
-der neue ist
+die neue ist
 
-   * [[http://www.nico.schottelius.org/dokumentationen/webzugriff-auf-eine-datenbank-via-php/|dokumentationen/webzugriff-auf-eine-datenbank-via-php]].
+   * [[http://www.nico.schottelius.org/dokumentationen/lernende_organisationen-learning_organizations|dokumentationen/lernende_organisationen-learning_organizations]].

@@ -6,6 +6,7 @@ habe ich ein kurzez Dokument über
 "***lernende Organisationen (learning organizations)***"
 geschrieben, mit Hinblick auf die Umsetzung im Lehrbetrieb.
 
- * [[Das Dokument im PDF-Format|personal-learning-organization.pdf]]
+ * [[Das Dokument im PDF-Format|lernende_organisationen-learning_organizations.pdf]]
+ * [[Der Vortrag im PDF-Format|vortrag-lernende_organisationen-learning_organizations.pdf]]
 
 [[!tag publication]]
