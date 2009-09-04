@@ -1,0 +1,67 @@
+[[!meta title="Solution for Postfix with Postgres: SASL error: authentication failed: authentication failure"]]
+[[!meta date="2008-10-07"]]
+
+It took me some hours to find the origin of the error,
+so I'll documentate some hints here for you.
+I am running postfix with postgresql on Debian.
+But it should apply more or less to MySQL and FreeBSD and other OS, too.
+
+
+Some error messages you may have seen:
+
+    Oct  7 18:01:38 tee postfix/smtpd[7741]: warning: SASL authentication failure: no secret in database
+    Oct  7 18:01:38 tee postfix/smtpd[7741]: warning: ikn.inf.ethz.ch[129.132.130.3]: SASL DIGEST-MD5 authentication failed: authentication failure
+
+or on the client side postfix:
+
+    Oct  7 17:56:39 ikn postfix/smtp[30807]: 777134113A: to=<nicosc@inf.ethz.ch>, relay=mx3.schottelius.org[77.109.138.221]:25, delay=0.08, delays=0.02/0/0.06/0, dsn=4.7.8, status=deferred (SASL authentication failed; server mx3.schottelius.org[77.109.138.221] said: 535 5.7.8 Error: authentication failed: authentication failure)
+
+
+Some hints and at the end my final solution:
+
+* make sure postfx can connect to the postgresql database
+* check one, two and three times that ***pg_hba.conf*** is right
+* try to login manually via psql
+* check postgresql logs, raise debuglevels,
+  add ***log_connections = on*** and ***log_statement = 'all'***
+* make sure you do not have whitespaces at the end of
+  ***/etc/postfix/sasl/smtpd.conf*** (that was my problem here, due to copy and paste!)
+* You are missing ***sasl/smtpd.conf***, if you get the following infamous error (i.e. cyrus-sasl has no config found):
+
+    warning: SASL authentication problem: unable to open Berkeley db /etc/sasldb2: No such file or directory
+
+For reference, here are the important parts of my working configuration:
+
+***main.cf:***
+
+    smtp_use_tls = yes
+    smtp_tls_note_starttls_offer = yes
+    
+    smtpd_use_tls=yes
+    smtpd_tls_cert_file=/etc/ssl/mx3.schottelius.org.crt
+    smtpd_tls_key_file=/etc/ssl/mx3.schottelius.org.key
+    smtpd_sasl_auth_enable = yes
+    smtpd_sasl2_auth_enable = yes
+    smtpd_sasl_security_options = noanonymous
+    broken_sasl_auth_clients = no
+    smtpd_tls_auth_only           = yes
+    #smtpd_sasl_path = smtpd # not needed
+    
+    
+    smtpd_client_restrictions = permit_mynetworks
+                                permit_sasl_authenticated
+
+
+***sasl/smtpd.conf:***
+
+    pwcheck_method: auxprop
+    auxprop_plugin: sql
+    mech_list: plain login cram-md5 digest-md5
+    sql_engine: pgsql
+    sql_hostnames: 127.0.0.1
+    sql_user: postfix
+    sql_passwd: thepassword
+    sql_database: mail
+    sql_select: select password from mailboxes where name='%u' and domain='%r' and smtp_enabled=1
+
+[[!tag unix net]]
