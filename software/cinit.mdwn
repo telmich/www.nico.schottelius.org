@@ -34,8 +34,9 @@ Or in words:
  * B and C do not have dependencies
   * They will be started at the beginning
  * A wants B and C
-   * A waits until B and C are executed and started afterwards
-    * independently of the success of B and C
+   * A waits until B and C are executed and started afterwards,
+     independently of the success of B and C
+   * A will also be started, if B and C fail to start.
  * D needs B
   * D will only be started, if B is successfully started
  * E needs B and C
