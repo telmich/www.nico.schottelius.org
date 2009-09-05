@@ -1,0 +1,15 @@
+[[!meta title="Cinit is alive - and being migrated"]]
+
+Cinit, the fast, small and simple init with support for profiles,
+[is alive again](http://git.schottelius.org/?p=cLinux/cinit.git;a=shortlog;h=refs/heads/0.3pre15)!
+
+There is now a [mailing list](http://l.schottelius.org/mailman/listinfo/cinit)
+up again and the [[new website|software/cinit]] is being prepared.
+
+Additionally, cinit is also mirrored at
+[github](http://github.com/telmich/cinit) now.
+
+My plan is to release at least **cinit 0.3pre15** this year, but maybe also version
+***0.3***, which should be a complete replacement for 0.2.
+
+[[!tag unix]]
