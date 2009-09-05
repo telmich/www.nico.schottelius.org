@@ -1,0 +1,72 @@
+cinit is a fast, small and simple init with support for profiles
+
+## Why should I use cinit?
+
+ * To significant speedup the startup process
+ * To use highest level of parallelisation at startup
+ * To benefit from real dependencies (so called ***needs*** and ***wants***)
+ * To easily create profiles that can be chosen at startup (even **before** init is started!)
+
+## How does cinit work?
+
+Cinit creates a dependency tree at startup and executes the services.
+A service can have two type of dependencies:
+
+ * ***wants*** describe soft dependencies (i.e. it's not fatal if the wanted service fails to start)
+ * ***needs*** describe hard dependencies (if the needed service fails, the depending won't be started)
+
+Let's have a look at an example:
+
+    
+                    A
+                 (wants)
+                /       \
+     |------> B \        C
+     |       /   \      /  \
+     ^  (needs)   (needs)   (wants)
+     |    D          E        F
+     |                        |
+     |------<------(needs)----|
+    
+
+Or in words:
+
+ * B and C do not have dependencies
+  * They will be started at the beginning
+ * A wants B and C
+   * A waits until B and C are executed and started afterwards
+    * independently of the success of B and C
+ * D needs B
+  * D will only be started, if B is successfully started
+ * E needs B and C
+  * E will only be started, if both B and C are successfully started
+ * F wants C and needs B
+  * F will only be started, if B is successfully started
+  * F waits until C is started and is started afterwards
+
+## Old homepage
+
+This will be the new homepage of cinit, as soon as the
+[old cinit homepage](http://unix.schottelius.org/cinit) is completly
+migrated into this one.
+
+## Getting cinit
+
+### Development versions
+You can get the latest (development) version via git:
+
+    git clone git://git.schottelius.org/cLinux/cinit.git
+
+Additionally, the following other git ressources are available:
+
+ * [Gitweb](http://git.schottelius.org/?p=cLinux/cinit.git;a=summary).
+ * [Mirror at github](http://github.com/telmich/cinit)
+
+## Support
+ * There is a general
+ [cinit mailing list](http://l.schottelius.org/mailman/listinfo/cinit)
+ available.
+ * You can join the development ***IRC channel***
+   [#cLinux on irc.freenode.org](irc://irc.freenode.org/#cLinux).
+
+[[!tag unix]]
