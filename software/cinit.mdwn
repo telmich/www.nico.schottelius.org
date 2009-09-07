@@ -70,4 +70,15 @@ Additionally, the following other git ressources are available:
  * You can join the development ***IRC channel***
    [#cLinux on irc.freenode.org](irc://irc.freenode.org/#cLinux).
 
+## Related websites
+
+ * BSD init systems (same codebase):
+  * <a href="http://www.freebsd.org/cgi/cvsweb.cgi/src/sbin/init/">FreeBSD</a>,
+  * <a href="http://cvsweb.netbsd.org/bsdweb.cgi/src/sbin/init/">NetBSD</a>,
+  * <a href="http://www.openbsd.org/cgi-bin/cvsweb/src/sbin/init/">OpenBSD</a>
+ * <a href="http://www.initng.org/">initng</a>
+ * <a href="http://www.fefe.de/minit/">minit</a>
+ * <a href="http://smarden.org/runit/">runit</a>
+ * <a href="ftp://ftp.cistron.nl/pub/people/miquels/sysvinit/">sysvinit</a>
+
 [[!tag unix]]
