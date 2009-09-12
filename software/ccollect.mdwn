@@ -69,6 +69,7 @@ Additionally, the following other git ressources are available:
  * [[ccollect-0.8.tar.bz2]]
    ([browse source](ccollect-0.8))
    ([[Changes|ccollect-0.8/doc/changes/0.8]])
+   ([[RPM|ccollect-0.8-0.noarch.rpm]])
    <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.7.1.tar.bz2">ccollect-0.7.1.tar.bz2</A>
    (<A HREF="ccollect-0.7.1">browse source</A>)
