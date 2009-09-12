@@ -1,0 +1,14 @@
+[[!meta title="RPM for ccollect 0.8 available"]]
+
+Last week Nikita Koshikov dropped
+[an email](archiv) to the
+[ccollect mailinglist](http://l.schottelius.org/pipermail/ccollect/2009-September/000035.html),
+providing a spec file and a rpm packet.
+
+It's very interesting, some years ago users of ccollect
+provided Debian packages, today the rpm users seem to be more active.
+
+Written enough: Thanks for the [[ccollect RPM package|software/ccollect]],
+Nikita!
+
+[[!tag unix backup]]
