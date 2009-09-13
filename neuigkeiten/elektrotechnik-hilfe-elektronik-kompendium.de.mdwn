@@ -1,0 +1,25 @@
+[[!meta title="Elektrotechnik-Hilfe auf Elektronik-Kompendium.de"]]
+
+Da ich mich demnächst im Studium etwas mit
+[Elektrotechnik](https://ssl.hsz-t.ch/drupal/ebs/node/54?id_occasion=82)
+beschäftigen werde und im Vorkurs mir ein paar offene Fragen geblieben
+sind, habe ich heute ein bißchen im Internet nach einer guten Erklärung
+zu den
+[kirchhoffschen Regeln](http://de.wikipedia.org/wiki/Kirchhoffsche_Regeln)
+gesucht.
+
+[Fündig](http://www.elektronik-kompendium.de/sites/grd/0608011.htm)
+bin ich auf
+[Elektronik-Kompendium.de](http://www.elektronik-kompendium.de) geworden.
+
+[Patrick Schnabel](http://www.elektronik-kompendium.de/service/impressum.htm)
+bittet um einen Verweis, wenn man die Netzseite gut findet, dem ich
+hiermit gerne nachkomme.
+
+Das ist für mich wieder ein Fall, bei dem ich froh wäre, wenn es eine
+gescheite
+[Mikrozahlungsmöglichkeit](http://de.wikipedia.org/wiki/Micropayment)
+geben würde, denn ich hätte dem Autor gerne 50 Rappen für den Artikel
+gezahlt.
+
+[[!tag net]]
