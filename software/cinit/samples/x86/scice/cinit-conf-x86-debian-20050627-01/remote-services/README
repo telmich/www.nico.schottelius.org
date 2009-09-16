@@ -1,0 +1,2 @@
+Put the services into here, which are reachable from outside
+(like DNS-, Samba-, SMTP-, rootshell-, NFS- or NIS-Servers).

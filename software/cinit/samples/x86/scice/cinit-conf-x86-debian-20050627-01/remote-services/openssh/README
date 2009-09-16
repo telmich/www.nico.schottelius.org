@@ -1,0 +1,5 @@
+Startup OpenSSH.
+
+We use -D, so it does not fork itself into background.
+
+ssh normally __wants__ networking, but will also start without.

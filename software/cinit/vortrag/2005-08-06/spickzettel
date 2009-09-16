@@ -1,0 +1,108 @@
+o Was wird in dem Vortrag behandelt?
+   - kurze Einfuehrung in Init-Systeme
+   - Einfuehrung in cinit
+   - Installation cinit
+   - minimale Konfiguration cinit
+   - anschliessend Fragen beantworten, die in #cLinux auf irc.freenode.org
+     gestellt werden koennen
+
+- Intro / an wen richtet es sich?
+   - Systemadministratoren
+   - denen es aus Prinzip ein sequentiell startendes Bootsystem missfaellt
+   - alle die vom langsamen booten genervt sind
+   - Kommentare, Fragen und Code im IRC-Kanal #cLinux auf irc.freenode.org
+
+- Init-Systeme
+   o Rechner anschalten
+   o BIOS
+   o Bootloader
+   o Kernel
+   o Init
+      -> Ueberpruefung der Festplatte(n)
+      -> temporaere Dateien loeschen
+      -> login starten (getties)
+      -> XDM
+      -> Server: sshd, apache, ...
+   
+- Einfuehrung in cinit
+   o Warum nicht der Standard-Sys-V-init
+      -> sequentiell: d.h. nacheinander
+      -> dadurch langsamer als noetig
+         -> dhcp, festplatten i/o, cpu zeit
+      -> keine abhaengigkeiten
+         -> wenn ein init-skript fehlschlaegt, kann anderes haengen
+         --> nfsd, portmap
+         -> reihenfolge nur ueber numerierung (aka Basic) vorhanden
+         --> einfuegen dazwischen
+      -> keine profile
+         -> verschiedene Szenarien
+            o Arbeit und Zuhause
+            o Selber [dienste, mounts] oder Gaeste
+   o cinit-features
+      -> parallel startet
+      -> in abhaengigkeiten
+      -> profile
+      -> services
+         -> keine shell zwanghaft
+         -> on
+         -> on.params
+         -> on.env
+         -> gleiche mit off
+         -> respawn
+         -> spaeter mehr ;-)
+- Live Installation cinit
+   o debian packet
+   o gentoo emerge - KAPUTT!
+   o tar.bz2 / source von der homepage
+
+   - Parallel zum bestehenden init
+
+   o wget http://linux.schottelius.org/cinit/cinit-0.1.tar.bz2
+   o tar xfj cinit-0.1.tar.bz2
+   o cd cinit-0.1
+   o make all install
+   # problemlos mit bestehemden system!
+   
+- minimale Konfiguration cinit
+   AUF > und >> achten!!!!
+
+   - getty
+      mkdir -p /etc/cinit/getty/1/
+      cd /etc/cinit/getty/1/
+      ln -s /sbin/agetty on
+      echo 38400  > on.params
+      echo tty1   >> on.params
+      echo linux  >> on.params
+      # parameter werden durch \n getrennt
+
+      mkdir -p /etc/cinit/getty/2/
+      cd /etc/cinit/getty/1/
+      ln -s /sbin/mingetty on
+      echo /dev/tty1 > on.params
+   
+   - mount
+      mkdir -p /etc/cinit/mount/root/
+      cd /etc/cinit/mount/root/
+      ln -s /bin/mount on
+      echo -n > on.params
+      echo -o >> on.params
+      echo remount,rw  >> on.params
+      echo /  >> on.params
+
+   - abhaengigkeiten
+      # init haengt von getty ab
+      mkdir -p /etc/cinit/init/needs/
+      cd /etc/cinit/init/needs
+      ln -s /etc/cinit/getty/1 getty1
+
+      # getty haengt von mount ab
+      mkdir -p /etc/cinit/getty/1/needs/
+      cd /etc/cinit/getty/needs
+      ln -s /etc/cinit/mount/root mount-root
+
+   - Bootloader konfigurieren
+      lilo: append="init=/sbin/cinit"
+      grub: kernel <kernel> init=/sbin/cinit
+   - Rebooten
+
+- anschliessend Fragen beantworten, die in #cLinux auf irc.freenode.org gestellt werden koennen

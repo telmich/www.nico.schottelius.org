@@ -1,0 +1,24 @@
+1. using SIDs (service IDs) to communicated with external processes
+
+   This was a very bad idea: The external program could exploit us by
+   specifying an arbitary big SID (as the SID is simply the index
+   of our service array).
+
+2. using function pointers to handle messages
+   
+   Seems like it works fine. We have handlers for each
+   message (do_*), which are called by client and server.
+   The function pointer is simply to read or write, dependending
+   if it is the client or the server. This way we don't need
+   to rewrite communications parts.
+
+3. Using different storage
+   
+   First all services were saved in a service array of the size
+   MAX_SVC. This has been replaced by a double-linked list.
+   Have a look at serv/list.c.
+
+4. Using sockets for IPC (between cinit forks)
+   
+   Works very fine, though we have to mount a temporarily fs before.
+

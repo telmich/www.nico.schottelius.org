@@ -1,0 +1,17 @@
+****************************************************************************
+First of all configure cinit through the configuration files found in conf/.
+
+The documentation can be found in doc/, read
+
+   README and doc/configuring.cinit
+
+_before_ first use.
+
+After reading and configuring use:
+
+   "make all" - to build cinit
+   "make install" - to install cinit
+
+After that you'll have to configure it. Some sample configuratios can be
+fuond on the cinit homepage http://linux.schottelius.org/cinit/.
+****************************************************************************

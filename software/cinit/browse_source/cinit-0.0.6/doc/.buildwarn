@@ -1,0 +1,25 @@
+
+-------------
+W A R N I N G
+-------------
+
+****************************************************************************
+THIS IS A PRE-RELEASE, NOT YET THOUGHT TO BE USED IN PRODUCTIVE ENVIRONMENT!
+****************************************************************************
+
+First of all configure cinit through the configuration files found in conf/.
+Especially look at conf/*tmp*.
+   
+The documentation can be found in doc/, read
+
+   doc/configuring.cinit
+
+_before_ first use.
+
+After reading and configuring use:
+
+   "make all" - to build cinit
+   "make install" - to install cinit
+   "make install-test" - to install cinit configuration example
+      -> WARNING: the last make target is highly experiemental and
+         the installed configuration may not be usable on your system!

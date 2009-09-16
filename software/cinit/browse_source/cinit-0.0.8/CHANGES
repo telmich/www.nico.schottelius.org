@@ -1,0 +1,22 @@
+- support for variabel delay (delay)
+   -> support for user killing their shutdown!
+- fixed cpu-consuming bug
+- fixed killing service watcher and service at the same time
+  (results in zombies before reboot)
+- support for killing services
+- support for starting services (as defined)
+- support for borken, forking daemons
+- support for RESCUE
+-> restore system? -> exec /sbin/cinit!
+- added script to test cinit in UML
+15:05 < telmich> added cinit.uml.test
+
+- adding cleaning of broken processes (aka ZOMBIES)
+
+- Added documentation:
+   - "rescue mode"
+   - updating cinit
+   - security
+   - testing in UML
+
+

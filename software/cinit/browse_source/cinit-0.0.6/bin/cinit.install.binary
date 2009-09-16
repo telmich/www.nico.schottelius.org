@@ -1,0 +1,9 @@
+#!/bin/sh
+# Nico Schottelius
+# cinit: install basic setup
+# 
+
+
+. $(dirname $0)/cinit.read-conf
+
+"$INSTALL_PROG" sbin/cinit $DESTDIR/$PREFIX/sbin/cinit

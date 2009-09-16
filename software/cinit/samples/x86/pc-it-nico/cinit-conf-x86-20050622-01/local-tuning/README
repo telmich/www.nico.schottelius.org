@@ -1,0 +1,3 @@
+This service should be used to cleanup the system and set local
+configuration
+(like: Setting keyboard layout, removing temporary files, ...)

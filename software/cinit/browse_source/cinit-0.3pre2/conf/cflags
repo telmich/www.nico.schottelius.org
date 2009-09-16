@@ -1,0 +1,3 @@
+-pipe -W -Wall -Werror -Iheaders -g
+
+Standard flags to pass to (g)cc.

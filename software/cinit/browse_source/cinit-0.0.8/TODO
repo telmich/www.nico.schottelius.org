@@ -1,0 +1,86 @@
+--------------------------------------------------------------------------------
+- Recheck sources:
+   - check errno!
+   - eventually split cinit code to csvc to minimize binary of cinit?
+   - close(*>2) before forking / executing
+      -> close fds, clean environment, etc., ...
+      -> do we really need that?
+   - remove FIXME entries (and what should be fixed, too)
+   - cservice -p does not work, kill -TERM does!
+   - cleanup sig_reboot.c
+   - memset for timespecs?
+--------------------------------------------------------------------------------
+- Source Logic issues
+   - cservice: remove trailing slash of service names,
+     absolute the service names?
+   - add reading of delay to run_svc, storing in list
+   - handle multiple killing within sigio (fork) ?
+   - add shutdown/reboot/.../ -> cinit.commands!
+   - socket / general access from outside/non-root?
+   - move umount, swapoff and remount to off of init?
+      -> cleanup sig_reboot.c
+   - handle CTR-ALT-DEL / keyboard request? (see caveats)
+   - check for possibilies to save ram, free things
+   - create coala-socket with correct permissions! (550, root:cinit)
+      -> is that really our problem or should a service do that?
+   - check if we caught every signal, which could kill us
+   - logging service!
+      -> write output $somewhere, wait for syslog?
+      -> flush at the end of start-process?
+      -> perhaps pipe logging output to a program?
+   - check for other possibilities to create a smaller binary
+      - strip options
+      - gcc options
+      - ld options
+      - alternative libc (uclibc and dietlibc work fine!)
+   - run_svc:
+      o we have many strcat()s, perhaps save length of pathbuf and strncat at
+         pathtmp[strlen(pathbuf)] ?
+   - the service watcher has somehow to handle SIGTERM and killing the process
+      -> global pid_t variable would do it
+      -> split code to cclient?
+      -> we have to add killing services from outside
+      -> perhaps completly split client code from cinit?
+      -> ccinit? ;-)
+      -> shutting down services is NOT YET possible while cinit is running
+   - cservice:
+      o shutdown/reboot/halt system (through socket?) -> no.
+      o show service list? -> no.
+      o respawn services
+      o exec services
+      o shutting down service _AND_ dependencies on it????
+         -> recursive searching in /etc/cinit/{*/}*/needs (not wants)
+         -> also without.
+   - really need swapoff?
+--------------------------------------------------------------------------------
+- Documentation
+   - Write manpages (use doc/* as base for that)
+   - Check Spell and Grammar in documentation
+   - write howto:
+      o Howto-cinit
+      o Howto-cinit-uml
+--------------------------------------------------------------------------------
+- Porting
+   - add porting code to other unices?
+   - like openssh guys do?
+   - polling/signalling is different everywhere
+      a) use standars poll/select
+      b) use accelerated os-specfic
+         -> add the name of the function/the file to use
+            into conf/poll_func?
+         o kqueue for freebsd/openbsd?
+         o epoll or sigio (current) for Linux?
+         o poll for netbsd
+   - using Linux 2.6 epoll mechanism?
+
+--------------------------------------------------------------------------------
+create_mini_cinit
+   -> use a tarball? (samples/*)
+   -> create something which should be runnable
+      -> mount, fsck, getty
+         --> for dev in `read /etc/fstab` ...
+               fsck $dev
+         --> getty from /etc/inittab or /sbin/*getty
+            -> find out, which gettys with which params
+   -> use it on 'make install'
+--------------------------------------------------------------------------------

@@ -1,0 +1,50 @@
+/* 
+ * cinit
+ * (c) 2005 Nico Schottelius (nico-linux at schottelius.org)
+ * run initial service
+ */
+
+#include <sys/wait.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
+
+#include "cinit.h"
+
+
+/*********************************************************************** 
+ * start the first service
+ */
+
+int run_init_svc()
+{
+   pid_t pid;
+
+   D_PRINTF("Starte initialen starter");
+
+   /* leave cinit alone */
+   pid = fork();
+   
+   if(pid == -1) { /* err */
+      perror("fork failed\n");
+      return RT_PAR_FAIL;
+   } else if(pid == 0) { /* child */
+      /* close fifo */
+      close(f_in); close(f_out);
+      
+      /* open the other way round */
+      f_in  = open(CINIT_DIR SLASH F_OUT, O_RDWR);
+      f_out = open(CINIT_DIR SLASH F_IN,  O_RDWR);
+      if(f_in == -1 || f_out == -1) cerr("opening fifo failed\n",RT_CHLD_FAIL);
+
+      /* open stderr, stdin, stdout to files? */
+      if ( run_svc(CINIT_INIT) == RT_CHLD_OK)
+         _exit(EX_OK);
+      else
+         _exit(EX_FAIL);
+   } else
+      return RT_PAR_OK;
+}

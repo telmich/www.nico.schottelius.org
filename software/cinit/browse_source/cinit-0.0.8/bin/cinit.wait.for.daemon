@@ -1,0 +1,31 @@
+#!/bin/sh
+# Nico Schottelius
+# wait for daemon to terminate
+# the pidfile is our first argument,
+# the dameon the second and all others are for the daemon
+# 2005-06-12
+
+PIDFILE=$1; shift
+DAEMON=$1;  shift
+
+# how long to sleep before rechecking
+SLEEP=5
+
+if [ $# -lt 2 ]; then
+   echo "`basename $0` <pidfile> <daemon> [daemon arguments]"
+   exit 1
+fi
+
+# remove old pidfile
+[ -e "$PIDFILE" ] && rm -f $PIDFILE
+
+$DAEMON $@
+
+PID=$(cat "$PIDFILE")
+
+ISALIVE=$(cat "$PIDFILE" | awk '{ print $1 }' | grep "^$PID\$")
+
+while [ "$ISALIVE" ]; do
+   sleep ${SLEEP}
+   ISALIVE=$(cat "$PIDFILE" | awk '{ print $1 }' | grep "^$PID\$")
+done

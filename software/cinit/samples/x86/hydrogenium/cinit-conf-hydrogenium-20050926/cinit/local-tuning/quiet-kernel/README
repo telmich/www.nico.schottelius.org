@@ -1,0 +1,2 @@
+dmesg -n1 tells the kernel only to write PANIC()s on the
+console. This way typing is not interrupted by kernel messages.

@@ -1,0 +1,4 @@
+acpid uses
+   /dev/urandom (start udevstart)
+   /proc/acpi/event (mount /proc)
+   /var/run/acpid.socket (root-rw)

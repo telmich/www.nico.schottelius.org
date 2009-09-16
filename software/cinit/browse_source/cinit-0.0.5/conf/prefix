@@ -1,0 +1,4 @@
+/
+
+Where to install cinit. Normally this will be /, but you can put in anywhere.
+The subdirectory 'sbin' under this prefix must be reabable by the kernel.

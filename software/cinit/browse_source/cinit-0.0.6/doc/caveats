@@ -1,0 +1,43 @@
+'Geheimnisse' in German
+
+
+- Dependencies beginning with a '.' (dot) are ignored.
+  So you can temporary disable a dependency moving it to
+  want/.name
+
+- Why is the name of the socket "coala"?
+  Well, coala could mean 'cinit object abstract layer access', but
+  perhaps it's a much simpler reason.
+
+- cinit will start a little bit faster, if you omit non needed
+  'wants' and 'needs' dirs, as they need to be scanned, if they
+   exist
+
+- Currently there is no support to react on 'ctr+alt+del':
+   1. It is not handled to switch on / off
+      (Linux: See man 2 reboot and /proc/sys/kernel/ctrl-alt-del)
+   2. If the kernel handles it and sends signals to cinit
+      (SIGINT on Linux) they will be ignored.
+      There is no problem in implementing a handler for this signal,
+      the only reason why it is not there
+      (well, a template is in old/sig_special.c) is that noone
+      could tell me what would be the most senseful thing to handle
+      ctrl-alt-del. If you can, I'll perhaps integrate it.
+
+- cinit ignores the Keyboard request
+   Same thing with 'ctr-alt-del': SIGWINCH is sent, but I don't
+   know what todo when recieving it.
+
+- cinit does not care about its pid
+  nor does cinit care if it is already running
+
+  in serv/cinit.c is a line calling run_init_svc().
+  If you call that only if getpid() == 1, cinit will behave like sysvinit
+
+  Currently cinit has no chance to control whether it's started or
+  not as /etc/cinit/tmp mounted again for every start.
+
+- cinit will sleep after respawing if ...
+
+   a) the service did not terminate normally (!WIFEXITED(status))
+   b) the service did return a non-zero exit status

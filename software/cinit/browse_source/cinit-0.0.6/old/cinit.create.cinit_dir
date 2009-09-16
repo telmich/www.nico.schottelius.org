@@ -1,0 +1,11 @@
+#!/bin/sh
+# Nico Schottelius
+# cinit: create our initial directory
+# 2005-05-24
+
+# init variables
+. $(dirname $0)/cinit.read-conf
+
+BASEDIR=$DESTDIR/$CINIT_DIR
+
+mkdir -p $BASEDIR

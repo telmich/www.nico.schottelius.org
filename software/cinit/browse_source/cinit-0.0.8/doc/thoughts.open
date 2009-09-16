@@ -1,0 +1,8 @@
+
+- Using TCP/IP sockets
+   
+   This would be a very small change in the code, but would allow
+   to control cinit over network. Since there is no authentication,
+   this would be highly insecure. On the other hand, cinit
+   could control the parallel start of many hosts, if they
+   should become 'one' computer at the end.

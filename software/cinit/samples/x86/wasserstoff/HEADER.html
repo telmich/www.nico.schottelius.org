@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<title>unix.schottelius.org</title>
+</HEAD>
+
+<BODY>
+<P><A HREF="http://nico.schotteli.us">Nico Schottelius</A>
+<BR><A HREF="../../../index.html">unix.schottelius.org</A>
+<BR><A HREF="../../index.html">cinit</A>
+<BR><A HREF="../index.html">cinit samples</A></P>
+<HR>
+<H1>wasserstoff</H1>
+<HR>
+<!-- ##################################################### -->
+<P>Wasserstoff uses an instance of
+<A href="http://nico.schotteli.us/papers/linux/cconfig/">cconfig</A> for the system
+configuration, which is placed below <b>/etc/csys</b>.
+The configuration aims to
+<ul>
+   <li>use one file for one configuration
+   <li>be easy to use
+   <li>be easy to create via automatic creation by programs
+</ul>
+
+The following steps were taken to create this configuration:
+
+<ol>
+<li>Create services in /etc/cinit
+<li>For every configuration (hostname, root device, swap, ...) create
+    a file below /etc/csys
+<li>Link parameters for programs (on.params, off.params) to /etc/csys/...
+<li>Control result, improve /etc/csys design
+</ol>
+<!-- ##################################################### -->
+<P>The following configurations (/etc/cinit and /etc/csys) are
+available for download:
+<ul>
+   <li><A HREF="cinit-conf-wasserstoff-20051010.tar.bz2">2005-10-10</A>:
+      <ul>
+         <li>Added respawn to getty/*/
+      </ul>
+   <li><A HREF="cinit-conf-wasserstoff-20050926.tar.bz2">2005-09-26</A>:
+      <ul>
+         <li>eth0 needs now the root read-write, because udhcpc wants
+             to write /etc/resolv.conf
+      </ul>
+   </li>
+   <li><A HREF="cinit-conf-wasserstoff-20050827.tar.bz2">2005-08-27</A>:
+   <ul>
+      <li>Configuring keyboard: Layout (<B>dvorak</b>,
+          changeable via /etc/csys/keyboard-layout)
+      <li>Setting Hostname to 'wasserstoff'
+         (alterable via /etc/csys/hostname)
+      <li>Mount root r/w (root device is set in /etc/csys/root)
+      <li>Spawns Getty (/sbin/getty) on tty2-tty7 (tty1 is for logging)
+      <li>SSH (<B>openssh</b>) (disabled, you need to link romet-services/opensshd
+          to remote-services/wants or somewhere else, which is a considered
+          service)
+      <li>Udev support
+      <li>/etc/csys is partly uncleaned
+   </ul>
+</ul>

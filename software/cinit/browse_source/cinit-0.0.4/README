@@ -1,0 +1,92 @@
+--------------------------------------------------------------------------------
+cinit, Nico Schottelius, 2005-04-28 [last change: 2005-05-07]
+--------------------------------------------------------------------------------
+
+Introduction
+============
+
+cinit is a fast init system with dependency features.
+It is orientated on the design off Richard Gooch's
+need [0] and Felix von Leitner's minit[1]. Minit does not support real
+dependencies (you don't know whether the service you depend on really
+started) and the need concept is somehow slow (as seen in gentoo).
+In addition, minit needs libowfat and dietlibc, which may not be found
+on every Unix system.
+
+cinit main features:
+- portability: it should run on every POSIX compatible system.
+- true dependencies
+- parallel execution
+- highly customisable (see conf/*)
+
+
+Getting cinit
+=============
+
+This README is part of the source, so you should have it.
+If not, goto the homepage [2] and download the tar archive
+or get the lastest snapshot via monotone.
+
+
+Pre-Configuring
+===============
+
+If you want to fine tune cinit parameters, add different path names,
+change the DESTDIR, ... have a look at conf/*.
+
+
+Installing
+==========
+
+You can install cinit parallel to any other init-system, it won't
+kill other init's config nor /sbin/init, if it exists.
+
+You only have to tell your kernel to execute /sbin/cinit instead
+of /sbin/init.
+
+Everybody do:
+# make all install
+
+If it's the first time you operate with cinit, also do:
+# make install-example
+
+This will populate /etc/cinit with some default services for Linux
+(mounting root r/w, starting gettys, setting hostname).
+
+This should work on most Linux systems, still you should have a
+look at /etc/cinit and see whether services are correct.
+
+
+Configuring 
+===========
+
+You'll have to configure /etc/cinit and add your existing services.
+
+Please read doc/configuring.cinit for details.
+
+sampleconfig.tar is the tar-ball I used for testing, beware if you use it:
+It loads dvorak at startup!
+
+There are currently no tools to merge your existing init-system
+to cinit (like sysvinit-merge, bsd-merge or minit-merge) available.
+If someone cares and tries to do that, I would be happy to include
+the script(s).
+
+Additionally I would be thankful for tar-balls containing a complete
+replacement of $your_unix_init.
+
+
+Author, Contact, Bug reports, etc.
+==================================
+Nico Schottelius (nico-linux-cinit<<at>>schottelius [[dot]] org) is the
+author. Bug reports should be send to this address.
+
+The homepage of cinit is [2].
+
+
+References:
+===========
+
+[0]: need:  http://www.atnf.csiro.au/people/rgooch/linux/boot-scripts/
+[1]: minit: http://www.fefe.de/minit/
+[2]: cinit: http://linux.schottelius.org/cinit.html

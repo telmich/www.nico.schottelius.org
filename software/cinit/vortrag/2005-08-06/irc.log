@@ -1,0 +1,111 @@
+20:09 < telmich>  wget http://linux.schottelius.org/cinit/cinit-0.1.tar.bz2
+20:09 < KillerFox> telmich: vapier wars :-P
+20:09 < telmich> tar xfj cinit-0.1.tar.bz2
+20:10 < telmich>  cd cinit-0.1
+20:10 < telmich> make
+20:10 < hansmi> curl -O http://linux.schottelius.org/cinit/cinit-0.1.tar.bz2 gienge auch
+20:10 < telmich> make all install
+20:10 -!- Frank_ [frank@p54A5B99A.dip0.t-ipconnect.de] has joined #clinux
+20:11 < KillerFox> huhu Frank_ 
+20:11 < Frank_> meep
+20:11 < Frank_> hmm, fast nur bekannte nicks :)
+20:11 < KillerFox> klar :-P
+20:11 < KillerFox> auf hppa
+20:11 < hansmi> Mein Taschenrechner entpackt noch :-)
+20:12 < KillerFox> lol
+20:12 < Frank_> hansmi: hppa?
+20:12 < KillerFox> *muahahaha*
+20:12 < telmich> mkdir -p /etc/cinit/getty/1/
+20:12 < hansmi> Frank_: http://forkbomb.ch/services/irc/best-of?perma=118 -- aber jetzt störe ich nicht mehr :)
+20:13 < telmich>       cd /etc/cinit/getty/1/
+20:13 < telmich> ln -s /sbin/agetty on
+20:13 < telmich> ls -l on
+20:13 < Frank_> hansmi: ja :)
+20:13 < telmich> echo 38400  > on.params
+20:14 < KillerFox> hier eilts etwas voraus
+20:14 < telmich> echo tty1   >> on.params
+20:14 < telmich> echo linux  >> on.params
+20:14 < hansmi> cinit kann also inittab nicht benutzen?
+20:14 < telmich> hansmi: fragen
+20:14 < telmich> spaeter bitte
+20:14 < telmich> cat on.params
+20:15 < KillerFox> telmich: du musst etwas mehr: oder? sagen ;-)
+20:15 < KillerFox> telmich: sonst klingst du nicht so Schweizerisch :-P
+20:15 < telmich> ln -s /sbin/mingetty on
+20:15 < telmich> echo /dev/tty1 > on.params
+20:16 < telmich> mkdir -p /etc/cinit/mount/root/
+20:16 < telmich>  cd /etc/cinit/mount/root/
+20:16 < telmich> ln -s /bin/mount on
+20:16 < telmich> echo -n > on.params
+20:16 < Frank_> ich merke schon, das hat viel potential (alles falsch zu machen)
+20:16 < telmich> echo -o >> on.params
+20:16 < KillerFox> Frank_: LOL
+20:17 < telmich> echo remount,rw  >> on.params
+20:17 < KillerFox> . o O (Ob das gut kommt?)
+20:17 < telmich> echo /  >> on.params
+20:18 < telmich> mkdir -p /etc/cinit/init/needs/
+20:18 -!- Russel [~engelzz@p54873DFA.dip.t-dialin.net] has joined #clinux
+20:18 < telmich> cd /etc/cinit/init/needs
+20:18 < telmich> ln -s /etc/cinit/getty/1 getty1
+20:19 < telmich> mkdir -p /etc/cinit/getty/1/needs/
+20:20 < telmich> cd /etc/cinit/getty/needs
+20:20 < KillerFox> *fragen notier*
+20:20 < telmich> ln -s /etc/cinit/mount/root mount-root
+20:21 < telmich> lilo: append="init=/sbin/cinit"
+20:21 < telmich> grub: kernel <kernel> init=/sbin/cinit
+20:22 < telmich> http://linux.schottelius.org/cinit/
+20:22 < KillerFox> h?chstwahrscheinlich?
+20:22 < KillerFox> na prost
+20:22 < hansmi> [20:14:31] <hansmi> cinit kann also inittab nicht benutzen?
+20:22 < KillerFox> telmich: unterst?tzt cinit cascaded profiles?
+20:23 < hansmi> KillerFox: Was hat das mit einem init zu tun?
+20:23 < KillerFox> telmich: erkennt cinit m?gliche abh?ngigkeits loops?
+20:23 < KillerFox> hansmi: nunja, die Profile werden ja von cinit verwaltet. Und ich habe nicht vor immer wieder neue Profile zu erstellen, sondern auf einem anderen 
+                   Profil basiert.
+20:24 < hansmi> achsooo, cinit-profile
+20:24 < hansmi> Ich dachte an Portage
+20:24 < KillerFox> hansmi: ja
+20:24 < KillerFox> hansmi: nein :-)
+20:25 < KillerFox> kommt noch ;-)
+20:25 < hansmi> http://www.gentoo.org/proj/en/releng/docs/cascading-profiles.xml
+20:25 < KillerFox> telmich: siehe weiter oben.
+20:25 < KillerFox> [20:23:56] <KillerFox> hansmi: nunja, die Profile werden ja von cinit verwaltet. Und ich habe nicht vor immer wieder neue Profile zu 
+20:25 < KillerFox>                        erstellen, sondern auf einem anderen Profil basiert.
+20:25 < hansmi> telmich: Sowas wie abgeleitete Klassen in OO-Sprachen
+20:27 < KillerFox> lol
+20:27 < hansmi> Das nächste mal machen wir OpenMCU auf und machen es damit. Dann können alle reden. :-)
+20:27 < Russel> wie gro ist der geschwindigkeitsvorteil gegen?ber normal?
+20:27 < KillerFox> hansmi: haha
+20:27 < Russel> und muss man eigene init-scripte schreiben?
+20:27 < telmich> Russel: extrem gross
+20:27 < Russel> gnarf
+20:28 < telmich> Russel: eigene services
+20:28 < hansmi> Gentoo benutzt aber nicht sysvinit, oder?
+20:28 < telmich> hansmi: nein
+20:28 < Frank_> telmich: alle Klarheiten wurden hinreichend beseitig
+20:28 < KillerFox> Frank_: lol
+20:28 < telmich> Frank_: dann ist es gut
+20:29 < Russel> k dann f?llt das wohl aus... bin viel zu faul f?r jedes script mir wieder was neues zu schreiben... 
+20:29 < telmich> Russel: du kannst auch beispiel-configs nehmen
+20:29 < KillerFox> Russel: es gibt fertige service Pakete
+20:29 < telmich> so, mal schauen, ob die mini-config tut
+20:29 < Russel> KillerFox: wo?
+20:30 < KillerFox> Russel: auf der Projektseite von cinit
+20:30 < Frank_> telmich: offengestanden hatte ich probleme da mit zu kommen. Linux ist wirklich kein Neuland f?r mich, aber mit den einzelheiten was eigentlich so beim 
+booten genau passiert hab ich mich nie besch?ftigt, da ich mich mit solchen sachen meist erst befasse wenn etwas nicht gehtw ie es soll.
+20:30 -!- telmich changed the topic of #clinux to: http://linux.schottelius.org/cinit/ - cinit
+20:30 < KillerFox> telmich: du hast nicht wirklich einkalkuliert, dass der Stream etwas l?nger braucht ;-)
+20:31 < telmich> Frank_: das ist das groesste hinderniss. aber wenn du wechselst lernst du es kennen :)
+20:31 < telmich> KillerFox: naja, schon, 5-10sekunden
+20:31 < telmich> KillerFox: aber pasten und warten ist schwierig
+20:31 < KillerFox> telmich: nein es war mehr hier
+20:31 < telmich> also zeitversetztes pasten :)
+20:31 < KillerFox> telmich: eine Minute oder so
+20:31 < hansmi> telmich: Generell war es sehr gut, vorallem die Tonqualität
+20:31 < ettercat> Frank_: das geht mir genauso - ist aber mal ein Grund, sich damit zu beschaeftigen und es zu lernen... :)
+20:31 < telmich> hansmi: das freut mich
+20:31 -!- Russel [~engelzz@p54873DFA.dip.t-dialin.net] has left #clinux []
+20:31 < telmich> KillerFox: uuh..boehse
+20:32 < telmich> aber immerhin haben die streamserver problemlos getan
+20:32 < KillerFox> darum habe ich auch gesagt, dass es vorauseilend ist :-)
+20:32 < telmich> KillerFox: ja, haette ich nen delay beim pasten einbauen sollen, aber manuell war das zu uebel :)

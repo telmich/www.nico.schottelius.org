@@ -1,0 +1,62 @@
+- Recheck sources:
+   - check errno!
+   - check whether headers are ok -> cleanup headers!
+   - eventually split cinit code to csvc to minimize binary of cinit?
+   - cleanup comments
+   - move messages to cinit.h or message.h or conf/msg-*!
+   - close(*>2) before forking / executing
+      -> close fds, clean environment, etc., ...
+   - panic() should call sulogin
+   - remove FIXME entries (and what should be fixed, too)
+
+- Source Logic issues
+   - Add sulogin possibility
+   - stat() in run_svc -> don't call exec_svc, respawn_svc, run_run_svc
+   - remove stat from exec_svc, do before!
+   - respawn_svc and exec_svc must return pid_t of executed service / watcher
+   - handle CTR-ALT-DEL / keyboard request? (see caveats)
+   - check for possibilies to save ram, free things
+   - create coala-socket with correct permissions! (550, root:cinit)
+      -> is that really our problem or should a service do that?
+   - check if we caught every signal, which could kill us
+   - logging service!
+      -> write output $somewhere, wait for syslog?
+      -> flush at the end of start-process?
+      -> perhaps pipe logging output to a program?
+   - check for other possibilities to create a smaller binary
+      - strip options
+      - gcc options
+      - ld options
+      - alternative libc (uclibc works fine!)
+   - perhaps remove MAX_DEPS?
+   - run_svc_new:
+      o we have many strcat()s, perhaps save length of pathbuf and strncat at
+         pathtmp[strlen(pathbuf)] ?
+
+- Documentation
+   - write manpages (use doc/* as base for that)
+
+- Porting
+   - add porting code to other unices?
+   - like openssh guys do?
+   - polling/signalling is different everywhere
+      a) use standars poll/select
+      b) use accelerated os-specfic
+         -> add the name of the function/the file to use
+            into conf/poll_func?
+   - using Linux 2.6 epoll mechanism?
+
+--------------------------------------------------------------------------------
+create_mini_cinit
+   -> use a tarball? (samples/*)
+   -> create something which should be runnable
+      -> mount, fsck, getty
+         --> for dev in `read /etc/fstab` ...
+               fsck $dev
+         --> mount -a
+         --> mount -n -o remount,rw /
+         --> getty from /etc/inittab or /sbin/*getty
+            -> find out, which gettys with which params
+   -> use it on 'make install'
+--------------------------------------------------------------------------------
+- Check Spell and Grammar in documentation

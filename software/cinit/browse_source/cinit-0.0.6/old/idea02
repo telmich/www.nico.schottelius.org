@@ -1,0 +1,200 @@
+--------------------------------------------------------------------------------
+/etc/cinit
+   -> init/
+   -> shutdown/
+   -> reboot/
+
+<service>
+   needs/ -> we wait until all parallel processes are finished _and_ we
+             don't start if one fails
+   wants/ -> we start all of them parallel and wait for them?
+   hold/
+   wait -> wait until process finished
+   run -> program to execute
+   params -> \n seperated argument list
+   respawn -> respawn it
+   
+services may only be under /etc/cinit?
+--------------------------------------------------------------------------------
+Service-Status: (see struct svc, cinit.h)
+
+- abs_path
+- status (respawn,tmp,once)
+- pid 
+
+abs_path\0status\0pid\0
+
+--------------------------------------------------------------------------------
+
+starting services:
+
+run_svc("/etc/cinit/service/")
+   -> exec run $params
+Later:
+   -> check if service already running  -> return OK
+   -> check needs/ -> check wants/
+      -> run_svc($cur)
+
+   When run_svc returns, the service is started and all service it needs, too.
+
+   
+--------------------------------------------------------------------------------
+   -> check needs/
+      -> exists -> fork( run_run_svcs() ) and continue
+         (fork) -> fork() run_svc(needs/*);
+   -> check wants/
+      -> exists -> run_svc(wants/*);
+   -> waitfor(need_run_svc)
+--------------------------------------------------------------------------------
+run_run_svcs()
+   -> start parallel (forked) run_svc() for every service
+--------------------------------------------------------------------------------
+
+main()
+   - run_svc /etc/cinit/init/
+   - sleep()? -> simply do nothing -> do we need to fork ourselves? No, we are init.
+spaeter:
+   - open /dev/console W_ONLY
+   - make stdin == /etc/cinit/in
+   - make stdout, stderr /dev/console
+
+--------------------------------------------------------------------------------
+eof
+
+Things, which are clear
+
+- we need to fork before execl(), as excel() replaces us.
+- chdir() _after_ fork()
+
+
+profiles support: profile=$profile
+
+   start 
+      "service.$profile" if exists, instead of
+      "service"
+
+starting services:
+
+cinit:
+   pipe()
+   set_status_tmp()
+   fork() --> failure --> clear_service
+      cinit_process_watcher():
+         fork()
+            execve(process,args,env)
+         waitpid() -> for once? PROCESS MUST RETURN!
+         write_pipe()
+   rmpipe()
+
+--------------------------------------------------------------------------------
+
+What to send over to cinit and read back?
+
+   - first you need two pipes for every process: read+write (on both sides)
+   - cinit wants
+      o command
+         - service temporary - trying to start in right now.
+         - service executed once - fine
+         - service executed once and that failed - :-(
+         - service respawing
+      o an identifier for the service (i from service list ;-)
+
+   --> makes 2 bytes to read
+--------------------------------------------------------------------------------
+How cinit works:
+
+cinit says: I want to start service xyz. (/etc/cinit/init on bootup)
+cinit calls run_svc().
+--------------------------------------------------------------------------------
+
+int run_svc(char *relative_path):
+   - check if service is already running or temporary (task list!)
+      -> yes: return RT_PAR_OK
+      -> no: continue.
+   - set service to be temporary (ST_TMP) and retrieve SID (service ID)
+   - walk through dependency tree and call run_svc
+   - fork() -> so cinit can continue.
+   - write cinit: check service, I want to start it 
+      -> returns status of service (see ST_* in cinit.h)
+   - cinit returns: ok, you are temporary
+   - [that checked] check if service
+      o is already started
+      o is beeing started
+   x check if rpath S_ISDIR
+   x chdir(dir)
+   - check needs - check wants
+      - for every needs/* start run_svc
+   - check respawn -> respawn = true
+   - check run
+
+--------------------------------------------------------------------------------
+
+add_mod_svc(char *svc, int status)
+   -> add or modify status of a service
+
+   - check whether service exists, reset status
+   - if not exists, insert if maximum of services is not reached
+--------------------------------------------------------------------------------
+
+cinit communications proto
+--------------------------------------------------------------------------------
+
+cinit:
+   -> signal_handler on SIGCHLD
+   run_init()
+      -> run_svc(init)
+         -> fork() -> do the work
+
+signal_handler_child
+   waitpid(.*)
+      -> returns pid
+
+   oder waitpid() in dem run_svc, wenn need/once?
+
+   need:
+      for i in need/*; do
+         ( $service & );
+      done
+      wait(.*);
+
+--------------------------------------------------------------------------------
+
+cinit:
+
+run_svc:
+   checks what it needs (need/*)
+   need/*
+      fork()
+         fork(), fork()
+
+--------------------------------------------------------------------------------
+Kommunikationsproblem:
+
+   -> 1024 ist maximale anzahl offener sockets -> 510 von fifos,pipes
+   - mehrere FIFOs?
+   --> kommunikation gesichert, extrem viele fifos...
+   --> etwas unsauber, aber geregelte kommunikation
+   - mehrere PIPEs?
+   --> viele PIPEs (HRHR)
+   --> programme koennen nur von cinit gefork()ed werden.
+
+   --> eine datei mit prozessen?
+   --> einen RAM Bereich?
+--------------------------------------------------------------------------------
+
+cinit[1] <-> fifo <-> forker
+
+forker?
+--------------------------------------------------------------------------------
+
+pfad vorher aufloesen?
+
+--------------------------------------------------------------------------------
+Kommunikation: ::Test::
+
+   Test mit nur 2 FIFOs!
+
+--------------------------------------------------------------------------------
+
+sig_fifo()
+read(..) als hauptaufgabe?

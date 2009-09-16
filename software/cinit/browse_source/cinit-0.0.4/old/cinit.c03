@@ -1,0 +1,241 @@
+/* 
+ * (c) 2005 Nico Schottelius (nico-linux at schottelius.org)
+ * cinit.c
+ * part of cLinux
+ */
+
+#define CINIT_DIR "/etc/cinit"
+
+#define C_INIT    "init"
+#define C_SHD     "shutdown"
+#define C_REBOOT  "reboot"
+
+#define C_NEEDS   "needs"
+#define C_WANTS   "wants"
+#define C_RUN     "run"
+
+/* opendir() */
+#include <sys/types.h>
+#include <dirent.h>
+
+/* *stat() */
+#include <sys/stat.h>
+#include <unistd.h>
+
+/* wait() */
+#include <sys/wait.h>
+
+/* strlen */
+#include <string.h>
+
+#include <stdio.h>
+
+#include "cinit.h"
+
+#define EKEL "/etc/cinit/init/wants"
+
+/* status of a service */
+#define ST_TMP       1        /* currently working on it */
+#define ST_ONCE      2        /* executed once */
+#define ST_RESPAWN   3        /* running and respawning */
+
+/* array of svc */
+/* linked list of services */
+/* balanced trees */
+struct svc {
+   char *abs_path;
+//   struct svc *next;
+   int status; /* tmp, respawn, ran once */
+   /* evtl: */
+};
+
+struct svcl {
+   struct svc svc_list[1000];
+   int process;
+} svc_list;
+
+void cerr(char *msg)
+{
+   printf("%s\n", msg);
+}
+
+/*********************************************************************** 
+ * parallel run forked() run_svc()
+ */
+#define MAX_PAR 32
+
+int run_run_svcs(char *rpath)
+{
+   DIR *d_tmp = NULL;
+   struct dirent *tdirent;
+   char *p, pathbuf[1024];
+   pid_t pids[MAX_PAR];
+   int tmp,i=0;
+
+   printf("run_run_svcs on: %s\n",rpath);
+  
+   d_tmp = opendir(rpath);
+
+   if(d_tmp == NULL) {
+      printf("Failed to open dir: %s", rpath);
+      return 0;
+   }
+
+   while( (tdirent = readdir(d_tmp) ) != NULL) {
+      if (strcmp(tdirent->d_name, ".") == 0
+       || strcmp(tdirent->d_name, "..") == 0)
+         continue;
+      
+      if(i < MAX_PAR) {
+         pids[i] = fork();
+         i++;
+      } else {
+         cerr("to many dependencies");
+         return 1;
+      }
+
+      if(pids[i-1] == -1) { /* err */
+         cerr("fork failed\n");
+         return 0;
+      } else if(pids[i-1] == 0) { /* child */
+         printf("Service zu starten nun: %s\n", tdirent->d_name);
+         run_svc(tdirent->d_name);
+         _exit(0);
+      } else /* the parent simply goes the loop again */
+         printf("run_svcs_PARENT\n");
+   }
+
+   closedir(d_tmp);
+   
+   /* wait for pids */
+   while(i >= 0) {
+//      printf("waiting for %d ... \n",i);
+      waitpid(pids[i], &tmp, 0);
+      i--;
+   }
+}
+
+/*********************************************************************** 
+ * run_svc: gets a wants/needs directory
+ * returns whether _one_ service failed or not
+ */
+int run_svc(char *path)
+{
+   DIR *d_tmp = NULL;
+   struct dirent *tdirent;
+   char *p, pathbuf[1024];
+   struct stat buf;
+   int tmp;
+
+   /* check if already running  / ran / currently starting */
+
+   /* debug */
+   getcwd(pathbuf,1024);
+
+   printf("dir: %s\n",pathbuf);
+
+   /* check for service dir */
+   if( stat(path,&buf) ) {
+      printf("no such service: %s\n", path);
+      return 1;
+   }
+
+   /* check for needs  -> forked() */
+   strcpy(pathbuf,path);
+   strcat(pathbuf,"/");
+   strcat(pathbuf,C_NEEDS);
+   if( ! stat(pathbuf,&buf) ) {
+      printf("going for %s\n",pathbuf);
+      tmp = fork();
+      if(tmp == -1) {
+         printf("error ...\n");
+         exit(1);
+      } else if(tmp == 0) { /* child */
+         printf("child for run_run_svcs()\n");
+         run_run_svcs(pathbuf);
+         _exit(0);
+         printf("ZOOOMBIE\n");
+      }
+      else
+         printf("parent\n");
+   }
+
+   /* check for wants  -> forked() ? */
+   strcpy(pathbuf,path);
+   strcat(pathbuf,"/");
+   strcat(pathbuf,C_WANTS);
+
+   if( ! stat(pathbuf,&buf) ) {
+      printf("dir gibt es auch: %s\n", pathbuf);
+      run_run_svcs(pathbuf);
+   }
+   
+   /* check for service/run */
+   strcpy(pathbuf,path);
+   strcat(pathbuf,"/");
+   strcat(pathbuf,C_RUN);
+
+   d_tmp = opendir(pathbuf);
+
+   if(d_tmp == NULL) {
+      cerr("failed to open dir...");
+      return 0;
+   }
+
+   while( (tdirent = readdir(d_tmp) ) != NULL) {
+      if (strcmp(tdirent->d_name, ".") == 0  || strcmp(tdirent->d_name, "..") == 0)
+         continue;
+
+      p=tdirent->d_name;
+      while(*p != '\0') {
+         write(1,p,1);
+         p++;
+      }
+      write(1,"\n",1);
+   }
+
+   closedir(d_tmp);
+
+   return 1;
+}
+
+/***********************************************************************
+ * the main procedure
+ */
+
+int main()
+{
+   char pathbuf[MAXPATH];
+   struct stat buf;
+
+   strcpy(pathbuf,CINIT_DIR);
+   strcat(pathbuf,"/");
+   strcat(pathbuf,C_INIT);
+
+   printf("path: %s\n",pathbuf);
+
+   svc_list.process = 0; 
+   
+   /* stat, checkdir */
+   if( stat(pathbuf,&buf) ) {
+      printf("PANIC ACTION: init dir missing\n");
+      return 1;
+   } else if( ! S_ISDIR(buf.st_mode) ) {
+      printf("PANIC ACTION: init is not a dir\n");
+      return 1;
+   }
+
+   if( chdir(pathbuf) == -1) {
+      printf("PANIC ACTION: chdir(%s) failed!\n",pathbuf);
+      return 1;
+   }
+   run_svc("/etc/cinit/init");
+//   run_svc("");
+
+//   run_svc("/NOT_THERE");
+
+//   execl("/bin/zsh","zsh", "-l");
+
+   return 0;
+
+}

@@ -1,0 +1,80 @@
+/* 
+ * cinit
+ * (c) 2005 Nico Schottelius (nico-linux at schottelius.org)
+ * header of cinit
+ */
+
+/* includes */
+#include <sys/types.h>  /* pid_t */
+
+/* limits */
+#define MAX_SVC   1024 /* maximum services */
+#define MAX_DEPS    32 /* maximum direct dependencies of a service */
+
+/* paths */
+#define CINIT_DIR "/etc/cinit"
+
+#define F_IN      "in"
+#define F_OUT     "out"
+#define SLASH     "/"
+
+#define C_INIT    "init"
+#define C_SHD     "shutdown"
+#define C_REBOOT  "reboot"
+
+#define C_NEEDS   "./needs"
+#define C_WANTS   "./wants"
+#define C_RUN     "./run"
+#define C_RESPAWN "respawn"
+#define C_PARAMS  "params"
+
+/* return values */
+#define RT_FAIL      0
+#define RT_OK        1
+
+#define RT_CHLD_FAIL 1  /* child failed */
+#define RT_CHLD_OK   2  /* child succeded */
+#define RT_PAR_FAIL  3  /* parent failed */
+#define RT_PAR_OK    4  /* parent succeded */
+
+/* status of a service-starter (run_run_svc) */
+#define RT_ONE_FAILED   5     /* one ore more failed */
+#define RT_ALL_STARTED  6     /*  everything ok */
+#define RT_DEPS_MAX     7     /*  too many dependencies */
+
+/* status of a service */
+#define ST_NO        0        /* process not existing */
+#define ST_TMP       1        /* currently working on it */
+#define ST_ONCE      2        /* executed once */
+#define ST_RESPAWN   3        /* running and respawning */
+#define ST_FAIL      4        /* failed to start service */
+
+
+
+/* variables */
+
+/* array of svc */
+/* linked list of services */
+/* balanced trees */
+
+struct svc {
+   char *abs_path;   /* service identifier */
+   int status;       /* tmp, respawn, ran once */
+   pid_t pid;        /* pid of the process */
+};
+
+struct svcl {
+   struct svc svca[MAX_SVC];
+   int process;
+};
+
+extern struct svcl svc_list;
+
+/* functions */
+
+void cerr(char *string, int status);
+int chk_svc(char *svc);
+int run_svc(char *rpath);
+int add_mod_svc(char *svc, int status);
+int run_run_svcs(char *rpath);
+

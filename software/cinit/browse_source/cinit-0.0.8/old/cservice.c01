@@ -1,0 +1,185 @@
+/* 
+ * (c) 2005 Nico Schottelius (nico-linux at schottelius.org)
+ * cservice: control cinit
+ * part of cLinux/cinit
+ */
+
+/* *stat() */
+#include <sys/stat.h>
+#include <unistd.h>
+
+/* open */
+#include <fcntl.h>
+
+/* siggnal */
+#include <signal.h>
+
+/* PATH_MAX */
+#include <limits.h>
+
+/* str* */
+#include <string.h>
+
+/* sockets */
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/un.h>
+
+/* mount */
+#include <sys/mount.h>
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+
+#include <time.h>    /* nanosleep */
+
+#include "cinit.h"
+
+/* global variable */
+struct listitem *list;
+int sock, logfd;
+
+/***********************************************************************
+ * cservice - control cinit
+ */
+
+#define CSERVICE_BANNER    "cservice - control cinit\n\n"
+#define USAGE_TEXT         "\n\nUsage:\n\ncservice -[fund] <service>\n"  \
+   "\t-u\t- (up) start a service (including all needed depedencies)\n" \
+   "\t-d\t- (down) kill a respawing service\n\n" \
+   "\t-f\t- (force) force starting service and all dependencies\n" \
+   "\t-n\t- (no dependency) start a service, don't care about dependencies\n\n"
+
+
+void usage(char *stext)
+{
+   write(1,CSERVICE_BANNER,strlen(CSERVICE_BANNER));
+   write(1,stext,strlen(stext));
+   write(1,USAGE_TEXT,strlen(USAGE_TEXT));
+   _exit(1);
+
+}
+
+int main(int argc, char **argv)
+{
+   struct stat sbuf;
+   pid_t pid;
+   struct sockaddr_un addr;
+   char svc_dir[PATH_MAX+1];
+   int tmp;
+   
+   /* argv */
+   if(argc != 3) usage("Too less arguments!");
+   if(argv[1][0] != '-') usage("Wrong arguments");
+   if(strlen(argv[1]) != 2) usage("Wrong parameter length");
+
+
+   switch(argv[1][1]) {
+      case 'o':   /* on */
+//         run_-vc(argv[2]);
+         break;
+
+      case 'k':   /* kill */
+//         msg_kill_svc(argv[2]);
+         break;
+
+      case 'p':   /* power off */
+         msg_reboot(CMD_POWEROFF);
+         break;
+
+      case 'r':   /* reboot */
+         msg_reboot(CMD_REBOOT);
+         break;
+
+      case 'h':   /* halt */
+         msg_reboot(CMD_HALT);
+         break;
+
+      default:
+         usage("Unknown parameter");
+         break;
+   }
+
+
+   /* absolute the service */
+   if( argv[2][0] == '/') {
+      if(strlen(argv[2]) > PATH_MAX) usage("Servicename too long");
+
+      strcpy(svc_dir,argv[2]);
+   } else {
+      if( ( strlen(CINIT_DIR)+strlen(argv[2]) ) > PATH_MAX)
+         usage("Servicename too long");
+      strcpy(svc_dir,CINIT_DIR);
+      strcat(svc_dir,argv[2]);
+   }
+
+   tmp = readlink(svc_dir,svc_dir,PATH_MAX);
+
+   if(tmp == -1) {
+      if(errno != EINVAL) {
+         perror(MSG_READLINK);
+         _exit(1);
+      }
+   }
+
+   /* stat, checkdir */
+   if( stat(svc_dir,&sbuf) ) {
+      perror(MSG_INIT_MISS);
+      _exit(1);
+   }
+   if( ! S_ISDIR(sbuf.st_mode) ) {
+      mini_printf(MSG_NOT_DIR);
+      _exit(1);
+   }
+   if( chdir(svc_dir) == -1) {
+      perror(MSG_CHDIR);
+      _exit(1);
+   }
+
+   switch(argv[1][1]) {
+      case 't':
+         break;
+
+      case 'h':
+         /* recursive find dependencies, this will take long time :( */
+         find_deps(svc_dir)
+         break;
+
+      case 'i':
+         run_svc(svc_dir);
+         break;
+
+      case 'l':
+         break;
+      
+      case 'o':
+         break;
+      
+      default: usage("Unknown Parameter");
+   }
+
+   /******************** begin socket **********************/
+   sock = socket(AF_UNIX,SOCK_STREAM,0); /* create socket */
+   if( sock == -1 ) {
+      perror(MSG_SOCKET);
+   }
+   
+   /* tell the socket, _we_ want to get SIGIO! */
+   pid = getpid();
+
+   memset(&addr, 0, sizeof(addr) ); /* clear addr */
+   strcpy(addr.sun_path, CINIT_SOCK);
+   addr.sun_family = AF_UNIX;
+   
+   if(bind(sock,(struct sockaddr *)&addr,sizeof(addr)) == -1) {
+      perror(MSG_BIND);
+   }
+   
+   /* start listening */
+   if(listen(sock,SOCK_QUEUE) == -1) {
+      perror(MSG_LISTEN);
+   }
+   
+   return 0;
+}

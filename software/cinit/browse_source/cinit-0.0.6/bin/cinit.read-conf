@@ -1,0 +1,13 @@
+#!/bin/sh
+# Nico Schottelius
+# cinit: read configuration into variables
+# 
+
+CONFS=$($(dirname $0)/cinit.get-confdir)/../conf/*
+
+for conf in $CONFS; do
+   NAME="$(basename $conf | tr a-z A-Z)"
+   eval $NAME="$(head -n 1 $conf)"
+   eval export $NAME
+#   eval echo $NAME = \$$NAME
+done

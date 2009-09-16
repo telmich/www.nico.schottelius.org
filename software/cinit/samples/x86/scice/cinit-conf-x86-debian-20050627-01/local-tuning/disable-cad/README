@@ -1,0 +1,3 @@
+Disable Control-Alt-Del to Hard-reboot.
+I don't know whether one can use it on ppc, but the kernel provides it,
+so we disable it.

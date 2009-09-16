@@ -1,0 +1,116 @@
+- change client handler (SIGCHILD!) code
+- perhaps use dnotify?
+- recheck warm reboot
+- fix cservice
+- print service name or cinit: before _everything_ WE print
+
+TESTING:
+   - does cinit eat zombies?
+   - is the reporting ok?
+   - does cservice and ccontrol what's expected?
+
+# cinit.create.empty.service: can only be started from the bin directory
+
+- compile cinit static and other tools dynamically per default
+
+- Fix Switching services off !!
+- Remove RUN_RUN_SVCs, move code to run_svc so one can determine which
+  services failed?
+ --> sequentieller ablauf!
+ --> parallel ablauf, struct-array mit namen und ergebnis?
+ --> for dep in deps/*; do fork(run_svc() ); done
+ -----> while(any_is_running) { sleep }
+ -------> array durchsuchen, ergebnis nutzen.
+ - ueberpruefen von wo aus run_svc() aufgerufen wird
+
+- Fix SIGCHILD problem:
+   - exec_svc wants to waitpid() itself, so SIG_CHILD makes problems
+   - respawn_svc: does that need to act on SIGCHLD if the master process
+   is still running?
+   - kill respawn -> sigchild cleans up, we do not get waitpid perhaps?
+- remove umount code?
+- remove zombies, but keep away from SIGCHILD problems
+- remove mount /etc/cinit/tmp code
+   -> how to replace?
+- fix bug in Makefile: linking happens twice
+- do not kill respawing service, if off exists
+- ccontrol
+- manpages
+- Error codes when shutting down a service?
+- Delay dokumentieren
+- no_kill dokumentieren
+- ddoc zuendefuehren
+
+- remove umount, swapoff?
+--> to services?
+
+- on.out, on.err, on.in?
+   -> reading/writing from/to files
+
+--> Wenn kein ReSPAWN und der Prozess beendet sich nicht,
+    dann haengt init!
+- implement "no_kill" until cinit-0.2 or 0.3?
+
+Doku!!!
+
+--------------------------------------------------------------------------------
+- Source Logic issues
+   - remove FIXME entries (and what should be fixed, too)
+   - memset for timespecs?
+   - move umount, swapoff and remount to off of init?
+      -> cleanup sig_reboot.c
+   - run_svc:
+      o we have many strcat()s, perhaps save length of pathbuf and strncat at
+         pathtmp[strlen(pathbuf)] ?
+   - do we really need swapoff?
+--------------------------------------------------------------------------------
+- Documentation
+   - Write manpages (use doc/* as base for that)
+   - Check Spell and Grammar in documentation
+   - write howto:
+      o Howto-cinit
+      o Howto-cinit-uml
+--------------------------------------------------------------------------------
+Things I did not do and I don't know whether we have to care about:
+
+- Porting
+   - add porting code to other unices?
+   - like openssh guys do?
+
+- close(*>2) before forking / executing
+   -> close fds, clean environment, etc., ...
+   -> do we really need that?
+- logging service!
+   -> write output $somewhere, wait for syslog?
+   -> flush at the end of start-process?
+   -> perhaps pipe logging output to a program?
+--------------------------------------------------------------------------------
+[OLD BUGS]
+- remove cinit watcher?
+   -> sig_child -> cycle through list?
+- DOKU: what happens when a service does not terminate....
+   und er als once drin ist
+- MANPAGE!
+- execve() fails -> no sleep!!
+- multiple zombies sometimes - problemservices
+   -> zombies of respawn watchers are not caught!
+   -> sig_chld also therein
+   -> problematic due to wait for child
+-doubled cinit instance
+   - nur einmal
+- free() everything before starting child
+- cservice!
+   - prozess nur einmal -> WARTET! cinit auch!
+doku:
+  cservice einmal starten -> wartet auf ende
+  cint ersetzt init bei gentoo
+  an error occuerd-> verbose
+  multuicall probleme -> busysbox --> GIBT ES NICHT!!
+  ---> DOKU DAZU! mit links, doppelt links, aus test
+  ---> erklaeren, dass es unproblematisch ist!
+
+11:09 < folken23> telmich: zsb. eine grund angabe warum ein dienst nicht gestartet 
+                  werden konnte. 
+11:09 < folken23> telmich: e.g. file nicht gefunden, service hat nicht 0 
+                  zurueckgeworfen. 
+11:09 < folken23> telmich: oder service allready started. 

@@ -1,0 +1,3 @@
+Setup eth0 with udhcpc: If something fails, udhcpc starts
+the scripts which should handle it. So init does not need to care about
+failing dhcp leases.

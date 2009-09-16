@@ -1,0 +1,14 @@
+'Geheimnisse' in German
+
+
+- Dependencies beginning with a '.' (dot) are ignored.
+  So you can temporary disable a dependency moving it to
+  want/.name
+
+- Why is the name of the socket "coala"?
+  Well, coala could mean 'cinit object abstract layer access', but
+  perhaps it's a much simpler reason.
+
+- cinit will start a little bit faster, if you omit non needed
+  'wants' and 'needs' dirs, as they need to be scanned, if they
+  exist

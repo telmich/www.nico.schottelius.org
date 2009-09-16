@@ -1,0 +1,24 @@
+#!/bin/sh
+# Nico Schottelius / cinit-example
+# one could also try to pass regexp via command line
+# you need one fsck service for every device
+
+FSTAB=/etc/fstab
+
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin
+
+# get device for mountpoint / from fstab
+DEV=$(grep -v '^#' "$FSTAB" | awk '$2 ~ /^\/$/ { print $1 } ')
+
+# get device for mounpoint /home
+# DEV=$(grep -v '^#' "$FSTAB" | awk '$2 ~ /^\/home$/ { print $1 } ')
+
+# get fsck flag for mountpoint /home from fstab
+# FSCK=$(grep -v '^#' "$FSTAB" | awk '$2 ~ /^\home/$/ { print $6 } ')
+
+# get fsck flag for mountpoint / from fstab
+FSCK=$(grep -v '^#' "$FSTAB" | awk '$2 ~ /^\/$/ { print $6 } ')
+
+if [ "$FSCK" = "1" ]; then
+   fsck $DEV
+fi

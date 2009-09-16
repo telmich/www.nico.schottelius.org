@@ -1,0 +1,2 @@
+on.params could be linked to /etc/hostname, /etc/conf.d/hostname
+or whereever your distribution stores the configured hostname.

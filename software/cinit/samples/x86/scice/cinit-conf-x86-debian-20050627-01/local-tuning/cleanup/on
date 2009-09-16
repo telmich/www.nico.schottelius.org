@@ -1,0 +1,14 @@
+#!/bin/sh
+# Nico Schottelius / cinit-example
+# A somehow minimalistic cleanup script
+
+rm -f /etc/mtab /var/run/* 2>/dev/null
+touch /var/run/utmp
+#touch /etc/mtab
+# Linux specific
+ln -s /proc/mounts /etc/mtab
+
+# clean tmp and everything below it
+rm -rf /tmp
+mkdir /tmp
+chmod 1777 /tmp

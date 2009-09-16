@@ -1,0 +1,111 @@
+% Version: 0.5
+%\documentclass[pdf,darkblue,draft,slideColor,colorBG,total]{prosper}
+%\documentclass[pdf,autumn,draft,slideColor,colorBG,total]{prosper}
+\documentclass[pdf,autumn,slideColor,colorBG,total]{prosper}
+%\documentclass[pdf,azure,draft,slideColor,colorBG,total]{prosper}
+\usepackage[latin1]{inputenc}
+\usepackage{german}
+%------------------------------------------------------------------------------
+% prework
+\title{cinit}
+\subtitle{Konzept des Init-systems}
+\author{Nico Schottelius}
+\email{nico-linux-cinit (BEI) schottelius.org}
+\institution{}
+\date{2005-10-22}
+%------------------------------------------------------------------------------
+\begin{document}
+\maketitle
+%------------------------------------------------------------------------------
+\begin{slide}{Init-Systeme}
+\begin{enumerate}
+\item Wo?
+\item Wann?
+\item Wie?
+\end{enumerate}
+\end{slide}
+%------------------------------------------------------------------------------
+\begin{slide}{Sys-V-Init}
+\begin{itemize}
+\item Standard bei den meisten Linux-Distributionen
+\item Konfiguriert durch \textit{/etc/inittab}
+\item Skripte mit "`start"' und "`stop"' als Argumente
+\item Verschiedene Runlevel, Verzeichnisse \textit{/etc/rcX.d} (rcS.d)
+\end{itemize}
+\end{slide}
+%------------------------------------------------------------------------------
+\begin{slide}{Sys-V-Init: Probleme}
+\begin{itemize}
+\item Skripte
+\begin{itemize}
+   \item Interpreter
+   \item zus\"atzliche Logik (start/stop), unn\"otige Logik
+   \item generische Skripte
+   \item zwanghafte Ausf\"uhrung, \"Uberpr\"ufung beim Start
+   \textit{/etc/default/*}
+   \item /bin/bash statt kleinere Shell
+\end{itemize}
+\item Pseudo-Abh\"angigkeiten (durch Benennung, sehr fehleranf\"allig)
+\item Sequentieller Ablauf (S\textit{Beginn} bis S\textit{Ende})
+\item Einf\"ugen neuer Dienste (\textit{S42zservice} und \textit{S43aservice})
+\end{itemize}
+\end{slide}
+%------------------------------------------------------------------------------
+\begin{slide}{Konzept cinit}
+\begin{itemize}
+\item Service orientiert - keine Skripte
+\item weiche ("`wants"') und harte ("`needs"') Abh\"angigkeiten
+\item schneller Start durch parallele Ausf\"uhrung
+\item Unterst\"utzung von Profilen
+\item 
+\end{itemize}
+\end{slide}
+%------------------------------------------------------------------------------
+\begin{slide}{Was ist ein Service?}
+\begin{itemize}
+\item ein Verzeichnis
+\item "`on"' und "`off"' zum Starten und Anhalten
+\item "`on.params"' und "`off.params"' Parameter (\\n unterteilt)
+\item "`on.env"' und "`off.env"' Umgebungsvariablen  (\\n unterteilt)
+\item Abh\"angigkeiten ("`wants"' und "`need"')
+\end{itemize}
+\end{slide}
+%------------------------------------------------------------------------------
+\begin{slide}{Abh\"angigkeiten}
+\begin{itemize}
+\item symbolische Links unterhalb von wants und needs auf andere Services
+\end{itemize}
+\begin{verbatim}
+/etc/cinit/getty/2/needs:
+ hostname -> ../../../network/hostname/
+ root -> ../../../mount/root/
+\end{verbatim}
+\end{slide}
+%------------------------------------------------------------------------------
+\begin{slide}{Profile}
+\begin{itemize}
+\item cinit als Argument "`cprofile:\textit{Profilname}"'
+\item ein eigener Service (z.b. \textit{profile/dos})
+\item kann auch original Startpunkt beinhalten (Abh\"angigkeit)
+\item erm\"oglicht verschiedene Szenarien abzubilden
+\item vermeidet dynamische und unn\"otige Konfigurationsentscheidungen beim Starten
+\end{itemize}
+\end{slide}
+%------------------------------------------------------------------------------
+\begin{slide}{cinit: Installation}
+\begin{itemize}
+\item paralell zu bestehendem Init
+\item vom Source, Debian Paket oder gentoo emerge
+\item \verb=http://linux.schottelius.org/cinit/=
+\end{itemize}
+\end{slide}
+%------------------------------------------------------------------------------
+\begin{slide}{cinit: Konfiguration}
+\begin{itemize}
+\item Jetzt, interaktiv
+\item Und Fragen?
+\item Eventuell: Essen?
+\end{itemize}
+\end{slide}
+%------------------------------------------------------------------------------
+\end{document}

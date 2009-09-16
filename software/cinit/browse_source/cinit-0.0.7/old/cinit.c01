@@ -1,0 +1,105 @@
+/* 
+ * (c) 2005 Nico Schottelius (nico-linux at schottelius.org)
+ * cinit.c
+ * part of cLinux
+ */
+
+#define CINIT_DIR "/etc/cinit"
+
+#define C_INIT    "init"
+#define C_SHD     "shutdown"
+#define C_REBOOT  "reboot"
+
+#define C_NEEDS   "needs"
+#define C_WANTS   "wants"
+
+/* opendir() */
+#include <sys/types.h>
+#include <dirent.h>
+
+/* *stat() */
+#include <sys/stat.h>
+#include <unistd.h>
+
+
+#include <stdio.h>
+
+#define EKEL "/etc/cinit/init/wants"
+
+void cerr(char *msg)
+{
+   printf("%s\n", msg);
+}
+
+/* 
+ * run_svc: gets a wants/needs directory
+ * returns whether _one_ service failed or not
+ */
+int run_svc(char *path)
+{
+   DIR *d_tmp = NULL;
+   struct dirent *tdirent;
+   char *p, pathbuf[1024];
+   struct stat buf;
+
+   /* check if already running  / ran / currently starting */
+
+   /* check for needs  -> forked() ? */
+   strcpy(pathbuf,path);
+   strcat(pathbuf,"/");
+   strcat(pathbuf,C_NEEDS);
+   if( ! stat(pathbuf,&buf) ) {
+      printf("dir gibt es, %s\n", pathbuf);
+   }
+
+   /* check for wants  -> forked() ? */
+   strcpy(pathbuf,path);
+   strcat(pathbuf,"/");
+   strcat(pathbuf,C_WANTS);
+
+   if( ! stat(pathbuf,&buf) ) printf("dir gibt es, %s\n", pathbuf);
+
+   d_tmp = opendir(path);
+
+   if(d_tmp == NULL) {
+      cerr("failed to open dir...");
+      return 0;
+   }
+
+   while( (tdirent = readdir(d_tmp) ) != NULL) {
+      if (strcmp(tdirent->d_name, ".") == 0  || strcmp(tdirent->d_name, "..") == 0)
+         continue;
+
+      p=tdirent->d_name;
+      while(*p != '\0') {
+         write(1,p,1);
+         p++;
+      }
+      write(1,"\n",1);
+   }
+
+   closedir(d_tmp);
+
+   return 1;
+}
+
+int main()
+{
+
+   char buf[256];
+   int tmp;
+
+   strcpy(buf,CINIT_DIR);
+   tmp = strlen(CINIT_DIR);
+   buf[tmp] = '/';
+   strcpy(&buf[tmp+1],C_INIT);
+
+   printf("path: %s\n",buf);
+
+   run_svc("/etc/cinit/init");
+
+   run_svc("/etc/cinit2/init");
+
+   run_svc("/NOT_THERE");
+
+}

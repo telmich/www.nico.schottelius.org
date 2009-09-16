@@ -1,0 +1,11 @@
+86400
+
+The delay used in the main loop. It looks like some implementations
+cannot handle the biggest integer value, as it has been calculated:
+
+   /* calculate biggest value */
+   ts.tv_sec = -1;
+   if(ts.tv_sec < 0) {
+      ts.tv_sec = 1 << ((sizeof(ts.tv_sec) * 8)-1);
+      ts.tv_sec = ts.tv_sec - 1;
+   }

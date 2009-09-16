@@ -1,0 +1,1 @@
+Mount /home, which is encrypted (dm-crypt) after checking (fsck) it.

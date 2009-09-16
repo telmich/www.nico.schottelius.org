@@ -1,0 +1,31 @@
+started up on Linux 2.6.11.10 #2 Tue May 17 11:58:45 CEST 2005 ppc
+command line: 'monotone-0.18', 'sync', 'linux.schottelius.org', 'info.clinux.cinit'
+set locale: LC_CTYPE=C, LC_MESSAGES=C
+initial path is /home/user/nico/cinit-0.0.5
+converting 13 bytes from ANSI_X3.4-1968 to UTF-8
+converting 4 bytes from ANSI_X3.4-1968 to UTF-8
+converting 21 bytes from ANSI_X3.4-1968 to UTF-8
+converting 17 bytes from ANSI_X3.4-1968 to UTF-8
+searching for 'MT' directory with root '/'
+search for 'MT' ended at '/home/user/nico/cinit-0.0.5' with '' removed
+initializing from directory /home/user/nico/cinit-0.0.5
+found working copy directory /home/user/nico/cinit-0.0.5
+options path is MT/options
+converting 2 bytes from UTF-8 to ANSI_X3.4-1968
+converting 7 bytes from UTF-8 to ANSI_X3.4-1968
+converting 2 bytes from UTF-8 to ANSI_X3.4-1968
+converting 7 bytes from UTF-8 to ANSI_X3.4-1968
+local dump path is MT/debug
+setting dump path to MT/debug
+opening rcfile '/home/user/nico/.monotonerc' ...
+'/home/user/nico/.monotonerc' is ok
+skipping nonexistent rcfile 'MT/monotonerc'
+executing sync command
+db.fetch("SELECT domain, name, value FROM db_vars")
+db.fetch("SELECT domain, name, value FROM db_vars")
+lua isfunction() failed in get_fn
+db.fetch("SELECT id from 'private_keys'")
+db.fetch("SELECT id, name, value, keypair, signature FROM 'revision_certs' WHERE name = 'branch'")
+db.execute("BEGIN")
+connecting to linux.schottelius.org
+db.execute("ROLLBACK")

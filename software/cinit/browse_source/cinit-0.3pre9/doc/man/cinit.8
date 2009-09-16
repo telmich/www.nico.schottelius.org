@@ -1,0 +1,56 @@
+.\"     Title: cinit
+.\"    Author: 
+.\" Generator: DocBook XSL Stylesheets v1.72.0 <http://docbook.sf.net/>
+.\"      Date: 05/15/2007
+.\"    Manual: 
+.\"    Source: 
+.\"
+.TH "CINIT" "8" "05/15/2007" "" ""
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.SH "NAME"
+cinit \- fast executing, small and simple init with support for profiles
+.SH "SYNOPSIS"
+\fIcinit\fR [cprofile:name_of_profile]
+.sp
+.SH "DESCRIPTION"
+Cinit is an init system. It normally gets started by the operating system (Linux, *BSD, \&...) directly after the kernel has been loaded.
+.sp
+Cinit uses parallel execution of services as far as possible. To ensure the correct boot order you need to specify which service \fIneeds\fR or \fIwants\fR another service. The resulting dependency tree is used at startup to determine which service to start when.
+.sp
+This may result in different boot orders depending on whether one service is one time faster or slower. Due to the dependencies this is not a problem, but allowed and wished per design.
+.sp
+For more information refer to the texinfo or html documentation.
+.sp
+.SH "OPTIONS"
+.PP
+cprofile:name_of_profile
+.RS 4
+If specified, cinit will start the named profile instead of the standard
+\fIinit\fR
+service
+.RE
+.SH "BUGS"
+cinit is not tested nor documented very well currently.
+.sp
+The porting to other OS is not finished yet (mainly missing system level binaries: shutdown, reboot, halt).
+.sp
+Both is work in progress.
+.sp
+.SH "AUTHOR"
+Nico Schottelius <nico\-cinit__@__schottelius.org>
+.sp
+.SH "RESOURCES"
+Main web site: http://unix.schottelius.org/cinit/
+.sp
+.SH "COPYING"
+Copyright (C) 2006 Nico Schottelius. Free use of this software is granted under the terms of the GNU General Public License (GPL).
+.sp
+.SH "REFERENCES"
+.IP " 1." 4
+nico\-cinit__@__schottelius.org
+.RS 4
+\%mailto:nico\-cinit__@__schottelius.org
+.RE

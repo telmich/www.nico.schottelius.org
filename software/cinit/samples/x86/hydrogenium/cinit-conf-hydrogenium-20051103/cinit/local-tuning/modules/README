@@ -1,0 +1,2 @@
+This service SHOULD be empty as loading modules manully is not
+the right way. Though for modules like 'evdev' it's currently here :-(

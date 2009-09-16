@@ -1,0 +1,4 @@
+pts
+-t
+devpts
+/dev/pts

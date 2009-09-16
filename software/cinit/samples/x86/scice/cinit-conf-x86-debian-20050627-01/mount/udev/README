@@ -1,0 +1,4 @@
+udev/
+   udev is the dynamic /dev-management utility. It needs a temporary
+   filesystem on /dev on which it will create the actual existing
+   device nodes.

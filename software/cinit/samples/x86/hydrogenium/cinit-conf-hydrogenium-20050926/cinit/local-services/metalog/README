@@ -1,0 +1,2 @@
+Metalog is a syslog replacement, it writes to the HD and creates
+a socket below /dev.

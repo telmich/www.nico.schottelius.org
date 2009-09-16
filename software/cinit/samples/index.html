@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<title>unix.schottelius.org</title>
+</HEAD>
+
+<BODY>
+<P><A HREF="http://nico.schotteli.us">Nico Schottelius</A>
+<BR><A HREF="../../index.html">unix.schottelius.org</A>
+<BR><A HREF="../index.html">cinit</A></P>
+<HR>
+<H1>cinit configuration examples</H1>
+<HR>
+<!-- ##################################################### -->
+<h3><A NAME="overview">overview</A></h3>
+<P><A HREF="#ei">ei</A>
+<BR><A HREF="#pc-it-nico">pc-it-nico</A>
+<BR><A HREF="#scice">scice</A>
+<BR><A HREF="#hydrogenium">hydrogenium</A>
+<BR><A HREF="#wasserstoff">wasserstoff</A>
+</P>
+<!-- ##################################################### -->
+<h3><A NAME="ei">ei (ppc-gentoo-iBook)</A></h3>
+This <A HREF="ppc/ei/">ppc configuration</A>
+was made on my small, broken G3-iBook. It has the following
+services enabled:
+<ul>
+<li>Cleaning /etc/mtab, /var/run, /tmp
+<li>Configuring keyboard: Rate and Layout (<B>dvorak</b>)
+<li>Hostname is set to 'cinit-host'
+<li>Local MTA (<B>qmail</B>) (found in /usr/packages/qmail-1.03-ssl/) using env + params
+<li>Mount /home via dm-crypt (/dev/hda7)
+<li>Mount /mnt/clinux
+<li>Mouse-Button-emulation is enabled (Apple has only one button)
+<li>Power Management (<B>pbbuttonsd</b>)
+<li>Restoring / storing sound mixer values (<b>alsactl</b>)
+<li>Setup clock (using hardware clock) (loads genrtc)
+<li>Setup eth0 with a dynamic IP (udhcpc) fallback via udhcpc-scripts
+<li>Spawns Getty (/sbin/getty) on tty2-tty7 (tty1 is for logging)
+<li>SSH (<B>openssh</b>)
+<li>Syslog service (<b>metalog</b>)
+<li>Udev support
+</ul>
+<!-- ##################################################### -->
+<h3><A NAME="pc-it-nico">pc-it-nico (x86-gentoo-UML)</A></h3>
+<P>This is a somehow <A HREF="x86/pc-it-nico/">minimalistic configuration</A>:
+<ul>
+<li>Cleaning /etc/mtab, /var/run, /tmp
+<li>Configuring keyboard: Rate and Layout (<B>dvorak</b>)
+<li>Hostname is set to 'cinit-host'
+<li>Mount root r/w
+<li>Spawns Getty (/sbin/getty) on tty2-tty7 (tty1 is for logging)
+<li>SSH (<B>openssh</b>)
+<li>Udev support
+</ul>
+This configuration was used to test cinit in UML (User-Mode-Linux).
+<!-- ##################################################### -->
+<h3><A NAME="scice">scice (x86-debian-notebook)</h3>
+<P>I use <A HREF="x86/scice/">this configuration</A> on my Transmeta notebook on
+Debian Sarge:
+<ul>
+<li>Cleaning /etc/mtab, /var/run, /tmp
+<li>Configuring keyboard: Rate and Layout (<B>dvorak</b>)
+<li>Cron (<b>Vixie cron</b>)
+<li>Deactivated services (syslogd, test/, atd, ...)
+<li>Graphical login (<b>gdm</b>)
+<li>Hostname is set to 'cinit-host'
+<li>Hotplug (<B>SLOW!</b>) (automatic driver loading)
+<li>MTA (<B>exim4</B>)
+<li>Restoring / storing sound mixer values (<b>alsactl</b>)
+<li>Setup eth0 with a dynamic IP (dhclient)
+<li>Spawns Getty (/sbin/getty) on tty2-tty7 (tty1 is for logging)
+<li>SSH (<B>openssh</b>)
+<li>Syslog service (<b>syslog-ng</b>)
+<li>Udev support
+</ul>
+<!-- ##################################################### -->
+<h3><A NAME="hydrogenium">hydrogenium (x86-debian-notebook)</h3>
+<P><A HREF="x86/hydrogenium/">Hydrogenium</A> is my current work-notebook.
+<UL>
+   <li>Spawns Getty (/sbin/getty) on tty2-tty8 (tty1 is for logging)
+   <li>Syslog service (<b>metalog</b>)
+   <li><b>udev</b> support - most clean configuration, uses /sbin/udevsend
+   <li>Local MTA (<B>qmail</B>) (found in /usr/packages/qmail-1.03-ssl/)
+       using qmail-start
+   <li>SSH (<B>openssh</b>)
+   <li>Power management with <b>acpid</b>
+   <li>Setup eth0 with a dynamic IP (udhcpc)
+   <li>Mounts /sys, /proc, / (r/w with fsck for jfs)
+   <li>Unicode and console font beeing loaded (since 20051103)
+   <li>Currently broken lukscrypt
+</UL>
+<BR>
+
+<!-- ##################################################### -->
+<h3><A NAME="wasserstoff">wasserstoff (x86-gentoo-notebook)</h3>
+<P>I use the first /etc/csys configuration
+on <A HREF="x86/wasserstoff/">wasserstoff</A>.
+It is a try for a simply system configuration without the need to parse
+configurations. But it's still in the early pre-alpha phase.
+</BODY>
+</HTML>

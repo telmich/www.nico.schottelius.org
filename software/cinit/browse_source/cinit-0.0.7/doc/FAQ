@@ -1,0 +1,17 @@
+--------------------------------------------------------------------------------
+FAQ - Frequently asked questions [Nico Schottelius, 2005-06-05]
+--------------------------------------------------------------------------------
+
+Q: So, what's good in cinit?
+A: Fast executing, clean design, parallel execution, profile support,
+   small binary size (~50KiB static against uclibc), easy configuration,
+   just to name the main facts.
+
+Q: What is /etc/cinit/init used for?
+A: The init service is not just a placeholder, it is the beginning of
+   executing services.
+
+Q: /etc/cinit/init seems not to be used when I use profiles?
+A: That's true. When you select a profile, cinit will begin in this
+   directory: "cprofile=home" will use /etc/cinit/home as starting
+   point.

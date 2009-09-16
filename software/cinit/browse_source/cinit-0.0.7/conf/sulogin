@@ -1,0 +1,3 @@
+/sbin/sulogin
+
+The path to sulogin. We'll execute it only if we panic().

@@ -1,0 +1,213 @@
+started up on Linux 2.6.11.10 #2 Tue May 17 11:58:45 CEST 2005 ppc
+command line: 'monotone-0.18', 'rename', 'conf/c_shd', 'conf/c_halt'
+set locale: LC_CTYPE=C, LC_MESSAGES=C
+initial path is /home/user/nico/cinit-0.0.4
+converting 13 bytes from ANSI_X3.4-1968 to UTF-8
+converting 6 bytes from ANSI_X3.4-1968 to UTF-8
+converting 10 bytes from ANSI_X3.4-1968 to UTF-8
+converting 11 bytes from ANSI_X3.4-1968 to UTF-8
+searching for 'MT' directory with root '/'
+search for 'MT' ended at '/home/user/nico/cinit-0.0.4' with '' removed
+initializing from directory /home/user/nico/cinit-0.0.4
+found working copy directory /home/user/nico/cinit-0.0.4
+options path is MT/options
+converting 2 bytes from UTF-8 to ANSI_X3.4-1968
+converting 7 bytes from UTF-8 to ANSI_X3.4-1968
+converting 2 bytes from UTF-8 to ANSI_X3.4-1968
+converting 7 bytes from UTF-8 to ANSI_X3.4-1968
+local dump path is MT/debug
+setting dump path to MT/debug
+opening rcfile '/home/user/nico/.monotonerc' ...
+'/home/user/nico/.monotonerc' is ok
+skipping nonexistent rcfile 'MT/monotonerc'
+executing rename command
+options path is MT/options
+converting 2 bytes from UTF-8 to ANSI_X3.4-1968
+converting 7 bytes from UTF-8 to ANSI_X3.4-1968
+revision path is MT/revision
+converting 2 bytes from UTF-8 to ANSI_X3.4-1968
+converting 8 bytes from UTF-8 to ANSI_X3.4-1968
+loading revision id from MT/revision
+converting 2 bytes from UTF-8 to ANSI_X3.4-1968
+converting 8 bytes from UTF-8 to ANSI_X3.4-1968
+db.fetch("SELECT id FROM 'revisions' WHERE id = '1f5c45fa438bfd4f2c0f851e985d51e983cffaaa'")
+db.fetch("SELECT data FROM revisions WHERE id = '1f5c45fa438bfd4f2c0f851e985d51e983cffaaa'")
+old manifest is c6e5abc9fa52a464b3984cae46232bfd43feaabd
+db.fetch("SELECT id FROM 'manifest_deltas' WHERE id = 'c6e5abc9fa52a464b3984cae46232bfd43feaabd'")
+db.fetch("SELECT id FROM 'manifests' WHERE id = 'c6e5abc9fa52a464b3984cae46232bfd43feaabd'")
+db.fetch("SELECT id FROM 'manifests' WHERE id = 'c6e5abc9fa52a464b3984cae46232bfd43feaabd'")
+db.fetch("SELECT data FROM 'manifests' WHERE id = 'c6e5abc9fa52a464b3984cae46232bfd43feaabd'")
+old manifest has 139 entries
+work path is MT/work
+converting 2 bytes from UTF-8 to ANSI_X3.4-1968
+converting 4 bytes from UTF-8 to ANSI_X3.4-1968
+checking for un-committed work file MT/work
+converting 2 bytes from UTF-8 to ANSI_X3.4-1968
+converting 4 bytes from UTF-8 to ANSI_X3.4-1968
+read rearrangement from MT/work
+'conf/c_shd' prefixed to 'conf/c_shd'
+'conf/c_halt' prefixed to 'conf/c_halt'
+analyzing file 1 : '' -> 'BUGS'
+analyzing file 2 : '' -> 'CREDITS'
+analyzing file 3 : '' -> 'Changelog'
+analyzing file 4 : '' -> 'Makefile'
+analyzing file 5 : '' -> 'README'
+analyzing file 6 : '' -> 'TODO'
+analyzing file 8 : '' -> 'bin/cinit.add.dependency'
+analyzing file 9 : '' -> 'bin/cinit.add.getty'
+analyzing file 10 : '' -> 'bin/cinit.create.cinit_dir'
+analyzing file 11 : '' -> 'bin/cinit.create.empty.service'
+analyzing file 12 : '' -> 'bin/cinit.do.not.respawn.service'
+analyzing file 13 : '' -> 'bin/cinit.mkheader'
+analyzing file 14 : '' -> 'bin/cinit.remove.getty'
+analyzing file 15 : '' -> 'bin/cinit.respawn.service'
+analyzing file 16 : '' -> 'bin/cinit.shutdown'
+analyzing file 17 : '' -> 'bin/cinit.read-conf'
+analyzing file 18 : '' -> 'cinit.h'
+analyzing file 20 : '' -> 'client/begin_msg.c'
+analyzing file 21 : '' -> 'client/connect_sock.c'
+analyzing file 22 : '' -> 'client/exec_svc.c'
+analyzing file 23 : '' -> 'client/kill_svc.c'
+analyzing file 24 : '' -> 'client/msg_change_status.c'
+analyzing file 25 : '' -> 'client/msg_start_svc.c'
+analyzing file 26 : '' -> 'client/respawn_svc.c'
+analyzing file 27 : '' -> 'client/run_run_svc.c'
+analyzing file 28 : '' -> 'client/run_svc.c'
+analyzing file 30 : '' -> 'comm/do_change_status.c'
+analyzing file 31 : '' -> 'comm/do_result.c'
+analyzing file 32 : '' -> 'comm/do_start_svc.c'
+analyzing file 34 : '' -> 'conf/c_env'
+analyzing file 35 : '' -> 'conf/c_init'
+analyzing file 36 : '' -> 'conf/c_needs'
+analyzing file 37 : '' -> 'conf/c_off'
+analyzing file 38 : '' -> 'conf/c_on'
+analyzing file 39 : '' -> 'conf/c_params'
+analyzing file 40 : '' -> 'conf/c_reboot'
+analyzing file 41 : '' -> 'conf/c_respawn'
+analyzing file 42 : '' -> 'conf/c_shd'
+analyzing file 43 : '' -> 'conf/c_sock'
+analyzing file 44 : '' -> 'conf/c_tmp'
+analyzing file 45 : '' -> 'conf/c_tmpfs'
+analyzing file 46 : '' -> 'conf/c_tmpmount'
+analyzing file 47 : '' -> 'conf/c_wants'
+analyzing file 48 : '' -> 'conf/cinit_dir'
+analyzing file 49 : '' -> 'conf/destdir'
+analyzing file 50 : '' -> 'conf/getty_dir'
+analyzing file 51 : '' -> 'conf/sleep_svc'
+analyzing file 52 : '' -> 'conf/sock_group'
+analyzing file 53 : '' -> 'conf/sock_mode'
+analyzing file 54 : '' -> 'conf/sock_queue'
+analyzing file 55 : '' -> 'conf/sock_user'
+skipping preserved file 57 : ''
+analyzing file 58 : '' -> 'doc/caveats'
+analyzing file 59 : '' -> 'doc/cinit.commands'
+analyzing file 61 : '' -> 'doc/fun/testing01'
+analyzing file 62 : '' -> 'doc/how_it_works_internally'
+analyzing file 63 : '' -> 'doc/ipc.thoughts'
+analyzing file 64 : '' -> 'doc/ipc.usenet.posting'
+analyzing file 65 : '' -> 'doc/posix.aardvark.bug.report'
+analyzing file 66 : '' -> 'doc/shutting.down'
+analyzing file 67 : '' -> 'doc/thoughts.closed'
+analyzing file 68 : '' -> 'doc/thoughts.open'
+analyzing file 70 : '' -> 'generic/mini_printf.c'
+analyzing file 71 : '' -> 'generic/set_signals.c'
+analyzing file 73 : '' -> 'old/cerr.c'
+analyzing file 74 : '' -> 'old/cinit.c01'
+analyzing file 75 : '' -> 'old/cinit.c02'
+analyzing file 76 : '' -> 'old/cinit.c03'
+analyzing file 77 : '' -> 'old/cinit.c04'
+analyzing file 78 : '' -> 'old/cinit.c05'
+analyzing file 79 : '' -> 'old/cinit.c06'
+analyzing file 80 : '' -> 'old/cinit.commands.v01'
+analyzing file 81 : '' -> 'old/cinit.h01'
+analyzing file 82 : '' -> 'old/cnt_digits.c'
+analyzing file 83 : '' -> 'old/do_change_status.c01'
+analyzing file 84 : '' -> 'old/idea01'
+analyzing file 85 : '' -> 'old/idea02'
+analyzing file 86 : '' -> 'old/msg_change_status.c01'
+analyzing file 87 : '' -> 'old/msg_start_svc.c'
+analyzing file 88 : '' -> 'old/run_init_svc.c01'
+analyzing file 89 : '' -> 'old/run_svc.c00'
+analyzing file 90 : '' -> 'old/run_svc.c01'
+analyzing file 91 : '' -> 'old/run_svc.c02'
+analyzing file 92 : '' -> 'old/run_svc.c03'
+analyzing file 93 : '' -> 'old/run_svc.c04'
+analyzing file 94 : '' -> 'old/run_svc.c05'
+analyzing file 95 : '' -> 'old/run_svc.c05.2'
+analyzing file 96 : '' -> 'old/run_svc.c06'
+analyzing file 97 : '' -> 'old/run_svc.c07'
+analyzing file 98 : '' -> 'old/run_svc.c08'
+analyzing file 99 : '' -> 'old/run_svc.c09'
+analyzing file 100 : '' -> 'old/sig_chld.c'
+analyzing file 101 : '' -> 'old/sigio.c01'
+analyzing file 103 : '' -> 'sbin/cinit'
+analyzing file 105 : '' -> 'serv/add_mod_svc.c'
+analyzing file 106 : '' -> 'serv/chk_svc.c'
+analyzing file 107 : '' -> 'serv/cinit.c'
+analyzing file 108 : '' -> 'serv/list.c'
+analyzing file 109 : '' -> 'serv/panic.c'
+analyzing file 110 : '' -> 'serv/run_init_svc.c'
+analyzing file 111 : '' -> 'serv/sig_reboot.c'
+analyzing file 112 : '' -> 'serv/sigio.c'
+analyzing file 114 : '' -> 'size/2005-04-26-14:54:44'
+analyzing file 115 : '' -> 'size/2005-04-26-16:47:50'
+analyzing file 116 : '' -> 'size/2005-04-26-16:48:48'
+analyzing file 117 : '' -> 'size/2005-04-26-16:50:45'
+analyzing file 118 : '' -> 'size/2005-04-26-17:12:48'
+analyzing file 119 : '' -> 'size/2005-04-26-17:13:43'
+analyzing file 120 : '' -> 'size/2005-04-26-23:05:33'
+analyzing file 121 : '' -> 'size/2005-04-27-00:39:24'
+analyzing file 122 : '' -> 'size/2005-04-30-15:18:22'
+analyzing file 123 : '' -> 'size/2005-04-30-15:20:40'
+analyzing file 124 : '' -> 'size/2005-04-30-15:23:25'
+analyzing file 125 : '' -> 'size/2005-04-30-15:25:44'
+analyzing file 126 : '' -> 'size/2005-04-30-15:32:43'
+analyzing file 127 : '' -> 'size/2005-04-30-15:33:37'
+analyzing file 128 : '' -> 'size/2005-04-30-15:41:08'
+analyzing file 129 : '' -> 'size/2005-04-30-15:41:18'
+analyzing file 130 : '' -> 'size/2005-04-30-15:46:09'
+analyzing file 131 : '' -> 'size/2005-04-30-16:48:16'
+analyzing file 132 : '' -> 'size/2005-04-30-16:50:05'
+analyzing file 133 : '' -> 'size/2005-04-30-17:02:27'
+analyzing file 134 : '' -> 'size/2005-04-30-17:03:00'
+analyzing file 135 : '' -> 'size/2005-04-30-17:05:11'
+analyzing file 136 : '' -> 'size/2005-04-30-17:06:15'
+analyzing file 137 : '' -> 'size/2005-04-30-17:11:59'
+analyzing file 138 : '' -> 'size/2005-04-30-17:13:43'
+analyzing file 139 : '' -> 'size/2005-04-30-22:28:13'
+analyzing file 140 : '' -> 'size/2005-04-30-22:34:23'
+analyzing file 141 : '' -> 'size/2005-05-02-13:27:51'
+analyzing file 142 : '' -> 'size/2005-05-02-13:46:31'
+analyzing file 143 : '' -> 'size/2005-05-02-13:49:29'
+analyzing file 144 : '' -> 'size/2005-05-02-13:49:58'
+analyzing file 145 : '' -> 'size/2005-05-02-13:52:20'
+analyzing file 146 : '' -> 'size/2005-05-02-13:55:50'
+analyzing file 147 : '' -> 'size/2005-05-02-13:58:14'
+analyzing file 148 : '' -> 'size/2005-05-02-13:59:53'
+analyzing file 149 : '' -> 'size/2005-05-02-14:00:26'
+analyzing file 150 : '' -> 'size/2005-05-02-14:04:19'
+skipping preserved directory 151 : 'bin'
+skipping preserved directory 152 : 'client'
+skipping preserved directory 153 : 'comm'
+skipping preserved directory 154 : 'conf'
+skipping preserved directory 155 : 'doc'
+skipping preserved directory 156 : 'doc/fun'
+skipping preserved directory 157 : 'generic'
+skipping preserved directory 158 : 'old'
+skipping preserved directory 159 : 'sbin'
+skipping preserved directory 160 : 'serv'
+skipping preserved directory 161 : 'size'
+analyzing file 168 : '' -> 'bin/cinit.add.shutdown.reboot.poweroff'
+analyzing file 169 : '' -> 'bin/cinit.get-confdir'
+analyzing file 171 : '' -> 'bin/not-working/cinit.create.service'
+analyzing file 173 : '' -> 'conf/.README'
+analyzing file 174 : '' -> 'conf/c_halt'
+analyzing file 175 : '' -> 'conf/c_poweroff'
+analyzing file 176 : '' -> 'conf/sleep_kill'
+analyzing file 178 : '' -> 'doc/.buildwarn'
+analyzing file 179 : '' -> 'doc/meta.dependencies'
+skipping preserved directory 180 : 'bin/not-working'
+adding conf/c_shd -> conf/c_halt to working copy rename set
+skipping preserved directory 1 : 'conf'
+analyzing file 2 : 'conf/c_shd' -> 'conf/c_halt'
+change_set.cc:565: invariant 'I(entries.find(p) == entries.end())' violated

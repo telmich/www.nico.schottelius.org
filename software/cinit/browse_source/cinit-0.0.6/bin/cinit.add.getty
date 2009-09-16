@@ -1,0 +1,66 @@
+#!/bin/sh
+# Nico Schottelius
+# cinit: create gettys
+# 2005-05-24
+
+set -e
+
+# init variables
+. $(dirname $0)/cinit.read-conf
+
+BASEDIR=$DESTDIR/$CINIT_DIR/$GETTY_DIR
+LAST_NUMBER=$(cd $BASEDIR && ls | awk '/^((0[xX])[0-9a-fA-F]+)|([0-9]+)$/ { print }' | tail -n 1)
+NUMBER=$(echo $LAST_NUMBER + 1 | bc)
+
+[ ! "$NUMBER" ] && NUMBER=1
+
+DDIR=$BASEDIR/$NUMBER
+
+echo "Creating getty number $NUMBER in $DDIR ..."
+
+if [ "$USE_THIS_GETTY" ]; then
+   GETTYS="$USE_THIS_GETTY"
+else
+   GETTYS=`echo /sbin/*getty*`
+fi
+
+for getty in $GETTYS; do
+   case $getty in
+      */fgetty|*/mingetty)
+         mygetty=$getty
+         params="/dev/tty${NUMBER}"
+      ;;
+      */agetty|*/getty)
+         mygetty=$getty
+         params="38400 tty${NUMBER} linux"
+      ;;
+      *)
+         echo "Unknown Getty type $getty"
+         echo "Please report standard parameters to me."
+   esac
+
+   [ "$mygetty" ] && break
+done
+
+read -p "Getty to use [$mygetty]: " rgetty
+read -p "Parameters to pass [$params]: " rparams
+
+[ "$rgetty" ] && mygetty=$rgetty
+[ "$rparams" ] && params=$rparams
+
+if [ ! "$mygetty" -o ! "$params" ]; then
+   echo "No useable getty and parameters found, exiting."
+   exit 1
+fi
+
+echo -n "Putting $mygetty $params into $DDIR ... "
+mkdir -p "$DDIR"
+ln -s $mygetty "$DDIR/$C_ON"
+
+for param in $params; do
+   echo $param >> "$DDIR/${C_ON}${C_PARAMS}"
+done
+
+touch "$DDIR/$C_RESPAWN"
+
+echo "finished."

@@ -1,0 +1,137 @@
+/* 
+ * (c) 2005 Nico Schottelius (nico-linux at schottelius.org)
+ * cinit.c
+ * part of cLinux/cinit
+ */
+
+/* *stat() */
+#include <sys/stat.h>
+#include <unistd.h>
+
+/* open */
+#include <fcntl.h>
+
+/* siggnal */
+#include <signal.h>
+
+/* PATH_MAX */
+#include <limits.h>
+
+/* printf() */
+//#include <stdio.h>
+
+/* str* */
+#include <string.h>
+
+#include "cinit.h"
+
+/* global variable */
+struct svcl svc_list;
+
+/***********************************************************************
+ * the main procedure
+ */
+
+int main()
+{
+   char buf[1223];
+   struct stat sbuf;
+   int i;
+
+   struct sigaction sa;
+
+   /* signal handlers to ignore */
+   sa.sa_handler=SIG_IGN;
+//   sigaction(SIGINT,&sa,NULL);   /* ignore ctr+c */
+   sigaction(SIGSTOP,&sa,NULL);   /* ignore ctr+z, stop */
+   sigaction(SIGPIPE,&sa,NULL);   /* what todo when pipe/fifo closed */
+
+   D_PRINTF(CINIT_INIT);
+
+   /* begin to handle signals */
+
+   /* stat, checkdir */
+   if( stat(CINIT_INIT,&sbuf) ) {
+      cerr("PANIC ACTION: init dir missing", RT_PAR_FAIL);
+   } else if( ! S_ISDIR(sbuf.st_mode) ) {
+      cerr("PANIC ACTION: init is not a dir", RT_PAR_FAIL);
+   }
+
+   if( chdir(CINIT_INIT) == -1)
+      cerr("PANIC ACTION: chdir to /etc/cinit/init failed!",RT_PAR_FAIL);
+
+   /* get shared memory */
+
+   shmfd = shm_open(CINIT_SHM,O_RDWR|O_CREAT,0600);
+
+   if(shmfd == -1) {
+      perror("Shared memory");
+      cerr("shared memory",RT_PAR_FAIL);
+   }
+
+   /* count of started processes */
+   svc_list.process = 0; 
+
+   /* open communication fifos */
+   f_in  = open(CINIT_DIR SLASH F_IN,  O_RDWR);
+   f_out = open(CINIT_DIR SLASH F_OUT, O_RDWR);
+   if(f_in == -1 || f_out == -1) cerr("opening fifo failed",RT_PAR_FAIL);
+
+   /* initial run, only if we are 'real' init' */
+//   if( getpid() == 1) {
+      i = run_init_svc();
+      printf("Initialer Start rueckgabe: %d\n", i);
+//   }
+
+   /* signal handlers to do special things with */
+   // something else sa.sa_handler=SIG_IGN;
+   sigaction(SIGUSR1,&sa,NULL);   /* reboot on sigusr1 */
+   sigaction(SIGUSR1,&sa,NULL);   /* power-off on sigusr2 */
+   sigaction(SIGTERM,&sa,NULL);   /* halt on sigterm */
+
+   /* important signal handlers: pipe, child */
+//   sa.sa_handler=sig_pipe;
+
+//   sa.sa_handler=sig_child;
+//   sigaction(SIGCHLD,&sa,NULL);   /* what todo when child exited */
+
+
+   /* big TODO: */
+
+   /* some while/for loop to hang forever, remember, we are init! */
+   while(1) {
+      i=0;
+      /* read path */
+      do {
+         read(f_in,&buf,1);
+//         buf1[i] = buf; i++;
+      } while(buf != '\0');
+//
+ //     printf("Read path: %s\n",buf1);
+
+      i=0;
+      /* read status */
+      do {
+         read(f_in,&buf,1);
+ //        buf2[i] = buf; i++;
+      } while(buf != '\0');
+
+  //    status = atoi(buf2);
+  //    printf("Read status: %d\n",status);
+
+      i=0;
+      /* read pid */
+      do {
+         read(f_in,&buf,1);
+   //      buf3[i] = buf; i++;
+      } while(buf != '\0');
+
+    //  pid = atoi(buf3);
+
+   
+
+   }
+
+   return 0;
+
+}

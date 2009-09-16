@@ -1,0 +1,3 @@
+Setup lo.
+
+lo is the loopback device and should have 127.0.0.1/8 assigned.

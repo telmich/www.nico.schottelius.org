@@ -1,0 +1,4 @@
+To be done before 0.1 (dirty release):
+- replace cerr-strings with #defines, so doubled strings are elimenated
+- remove all printf()s, as they are debug only
+- perhaps remove MAX_DEPS?

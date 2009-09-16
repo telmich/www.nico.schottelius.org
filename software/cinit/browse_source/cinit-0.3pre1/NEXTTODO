@@ -1,0 +1,20 @@
+- create
+   * svc_add_needs
+      - also adds 'needed by'!
+   * svc_add_wants
+      - also adds 'wanted by'!
+   * Same for svc_del_{needs/wants}
+   * svc_on() that tries to start a service
+   * svc_off() that tries to stop a service
+- define how it should work (doc/braindums/big-picture.text)
+- define service status in one document, so repeatition stops!
+- define messages
+   a) human readable
+   b) binary data?
+   ?
+- replace cinit_ipc_logon with cinit_ipc_init...
+- cleanup run_svc
+- implement do_reboot.c
+- define messages!
+- cleanup sig_child
+- test and release cinit-0.3rc1

@@ -1,0 +1,2 @@
+/bin/hostname writes to /proc/sys/kernel/hostname the hostname configured
+in /etc/csys/hostname

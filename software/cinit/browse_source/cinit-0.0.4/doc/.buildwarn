@@ -1,0 +1,20 @@
+
+-------------
+W A R N I N G
+-------------
+
+****************************************************************************
+THIS IS A PRE-RELEASE, NOT YET THOUGHT TO BE USED IN PRODUCTIVE ENVIRONMENT!
+****************************************************************************
+
+First of all configure cinit through the configuration files found in conf/.
+Especially look at conf/*tmp*.
+   
+The documentation can be found in doc/.
+
+After reading and configuring use:
+
+   "make all" - to build cinit
+   "make install" - to install cinit
+   "make install-example" - to install cinit configuration example
+      -> WARNING: the last two make targets do not honour $DESTDIR yet!
