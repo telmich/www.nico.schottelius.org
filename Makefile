@@ -5,7 +5,7 @@ view: all
 	firefox ${DESTDIR}/index.html
 
 all:
-	ikiwiki --setup ikiwiki.setup
+	ikiwiki --setup ikiwiki.setup --refresh
 
 clean: all
 	rm -rf ${DESTDIR}
