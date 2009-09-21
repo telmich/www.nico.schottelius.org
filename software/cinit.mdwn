@@ -66,73 +66,72 @@ Additionally, the following other git ressources are available:
 
 ### Archives
 
- * [[cinit-0.0.4.tar.bz2|archives/cinit-0.0.4.tar.bz2]]
-   ([browse source](browse_source/cinit-0.0.4/))
-   [[changes|browse_source/cinit-0.0.4/CHANGES]]
- * [[cinit-0.0.5.tar.bz2|archives/cinit-0.0.5.tar.bz2]]
-   ([browse source](browse_source/cinit-0.0.5/))
-   [[changes|browse_source/cinit-0.0.5/CHANGES]]
- * [[cinit-0.0.6.tar.bz2|archives/cinit-0.0.6.tar.bz2]]
-   ([browse source](browse_source/cinit-0.0.6/))
-   [[changes|browse_source/cinit-0.0.6/CHANGES]]
- * [[cinit-0.0.7.tar.bz2|archives/cinit-0.0.7.tar.bz2]]
-   ([browse source](browse_source/cinit-0.0.7/))
-   [[changes|browse_source/cinit-0.0.7/CHANGES]]
- * [[cinit-0.0.8.tar.bz2|archives/cinit-0.0.8.tar.bz2]]
-   ([browse source](browse_source/cinit-0.0.8/))
-   [[changes|browse_source/cinit-0.0.8/CHANGES]]
- * [[cinit-0.1.tar.bz2|archives/cinit-0.1.tar.bz2]]
-   ([browse source](browse_source/cinit-0.1/))
-   [[changes|browse_source/cinit-0.1/CHANGES]]
- * [[cinit-0.2.tar.bz2|archives/cinit-0.2.tar.bz2]]
-   ([browse source](browse_source/cinit-0.2/))
-   [[changes|browse_source/cinit-0.2/CHANGES]]
- * [[cinit-0.2.1.tar.bz2|archives/cinit-0.2.1.tar.bz2]]
-   ([browse source](browse_source/cinit-0.2.1/))
-   [[changes|browse_source/cinit-0.2.1/CHANGES]]
- * [[cinit-0.3pre1.tar.bz2|archives/cinit-0.3pre1.tar.bz2]]
-   ([browse source](browse_source/cinit-0.3pre1/))
-   [[changes|browse_source/cinit-0.3pre1/CHANGES]]
- * [[cinit-0.3pre10.tar.bz2|archives/cinit-0.3pre10.tar.bz2]]
-   ([browse source](browse_source/cinit-0.3pre10/))
-   [[changes|browse_source/cinit-0.3pre10/CHANGES]]
- * [[cinit-0.3pre11.tar.bz2|archives/cinit-0.3pre11.tar.bz2]]
-   ([browse source](browse_source/cinit-0.3pre11/))
-   [[changes|browse_source/cinit-0.3pre11/CHANGES]]
- * [[cinit-0.3pre12.tar.bz2|archives/cinit-0.3pre12.tar.bz2]]
-   ([browse source](browse_source/cinit-0.3pre12/))
-   [[changes|browse_source/cinit-0.3pre12/CHANGES]]
- * [[cinit-0.3pre13.tar.bz2|archives/cinit-0.3pre13.tar.bz2]]
-   ([browse source](browse_source/cinit-0.3pre13/))
-   [[changes|browse_source/cinit-0.3pre13/CHANGES]]
  * [[cinit-0.3pre14.tar.bz2|archives/cinit-0.3pre14.tar.bz2]]
    ([browse source](browse_source/cinit-0.3pre14/))
    [[changes|browse_source/cinit-0.3pre14/CHANGES]]
- * [[cinit-0.3pre2.tar.bz2|archives/cinit-0.3pre2.tar.bz2]]
-   ([browse source](browse_source/cinit-0.3pre2/))
-   [[changes|browse_source/cinit-0.3pre2/CHANGES]]
- * [[cinit-0.3pre3.tar.bz2|archives/cinit-0.3pre3.tar.bz2]]
-   ([browse source](browse_source/cinit-0.3pre3/))
-   [[changes|browse_source/cinit-0.3pre3/CHANGES]]
- * [[cinit-0.3pre4.tar.bz2|archives/cinit-0.3pre4.tar.bz2]]
-   ([browse source](browse_source/cinit-0.3pre4/))
-   [[changes|browse_source/cinit-0.3pre4/CHANGES]]
- * [[cinit-0.3pre5.tar.bz2|archives/cinit-0.3pre5.tar.bz2]]
-   ([browse source](browse_source/cinit-0.3pre5/))
-   [[changes|browse_source/cinit-0.3pre5/CHANGES]]
- * [[cinit-0.3pre6.tar.bz2|archives/cinit-0.3pre6.tar.bz2]]
-   ([browse source](browse_source/cinit-0.3pre6/))
-   [[changes|browse_source/cinit-0.3pre6/CHANGES]]
- * [[cinit-0.3pre7.tar.bz2|archives/cinit-0.3pre7.tar.bz2]]
-   ([browse source](browse_source/cinit-0.3pre7/))
-   [[changes|browse_source/cinit-0.3pre7/CHANGES]]
- * [[cinit-0.3pre8.tar.bz2|archives/cinit-0.3pre8.tar.bz2]]
-   ([browse source](browse_source/cinit-0.3pre8/))
-   [[changes|browse_source/cinit-0.3pre8/CHANGES]]
+ * [[cinit-0.3pre13.tar.bz2|archives/cinit-0.3pre13.tar.bz2]]
+   ([browse source](browse_source/cinit-0.3pre13/))
+   [[changes|browse_source/cinit-0.3pre13/CHANGES]]
+ * [[cinit-0.3pre12.tar.bz2|archives/cinit-0.3pre12.tar.bz2]]
+   ([browse source](browse_source/cinit-0.3pre12/))
+   [[changes|browse_source/cinit-0.3pre12/CHANGES]]
+ * [[cinit-0.3pre11.tar.bz2|archives/cinit-0.3pre11.tar.bz2]]
+   ([browse source](browse_source/cinit-0.3pre11/))
+   [[changes|browse_source/cinit-0.3pre11/CHANGES]]
+ * [[cinit-0.3pre10.tar.bz2|archives/cinit-0.3pre10.tar.bz2]]
+   ([browse source](browse_source/cinit-0.3pre10/))
+   [[changes|browse_source/cinit-0.3pre10/CHANGES]]
  * [[cinit-0.3pre9.tar.bz2|archives/cinit-0.3pre9.tar.bz2]]
    ([browse source](browse_source/cinit-0.3pre9/))
    [[changes|browse_source/cinit-0.3pre9/CHANGES]]
-
+ * [[cinit-0.3pre8.tar.bz2|archives/cinit-0.3pre8.tar.bz2]]
+   ([browse source](browse_source/cinit-0.3pre8/))
+   [[changes|browse_source/cinit-0.3pre8/CHANGES]]
+ * [[cinit-0.3pre7.tar.bz2|archives/cinit-0.3pre7.tar.bz2]]
+   ([browse source](browse_source/cinit-0.3pre7/))
+   [[changes|browse_source/cinit-0.3pre7/CHANGES]]
+ * [[cinit-0.3pre6.tar.bz2|archives/cinit-0.3pre6.tar.bz2]]
+   ([browse source](browse_source/cinit-0.3pre6/))
+   [[changes|browse_source/cinit-0.3pre6/CHANGES]]
+ * [[cinit-0.3pre5.tar.bz2|archives/cinit-0.3pre5.tar.bz2]]
+   ([browse source](browse_source/cinit-0.3pre5/))
+   [[changes|browse_source/cinit-0.3pre5/CHANGES]]
+ * [[cinit-0.3pre4.tar.bz2|archives/cinit-0.3pre4.tar.bz2]]
+   ([browse source](browse_source/cinit-0.3pre4/))
+   [[changes|browse_source/cinit-0.3pre4/CHANGES]]
+ * [[cinit-0.3pre3.tar.bz2|archives/cinit-0.3pre3.tar.bz2]]
+   ([browse source](browse_source/cinit-0.3pre3/))
+   [[changes|browse_source/cinit-0.3pre3/CHANGES]]
+ * [[cinit-0.3pre2.tar.bz2|archives/cinit-0.3pre2.tar.bz2]]
+   ([browse source](browse_source/cinit-0.3pre2/))
+   [[changes|browse_source/cinit-0.3pre2/CHANGES]]
+ * [[cinit-0.3pre1.tar.bz2|archives/cinit-0.3pre1.tar.bz2]]
+   ([browse source](browse_source/cinit-0.3pre1/))
+   [[changes|browse_source/cinit-0.3pre1/CHANGES]]
+ * [[cinit-0.2.1.tar.bz2|archives/cinit-0.2.1.tar.bz2]]
+   ([browse source](browse_source/cinit-0.2.1/))
+   [[changes|browse_source/cinit-0.2.1/CHANGES]]
+ * [[cinit-0.2.tar.bz2|archives/cinit-0.2.tar.bz2]]
+   ([browse source](browse_source/cinit-0.2/))
+   [[changes|browse_source/cinit-0.2/CHANGES]]
+ * [[cinit-0.1.tar.bz2|archives/cinit-0.1.tar.bz2]]
+   ([browse source](browse_source/cinit-0.1/))
+   [[changes|browse_source/cinit-0.1/CHANGES]]
+ * [[cinit-0.0.8.tar.bz2|archives/cinit-0.0.8.tar.bz2]]
+   ([browse source](browse_source/cinit-0.0.8/))
+   [[changes|browse_source/cinit-0.0.8/CHANGES]]
+ * [[cinit-0.0.7.tar.bz2|archives/cinit-0.0.7.tar.bz2]]
+   ([browse source](browse_source/cinit-0.0.7/))
+   [[changes|browse_source/cinit-0.0.7/CHANGES]]
+ * [[cinit-0.0.6.tar.bz2|archives/cinit-0.0.6.tar.bz2]]
+   ([browse source](browse_source/cinit-0.0.6/))
+   [[changes|browse_source/cinit-0.0.6/CHANGES]]
+ * [[cinit-0.0.5.tar.bz2|archives/cinit-0.0.5.tar.bz2]]
+   ([browse source](browse_source/cinit-0.0.5/))
+   [[changes|browse_source/cinit-0.0.5/CHANGES]]
+ * [[cinit-0.0.4.tar.bz2|archives/cinit-0.0.4.tar.bz2]]
+   ([browse source](browse_source/cinit-0.0.4/))
+   [[changes|browse_source/cinit-0.0.4/CHANGES]]
 
 ## Support
  * There is a general
