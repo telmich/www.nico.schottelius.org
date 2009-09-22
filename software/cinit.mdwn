@@ -137,7 +137,9 @@ Additionally, the following other git ressources are available:
 
 ### Documentation 
 
- * [[(German) online speech|software/cinit/speeches/2005-08-06]]
+ * Presentations
+  * [[2005-10-22: (German) speech at Technophil|software/cinit/speeches/2005-10-22]]
+  * [[2005-08-06: (German) online speech|software/cinit/speeches/2005-08-06]]
 
 ### Mailing list
 There is a general
