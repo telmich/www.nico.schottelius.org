@@ -161,6 +161,9 @@ You can join the development ***IRC channel***
  * <a href="http://www.initng.org/">initng</a>
  * <a href="http://www.fefe.de/minit/">minit</a>
  * <a href="http://smarden.org/runit/">runit</a>
+ * <A HREF="http://www.atnf.csiro.au/~rgooch/linux/boot-scripts/">simpleinit</a>
  * <a href="ftp://ftp.cistron.nl/pub/people/miquels/sysvinit/">sysvinit</a>
+ * <A HREF="http://www.netsplit.com/blog/work/canonical/upstart.html">upstart</A>
+
 
 [[!tag unix]]

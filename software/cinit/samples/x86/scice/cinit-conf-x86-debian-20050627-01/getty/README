@@ -1,4 +1,0 @@
-This directory contains all the gettys you want to start.
-Gettys should be linked from wants/. Put dependencies all
-gettys need into needs/. This way you don't have to repeat
-it for every getty.

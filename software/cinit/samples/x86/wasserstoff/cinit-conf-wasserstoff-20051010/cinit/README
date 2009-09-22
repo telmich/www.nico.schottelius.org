@@ -1,6 +1,0 @@
-This is version...
-- uses /etc/csys as configuration
-- sets the hostname
-- gets the IP via dhcp (udhcpc)
-- starts getty on tty2-7
-- loads dvorak keyboard layout

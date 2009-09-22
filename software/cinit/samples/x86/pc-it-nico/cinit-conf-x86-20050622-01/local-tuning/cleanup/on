@@ -1,8 +1,0 @@
-#!/bin/sh
-rm -f /etc/mtab /var/run/* 2>/dev/null
-touch /etc/mtab
-#ln -s /proc/mounts /etc/mtab
-touch /var/run/utmp
-rm -rf /tmp
-mkdir /tmp
-chmod 1777 /tmp

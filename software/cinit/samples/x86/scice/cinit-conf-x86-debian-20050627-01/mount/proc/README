@@ -1,3 +1,0 @@
-This mount contains the complete parameters, as there
-are some distributions out there, which do not put it
-into /etc/fstab. Sad, broken, but true.

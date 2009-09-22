@@ -1,3 +1,0 @@
-Added eth0 and a driver loader as well as added it
-to the init list. If everything goes well, I'll have
-dynamic network running after reboot :-)

@@ -1,8 +1,0 @@
-cinit-configuration (hydrogenium, Nico Schottelius)
-
-- uses udev
-- setup console font
-- setup the console to use unicode
-- starts sshd
-- starts qmail (only reachable locally, delivers to remote)
-- metalog as syslog replacement

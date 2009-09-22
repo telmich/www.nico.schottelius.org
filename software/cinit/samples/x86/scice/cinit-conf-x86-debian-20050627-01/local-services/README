@@ -1,4 +1,0 @@
-local-services/
-   Put services inside here, which are only available from
-   your system (like GPM, MTA (which does not listen on tcp/25),
-   power management daemons, etc.)

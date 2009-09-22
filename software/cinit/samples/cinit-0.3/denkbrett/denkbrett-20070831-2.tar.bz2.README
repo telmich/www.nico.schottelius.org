@@ -1,1 +1,0 @@
-- Added dmesg -n1 so there's less noise on startup.

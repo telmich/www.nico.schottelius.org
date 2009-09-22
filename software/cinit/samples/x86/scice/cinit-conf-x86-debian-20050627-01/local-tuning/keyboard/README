@@ -1,2 +1,0 @@
-on.params should be linked to /etc/conf.d/keyboard or wherever
-you distribution puts the configuration containing your keyboard-layout.

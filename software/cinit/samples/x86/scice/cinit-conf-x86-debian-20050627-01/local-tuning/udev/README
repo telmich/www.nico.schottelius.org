@@ -1,4 +1,0 @@
-Start the udev "service" and mount /dev.
-
-udevstart needs sysfs to find devices, udev needs to be written
-into /proc and devices are created in temporary /dev (RAM!).
