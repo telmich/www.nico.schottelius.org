@@ -45,12 +45,6 @@ Or in words:
   * F will only be started, if B is successfully started
   * F waits until C is started and is started afterwards
 
-## Old homepage
-
-This will be the new homepage of cinit, as soon as the
-[old cinit homepage](http://unix.schottelius.org/cinit) is completly
-migrated into this one.
-
 ## Getting cinit
 
 ### Development versions

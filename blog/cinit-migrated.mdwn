@@ -1,0 +1,13 @@
+[[!meta title="Cinit migrated to www.nico.schottelius.org"]]
+
+[[Cinits website|software/cinit]] moved from
+
+   * http://unix.schottelius.org/cinit
+
+to
+
+   * [[http://www.nico.schottelius.org/software/cinit/|software/cinit]]
+
+Please update your links.
+
+[[!tag unix]]
