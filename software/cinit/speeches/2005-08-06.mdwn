@@ -1,6 +1,13 @@
 [[!meta title="German Online speech (2005-08-06)"]]
+[[!meta date="2005-08-06"]]
+
+
+This speech was streamed into the Internet on the
+6th August 2005.
 
 * [[Announncement|ankuendigung]]
-* [[the speech (ogg, 7.1MiB)|aufzeichnung.ogg]]
+* [[The speech (ogg, 7.1MiB)|aufzeichnung.ogg]]
 * [[Notes|spickzettel]]
 * [[IRC log|irc.log]]
+
+[[!tag publication]]

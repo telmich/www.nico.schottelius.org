@@ -1,7 +1,10 @@
-[[!meta title="German speech at the Technophil weekend (2005-10-22)"]]
+[[!meta title="A German cinit introduction at the Technophil weekend"]]
+[[!meta date="2005-10-22"]]
 
-This speech was hold in in Basel, Switzerland at the technophil
-weekend (a geekend).
+This speech was hold in in Basel, Switzerland at the Technophil
+weekend (a geekend) at the 22nd October 2005.
 
 * [[The speech (PDF format)|cinit.pdf]]
   ([[LaTeX source|cinit.tex]])
+
+[[!tag publication]]
