@@ -134,11 +134,18 @@ Additionally, the following other git ressources are available:
    [[changes|browse_source/cinit-0.0.4/CHANGES]]
 
 ## Support
- * There is a general
- [cinit mailing list](http://l.schottelius.org/mailman/listinfo/cinit)
- available.
- * You can join the development ***IRC channel***
-   [#cLinux on irc.freenode.org](irc://irc.freenode.org/#cLinux).
+
+### Documentation 
+
+ * [[(German) online speech|software/cinit/speeches/2005-08-06]]
+
+### Mailing list
+There is a general
+[cinit mailing list](http://l.schottelius.org/mailman/listinfo/cinit) available.
+
+### IRC
+You can join the development ***IRC channel***
+[#cLinux on irc.freenode.org](irc://irc.freenode.org/#cLinux).
 
 ## Related websites
 
