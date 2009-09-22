@@ -1,27 +1,7 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
-<html>
-<head>
-<title>unix.schottelius.org</title>
-</HEAD>
+[[!meta title="German speech at the Technophil weekend (2005-10-22)"]]
 
-<BODY>
-<P><A HREF="http://nico.schotteli.us">Nico Schottelius</A>
-<BR><A HREF="../../../index.html">unix.schottelius.org</A>
-<BR><A HREF="../../index.html">cinit</A>
-<BR><A HREF="../index.html">cinit speeches</A>
-</p>
-<HR>
-<H1>real life Speech</h1>
-<h3>2005-10-22: technophil weekend (in German)</H1>
-<HR>
-<!-- ##################################################### -->
-<P>This speech was hold in in Basel, Switzerland at the technophil
-weekend (a geekend)</P>
-<UL>
-<li><A HREF="cinit-technophil">Browse tarball</A>
-<li><A HREF="cinit-technophil/cinit.pdf">PDF</A>
-<li><A HREF="cinit-technophil/cinit.tex">LaTeX</A>
-<li><A HREF="cinit-technophil-2005-10-22.tar.bz2">Tarball with LaTeX and PDF</A>
-</UL>
-</BODY>
-</HTML>
+This speech was hold in in Basel, Switzerland at the technophil
+weekend (a geekend).
+
+* [[The speech (PDF format)|cinit.pdf]]
+  ([[LaTeX source|cinit.tex]])
