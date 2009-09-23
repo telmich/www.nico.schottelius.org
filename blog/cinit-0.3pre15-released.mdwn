@@ -2,7 +2,7 @@
 
 It has been a long time since the last cinit release,
 but now it's there! You can find it
-[[at the bottom of the new website|/software/cinit/|software/cinit]].
+[[at the bottom of the new website|software/cinit]].
 
 Let me know if there are any issues with this update, because the
 child handling stuff radically changed (to be reliable).
