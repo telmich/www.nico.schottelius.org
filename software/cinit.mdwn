@@ -60,6 +60,9 @@ Additionally, the following other git ressources are available:
 
 ### Archives
 
+ * [[cinit-0.3pre15.tar.bz2|archives/cinit-0.3pre15.tar.bz2]]
+   ([browse source](browse_source/cinit-0.3pre15/))
+   [[changes|browse_source/cinit-0.3pre15/doc/changes/0.3pre15]]
  * [[cinit-0.3pre14.tar.bz2|archives/cinit-0.3pre14.tar.bz2]]
    ([browse source](browse_source/cinit-0.3pre14/))
    [[changes|browse_source/cinit-0.3pre14/CHANGES]]
