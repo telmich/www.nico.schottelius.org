@@ -56,6 +56,7 @@ Additionally, the following other git ressources are available:
 
  * [Gitweb](http://git.schottelius.org/?p=cLinux/cinit.git;a=summary).
  * [Mirror at github](http://github.com/telmich/cinit)
+ * [Mirror at gitorious](http://gitorious.org/cinit)
 
 
 ### Archives
