@@ -1,7 +1,7 @@
 ccollect - Installing, Configuring and Using
 ============================================
 Nico Schottelius <nico-ccollect__@__schottelius.org>
-0.7.1, for ccollect 0.7.1, Initial Version from 2006-01-13
+0.8, for ccollect 0.8, Initial Version from 2006-01-13
 :Author Initials: NS
 
 
@@ -36,7 +36,7 @@ Why you COULD only backup from remote hosts, not to them
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 While considering the design of ccollect, I thought about enabling
 backup to *remote* hosts. Though this sounds like a nice feature
-('Backup my notebook to the server now.'), in my opinion it is a
+('"Backup my notebook to the server now."'), in my opinion it is a
 bad idea to backup to a remote host.
 
 But as more and more people requested this feature, it was implemented,
@@ -75,16 +75,20 @@ Incompatibilities and changes
 Versions 0.7 and 0.8
 ^^^^^^^^^^^^^^^^^^^^^
 
-. The argument order changed:
+.The argument order changed:
 - Old: "<interval name> [args] <sources to backup>"
 - New: "[args] <interval name> <sources to backup>"
 
 If you did not use arguments (most people do not), nothing will
 change for you.
 
-. 
+.Deletion of incomplete backups using the 'delete_incomplete' option
+- Old: Only incomplete backups from the current interval have been removed
+- New: All incomplete backups are deleted
 
-
+.Support for standard values
+- Old: no support
+- New: Options in $CCOLLECT_CONF/defaults are used as defaults (see below)
 
 Versions 0.6 and 0.7
 ^^^^^^^^^^^^^^^^^^^^^
@@ -155,7 +159,7 @@ For those who do not want to read the whole long document:
 --------------------------------------------------------------------------------
 # get latest ccollect tarball from http://www.nico.schottelius.org/software/ccollect/
 # replace value for CCV with the current version
-export CCV=0.7.1
+export CCV=0.8
 
 #
 # replace 'wget' with 'fetch' on bsd
@@ -243,9 +247,9 @@ Using ccollect
 Installing
 ----------
 Either type 'make install' or simply copy it to a directory in your
-$PATH and execute 'chmod *0755* /path/to/ccollect.sh'. If you would
-like to use the new management scripts (available since 0.6), copy
-the following scripts to a directory in $PATH:
+$PATH and execute 'chmod *0755* /path/to/ccollect.sh'. If you like
+to use the new management scripts (available since 0.6), copy the
+following scripts to a directory in $PATH:
 
 - `tools/ccollect_add_source.sh`
 - `tools/ccollect_analyse_logs.sh.sh`
@@ -293,7 +297,8 @@ The general configuration can be found in $CCOLLECT_CONF/defaults or
 all source definitions, although the values can be overwritten in the source
 configuration.
 
-All configuration entries are plain-text files (use UTF-8 for non-ascii characters).
+All configuration entries are plain-text files
+(use UTF-8 for non-ascii characters).
 
 
 Interval definition
@@ -340,13 +345,6 @@ human readable format before and after the whole backup process:
 -------------------------------------------------------------------------
 
 
-General delete_incomplete
-^^^^^^^^^^^^^^^^^^^^^^^^^
-If you add '$CCOLLECT_CONF/defaults/`delete_incomplete`', this
-option applies for all sources. See below for a longer
-explanation.
-
-
 Source configuration
 ~~~~~~~~~~~~~~~~~~~~
 Each source configuration exists in '$CCOLLECT_CONF/sources/$name' or
@@ -361,6 +359,9 @@ Each source contains at least the following files:
 
 Additionally a source may have the following files:
 
+   - `pre_exec`            program to execute before backing up *this* source
+   - `post_exec`           program to execute after backing up *this* source
+   
    - `verbose`             whether to be verbose (passes -v to `rsync`)
    - `very_verbose`        be very verbose (`mkdir -v`, `rm -v` and `rsync -vv`)
    - `summary`             create a transfer summary when `rsync` finished
@@ -368,9 +369,6 @@ Additionally a source may have the following files:
    - `exclude`             exclude list  for `rsync`. newline seperated list.
    - `rsync_options`       extra options for `rsync`. newline seperated list.
 
-   - `pre_exec`            program to execute before backing up *this* source
-   - `post_exec`           program to execute after backing up *this* source
-   
    - `delete_incomplete`   delete incomplete backups
    - `remote_host`         host to backup to
    - `rsync_failure_codes` list of rsync exit codes that indicate complete failure
@@ -399,6 +397,37 @@ Example:
    /home/nico/vpn
 --------------------------------------------------------------------------------
 
+Default options
+^^^^^^^^^^^^^^^
+If you add '$CCOLLECT_CONF/defaults/`option_name`', the value will
+be used in abscence of the option in a source. If you want to prevent
+the default value to be used in a source, you can create the file
+'$CCOLLECT_CONF/sources/$name/`no_option_name`' (i.e. prefix it with
+'no_'.
+
+Example:
+--------------------------------------------------------------------------------
+   [9:04] ikn2:ccollect% touch conf/defaults/verbose
+   [9:04] ikn2:ccollect% touch conf/sources/local/no_verbose
+--------------------------------------------------------------------------------
+This enables the verbose option for all sources, but disables it for the
+source 'local'.
+
+If an option is specified in the defaults folder and in the source,
+the source specific version overrides the default one:
+
+Example:
+--------------------------------------------------------------------------------
+   [9:05] ikn2:ccollect% echo "backup-host" > conf/defaults/remote_host
+   [9:05] ikn2:ccollect% echo "different-host" > conf/sources/local/remote_host
+--------------------------------------------------------------------------------
+
+You can use all source options as defaults, with the exception of
+
+- `source`
+- `destination`
+- `pre_exec`
+- `post_exec`
 
 Detailed description of "source"
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -451,7 +480,7 @@ Detailed description of "verbose"
 
 If this file exists in the source specification *-v* will be passed to `rsync`.
 
-`
+
 Example:
 --------------------------------------------------------------------------------
    [11:35] zaphodbeeblebrox:ccollect-0.2% touch conf/sources/testsource1/verbose
@@ -591,6 +620,7 @@ If you create the file `delete_incomplete` in a source specification directory,
 was interrupted) and remove them. Without this file `ccollect` will only warn
 the user.
 
+
 Detailed description of "rsync_failure_codes"
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 If you have the file `rsync_failure_codes` in your source configuration
@@ -599,6 +629,7 @@ rsync exit codes.  If rsync exits with any code in this list, a marker will
 be left in the destination directory indicating failure of this backup.  If
 you have enabled delete_incomplete, then this backup will be deleted during
 the next ccollect run on the same interval.
+
 
 Detailed description of "mtime"
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -612,6 +643,7 @@ option because the ctimes are not preserved during such operations.
 
 If you have any backups in your repository made with ccollect version 0.7.1 or
 earlier, do not use this option.
+
 
 Detailed description of "quiet_if_down"
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -796,7 +828,7 @@ If you want to see what changed between two backups, you can use
 [12:00] u0255:ddba034.netstream.ch#  rsync -n -a --delete --stats --progress daily.20080324-0313.17841/ daily.20080325-0313.31148/
 --------------------------------------------------------------------------------
 This results in a listing of changes. Because we pass -n to rsync no transfer
-is made (i.e. report only mode)"
+is made (i.e. report only mode).
 
 This hint was reported by Daniel Aubry.
 

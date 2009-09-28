@@ -1,74 +1,80 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>ccollect - Installing, Configuring and Using</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="id423531"></a>ccollect - Installing, Configuring and Using</h2></div><div><div class="author"><h3 class="author"><span class="firstname">Nico</span> <span class="surname">Schottelius</span></h3><div class="affiliation"><div class="address"><p><code class="email">&lt;<a class="email" href="mailto:nico-ccollect__@__schottelius.org">nico-ccollect__@__schottelius.org</a>&gt;</code></p></div></div></div></div><div><div class="revhistory"><table border="1" width="100%" summary="Revision history"><tr><th align="left" valign="top" colspan="3"><b>Revision History</b></th></tr><tr><td align="left">Revision 0.7.1</td><td align="left">for ccollect 0.7.1, Initial Version from 2006-01-13</td><td align="left">NS</td></tr></table></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#_introduction">Introduction</a></span></dt><dd><dl><dt><span class="section"><a href="#_supported_and_tested_operating_systems_and_architectures">Supported and tested operating systems and architectures</a></span></dt><dt><span class="section"><a href="#_why_you_could_only_backup_from_remote_hosts_not_to_them">Why you COULD only backup from remote hosts, not to them</a></span></dt><dt><span class="section"><a href="#_incompatibilities_and_changes">Incompatibilities and changes</a></span></dt></dl></dd><dt><span class="section"><a href="#_quick_start">Quick start</a></span></dt><dt><span class="section"><a href="#_requirements">Requirements</a></span></dt><dd><dl><dt><span class="section"><a href="#_installing_ccollect">Installing ccollect</a></span></dt><dt><span class="section"><a href="#_using_ccollect">Using ccollect</a></span></dt></dl></dd><dt><span class="section"><a href="#_installing">Installing</a></span></dt><dt><span class="section"><a href="#_configuring">Configuring</a></span></dt><dd><dl><dt><span class="section"><a href="#_runtime_options">Runtime options</a></span></dt><dt><span class="section"><a href="#_general_configuration">General configuration</a></span></dt><dt><span class="section"><a href="#_source_configuration">Source configuration</a></span></dt></dl></dd><dt><span class="section"><a href="#_hints">Hints</a></span></dt><dd><dl><dt><span class="section"><a href="#_smart_logging">Smart logging</a></span></dt><dt><span class="section"><a href="#_using_a_different_ssh_port">Using a different ssh port</a></span></dt><dt><span class="section"><a href="#_using_source_names_or_interval_in_pre_post_exec_scripts">Using source names or interval in pre_/post_exec scripts</a></span></dt><dt><span class="section"><a href="#_using_rsync_protocol_without_ssh">Using rsync protocol without ssh</a></span></dt><dt><span class="section"><a href="#_not_excluding_top_level_directories">Not excluding top-level directories</a></span></dt><dt><span class="section"><a href="#_re_using_already_created_rsync_backups">Re-using already created rsync-backups</a></span></dt><dt><span class="section"><a href="#_using_pre_post_exec">Using pre_/post_exec</a></span></dt><dt><span class="section"><a href="#_using_source_specific_interval_definitions">Using source specific interval definitions</a></span></dt><dt><span class="section"><a href="#_comparing_backups">Comparing backups</a></span></dt><dt><span class="section"><a href="#_testing_for_host_reachabilty">Testing for host reachabilty</a></span></dt><dt><span class="section"><a href="#_easy_check_for_errors">Easy check for errors</a></span></dt></dl></dd><dt><span class="section"><a href="#_f_a_q">F.A.Q.</a></span></dt><dd><dl><dt><span class="section"><a href="#_what_happens_if_one_backup_is_broken_or_empty">What happens if one backup is broken or empty?</a></span></dt><dt><span class="section"><a href="#_when_backing_up_from_localhost_the_destination_is_also_included_is_this_a_bug">When backing up from localhost the destination is also included. Is this a bug?</a></span></dt><dt><span class="section"><a href="#_why_does_ccollect_say_permission_denied_with_my_pre_postexec_script">Why does ccollect say "Permission denied" with my pre-/postexec script?</a></span></dt><dt><span class="section"><a href="#_why_does_the_backup_job_fail_when_part_of_the_source_is_a_link">Why does the backup job fail when part of the source is a link?</a></span></dt><dt><span class="section"><a href="#_how_can_i_prevent_missing_the_right_time_to_enter_my_password">How can I prevent missing the right time to enter my password?</a></span></dt></dl></dd><dt><span class="section"><a href="#_examples">Examples</a></span></dt><dd><dl><dt><span class="section"><a href="#_a_backup_host_configuration_from_scratch">A backup host configuration from scratch</a></span></dt><dt><span class="section"><a href="#_using_hard_links_requires_less_disk_space">Using hard-links requires less disk space</a></span></dt><dt><span class="section"><a href="#_a_collection_of_backups_on_the_backup_server">A collection of backups on the backup server</a></span></dt><dt><span class="section"><a href="#_processes_running_when_doing_ccollect_p">Processes running when doing ccollect -p</a></span></dt></dl></dd></dl></div><p>(pseudo) incremental backup
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>ccollect - Installing, Configuring and Using</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.1"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div lang="en" class="article" title="ccollect - Installing, Configuring and Using"><div class="titlepage"><div><div><h2 class="title"><a name="id395174"></a>ccollect - Installing, Configuring and Using</h2></div><div><div class="author"><h3 class="author"><span class="firstname">Nico</span> <span class="surname">Schottelius</span></h3><code class="email">&lt;<a class="email" href="mailto:nico-ccollect__@__schottelius.org">nico-ccollect__@__schottelius.org</a>&gt;</code></div></div><div><div class="revhistory"><table border="1" width="100%" summary="Revision history"><tr><th align="left" valign="top" colspan="3"><b>Revision History</b></th></tr><tr><td align="left">Revision 0.8</td><td align="left">for ccollect 0.8, Initial Version from 2006-01-13</td><td align="left">NS</td></tr></table></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#_introduction">Introduction</a></span></dt><dd><dl><dt><span class="section"><a href="#_supported_and_tested_operating_systems_and_architectures">Supported and tested operating systems and architectures</a></span></dt><dt><span class="section"><a href="#_why_you_could_only_backup_from_remote_hosts_not_to_them">Why you COULD only backup from remote hosts, not to them</a></span></dt><dt><span class="section"><a href="#_incompatibilities_and_changes">Incompatibilities and changes</a></span></dt></dl></dd><dt><span class="section"><a href="#_quick_start">Quick start</a></span></dt><dt><span class="section"><a href="#_requirements">Requirements</a></span></dt><dd><dl><dt><span class="section"><a href="#_installing_ccollect">Installing ccollect</a></span></dt><dt><span class="section"><a href="#_using_ccollect">Using ccollect</a></span></dt></dl></dd><dt><span class="section"><a href="#_installing">Installing</a></span></dt><dt><span class="section"><a href="#_configuring">Configuring</a></span></dt><dd><dl><dt><span class="section"><a href="#_runtime_options">Runtime options</a></span></dt><dt><span class="section"><a href="#_general_configuration">General configuration</a></span></dt><dt><span class="section"><a href="#_source_configuration">Source configuration</a></span></dt></dl></dd><dt><span class="section"><a href="#_hints">Hints</a></span></dt><dd><dl><dt><span class="section"><a href="#_smart_logging">Smart logging</a></span></dt><dt><span class="section"><a href="#_using_a_different_ssh_port">Using a different ssh port</a></span></dt><dt><span class="section"><a href="#_using_source_names_or_interval_in_pre_post_exec_scripts">Using source names or interval in pre_/post_exec scripts</a></span></dt><dt><span class="section"><a href="#_using_rsync_protocol_without_ssh">Using rsync protocol without ssh</a></span></dt><dt><span class="section"><a href="#_not_excluding_top_level_directories">Not excluding top-level directories</a></span></dt><dt><span class="section"><a href="#_re_using_already_created_rsync_backups">Re-using already created rsync-backups</a></span></dt><dt><span class="section"><a href="#_using_pre_post_exec">Using pre_/post_exec</a></span></dt><dt><span class="section"><a href="#_using_source_specific_interval_definitions">Using source specific interval definitions</a></span></dt><dt><span class="section"><a href="#_comparing_backups">Comparing backups</a></span></dt><dt><span class="section"><a href="#_testing_for_host_reachabilty">Testing for host reachabilty</a></span></dt><dt><span class="section"><a href="#_easy_check_for_errors">Easy check for errors</a></span></dt></dl></dd><dt><span class="section"><a href="#_f_a_q">F.A.Q.</a></span></dt><dd><dl><dt><span class="section"><a href="#_what_happens_if_one_backup_is_broken_or_empty">What happens if one backup is broken or empty?</a></span></dt><dt><span class="section"><a href="#_when_backing_up_from_localhost_the_destination_is_also_included_is_this_a_bug">When backing up from localhost the destination is also included. Is this a bug?</a></span></dt><dt><span class="section"><a href="#_why_does_ccollect_say_permission_denied_with_my_pre_postexec_script">Why does ccollect say "Permission denied" with my pre-/postexec script?</a></span></dt><dt><span class="section"><a href="#_why_does_the_backup_job_fail_when_part_of_the_source_is_a_link">Why does the backup job fail when part of the source is a link?</a></span></dt><dt><span class="section"><a href="#_how_can_i_prevent_missing_the_right_time_to_enter_my_password">How can I prevent missing the right time to enter my password?</a></span></dt></dl></dd><dt><span class="section"><a href="#_examples">Examples</a></span></dt><dd><dl><dt><span class="section"><a href="#_a_backup_host_configuration_from_scratch">A backup host configuration from scratch</a></span></dt><dt><span class="section"><a href="#_using_hard_links_requires_less_disk_space">Using hard-links requires less disk space</a></span></dt><dt><span class="section"><a href="#_a_collection_of_backups_on_the_backup_server">A collection of backups on the backup server</a></span></dt><dt><span class="section"><a href="#_processes_running_when_doing_ccollect_p">Processes running when doing ccollect -p</a></span></dt></dl></dd></dl></div><p>(pseudo) incremental backup
 with different exclude lists
-using hardlinks and <code class="literal">rsync</code></p><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_introduction"></a>Introduction</h2></div></div></div><p><code class="literal">ccollect</code> is a backup utility written in the sh-scripting language.
+using hardlinks and <code class="literal">rsync</code></p><div class="section" title="Introduction"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_introduction"></a>Introduction</h2></div></div></div><p><code class="literal">ccollect</code> is a backup utility written in the sh-scripting language.
 It does not depend on a specific shell, only <code class="literal">/bin/sh</code> needs to be
-bourne shell compatible (like <span class="emphasis"><em>dash</em></span>, <span class="emphasis"><em>ksh</em></span>, <span class="emphasis"><em>zsh</em></span>, <span class="emphasis"><em>bash</em></span>, &#8230;).</p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_supported_and_tested_operating_systems_and_architectures"></a>Supported and tested operating systems and architectures</h3></div></div></div><p><code class="literal">ccollect</code> was successfully tested on the following platforms:</p><div class="itemizedlist"><ul type="disc"><li>
+bourne shell compatible (like <span class="emphasis"><em>dash</em></span>, <span class="emphasis"><em>ksh</em></span>, <span class="emphasis"><em>zsh</em></span>, <span class="emphasis"><em>bash</em></span>, &#8230;).</p><div class="section" title="Supported and tested operating systems and architectures"><div class="titlepage"><div><div><h3 class="title"><a name="_supported_and_tested_operating_systems_and_architectures"></a>Supported and tested operating systems and architectures</h3></div></div></div><p><code class="literal">ccollect</code> was successfully tested on the following platforms:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 GNU/Linux on amd64/hppa/i386/ppc/ARM
-</li><li>
+</li><li class="listitem">
 FreeBSD   on amd64/i386
-</li><li>
+</li><li class="listitem">
 Mac OS X 10.5
-</li><li>
+</li><li class="listitem">
 NetBSD    on alpha/amd64/i386/sparc/sparc64
-</li><li>
+</li><li class="listitem">
 OpenBSD   on amd64
 </li></ul></div><p>It <span class="strong"><strong>should</strong></span> run on any Unix that supports <code class="literal">rsync</code> and has a POSIX-compatible
 bourne shell. If your platform is not listed above and you have it successfully
-running, please drop me a mail.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_why_you_could_only_backup_from_remote_hosts_not_to_them"></a>Why you COULD only backup from remote hosts, not to them</h3></div></div></div><p>While considering the design of ccollect, I thought about enabling
+running, please drop me a mail.</p></div><div class="section" title="Why you COULD only backup from remote hosts, not to them"><div class="titlepage"><div><div><h3 class="title"><a name="_why_you_could_only_backup_from_remote_hosts_not_to_them"></a>Why you COULD only backup from remote hosts, not to them</h3></div></div></div><p>While considering the design of ccollect, I thought about enabling
 backup to <span class="strong"><strong>remote</strong></span> hosts. Though this sounds like a nice feature
-(<span class="emphasis"><em>Backup my notebook to the server now.</em></span>), in my opinion it is a
+(<span class="emphasis"><em>"Backup my notebook to the server now."</em></span>), in my opinion it is a
 bad idea to backup to a remote host.</p><p>But as more and more people requested this feature, it was implemented,
-so you have the choice whether you want to use it or not.</p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_reason"></a>Reason</h4></div></div></div><p>If you want to backup <span class="strong"><strong>TO</strong></span> a remote host, you have to loosen security on it.</p><p>Imagine the following situation: You backup your farm of webservers <span class="strong"><strong>TO</strong></span>
+so you have the choice whether you want to use it or not.</p><div class="section" title="Reason"><div class="titlepage"><div><div><h4 class="title"><a name="_reason"></a>Reason</h4></div></div></div><p>If you want to backup <span class="strong"><strong>TO</strong></span> a remote host, you have to loosen security on it.</p><p>Imagine the following situation: You backup your farm of webservers <span class="strong"><strong>TO</strong></span>
 a backup host somewhere else.
 Now one of your webservers which has access to your backup host gets
-compromised.</p><p>Your backup server will be compromised, too.</p><p>And the attacker will have access to all data on the other webservers.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_doing_it_securely"></a>Doing it securely</h4></div></div></div><p>Think of it the other way round: The backup server (now behind a
+compromised.</p><p>Your backup server will be compromised, too.</p><p>And the attacker will have access to all data on the other webservers.</p></div><div class="section" title="Doing it securely"><div class="titlepage"><div><div><h4 class="title"><a name="_doing_it_securely"></a>Doing it securely</h4></div></div></div><p>Think of it the other way round: The backup server (now behind a
 firewall, not accessable from outside) connects to the
 webservers and pulls the data <span class="strong"><strong>from</strong></span> them. If someone gets access to one
 of the webservers, this person will perhaps not even see your machine. If
 the attacker sees connections from a host to the compromised
 machine, she will not be able to log in on the backup machine.
-All other backups are still secure.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_incompatibilities_and_changes"></a>Incompatibilities and changes</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_versions_0_7_and_0_8"></a>Versions 0.7 and 0.8</h4></div></div></div><div class="orderedlist"><ol type="1"><li><p>
-The argument order changed:
-</p><div class="itemizedlist"><ul type="disc"><li>
+All other backups are still secure.</p></div></div><div class="section" title="Incompatibilities and changes"><div class="titlepage"><div><div><h3 class="title"><a name="_incompatibilities_and_changes"></a>Incompatibilities and changes</h3></div></div></div><div class="section" title="Versions 0.7 and 0.8"><div class="titlepage"><div><div><h4 class="title"><a name="_versions_0_7_and_0_8"></a>Versions 0.7 and 0.8</h4></div></div></div><div class="itemizedlist" title="The argument order changed:"><p class="title"><b>The argument order changed:</b></p><ul class="itemizedlist" type="disc"><li class="listitem">
 Old: "&lt;interval name&gt; [args] &lt;sources to backup&gt;"
-</li><li>
+</li><li class="listitem">
 New: "[args] &lt;interval name&gt; &lt;sources to backup&gt;"
-</li></ul></div></li></ol></div><p>If you did not use arguments (most people do not), nothing will
-change for you.</p><p>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_versions_0_6_and_0_7"></a>Versions 0.6 and 0.7</h4></div></div></div><div class="itemizedlist"><p class="title"><b>The format of <code class="literal">destination</code> changed:</b></p><ul type="disc"><li>
+</li></ul></div><p>If you did not use arguments (most people do not), nothing will
+change for you.</p><div class="itemizedlist" title="Deletion of incomplete backups using the delete_incomplete option"><p class="title"><b>Deletion of incomplete backups using the <span class="emphasis"><em>delete_incomplete</em></span> option</b></p><ul class="itemizedlist" type="disc"><li class="listitem">
+Old: Only incomplete backups from the current interval have been removed
+</li><li class="listitem">
+New: All incomplete backups are deleted
+</li></ul></div><div class="itemizedlist" title="Support for standard values"><p class="title"><b>Support for standard values</b></p><ul class="itemizedlist" type="disc"><li class="listitem">
+Old: no support
+</li><li class="listitem">
+New: Options in $CCOLLECT_CONF/defaults are used as defaults (see below)
+</li></ul></div></div><div class="section" title="Versions 0.6 and 0.7"><div class="titlepage"><div><div><h4 class="title"><a name="_versions_0_6_and_0_7"></a>Versions 0.6 and 0.7</h4></div></div></div><div class="itemizedlist" title="The format of destination changed:"><p class="title"><b>The format of <code class="literal">destination</code> changed:</b></p><ul class="itemizedlist" type="disc"><li class="listitem">
 Before 0.7 it was a (link to a) directory
-</li><li>
+</li><li class="listitem">
 As of 0.7 it is a textfile containing the destination
-</li></ul></div><p>You can update your configuration using <code class="literal">tools/config-pre-0.7-to-0.7.sh</code>.</p><div class="itemizedlist"><p class="title"><b>Added <span class="emphasis"><em>remote_host</em></span></b></p><ul type="disc"><li>
+</li></ul></div><p>You can update your configuration using <code class="literal">tools/config-pre-0.7-to-0.7.sh</code>.</p><div class="itemizedlist" title="Added remote_host"><p class="title"><b>Added <span class="emphasis"><em>remote_host</em></span></b></p><ul class="itemizedlist" type="disc"><li class="listitem">
 As of 0.7 it is possible to backup <span class="strong"><strong>to</strong></span> hosts (see section remote_host below).
-</li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_versions_0_5_and_0_6"></a>Versions 0.5 and 0.6</h4></div></div></div><div class="itemizedlist"><p class="title"><b>The format of <code class="literal">rsync_options</code> changed:</b></p><ul type="disc"><li>
+</li></ul></div></div><div class="section" title="Versions 0.5 and 0.6"><div class="titlepage"><div><div><h4 class="title"><a name="_versions_0_5_and_0_6"></a>Versions 0.5 and 0.6</h4></div></div></div><div class="itemizedlist" title="The format of rsync_options changed:"><p class="title"><b>The format of <code class="literal">rsync_options</code> changed:</b></p><ul class="itemizedlist" type="disc"><li class="listitem">
 Before 0.6 it was whitespace delimeted
-</li><li>
+</li><li class="listitem">
 As of 0.6 it is newline seperated (so you can pass whitespaces to <code class="literal">rsync</code>)
-</li></ul></div><p>You can update your configuration using <code class="literal">tools/config-pre-0.6-to-0.6.sh</code>.</p><div class="itemizedlist"><p class="title"><b>The name of the backup directories changed:</b></p><ul type="disc"><li>
+</li></ul></div><p>You can update your configuration using <code class="literal">tools/config-pre-0.6-to-0.6.sh</code>.</p><div class="itemizedlist" title="The name of the backup directories changed:"><p class="title"><b>The name of the backup directories changed:</b></p><ul class="itemizedlist" type="disc"><li class="listitem">
 Before 0.6: "date +%Y-%m-%d-%H%M"
-</li><li>
+</li><li class="listitem">
 As of 0.6:  "date +%Y%m%d-%H%M" (better readable, date is closer together)
 </li></ul></div><p>For the second change there is no updated needed, as XXXX- is always before
-XXXXX (- comes before digit).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_versions_0_4_and_0_5"></a>Versions 0.4 and 0.5</h4></div></div></div><p>Not a real incompatibilty, but seems to fit in this section:</p><div class="itemizedlist"><p class="title"><b>0.5 does <span class="strong"><strong>NOT</strong></span> require</b></p><ul type="disc"><li>
+XXXXX (- comes before digit).</p></div><div class="section" title="Versions 0.4 and 0.5"><div class="titlepage"><div><div><h4 class="title"><a name="_versions_0_4_and_0_5"></a>Versions 0.4 and 0.5</h4></div></div></div><p>Not a real incompatibilty, but seems to fit in this section:</p><div class="itemizedlist" title="0.5 does NOT require"><p class="title"><b>0.5 does <span class="strong"><strong>NOT</strong></span> require</b></p><ul class="itemizedlist" type="disc"><li class="listitem">
 PaX
-</li><li>
+</li><li class="listitem">
 bc
-</li></ul></div><p>anymore!</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_versions_lt_0_4_and_0_4"></a>Versions &lt; 0.4 and 0.4</h4></div></div></div><p>Since <code class="literal">ccollect</code> 0.4 there are several incompatibilities with earlier
-versions:</p><div class="itemizedlist"><p class="title"><b>List of incompatibilities</b></p><ul type="disc"><li>
+</li></ul></div><p>anymore!</p></div><div class="section" title="Versions &lt; 0.4 and 0.4"><div class="titlepage"><div><div><h4 class="title"><a name="_versions_lt_0_4_and_0_4"></a>Versions &lt; 0.4 and 0.4</h4></div></div></div><p>Since <code class="literal">ccollect</code> 0.4 there are several incompatibilities with earlier
+versions:</p><div class="itemizedlist" title="List of incompatibilities"><p class="title"><b>List of incompatibilities</b></p><ul class="itemizedlist" type="disc"><li class="listitem">
 <code class="literal">pax</code> (Posix) is now required, <code class="literal">cp -al</code> (GNU specific) is removed
-</li><li>
+</li><li class="listitem">
 "interval" was written with two <span class="emphasis"><em>l</em></span> (ell), which is wrong in English
-</li><li>
+</li><li class="listitem">
 Changed the name of backup directories, removed the colon in the interval
-</li><li>
+</li><li class="listitem">
 ccollect will now exit when preexec returns non-zero
-</li><li>
+</li><li class="listitem">
 ccollect now reports when postexec returns non-zero
 </li></ul></div><p>You can convert your old configuration directory using
 <code class="literal">config-pre-0.4-to-0.4.sh</code>, which can be found in the <span class="strong"><strong>tools/</strong></span>
-subdirectory:</p><pre class="screen">[10:05] hydrogenium:ccollect-0.4# ./tools/config-pre-0.4-to-0.4.sh /etc/ccollect</pre></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_quick_start"></a>Quick start</h2></div></div></div><p>For those who do not want to read the whole long document:</p><pre class="screen"># get latest ccollect tarball from http://www.nico.schottelius.org/software/ccollect/
+subdirectory:</p><pre class="screen">[10:05] hydrogenium:ccollect-0.4# ./tools/config-pre-0.4-to-0.4.sh /etc/ccollect</pre></div></div></div><div class="section" title="Quick start"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_quick_start"></a>Quick start</h2></div></div></div><p>For those who do not want to read the whole long document:</p><pre class="screen"># get latest ccollect tarball from http://www.nico.schottelius.org/software/ccollect/
 # replace value for CCV with the current version
-export CCV=0.7.1
+export CCV=0.8
 
 #
 # replace 'wget' with 'fetch' on bsd
@@ -125,37 +131,37 @@ du -s ~/DASI /bin
 # report success
 echo "Please report success using ./tools/report_success.sh"</pre><p>Cutting and pasting the complete section above to your shell will result in
 the download of ccollect, the creation of a sample configuration and the
-execution of some backups.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_requirements"></a>Requirements</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_installing_ccollect"></a>Installing ccollect</h3></div></div></div><p>For the installation you need at least</p><div class="itemizedlist"><ul type="disc"><li>
+execution of some backups.</p></div><div class="section" title="Requirements"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_requirements"></a>Requirements</h2></div></div></div><div class="section" title="Installing ccollect"><div class="titlepage"><div><div><h3 class="title"><a name="_installing_ccollect"></a>Installing ccollect</h3></div></div></div><p>For the installation you need at least</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 the latest ccollect package (<a class="ulink" href="http://www.nico.schottelius.org/software/ccollect/" target="_top">http://www.nico.schottelius.org/software/ccollect/</a>)
-</li><li>
+</li><li class="listitem">
 either <code class="literal">cp</code> and <code class="literal">chmod</code> or <code class="literal">install</code>
-</li><li>
+</li><li class="listitem">
 for more comfort: <code class="literal">make</code>
-</li><li>
+</li><li class="listitem">
 for rebuilding the generated documentation: additionally <code class="literal">asciidoc</code>
-</li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_using_ccollect"></a>Using ccollect</h3></div></div></div><div class="itemizedlist"><p class="title"><b>Running ccollect requires the following tools to be installed:</b></p><ul type="disc"><li>
+</li></ul></div></div><div class="section" title="Using ccollect"><div class="titlepage"><div><div><h3 class="title"><a name="_using_ccollect"></a>Using ccollect</h3></div></div></div><div class="itemizedlist" title="Running ccollect requires the following tools to be installed:"><p class="title"><b>Running ccollect requires the following tools to be installed:</b></p><ul class="itemizedlist" type="disc"><li class="listitem">
 <code class="literal">date</code>
-</li><li>
+</li><li class="listitem">
 <code class="literal">rsync</code>
-</li><li>
+</li><li class="listitem">
 <code class="literal">ssh</code> (if you want to use rsync over ssh, which is recommened for security)
-</li></ul></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_installing"></a>Installing</h2></div></div></div><p>Either type <span class="emphasis"><em>make install</em></span> or simply copy it to a directory in your
-$PATH and execute <span class="emphasis"><em>chmod <span class="strong"><strong>0755</strong></span> /path/to/ccollect.sh</em></span>. If you would
-like to use the new management scripts (available since 0.6), copy
-the following scripts to a directory in $PATH:</p><div class="itemizedlist"><ul type="disc"><li>
+</li></ul></div></div></div><div class="section" title="Installing"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_installing"></a>Installing</h2></div></div></div><p>Either type <span class="emphasis"><em>make install</em></span> or simply copy it to a directory in your
+$PATH and execute <span class="emphasis"><em>chmod <span class="strong"><strong>0755</strong></span> /path/to/ccollect.sh</em></span>. If you like
+to use the new management scripts (available since 0.6), copy the
+following scripts to a directory in $PATH:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 <code class="literal">tools/ccollect_add_source.sh</code>
-</li><li>
+</li><li class="listitem">
 <code class="literal">tools/ccollect_analyse_logs.sh.sh</code>
-</li><li>
+</li><li class="listitem">
 <code class="literal">tools/ccollect_delete_source.sh</code>
-</li><li>
+</li><li class="listitem">
 <code class="literal">tools/ccollect_list_intervals.sh</code>
-</li><li>
+</li><li class="listitem">
 <code class="literal">tools/ccollect_logwrapper.sh</code>
 </li></ul></div><p>After having installed and used ccollect, report success using
-<span class="emphasis"><em>./tools/report_success.sh</em></span>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_configuring"></a>Configuring</h2></div></div></div><p>For configuration aid have a look at the above mentioned tools, which can assist
+<span class="emphasis"><em>./tools/report_success.sh</em></span>.</p></div><div class="section" title="Configuring"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_configuring"></a>Configuring</h2></div></div></div><p>For configuration aid have a look at the above mentioned tools, which can assist
 you quite well. When you are successfully using <code class="literal">ccollect</code>, report success using
-<code class="literal">tools/report_success.sh</code>.</p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_runtime_options"></a>Runtime options</h3></div></div></div><p><code class="literal">ccollect</code> looks for its configuration in <span class="emphasis"><em>/etc/ccollect</em></span> or, if set, in
+<code class="literal">tools/report_success.sh</code>.</p><div class="section" title="Runtime options"><div class="titlepage"><div><div><h3 class="title"><a name="_runtime_options"></a>Runtime options</h3></div></div></div><p><code class="literal">ccollect</code> looks for its configuration in <span class="emphasis"><em>/etc/ccollect</em></span> or, if set, in
 the directory specified by the variable <span class="emphasis"><em>$CCOLLECT_CONF</em></span>:</p><pre class="screen"># sh-compatible (dash, zsh, mksh, ksh, bash, ...)
 $ CCOLLECT_CONF=/your/config/dir ccollect.sh ...
 
@@ -163,13 +169,14 @@ $ CCOLLECT_CONF=/your/config/dir ccollect.sh ...
 $ ( setenv CCOLLECT_CONF /your/config/dir ; ccollect.sh ... )</pre><p>When you start <code class="literal">ccollect</code>, you have to specify in which interval
 to backup (daily, weekly, yearly; you can specify the names yourself, see below)
 and which sources to backup (or -a to backup all sources).</p><p>The interval specifies how many backups are kept.</p><p>There are also some self-explanatory parameters you can pass to ccollect,
-simply use <code class="literal">ccollect.sh &#8212;help</code> for info.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_general_configuration"></a>General configuration</h3></div></div></div><p>The general configuration can be found in $CCOLLECT_CONF/defaults or
+simply use <code class="literal">ccollect.sh --help</code> for info.</p></div><div class="section" title="General configuration"><div class="titlepage"><div><div><h3 class="title"><a name="_general_configuration"></a>General configuration</h3></div></div></div><p>The general configuration can be found in $CCOLLECT_CONF/defaults or
 /etc/ccollect/defaults. All options specified there are generally valid for
 all source definitions, although the values can be overwritten in the source
-configuration.</p><p>All configuration entries are plain-text files (use UTF-8 for non-ascii characters).</p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_interval_definition"></a>Interval definition</h4></div></div></div><p>The interval definition can be found in
+configuration.</p><p>All configuration entries are plain-text files
+(use UTF-8 for non-ascii characters).</p><div class="section" title="Interval definition"><div class="titlepage"><div><div><h4 class="title"><a name="_interval_definition"></a>Interval definition</h4></div></div></div><p>The interval definition can be found in
 <span class="emphasis"><em>$CCOLLECT_CONF/defaults/intervals/</em></span> or <span class="emphasis"><em>/etc/ccollect/defaults/intervals</em></span>.
 Each file in this directory specifies an interval. The name of the file is
-the same as the name of the interval: <code class="literal">intervals/<span class="emphasis"><em>&lt;interval name&gt;</em></span></code>.</p><p>The content of this file should be a single line containing a number.
+the same as the name of the interval: <code class="literal">intervals/'&lt;interval name&gt;'</code>.</p><p>The content of this file should be a single line containing a number.
 This number defines how many versions of this interval are kept.</p><p>Example:</p><pre class="screen">   [10:23] zaphodbeeblebrox:ccollect-0.2% ls -l conf/defaults/intervals/
    insgesamt 12
    -rw-r--r--  1 nico users 3 2005-12-08 10:24 daily
@@ -178,7 +185,7 @@ This number defines how many versions of this interval are kept.</p><p>Example:<
    [10:23] zaphodbeeblebrox:ccollect-0.2% cat conf/defaults/intervals/*
    28
    12
-   4</pre><p>This means to keep 28 daily backups, 12 monthly backups and 4 weekly.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_general_pre_and_post_execution"></a>General pre- and post-execution</h4></div></div></div><p>If you add <span class="emphasis"><em>$CCOLLECT_CONF/defaults/<code class="literal">pre_exec</code></em></span> or
+   4</pre><p>This means to keep 28 daily backups, 12 monthly backups and 4 weekly.</p></div><div class="section" title="General pre- and post-execution"><div class="titlepage"><div><div><h4 class="title"><a name="_general_pre_and_post_execution"></a>General pre- and post-execution</h4></div></div></div><p>If you add <span class="emphasis"><em>$CCOLLECT_CONF/defaults/<code class="literal">pre_exec</code></em></span> or
 <span class="emphasis"><em>/etc/ccollect/defaults/<code class="literal">pre_exec</code></em></span> (same with <code class="literal">post_exec</code>), <code class="literal">ccollect</code>
 will start <code class="literal">pre_exec</code> before the whole backup process and
 <code class="literal">post_exec</code> after backup of all sources is done.</p><p>The following example describes how to report free disk space in
@@ -187,36 +194,34 @@ human readable format before and after the whole backup process:</p><pre class="
 [13:01] hydrogenium:~# echo ''          &gt;&gt; /etc/ccollect/defaults/pre_exec
 [13:01] hydrogenium:~# echo 'df -h'     &gt;&gt; /etc/ccollect/defaults/pre_exec
 [13:01] hydrogenium:~# chmod 0755 /etc/ccollect/defaults/pre_exec
-[13:01] hydrogenium:~# ln -s /etc/ccollect/defaults/pre_exec /etc/ccollect/defaults/post_exec</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_general_delete_incomplete"></a>General delete_incomplete</h4></div></div></div><p>If you add <span class="emphasis"><em>$CCOLLECT_CONF/defaults/<code class="literal">delete_incomplete</code></em></span>, this
-option applies for all sources. See below for a longer
-explanation.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_source_configuration"></a>Source configuration</h3></div></div></div><p>Each source configuration exists in <span class="emphasis"><em>$CCOLLECT_CONF/sources/$name</em></span> or
-<span class="emphasis"><em>/etc/ccollect/sources/$name</em></span>.</p><p>The name you choose for the subdirectory describes the source.</p><p>Each source contains at least the following files:</p><div class="itemizedlist"><ul type="disc"><li>
+[13:01] hydrogenium:~# ln -s /etc/ccollect/defaults/pre_exec /etc/ccollect/defaults/post_exec</pre></div></div><div class="section" title="Source configuration"><div class="titlepage"><div><div><h3 class="title"><a name="_source_configuration"></a>Source configuration</h3></div></div></div><p>Each source configuration exists in <span class="emphasis"><em>$CCOLLECT_CONF/sources/$name</em></span> or
+<span class="emphasis"><em>/etc/ccollect/sources/$name</em></span>.</p><p>The name you choose for the subdirectory describes the source.</p><p>Each source contains at least the following files:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 <code class="literal">source</code>       (a text file containing the <code class="literal">rsync</code> compatible path to backup)
-</li><li>
+</li><li class="listitem">
 <code class="literal">destination</code>  (a text file containing the directory we should backup to)
-</li></ul></div><p>Additionally a source may have the following files:</p><div class="itemizedlist"><ul type="disc"><li>
-<code class="literal">verbose</code>             whether to be verbose (passes -v to <code class="literal">rsync</code>)
-</li><li>
-<code class="literal">very_verbose</code>        be very verbose (<code class="literal">mkdir -v</code>, <code class="literal">rm -v</code> and <code class="literal">rsync -vv</code>)
-</li><li>
-<code class="literal">summary</code>             create a transfer summary when <code class="literal">rsync</code> finished
-</li><li>
-<code class="literal">exclude</code>             exclude list  for <code class="literal">rsync</code>. newline seperated list.
-</li><li>
-<code class="literal">rsync_options</code>       extra options for <code class="literal">rsync</code>. newline seperated list.
-</li><li>
+</li></ul></div><p>Additionally a source may have the following files:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 <code class="literal">pre_exec</code>            program to execute before backing up <span class="strong"><strong>this</strong></span> source
-</li><li>
+</li><li class="listitem">
 <code class="literal">post_exec</code>           program to execute after backing up <span class="strong"><strong>this</strong></span> source
-</li><li>
+</li><li class="listitem">
+<code class="literal">verbose</code>             whether to be verbose (passes -v to <code class="literal">rsync</code>)
+</li><li class="listitem">
+<code class="literal">very_verbose</code>        be very verbose (<code class="literal">mkdir -v</code>, <code class="literal">rm -v</code> and <code class="literal">rsync -vv</code>)
+</li><li class="listitem">
+<code class="literal">summary</code>             create a transfer summary when <code class="literal">rsync</code> finished
+</li><li class="listitem">
+<code class="literal">exclude</code>             exclude list  for <code class="literal">rsync</code>. newline seperated list.
+</li><li class="listitem">
+<code class="literal">rsync_options</code>       extra options for <code class="literal">rsync</code>. newline seperated list.
+</li><li class="listitem">
 <code class="literal">delete_incomplete</code>   delete incomplete backups
-</li><li>
+</li><li class="listitem">
 <code class="literal">remote_host</code>         host to backup to
-</li><li>
+</li><li class="listitem">
 <code class="literal">rsync_failure_codes</code> list of rsync exit codes that indicate complete failure
-</li><li>
+</li><li class="listitem">
 <code class="literal">mtime</code>               Sort backup directories based on their modification time
-</li><li>
+</li><li class="listitem">
 <code class="literal">quiet_if_down</code>       Suppress error messages if source is not connectable
 </li></ul></div><p>Example:</p><pre class="screen">   [10:47] zaphodbeeblebrox:ccollect-0.2% ls -l  conf/sources/testsource2
    insgesamt 12
@@ -234,21 +239,36 @@ explanation.</p></div></div><div class="section" lang="en"><div class="titlepage
    [10:48] zaphodbeeblebrox:ccollect-0.2% cat conf/sources/testsource2/intervals/daily
    5
    [10:48] zaphodbeeblebrox:ccollect-0.2% cat conf/sources/testsource2/source
-   /home/nico/vpn</pre><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_source"></a>Detailed description of "source"</h4></div></div></div><p><code class="literal">source</code> describes a <code class="literal">rsync</code> compatible source (one line only).</p><p>For instance <span class="emphasis"><em>backup_user@foreign_host:/home/server/video</em></span>.
+   /home/nico/vpn</pre><div class="section" title="Default options"><div class="titlepage"><div><div><h4 class="title"><a name="_default_options"></a>Default options</h4></div></div></div><p>If you add <span class="emphasis"><em>$CCOLLECT_CONF/defaults/<code class="literal">option_name</code></em></span>, the value will
+be used in abscence of the option in a source. If you want to prevent
+the default value to be used in a source, you can create the file
+<span class="emphasis"><em>$CCOLLECT_CONF/sources/$name/<code class="literal">no_option_name</code></em></span> (i.e. prefix it with
+<span class="emphasis"><em>no_</em></span>.</p><p>Example:</p><pre class="screen">   [9:04] ikn2:ccollect% touch conf/defaults/verbose
+   [9:04] ikn2:ccollect% touch conf/sources/local/no_verbose</pre><p>This enables the verbose option for all sources, but disables it for the
+source <span class="emphasis"><em>local</em></span>.</p><p>If an option is specified in the defaults folder and in the source,
+the source specific version overrides the default one:</p><p>Example:</p><pre class="screen">   [9:05] ikn2:ccollect% echo "backup-host" &gt; conf/defaults/remote_host
+   [9:05] ikn2:ccollect% echo "different-host" &gt; conf/sources/local/remote_host</pre><p>You can use all source options as defaults, with the exception of</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+<code class="literal">source</code>
+</li><li class="listitem">
+<code class="literal">destination</code>
+</li><li class="listitem">
+<code class="literal">pre_exec</code>
+</li><li class="listitem">
+<code class="literal">post_exec</code>
+</li></ul></div></div><div class="section" title='Detailed description of "source"'><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_source"></a>Detailed description of "source"</h4></div></div></div><p><code class="literal">source</code> describes a <code class="literal">rsync</code> compatible source (one line only).</p><p>For instance <span class="emphasis"><em>backup_user@foreign_host:/home/server/video</em></span>.
 To use the <code class="literal">rsync</code> protocol without the <code class="literal">ssh</code>-tunnel, use
 <span class="emphasis"><em>rsync::USER@HOST/SRC</em></span>. For more information have a look at the manpage
-of <code class="literal">rsync</code>(1).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_destination"></a>Detailed description of "destination"</h4></div></div></div><p><code class="literal">destination</code> must be a text file containing the destination directory.
+of <code class="literal">rsync</code>(1).</p></div><div class="section" title='Detailed description of "destination"'><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_destination"></a>Detailed description of "destination"</h4></div></div></div><p><code class="literal">destination</code> must be a text file containing the destination directory.
 <code class="literal">destination</code> <span class="strong"><strong>USED</strong></span> to be a link to the destination directory in
 earlier versions, so do not be confused if you see such examples.</p><p>Example:</p><pre class="screen">   [11:36] zaphodbeeblebrox:ccollect-0.2% cat conf/sources/testsource2/destination
-   /home/nico/backupdir</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_remote_host"></a>Detailed description of "remote_host"</h4></div></div></div><p><code class="literal">remote_host</code> must be a text file containing the destination host.
+   /home/nico/backupdir</pre></div><div class="section" title='Detailed description of "remote_host"'><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_remote_host"></a>Detailed description of "remote_host"</h4></div></div></div><p><code class="literal">remote_host</code> must be a text file containing the destination host.
 If this file is existing, you are backing up your data <span class="strong"><strong>TO</strong></span> this host
 and <span class="strong"><strong>not</strong></span> to you local host.</p><p><span class="strong"><strong>Warning</strong></span>: You need to have <code class="literal">ssh</code> access to the remote host. <code class="literal">rsync</code> and
 <code class="literal">ccollect</code> will connect to that host via <code class="literal">ssh</code>. <code class="literal">ccollect</code> needs the shell
 access, because it needs to find out how many backups exist on the remote
 host and to be able to delete them.</p><p>Example:</p><pre class="screen">   [10:17] denkbrett:ccollect-0.7.0% cat conf/sources/remote1/remote_host
-   home.schottelius.org</pre><p>It may contain all the ssh-specific values like <span class="emphasis"><em>myuser@yourhost.ch</em></span>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_verbose"></a>Detailed description of "verbose"</h4></div></div></div><p><code class="literal">verbose</code> tells <code class="literal">ccollect</code> that the log should contain verbose messages.</p><p>If this file exists in the source specification <span class="strong"><strong>-v</strong></span> will be passed to <code class="literal">rsync</code>.</p><p>`
-Example:</p><pre class="screen">   [11:35] zaphodbeeblebrox:ccollect-0.2% touch conf/sources/testsource1/verbose</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_very_verbose"></a>Detailed description of "very_verbose"</h4></div></div></div><p><code class="literal">very_verbose</code> tells <code class="literal">ccollect</code> that it should log very verbosely.</p><p>If this file exists in the source specification <span class="strong"><strong>-v</strong></span> will be passed to
-<code class="literal">rsync</code>, <code class="literal">rm</code> and <code class="literal">mkdir</code>.</p><p>Example:</p><pre class="screen">   [23:67] nohost:~% touch conf/sources/testsource1/very_verbose</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_summary"></a>Detailed description of "summary"</h4></div></div></div><p>If you create the file <code class="literal">summary</code> in the source definition,
+   home.schottelius.org</pre><p>It may contain all the ssh-specific values like <span class="emphasis"><em>myuser@yourhost.ch</em></span>.</p></div><div class="section" title='Detailed description of "verbose"'><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_verbose"></a>Detailed description of "verbose"</h4></div></div></div><p><code class="literal">verbose</code> tells <code class="literal">ccollect</code> that the log should contain verbose messages.</p><p>If this file exists in the source specification <span class="strong"><strong>-v</strong></span> will be passed to <code class="literal">rsync</code>.</p><p>Example:</p><pre class="screen">   [11:35] zaphodbeeblebrox:ccollect-0.2% touch conf/sources/testsource1/verbose</pre></div><div class="section" title='Detailed description of "very_verbose"'><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_very_verbose"></a>Detailed description of "very_verbose"</h4></div></div></div><p><code class="literal">very_verbose</code> tells <code class="literal">ccollect</code> that it should log very verbosely.</p><p>If this file exists in the source specification <span class="strong"><strong>-v</strong></span> will be passed to
+<code class="literal">rsync</code>, <code class="literal">rm</code> and <code class="literal">mkdir</code>.</p><p>Example:</p><pre class="screen">   [23:67] nohost:~% touch conf/sources/testsource1/very_verbose</pre></div><div class="section" title='Detailed description of "summary"'><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_summary"></a>Detailed description of "summary"</h4></div></div></div><p>If you create the file <code class="literal">summary</code> in the source definition,
 <code class="literal">ccollect</code> will present you a nice summary at the end.</p><pre class="screen">backup:~# touch /etc/ccollect/sources/root/summary
 backup:~# ccollect.sh werktags root
 ==&gt; ccollect.sh: Beginning backup using interval werktags &lt;==
@@ -275,11 +295,11 @@ backup:~# ccollect.sh werktags root
 [root] Successfully finished backup.
 ==&gt; Finished ccollect.sh &lt;==</pre><p>You could also combine it with <code class="literal">verbose</code> or <code class="literal">very_verbose</code>, but these
 already print some statistics (though not all / the same as presented by
-<code class="literal">summary</code>).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_exclude"></a>Detailed description of "exclude"</h4></div></div></div><p><code class="literal">exclude</code> specifies a list of paths to exclude. The entries are seperated by a newline (\n).</p><p>Example:</p><pre class="screen">   [11:35] zaphodbeeblebrox:ccollect-0.2% cat conf/sources/testsource2/exclude
+<code class="literal">summary</code>).</p></div><div class="section" title='Detailed description of "exclude"'><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_exclude"></a>Detailed description of "exclude"</h4></div></div></div><p><code class="literal">exclude</code> specifies a list of paths to exclude. The entries are seperated by a newline (\n).</p><p>Example:</p><pre class="screen">   [11:35] zaphodbeeblebrox:ccollect-0.2% cat conf/sources/testsource2/exclude
    openvpn-2.0.1.tar.gz
    nicht_reinnehmen
    etwas mit leerzeichenli
-   something with spaces is not a problem</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_intervals"></a>Detailed description of "intervals/"</h4></div></div></div><p>When you create the subdirectory <code class="literal">intervals/</code> in your source configuration
+   something with spaces is not a problem</pre></div><div class="section" title='Detailed description of "intervals/"'><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_intervals"></a>Detailed description of "intervals/"</h4></div></div></div><p>When you create the subdirectory <code class="literal">intervals/</code> in your source configuration
 directory, you can specify individiual intervals for this specific source.
 Each file in this directory describes an interval.</p><p>Example:</p><pre class="screen">   [11:37] zaphodbeeblebrox:ccollect-0.2% ls -l conf/sources/testsource2/intervals/
    insgesamt 8
@@ -287,12 +307,12 @@ Each file in this directory describes an interval.</p><p>Example:</p><pre class=
    -rw-r--r--  1 nico users 3 2005-12-14 11:33 yearly
    [11:37] zaphodbeeblebrox:ccollect-0.2% cat  conf/sources/testsource2/intervals/*
    5
-   20</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_detailled_description_of_rsync_options"></a>Detailled description of "rsync_options"</h4></div></div></div><p>When you create the file <code class="literal">rsync_options</code> in your source configuration,
+   20</pre></div><div class="section" title='Detailled description of "rsync_options"'><div class="titlepage"><div><div><h4 class="title"><a name="_detailled_description_of_rsync_options"></a>Detailled description of "rsync_options"</h4></div></div></div><p>When you create the file <code class="literal">rsync_options</code> in your source configuration,
 all the parameters in this file will be passed to rsync. This
 way you can pass additional options to rsync. For instance you can tell rsync
-to show progress ("&#8212;progress"), or which -password-file ("&#8212;password-file")
+to show progress ("--progress"), or which -password-file ("--password-file")
 to use for automatic backup over the rsync-protocol.</p><p>Example:</p><pre class="screen">   [23:42] hydrogenium:ccollect-0.2% cat conf/sources/test_rsync/rsync_options
-   --password-file=/home/user/backup/protected_password_file</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_detailled_description_of_pre_exec_and_post_exec"></a>Detailled description of "pre_exec" and "post_exec"</h4></div></div></div><p>When you create <code class="literal">pre_exec</code> and / or <code class="literal">post_exec</code> in your source
+   --password-file=/home/user/backup/protected_password_file</pre></div><div class="section" title='Detailled description of "pre_exec" and "post_exec"'><div class="titlepage"><div><div><h4 class="title"><a name="_detailled_description_of_pre_exec_and_post_exec"></a>Detailled description of "pre_exec" and "post_exec"</h4></div></div></div><p>When you create <code class="literal">pre_exec</code> and / or <code class="literal">post_exec</code> in your source
 configuration, <code class="literal">ccollect</code> will execute this command before and
 respectively after doing the backup for <span class="strong"><strong>this specific</strong></span> source.
 If you want to have pre-/post-exec before and after <span class="strong"><strong>all</strong></span>
@@ -305,32 +325,32 @@ df -h
 #!/bin/sh
 
 # Show whats free after
-df -h</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_delete_incomplete"></a>Detailed description of "delete_incomplete"</h4></div></div></div><p>If you create the file <code class="literal">delete_incomplete</code> in a source specification directory,
+df -h</pre></div><div class="section" title='Detailed description of "delete_incomplete"'><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_delete_incomplete"></a>Detailed description of "delete_incomplete"</h4></div></div></div><p>If you create the file <code class="literal">delete_incomplete</code> in a source specification directory,
 <code class="literal">ccollect</code> will look for incomplete backups (when the whole <code class="literal">ccollect</code> process
 was interrupted) and remove them. Without this file <code class="literal">ccollect</code> will only warn
-the user.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_rsync_failure_codes"></a>Detailed description of "rsync_failure_codes"</h4></div></div></div><p>If you have the file <code class="literal">rsync_failure_codes</code> in your source configuration
+the user.</p></div><div class="section" title='Detailed description of "rsync_failure_codes"'><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_rsync_failure_codes"></a>Detailed description of "rsync_failure_codes"</h4></div></div></div><p>If you have the file <code class="literal">rsync_failure_codes</code> in your source configuration
 directory, it should contain a newline-separated list of numbers representing
 rsync exit codes.  If rsync exits with any code in this list, a marker will
 be left in the destination directory indicating failure of this backup.  If
 you have enabled delete_incomplete, then this backup will be deleted during
-the next ccollect run on the same interval.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_mtime"></a>Detailed description of "mtime"</h4></div></div></div><p>By default, ccollect.sh chooses the most recent backup directory for cloning or
-the oldest for deletion based on the directory's last change time (ctime).
+the next ccollect run on the same interval.</p></div><div class="section" title='Detailed description of "mtime"'><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_mtime"></a>Detailed description of "mtime"</h4></div></div></div><p>By default, ccollect.sh chooses the most recent backup directory for cloning or
+the oldest for deletion based on the directory&#8217;s last change time (ctime).
 With this option, the sorting is done based on modification time (mtime).  With
 this version of ccollect, the ctime and mtime of your backups will normally
 be the same and this option has no effect.  However, if you, for example, move
 your backups to another hard disk using cp -a or rsync -a, you should use this
 option because the ctimes are not preserved during such operations.</p><p>If you have any backups in your repository made with ccollect version 0.7.1 or
-earlier, do not use this option.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_quiet_if_down"></a>Detailed description of "quiet_if_down"</h4></div></div></div><p>By default, ccollect.sh emits a series of error messages if a source is not
+earlier, do not use this option.</p></div><div class="section" title='Detailed description of "quiet_if_down"'><div class="titlepage"><div><div><h4 class="title"><a name="_detailed_description_of_quiet_if_down"></a>Detailed description of "quiet_if_down"</h4></div></div></div><p>By default, ccollect.sh emits a series of error messages if a source is not
 connectable.  With this option enabled, ccollect still reports that the
 source is not connectable but the associated error messages generated by
 rsync or ssh are suppressed.  You may want to use this option for sources,
-like notebook PCs, that are often disconnected.</p></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_hints"></a>Hints</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_smart_logging"></a>Smart logging</h3></div></div></div><p>Since ccollect-0.6.1 you can use the ccollect-logwrapper.sh(1) for logging.
+like notebook PCs, that are often disconnected.</p></div></div></div><div class="section" title="Hints"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_hints"></a>Hints</h2></div></div></div><div class="section" title="Smart logging"><div class="titlepage"><div><div><h3 class="title"><a name="_smart_logging"></a>Smart logging</h3></div></div></div><p>Since ccollect-0.6.1 you can use the ccollect-logwrapper.sh(1) for logging.
 You call it the same way you call ccollect.sh and it will create a
 logfile containing the output of ccollect.sh. For more information look
 at the manpage <span class="emphasis"><em>ccollect-logwrapper</em></span>. The following is an example running
 ccollect-logwrapper.sh:</p><pre class="screen">u0219 ~ # ~chdscni9/ccollect-logwrapper.sh daily u0160.nshq.ch.netstream.com
 ccollect-logwrapper.sh (11722): Starting with arguments: daily u0160.nshq.ch.netstream.com
-ccollect-logwrapper.sh (11722): Finished.</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_using_a_different_ssh_port"></a>Using a different ssh port</h3></div></div></div><p>Mostly easy is to use your ~/.ssh/config file:</p><pre class="screen">host mx2.schottelius.org
+ccollect-logwrapper.sh (11722): Finished.</pre></div><div class="section" title="Using a different ssh port"><div class="titlepage"><div><div><h3 class="title"><a name="_using_a_different_ssh_port"></a>Using a different ssh port</h3></div></div></div><p>Mostly easy is to use your ~/.ssh/config file:</p><pre class="screen">host mx2.schottelius.org
    Port 2342</pre><p>If you only use that port for backup only and normally want to use another port,
 you can add <span class="emphasis"><em>HostName</em></span> and "HostKeyAlias" (if you also have different
 keys on the different ports):</p><pre class="screen">Host hhydrogenium
@@ -341,16 +361,16 @@ keys on the different ports):</p><pre class="screen">Host hhydrogenium
 Host bruehe
    Hostname bruehe.schottelius.org
    Port 22
-   HostKeyAlias bruehe.schottelius.org</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_using_source_names_or_interval_in_pre_post_exec_scripts"></a>Using source names or interval in pre_/post_exec scripts</h3></div></div></div><p>The pre-/post_exec scripts can access some internal variables from <code class="literal">ccollect</code>:</p><div class="itemizedlist"><ul type="disc"><li>
+   HostKeyAlias bruehe.schottelius.org</pre></div><div class="section" title="Using source names or interval in pre_/post_exec scripts"><div class="titlepage"><div><div><h3 class="title"><a name="_using_source_names_or_interval_in_pre_post_exec_scripts"></a>Using source names or interval in pre_/post_exec scripts</h3></div></div></div><p>The pre-/post_exec scripts can access some internal variables from <code class="literal">ccollect</code>:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 INTERVAL: The interval specified on the command line
-</li><li>
+</li><li class="listitem">
 no_sources: number of sources
-</li><li>
+</li><li class="listitem">
 source_$NUM: the name of the source
-</li><li>
+</li><li class="listitem">
 name: the name of the currently being backuped source (not available for
   generic pre_exec script)
-</li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_using_rsync_protocol_without_ssh"></a>Using rsync protocol without ssh</h3></div></div></div><p>When you have a computer with little computing power, it may be useful to use
+</li></ul></div></div><div class="section" title="Using rsync protocol without ssh"><div class="titlepage"><div><div><h3 class="title"><a name="_using_rsync_protocol_without_ssh"></a>Using rsync protocol without ssh</h3></div></div></div><p>When you have a computer with little computing power, it may be useful to use
 rsync without ssh, directly using the rsync protocol
 (specify <span class="emphasis"><em>user@host::share</em></span> in <code class="literal">source</code>). You may wish to use
 <code class="literal">rsync_options</code> to specify a password file to use for automatic backup.</p><p>Example:</p><pre class="screen">backup:~# cat /etc/ccollect/sources/sample.backup.host.org/source
@@ -360,11 +380,11 @@ backup:~# cat /etc/ccollect/sources/sample.backup.host.org/rsync_options
 --password-file=/etc/ccollect/sources/sample.backup.host.org/rsync_password
 
 backup:~# cat /etc/ccollect/sources/sample.backup.host.org/rsync_password
-this_is_the_rsync_password</pre><p>This hint was reported by Daniel Aubry.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_not_excluding_top_level_directories"></a>Not excluding top-level directories</h3></div></div></div><p>When you exclude "/proc" or "/mnt" from your backup, you may run into
-trouble when you restore your backup. When you use "/proc/*" or "/mnt/*"
-instead, <code class="literal">ccollect</code> will backup empty directories.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>When those directories contain hidden files
+this_is_the_rsync_password</pre><p>This hint was reported by Daniel Aubry.</p></div><div class="section" title="Not excluding top-level directories"><div class="titlepage"><div><div><h3 class="title"><a name="_not_excluding_top_level_directories"></a>Not excluding top-level directories</h3></div></div></div><p>When you exclude "/proc" or "/mnt" from your backup, you may run into
+trouble when you restore your backup. When you use "/proc/*" or "/mnt/\*"
+instead, <code class="literal">ccollect</code> will backup empty directories.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>When those directories contain hidden files
 (those beginning with a dot (<span class="strong"><strong>.</strong></span>)),
-they will still be transferred!</p></div><p>This hint was reported by Marcus Wagner.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_re_using_already_created_rsync_backups"></a>Re-using already created rsync-backups</h3></div></div></div><p>If you used <code class="literal">rsync</code> directly before you use <code class="literal">ccollect</code>, you can
+they will still be transferred!</p></div><p>This hint was reported by Marcus Wagner.</p></div><div class="section" title="Re-using already created rsync-backups"><div class="titlepage"><div><div><h3 class="title"><a name="_re_using_already_created_rsync_backups"></a>Re-using already created rsync-backups</h3></div></div></div><p>If you used <code class="literal">rsync</code> directly before you use <code class="literal">ccollect</code>, you can
 use this old backup as initial backup for <code class="literal">ccollect</code>: You
 simply move it into a directory below the destination directory
 and name it "<span class="emphasis"><em>interval</em></span>.0".</p><p>Example:</p><pre class="screen">backup:/home/backup/web1# ls
@@ -377,8 +397,8 @@ backup:/home/backup/web1# mkdir daily.0
 backup:/home/backup/web1# mv * daily.0 2&gt;/dev/null
 
 backup:/home/backup/web1# ls
-daily.0</pre><p>Now you can use /home/backup/web1 as the <code class="literal">destination</code> for the backup.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>It does not matter anymore how you name your directory, as <code class="literal">ccollect</code> uses
-the -c option from <code class="literal">ls</code> to find out which directory to clone from.</p></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Older versions (pre 0.6, iirc) had a problem, if you named the first backup
+daily.0</pre><p>Now you can use /home/backup/web1 as the <code class="literal">destination</code> for the backup.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>It does not matter anymore how you name your directory, as <code class="literal">ccollect</code> uses
+the -c option from <code class="literal">ls</code> to find out which directory to clone from.</p></div><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Older versions (pre 0.6, iirc) had a problem, if you named the first backup
 something like "daily.initial". It was needed to use the "<span class="strong"><strong>0</strong></span>" (or some
 number that is lower than the current year) as extension. <code class="literal">ccollect</code>
 used <code class="literal">sort</code> to find the latest backup. <code class="literal">ccollect</code> itself uses
@@ -387,12 +407,12 @@ used <code class="literal">sort</code> to find the latest backup. <code class="l
 which is produced by <code class="literal">sort</code>. So, if you had a directory named "daily.initial",
 <code class="literal">ccollect</code> always diffed against this backup and transfered and deleted
 files which where deleted in previous backups. This means you simply
-wasted resources, but your backup had beer complete anyway.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_using_pre_post_exec"></a>Using pre_/post_exec</h3></div></div></div><p>Your pre_/post_exec script does not need to be a script, you can also
-use a link to</p><div class="itemizedlist"><ul type="disc"><li>
+wasted resources, but your backup had beer complete anyway.</p></div></div><div class="section" title="Using pre_/post_exec"><div class="titlepage"><div><div><h3 class="title"><a name="_using_pre_post_exec"></a>Using pre_/post_exec</h3></div></div></div><p>Your pre_/post_exec script does not need to be a script, you can also
+use a link to</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 an existing program
-</li><li>
+</li><li class="listitem">
 an already written script
-</li></ul></div><p>The only requirement is that it is executable.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_using_source_specific_interval_definitions"></a>Using source specific interval definitions</h3></div></div></div><p>When you are backing up multiple hosts via cron each night, it may be
+</li></ul></div><p>The only requirement is that it is executable.</p></div><div class="section" title="Using source specific interval definitions"><div class="titlepage"><div><div><h3 class="title"><a name="_using_source_specific_interval_definitions"></a>Using source specific interval definitions</h3></div></div></div><p>When you are backing up multiple hosts via cron each night, it may be
 a problem that host "big_server" may only have 4 daily backups, because
 otherwise its backup device will be full. But for all other hosts
 you want to keep 20 daily backups. In this case you would create
@@ -400,26 +420,26 @@ you want to keep 20 daily backups. In this case you would create
 <code class="literal">/etc/ccollect/sources/big_server/intervals/daily</code> containing "4".</p><p>Source specific intervals always overwrite the default values.
 If you have to specify it individually for every host, because
 of different requirements, you can even omit creating
-<code class="literal">/etc/ccollect/default/intervals/daily</code>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_comparing_backups"></a>Comparing backups</h3></div></div></div><p>If you want to see what changed between two backups, you can use
+<code class="literal">/etc/ccollect/default/intervals/daily</code>.</p></div><div class="section" title="Comparing backups"><div class="titlepage"><div><div><h3 class="title"><a name="_comparing_backups"></a>Comparing backups</h3></div></div></div><p>If you want to see what changed between two backups, you can use
 <code class="literal">rsync</code> directly:</p><pre class="screen">[12:00] u0255:ddba034.netstream.ch#  rsync -n -a --delete --stats --progress daily.20080324-0313.17841/ daily.20080325-0313.31148/</pre><p>This results in a listing of changes. Because we pass -n to rsync no transfer
-is made (i.e. report only mode)"</p><p>This hint was reported by Daniel Aubry.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_testing_for_host_reachabilty"></a>Testing for host reachabilty</h3></div></div></div><p>If you want to test whether the host you try to backup is reachable, you can use
+is made (i.e. report only mode).</p><p>This hint was reported by Daniel Aubry.</p></div><div class="section" title="Testing for host reachabilty"><div class="titlepage"><div><div><h3 class="title"><a name="_testing_for_host_reachabilty"></a>Testing for host reachabilty</h3></div></div></div><p>If you want to test whether the host you try to backup is reachable, you can use
 the following script as source specific pre-exec:</p><pre class="screen">#!/bin/sh
-# ping -c1 -q `cat "/etc/ccollect/sources/$name/source" | cut -d"@" -f2 | cut -d":" -f1`</pre><p>This prevents the deletion of old backups, if the host is not reachable.</p><p>This hint was reported by Daniel Aubry.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_easy_check_for_errors"></a>Easy check for errors</h3></div></div></div><p>If you want to see whether there have been any errors while doing the backup,
-you can run <code class="literal">ccollect</code> together with <code class="literal">ccollect_analyse_logs.sh</code>:</p><pre class="screen">$ ccollect | ccollect_analyse_logs.sh e</pre></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_f_a_q"></a>F.A.Q.</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_what_happens_if_one_backup_is_broken_or_empty"></a>What happens if one backup is broken or empty?</h3></div></div></div><p>Let us assume that one backup failed (connection broke or the source
-hard disk had some failures). Therefore we've got one incomplete backup in our history.</p><p><code class="literal">ccollect</code> will transfer the missing files the next time you use it.
-This leads to</p><div class="itemizedlist"><ul type="disc"><li>
+# ping -c1 -q `cat "/etc/ccollect/sources/$name/source" | cut -d"@" -f2 | cut -d":" -f1`</pre><p>This prevents the deletion of old backups, if the host is not reachable.</p><p>This hint was reported by Daniel Aubry.</p></div><div class="section" title="Easy check for errors"><div class="titlepage"><div><div><h3 class="title"><a name="_easy_check_for_errors"></a>Easy check for errors</h3></div></div></div><p>If you want to see whether there have been any errors while doing the backup,
+you can run <code class="literal">ccollect</code> together with <code class="literal">ccollect_analyse_logs.sh</code>:</p><pre class="screen">$ ccollect | ccollect_analyse_logs.sh e</pre></div></div><div class="section" title="F.A.Q."><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_f_a_q"></a>F.A.Q.</h2></div></div></div><div class="section" title="What happens if one backup is broken or empty?"><div class="titlepage"><div><div><h3 class="title"><a name="_what_happens_if_one_backup_is_broken_or_empty"></a>What happens if one backup is broken or empty?</h3></div></div></div><p>Let us assume that one backup failed (connection broke or the source
+hard disk had some failures). Therefore we&#8217;ve got one incomplete backup in our history.</p><p><code class="literal">ccollect</code> will transfer the missing files the next time you use it.
+This leads to</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 more transferred files
-</li><li>
+</li><li class="listitem">
 much greater disk space usage, as no hardlinks can be used
 </li></ul></div><p>If the whole <code class="literal">ccollect</code> process was interrupted, <code class="literal">ccollect</code> (since 0.6) can
 detect that and remove the incomplete backups, so you can clone from a complete
-backup instead</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_when_backing_up_from_localhost_the_destination_is_also_included_is_this_a_bug"></a>When backing up from localhost the destination is also included. Is this a bug?</h3></div></div></div><p>No. <code class="literal">ccollect</code> passes your source definition directly to <code class="literal">rsync</code>. It
+backup instead</p></div><div class="section" title="When backing up from localhost the destination is also included. Is this a bug?"><div class="titlepage"><div><div><h3 class="title"><a name="_when_backing_up_from_localhost_the_destination_is_also_included_is_this_a_bug"></a>When backing up from localhost the destination is also included. Is this a bug?</h3></div></div></div><p>No. <code class="literal">ccollect</code> passes your source definition directly to <code class="literal">rsync</code>. It
 does not try to analyze it. So it actually does not know if a source
 comes from local harddisk or from a remote server. And it does not want
 to. When you backup from the local harddisk (which is perhaps not
 even a good idea when thinking of security), add the <code class="literal">destination</code>
-to <span class="emphasis"><em>source/exclude</em></span>. (Daniel Aubry reported this problem)</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_why_does_ccollect_say_permission_denied_with_my_pre_postexec_script"></a>Why does ccollect say "Permission denied" with my pre-/postexec script?</h3></div></div></div><p>The most common error is that you have not given your script the correct
-permissions. Try <code class="literal">chmod 0755 /etc/ccollect/sources/<span class="emphasis"><em>yoursource</em></span>/*_exec</code>`.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_why_does_the_backup_job_fail_when_part_of_the_source_is_a_link"></a>Why does the backup job fail when part of the source is a link?</h3></div></div></div><p>When a part of your path you specified in the source is a
+to <span class="emphasis"><em>source/exclude</em></span>. (Daniel Aubry reported this problem)</p></div><div class="section" title='Why does ccollect say "Permission denied" with my pre-/postexec script?'><div class="titlepage"><div><div><h3 class="title"><a name="_why_does_ccollect_say_permission_denied_with_my_pre_postexec_script"></a>Why does ccollect say "Permission denied" with my pre-/postexec script?</h3></div></div></div><p>The most common error is that you have not given your script the correct
+permissions. Try <code class="literal">chmod 0755 /etc/ccollect/sources/'yoursource'/*_exec</code>`.</p></div><div class="section" title="Why does the backup job fail when part of the source is a link?"><div class="titlepage"><div><div><h3 class="title"><a name="_why_does_the_backup_job_fail_when_part_of_the_source_is_a_link"></a>Why does the backup job fail when part of the source is a link?</h3></div></div></div><p>When a part of your path you specified in the source is a
 (symbolic, hard links are not possible for directories) link,
 the backup <span class="strong"><strong>must</strong></span> fail.</p><p>First of all, let us have a look at how it looks like:</p><pre class="screen">==&gt; ccollect 0.4: Beginning backup using interval taeglich &lt;==
 [testsource] Sa Apr 29 00:01:55 CEST 2006 Beginning to backup
@@ -438,12 +458,12 @@ lrwxrwxrwx 1 nico nico 29 2006-04-29 00:01 projekte -&gt; oeffentlich/computer/p
 This link now links to something not reachable (dead link). It is
 impossible to create subdirectories under the broken link.</p><p>In conclusion you cannot use paths with a linked part.</p><p>However, you can backup directories containing symbolic links
 (in this case you could backup /home/user/nico, which contains
-/home/user/nico/projekte and oeffentlich/computer/projekte).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_how_can_i_prevent_missing_the_right_time_to_enter_my_password"></a>How can I prevent missing the right time to enter my password?</h3></div></div></div><p>As <code class="literal">ccollect</code> first deletes the old backups, it may take some time
+/home/user/nico/projekte and oeffentlich/computer/projekte).</p></div><div class="section" title="How can I prevent missing the right time to enter my password?"><div class="titlepage"><div><div><h3 class="title"><a name="_how_can_i_prevent_missing_the_right_time_to_enter_my_password"></a>How can I prevent missing the right time to enter my password?</h3></div></div></div><p>As <code class="literal">ccollect</code> first deletes the old backups, it may take some time
 until <code class="literal">rsync</code> requests the password for the <code class="literal">ssh</code> session from you.</p><p>The easiest way not to miss that point is running <code class="literal">ccollect</code> in <code class="literal">screen</code>,
 which has the ability to monitor the output for activity. So as soon as
 your screen beeps, after <code class="literal">ccollect</code> began to remove the last directory,
 you can enter your password (have a look at screen(1), especially "C-a M"
-and "C-a _", for more information).</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_examples"></a>Examples</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_a_backup_host_configuration_from_scratch"></a>A backup host configuration from scratch</h3></div></div></div><pre class="screen">srwali01:~# mkdir /etc/ccollect
+and "C-a _", for more information).</p></div></div><div class="section" title="Examples"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="_examples"></a>Examples</h2></div></div></div><div class="section" title="A backup host configuration from scratch"><div class="titlepage"><div><div><h3 class="title"><a name="_a_backup_host_configuration_from_scratch"></a>A backup host configuration from scratch</h3></div></div></div><pre class="screen">srwali01:~# mkdir /etc/ccollect
 srwali01:~# mkdir -p /etc/ccollect/defaults/intervals/
 srwali01:~# echo 28 &gt; /etc/ccollect/defaults/intervals/taeglich
 srwali01:~# echo 52 &gt; /etc/ccollect/defaults/intervals/woechentlich
@@ -488,7 +508,7 @@ srwali01:/etc/ccollect/sources/srwali03# cat &gt; exclude &lt;&lt; EOF
 &gt; EOF
 srwali01:/etc/ccollect/sources/srwali03# echo 'root@10.103.2.3:/' &gt; source
 srwali01:/etc/ccollect/sources/srwali03# echo /mnt/hdbackup/srwali03 &gt; destination
-srwali01:/etc/ccollect/sources/srwali03# mkdir /mnt/hdbackup/srwali03</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_using_hard_links_requires_less_disk_space"></a>Using hard-links requires less disk space</h3></div></div></div><pre class="screen"># du (coreutils) 5.2.1
+srwali01:/etc/ccollect/sources/srwali03# mkdir /mnt/hdbackup/srwali03</pre></div><div class="section" title="Using hard-links requires less disk space"><div class="titlepage"><div><div><h3 class="title"><a name="_using_hard_links_requires_less_disk_space"></a>Using hard-links requires less disk space</h3></div></div></div><pre class="screen"># du (coreutils) 5.2.1
 [10:53] srsyg01:sources% du -sh ~/backupdir
 4.6M    /home/nico/backupdir
 [10:53] srsyg01:sources% du -sh ~/backupdir/*
@@ -533,7 +553,7 @@ du (GNU coreutils) 5.93
 12G     hydrogenium/durcheinander.2006-01-17-00:27.13820
 1.5G    hydrogenium/durcheinander.2006-01-25-23:18.31328
 200M    hydrogenium/durcheinander.2006-01-26-00:11.3332</pre><p>In the second report (without -l) the sizes include the space the inodes of
-the hardlinks allocate.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_a_collection_of_backups_on_the_backup_server"></a>A collection of backups on the backup server</h3></div></div></div><p>All the data of my important hosts is backuped to eiche into
+the hardlinks allocate.</p></div><div class="section" title="A collection of backups on the backup server"><div class="titlepage"><div><div><h3 class="title"><a name="_a_collection_of_backups_on_the_backup_server"></a>A collection of backups on the backup server</h3></div></div></div><p>All the data of my important hosts is backuped to eiche into
 /mnt/schwarzesloch/backup:</p><pre class="screen">[9:24] eiche:backup# ls *
 creme:
 woechentlich.2006-01-26-22:22.4153   woechentlich.2006-02-12-11:48.2461
@@ -573,7 +593,7 @@ DDIR=/mnt/usb/backup
 
 rsync -av -H --delete /mnt/schwarzesloch/ "$DDIR/schwarzesloch/"
 
-rsync -av -H --delete /mnt/archiv/ "$DDIR/archiv/"</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="_processes_running_when_doing_ccollect_p"></a>Processes running when doing ccollect -p</h3></div></div></div><p>Truncated output from <code class="literal">ps axuwwwf</code>:</p><pre class="screen">   S+   11:40   0:00  |   |   |   \_ /bin/sh /usr/local/bin/ccollect.sh daily -p ddba034 ddba045 ddba046 ddba047 ddba049 ddna010 ddna011
+rsync -av -H --delete /mnt/archiv/ "$DDIR/archiv/"</pre></div><div class="section" title="Processes running when doing ccollect -p"><div class="titlepage"><div><div><h3 class="title"><a name="_processes_running_when_doing_ccollect_p"></a>Processes running when doing ccollect -p</h3></div></div></div><p>Truncated output from <code class="literal">ps axuwwwf</code>:</p><pre class="screen">   S+   11:40   0:00  |   |   |   \_ /bin/sh /usr/local/bin/ccollect.sh daily -p ddba034 ddba045 ddba046 ddba047 ddba049 ddna010 ddna011
    S+   11:40   0:00  |   |   |       \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba034
    S+   11:40   0:00  |   |   |       |   \_ /bin/sh /usr/local/bin/ccollect.sh daily ddba034
    R+   11:40  23:40  |   |   |       |   |   \_ rsync -a --delete --numeric-ids --relative --delete-excluded --link-dest=/home/server/backup/ddba034
