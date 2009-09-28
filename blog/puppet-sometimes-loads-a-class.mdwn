@@ -1,0 +1,38 @@
+[[!meta title="Puppet: The quantum effect when loading classes"]]
+
+After experiementing a bit with [puppet](http://reductivelabs.com/trac/puppet)
+I found a very interesting phenomenon: Sometimes a host fails to load a class
+with this error:
+
+     err: Could not retrieve catalog: Could not find class common::nico_ethz at /etc/puppet/manifests/nodes/nico.pp:35 on node bach21.ethz.ch
+
+The strange thing is that it *does* work sometimes. After describing
+the situation in the [IRC channel #puppet](irc://irc.freenode.net/#puppet),
+I got an "interesting" explanation for that behaviour:
+
+First of all I did a mistake, because I placed the class
+***common::nico_ethz*** into the file
+**modules/common/manifests/nico.pp** instead of
+**modules/common/manifests/nico_ethz.pp**.
+
+But why does it work sometimes?
+It works sometimes, because the ***puppetmaster*** compiles the catalog
+for ***all*** nodes and reuses the compiled catalog for different
+hosts. **If** a previous node loaded the class ***common::nico***,
+the complete content of **modules/common/manifests/nico.pp**
+is in the catalog, including ***common::nico_ethz***. This is the reason
+why it sometimes works and that's also the reason why I am writing
+this posting:
+
+ * Dear other puppet users: Be aware that sometimes a class may be included
+   indirectly and thus things work randomly (like
+   [Schrödinger's cat](http://en.wikipedia.org/wiki/Schr%C3%B6dinger%27s_cat))!
+ * Dear puppet developers: It would be way more helpful, if a wrong
+   configuration **always** and not only **sometimes** fails!
+
+If you've a comment to this blog article, please redirect it to
+[the puppet users
+mailinglist](http://reductivelabs.com/trac/puppet/wiki/GettingHelp#mailing-lists),
+to which I sent a notice about this article.
+
+[[!tag unix]]
