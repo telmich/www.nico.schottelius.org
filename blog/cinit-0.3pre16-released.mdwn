@@ -1,0 +1,15 @@
+[[!meta title="Cinit 0.3pre16 released"]]
+
+The next release of [[cinit|software/cinit]],
+***0.3pre16*** did not take as long as the
+[[previous release|blog/cinit-0.3pre15-released]].
+
+This is more or less a cleanup release, to start into
+real development and begin testing on different operating
+systems.
+
+If you're an init-system interested person and want to
+try cinit on a non-Linux-OS, I would be thankful for
+a report.
+
+[[!tag unix]]
