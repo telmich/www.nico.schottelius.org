@@ -1,13 +1,36 @@
 cinit is a fast, small and simple init with support for profiles
 
-## Why should I use cinit?
+## Introduction
+
+cinit is a fast init system with dependency features and 
+profile support. It was orientated on the design of
+Richard Goochs
+[need concept](http://www.atnf.csiro.au/people/rgooch/linux/boot-scripts/)
+and Felix von Leitners
+[minit](http://www.fefe.de/minit/).
+Minit does not support real dependencies (you don't know whether the
+service you depend on really started) and the need concept is somehow
+slow (as seen in gentoo).
+In addition, minit needs libowfat and dietlibc, which may not be found
+on every Unix system.
+
+### Cinit main features
+
+* portability: it should run on every Unix
+* true dependencies (soft and hard!)
+* parallel execution
+* highly customisable (see conf/*)
+* profile support (specify what services to start depending on the profile)
+
+
+### Why should I use cinit?
 
  * To significant speedup the startup process
  * To use highest level of parallelisation at startup
  * To benefit from real dependencies (so called ***needs*** and ***wants***)
  * To easily create profiles that can be chosen at startup (even **before** init is started!)
 
-## How does cinit work?
+### How does cinit work?
 
 Cinit creates a dependency tree at startup and executes the services.
 A service can have two type of dependencies:
@@ -131,10 +154,7 @@ Additionally, the following other git ressources are available:
    ([browse source](browse_source/cinit-0.0.4/))
    [[changes|browse_source/cinit-0.0.4/CHANGES]]
 
-## Support
-
-### Documentation 
-
+## Documentation 
 The documentation is currently spread all over the ***doc/*** directory
 within the tarball and is being cleaned up. Additionally there
 are two presentations available:
@@ -142,26 +162,68 @@ are two presentations available:
   * [[2005-10-22: (German) speech at Technophil|software/cinit/speeches/2005-10-22]]
   * [[2005-08-06: (German) online speech|software/cinit/speeches/2005-08-06]]
 
-### Mailing list
-There is a general
-[cinit mailing list](http://l.schottelius.org/mailman/listinfo/cinit) available.
+### Pre-Configuring
+If you want to fine tune cinit parameters, add different path names,
+change the DESTDIR, ... have a look at conf/*.
+
+
+### Installing cinit
+You can install cinit parallel to any other init-system, it won't
+kill other init's config nor /sbin/init, if it exists:
+
+    # make all install
+
+This will create /sbin/cinit.
+If /sbin/init does not exist, it will be linked to /sbin/cinit.
+
+### Configuring cinit
+You'll have to configure cinit in /etc/cinit and add services,
+before you can use it.
+
+Please read doc/configuring.cinit for details.
+Please read doc/FAO if there are still questions open.
+
+There are some testing examples below doc/examples/, to be used
+as a starting point.
+
+There are currently no tools to merge your existing init-system
+to cinit (like sysvinit-merge, bsd-merge or minit-merge) available,
+but they are in the making (see various bugs in ditz).
+
+### Configuring the OS / Kernel
+
+After configuring cinit you need to tell your kernel to boot cinit instead
+of your current init system. How to do that depends on your system:
+
+ * Linux/LILO and Linux/yaboot (ppc):
+  * append="init=/sbin/cinit"
+ * grub1 and grub2:
+  * kernel <normal kernel specification> init=/sbin/cinit
+
+## Support
 
 ### IRC
 You can join the development ***IRC channel***
 [#cLinux on irc.freenode.org](irc://irc.freenode.org/#cLinux).
 
+### Mailing list
+Bug reports, questions, patches, etc. should be send to the
+[cinit mailing list](http://l.schottelius.org/mailman/listinfo/cinit).
+
 ## Related websites
 
+ * [cinit](http://www.nico.schottelius.org/software/cinit/)
+  * [cinit mailing list](http://l.schottelius.org/mailman/listinfo/cinit)
  * BSD init systems (same codebase):
-  * <a href="http://www.freebsd.org/cgi/cvsweb.cgi/src/sbin/init/">FreeBSD</a>,
-  * <a href="http://cvsweb.netbsd.org/bsdweb.cgi/src/sbin/init/">NetBSD</a>,
-  * <a href="http://www.openbsd.org/cgi-bin/cvsweb/src/sbin/init/">OpenBSD</a>
- * <a href="http://www.initng.org/">initng</a>
- * <a href="http://www.fefe.de/minit/">minit</a>
- * <a href="http://smarden.org/runit/">runit</a>
- * <A HREF="http://www.atnf.csiro.au/~rgooch/linux/boot-scripts/">simpleinit</a>
- * <a href="ftp://ftp.cistron.nl/pub/people/miquels/sysvinit/">sysvinit</a>
- * <A HREF="http://www.netsplit.com/blog/work/canonical/upstart.html">upstart</A>
+  * [FreeBSDs init](http://www.freebsd.org/cgi/cvsweb.cgi/src/sbin/init/)
+  * [NetBSDs init](http://cvsweb.netbsd.org/bsdweb.cgi/src/sbin/init/)
+  * [OpenBSDs init](http://www.openbsd.org/cgi-bin/cvsweb/src/sbin/init/)
+ * [initng](http://www.initng.org/)
+ * [minit](http://www.fefe.de/minit/)
+ * [runit](http://smarden.org/runit/)
+ * [need/simpleinit](http://www.atnf.csiro.au/~rgooch/linux/boot-scripts/)
+ * [sys-v-init](ftp://ftp.cistron.nl/pub/people/miquels/sysvinit/)
+ * [upstart](http://www.netsplit.com/blog/work/canonical/upstart.html)
 
 
 [[!tag unix]]
