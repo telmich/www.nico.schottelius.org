@@ -1,0 +1,39 @@
+[[!meta title="Migrate Ubuntu to cinit"]]
+
+I was thinking about which OS to support with
+[[cinit|software/cinit]] next. I think that
+[FreeBSD](http://www.FreeBSD.Org) and
+[Ubuntu](http://www.ubuntu.com/) are very interesting
+to support with cinit now.
+
+So I decided to write migration scripts for Ubuntus
+[upstart](http://upstart.ubuntu.com/) for the next version
+of cinit.
+
+Because it's a lot of work to migrate an existing init
+system, I'm searching for friendly hackers, who help me
+to get the migration script up and running:
+
+The idea is to
+
+ * analyse current services
+ * create new cinit services
+ * clue everything together and bootup much faster
+
+The script
+[cinit-conf.migrate.upstart.ubuntu.jaunty](http://git.schottelius.org/?p=cLinux/cinit.git;a=blob;f=scripts/future-bin/cinit-conf.migrate.upstart.ubuntu.jaunty;hb=HEAD)
+already contains a minimalistic analysis of Ubuntus upstart. What needs to be done is
+
+ * to read through the listed scripts inside ***cinit-conf.migrate.upstart.ubuntu.jaunty***
+ * and to create scripts to create new services in [cinit/bin](http://git.schottelius.org/?p=cLinux/cinit.git;a=tree;f=bin)
+
+So if you want to help to support Ubuntu with cinit, you could
+
+ * analyse one init-script
+ * and create the service creators (like [cinit-conf.svc.mount.tmpfs.linux.ubuntu](http://git.schottelius.org/?p=cLinux/cinit.git;a=blob;f=bin/cinit-conf.svc.mount.tmpfs.linux.ubuntu))
+
+If you are interested, please join the
+[cinit mailinglist](http://l.schottelius.org/mailman/listinfo/cinit) and let us
+know, on which script you hack.
+
+[[!tag unix]]
