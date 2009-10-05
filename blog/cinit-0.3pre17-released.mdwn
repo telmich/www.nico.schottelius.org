@@ -1,0 +1,9 @@
+[[!meta title="Cinit 0.3pre17 released"]]
+
+There it is, the next release of [[cinit|software/cinit]],
+***0.3pre16***. It contains a lot of useful utilities in the
+[bin/ folder](../../software/cinit/browse_source/cinit-0.3pre17/bin/)
+to begin a migration from [Ubuntus](http://www.ubuntu.com/)
+[upstart](http://upstart.ubuntu.com/).
+
+[[!tag unix]]
