@@ -1,0 +1,5 @@
+[[!meta title="Linux-Magazin: Clevere Datensicherung mit Ccollect"]]
+[[!meta date="2009-09-01"]]
+
+Im [Admin-Sonderheft 04/2009, "Storage & Backup"](http://www.linux-magazin.de/Heft-Abo/Ausgaben/Sonderheft/Admin-Sonderheft-04-2009-Storage-Backup)
+befindet sich der Artikel "Clevere Datensicherung mit Ccollect"
