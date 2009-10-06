@@ -159,12 +159,14 @@ even include it into Debian.
    [#cLinux on irc.freenode.org](irc://irc.freenode.org/#cLinux).
 
 ## Related websites
- * <A HREF="http://0xf00.de/ccollect-config.html">ccollect-config</A>,
+ * The German magazine [Linux-Magazin](http://www.linux-magazin.de/)
+   contains the article [[writes about ccollect|dokumentationen/linuxmagazin-clevere-datensicherung-mit-ccollect]].
+ * The German magazine [Linux User](http://www.linuxuser.de/)
+   [[writes about ccollect in the 2009/08 edition|about/press]].
+ * [ccollect-config](http://0xf00.de/ccollect-config.html) -
    a configuration tool written by Frederic Jaeckel
  * [German report about ccollect including a description
    of reverse ssh tunnels](http://muasch.ch/article/show/ccollect-backup-software)
    by Benedikt K&ouml;ppel,
- * The German magazine [Linux User](http://www.linuxuser.de/)
-   [[writes about ccollect in the 2009/08 edition|about/press]].
 
 [[!tag unix backup]]
