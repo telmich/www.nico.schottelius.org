@@ -1,0 +1,56 @@
+[[!meta title="Ubuntu and Debian skip fsck on battery - a bug"]]
+
+Everytime I go through the init scripts or init configurations
+of the "traditional" (as in having a sequential order and/or
+using shell scripts) init systems, there are interesting things to find:
+
+Not only that probably half of the boottime could be saved if people
+move the "if system has x, do y" stuff out of the init system and make
+it part of the configuration process, no. 
+There are also a lot of other interesting quirks within the init configuration,
+like this one:
+
+                on_ac_power >/dev/null 2>&1
+                if [ "$?" -eq 1 ]
+                then    
+                        log_warning_msg "On battery power, so skipping file system check."
+                        rootcheck=no
+                fi
+
+That part is shameless stolen from ***S20checkroot.sh***,
+Ubuntu Jaunty (9.04), but it can also be found in Debian.
+So if the system is running on battery, this configuration will skip
+the filesystem check.
+
+Now imagine your filesystem **needs** to be checked, because the
+user space program ***fsck*** replays the journal and marks the
+filesystem as clean. Furthermore, assume that without this filesystem
+check the filesystem cannot be mounted read write.
+
+That is exactly what is done by ***fsck.jfs***, the filesystem check
+for JFS filesystems.
+
+So if you are running Debian or Ubuntu with JFS on the root filesystem,
+your system crashed the last time and you bootup on battery the bootup
+process will fail, because the root filesystem cannot be mounted
+read write.
+
+Perhaps the authors idea of these lines was to skip senseless
+filesystem checks for ext{2,3,4}, which occur after a certain
+amount of time. But as it can be seen, this "fix" introduced
+a new bug.
+
+Dear Debian and Ubuntu developers:
+
+    Please do not skip the filesystem check.
+    All the users with JFS on / of their notebook will thank you!
+
+I would have fixed that in Debian myself, if there was a
+"get a fix integrated in 5 minutes" approach.
+But after reading Debian documentation for some hours I did not find it.
+
+If you find that way [[let me know|about]] and I'll write an article
+"How to fix a Debian package in 5 minutes" plus provide a patch
+to solve this init misconfiguration issue.
+
+[[!tag unix]]
