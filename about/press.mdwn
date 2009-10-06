@@ -2,6 +2,14 @@
 
 The following is an incomplete list of news and articles about my projects and those I wrote:
 
+* October 2009:
+  [RadioTux](http://blog.radiotux.de) recommends to use
+  [[ccollect|software/ccollect]] in the
+  [[RadioTux@HoRadS #76 edition|dokumentationen/radiotux-horads-76]]
+* September 2009:
+  The German magazine [Linux-Magazin](http://www.linux-magazin.de/)
+  contains the article
+  [[Clevere Datensicherung mit Ccollect|dokumentationen/linuxmagazin-clevere-datensicherung-mit-ccollect]] about [[ccollect|software/ccollect]].
 * August 2009:
   The German magazine [Linux User](http://www.linuxuser.de/)
   writes about [[ccollect|software/ccollect]] in the
