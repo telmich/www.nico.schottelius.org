@@ -1,0 +1,10 @@
+[[!meta title="RadioTux@HoRadS #76"]]
+[[!meta date="2009-10-02"]]
+
+In dieser Ausgabe von [RadioTux](http://blog.radiotux.de) wird
+[[ccollect|software/ccollect]] für Backups empfohlen (ab Minute 49).
+
+
+ * [RadioTux@HoRadS #76](http://blog.radiotux.de/2009/10/02/radiotuxhorads-76/)
+ * [Lokale Kopie der Sendung im Ogg-Format](2009-10-01.RadioTuxatHoRadS_76.ogg)
+ * [Lizenz zur Weitergabe der Sendung](http://creativecommons.org/licenses/by-nc-sa/3.0/)
