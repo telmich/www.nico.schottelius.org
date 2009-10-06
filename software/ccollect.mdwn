@@ -159,6 +159,7 @@ even include it into Debian.
    [#cLinux on irc.freenode.org](irc://irc.freenode.org/#cLinux).
 
 ## Related websites
+ * [RadioTux](http://blog.radiotux.de) reports about ccollect in the [[RadioTux@HoRadS #76 edition|dokumentationen/radiotux-horads-76]].
  * The German magazine [Linux-Magazin](http://www.linux-magazin.de/)
    contains the article [[writes about ccollect|dokumentationen/linuxmagazin-clevere-datensicherung-mit-ccollect]].
  * The German magazine [Linux User](http://www.linuxuser.de/)
