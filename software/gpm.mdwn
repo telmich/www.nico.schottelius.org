@@ -1,92 +1,70 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
-<html>
-<head>
-<title>unix.schottelius.org</title>
-</HEAD>
-<!-- v0.4 -->
-<BODY>
-<P><A HREF="http://nico.schotteli.us">Nico Schottelius</A>
-<BR><A HREF="../index.html">unix.schottelius.org</A></P>
-<HR>
-<H1>GPM</H1>
-<HR>
-<h2>what is it?</h2>
-<P>gpm means general purpose mouse and is the mouse support for linux
-in the console.
-<h2>how to get it?</h2>
-<h3>git</h3>
-<P>Perhaps the best way to get gpm currently is via
-<A HREF="../git/">git</a>:
-<ul>
-   <li><u>git-clone git://git.schottelius.org/gpm</u>
-   <li>Alternate clone URLs:
-      <ul>
-         <li>http://git.schottelius.org/gpm (plain http instead of git://)
-         <li>git://repo.or.cz/gpm.git (mirror)
-      </ul>
-   <li>Gitweb:
-      <ul>
-         <li><a href="http://git.schottelius.org/?p=gpm">http://git.schottelius.org/</a>
-         <li><a href="http://repo.or.cz/r/gpm.git">http://repo.or.cz/r/gpm.git</a> (mirror)
-      </ul>
-</ul>
-<h3>archives and source browser</h3>
-<ul>
-   <li>gpm2 branch: [DEVELOPMENT]
-   <ul>
-      <li>gpm-1.99.7:
-      <a href="browse_source/gpm-1.99.7/doc/changes/1.99.7">changes</a>
-      <a href="browse_source/gpm-1.99.7">browse source</a>
-      -
-      <a href="archives/gpm-1.99.7.tar.bz2">tar.bz2</a>
-      <a href="archives/gpm-1.99.7.tar.bz2.sha512sum">tar.bz2.sha512sum</a>
-      <a href="archives/gpm-1.99.7.tar.gz">tar.gz</a>
-      <a href="archives/gpm-1.99.7.tar.gz.sha512sum">tar.gz.sha512sum</a>
-      <a href="archives/gpm-1.99.7.tar.lzma">tar.lzma</a>
-      <a href="archives/gpm-1.99.7.tar.lzma.sha512sum">tar.lzma.sha512sum</a>
-   </ul>
-   <li>gpm1 branch: [STABLE]
-   <ul>
-      <li>gpm-1.20.6:
-      <a href="browse_source/gpm-1.20.6/doc/changes/1.20.6">changes</a>
-      <a href="browse_source/gpm-1.20.6">browse source</a>
-      -
-      <a href="archives/gpm-1.20.6.tar.bz2">tar.bz2</a>
-      <a href="archives/gpm-1.20.6.tar.bz2.sha512sum">tar.bz2.sha512sum</a>
-      <a href="archives/gpm-1.20.6.tar.gz">tar.gz</a>
-      <a href="archives/gpm-1.20.6.tar.gz.sha512sum">tar.gz.sha512sum</a>
-      <a href="archives/gpm-1.20.6.tar.lzma">tar.lzma</a>
-      <a href="archives/gpm-1.20.6.tar.lzma.sha512sum">tar.lzma.sha512sum</a>
-   </ul>
-</ul>
-<P><a href="archives">Archives are now available directly at this site</A>
-and for new releases, you can <a href="browse_source">browse the source</A>.
-<p>There is the mirror <a href="http://www.ar.linux.it/pub/gpm/">http://www.ar.linux.it/pub/gpm/</a>
+    general purpose mouse
+    
+gpm is the mouse support for Linux on the console
+
+## how to get gpm
+
+### git
+Currently the best way to get gpm is via git:
+
+    git-clone git://git.schottelius.org/gpm
+
+ * Alternate clone URLs:
+  * http://git.schottelius.org/gpm (plain http instead of git://)
+  * git://repo.or.cz/gpm.git
+ * Gitweb:
+  * [http://git.schottelius.org/](http://git.schottelius.org/?p=gpm)
+  * [http://repo.or.cz/r/gpm.git](http://repo.or.cz/r/gpm.git)
+
+### archives and source browser
+
+ * gpm2 (development branch): ***gpm-1.99.7***:
+  * [changes](browse_source/gpm-1.99.7/doc/changes/1.99.7)
+  * [browse source](browse_source/gpm-1.99.7)
+  * [tar.bz2](archives/gpm-1.99.7.tar.bz2)
+  * [tar.bz2.sha512sum](archives/gpm-1.99.7.tar.bz2.sha512sum)
+  * [tar.gz](archives/gpm-1.99.7.tar.gz)
+  * [tar.gz.sha512sum](archives/gpm-1.99.7.tar.gz.sha512sum)
+  * [tar.lzma](archives/gpm-1.99.7.tar.lzma)
+  * [gpm-1.99.7.tar.lzma.sha512sum](archives/gpm-1.99.7.tar.lzma.sha512sum)
+ * gpm1 (stable branch): ***gpm-1.20.6***:
+  * [changes](browse_source/gpm-1.20.6/doc/changes/1.20.6)
+  * [browse source](browse_source/gpm-1.20.6)
+  * [tar.bz2](archives/gpm-1.20.6.tar.bz2)
+  * [tar.bz2.sha512sum](archives/gpm-1.20.6.tar.bz2.sha512sum)
+  * [tar.gz](archives/gpm-1.20.6.tar.gz)
+  * [tar.gz.sha512sum](archives/gpm-1.20.6.tar.gz.sha512sum)
+  * [tar.lzma](archives/gpm-1.20.6.tar.lzma)
+  * [tar.lzma.sha512sum](archives/gpm-1.20.6.tar.lzma.sha512sum)
+ * [Older archives](archives)
+ * You can [browse the source](browse_source) of the old releases, too.
+
+There is the mirror
+<a href="http://www.ar.linux.it/pub/gpm/">http://www.ar.linux.it/pub/gpm/</a>
 available.
-<h2>documentation</h2>
-<P>Is included in the package.</P>
-<h2>irc</h2>
-<P>There is the irc channel #gpm on irc.freenode.org.</P>
-<h2>mailing lists</h2>
-<h3>development and discussion list</h3>
+
+## Support
+### IRC
+There is the irc channel [#gpm](irc.freenode.org/#gpm) on irc.freenode.org.
+
+### mailing lists
+#### development and discussion list
 The mailing list devoted to gpm is "gpm@lists.linux.it".
 In order to subscribe to the mailing list, visit
 <a href="http://lists.linux.it/listinfo/gpm">http://lists.linux.it/listinfo/gpm</a>
 or send a message with "subscribe" in its body to gpm-request@lists.linux.it.
 For example:
-<pre>
-   echo subscribe | mail gpm-request@lists.linux.it
-</pre>
+
+    echo subscribe | mail gpm-request@lists.linux.it
+
 The mailing list archive can be found at
 <A
 HREF="http://lists.linux.it/pipermail/gpm/">http://lists.linux.it/pipermail/gpm/</A>
-<h3>Commits archive and mailinglist </h3>
-All published commits from the projects I am involved in are send here.
-<UL>
-   <li><A
-HREF="http://l.schottelius.org/pipermail/commits/">Archive</a>
-   <li><A
-HREF="http://l.schottelius.org/mailman/listinfo/commits/">Mailinglist</A>
-</UL>
-</BODY>
-</HTML>
+
+#### Commits mailinglist 
+
+All published commits from the projects I am involved in are send
+to this mailinglist, including those commits to gpm.
+
+ * [Archive](http://l.schottelius.org/pipermail/commits/)
+ * [Mailinglist](http://l.schottelius.org/mailman/listinfo/commits/)
