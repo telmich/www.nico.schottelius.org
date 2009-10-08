@@ -1,5 +1,0 @@
-[pubkey nico-gpm@schottelius.org]
-MIGdMA0GCSqGSIb3DQEBAQUAA4GLADCBhwKBgQCnzdY/v9BlxoMxIdn5RfDshpjL6EmXaxcP
-Ib9r9p8FNbMLdSzY3Flqkfo4iGF2pbQYY+snCIUSUNdc15AAl/x/stquX7RvmS/J+MzWsJBG
-GLMbf9X+69R7VPatnrVLSUjE4CAN0tAOaVODlCHj1ag9XPsIoCEE4e5Hwo1X1YePQQIBEQ==
-[end]
