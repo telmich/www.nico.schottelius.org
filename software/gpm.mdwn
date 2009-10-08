@@ -11,10 +11,8 @@ Currently the best way to get gpm is via git:
 
  * Alternate clone URLs:
   * http://git.schottelius.org/gpm (plain http instead of git://)
-  * git://repo.or.cz/gpm.git
  * Gitweb:
   * [http://git.schottelius.org/](http://git.schottelius.org/?p=gpm)
-  * [http://repo.or.cz/r/gpm.git](http://repo.or.cz/r/gpm.git)
 
 ### archives and source browser
 
