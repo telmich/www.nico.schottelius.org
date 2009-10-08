@@ -1,5 +1,5 @@
 [[!meta title="Software"]]
 
-[[!inline pages="software/* and !software/*/*" archive="yes" show=0]]
+[[!inline pages="software/* and !software/*/*" archive="yes" show=0 sort="title"]]
 
 [[!tag net]]
