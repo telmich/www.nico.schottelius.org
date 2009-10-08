@@ -2,7 +2,7 @@
 
 <P ALIGN="center">
 <a href="screenshots/">
-![ccollect-0.7.1](screenshots/ccollect-0.7.1-screenshot-20090527.png "Example output of ccollect-0.6")
+![ccollect-0.8](screenshots/ccollect-0.8-screenshot-20091007.png "Example output of ccollect")
 </a>
 <P>ccollect backups data from local and remote hosts to your local harddisk.
 Although ccollect creates full backups, it requires very less space on the
