@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<title>linux.schottelius.org</title>
+</HEAD>
+
+<BODY>
+<P><A HREF="http://nico.schotteli.us">Nico Schottelius</A>
+<BR><A HREF="../index.html">linux.schottelius.org</A></P>
+<HR>
+<H1>GPM</H1>
+<HR>
+<h3>what is it?</h3>
+<P>gpm means general purpose mouse and is the mouse support for linux
+in the console.
+<h3>how to get it?</h3>
+<P>Perhaps the best way to get gpm currently is via
+<A HREF="http://www.venge.net/monotone/">monotone</a>, a cvs
+successor. You have to retrieve the collection "org.schottelius.gpm" from
+"monotone.schottelius.org" (NOT linux.schottelius.org!).
+You can get the public server key from 
+<A HREF="server-key.pub">here</A>.
+<h3>monotone - get (aka "pull")</h3>
+<P>Here's a small manual howto get gpm via monotone:
+<PRE>
+
+# create a database
+scice% monotone --db=gpm.db db init 
+
+# get the server key
+scice% wget -q  http://linux.schottelius.org/gpm/server-key.pub 
+
+# read the server key
+scice% monotone --db=gpm.db read < server-key.pub
+monotone: read 1 packet
+
+# do an anonymous pull
+scice% monotone --key="" --db=gpm.db pull monotone.schottelius.org org.schottelius.gpm
+monotone: warning: doing anonymous pull
+monotone: rebuilding merkle trees for collection org.schottelius.gpm
+monotone: connecting to monotone.schottelius.org
+monotone: [bytes in: 722110] [bytes out: 7405] 
+monotone: exchanged goodbyes and flushed output on fd 7 (peer monotone.schottelius.org), disconnecting
+
+# extract source from the database to a directory
+scice% monotone --db=gpm.db --branch=org.schottelius.gpm checkout your-destination-directory                                           
+monotone: fetching heads of branch 'org.schottelius.gpm'
+</PRE>
+<!-- 
+<h3>monotone - upload (aka "push")</h3>
+<P>I assume you've got a database initialised (see above).
+<PRE>
+# generate a key pair (if you want to contribute changes)
+scice% monotone -db=gpm.db genkey you@example.com
+monotone: generating key-pair 'you@example.com'
+Enter password: 
+Confirm password: 
+monotone: storing key-pair 'you@example.com' in database
+-->
+
+
+<P>For more information visit monotone's homepage, it has excellent
+documentation!</P>
+<h3>archives</h3>
+<P>Releases and archives are available
+in <A HREF="ftp://arcana.linux.it/pub/gpm/">Italy</a> and
+in <A HREF="ftp://ftp.schottelius.org/pub/linux/gpm/">Germany</a>.
+<h3>cvs</h3>
+<P>CVS is still available, but obsolete. The last CVS commit
+may have been done on 19th of May 2004 (it was earlier than that, but at this
+time we changed to monotone). Still, if you really want (a perhaps outdated tree),
+here's the way to go:
+<PRE>
+$ cvs -d :pserver:cvs@ar.linux.it:/data/cvs login
+(Logging in to cvs@ar.linux.it)
+CVS password: (type "cvs" here)
+$ cvs -d :pserver:cvs@ar.linux.it:/data/cvs checkout gpm
+</PRE>
+<h3>documentation</h3>
+<P>Is included in the package.</P>
+<h3>irc</h3>
+<P>Well, there's now an irc channel #gpm on irc.freenode.org.
+<h3>mailing list</h3>
+<PRE>
+
+The mailing list devoted to gpm is "gpm@lists.linux.it"
+The list is managed by Mailman and is currently open,
+so non-subscribers are allowed to post.
+
+In order to subscribe to the mailing list, visit
+http://www.linux.it/mailman/listinfo/gpm or send a message
+with "subscribe" in its body to gpm-request@lists.linux.it . For example:
+
+   echo subscribe | mail gpm-request@lists.linux.it
+</PRE>
+<h3>Mailing list archive </h3>
+<P><A
+HREF="http://lists.linux.it/pipermail/gpm/">http://lists.linux.it/pipermail/gpm/</A>
+</P>
+<h3>Links</h3>
+<P><A HREF="http://www.hut.fi/~then/mytexts/mouse.html">PC mouse information</A>
+<BR>
+</BODY>
+</HTML>

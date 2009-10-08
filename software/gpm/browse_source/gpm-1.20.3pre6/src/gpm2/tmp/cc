@@ -1,0 +1,2 @@
+#!/bin/sh
+"gcc" -pipe -W -Wall -Werror -I. -Iinclude -g "$@"

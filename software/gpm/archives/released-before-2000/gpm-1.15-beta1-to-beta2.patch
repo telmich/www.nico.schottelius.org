@@ -1,0 +1,54 @@
+diff -u --recursive gpm-1.15-beta1/ChangeLog gpm-1.15-beta2/ChangeLog
+--- gpm-1.15-beta1/ChangeLog	Sat Jul  4 14:41:18 1998
++++ gpm-1.15-beta2/ChangeLog	Mon Jul  6 23:01:03 1998
+@@ -1,6 +1,10 @@
+-Sat Jul  4 14:40:09 1998  Alessandro Rubini  (rubini@morgana)
++Mon Jul  6 13:00:23 1998 Robin Houston (robin.houston@guardian.co.uk)
+ 
+-	* mice.c (I_serial): Send only "*X" to mman (proposed by Dan Fandrich)
++	* mev.c (main): "-p" doesn't take an argument
++
++Sat Jul  4 14:40:09 1998  Dan Fandrich  (danf@npsnet.com)
++
++	* mice.c (I_serial): Send only "*X" to mman
+ 
+ Mon Jun 15 21:31:35 1998  Pavel Machek  (pavel@ucw.cz)
+ 
+Only in gpm-1.15-beta2: ChangeLog~
+diff -u --recursive gpm-1.15-beta1/mev.c gpm-1.15-beta2/mev.c
+--- gpm-1.15-beta1/mev.c	Wed May 20 17:07:23 1998
++++ gpm-1.15-beta2/mev.c	Mon Jul  6 12:59:56 1998
+@@ -423,7 +423,7 @@
+ 
+   prgname=argv[0];
+ 
+-  if (cmdline(argc,argv,"C:d:e:Efim:M:p:u"))
++  if (cmdline(argc,argv,"C:d:e:Efim:M:pu"))
+     exit(usage());
+ 
+   if (opt_vc) {
+diff -u --recursive gpm-1.15-beta1/mice.c gpm-1.15-beta2/mice.c
+--- gpm-1.15-beta1/mice.c	Sat Jul  4 15:27:10 1998
++++ gpm-1.15-beta2/mice.c	Mon Jul  6 18:55:57 1998
+@@ -708,6 +708,10 @@
+ #endif
+ #endif
+ 
++  /* Non mman: change from any available speed to the chosen one */
++  for (i=9600; i>=1200; i/=2)
++      setspeed(fd, i, opt_baud, (type->fun != M_mman) /* write */, flags);
++
+   /*
+    * Reset the MouseMan/TrackMan to use the 3/4 byte protocol
+    * (Stephen Lee, sl14@crux1.cit.cornell.edu)
+@@ -720,10 +724,6 @@
+ 	setspeed(fd, 1200, opt_baud,0 /* no write */, flags);
+ 	return type;
+ 	}
+-
+-  /* Non mman: change from any available speed to the chosen one */
+-  for (i=9600; i>=1200; i/=2)
+-    setspeed(fd, i, opt_baud, 1 /* write */, flags);
+ 
+   if(type->fun==M_geni)
+     {

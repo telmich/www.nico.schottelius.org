@@ -1,0 +1,18 @@
+Begin3
+Title:          Gpm (General Purpose Mouse)
+Version:        1.20.0
+Entered-date:   23Feb02
+Description:    A mouse server for the console and xterm, plus sample
+		clients: an emacs package and a portable demo application.
+Keywords:       mouse, console, curses, xterm
+Author:         nicos@pcsystems.de (Nico Schottelius)
+Maintained-by:  nicos@pcsystems.de (Nico Schottelius) 
+Primary-site:   sunsite.unc.edu /pub/Linux/system/mouse/gpm-1.20.0.tar.gz
+		390kB gpm-1.20.0.tar.bz2
+		391kB gpm-1.19.6.tar.gz
+		1kB   gpm-1.19.6.lsm
+Original-site:  arcana.linux.it /pub/gpm
+		ftp.schottelius.org /pub/linux/gpm
+Platform:       linux (generic)
+Copying-policy: GPL
+End

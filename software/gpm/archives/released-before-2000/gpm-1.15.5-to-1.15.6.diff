@@ -1,0 +1,1724 @@
+--- gpm-1.15.5/gpm.c	Fri Aug 28 00:25:06 1998
++++ gpm.c	Sat Sep 12 23:28:34 1998
+@@ -20,7 +20,7 @@
+  *   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+  ********/
+ 
+-static char rcsid[] = "$Id: gpm.c,v 1.6 1998/08/20 06:59:35 itz Exp $";
++static char rcsid[] = "$Id: gpm.c,v 1.8 1998/09/13 06:28:34 itz Exp $";
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
+@@ -74,6 +74,7 @@
+ int opt_ptrdrag=DEF_PTRDRAG;
+ int opt_kill=0;
+ int opt_repeater=0, opt_double=0;
++int opt_aged = 0;
+ char *opt_special=NULL; /* special commands, like reboot or such */
+ char *consolename = "/dev/tty0";
+ static int opt_resize=0; /* not really an option */
+@@ -161,6 +162,10 @@
+   if (ioctl(fd, TIOCLINUX, buf+sizeof(short)-1) < 0)
+     oops("ioctl(TIOCLINUX)");
+   close(fd);
++
++  if (mode < 3) {
++    opt_aged = 0;
++  } /*if*/
+ }
+ 
+ 
+@@ -170,6 +175,11 @@
+   char c=3;
+   int fd;
+ 
++  if (opt_aged) {
++    gpm_debug_log(LOG_DEBUG,"Skipping paste; selection has aged");
++    return;
++  } /*if*/
++
+   fd=open_console(O_WRONLY);
+   if (ioctl(fd, TIOCLINUX, &c) < 0)
+      oops("ioctl(TIOCLINUX)");
+@@ -580,6 +590,28 @@
+   return 1;
+ }
+ 
++/* itz Sat Sep 12 20:46:51 PDT 1998 this used to be shared with
++   gpn.c.  Mixing apples and oranges. */
++
++static void
++xfer_options(int fd)
++{
++  struct mouse_features *which_mouse=mouse_table+1; /* local */
++  struct {int a,B,d,i,p,r,V,A;} opts; /* -l already processed */
++
++  read(fd,&opts,sizeof(opts));
++  opt_accel=opts.a;
++  sprintf(opt_sequence,"%08d",opts.B);
++  opt_delta=opts.d;
++  opt_time=opts.i; opt_ptrdrag=opts.p; opt_scale=opts.r;
++  gpm_debug_level = opts.V;
++  opt_aged = opts.A;
++  gpm_debug_log(LOG_INFO,"got %i,%i,%i,%i,%i,%i,%i,%i", opt_accel, opts.B,
++                opt_delta, opt_time, opt_ptrdrag, opt_scale,
++                gpm_debug_level, opt_aged);
++  kill(getpid(),SIGWINCH); /* update delta's */
++}
++
+ /*-------------------------------------------------------------------*/
+                                  /* returns -1 if closing connection */
+ static inline int processRequest(Gpm_Cinfo *ci, int vc) 
+@@ -642,27 +674,27 @@
+   switch(conn.vc)
+     {
+     case GPM_REQ_SNAPSHOT:
+-        i=open_console(O_RDONLY);
+-	ioctl(i,VT_GETSTATE,&stat);
+-	event.modifiers=6; /* code for the ioctl */
+-	if (ioctl(i,TIOCLINUX,&(event.modifiers))<0)
+-	  oops("get_shift_state");
+-	close(i);
+-	event.vc = stat.v_active;
+-        event.x=statusX;   event.y=statusY;
+-        event.dx=maxx;     event.dy=maxy;
+-        event.buttons= statusB;
+-        event.clicks=statusC;
+-	/* fall through */
++      i=open_console(O_RDONLY);
++      ioctl(i,VT_GETSTATE,&stat);
++      event.modifiers=6; /* code for the ioctl */
++      if (ioctl(i,TIOCLINUX,&(event.modifiers))<0)
++        oops("get_shift_state");
++      close(i);
++      event.vc = stat.v_active;
++      event.x=statusX;   event.y=statusY;
++      event.dx=maxx;     event.dy=maxy;
++      event.buttons= statusB;
++      event.clicks=statusC;
++      /* fall through */
+ 
+     case GPM_REQ_BUTTONS:
+-        event.type= (opt_three==1 ? 3 : 2); /* buttons */
+-        write(ci->fd,&event,sizeof(Gpm_Event));
+-	break;
++      event.type= (opt_three==1 ? 3 : 2); /* buttons */
++      write(ci->fd,&event,sizeof(Gpm_Event));
++      break;
+ 
+     case GPM_REQ_CONFIG:
+-	xfer_options(1,ci->fd);
+-	break;
++      xfer_options(ci->fd);
++      break;
+     }
+ 
+   return 0;
+@@ -716,13 +748,14 @@
+     free(info);
+     return -1;
+   }
++
+   if (stat (addr.sun_path, &statbuf) == -1 ||
+       !S_ISSOCK(statbuf.st_mode)) {
+-    gpm_debug_log (LOG_ERR, "Address not a socket in processConn");
++    gpm_debug_log (LOG_ERR, "Address %s not a socket in processConn",addr.sun_path);
+     free(info);			/* itz 10-12-95 verify client's right */
+     return -1;			/* to read requested tty */
+   } /*if*/
+-				
++  
+   unlink (addr.sun_path);	/* delete socket */
+ 
+   staletime = time(0) - 30;
+@@ -803,16 +836,18 @@
+ gpm_exited(void)
+ {
+   gpm_debug_log(LOG_DEBUG,"Removing files %s and %s", GPM_NODE_PID, GPM_NODE_CTL);
+-  unlink(GPM_NODE_PID);
++  if (gpm_log_daemon) {
++    unlink(GPM_NODE_PID);
++  } /*if*/
+   unlink(GPM_NODE_CTL);
+ }
+ 
+ /*-------------------------------------------------------------------*/
+ int main(int argc, char **argv)
+ {
+-  int mousefd, ctlfd, newfd;
++  int ctlfd, newfd;
+   struct sockaddr_un ctladdr;
+-  int i, len, kd_mode;
++  int i, len, kd_mode, fd;
+   struct   timeval timeout;
+   int maxfd=-1;
+   int pending;
+@@ -823,14 +858,52 @@
+ 
+ /*....................................... parse command line */
+ 
+-  mousefd=cmdline(argc, argv);
+-  maxfd=max(mousefd,maxfd);
++  cmdline(argc, argv);
++  atexit(gpm_exited);
++
++  for (i=1; i <= 1+opt_double; i++)
++    {
++      which_mouse=mouse_table+i; /* used to access options */
++
++      /* open the device with ndelay, to catch a locked device */
++      if (opt_dev)
++        {
++          if (!strcmp(opt_dev,"-"))
++            fd=0;
++          else if ((fd=open(opt_dev,O_RDWR | O_NDELAY))<0)
++            { oops(opt_dev); }
++        }
++      else /* use "/dev/mouse" */
++        {
++          opt_dev = "/dev/mouse";
++          if ((fd=open(opt_dev,O_RDWR | O_NDELAY))<0)
++            { oops(opt_dev); }
++        }
++
++      /* and then reset the flag */
++      fcntl(fd,F_SETFL,fcntl(fd,F_GETFL) & ~O_NDELAY);
++
++      /* init the device, and change mouse type */
++      if (m_type->init)
++        m_type=(m_type->init)(fd, m_type->flags, m_type);
++      if (!m_type)
++        { fprintf(stderr, "mouse initialization failed\n"); exit(1); }
++
++      if (opt_toggle)
++        {
++          unsigned int modem_lines;
++
++          ioctl(fd, TIOCMGET, &modem_lines);
++          modem_lines &= ~opt_toggle;
++          ioctl(fd, TIOCMSET, &modem_lines);
++        }
++
++      which_mouse->fd=fd;
++      maxfd=max(fd, maxfd);
++    } /*for*/
+ 
+ /*....................................... catch interesting signals */
+ 
+-  if (!opt_kill && !opt_quit) {
+-    atexit(gpm_exited);
+-  } /*if*/
+   signal(SIGTERM, gpm_killed);
+   signal(SIGINT,  gpm_killed);
+   signal(SIGUSR1, gpm_killed); /* usr1 is used by a new gpm killing the old */
+@@ -875,7 +948,7 @@
+     FD_SET(mouse_table[2].fd,&connSet);
+ 
+   readySet=connSet;
+-  FD_SET(mousefd,&readySet);
++  FD_SET(mouse_table[1].fd,&readySet);
+ 
+   signal(SIGPIPE,SIG_IGN);  /* WARN */
+ 
+@@ -941,10 +1014,10 @@
+     close(fd);
+     if (kd_mode != KD_TEXT && !opt_repeater)
+       {
+-      wait_text(&mousefd);
+-      maxfd=max(maxfd,mousefd);
++      wait_text(&mouse_table[1].fd);
++      maxfd=max(maxfd,mouse_table[1].fd);
+       readySet=connSet;
+-      FD_SET(mousefd,&readySet);
++      FD_SET(mouse_table[1].fd,&readySet);
+       continue; /* reselect */
+       }
+     }
+@@ -998,8 +1071,19 @@
+         if (FD_ISSET(ci->fd,&selSet)) 
+ 	  {
+           FD_CLR(ci->fd,&selSet); pending--;
++
++          /* itz Sat Sep 12 21:10:22 PDT 1998 */
++          /* this code is clearly incorrect; the next highest
++             descriptor after the one we're closing is not necessarily
++             being used.  Fortunately, it doesn't hurt simply to leave this
++             out. */
++
++#ifdef NOTDEF
+           if ((processRequest(ci,i)==-1) && maxfd==ci->fd)
+             maxfd--;
++#else
++          (void)processRequest(ci,i);
++#endif
+ 	  }
+ 	}
+       }
+--- gpm-1.15.5/gpn.c	Fri Aug 28 00:25:06 1998
++++ gpn.c	Sat Sep 12 22:46:11 1998
+@@ -20,7 +20,7 @@
+  *   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+  ********/
+ 
+-static char rcsid[] = "$Id: gpn.c,v 1.10 1998/08/14 20:19:59 itz Exp $";
++static char rcsid[] = "$Id: gpn.c,v 1.11 1998/09/13 05:46:11 itz Exp $";
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
+@@ -56,7 +56,8 @@
+ 
+ extern int	errno;
+ 
+-static int check_uniqueness(int retain);
++static void check_uniqueness(void);
++static void check_kill(void);
+ 
+ /*===================================================================*/
+ /* octal digit */
+@@ -138,48 +139,38 @@
+ }
+ 
+ /*===================================================================*
+- * This function transfers "-a -B -p -i -l -p -r" to a running server,
+- * or gets the options from another server.
++ * This function transfers "-a -B -p -i -l -p -r" to a running server.
+  *-------------------------------------------------------------------*/
+-int 
+-xfer_options(int direction, int fd)
++static int 
++xfer_options(void)
+ {
+-  Gpm_Connect fake = {0,0,0,0,getpid(),1};
+-  Gpm_Connect req  = {0,0,0,0, 0, GPM_REQ_CONFIG};
+   struct mouse_features *which_mouse=mouse_table+1; /* local */
++  struct {int a,B,d,i,p,r,V,A;} opts; /* -l already processed */
++  Gpm_Connect fake; 
+   char *tty;
+-  struct {int a,B,d,i,p,r;} opts; /* -l already processed */
++  int fd;
++  
++  fake.minMod = fake.maxMod = fake.eventMask = fake.defaultMask = 0;
++  opts.a=opt_accel; sscanf(opt_sequence,"%d",&opts.B); opts.d=opt_delta;
++  opts.i=opt_time; opts.p=opt_ptrdrag; opts.r=opt_scale;
++  opts.V = gpm_debug_level; opts.A = opt_aged;
++
++  tty=ttyname(0); /* stdin */
++  if (!tty) oops("ttyname()");
++  if (strncmp(tty,"/dev/tty",8) || !isdigit(tty[8]))
++    {fprintf(stderr,"%s: %s: not a virtual console\n",prgname,tty);exit(1);}
+ 
+-  if (direction==0) /* out */
+-    {
+-      opts.a=opt_accel; sscanf(opt_sequence,"%d",&opts.B); opts.d=opt_delta;
+-      opts.i=opt_time; opts.p=opt_ptrdrag; opts.r=opt_scale;
+-      fd=check_uniqueness(1);
+-      if (fd<0) oops(GPM_NODE_CTL);
+-      tty=ttyname(0); /* stdin */
+-      if (!tty) oops("ttyname()");
+-      if (strncmp(tty,"/dev/tty",8) || !isdigit(tty[8]))
+-        {fprintf(stderr,"%s: %s: not a virtual console\n",prgname,tty);exit(1);}
+-      write(fd,&fake,sizeof(Gpm_Connect));
+-      write(fd,&req,sizeof(Gpm_Connect));
+-      write(fd,&opts,sizeof(opts));
+-      close(fd);
+-      return 0;
+-    }
+-  if (direction==1) /* in */
+-    {
+-      read(fd,&opts,sizeof(opts));
+-      opt_accel=opts.a;
+-      sprintf(opt_sequence,"%08d",opts.B);
+-      opt_delta=opts.d;
+-      opt_time=opts.i; opt_ptrdrag=opts.p; opt_scale=opts.r;
+-      gpm_debug_log(LOG_INFO,"got %i,%i,%i,%i,%i,%i", opt_accel, opts.B,
+-                    opt_delta, opt_time, opt_ptrdrag, opt_scale);
+-      kill(getpid(),SIGWINCH); /* update delta's */
+-      return 0;
+-    }
+-  return -1;
++  if (-1 == (fd = Gpm_Open(&fake, -1))) {
++    oops("Gpm_Open()");
++  } /*if*/
++  
++  fake.pid = 0; fake.vc = GPM_REQ_CONFIG;
++  write(fd,&fake,sizeof(Gpm_Connect));
++  write(fd,&opts,sizeof(opts));
++  Gpm_Close();
++  return 0;
+ }
++
+ /*===================================================================*/
+ static int
+ usage(char *whofailed)
+@@ -195,6 +186,7 @@
+   printf("Usage: %s [options]\n",prgname);
+   printf("  Valid options are (not all of them are implemented)\n"
+          "    -a accel         sets the acceleration (default %d)\n"
++         "    -A               start with selection disabled (`aged')\n"
+          "    -b baud-rate     sets the baud rate (default %d)\n"
+          "    -B sequence      allows changing the buttons (default '%s')\n"
+          "    -d delta         sets the delta value (default %d) (must be 2 or more)\n"
+@@ -225,65 +217,86 @@
+   return 1;
+ }
+ 
+-/*===================================================================*
+- * If "retain" is not 0, then a connection is open, and the fd is
+- * returned (used by "-q"). Otherwise, a check is performed
+- *-------------------------------------------------------------------*/
+-static int
+-check_uniqueness(int retain)
++/* itz Sat Sep 12 10:55:51 PDT 1998 Added this is replacement for the
++   unwanted functionality in check_uniqueness. */
++
++static void
++check_kill(void)
+ {
+-  struct sockaddr_un ctladdr;
+-  int ctlfd, pid, len; FILE *f;
++  int old_pid;
++  FILE* fp = fopen(GPM_NODE_PID, "r");
++
++  if (0 == fp) {
++    if (opt_kill) {
++      oops(GPM_NODE_PID);
++    } else {
++      return;
++    } /*if*/
++  } /*if*/
+   
+-  bzero((char *)&ctladdr,sizeof(ctladdr));
+-  ctladdr.sun_family=AF_UNIX;
+-  strcpy(ctladdr.sun_path, GPM_NODE_CTL);
+-  len=sizeof(ctladdr.sun_family)+strlen(GPM_NODE_CTL);
++  if (1 != fscanf(fp,"%d",&old_pid)) {
++    oops(GPM_NODE_PID);
++  } /*if*/
++  fclose(fp);
+ 
+-  if ( (ctlfd=socket(AF_UNIX,SOCK_STREAM,0))<0 )
+-    oops("socket()");
++  if (-1 == kill(old_pid,0)) {
++    gpm_debug_log(LOG_NOTICE, "Removing stale pid file %s",
++    GPM_NODE_PID);
++  } /*if*/
+ 
+-  if ( connect(ctlfd,(struct sockaddr *)(&ctladdr),len)>=0 || opt_kill)
+-    {
+-      if (retain) return ctlfd;
+-      /* another gpm is runnin, get its pid */
+-      f=fopen(GPM_NODE_PID,"r");
+-      if (f && fscanf(f,"%i",&pid)==1)
+-        {
+-	  if (opt_kill) 
+-	    {
+-              if (kill(pid,SIGUSR1)==-1) oops("kill()");
+-	    }
+-	  else
+-	    {
+-              gpm_oops(__FILE__,__LINE__,"%s is already running as pid %i",prgname, pid);
+-	    }
+-        }
+-      else
+-        {
+-	  oops(GPM_NODE_PID);
+-        }
+-    } /*if*/
++  if (opt_kill) {
++    kill(old_pid, SIGTERM);
++    exit(0);
++  } /*if*/
++}
+ 
+-  /* not connected, so I'm alone */
+-  if (retain) 
+-    { close(ctlfd); return -1; }
++/* itz Sat Sep 12 10:30:05 PDT 1998 this function used to mix two
++   completely different things; opening a socket to a running daemon
++   and checking that a running daemon existed.  Ugly. */
+ 
+-  if (opt_kill)
+-    {
+-      gpm_debug_log(LOG_NOTICE,"Nobody to kill");
+-      unlink(GPM_NODE_PID); /* just in case */
+-      exit(0);
+-    }
+-  return 0; /* never */
++static void
++check_uniqueness(void)
++{
++  static char tmp_pidfile [] = GPM_NODE_DIR "gpmXXXXXX";
++  FILE* fp = 0;
++
++  if (!mktemp(tmp_pidfile + strlen(GPM_NODE_DIR))) {
++    oops("mktemp()");
++  } /*if*/
++  if ((fp = fopen(tmp_pidfile,"w")) != NULL) {
++    fprintf(fp,"%d\n",getpid());
++    fclose(fp);
++  } else if (getuid()) {
++    gpm_oops(__FILE__,__LINE__,"you're not root, can you write to %s?",
++             GPM_NODE_DIR);
++  } else {
++    oops(tmp_pidfile);
++  } /*if*/
++
++  /* now, try to link it to the real pid name; if that fails, the
++     file already exists, meaning another instance of the daemon is
++     already running */
++
++  if (link(tmp_pidfile, GPM_NODE_PID) == -1) {
++    fp = fopen(GPM_NODE_PID, "r");
++    if (fp) {
++      int old_pid = -1;
++      fscanf(fp, "%d", &old_pid);
++      gpm_oops(__FILE__,__LINE__,"gpm already running as pid %d", old_pid);
++    } else {
++      oops(GPM_NODE_PID);
++    } /*if*/
++  } else {
++    unlink(tmp_pidfile);
++  } /*if*/
+ }
+ 
+ /*===================================================================*/
+ int 
+ cmdline(int argc, char **argv)
+ {
+-  char options[]="a:b:B:d:Dg:hi:kl:m:Mo:pqr:Rs:S:t:TvV::23";
+-  int i, opt, fd;
++  char options[]="a:Ab:B:d:Dg:hi:kl:m:Mo:pqr:Rs:S:t:TvV::23";
++  int i, opt;
+   FILE *f;
+   static struct {char *in; char *out;} seq[] = {
+     {"123","01234567"},
+@@ -308,6 +321,7 @@
+       switch (opt)
+         {
+         case 'a': opt_accel = atoi(optarg); break;
++        case 'A': opt_aged++; break;
+         case 'b': opt_baud = atoi(optarg); break;
+         case 'B': opt_sequence = optarg; break;
+         case 'd': opt_delta = atoi(optarg); break;
+@@ -357,10 +371,10 @@
+     }
+ 
+   openlog(prgname, LOG_PID, gpm_log_daemon ? LOG_DAEMON : LOG_USER);
++  check_kill();
+ 
+   if (!opt_quit) 
+     {
+-      check_uniqueness(0);
+       loadlut(opt_lut);
+     }
+   if (opt_repeater)
+@@ -393,10 +407,6 @@
+       if (!seq[opt].in) exit(usage("button sequence"));
+       opt_sequence=strdup(seq[opt].out); /* I can rewrite on it */
+ 
+-      /* now we can put the options */
+-      if (opt_quit) { exit(xfer_options(0,0)); }
+-
+-
+       /* look for the type */
+       for (m_type=mice; m_type->fun; m_type++)
+         if (!strcmp(opt_type,m_type->name)
+@@ -406,41 +416,13 @@
+       if (!(m_type->fun)) /* not found */
+         exit(M_listTypes());
+ 
+-      /* open the device with ndelay, to catch a locked device */
+-      if (opt_dev)
+-        {
+-          if (!strcmp(opt_dev,"-"))
+-            fd=0;
+-          else if ((fd=open(opt_dev,O_RDWR | O_NDELAY))<0)
+-            { oops(opt_dev); }
+-        }
+-      else /* use "/dev/mouse" */
+-        {
+-          opt_dev = "/dev/mouse";
+-          if ((fd=open(opt_dev,O_RDWR | O_NDELAY))<0)
+-            { oops(opt_dev); }
+-        }
++    } /*for*/
+ 
+-      /* and then reset the flag */
+-      fcntl(fd,F_SETFL,fcntl(fd,F_GETFL) & ~O_NDELAY);
+-
+-      /* init the device, and change mouse type */
+-      if (m_type->init)
+-        m_type=(m_type->init)(fd, m_type->flags, m_type);
+-      if (!m_type)
+-        { fprintf(stderr, "mouse initialization failed\n"); exit(1); }
+-
+-      if (opt_toggle)
+-        {
+-          unsigned int modem_lines;
+-
+-          ioctl(fd, TIOCMGET, &modem_lines);
+-          modem_lines &= ~opt_toggle;
+-          ioctl(fd, TIOCMSET, &modem_lines);
+-        }
+-
+-      which_mouse->fd=fd;
+-    }
++  /* now we can put the options */
++  if (opt_quit) {
++    int st = xfer_options();
++    exit(st);
++  } /*if*/
+ 
+   if (gpm_log_daemon) {         /* itz Wed Aug 12 15:44:37 PDT 1998 */
+                                 /* now a runtime option */
+@@ -459,26 +441,13 @@
+         oops("freopen(stderr) failed");
+       }
+     if (setsid()<0) oops("setsid()");
+-  } /*if*/
++    if (chdir("/")<0) oops("/");
+ 
+-  /* chdir */
+-  if (chdir(GPM_NODE_DIR) && mkdir(GPM_NODE_DIR,GPM_NODE_DIR_MODE))
+-    oops(GPM_NODE_DIR);
+-  if (chdir(GPM_NODE_DIR))
+-    oops(GPM_NODE_DIR);      /* well, I must create my directory first */
+-
+-  /* now sign */
+-  f=fopen(GPM_NODE_PID,"w");
+-  if (!f)
+-    {
+-      if (getuid()) {
+-        gpm_oops(__FILE__,__LINE__,"you're not root, can you write to %s?",
+-                 GPM_NODE_DIR);
+-      } /*if*/
+-    } /*if*/
+-  fprintf(f,"%i\n",getpid());
+-  fclose(f);
+-  gpm_debug_log(LOG_INFO,"Signed");
++    /* now sign */
++    check_uniqueness();
++    gpm_debug_log(LOG_INFO,"Signed");
++
++  } /*if*/
+ 
+   /*
+    * well, I used to create a symlink in the /tmp dir to be compliant with old
+--- gpm-1.15.5/mice.c	Fri Aug 28 00:25:06 1998
++++ mice.c	Mon Sep 14 18:05:21 1998
+@@ -21,7 +21,7 @@
+  *   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+  ********/
+ 
+-static char rcsid[] = "$Id: mice.c,v 1.6 1998/08/14 20:51:42 itz Exp itz $";
++static char rcsid[] = "$Id: mice.c,v 1.7 1998/09/15 01:05:21 itz Exp $";
+ 
+ /*
+  * This file is part of the mouse server. The information herein
+--- gpm-1.15.5/liblow.c	Fri Aug 28 00:25:06 1998
++++ liblow.c	Tue Sep  1 22:24:03 1998
+@@ -22,7 +22,7 @@
+  *   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+  ********/
+ 
+-static char rcsid[] = "$Id: liblow.c,v 1.3 1998/08/20 06:32:40 itz Exp $";
++static char rcsid[] = "$Id: liblow.c,v 1.4 1998/09/02 05:24:02 itz Exp $";
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
+@@ -474,15 +474,13 @@
+ #define DELAY_MS 100
+         static struct timeval to={0,DELAY_MS*1000};
+         static fd_set selSet;
+-        static int prevchar=EOF;
++#define MAXNBPREVCHAR 4         /* I don't think more is usefull, JD */
++        static int nbprevchar=0, prevchar[MAXNBPREVCHAR];
+         extern gpm_convert_event(char *data, Gpm_Event *event);
+         int c; char mdata[4];
+ 
+-        if ((c=prevchar)!=EOF)  /* if ungetc() didn't suffice... */
+-          {
+-            prevchar=EOF;
+-            return c;
+-          }
++        if (nbprevchar)  /* if there are some consumed char ... */
++          return prevchar[--nbprevchar];
+ 
+         while(1)
+           {
+@@ -501,14 +499,15 @@
+             if ((flag=select(fd+1,&selSet,(fd_set *)NULL,(fd_set *)NULL,&to))==0)
+               return c;
+             if ((c=fgetc(f))!='[')
+-              {ungetc(c,f); return 0x1B;}
++              {prevchar[nbprevchar++]=c; return 0x1B;}  /* patche par JD 11/08/1998 */
+ 
+             /* '[': go on */
+             FD_ZERO(&selSet); FD_SET(fd,&selSet); to.tv_usec=DELAY_MS*1000;
+             if ((flag=select(fd+1,&selSet,(fd_set *)NULL,(fd_set *)NULL,&to))==0)
+-              {ungetc(c,f); return 0x1B;}
++              {prevchar[nbprevchar++]=c; return 0x1B;}  /* patche par JD 11/08/1998 */
+             if ((c=fgetc(f))!='M')
+-              {ungetc(c,f);prevchar='['; return 0x1B;}
++              /* patche par JD 11/08/1998 NOTICE: prevchar is a lifo !*/
++              {prevchar[nbprevchar++]=c; prevchar[nbprevchar++]='['; return 0x1B;}
+             
+             /* now, it surely is a mouse event */
+ 
+--- gpm-1.15.5/libxtra.c	Fri Aug 28 00:25:06 1998
++++ libxtra.c	Sat Sep 12 23:26:14 1998
+@@ -21,7 +21,7 @@
+  *   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+  ********/
+ 
+-static char rcsid[] = "$Id: libxtra.c,v 1.3 1998/07/02 03:58:40 itz Exp $";
++static char rcsid[] = "$Id: libxtra.c,v 1.8 1998/09/13 06:26:14 itz Exp $";
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
+@@ -40,7 +40,7 @@
+  */
+ 
+ static char *gpml_ver_s=GPM_RELEASE;
+-static int  gpml_ver_i;
++static int  gpml_ver_i = 0;
+ 
+ char *Gpm_GetLibVersion(int *where)
+ {
+@@ -56,7 +56,7 @@
+ }
+ 
+ static char gpm_ver_s[16];
+-static int  gpm_ver_i;
++static int  gpm_ver_i = 0;
+ 
+ char *Gpm_GetServerVersion(int *where)
+ {
+@@ -66,10 +66,10 @@
+ 
+   if (!gpm_ver_s[0])
+     {
+-      f=popen("gpm -v","r");
++      f=popen(SBINDIR "/gpm -v","r");
+       if (!f) return NULL;
+       fgets(line,128,f);
+-      pclose(f);
++      if (pclose(f)) return 0;
+       sscanf(line,"%*s %s",gpm_ver_s);  /* "gpm-Linux 0.98, March 1995" */
+       gpm_ver_s[strlen(gpm_ver_s)-1]='\0'; /* cut the ',' */
+ 
+@@ -80,7 +80,6 @@
+   if (where) *where=gpm_ver_i;
+   return gpm_ver_s;
+ }
+-
+ 
+ /*-------------------------------------------------------------------*/
+ /*
+--- gpm-1.15.5/mev.c	Fri Aug 28 00:25:06 1998
++++ mev.c	Sat Sep 12 23:23:15 1998
+@@ -2,6 +2,7 @@
+  * mev.c - simple client to print mouse events (gpm-Linux)
+  *
+  * Copyright 1994,1995   rubini@linux.it (Alessandro Rubini)
++ * Copyright (C) 1998 Ian Zimmerman <itz@rahul.net>
+  *
+  *   This program is free software; you can redistribute it and/or modify
+  *   it under the terms of the GNU General Public License as published by
+@@ -17,6 +18,8 @@
+  *   along with this program; if not, write to the Free Software
+  *   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+  ********/
++
++static char rcsid[] = "$Id: mev.c,v 1.3 1998/09/13 06:23:15 itz Exp $";
+ 
+ /*
+  * This client is meant to be used both interactively to check
+--- gpm-1.15.5/mouse-test.c	Fri Aug 28 00:25:06 1998
++++ mouse-test.c	Wed Sep  2 10:10:57 1998
+@@ -19,7 +19,7 @@
+  *   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+  ********/
+ 
+-static char rcsid[] = "$Id: mouse-test.c,v 1.2 1998/07/02 04:12:58 itz Exp $";
++static char rcsid[] = "$Id: mouse-test.c,v 1.3 1998/09/02 17:10:47 root Exp $";
+ 
+ /* This code is horrible. Browse it at your risk */
+ 
+@@ -132,9 +132,12 @@
+ 
+ struct device **makedev(struct device **current, char *name)
+ {
+-  int fd;
+-  if ((fd=open(name,O_RDWR))==-1)
++  int fd; int modes;
++  if ((fd=open(name,O_RDWR|O_NONBLOCK))==-1)
+     { perror(name); return current; }
++  modes = fcntl(fd, F_GETFL);
++  if (0 > fcntl(fd, F_SETFL, modes & ~O_NONBLOCK))
++    { close(fd); perror(name); return current; }
+ 
+   *current=malloc(sizeof(struct device));
+   if (!*current) oops("malloc()");
+--- gpm-1.15.5/libcurses.c	Fri Aug 28 00:25:06 1998
++++ libcurses.c	Sat Sep 12 23:36:15 1998
+@@ -42,15 +42,6 @@
+ 
+ #define GET(win) ((win) ? wgetch(win) : getch())
+ 
+-#ifdef __ELF__
+-#ifdef PIC
+-#ifdef HAVE_GNU_STABS_H
+-#include <gnu-stabs.h>
+-weak_symbol(wgetch);
+-#endif /* HAVE_GNU_STABS_H */
+-#endif /* PIC */
+-#endif /* __ELF__ */
+-
+ int Gpm_Wgetch(WINDOW *win)
+ {
+ fd_set selSet;
+@@ -99,15 +90,22 @@
+ #define DELAY_MS 100
+     static struct timeval to={0,DELAY_MS*1000};
+     static fd_set selSet;
+-    static int prevchar=EOF;
++/* JD patch 11/08/1998 */
++#define MAXNBPREVCHAR 4         /* I don't think more is usefull, JD */
++    static int nbprevchar=0, prevchar[MAXNBPREVCHAR];
+     extern gpm_convert_event(char *data, Gpm_Event *event);
+     int c; char mdata[4];
+ 
+-    if ((c=prevchar)!=EOF)  /* if ungetc() didn't suffice... */
++/* JD patch 11/08/1998 */
++  if (nbprevchar)  /* if there are some consumed char ... */
++        return prevchar[--nbprevchar];
++/* if ungetc() didn't suffice... */
++/*    if ((c=prevchar)!=EOF)
+       {
+       prevchar=EOF;
+       return c;
+       }
++*/
+ 
+     while(1)
+       {
+@@ -126,14 +124,21 @@
+       if ((flag=select(fd+1,&selSet,(fd_set *)NULL,(fd_set *)NULL,&to))==0)
+ 	return c;
+       if ((c=GET(win))!='[')
+-	{ungetc(c,stdin); return 0x1B;}
++        {prevchar[nbprevchar++]=c; return 0x1B;}  /* patche par JD 11/08/1998 */
++	/* {ungetc(c,stdin); return 0x1B;} */
+ 
+       /* '[': go on */
+       FD_ZERO(&selSet); FD_SET(fd,&selSet); to.tv_usec=DELAY_MS*1000;
++
+       if ((flag=select(fd+1,&selSet,(fd_set *)NULL,(fd_set *)NULL,&to))==0)
+-	{ungetc(c,stdin); return 0x1B;}
++        {prevchar[nbprevchar++]=c; return 0x1B;}  /* patche par JD 11/08/1998 */
++	/* {ungetc(c,stdin); return 0x1B;} */
++
+       if ((c=GET(win))!='M')
+-	{ungetc(c,stdin);prevchar='['; return 0x1B;}
++	/* patche par JD 11/08/1998 NOTICE: prevchar is a lifo !*/
++        {prevchar[nbprevchar++]=c; prevchar[nbprevchar++]='['; return 0x1B;}
++	/* {ungetc(c,stdin);prevchar='['; return 0x1B;} */
++
+ 
+       /* now, it surely is a mouse event */
+ 
+--- gpm-1.15.5/gpm.h	Fri Aug 28 00:25:06 1998
++++ gpm.h	Sat Sep 12 23:24:35 1998
+@@ -22,7 +22,7 @@
+ #ifndef _GPM_H_
+ #define _GPM_H_
+ 
+-/* $Id: gpm.h,v 1.2 1998/07/01 19:16:49 itz Exp $ */
++/* $Id: gpm.h,v 1.6 1998/09/13 06:24:35 itz Exp $ */
+ 
+ #include <paths.h>              /* _PATH_VARRUN etc. */
+ 
+@@ -31,6 +31,7 @@
+ #endif
+ 
+ /*....................................... Xtermish stuff */
++
+ #define GPM_XTERM_ON \
+   printf("%c[?1001s",27), fflush(stdout), /* save old hilit tracking */ \
+   printf("%c[?1000h",27), fflush(stdout) /* enable mouse tracking */
+--- gpm-1.15.5/gpmInt.h	Fri Aug 28 00:25:06 1998
++++ gpmInt.h	Sat Sep 12 23:27:16 1998
+@@ -22,7 +22,7 @@
+ #ifndef _GPMINT_INCLUDED
+ #define _GPMINT_INCLUDED
+ 
+-/* $Id: gpmInt.h,v 1.3 1998/07/02 03:15:55 itz Exp $ */
++/* $Id: gpmInt.h,v 1.8 1998/09/13 06:27:16 itz Exp $ */
+ 
+ #include "gpmCfg.h"
+ #include "gpm.h"
+@@ -115,6 +115,7 @@
+ extern int opt_kill;
+ extern int opt_repeater, opt_double;
+ extern int opt_kernel, opt_explicittype;
++extern int opt_aged;
+ extern char *opt_special;
+ extern int fifofd;
+ extern char *consolename; /* the selected one */
+@@ -129,7 +130,6 @@
+ int main(int argc, char **argv);
+ 
+        /* gpn.c */
+-int xfer_options(int direction, int fd);
+ #define oops(s) gpm_oops(__FILE__, __LINE__,(s))
+ int cmdline(int argc, char **argv);
+ int giveInfo(int request, int fd);
+--- gpm-1.15.5/twiddler.h	Fri Aug 28 00:25:06 1998
++++ twiddler.h	Tue Sep  1 22:21:34 1998
+@@ -46,7 +46,7 @@
+ #define TW_M_MASK 0x1FF /* mask of movement bits, after shifting */
+ #define TW_M_BIT  0x100
+ 
+-#define TW_SYSTEM_FILE SYSCONFDIR "/etc/gpm-twiddler.conf"
+-#define TW_CUSTOM_FILE SYSCONFDIR "/etc/gpm-twiddler.user"
++#define TW_SYSTEM_FILE SYSCONFDIR "/gpm-twiddler.conf"
++#define TW_CUSTOM_FILE SYSCONFDIR "/gpm-twiddler.user"
+ 
+ 
+--- gpm-1.15.5/t-mouse.el	Fri Aug 28 00:25:06 1998
++++ t-mouse.el	Tue Sep  8 14:06:28 1998
+@@ -53,6 +53,11 @@
+ (defvar t-mouse-prev-set-selection-function 'x-set-selection)
+ (defvar t-mouse-prev-get-selection-function 'x-get-selection)
+ 
++(defvar t-mouse-swap-alt-keys nil
++  "When set, Emacs will handle mouse events with the right Alt
++(a.k.a. Alt-Ger) modifier, not with the regular left Alt modifier.
++Useful for people who play strange games with their keyboard tables.")
++
+ 
+ ;;; Code:
+ 
+@@ -297,7 +302,9 @@
+     (setq t-mouse-process 
+           (start-process "t-mouse" nil
+                          "mev" "-i" "-E" "-C" tty
+-                         "-M-rightAlt" "-e-move" "-dall" "-d-hard"
++                         (if t-mouse-swap-alt-keys
++                             "-M-leftAlt" "-M-rightAlt")
++                         "-e-move" "-dall" "-d-hard"
+                          "-f")))
+   (setq t-mouse-filter-accumulator "")
+   (set-process-filter t-mouse-process 't-mouse-process-filter)
+--- gpm-1.15.5/Makefile.in	Fri Aug 28 00:25:06 1998
++++ Makefile.in	Mon Sep 14 18:06:27 1998
+@@ -3,7 +3,7 @@
+ # Copyright 1994,1997  rubini@linux.it
+ # Copyright 1997       dickey@clark.net
+ # Copyright (C) 1998 Ian Zimmerman <itz@rahul.net>
+-# $Id: Makefile.in,v 1.17 1998/08/28 06:39:55 itz Exp $
++# $Id: Makefile.in,v 1.24 1998/09/15 01:06:27 itz Exp $
+ #
+ 
+ SHELL = /bin/sh
+@@ -16,6 +16,7 @@
+ exec_prefix = @exec_prefix@
+ 
+ libdir = @libdir@
++datadir = @datadir@
+ bindir = @bindir@
+ sbindir = @sbindir@
+ includedir = @includedir@
+@@ -42,17 +43,17 @@
+ ETAGS = etags
+ TAR = tar
+ SED = sed
+-
++DIFF = diff
+ 
+ # Main portion: regular build rules
+ 
+ GSRC = gpm.c gpn.c mice.c special.c twiddler.c 
+ 
+-GOBJ = $(GSRC:.c=.o) debuglog.o
++GOBJ = $(GSRC:.c=.o) debuglog.o liblow.o
+ 
+-LSRC = liblow.c libhigh.c libxtra.c libcurses.c 
++LSRC = liblow.c libhigh.c libxtra.c 
+ 
+-LOBJ = $(LSRC:.c=.o) debuglog.o
++LOBJ = $(LSRC:.c=.o) debuglog.o @CURSES_OBJS@
+ 
+ PICS = $(LOBJ:.o=.pic.o)
+ 
+@@ -64,7 +65,7 @@
+ 
+ PROG = $(POBJ:.o=)
+ 
+-SRCS = $(GSRC) $(LSRC) $(PSRC) debuglog.c 
++SRCS = $(GSRC) $(LSRC) $(PSRC) debuglog.c libcurses.c
+ 
+ DEPS = $(SRCS:.c=.d) gpm-root.d
+ 
+@@ -172,8 +173,8 @@
+ 
+ # Configure & unconfigure
+ 
+-# because twiddler.h and gpm-root.y uses SYSCONFDIR
+-gpm-root.o twiddler.o:	Makefile
++# because twiddler.h and gpm-root.y uses SYSCONFDIR & gpn.o uses RELEASE & libxtra uses SBINDIR
++libxtra.o libxtra.pic.o gpn.o gpm-root.o twiddler.o:	Makefile
+ 
+ Makefile:	config.status Makefile.in
+ 	$(SHELL) config.status
+@@ -195,8 +196,9 @@
+ 	@echo 'deletes files that may need special tools to rebuild.'
+ 
+ maintainer-clean:	barf distclean do-maintainer-clean
+-	cd $(srcdir) && \
+-	rm -i `ls configure TAGS t-mouse.elc gpm-root.c gpm-@release@.tar.gz 2>/dev/null`
++	-cd $(srcdir) && \
++	rm -i `ls configure TAGS t-mouse.elc gpm-root.c \
++	 gpm-@release@.tar.gz gpm-*-to-@release@.diff 2>/dev/null`
+ 
+ TAGS:	$(SRCS) $(HDRS) gpm-root.y do-TAGS
+ 	cd $(srcdir) && $(ETAGS) -o TAGS $(SRCS) $(HDRS) gpm-root.y
+@@ -218,6 +220,18 @@
+ 	$(TAR) cf gpm-@release@.tar gpm-@release@
+ 	gzip gpm-@release@.tar
+ 
++DIFFS = $(SRCS) $(HDRS) gpm-root.y exec.el t-mouse.el gpm-root.conf \
++	gpm-twiddler.conf Makefile.in configure.in aclocal.m4 \
++	install.sh mkinstalldirs create_vcs Announce COPYING ChangeLog \
++	FAQ README README.twiddler doc/Makefile.in doc/doc.gpm \
++	doc/infofilter doc/localstyle.tex doc/manpager doc/mktxt \
++	sample/Makefile.in sample/README sample/configure.in \
++	sample/gpm-xterm.c sample/gpm-xterm.h sample/rmev.c
++
++gpm-%-to-@release@.diff:	$(DIFFS) gpm-%
++	for i in $(DIFFS); do \
++		$(DIFF) -u gpm-$*/$$i $$i >>$@ ;\
++	done		
+ 
+ # Subdirectory recursion magic
+ 
+--- gpm-1.15.5/configure.in	Fri Aug 28 00:25:06 1998
++++ configure.in	Sun Sep 13 00:09:38 1998
+@@ -3,9 +3,9 @@
+ 
+ AC_INIT(gpmCfg.h)
+ AC_PREREQ(2.12)
+-AC_REVISION($Id: configure.in,v 1.17 1998/08/28 07:23:09 itz Exp $)
++AC_REVISION($Id: configure.in,v 1.21 1998/09/13 07:09:38 itz Exp $)
+ 
+-release=1.15.5
++release=1.15.6
+ AC_DEFINE_UNQUOTED(GPM_RELEASE,"$release")
+ AC_DEFINE_UNQUOTED(RMEV_RELEASE,"$release")
+ 
+@@ -33,6 +33,14 @@
+ fi
+ 
+ AC_CHECK_HEADERS(syslog.h linux/joystick.h ncurses.h ncurses/curses.h curses.h)
++if test ${ac_cv_header_ncurses_h} = yes || 
++   test ${ac_cv_header_ncurses_curses_h} = yes ||
++   test ${ac_cv_header_curses_h} = yes ; then
++        CURSES_OBJS=libcurses.o
++else
++        CURSES_OBJS=
++fi
++
+ AC_CHECK_HEADERS(gnu-stabs.h sys/sysmacros.h linux/major.h)
+ AC_CHECK_TYPE(__u32,unsigned)
+ 
+@@ -54,10 +62,11 @@
+ AC_SUBST(SHLIB)
+ AC_SUBST(PICFLAGS)
+ AC_SUBST(SOLDFLAGS)
++AC_SUBST(CURSES_OBJS)
+ lispdir='${datadir}/emacs/site-lisp'
+ AC_SUBST(lispdir)
+ 
+-CPPFLAGS='-I$(srcdir) -I$(top_srcdir) $(DEFS) -DSYSCONFDIR=\"$(sysconfdir)\"'
++CPPFLAGS='-I$(srcdir) -I$(top_srcdir) $(DEFS) -DSYSCONFDIR=\"$(sysconfdir)\" -DSBINDIR=\"$(sbindir)\"'
+ LDFLAGS='-L$(top_builddir)'
+ 
+ AC_OUTPUT(Makefile doc/Makefile sample/Makefile)
+--- gpm-1.15.5/ChangeLog	Fri Aug 28 00:25:06 1998
++++ ChangeLog	Mon Sep 14 18:17:18 1998
+@@ -1,3 +1,112 @@
++Mon Sep 14 18:03:45 1998  Ian T Zimmerman  <itz@rahul.net>
++
++	* doc/Makefile.in (gv): Replace "$(TARGET)" with "gpm".
++
++	* Makefile.in (gpm-%-to-@release@.diff): Added rule to create a
++	diff from snapshot of previous release.
++
++	* mice.c: Reapply Edmund Grimley Evans' patch with new mouse types
++	ms+ and ms-lr which get lost somewhere.
++
++Sun Sep 13 00:08:54 1998  Ian T Zimmerman  <itz@rahul.net>
++
++	* configure.in: Set CURSES_OBJS dependent on finding the curses header.
++
++Sat Sep 12 10:53:54 1998  Ian T Zimmerman  <itz@rahul.net>
++
++	* Makefile.in (LOBJ): Make the buliding of libcurses.o decided by
++	configure again.
++
++	* libcurses.c (Gpm_Wgetch): Remove the ELF assembler-dependent
++	wgetch hack again, as it is not really needed as long as clients
++	are linked statically.
++
++	* gpm.c (processRequest): Removed GPM_REQ_CLEAR again, now that its
++	functionality is available with the -A flag and opt_aged.
++
++	* gpmInt.h:  Removed GPM_REQ_CLEAR again, now that its
++ 	functionality is available with the -A flag and opt_aged.
++
++	* libxtra.c: Removed Gpm_ClearSelection() again, now that its
++ 	functionality is available with the -A flag and opt_aged.
++
++	* gpm.h: Removed Gpm_ClearSelection() again, now that its
++ 	functionality is available with the -A flag and opt_aged.
++
++	* mev.c (interact): Removed "clear" command again, now that its
++	functionality is available with the -A flag and opt_aged.
++
++	* gpmInt.h: Change signature of xfer_options().
++	Remove it altogether, it's better static and split to gpn.c and
++	gpm.c.
++	Add opt_aged.
++
++	* gpn.c (check_uniqueness): Completely rewritten.  This function
++	was a messy mixture of different things.
++
++Wed Sep  9 09:50:59 1998  Ian T Zimmerman  <itz@rahul.net>
++
++	* libxtra.c (Gpm_GetServerVersion): Provide explicit path for
++	popen of gpm daemon.
++
++	* sample/Makefile.in (rmev.o): Added target because of usage of
++	RMEV_RELEASE. 
++	(prefix): Looks like this has to be done in _every_ Makefile,
++	sigh.  Even if it is not used explicitly, configure subsitutes
++	e.g. "@sysconfdir@" with "$(prefix)/etc".
++	(sysconfdir): Added sysconfdir.
++
++	* Makefile.in (gpn.o gpm-root.o twiddler.o): gpn.o added to this
++	target because it uses RELEASE symbol substituted by configure.
++
++Tue Sep  8 14:04:44 1998  Ian T Zimmerman  <itz@rahul.net>
++
++	* mev.c (interact): Added case for "clear" command.
++
++	* libxtra.c (Gpm_ClearSelection): Added.
++
++	* gpmInt.h (GPM_REQ_CLEAR): Added (rubino's objection overruled;
++	the gpm protocol is not really ugly, it's the code that is, in
++	effect casting the data exchanged to Gpm_Conn and Gpm_Event.  It
++	could be coded cleanly or even fixed from present state, but don't
++	hold your breath, you could suffocate.)
++
++	* gpm.h: Add Gpm_ClearSelection.
++
++	* t-mouse.el (t-mouse-swap-alt-keys): Added.  This is what is
++ 	called "personal variable" :-) I swap the left and right Alt keys
++ 	in my Linux keytable, but I still want Emacs to handle left-Alt
++ 	events.
++
++Wed Sep  2 00:09:42 1998  Ian T Zimmerman  <itz@rahul.net>
++
++	* doc/Makefile.in (maintainer-clean): Ignore errors because the file
++	list can be empty.
++
++	* sample/Makefile.in (maintainer-clean): -rm -i for uniformity.
++
++	* Makefile.in (maintainer-clean): Ignore errors because the file
++	list can be empty.
++
++	* mouse-test.c (makedev): Add O_NONBLOCK to open ttyS devices
++	(otherwise the program hangs in this function, at least on my
++	system).
++
++	* doc/doc.gpm (gpm-root): Use @file at several places in
++	preference to other markup.  Fix several other general
++	documentation bugs, mostly referring to obsolete (non-)features. 
++
++	* doc/Makefile.in (.SECONDARY): Need both %.ps and gpm.ps ---
++	looks like a gmake bug.
++
++	* sample/gpm-xterm.h: Applied patch by Jean-Daniel
++ 	<jd@univ-lyon1.fr> for looking back when scanning arrow key
++ 	sequences.
++
++	* Makefile.in (datadir): Oops, need to define this if I define
++	elispdir.  GNU standard document a little incomplete on this
++	point. 
++
+ Fri Aug 28 00:06:05 1998  Ian T Zimmerman  <itz@rahul.net>
+ 
+ 	* configure.in: Oops, autoconf hates newlines between filenames in
+--- gpm-1.15.5/doc/Makefile.in	Fri Aug 28 00:25:06 1998
++++ doc/Makefile.in	Mon Sep 14 18:16:39 1998
+@@ -19,6 +19,7 @@
+ top_srcdir = @top_srcdir@
+ top_builddir = ..
+ 
++prefix = @prefix@
+ mandir = @mandir@
+ man1dir = $(mandir)/man1
+ man8dir = $(mandir)/man8
+@@ -88,7 +89,7 @@
+ 	cd $(srcdir) && ./manpager doc.gpm
+ 
+ $(srcdir)/gpmdoc.ps:	gpm.ps
+-	mv $< $@
++	cp $< $@
+ 
+ mostlyclean:	
+ 	rm -f *~ gpm.dvi gpm.log gpm.aux 
+@@ -133,7 +134,7 @@
+ TAGS:
+ 
+ maintainer-clean:	distclean 
+-	cd $(srcdir) && \
++	-cd $(srcdir) && \
+ 	rm -i `ls gpmdoc.ps gpm.info gpmdoc.txt gpm.8 mev.1 gpm-root.1`
+ 
+ DIST = gpmdoc.ps gpm.info gpmdoc.txt gpm.8 mev.1 gpm-root.1 manpager \
+@@ -147,15 +148,12 @@
+ 		cp $(srcdir)/$$i $(top_builddir)/gpm-@release@/doc/$$i ;\
+ 	done
+ 
++.PRECIOUS:	%.texinfo
++.SECONDARY:	gpm.ps %.ps
+ 
+-.SECONDARY:	gpm.ps
+-
+-check: _err.ps
+-	gs -sDEVICE=linux -r320x200x16 $<
+-
+-gs: $(TARGET).ps
++gs: gpm.ps
+ 	gs -sDEVICE=linux -r640x480x2 $<
+ 
+-gv: $(TARGET).ps
+-	ghostview $(TARGET).ps -magstep -1 -a4
++gv: gpm.ps
++	ghostview gpm.ps -magstep -1 -a4
+ 
+--- gpm-1.15.5/doc/doc.gpm	Fri Aug 28 00:25:06 1998
++++ doc/doc.gpm	Sat Sep 12 23:20:13 1998
+@@ -47,7 +47,7 @@
+ @setchapternewpage off
+ 
+ @set version 1.15    %RELEASE
+-@set update-month July 1998
++@set update-month September 1998
+ 
+ @c allow changing the predefined style
+ @tex
+@@ -305,6 +305,16 @@
+         Set the acceleration value used when a single motion event is
+         longer than @var{delta} (see -d). 
+ 
++@item -A 
++        Start up with selection pasting disabled.  This is intended as a
++        security measure; a plausible attack on a system seems to be to
++        stuff a nasty shell command into the selection buffer
++        (@code{rm -rf /}) including the terminating line break, then all the
++        victim has to do is click the middle mouse button ..  With time,
++        we hope to develop this into a more general aging mechanism; the
++        gpm daemon will disable (@emph{age}) selection pasting
++        automatically after a period of inactivity.
++
+ @item -b @var{baud}
+         Set the baud rate.
+ 
+@@ -376,12 +386,13 @@
+         The default is not to show the pointer, which can be confusing as well.
+ 
+ @item -q
+-        Quit after changing mouse behaviour. This is intended to allow users
+-        to change the mouse ``feeling'' (@t{-a}, @t{-B}, @t{-d}, @t{-i},
+-        @t{-l}, @t{-p}, @t{-r}) without restarting the server. Since this
+-        needs root permissions, the system administrators can use the
+-        `set-uid' bits to enable/disable such capability. Changing mouse
+-        parameters is nonetheless only allowed from one of the virtual
++        Quit after changing mouse behaviour. This is intended to allow
++        users to change the mouse ``feeling'' (@t{-a}, @t{-B}, @t{-d},
++        @t{-i}, @t{-l}, @t{-p}, @t{-r}, @t{-V}, @t{-A}) without
++        restarting the server. Since this needs root permissions, the
++        system administrators can use the `set-uid' bits to
++        enable/disable such capability. Changing mouse parameters is
++        nonetheless only allowed from one of the virtual
+         consoles. Options are transferred only for the first mouse.
+ 
+ @item -r @var{number}
+@@ -417,10 +428,10 @@
+         Raise the maximum level of messages that will be logged.  Thus 
+         a positive argument has the effect of making the program more
+         verbose.  One can also give a negative argument to hush the
+-        program; however, note that due to getopt(3) rules a negative
++        program; however, note that due to @code{getopt(3)} rules a negative
+         argument must follow the option with no space betwixt (that is,
+         @t{-V-1} but not @t{-V -1}.  The argument is optional and its
+-        default value is 1.
++        default value is 1. @xref{Program Arguments,,,libc}.
+ 
+ @item -2
+         Force two buttons. This means that the middle button, if any,
+@@ -506,7 +517,7 @@
+ .SH MAINTAINERS
+ 
+ Beginning with version 1.14 I release exclusive maintainance. Ian
+-Zimmermann and Prosa Inc. are going to support gpm development. The
++Zimmerman and Prosa Inc. are going to support gpm development. The
+ official contact point is now the mailing list @t{gpm@animal.unipv.it},
+ thanks to my University which generously hosts gpm discussions. The list
+ is managed by SmartList and anyone is welcome.
+@@ -543,7 +554,7 @@
+ interested in, and to get mouse events.
+ 
+ When no clients are connected to the active console, the server runs
+-the selection mechanism (cut and paste of text).  The election
++the selection mechanism (cut and paste of text).  The selection
+ mechanism is a simple and well-designed application, whose behaviour
+ can be cloned by clients, by telling the server to inherit the default
+ response for certain mouse events (@var{motion} being the most
+@@ -599,8 +610,10 @@
+ 
+ @item short x, y;
+ 	The position of the mouse pointer where the event
+-	is reported. Is is 1-based, to be compatible with @code{selection}
+-        and @code{libcurses}.
++	is reported. It is 1-based by default, to be compatible with
++        @code{selection} and @code{libcurses}.  This behavior can be
++        overriden, though, by setting the library variable
++        @code{gpm_zerobased}.  @xref{Variables}.
+ 
+ @item short dx, dy;
+ 	The change in position since the last reported
+@@ -842,7 +855,7 @@
+ multiple programs using suspend-resume (thanks Ian).
+ 
+ In addition to the per-console stacks, another stack is there to store
+-default-handling clients. xref @xref{Default Handlers}.
++default-handling clients. @xref{Default Handlers}.
+ 
+ Each client registers with the server and tells which events it is
+ interested in. Events not managed by the client can be handled by the
+@@ -892,7 +905,7 @@
+ 
+ Keyboard modifiers are used to multiplex clients on the same virtual
+ console. You (as a programmer) don't need to care about the internal
+-workings (which are detailed in ref @xref{Default Handlers}), but only
++workings (which are detailed in @ref{Default Handlers}), but only
+ need to choose the right values for your application.
+ 
+ Ecamples:
+@@ -1105,7 +1118,7 @@
+ 	Since selection and curses has always been one-based,
+ 	this variable, zero by default, can be used to trigger zero-based
+ 	coordinates in event reporting. It must be set before opening the mouse
+-	connection, and never changed later.
++	connection, and never changed later. @xref{Events}.
+ @vindex gpm_visiblepointer
+ @item int gpm_visiblepointer
+         If not zero, causes the mouse cursor to be always visible on the
+@@ -1116,10 +1129,11 @@
+ @itemx gpm_my
+         These variables (max X and max Y) are used when fitting events
+         inside the screen.  They are initalized by @t{Gpm_Open}, and
+-        never touched any more.  If your application installs a signal
+-        handler for @t{SIGWINCH}, it should modify these variables. I
+-        don't want the client library to install a signal
+-        handler (although 1.11 handlet TSTP).
++        updated by a @code{SIGWINCH} handler internal to the library.
++        (Don't worry, the library doesn't @emph{replace} any
++        @code{SIGWINCH} handler your program may already have installed;
++        instead the library @emph{hooks} the signal, that is, it calls
++        any preexisting handler after taking care of its own needs.)
+ @vindex gpm_hflag
+ @item int gpm_hflag
+ 	Used to signal if a character has been generated
+@@ -1146,9 +1160,10 @@
+ @deftypefun int Gpm_Open (Gpm_Connect *@var{conn}, int @var{flag});
+ @findex Gpm_Open
+ 
+-Open a connection with the server. The @var{conn} parameter points to the
+-connection information for the being-created connection, as already described.
+-It is passed to the server after filling the @code{pid} and @code{vc} fields.
++Open a connection with the server.  The @var{conn} parameter points to
++the connection information for the being-created connection, as already
++described.  @xref{Connection Details}.  It is passed to the server after
++filling the @code{pid} and @code{vc} fields.
+ 
+ @var{flag} should be @code{0} for normal applications, those interested
+ in events related to their own console. The own console is considered to
+@@ -1265,8 +1280,7 @@
+ bit will be available in the future to force the pointer in the visible
+ region.
+ 
+-Note that fitting uses @t{gpm_mx} and @t{gpm_my}, which you should
+-update when necessary. @xref{Variables}.
++Note that fitting uses @t{gpm_mx} and @t{gpm_my}. @xref{Variables}.
+ @end deftypefun
+ 
+ %--------------------------------------------------------------------------
+@@ -1327,13 +1341,14 @@
+ @node High Level Lib, Xterm, Low Level Library, The ClientLib
+ @section High Level Library
+ 
+-The high level library is part of the main @t{libgpm.a}, but it
+-acts at a different level of abstraction. The high level library depends
+-in the lowe-level one, so if you link your application with any object
+-of the high-level library, you're forced to link in the low-level one too.
+-
+-If your application runs under xterm, however @t{gpm-xterm} offers all the
+-needed functionality.
++The high level library is part of the main @t{libgpm.a}, but it acts at
++a different level of abstraction. The high level library depends in the
++low-level one, so if you link your application with any object of the
++high-level library, you're forced to link in the low-level one too.
++
++If your application @emph{only} runs under xterm, please see
++@t{gpm-xterm} in the @file{sample} subdirectory of the distribution,
++which offers all the needed functionality.
+ 
+ The main role of the high-level library is to define a way to manage
+ windows (or "Regions of Interest" on your text screen). The regions
+@@ -1504,10 +1519,10 @@
+ 
+ As of release 0.18, @t{gpm}-based applications can run under xterm
+ without any need for recompilation. The library is designed to convert
+-xterm mouse events to gpm-style structures, so that the client will
+-get the same events it got under the Linux console. Moreover,
+-a source file (@t{gpm-xterm.c}) is available to mimick libgpm under
+-a different OS than Linux. Porting to other text-based consoles is an open
++xterm mouse events to gpm-style structures, so that the client will get
++the same events it got under the Linux console. Moreover, a source file
++@file{sample/gpm-xterm.c} is available to mimick libgpm under a
++different OS than Linux. Porting to other text-based consoles is an open
+ issue, but I myself have Linux alone.
+ 
+ The goal is to provide a uniform mouse interface with both xterm and the
+@@ -1557,15 +1572,15 @@
+ %M The information below is extracted from the texinfo file, which is the
+ %M preferred source of information.
+ 
+-The @code{mev} program is modeled after @code{xev}. It prints to @code{stdout} the
++The @t{mev} program is modeled after @t{xev}. It prints to @code{stdout} the
+ console events it gets, both keyboard and mouse events.
+ 
+-@code{mev}'s default behaviour is to get anything, but command line switches
++@t{mev}'s default behaviour is to get anything, but command line switches
+ can be used to set the various fields in the @code{Gpm_Connect} structure, in
+-order to customize the program's behaviour. I'm using @code{mev} to
+-handle mouse events to @code{emacs} @xref{Emacs Support}.
++order to customize the program's behaviour. I'm using @t{mev} to
++handle mouse events to @t{emacs} @xref{Emacs Support}.
+ 
+-Command line switches for @code{mev} are the following:
++Command line switches for @t{mev} are the following:
+ 
+ @table @code
+ @item -C @var{number}
+@@ -1598,13 +1613,13 @@
+ 
+ @item -m @var{number}
+ 	Choose the minimum modifier mask. Any event with
+-	fewer modifiers will not be reported to @code{mev}. It defaults to 0.
++	fewer modifiers will not be reported to @t{mev}. It defaults to 0.
+ 	The mask must be provided either as a
+ 	decimal number, or as a symbolic string.
+ 
+ @item -M @var{number}
+ 	Choose the maximum modifier mask. Any event with
+-	more modifier than specified will not be reported to @code{mev}.
++	more modifier than specified will not be reported to @t{mev}.
+ 	It defaults to @code{\~0}, i.e. all events are received.
+ 	The mask must be provided either as a
+ 	decimal number, or as a symbolic string.
+@@ -1625,7 +1640,7 @@
+ Allowed names for modifiers are @samp{shift}, @samp{leftAlt},
+ @samp{rightAlt}, @samp{anyAlt} (one or the other), @samp{control}.
+ 
+-When the @samp{-i} switch is specified, @code{mev} looks at its standard input as
++When the @samp{-i} switch is specified, @t{mev} looks at its standard input as
+ command lines rather than events. The input lines are parsed, and the
+ commands @samp{push} and @samp{pop} are recognized.
+ 
+@@ -1635,13 +1650,14 @@
+ the connection with the server. @samp{pop} is used to pop the connection
+ stack. If an empty stack is popped the program exits.
+ 
+-The only other commands recognized are @samp{info}, used to return the
+-stack depth, and @samp{quit} to premautrely terminate the program.
++Other commands recognized are @samp{info}, used to return the stack
++depth; @samp{quit} to premautrely terminate the program; and
++@samp{snapshot} to get some configuration information from the server.
+ 
+ @ignore
+ .SH AUTHOR
+ Alessandro Rubini <rubini@linux.it>
+-Ian Zimmermann <itz@rahul.net>
++Ian Zimmerman <itz@rahul.net>
+ 
+ .SH FILES
+ .nf
+@@ -1676,10 +1692,10 @@
+ @section Emacs Support
+ 
+ Emacs support is quite complete as of 0.14.  The enclosed file
+-@code{t-mouse.el}, also available in byte-compiled form, is used to pass
+-mouse events to emacs.  @code{t-mouse.elc} is installed in the
+-@code{lib/emacs/site-lisp} directory of the install tree
+-(by default @code{/usr}).
++@file{t-mouse.el}, also available in byte-compiled form, is used to pass
++mouse events to emacs.  @file{t-mouse.elc} is installed in the
++@file{share/emacs/site-lisp} directory of the install tree
++(by default @file{/usr}).
+ 
+ Events with modifiers other than Meta, Control, and Shift are not
+ managed by the library.  Managed events are passed to the lisp program,
+@@ -1690,7 +1706,7 @@
+ shift-mouse to run selection and control-mouse to run @t{gpm-root}.
+ @xref{gpm-root}.
+ 
+-I suggest to put the following form in your own @code{.emacs} file, to 
++I suggest to put the following form in your own @file{.emacs} file, to 
+ avoid loading @code{t-mouse} when you aren't working on the Linux console:
+ 
+ @lisp
+@@ -1700,19 +1716,21 @@
+     (load-library "t-mouse"))
+ @end lisp
+ 
+-Mouse events are appended to the list variable unread-command-events
+-where the Emacs main event loop will find them.  They can be made to
+-trigger any command (or interactive function, in Emacs Lisp terminology)
+-at all.  Actually Emacs already comes with reasonable bindings for most
+-mouse events, so usually you won't have to do anything beyond installing
+-t-mouse.  If you want to modify what Emacs does in response to mouse
+-events, please see @xref{Keymaps,,,elisp}.
++Mouse events are appended to the list variable
++@code{unread-command-events} where the Emacs main event loop will find
++them.  They can be made to trigger any command (or interactive function,
++in Emacs Lisp terminology) at all.  Actually Emacs already comes with
++reasonable bindings for most mouse events, so usually you won't have to
++do anything beyond installing @code{t-mouse}.  If you want to modify
++what Emacs does in response to mouse events, please see
++@ref{Keymaps,,,elisp}.
+ 
+ The scrollbar sits on the last column of the screen, though it is not
+ visible.  When you click on the last column, a scroll-bar action is taken.
+-If this annoys you, please let me know.
++If this annoys you, again it can be turned off by changing the
++appropriate Emacs keymap.
+ 
+-If you kill the @file{gpm} server, Emacs won't respond to mouse events
++If you kill the @t{gpm} server, Emacs won't respond to mouse events
+ any more. If the server is then restarted, you can invoke `@t{M-x
+ t-mouse-run}' to restart mouse responsiveness in the editor.
+ 
+@@ -1743,7 +1761,7 @@
+ newwer, because previous kernels lack some screen handling capabilities
+ required by the program.
+ 
+-The program uses the files @t{/dev/vcs*} to draw to the console screen.
++The program uses the files @file{/dev/vcs*} to draw to the console screen.
+ These are available only from kernel 1.1.81 onward. If you miss those
+ device nodes, you should create them using @t{create_vcs} in the
+ distribution directory. The tool won't run with kernels older than 1.1.81,
+@@ -1760,7 +1778,7 @@
+ 
+ @item -u
+         Deny using user-specific configuration files. With this
+-        option on, only @t{/etc/gpm-root.conf} will be used as a source
++        option on, only @file{/etc/gpm-root.conf} will be used as a source
+         of configuration information. This option
+         is intended for those system administrators who fear security could
+         be broken by this daemon. Thigs should be sufficiently secure, but
+@@ -1773,13 +1791,14 @@
+         it was done with a compile-time option.
+ 
+ @item -V @var{verbosity increment}
+-        Raise the maximum level of messages that will be logged.  Thus 
+-        a positive argument has the effect of making the program more
++
++        Raise the maximum level of messages that will be logged.  Thus a
++        positive argument has the effect of making the program more
+         verbose.  One can also give a negative argument to hush the
+-        program; however, note that due to getopt(3) rules a negative
++        program; however, note that due to @code{getopt(3)} rules a negative
+         argument must follow the option with no space betwixt (that is,
+-        @t{-V-1} but not @t{-V -1}.  The argument is optional and its
+-        default value is 1.
++        @t{-V-1} but not @t{-V -1}.  @xref{Program Arguments,,,libc}.
++        The argument is optional and its default value is 1.
+ 
+ @end table
+ 
+@@ -1788,7 +1807,7 @@
+ the daemon.
+ 
+ %M The actual configuration file is better introduced by looking at your
+-%M `@t{/etc/gpm-root.conf}.
++%M @t{/etc/gpm-root.conf}.
+ %M
+ %MSKIP
+ 
+--- gpm-1.15.5/sample/Makefile.in	Fri Aug 28 00:25:06 1998
++++ sample/Makefile.in	Sat Sep 12 22:51:16 1998
+@@ -1,10 +1,14 @@
+ # simple Makefile.in
+ # Copyright (C) 1998 Ian Zimmerman <itz@rahul.net>
+-# $Id: Makefile.in,v 1.4 1998/08/28 06:46:40 itz Exp $
++# $Id: Makefile.in,v 1.10 1998/09/13 05:51:16 itz Exp $
+ 
+ # include standard stuff
+ SHELL = /bin/sh
+ VPATH = @srcdir@
++prefix = @prefix@
++exec_prefix = @exec_prefix@
++sbindir = @sbindir@
++sysconfdir = @sysconfdir@
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
+ top_builddir = ..
+@@ -45,6 +49,9 @@
+ 
+ ### rules to automagically rerun autoconf and such
+ 
++# RMEV_RELEASE
++rmev.o:	Makefile
++
+ Makefile: $(top_builddir)/config.status Makefile.in
+ 	cd $(top_builddir) && $(SHELL) config.status
+ 
+@@ -54,7 +61,7 @@
+ ### maintainer portion --- don't touch unless you know what you're doing
+ 
+ maintainer-clean:	distclean 
+-	rm -f TAGS
++	-cd $(srcdir) && rm -i `ls TAGS 2>/dev/null`
+ 
+ TAGS:	rmev.c gpm-xterm.c gpm-xterm.h
+ 	cd $(srcdir) && $(ETAGS) -o TAGS rmev.c gpm-xterm.c gpm-xterm.h
+--- gpm-1.15.5/sample/gpm-xterm.c	Fri Aug 28 00:25:06 1998
++++ sample/gpm-xterm.c	Tue Sep  1 22:04:48 1998
+@@ -27,6 +27,8 @@
+ #include <unistd.h>        /* select(); */
+ #include <sys/time.h>      /* timeval */
+ #include <sys/types.h>     /* socket() */
++/* patch JD 11/08/1998 */
++#include <string.h>        /* strncpm (); */
+ 
+ #ifdef HAVE_NCURSES_H
+ #  include <ncurses.h>
+@@ -61,7 +63,9 @@
+ static Gpm_Event ev;
+ static struct timeval to={0,0}, tv1={0,0}, tv2;
+ static fd_set selSet;
+-static int prevchar=EOF, clicks=0;
++/* JD patch 11/08/1998 */
++#define MAXNBPREVCHAR 4		/* I don't think more is usefull, JD */
++static int nbprevchar=0, clicks=0, prevchar[MAXNBPREVCHAR];
+ static char mdata[4]; int c;
+ 
+ #define GET(win) ((win) ? wgetch(win) : getch())
+@@ -76,11 +80,9 @@
+ 
+   gpm_hflag=0; /* not generated by handler (default) */
+ 
+-  if ((c=prevchar)!=EOF)  /* if ungetc() didn't suffice... */
+-    {
+-    prevchar=EOF;
+-    return c;
+-    }
++/* JD patch 11/08/1998 */
++  if (nbprevchar)  /* if there are some consumed char ... */
++	return prevchar[--nbprevchar];
+ 
+   while(1)
+     {
+@@ -99,14 +101,15 @@
+     if ((flag=select(fd+1,&selSet,(fd_set *)NULL,(fd_set *)NULL,&to))==0)
+       return c;
+     if ((c=GET(win))!='[')
+-      {ungetc(c,stdin); return 0x1B;}
++      {prevchar[nbprevchar++]=c; return 0x1B;}	/* patche par JD 11/08/1998 */
+     
+     /* '[': go on */
+     FD_ZERO(&selSet); FD_SET(fd,&selSet);
+     if ((flag=select(fd+1,&selSet,(fd_set *)NULL,(fd_set *)NULL,&to))==0)
+-      {ungetc(c,stdin); return 0x1B;}
++      {prevchar[nbprevchar++]=c; return 0x1B;}	/* patche par JD 11/08/1998 */
+     if ((c=GET(win))!='M')
+-      {ungetc(c,stdin);prevchar='['; return 0x1B;}
++/* patche par JD 11/08/1998 NOTICE: prevchar is a lifo !*/
++      {prevchar[nbprevchar++]=c; prevchar[nbprevchar++]='['; return 0x1B;}
+     
+     /* now, it surely is a mouse event */
+       for (c=0;c<3;c++) mdata[c]=GET(win);
+@@ -155,7 +158,8 @@
+ static int count;
+ static struct timeval to={0,DELAY_MS*1000}, tv1={0,0}, tv2;
+ static fd_set selSet;
+-static int prevchar=EOF, clicks=0;
++/* patche par JD 11/08/1998 */
++static int nbprevchar=0, clicks=0, prevchar[MAXNBPREVCHAR];
+ static char mdata[4]; int c;
+ 
+   /* Hmm... I must be sure it is unbuffered */
+@@ -168,11 +172,9 @@
+   if (gpm_morekeys && gpm_handler) return (*gpm_handler)(&ev,gpm_data);
+   gpm_hflag=0;
+ 
+-  if ((c=prevchar)!=EOF)  /* if ungetc() didn't suffice... */
+-    {
+-    prevchar=EOF;
+-    return c;
+-    }
++/* patche par JD 11/08/1998 */
++  if (nbprevchar)  /* if there are some consumed char ... */
++	return prevchar[--nbprevchar];
+ 
+   while(1)
+     {
+@@ -191,14 +193,19 @@
+     if ((flag=select(fd+1,&selSet,(fd_set *)NULL,(fd_set *)NULL,&to))==0)
+       return c;
+     if ((c=fgetc(f))!='[')
+-      {ungetc(c,stdin); return 0x1B;}
++/* patche par JD 11/08/1998 */
++	{prevchar[nbprevchar++]=c; return 0x1B;}
++/*      {ungetc(c,stdin); return 0x1B;} */
+     
+     /* '[': go on */
+       FD_ZERO(&selSet); FD_SET(fd,&selSet);  to.tv_usec=DELAY_MS*1000;
+       if ((flag=select(fd+1,&selSet,(fd_set *)NULL,(fd_set *)NULL,&to))==0)
+-	{ungetc(c,f); return 0x1B;}
++/* patche par JD 11/08/1998 */
++	{prevchar[nbprevchar++]=c; return 0x1B;}
++/*	{ungetc(c,f); return 0x1B;}	*/
+       if ((c=fgetc(f))!='M')
+-	{ungetc(c,f);prevchar='['; return 0x1B;}
++/* patche par JD 11/08/1998 NOTICE: prevchar is a lifo !*/
++	{prevchar[nbprevchar++]=c; prevchar[nbprevchar++]='['; return 0x1B;}
+       
+       /* now, it surely is a mouse event */
+       for (c=0;c<3;c++) mdata[c]=fgetc(f);
+--- gpm-1.15.5/sample/gpm-xterm.h	Fri Aug 28 00:25:06 1998
++++ sample/gpm-xterm.h	Wed Sep  2 00:13:26 1998
+@@ -25,6 +25,7 @@
+ #define _GPM_XTERM_H_
+ 
+ /*....................................... Xtermish stuff */
++
+ #define GPM_XTERM_ON \
+   printf("%c[?1001s",27), fflush(stdout), /* save old hilit tracking */ \
+   printf("%c[?1000h",27), fflush(stdout) /* enable mouse tracking */
