@@ -1,0 +1,18 @@
+[[!meta title="Migrated gpm"]]
+
+Another piece of software migrated to
+[www.nico.schottelius.org](www.nico.schottelius.org):
+
+***gpm***, the general purpose mouse daemon.
+
+gpm moved from
+
+   * http://unix.schottelius.org/gpm/
+
+moved to
+
+   * [[http://www.nico.schottelius.org/software/gpm/|software/gpm]]
+
+Please update your links.
+
+[[!tag unix]]
