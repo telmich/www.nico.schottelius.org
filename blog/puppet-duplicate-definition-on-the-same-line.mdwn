@@ -1,0 +1,47 @@
+[[!meta title="Puppet: Duplicate definition - on the same line!"]]
+
+I'm having a lot of fun with software,
+[[again|blog/puppet-sometimes-loads-a-class]] with
+[puppet](http://reductivelabs.com/products/puppet):
+Puppet claims in its error message, that I define a resource twice:
+
+    err: Could not retrieve catalog: Puppet::Parser::AST::Resource failed
+    with error ArgumentError: Duplicate definition:
+    File[nss_ldap_config] is already defined in file
+    /etc/puppet/modules/auth/manifests/init.pp at line 62;
+    cannot redefine at
+    /etc/puppet/modules/auth/manifests/init.pp:62
+    on node dryad16.ethz.ch
+
+Well, nice error, isn't it? Maybe you already guessed it, line 62 is the end
+of a define:
+
+    54    define ldap_config() {
+    55       $ou = $name
+    56       file { "nss_ldap_config":
+    57          path => $auth::nss_ldap_config,
+    58          mode => 644,
+    59          owner => root,
+    60          group => root,
+    61          content => template("auth/ldap.erb"),
+    62       }
+
+I would be pretty happy if puppet told me:
+
+    You are using the define ldap_config() from file_x:line_x twice:
+    File file_a:line_a and File file_b:line_b use it, which defines
+    a duplicate definition.
+
+Currently I've to
+
+    grep -r ldap_config *
+
+within my puppet config directory, to find the locations where the define
+is called. Because it's not called twice within the same class, I've
+to search manually through the classes that include the classes that use
+the define to find out where an include is used that (probably indirectly)
+includes a conflicting class.
+
+Dear puppet developers, would you mind to include debug help as stated above?
+
+[[!tag config eth unix]]

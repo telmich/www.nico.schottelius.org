@@ -35,4 +35,4 @@ If you've a comment to this blog article, please redirect it to
 mailinglist](http://reductivelabs.com/trac/puppet/wiki/GettingHelp#mailing-lists),
 to which I sent a notice about this article.
 
-[[!tag unix]]
+[[!tag config unix]]
