@@ -18,7 +18,8 @@ use IkiWiki::Setup::Standard {
 	###cgiurl => "http://example.org/wiki/ikiwiki.cgi",
 	#templatedir => "/usr/share/ikiwiki/templates",
 	#underlaydir => "/usr/share/ikiwiki/basewiki",
-	underlaydir => "/home/users/nico/privat/computer/net/netzseiten/www.nico.schottelius.org/empty",
+	#underlaydir => "/home/users/nico/privat/computer/net/netzseiten/www.nico.schottelius.org/empty",
+	underlaydir => "../underlaydir",
 
 	# Subversion stuff.
 	#rcs => "svn",
