@@ -1,0 +1,41 @@
+[[!meta title="Ikiwiki is slow"]]
+
+As you probably know, this [[website|about/websites/]] is generated
+by [ikiwiki](http://www.ikiwiki.info/), which does a pretty nice
+job for people who like to write their websites without a fancy GUI,
+but still do not want to write HTML or XHTML directly.
+
+As I [[migrated|migration-1-configs]]
+[[some|migration-2-freebsd-raid-monitoring-foss]]
+[[parts|migration-3-ccollect]]
+of [[my other websites|cinit-migrated]]
+[[into this one|migration-4-gpm]],
+I realised that ikiwiki becomes slower and slower.
+
+A normal run with
+
+    ikiwiki --setup ikiwiki.setup
+
+takes about ***15*** minutes!
+If I run it with
+
+    ikiwiki --setup ikiwiki.setup --refresh
+
+it still takes about ***1-2*** minutes. I clearly understand that
+my site is not the smallest anymore (
+
+    [16:38] ikn:nicoweb% find . -type f | wc -l
+    31015
+    [16:38] ikn:nicoweb% find . -type d | wc -l
+    3092
+
+), but I still think that it should be possible to (re-)generate
+it in less than 30 seconds. I know that the author,
+[Joey Hess](http://kitenet.net/~joey/), is very open to feedback
+and does a great job, but as I always regenerate the website before a public
+release and that costs my time, it motivated me to write this article.
+
+    Dear Joey, keep up the good work, but speedup ikiwiki, please!
+
+
+[[!tag net unix]]
