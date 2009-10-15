@@ -6,4 +6,4 @@ All configuration files are in use by me and thus are tested.
 
 [[!inline pages="configs/*" archive="yes" show=0]]
 
-[[!tag unix]]
+[[!tag config unix]]
