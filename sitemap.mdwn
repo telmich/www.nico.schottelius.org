@@ -1,3 +1,3 @@
-[[!map pages="* and !*.js and !*.png and !*.gif" show=title]]
+[[!map pages="* and !*.js and !*.png and !*.gif and !*/*/*"]]
 
 [[!tag meta]]

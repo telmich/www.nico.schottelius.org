@@ -2,6 +2,6 @@
 
 ## 2009
 
-[[!inline pages="blog/* and creation_year(2009)" archive="yes" show=0]]
+[[!inline pages="blog/* and creation_year(2009)" archive="yes" show=0 quick=yes]]
 
 [[!tag net]]

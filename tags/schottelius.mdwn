@@ -1,3 +1,3 @@
 Everything related to the Schottelius family.
 
-[[!inline pages="tagged(schottelius)" archive="yes" show=0]]
+[[!inline pages="tagged(schottelius)" archive="yes" show=0 quick=yes]]

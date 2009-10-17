@@ -8,4 +8,4 @@ Net as in
 
 Because I think those three are deeply related.
 
-[[!inline pages="tagged(net) and !sidebar" archive="yes" show=0]]
+[[!inline pages="tagged(net) and !sidebar" archive="yes" show=0 quick=yes]]
