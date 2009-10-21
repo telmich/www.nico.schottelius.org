@@ -38,4 +38,4 @@ the cdrom vendor or Windos itself. The whole system has been running
 very stable and it has been really easy to change things (like
 /etc/issues), it has been open.
 
-[[!tag schottelius net]]
+[[!tag foss net schottelius]]

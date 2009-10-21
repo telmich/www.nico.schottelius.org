@@ -24,3 +24,5 @@ are:<br />
 The simplest solution is to combine both terms and finish all problems.
 So using FOSS, I get the following advantages and disadvantages:<br />
 <ul><li>It is neither an abreviation for "filesystem" nor "open sound system".</li><li>I can pronounce it: "foss."</li><li>It is short and simple and contains everything I love about FOSS.</li><li>Other people may not like it, because I introduce yet another acronym.</li><li>It combines the two terms of both "worlds", so everyone can be happy.<br /></li></ul>
+
+[[!tag foss]]

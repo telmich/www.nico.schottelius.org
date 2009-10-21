@@ -55,4 +55,4 @@ to submit him some money.
 I encourage you to do the same when you realise that you enjoy using
 some software (or reading some documentation).
 
-[[!tag net unix]]
+[[!tag foss net unix]]
