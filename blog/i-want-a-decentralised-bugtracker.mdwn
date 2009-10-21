@@ -1,0 +1,43 @@
+[[!meta title="I want a decentralised bugtracker"]]
+
+I have about 50 different website accounts for submitting and reading
+bugs. I use about 4 different bugtrackers regulary
+(bugzilla, launchpad, ditz, Debians reportbug).
+
+And I do not want to create another account at a different site
+again. No. What I want is different:
+
+I want to have one tool, that
+
+ * allows me to track bugs of different projects with different systems
+   (similar to [launchpad](http://www.launchpad.net))
+ * to mirror the information locally, including history
+   (like most [version control systems (VCS)](http://en.wikipedia.org/wiki/Revision_control))
+ * to add or search a bug, while being offline
+   (like [git](http://git-scm.com/))
+ * has a usable command line interface
+   (like [zsh](http://www.zsh.org))
+
+So in practise, it should look something like this:
+
+    % tool
+    tool> init-bug-db /path/to/somewhere
+    tool> bug-source add project1 bugzilla://where-it-is
+    tool> bug-source add project2 ditz://where-it-is
+    tool> bug-source list
+     project1
+     project2
+    tool> bug-source show project2
+     * can submit
+     * url
+    tool> bug query project1 a-search-string
+    tool> bug add project1
+     [either ask for input or add them after the project name]
+    tool> bug pull project1 # get latest bugs
+    tool> bug push project1 # submit latest bug (-changes)
+
+Of course all the commands should also be available on the command line as
+options. If you have already created such a tool or are interested in creating
+such a tool, do not hesitate to [[contact|about]] me!
+
+[[!tag net unix]]
