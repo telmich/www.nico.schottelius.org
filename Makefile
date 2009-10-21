@@ -1,4 +1,4 @@
-DESTDIR=/home/users/nico/privat/computer/net/netzseiten/www.nico.schottelius.org/dst/
+DESTDIR=/home/users/nico/privat/computer/netz/seiten/www.nico.schottelius.org/dst/
 PUBDIR=tee.schottelius.org:/home/services/www/nico/www.nico.schottelius.org/www/
 BROWSER=conkeror
 IKIWIKI=ikiwikitest.sh --refresh
