@@ -1,0 +1,58 @@
+[[!meta title="Ikiwiki has been slow, but it is fast now!"]]
+
+As I reported before, [[ikiwiki is slow|blog/ikiwiki-is-slow]].
+That's not true anymore: I received an e-mail from
+[Joey Hess](http://kitenet.net/~joey/) that contained a
+[patch to my website](http://git.schottelius.org/?p=netzseiten/www.nico.schottelius.org;a=commit;h=9ad0b7ba4763f3fe6773427326bcc32dbe332a01) and an answer to my problem:
+He used a copy of
+[the source of my website](http://git.schottelius.org/?p=netzseiten/www.nico.schottelius.org;a=summary)
+to reproduce the problems I had, which even took ***68 minutes*** on his computer!
+
+So I grabbed the latest version of ikiwiki from git today and found out:
+
+    ikiwiki exits with exit status 0, but does not produce a website!
+
+I reported it to Joey on [IRC](irc://irc.freenode.net/#ikiwiki), who fixed
+that some hours later in commit
+[587e0c3d21dfbde052e0fd71a7ed0e33e09e757f](http://git.ikiwiki.info/?p=ikiwiki;a=commit;h=587e0c3d21dfbde052e0fd71a7ed0e33e09e757f). Now comes the interesting part:
+I added some timing information to 
+[ikiwikitest.sh](http://git.schottelius.org/?p=nsbin;a=blob;f=ikiwikitest.sh;hb=HEAD),
+which allows me to run the latest ikiwiki version, without installing it.
+And here are the results:
+
+    no-refresh, no changes: ~70 seconds
+    no-refresh, created one new file: ~70 seconds
+    --refresh, no changes: ~5 seconds
+    --refresh, changes to one file: ~10 seconds
+    --refresh, adding a new tag: ~10 seconds
+
+The tests were done using ikiwiki **3.20091017-22-gba682e0**
+(from git describe). To summarise:
+
+ * Updating my website using ikiwiki now takes less than 30 seconds.
+ * Joey did a great job.
+ * I owe him something.
+
+## I think I should sent Joey some money.
+
+I want to emphasise this very much, because he's a
+[[FOSS developer|docs/the-term-foss]], like [[me|about/foss]].
+He has spent a lot of time developing and maintaining ikiwiki
+and will probably continue to do so. Besides that he does a great
+job in supporting his users.
+
+    Everything for free.
+
+I think just writing here about him and telling everybody that
+he does a great job does not fill his stomach, nor gives him the
+ability to enjoy a coffee in the early afternoon.
+
+When you read this article, Joey will already know about it and
+also knows, that I would like to have his
+[IBAN](http://en.wikipedia.org/wiki/International_Bank_Account_Number),
+to submit him some money.
+
+I encourage you to do the same when you realise that you enjoy using
+some software (or reading some documentation).
+
+[[!tag net unix]]
