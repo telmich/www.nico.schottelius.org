@@ -1,0 +1,17 @@
+[[!meta title="Migrated small introduction to gpgme"]]
+
+The small manual
+[[A small introduction for using gpgme|docs/a-small-introduction-for-using-gpgme]]
+was migrated into this site.
+
+The old URL is
+
+   * http://nico.schottelius.org/documentations/howtos/a-small-introduction-for-using-gpgme,
+
+the new URL is
+
+   * [[http://www.nico.schottelius.org/docs/a-small-introduction-for-using-gpgme|docs/a-small-introduction-for-using-gpgme]]
+
+Please update your links.
+
+[[!tag unix]]
