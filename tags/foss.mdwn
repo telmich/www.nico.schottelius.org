@@ -1,0 +1,3 @@
+Articles related to [[FOSS|docs/the-term-foss]].
+
+[[!inline pages="tagged(foss)" archive="yes" show=0 quick=yes]]
