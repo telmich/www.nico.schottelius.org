@@ -1,8 +1,9 @@
 DESTDIR=/home/users/nico/privat/computer/net/netzseiten/www.nico.schottelius.org/dst/
 PUBDIR=tee.schottelius.org:/home/services/www/nico/www.nico.schottelius.org/www/
+BROWSER=conkeror
 
 view: all
-	firefox ${DESTDIR}/index.html
+	$(BROWSER) ${DESTDIR}/index.html
 
 all:
 	ikiwiki --setup ikiwiki.setup --refresh
