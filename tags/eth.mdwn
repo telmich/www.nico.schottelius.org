@@ -4,4 +4,10 @@ Artikel und Dokumentation, die im Zusammenhang mit der
 Articles and documentation, which contain information related
 to the [ETH](http://www.ethz.ch).
 
+== Verwandte Seiten / related sites ==
+
+ * [Nico Schottelius ETH photos](http://www.gallery.ethz.ch/ns/)
+ * [Nico Schottelius @SystemsGroup](http://www.systems.ethz.ch/people/nicosc)
+
+
 [[!inline pages="tagged(eth)" archive="yes" show=0]]
