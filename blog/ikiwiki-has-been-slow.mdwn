@@ -33,7 +33,7 @@ The tests were done using ikiwiki **3.20091017-22-gba682e0**
  * Joey did a great job.
  * I owe him something.
 
-## I think I should sent Joey some money.
+## I think I should send Joey some money.
 
 I want to emphasise this very much, because he's a
 [[FOSS developer|docs/the-term-foss]], like [[me|about/foss]].
