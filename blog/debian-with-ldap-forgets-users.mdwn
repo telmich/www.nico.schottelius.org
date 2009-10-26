@@ -1,0 +1,67 @@
+[[!meta title="Debian with LDAP forgets about its users"]]
+
+Sometimes, when I try to login to a node as root or ldap user, I get this error:
+
+    user@myhost.example.org: ssh_exchange_identification: Connection closed by remote host
+
+When I dig into **/var/log/syslog** and **/var/log/auth.log** I see
+that the users are not known to the system ***anymore***:
+
+    Oct 26 06:17:01 myhost CRON[24310]: pam_unix(cron:session): session opened for user root by (uid=0)
+    Oct 26 06:17:01 myhost CRON[24310]: pam_unix(cron:session): session closed for user root
+    Oct 26 06:25:01 myhost CRON[24349]: pam_unix(cron:account): could not identify user (from getpwnam(root))
+    Oct 26 06:25:01 myhost CRON[24350]: pam_unix(cron:account): could not identify user (from getpwnam(root))
+    [...]
+    Oct 26 08:55:41 myhost sshd[25062]: fatal: Privilege separation user sshd does not exist
+    Oct 26 09:24:30 myhost sshd[25196]: fatal: Privilege separation user sshd does not exist
+    Oct 26 09:25:01 myhost CRON[25203]: pam_unix(cron:account): could not identify user (from getpwnam(root))
+    Oct 26 09:27:45 myhost login[4935]: pam_unix(login:auth): check pass; user unknown
+
+
+Now comes the interesting part: If I login **locally** as root, I still
+cannot login. But if I try it as a **ldap user**, I can login and **after**
+that I can also login locally as root and remotely as everybody again!
+Those are the logs I see, when logging in locally as user ***nicosc***:
+
+    Oct 26 09:27:45 myhost login[4935]: pam_unix(login:auth): check pass; user unknown
+    Oct 26 09:27:45 myhost login[4935]: pam_unix(login:auth): authentication failure; logname=LOGIN uid=0 euid=0 tty=tty1 ruser= rhost=
+    Oct 26 09:27:48 myhost login[4935]: FAILED LOGIN (1) on 'tty1' FOR `UNKNOWN', Authentication failure
+    Oct 26 09:27:50 myhost login[4935]: nss_ldap: could not connect to any LDAP server as cn=inf_proxy,ou=admins,ou=inf,ou=auth,o=ethz,c=ch - Can't contact LDAP server
+    Oct 26 09:27:50 myhost login[4935]: nss_ldap: failed to bind to LDAP server ldaps://ldaps01.ethz.ch: Can't contact LDAP server
+    Oct 26 09:27:50 myhost login[4935]: nss_ldap: reconnected to LDAP server ldaps://ldaps02.ethz.ch
+    Oct 26 09:27:53 myhost login[4935]: pam_env(login:session): Unable to open env file: /etc/default/locale: No such file or directory
+    Oct 26 09:27:53 myhost login[4935]: pam_unix(login:session): session opened for user nicosc by LOGIN(uid=0)
+    Oct 26 09:27:53 myhost -bash: nss_ldap: could not connect to any LDAP server as cn=inf_proxy,ou=admins,ou=inf,ou=auth,o=ethz,c=ch - Can't contact LDAP server
+    Oct 26 09:27:53 myhost -bash: nss_ldap: failed to bind to LDAP server ldaps://ldaps01.ethz.ch: Can't contact LDAP server
+    Oct 26 09:27:53 myhost -bash: nss_ldap: reconnected to LDAP server ldaps://ldaps02.ethz.ch
+    Oct 26 09:27:55 myhost login[4935]: pam_unix(login:session): session closed for user nicosc
+    Oct 26 09:28:02 myhost postfix/pickup[25235]: nss_ldap: could not connect to any LDAP server as cn=inf_proxy,ou=admins,ou=inf,ou=auth,o=ethz,c=ch - Can't contact LDAP server
+    Oct 26 09:28:02 myhost postfix/pickup[25235]: nss_ldap: failed to bind to LDAP server ldaps://ldaps01.ethz.ch: Can't contact LDAP server
+    Oct 26 09:28:03 myhost postfix/pickup[25235]: nss_ldap: reconnected to LDAP server ldaps://ldaps02.ethz.ch
+    Oct 26 09:28:03 myhost sshd[25236]: nss_ldap: could not connect to any LDAP server as cn=inf_proxy,ou=admins,ou=inf,ou=auth,o=ethz,c=ch - Can't contact LDAP server
+    Oct 26 09:28:03 myhost sshd[25236]: nss_ldap: failed to bind to LDAP server ldaps://ldaps01.ethz.ch: Can't contact LDAP server
+    Oct 26 09:28:03 myhost sshd[25236]: nss_ldap: reconnected to LDAP server ldaps://ldaps02.ethz.ch
+    Oct 26 09:28:03 myhost sshd[25236]: Accepted publickey for root from 129.132.130.3 port 52738 ssh2
+    Oct 26 09:28:03 myhost sshd[25236]: pam_env(sshd:setcred): Unable to open env file: /etc/default/locale: No such file or directory
+    Oct 26 09:28:03 myhost sshd[25236]: pam_unix(sshd:session): session opened for user root by (uid=0)
+
+I see this happening on Debian Lenny with
+
+ * libnss-ldap-261-2.1
+ * libnss3-1d-3.12.3.1-0lenny1
+ * libpam0g-1.0.1-5+lenny1
+ * openssh-server-1:5.1p1-5
+
+I posted this problem with details
+
+ * as a [bug to libpam (#541188)](http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=541188),
+ * to the Debian user mailinglist ([Subject: ldap/libnss/ssh: (remote) login stops working after some time](http://www.mail-archive.com/debian-user@lists.debian.org/msg555072.html))
+ * as a [bug to libnss-ldap (#552431)](http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=552431)
+
+but currently without any helpful hint.
+
+If you have any hint on what could be wrong (i.e. configuration / libs / etc.)
+or if you are aware of the reason for this behaviour (perfect), please
+[[let me know|about]].
+
+[[!tag eth unix]]
