@@ -1,13 +1,16 @@
 DESTDIR=/home/users/nico/privat/rechner/netz/seiten/www.nico.schottelius.org/dst/
 PUBDIR=tee.schottelius.org:/home/services/www/nico/www.nico.schottelius.org/www/
 BROWSER=conkeror
-IKIWIKI=ikiwikitest.sh --refresh
+IKIWIKI=ikiwikitest.sh
+
+all:
+	$(IKIWIKI) --refresh --setup ikiwiki.setup
+
+all-unfresh:
+	$(IKIWIKI) --setup ikiwiki.setup
 
 view: all
 	$(BROWSER) ${DESTDIR}/index.html
-
-all:
-	$(IKIWIKI) --setup ikiwiki.setup
 
 clean: all
 	rm -rf ${DESTDIR}

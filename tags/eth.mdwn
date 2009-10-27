@@ -8,6 +8,7 @@ to the [ETH](http://www.ethz.ch).
 
  * [Nico Schottelius ETH photos](http://www.gallery.ethz.ch/ns/)
  * [Nico Schottelius @SystemsGroup](http://www.systems.ethz.ch/people/nicosc)
+ * [Nico Schottelius' ETH-Blog (mirrors this site)|https://blogs.ethz.ch/ns/]
 
 
 [[!inline pages="tagged(eth)" archive="yes" show=0]]
