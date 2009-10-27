@@ -3,4 +3,4 @@ This site contains all tags used.
 There are feeds available for all tags, if you want to subscribe
 to a tag (=category).
 
-[[!inline pages="tags/*" archive="yes" show=0 quick=yes sort="title"]]
+[[!inline pages="tags/*" archive="yes" show=0 quick=no sort="title"]]

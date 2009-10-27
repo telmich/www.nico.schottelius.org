@@ -4,4 +4,4 @@ Sicherheitsrelevante Themen:
  * Auf Reisen
  * Im Alltag
 
-[[!inline pages="tagged(sicherheit)" archive="yes" show=0 quick=yes]]
+[[!inline pages="tagged(sicherheit)" archive="yes" show=0 quick=no]]

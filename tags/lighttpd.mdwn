@@ -1,4 +1,4 @@
 [Lighttpd](http://www.lighttpd.net)
 related stuff.
 
-[[!inline pages="tagged(lighttpd)" archive="yes" show=0 quick=yes]]
+[[!inline pages="tagged(lighttpd)" archive="yes" show=0 quick=no]]

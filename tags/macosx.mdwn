@@ -1,4 +1,4 @@
 Information related to the [[tags/unix|Unix alike]]
 operating system [Mac OS X](http://en.wikipedia.org/wiki/Mac_OS_X).
 
-[[!inline pages="tagged(macosx)" archive="yes" show=0 quick=yes]]
+[[!inline pages="tagged(macosx)" archive="yes" show=0 quick=no]]

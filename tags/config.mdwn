@@ -1,3 +1,3 @@
 Configurations or configuration management related stuff.
 
-[[!inline pages="tagged(config)" archive="yes" show=0 quick=yes]]
+[[!inline pages="tagged(config)" archive="yes" show=0 quick=no]]
