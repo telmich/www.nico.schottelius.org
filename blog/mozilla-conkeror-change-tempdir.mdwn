@@ -1,0 +1,102 @@
+[[!meta title="How to change the tempdir for Mozilla (general) and conkeror"]]
+
+Some weeks ago I got a good hint from
+[[Axel Stefan Beckert|dokumentationen/axel-stefan-beckert]], to try [conkeror](http://conkeror.org/)
+as an alternative for the
+[Firefox](http://www.mozilla.com/en-US/firefox/firefox.html) browser.
+
+Although I am not used to the [emacs](http://en.wikipedia.org/wiki/Emacs)
+shortcuts, it is very good usable with the keyboard only.
+
+In the last few days I have been missing one important feature,
+one of the most important features of a browser:
+
+    to be able to edit a textbox with an external editor
+    
+I often edit large wiki pages and rearange them, which is a pain
+without a real editor.
+
+Conkeror supports [external editing](http://conkeror.org/ExternalEditing),
+but defaults to
+
+ * $VISUAL
+ * $EDITOR
+ * or emacs
+
+None of the is usable for me, because **$VISUAL** and **$EDITOR**
+are set to [vim](http://www.vim.org/) and vim requires a terminal.
+
+After I was told on [#conkeror](irc://irc.freenode.org/#conkeror)
+to modify ***~/.conkerorrc/init.js*** to include
+
+    editor_shell_command = "urxvt -e vim";
+
+it worked like a charm (besides debugging it for some others days,
+until I found out that there was always one instance of conkeror
+running, so it never re-read the configuration file). I can now
+edit textboxes in conkeror with vim!
+
+But then I noticed, that conkeror creates a temporary file below
+***/tmp***, which I do not like, because all my data should be
+put on my [encrypted home directory](http://code.google.com/p/cryptsetup/),
+not on the unencrypted root partition.
+
+So I started to search for a configuration variable in the
+[configuration window](about:config), but did not find any hint.
+
+As I am running conkeror from the git source, I began to dig through it
+and started in **modules/external-editor.js**, where I found the
+function **open_with_external_editor()**:
+
+    76 function open_with_external_editor (lspec) {
+    77     keywords(arguments);
+    78     let [file, temp] = yield download_as_temporary(lspec);
+    79     yield open_file_with_external_editor(file, $line = arguments.$line, $temporary = temp);
+    80 }
+
+Ok, what is **download_as_temporary()** doing? The file **modules/save.js** helped
+me:
+
+    228 function download_as_temporary (lspec) {
+    243     var file = get_temporary_file(suggest_file_name(lspec));
+
+Well, well, so what's about the **get_temporary_file()** function? The file
+**modules/utils.js** contains it:
+
+    799 function get_temporary_file (name) {
+    800     if (name == null)
+    801         name = "temp.txt";
+    802     var file = file_locator.get("TmpD", Ci.nsIFile);
+    803     file.append(name);
+    804     // Create the file now to ensure that no exploits are possible
+    805     file.createUnique(Ci.nsIFile.NORMAL_FILE_TYPE, 0600);
+    806     return file;
+    807 }
+
+Searching for **Ci.nsIFile** in conkerors source did not reveal
+many information, so I got back to my **seoc** (search engine of choice) and
+found some hints on the [mozilla developer center](https://developer.mozilla.org)
+about [nsIFile](https://developer.mozilla.org/en/nsIFile) and
+[TmpD](https://developer.mozilla.org/en/Code_snippets/File_I%2F%2FO)
+and a reference to the IRC channel [#extdev](irc://irc.mozilla.org/extdev).
+
+After I described my problem in that IRC channel,
+[Michael Kaply](http://www.kaply.com/weblog/about/)
+told me the answer to the question
+"[What defines or where is the TmpD variable defined?](http://mxr.mozilla.org/mozilla1.9.2/source/xpcom/io/SpecialSystemDirectory.cpp#568)":
+
+The temporary directory is OS specific and in my case (unix) defined by the
+environment variables
+
+ * $TMPDIR
+ * $TMP
+ * $TEMP (tried in that order)
+
+After I set
+
+    TMP=~/.tmp 
+
+and restarted conkeror, pressed C-i in a textbox, the file is eventually saved
+in the temporary directory **.tmp** in my home directory!
+
+[[!tag eth net]]
