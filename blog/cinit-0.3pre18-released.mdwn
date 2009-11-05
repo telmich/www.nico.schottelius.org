@@ -1,0 +1,12 @@
+[[!meta title="Cinit 0.3pre18 released"]]
+
+This version of  [[cinit|software/cinit]],
+***0.3pre16***, contains the new utility
+***cinit-conf.config.shell***, which creates a minimal
+configuration that spawns a shell.
+
+Additionally the Ubuntu migration script
+(***cinit-conf.migrate.upstart.ubuntu.jaunty***)
+is almost finished!
+
+[[!tag unix]]
