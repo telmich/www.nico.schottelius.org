@@ -84,6 +84,9 @@ Additionally, the following other git ressources are available:
 
 ### Archives
 
+ * [[cinit-0.3pre18.tar.bz2|archives/cinit-0.3pre18.tar.bz2]]
+   ([browse source](browse_source/cinit-0.3pre18/))
+   [[changes|browse_source/cinit-0.3pre18/doc/changes/0.3pre18]]
  * [[cinit-0.3pre17.tar.bz2|archives/cinit-0.3pre17.tar.bz2]]
    ([browse source](browse_source/cinit-0.3pre17/))
    [[changes|browse_source/cinit-0.3pre17/doc/changes/0.3pre17]]
