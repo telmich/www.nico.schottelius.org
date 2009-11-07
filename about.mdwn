@@ -30,9 +30,12 @@ You can contact me via E-Mail at
     nico-webcontact (at the following domain) schottelius.org
 
 I recommened using PGP to encrypt any mail. The fingerprint of my
-[[pgp-key|pgp-key-9217A3DF.txt]] is
+[[pgp-key|pgp-key-31877DF0.txt]] is
 
     BFE4 C736 ABE5 406F 8F42  F7CF B8BE F92A 9885 188C
+
+(the [[previous one|pgp-key-9217A3DF.txt]] was BFE4 C736 ABE5 406F 8F42  F7CF B8BE F92A 9885 188C).
+
 
 ## Donations
 
