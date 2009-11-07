@@ -1,0 +1,12 @@
+[[!meta title="Replaced old PGP key 9885188C with 31877DF0"]]
+
+As the old key 9885188C expired some time ago, I replaced it.
+The [[new key|about/pgp-key-31877DF0.txt]] has the following
+fingerprint
+
+    7ED9 F7D3 6B10 81D7 0EC5  5C09 D7DC C8E4 3187 7DF0
+
+and is signed by the previous one. Please resign the new one,
+if you signed the previous one.
+
+[[!tag eth net]]
