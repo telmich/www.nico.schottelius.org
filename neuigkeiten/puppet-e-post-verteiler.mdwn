@@ -1,0 +1,18 @@
+[[!meta title="Neuer E-Post-Verteiler zum Thema Puppet an der ETH"]]
+
+Da an der ETH einige Gruppen
+[puppet](http://reductivelabs.com/products/puppet/) zur automatischen
+Konfiguration ihrer Rechner nutzen, habe ich
+bei der [ISG D-INFK](http://www.isg.inf.ethz.ch/) eine
+[neuen E-Post-Verteiler zum Thema Puppet](https://lists.inf.ethz.ch/mailman/listinfo/puppet)
+einrichten lassen.
+
+Falls Du an der ETH arbeitest und an der Puppet-Entwicklung und
+Zusammenarbeit zu diesem Thema interessiert bist, schreib Dich
+doch auf dem E-Post-Verteiler ein und lass uns von Deinen Erfahrungen
+oder Ideen wissen!
+
+ * [E-Post-Verteiler zum Thema Puppet an der ETH](https://lists.inf.ethz.ch/mailman/listinfo/puppet)
+
+
+[[!tag config eth]]
