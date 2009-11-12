@@ -12,6 +12,7 @@
    * [[Tags|tags]]
 * Lokal
    * [[Dokumentationen|dokumentationen]]
+   * [[ETH|eth]]
    * [[Neuigkeiten|neuigkeiten]]
    * [[Verweise|verweise]]
 * [[Seitenübersicht / Sitemap|sitemap]]

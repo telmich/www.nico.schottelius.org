@@ -1,0 +1,15 @@
+[[!meta title="ETH Zürich"]]
+
+Dieser Bereich enthält Projekte und Dokumentationen, die
+mit meiner Arbeit an der [ETH Zürich](http://www.ethz.ch)
+in Verbindung stehen.
+
+## Verwandte Seiten
+
+ * [[ETH-Blog|tags/eth]] [(Kopie auf blogs.ethz.ch)](https://blogs.ethz.ch/ns/)
+ * [ETH Bilder](http://www.gallery.ethz.ch/ns/)
+ * [SystemsGroup](http://www.systems.ethz.ch)
+  * [Nico Schottelius @SystemsGroup](http://www.systems.ethz.ch/people/nicosc)
+
+
+[[!tag eth]]

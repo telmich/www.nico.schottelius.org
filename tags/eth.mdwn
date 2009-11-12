@@ -1,14 +1,10 @@
 Artikel und Dokumentation, die im Zusammenhang mit der
-[ETH](http://www.ethz.ch) entstanden sind.
+[ETH](http://www.ethz.ch) entstanden sind. Mehr
+Informationen sind im
+[[ETH Bereich dieser Netzseite|/eth]] zu finden.
 
 Articles and documentation, which contain information related
-to the [ETH](http://www.ethz.ch).
-
-== Verwandte Seiten / related sites ==
-
- * [Nico Schottelius ETH photos](http://www.gallery.ethz.ch/ns/)
- * [Nico Schottelius @SystemsGroup](http://www.systems.ethz.ch/people/nicosc)
- * [Nico Schottelius' ETH-Blog (mirrors this site)|https://blogs.ethz.ch/ns/]
-
+to the [ETH](http://www.ethz.ch). More information
+can be found on the [[ETH area of this website|/eth]]
 
 [[!inline pages="tagged(eth)" archive="yes" show=0]]
