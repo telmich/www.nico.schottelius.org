@@ -2,7 +2,9 @@
 
 Dieser Bereich enthält Projekte und Dokumentationen, die
 mit meiner Arbeit an der [ETH Zürich](http://www.ethz.ch)
-in Verbindung stehen.
+in Verbindung stehen:
+
+ * Das [[Sans-Projekt|sans]]
 
 ## Verwandte Seiten
 

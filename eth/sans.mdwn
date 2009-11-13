@@ -19,4 +19,4 @@ Solltest Du ein interessierter Systemadministrator sein oder einen solchen
 kennen, so wären wir froh, wenn Du Dich bei uns
 [melden würdest](https://lists.inf.ethz.ch/mailman/listinfo/sans).
 
-[[!tags eth]]
+[[!tag eth]]
