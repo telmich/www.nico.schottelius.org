@@ -24,4 +24,9 @@ Die Konfiguration enthält unter anderem folgende Module:
  * puppetmaster-Verwaltung (mit Lastverteilung via
    [nginx](http://nginx.net/)+[mongrel](http://mongrel.rubyforge.org/))
 
+Wer Interesse an den Puppet-Einstellungen oder -Entwicklung hat, kann sich
+gerne an dem
+[Puppet-E-Post-Verteiler](https://lists.inf.ethz.ch/mailman/listinfo/puppet)
+anmelden.
+
 [[!tag eth]]
