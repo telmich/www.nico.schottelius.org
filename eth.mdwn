@@ -5,6 +5,7 @@ mit meiner Arbeit an der [ETH Zürich](http://www.ethz.ch)
 in Verbindung stehen:
 
  * Das [[Sans-Projekt|sans]]
+ * Das [[Puppet-Projekt|puppet]]
 
 ## Verwandte Seiten
 

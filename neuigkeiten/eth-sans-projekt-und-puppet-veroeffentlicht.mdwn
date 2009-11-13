@@ -1,0 +1,8 @@
+[[!meta title="Sans- und Puppet an der ETH"]]
+
+Heute wurden die ersten Informationen zu den beiden
+ETH-Projekten [[Sans|eth/sans]] und [[Puppet|eth/puppet]]
+veröffentlicht. Mehr Informationen zu den jeweiligen Projekten
+werden in Kürze veröffentlicht.
+
+[[!tag eth]]

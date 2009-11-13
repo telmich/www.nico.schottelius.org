@@ -1,0 +1,27 @@
+[[!meta title="Puppet an der ETH Zürich"]]
+
+[Puppet](http://reductivelabs.com/products/puppet/) ist eine
+zentrale Konfigurationsverwaltung für
+[POSIX-(ähnliche)-Systeme](http://reductivelabs.com/trac/puppet/wiki/PuppetCompatibility).
+Im Rahmen des [[Sans-Projektes|eth/sans]] ist eine Puppet-Infrastruktur
+zur Verwaltung von Rechnern im
+[Departement Informatik](http://www.inf.ethz.ch/) entstanden.
+
+Wir sind gerade dabei die Puppet-Einstellungen aufzuräumen und planen
+diese, mit allen benutzten Modulen, in der nahen Zukunft zu
+veröffentlichen.
+
+Die Konfiguration enthält unter anderem folgende Module:
+
+ * [autofs](http://www.autofs.org/)-Verwaltung (allgemein und ETH spezifisch)
+ * [collectd](http://collectd.org/)-Verwaltung 
+ * Benutzerverwaltung via [n.ethz](http://www.id.ethz.ch/services/list/nethz_db) (LDAP/Kerberos)
+ * Netzwerkanpassung für das Departement Informatik
+ * Spezielle Einstellungen für die [Systems Group](http://www.systems.ethz.ch)
+ * Java ([Sun 5, Sun 6 und Open](http://www.sun.com/software/opensource/java/))-Verwaltung
+ * [nscd](http://www.gnu.org/software/libc/manual/html_node/Running-make-install.html)-Verwaltung 
+ * [postgresql](http://www.postgresql.org/)-Verwaltung 
+ * puppetmaster-Verwaltung (mit Lastverteilung via
+   [nginx](http://nginx.net/)+[mongrel](http://mongrel.rubyforge.org/))
+
+[[!tag eth]]
