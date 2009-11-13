@@ -1,0 +1,22 @@
+[[!meta title="Das SANS Projekt an der ETH Zürich"]]
+
+SANS ist ein Projekt zur Effizienzsteigerung von Systemadministratoren.
+Die Kernidee ist, ETH-weit Systemadministratoren mit gleichen oder
+ähnlichen Aufgaben zusammenzubringen, und dadurch mögliche Synergien
+zu nutzen.
+
+Aufgrund der dezentralen Struktur der ETH habe ich dieses Projekt
+zusammen mit
+[Steven Armstrong](http://www.icos.ethz.ch/people/personal_data/icos_support/index)
+begonnen. Bereits aus der Zusammenarbeit mit ihm haben sich viele
+fruchtbare Ideen entwickelt, über die demnächst berichtet wird.
+
+Vorraussetzung für den weiter Erfolg dieses Projektes ist es,
+die anderen **Systemadministratoren** zu finden und eine ETH-weite
+Kommunikationsplattform zu schaffen.
+
+Solltest Du ein interessierter Systemadministrator sein oder einen solchen
+kennen, so wären wir froh, wenn Du Dich bei uns
+[melden würdest](https://lists.inf.ethz.ch/mailman/listinfo/sans).
+
+[[!tags eth]]
