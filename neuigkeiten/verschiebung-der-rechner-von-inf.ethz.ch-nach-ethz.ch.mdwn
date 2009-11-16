@@ -1,0 +1,66 @@
+[[!meta title="Verschiebung der Rechner von inf.ethz.ch nach ethz.ch"]]
+
+Am [Departement Informatik](http://www.inf.ethz.ch) ist es möglich,
+die DNS-Domäne ***inf.ethz.ch*** zu nutzen. So ergibt sich beispielsweise
+der Rechnername ***sgn-x200-01.inf.ethz.ch***.
+
+Leider wird das Konzept der Unter-Domäne nicht konsequent umgesetzt:
+
+ * Die DHCP-Server geben normalerweise ***ethz.ch*** als Domäne zurück.
+ * Der VPN-Server vergibt ebenfalls ***ethz.ch***.
+ * Rechner in der Domäne ***inf.ethz.ch*** haben meist einen Alias in ***ethz.ch*** (leider nicht immer).
+ * Einige Rechner sind nur in ***ethz.ch***.
+
+Deshalb tritt häufig das Problem auf, das
+
+    ssh rechnername
+
+fehlschlägt, weil man gerade ***ethz.ch*** als Domäne oder Suchpfad
+hat, der Rechner aber nur unterhalb von ***inf.ethz.ch*** eingetragen ist.
+
+## DNS-Suchpfad und DHCP
+
+Das [DHCP-RFC](http://www.faqs.org/rfcs/rfc2131.html) und das
+[DHCP-Optionen-RFC](http://www.faqs.org/rfcs/rfc2132.html) spezifizieren
+keine Möglichkeit, einen Suchpfad zu definieren. Die Vorgehensweise,
+als Domain zwei Namen zu vergeben, wie zum Beispiel 
+
+    option domain-name "inf.ethz.ch ethz.ch";
+
+im [ISC DHCP](https://www.isc.org/software/dhcp), hat zwei Nachteile:
+
+ * Es funktioniert zwar mit einigen DHCP-Clients und wird dort in einen
+   Suchpfad umgewandelt, es ist aber kein Standard.
+ * Es funktioniert nicht mit Windows (das nimmt dann an, daß die Domäne
+   "**inf.ethz.ch ethz.ch**" (mit Leerzeichen!) ist). 
+
+
+## Doppelte Namensführung
+
+Da das manuelle Pflegen von DNS-Namen (A/PTR) und deren Aliasse (CNAME)
+recht fehleranfällig ist und an der ETH keine automatische Methode existiert
+einen Namen mit Alias einzurichten, ist es sinnvoll, mit der doppelten Namensvergabe
+aufzuhören.
+
+## Gebräuchliches Vorgehen in der ID
+
+In Gesprächen mit der ID habe ich meine Problemematik beschrieben. Dort
+war man recht über mein Problem verwundert, und fragte mich, wofür ich
+denn überhaupt ***inf.ethz.ch*** benutzen würde. Es sei doch normal,
+Rechnernamen nur unterhalb von ***ethz.ch*** anzulegen.
+
+## Rechnernamen nur unterhalb von ***ethz.ch***
+
+Ich finde die Idee von Unter-Domänen zwar sehr gut, doch scheint es durch
+die momentane Situation an der ETH nicht sinnvoll, dieses Konzept weiterzuverfolgen:
+So sind doch Mehrarbeit und mehr Fehler die Folge, die sich vermeiden lassen,
+wenn Rechnernamen nur unterhalb von ***ethz.ch*** angelegt werden.
+
+## Der Wechsel
+
+Ich beginne nun seit ein paar Tagen innerhalb der Systems Group die bestehenden
+Rechner in die Domäne ***ethz.ch*** zu verschieben, werde das beim Umzug in das
+CAB stärker in den Fokus nehmen und von nun an neue Rechner nur noch unterhalb
+von ***ethz.ch*** anlegen.
+
+[[!tag eth]]
