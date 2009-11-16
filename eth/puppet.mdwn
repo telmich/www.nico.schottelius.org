@@ -6,6 +6,8 @@ zentrale Konfigurationsverwaltung für
 Im Rahmen des [[Sans-Projektes|eth/sans]] ist eine Puppet-Infrastruktur
 zur Verwaltung von Rechnern im
 [Departement Informatik](http://www.inf.ethz.ch/) entstanden.
+Zur Zeit verwalten wir mit Puppet etwa 250 Rechner in 60 Puppet-Klassen mit
+zwei Puppetmaster-Rechnern.
 
 Wir sind gerade dabei die Puppet-Einstellungen aufzuräumen und planen
 diese, mit allen benutzten Modulen, in der nahen Zukunft zu
