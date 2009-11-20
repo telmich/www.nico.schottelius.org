@@ -1,0 +1,66 @@
+[[!meta title="Skriptbare DNS-Schnittstelle an der ETH: Zusammenarbeit von Sans und der ID"]]
+
+Im Rahmen des demnächst anstehenden Umzuges vom Departement Informatik
+in das CAB-Gebäude und des sexy-Projektes (noch nicht veröffentlich),
+ist eine gute Zusammenarbeit von [[Sans|eth/sans]] mit der
+[ID-KOM](http://www.id.ethz.ch/about/sections/kom) am entstehen.
+
+## Der Hintergrund
+
+Da die DHCP-Konfiguration, die Inventarverwaltung, die Installation als
+auch Konfiguration eines Rechners bereits problemlos automatisiert werden
+können, gibt es nur noch einen letzten Punkt, der manuell gemacht werden
+muss: die ***DNS-Konfiguration***.
+
+Das momentan verwendete Programm **NetIP**, ein Java-Applet mit
+Oracle-Forms-Anbindung, ist sehr fehleranfällig, schwierig zu benutzen
+und vor allem eines nicht: ***automatisierbar***.
+
+## Die momentane Situation
+
+Die Situation ist klar, an vielen Stellen in der ETH geht Zeit verloren
+und werden unnötige Fehler gemacht. Dies ist den Systemadministratoren als
+auch der ID-KOM klar.
+
+Deshalb ist die ID-KOM dabei, eine neue automatisierbare Schnittstelle,
+einen sogenannten "Webservice", bereitzustellen.
+
+Diese Schnittstelle wird als Teil des
+[Komcenters](https://www.komcenter.ethz.ch) (nur innerhalb der ETH
+erreichbar) verfügbar sein.
+
+## Gemeinsame Entwicklung
+
+Es ist nicht nur erfreulich, daß die ID-KOM bereits mit
+der Entwicklung begonnen hat; nein, es ist sogar sehr erfreulich,
+das sie mit den Kunden, den Systemadministratoren, zusammenarbeiten möchte.
+
+Wir erhoffen uns damit auf beiden Seiten Vorteile:
+
+ * Die Schnittstelle der ID wird bereits in der Entwicklung
+   von zukünftigen Kunden getestet, wodurch Tücken früh gefunden
+   und beseitigt werden können.
+ * Zum Testen der Schnittstelle werden Skripte von Sans entwickelt.
+   Die entwickelten Skripte können anschließend von anderen
+   Systemadministratoren und ISGs genutzt werden.
+
+## Ausblick
+
+Bereits heute sind Teile der Schnittstelle und Skripte verfügbar.
+Beide sind jedoch noch nicht produktiv nutzbar. Die Entwicklung
+der Skripte auf Seiten Sans ist hoch priorisiert, auch die Entwicklung
+bei der ID schreitet voran.
+Dies jedoch, aufgrund fehlender Mittel bei der ID, langsamer als
+gewünscht. Eine Aufstockung der Mittel der ID-KOM ist von Sans-Seite aus
+stark zu empfehlen, damit auch weitere Dienste der ID mit skriptbaren
+Schnittstellen ausgestattet werden. Von dieser Aufstockung könnten praktisch
+alle ETH-Einheiten profitieren.
+
+## Zusammenfassung
+
+Die Entwicklung der Schnittstelle hat auf beiden Seiten begonnen,
+besonders positiv ist die Zusammenarbeit zwischen ID und Systemadministratoren
+zu sehen. Neuigkeiten zu diesem Thema werden hier und auf dem
+E-Post-Verteiler von [[Sans|eth/sans]] bekanntgegeben.
+
+[[!tag eth]]
