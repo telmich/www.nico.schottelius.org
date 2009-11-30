@@ -1,0 +1,6 @@
+[[!meta title="Cinit 0.3pre19 released"]]
+
+Version ***0.3pre19*** of [[cinit-0.3|software/cinit]]
+contains a lot cleanups for the final 0.3 release.
+
+[[!tag unix]]
