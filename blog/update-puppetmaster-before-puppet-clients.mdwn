@@ -1,0 +1,22 @@
+[[!meta title="Puppet: Update the puppetmaster before the puppet clients"]]
+
+After I updated one server today from [Debian](http://www.debian.org/)
+Lenny to Squeeze, puppetd stopped to work and printed the following error:
+
+    sgssr240003:~# puppetd --server puppet.inf.ethz.ch  --test --ca_port 8141
+    warning: peer certificate won't be verified in this SSL session
+    err: Could not request certificate: Error 405 on SERVER: Method Not Allowed
+    Exiting; failed to retrieve certificate and watiforcert is disabled
+
+I was a bit confused and did not find useful hints regarding that error message.
+In the IRC channel [#puppet](irc://irc.freenode.org/#puppet) I was told that this
+can happen, if the puppet client (**puppetd**) is newer than the puppetmaster.
+
+And indeed, when I compared the versions, puppetmasterd was running version
+**0.24.8**, whereas puppetd was **0.25.1**.
+
+After I upgraded puppetmasterd to **0.25.1**, it is runs fine again.
+
+If you also have been running into this problem, the article is for you!
+
+[[!tag eth unix]]
