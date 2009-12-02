@@ -16,6 +16,8 @@ clean: all
 	rm -rf ${DESTDIR}
 
 public: all
+	@echo "Press return to publish..."
+	@read avariable
 	git push --mirror
 	find ${DESTDIR} -type f -exec chmod 0644 {} \;
 	find ${DESTDIR} -type d -exec chmod 0755 {} \;
