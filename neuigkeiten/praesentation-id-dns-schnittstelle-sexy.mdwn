@@ -1,0 +1,28 @@
+[[!meta title="Bericht über die skriptbare DNS-Schnittstelle der ID und Kurzvorstellung sexy"]]
+
+Seit kurzer Zeit sind wir Systemadministratoren vom Sans-Projekt dabei
+die neue DNS-Schnittestelle der
+[ID-Kom](http://www1.ethz.ch/id/about/sections/kom)
+[[zusammen mit der ID-Kom|neuigkeiten/sans-und-id-zusammenarbeit-dns-schnittstelle]]
+auszutesten und Skripte zu schreiben.
+
+Nun liegen erste Ergebnisse vor, die wir **technisch interessierten**
+Personen vorstellen möchten. Und eines können wir auch schon vorab verraten:
+Ja, die Schnittstelle ist von der (Unix-)Kommandozeile aus nutzbar!
+Natürlich gibt es hier und da noch ein zwei kleinere Probleme, jedoch
+recht wenige für eine Betaphase.
+
+Da die Information zur Schnittstelle wichtig sind für den Umzug des
+Departements Informatik in das CAB-Gebäude haben wir uns dazu
+entschieden, die Vorstellung noch dieses Jahr zu machen. Und zwar am
+
+    Dienstag, den 8. Dezember 2009
+
+In der gleichen Präsentation gibt es eine Kurzvorstellung vom Sexy-Projekt,
+das die neue geschaffene Schnittstelle nutzt.
+
+Bei Interesse melde Dich bitte auf der
+[Terminfindungsseite](http://doodle.ethz.ch/2m2prf3b3bb65c7e) an und
+sende eine E-Post an **nico.schottelius** (bei) **inf.ethz.ch**.
+
+[[!tag eth]]
