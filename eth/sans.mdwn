@@ -28,6 +28,17 @@ Es gibt [Git-Behälter](http://git.sans.ethz.ch) zu den folgenden Projekten:
    * Enthält Skripte für die Skriptbare ID-WS-DNS-Schnittstelle
  * [Sans-Puppet](http://git.sans.ethz.ch/?p=puppet)
 
+### Skriptbare DNS-Schnitte (ID-WS)
+
+Wir sind dabei mit Skripten und Testen die
+[Netzdienst-Schnittstelle](https://www.komcenter.ethz.ch/confluence/display/kc/WebServices)
+der ID zu unterstützen.
+
+Skripte dazu befinden sich in den obengenannten Projekten
+**Sexy** und **Sans-Skripte**.
+
+ * [Die erste Präsentation zu sexy und der ID-DNS-Netzdienst-Schnittstelle](eth/sexy/sexy-dns-2009-12-08.pdf]
+
 ## Kontakt
 
 Solltest Du ein interessierter Systemadministrator sein oder einen solchen
