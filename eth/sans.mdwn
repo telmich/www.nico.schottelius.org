@@ -20,6 +20,8 @@ Kommunikationsplattform zu schaffen.
 
 Informationen zu den folgenden Projekten folgen in Kürze:
 
+ * [Git-Repo](http://git.sans.ethz.ch) zu den folgenden Projekten:
+
  * Sexy
  * Sans-Skripte
  * Skriptbare DNS-Schnittstelle
