@@ -1,5 +1,6 @@
 [[!meta title="Das SANS Projekt an der ETH Zürich"]]
 
+## Einführung
 SANS ist ein Projekt zur Effizienzsteigerung von Systemadministratoren.
 Die Kernidee ist, ETH-weit Systemadministratoren mit gleichen oder
 ähnlichen Aufgaben zusammenzubringen, und dadurch mögliche Synergien
@@ -14,6 +15,16 @@ fruchtbare Ideen entwickelt, über die demnächst berichtet wird.
 Vorraussetzung für den weiter Erfolg dieses Projektes ist es,
 die anderen **Systemadministratoren** zu finden und eine ETH-weite
 Kommunikationsplattform zu schaffen.
+
+## Projekte
+
+Informationen zu den folgenden Projekten folgen in Kürze:
+
+ * Sexy
+ * Sans-Skripte
+ * Skriptbare DNS-Schnittstelle
+
+## Kontakt
 
 Solltest Du ein interessierter Systemadministrator sein oder einen solchen
 kennen, so wären wir froh, wenn Du Dich bei uns
