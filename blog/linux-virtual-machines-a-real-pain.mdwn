@@ -1,0 +1,238 @@
+[[!meta title="Linux virtual machine software is a real pain"]]
+
+This report is a about my todays experience with virtual machines.
+
+## UML (user-mode-linux)
+
+It began this morning, when I tried to setup a new virtual
+machine with [User mode Linux](http://user-mode-linux.sourceforge.net/).
+I could easily reuse an existing installation using
+copy-on-write with the following command:
+
+    linux umid=vm4 uml_dir=/home/nico/vm/uml con1=pts ubda=/home/nico/vm/cow/vm4,/home/nico/vm/images/debian eth0=tuntap,,,192.168.4.1 mem=4096M
+
+After I issued
+
+    apt-get update && apt-get dist-upgrade
+
+in the virtual machine, it hung. It did not react to new ssh connections.
+I've seen this behaviour quite often with **user mode Linux**, when I have
+"a lot" of disk input/output. Ok, I wanted to use some kind of
+framework for my virtual machines anyway, so for the time being,
+let's forget about uml and try the libvirt+kvm.
+
+## Libvirt
+
+The [libvirt](http://libvirt.org/) project looks quite promising
+from its documentation, especially in combination with
+[virt-manager](http://virt-manager.org/). Trying to create a
+new virtual machine with virt-manager is kind of strange, because
+it insists of having an installation medium. Though, locating the
+Debian live CD is not so difficult. But then came the big problem:
+When I tried to create a new disk image, virt-manager just hung
+for several minutes, without the host system doing anything.
+Some time before I had massive problems using virt-manager and selecting
+a different pool for the images, which caused several problems when
+trying to start the VM.
+
+But well, let's give [virsh](http://www.libvirt.org/apps.html) a try,
+the command line utility to manage libvirt. Creating a new disk image
+with virsh is pretty easy:
+
+    vol-create-as default jr.img 8G
+
+A bit confusing is the fact that the **vol-create** command without
+**-as** prefix expects a XML-file as input. Having a look at the
+other create commands confirms guess:
+
+    ikn:~% LANG=C LC_ALL=C virsh help | grep create
+       create          create a domain from an XML file
+       net-create      create a network from an XML file
+       nodedev-create  create a device defined by an XML file on the node
+       pool-create     create a pool from an XML file
+       pool-create-as  create a pool from a set of args
+       vol-create      create a vol from an XML file
+       vol-create-from create a vol, using another volume as input
+       vol-create-as   create a volume from a set of args
+    ikn:~% virsh --version
+    0.7.4
+
+Some commands do not support creation from the command line, but
+only from an XML-file, which makes virsh useless for interactive
+and scripting use.
+
+This brings me to the new kid on the block: ganeti
+
+## Ganeti
+
+When I first experienced problems with libvirt, some people pointed
+me to [ganeti](http://code.google.com/p/ganeti/)
+(to speak truth, it was one of the ganeti developers).
+Until today I delayed this idea, but after the problems with libvirt
+I decided to give ganeti-2.0.5-1 (Debian package) a try. First of all
+I tried to follow the
+[installation tutorial](http://ganeti-doc.googlecode.com/svn/ganeti-1.2/install.html)
+referenced on the homepage, which is heavily orientated on using
+[Xen](http://www.xen.org/) and [LVM](http://tldp.org/HOWTO/LVM-HOWTO/), both
+of them I do not plan to use. Trying to get ganeti running, I was meeting
+some interesting problems:
+
+    [11:26] tee:root# gnt-cluster init ganeti.schottelius.org
+    Failure: prerequisites not met for this operation:
+    This host's IP resolves to the private range (127.0.1.1). Please fix DNS or /etc/hosts.
+
+This is described in the ganeti manual and easily fixed by commenting out the
+relevant entry in ***/etc/hosts***:
+
+    [11:27] tee:root# grep tee.schottelius.org /etc/hosts        
+    #127.0.1.1      tee.schottelius.org     tee
+
+After that I was a bit confused by ganeti not finding its cluster name:
+
+    [11:27] tee:root# gnt-cluster init ganeti.schottelius.org
+    Failure: can't resolve hostname 'ganeti.schottelius.org'
+    [11:28] tee:root# ping ganeti.schottelius.org
+    PING ganeti.schottelius.org (77.109.138.195) 56(84) bytes of data.
+    64 bytes from ganeti.schottelius.org (77.109.138.195): icmp_seq=1 ttl=64 time=0.026 ms
+    ^C                
+    --- ganeti.schottelius.org ping statistics ---
+    1 packets transmitted, 1 received, 0% packet loss, time 0ms
+    rtt min/avg/max/mdev = 0.026/0.026/0.026/0.000 ms
+
+Retrying two times "solved" the problem, which is a bit confusing for me
+as ganeti and ping both use the same resolver library. After that I met the
+"no-lvm-problem":
+
+    [11:38] tee:root# gnt-cluster init -b br0 ganeti.schottelius.org
+    Failure: prerequisites not met for this operation:
+    Error: volume group 'xenvg' missing
+    specify --no-lvm-storage if you are not using lvm
+    
+Specifying the required parameter led me into a new problem:
+
+    [11:38] tee:root# gnt-cluster init -b br0 --no-lvm-storage ganeti.schottelius.org
+    Failure: prerequisites not met for this operation:
+    Invalid master netdev given (xen-br0): 'Device "xen-br0" does not exist.'
+
+Which is interesting, **ganeti seems to ignore the bridge paramater -b**.
+So, to use ganeti, I **renamed the bridge from br0 to xen-br0** in
+***/etc/network/interfaces***:
+
+    auto xen-br0
+    iface xen-br0 inet manual
+       bridge_ports eth1
+ 
+And finally I was able to initialise the ganeti cluster:
+
+    [15:06] tee:root# gnt-cluster init -b br0 --no-lvm-storage ganeti.schottelius.org
+
+Then I tried to join the host into the cluster, which failed, but retrieving
+status information also failed:
+
+    [15:06] tee:root# gnt-node add tee.schottelius.org
+    Node tee.schottelius.org already in the cluster (as tee.schottelius.org) - please retry with '--readd'
+    [15:07] tee:root# gnt-node list                   
+    Node                DTotal DFree MTotal MNode MFree Pinst Sinst
+    tee.schottelius.org      ?     ?      ?     ?     ?     0     0
+
+Trying to re-add it, results in an error without an error message
+and does not fix the problem:
+
+    [15:07] tee:root# gnt-node add --readd tee.schottelius.org
+    The authenticity of host 'tee.schottelius.org (77.109.138.222)' can't be established.
+    RSA key fingerprint is c7:d0:a8:32:ad:f0:9b:fa:1e:77:d5:1f:64:d8:9b:db.
+    Are you sure you want to continue connecting (yes/no)? yes
+    Thu Dec 31 15:08:23 2009  - INFO: Readding a node, the offline/drained flags were reset
+    Thu Dec 31 15:08:23 2009  - INFO: Node will be a master candidate
+    Failure: command execution error:
+    [15:08] tee:root# 
+    [15:32] tee:root# gnt-node list
+    Node                DTotal DFree MTotal MNode MFree Pinst Sinst
+    tee.schottelius.org      ?     ?      ?     ?     ?     0     0
+    [15:34] tee:root# 
+ 
+At that point I was pointed to the
+[more recent documentation](http://ganeti-doc.googlecode.com/svn/ganeti-2.0/install.html)
+of ganeti and began from scratch:
+
+    [16:22] tee:vm# gnt-cluster destroy --yes-do-it
+    [16:23] tee:vm# gnt-cluster init --no-lvm-storage ganeti.schottelius.org
+    [16:26] tee:vm# gnt-node list
+    Node                DTotal DFree MTotal MNode MFree Pinst Sinst
+    tee.schottelius.org      ?     ?      ?     ?     ?     0     0
+
+After double checking that the needed daemons are running
+(/etc/init.d/ganeti restart), I got a good hint: One has to specify
+the supervisor to use during initialisation:
+
+    [16:34] tee:vm# gnt-cluster destroy --yes-do-it
+    [16:35] tee:vm# gnt-cluster init --no-lvm-storage -t kvm ganeti.schottelius.org
+    [16:36] tee:vm# gnt-node list                                                  
+    Node                DTotal DFree MTotal MNode MFree Pinst Sinst                
+    tee.schottelius.org      ?     ?  19.6G  2.7G 17.6G     0     0
+ 
+Now I tried to add a new virtual machine instance, which resulted in another
+error:
+
+    [16:51] tee:vm# gnt-instance add -t file -s 4G -o debootstrap -n tee.schottelius.org jr.nachtbrand.ch
+    Failure: prerequisites not met for this operation:
+    Hypervisor parameter validation failed on node tee.schottelius.org: Instance kernel '/boot/vmlinuz-2.6-kvmU' not found or not a file                        
+
+This seems to be some kind ganeti logic to have the kernel outside the
+block device, which is similar to the user mode Linux approach. After linking one
+of the host kernels and its initrd adding an instance succeeded:
+
+    [16:59] tee:/boot# ln -s vmlinuz-2.6.30-2-amd64 vmlinuz-2.6-kvmU
+    [16:59] tee:/boot# ln -s initrd.img-2.6.30-2-amd64 initrd-2.6-kvmU
+    [17:00] tee:vm# gnt-instance add -t file -s 4G -o debootstrap -n tee.schottelius.org jr.nachtbrand.ch
+    [17:01] tee:/boot# gnt-instance  list
+    Instance         Hypervisor OS          Primary_node        Status  Memory
+    jr.nachtbrand.ch kvm        debootstrap tee.schottelius.org running   128M
+
+It is also correctly connected to the bridge, seen as valid by **gnt-os**
+and **gnt-cluster verify** looks good:
+
+    [17:14] tee:/boot# brctl show
+    bridge name     bridge id               STP enabled     interfaces
+    br0             8000.000000000000       no              
+    xen-br0         8000.0015176a26f7       no              eth1
+                                                            tap4
+    [17:16] tee:/boot# gnt-os diagnose
+    OS: debootstrap [global status: valid]
+      Node: tee.schottelius.org, status: VALID (path: /usr/share/ganeti/os/debootstrap)
+    [17:17] tee:/boot# gnt-cluster verify
+    Thu Dec 31 17:17:24 2009 * Verifying global settings
+    Thu Dec 31 17:17:24 2009 * Gathering data (1 nodes)
+    Thu Dec 31 17:17:24 2009 * Verifying node tee.schottelius.org (master)
+    Thu Dec 31 17:17:24 2009 * Verifying instance jr.nachtbrand.ch
+    Thu Dec 31 17:17:24 2009 * Verifying orphan volumes
+    Thu Dec 31 17:17:24 2009 * Verifying remaining instances
+    Thu Dec 31 17:17:24 2009 * Verifying N+1 Memory redundancy
+    Thu Dec 31 17:17:24 2009 * Other Notes
+    Thu Dec 31 17:17:24 2009   - NOTICE: 1 non-redundant instance(s) found.
+    Thu Dec 31 17:17:24 2009 * Hooks Results
+ 
+As specified in the documentation, I tried to connect to the console:
+
+    [17:28] tee:/boot# gnt-instance console jr.nachtbrand.ch
+    [17:30] tee:/boot# gnt-instance console --show-cmd jr.nachtbrand.ch
+    ssh -q -oEscapeChar=none -oHashKnownHosts=no -oGlobalKnownHostsFile=/var/lib/ganeti/known_hosts -oUserKnownHostsFile=/dev/null -oHostKeyAlias=ganeti.schottelius.org -oBatchMode=yes -oStrictHostKeyChecking=yes -t root@tee.schottelius.org '/usr/bin/socat STDIO,echo=0,icanon=0 UNIX-CONNECT:/var/run/ganeti/kvm-hypervisor/ctrl/jr.nachtbrand.ch.serial'
+
+The problem is that the newly debootstrapped system
+*does not have a serial console setup*.
+
+As you can see, in the evening of this day I had a lot of new experiences,
+but *no reliable running virtualisation framework*. That brings me to the
+end of this report:
+
+ * User mode Linux does not work reliable under some I/O load.
+ * Virt-manager is absolutely not able to change the simplest parameters.
+ * Virsh is unusable, if you don't want to edit XML-files.
+ * Ganeti has a lot of unhandled problems and still relies very much on Xen + LVM.
+
+As next Monday my vacation ends, I will have a look at the commercial virtualisation
+frameworks. For the folks of the named FOSS stuff above: Guys, you've to improve
+a lot, until one can call your software "good and clean software".
+
+
+[[!tag unix vm]]
