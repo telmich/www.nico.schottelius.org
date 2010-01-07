@@ -1,0 +1,48 @@
+[[!meta title="Tunneling the qemu or kvm vnc unix socket via ssh"]]
+
+Perhaps you were searching for a way to tunnel the
+[unix socket](http://en.wikipedia.org/wiki/Unix_domain_socket)
+provided by
+[qemu](http://www.qemu.org/)
+or [kvm](http://www.linux-kvm.org/page/Main_Page)
+for [vnc](http://en.wikipedia.org/wiki/Virtual_Network_Computing)
+through an [ssh](http://www.openssh.com/) tunnel, too?
+When I was searching for an answer, I found 
+[ssvnc](http://www.karlrunge.com/x11vnc/ssvnc.html), which
+I did not give a try, because I wanted to solve the problem
+with [socat](http://www.dest-unreach.org/socat/) and ssh.
+
+I started kvm on the **remote** machine using the following command:
+
+    kvm -vnc unix:/home/services/vms/vnc-socket ...
+
+Then I connected socat locally on the remote machine to test the settings:
+
+    socat STDIO UNIX-CONNECT:/home/services/vms/vnc-socket
+
+Which worked pretty fine. On the local side we need a listener on a
+tcp port around port 5500+ (not a must, but the standard vnc port), which
+can be created like that:
+
+    socat STDIO TCP-LISTEN:5500
+
+As reading and writing is not possible with a single pipe, one **cannot** just do
+pipe into socat like this:
+
+    ssh root@tee.schottelius.org "socat STDIO UNIX-CONNECT:/home/services/vms/vnc-socket" | socat STDIO TCP-LISTEN:5500
+
+But socat has another nice option, the **EXEC** parameter, which solves the problem:
+
+    socat TCP-LISTEN:5500 EXEC:'ssh root@tee.schottelius.org "socat STDIO UNIX-CONNECT:/home/services/vms/vnc-socket"'
+
+And now I can connect locally via [tightvnc](http://www.tightvnc.com/):
+
+    xtightvncviewer -encodings "copyrect tight hextile zlib corre rre raw" localhost:5500
+
+I specify a different order for the encodings, because xtightvncviewer
+prefers raw "encoding", if it connects to localhost, which is not desired
+here.
+
+And that's it, vnc connected to a unix socket from kvm tunneled through ssh!
+
+[[!tag unix vm]]
