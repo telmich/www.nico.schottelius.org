@@ -1,0 +1,18 @@
+Hted is a very simple "HTML editor" written in 1998.
+
+## Getting it
+
+### Via git
+
+You can get the latest development version via git:
+
+    git clone git://git.schottelius.org/Hted
+
+There is also the usual [gitweb](http://git.schottelius.org/?p=Hted)
+interface available.
+
+### Archives
+
+ * [[Hted-1.0.tar]]
+
+[[!tag java]]
