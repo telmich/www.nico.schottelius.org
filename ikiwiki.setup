@@ -19,7 +19,10 @@ use IkiWiki::Setup::Standard {
 	#templatedir => "/usr/share/ikiwiki/templates",
 	#underlaydir => "/usr/share/ikiwiki/basewiki",
 	#underlaydir => "/home/users/nico/privat/computer/net/netzseiten/www.nico.schottelius.org/empty",
-	underlaydir => "../underlaydir",
+	#underlaydir => "../underlaydir",
+
+	underlaydirbase => "/home/users/nico/b/ikiwiki/underlays",
+	underlaydir => "/home/users/nico/b/ikiwiki/underlays/basewiki",
 
 	# Subversion stuff.
 	#rcs => "svn",
