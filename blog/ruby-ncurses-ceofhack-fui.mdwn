@@ -1,0 +1,29 @@
+[[!meta title="Take ruby, ncurses and ceofhack, get fui"]]
+
+For the lessons of the software development I have to create
+a nice project in some object orientated language. After
+digging around what would interest me, I chose
+[ruby](http://www.ruby-lang.org/), because it feels like it could be
+an interesting language.
+
+The next question was, what kind of software to write. As
+the EOF project, namely [[ceofhack|software/ceofhack]] still
+needs a user interface, I decided to write one.
+
+As I need an user interface, I would use myself, I wanted to use
+something I can use on the console, which led me to
+[ncurses](http://www.gnu.org/software/ncurses/).
+
+Eventually I found out that there is also support for ncurses
+in ruby, [ncurses-ruby](http://ncurses-ruby.berlios.de/).
+
+Perfectly! The only thing that has been missing was a name. As
+I am a very simple thinking person, I chose *fui*, as an abreviation
+of *fancy user interface*.
+
+The
+[git repository](http://git.schottelius.org/?p=fui;a=summary)
+has already been published, expect more news soon!
+
+
+[[!tag eof unix]]
