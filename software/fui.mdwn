@@ -1,0 +1,36 @@
+fui - fancy user interface
+
+## What's fui?
+
+Fui is a decentralised crypted chat program user interface.
+It is the first user interface for [[ceofhack|software/ceofhack]].
+
+## Requirements
+
+ * ruby
+ * ncurses-ruby
+ * ceofhack
+
+## Download
+
+### Via git
+
+Clone it via
+
+    git clone git://git.schottelius.org/fui
+
+Or browse [gitweb](http://git.schottelius.org/?p=fui).
+
+### Releases
+
+ * [[fui-0.1.tar]]
+
+## Documentation
+
+### Commands
+
+ * /quit: exit fui
+
+## See also
+
+ * [Ncurses intro](http://invisible-island.net/ncurses/ncurses-intro.html)
