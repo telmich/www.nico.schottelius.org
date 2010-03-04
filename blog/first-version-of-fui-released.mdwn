@@ -1,0 +1,11 @@
+[[!meta title="First release of fui"]]
+
+
+As announced some days ago, I started to hack on a
+UI for [[ceofhack|software/ceofhack]].
+
+The first version of [[fui|software/fui]] is now available,
+which can only print one line of text you entered, but it
+can do that with ncurses!
+
+[[!tag eof ncurses unix]]
