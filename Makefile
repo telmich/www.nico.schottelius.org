@@ -15,10 +15,14 @@ view: all
 clean: all
 	rm -rf ${DESTDIR}
 
-public: all
+ask:
 	@echo "Press return to publish..."
 	@read avariable
 	git push --mirror
+
+public: ask public-f
+
+public-f: all
 	find ${DESTDIR} -type f -exec chmod 0644 {} \;
 	find ${DESTDIR} -type d -exec chmod 0755 {} \;
 	rsync -av --delete ${DESTDIR} ${PUBDIR}
