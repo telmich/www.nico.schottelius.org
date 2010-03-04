@@ -1,0 +1,3 @@
+[ncurses](http://en.wikipedia.org/wiki/Ncurses)
+
+[[!inline pages="tagged(ncurses)" archive="yes" show=0]]

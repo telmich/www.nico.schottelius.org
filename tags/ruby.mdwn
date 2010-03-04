@@ -1,0 +1,3 @@
+[ruby](http://www.ruby-lang.org/)
+
+[[!inline pages="tagged(ruby)" archive="yes" show=0]]

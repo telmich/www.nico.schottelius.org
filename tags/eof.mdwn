@@ -1,0 +1,3 @@
+[!eof/EOF](http://www.eof.name/)
+
+[[!inline pages="tagged(eof)" archive="yes" show=0]]
