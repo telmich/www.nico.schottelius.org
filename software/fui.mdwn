@@ -1,5 +1,8 @@
 fui - fancy user interface
 
+![fui](screenshots/intro-cursor-correct-screenshot-20100304.png "fui intro screen")
+
+
 ## What's fui?
 
 Fui is a decentralised crypted chat program user interface.
@@ -29,8 +32,11 @@ Or browse [gitweb](http://git.schottelius.org/?p=fui).
 
 ### Commands
 
+ * *text*: print text to message window
  * /quit: exit fui
 
 ## See also
 
  * [Ncurses intro](http://invisible-island.net/ncurses/ncurses-intro.html)
+
+[[!tag ncurses ruby unix]]
