@@ -38,5 +38,6 @@ Or browse [gitweb](http://git.schottelius.org/?p=fui).
 ## See also
 
  * [Ncurses intro](http://invisible-island.net/ncurses/ncurses-intro.html)
+ * [IRC](irc://irc.freenode.net/#cLinux)
 
 [[!tag ncurses ruby unix]]
