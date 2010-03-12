@@ -16,3 +16,4 @@
    * [[Neuigkeiten|neuigkeiten]]
    * [[Verweise|verweise]]
 * [[Seitenübersicht / Sitemap|sitemap]]
+ * [[Änderungen / Changes|recentchanges]]

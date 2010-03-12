@@ -15,7 +15,7 @@ use IkiWiki::Setup::Standard {
 	# users who are banned from the wiki
 	banned_users => [],
 	# where the source of the wiki is located
-	srcdir => './',
+	srcdir => '/home/nico/www-src/www.nico.schottelius.org',
 	# where to build the wiki
 	destdir => '../dst',
 	# base url to the wiki
@@ -29,14 +29,14 @@ use IkiWiki::Setup::Standard {
 	# rcs backend to use
 	rcs => '',
 	# plugins to add to the default configuration
-	add_plugins => [qw{goodstuff meta sidebar tag rawhtml}],
+	add_plugins => [qw{git goodstuff meta sidebar tag rawhtml}],
 	# plugins to disable
 	disable_plugins => [qw{smiley openid}],
 	# location of template files
-	templatedir => '/home/users/nico/b/ikiwiki/templates',
+	#templatedir => '/home/users/nico/b/ikiwiki/templates',
 	# base wiki source location
-	underlaydirbase => '/home/users/nico/b/ikiwiki/underlays',
-	underlaydir => '/home/users/nico/b/ikiwiki/underlays/basewiki',
+	#underlaydirbase => '/home/users/nico/b/ikiwiki/underlays',
+	#underlaydir => '/home/users/nico/b/ikiwiki/underlays/basewiki',
 	# display verbose messages?
 	#verbose => 1,
 	# log to syslog?
@@ -72,7 +72,7 @@ use IkiWiki::Setup::Standard {
 	# group for wrappers to run in
 	#wrappergroup => 'ikiwiki',
 	# extra library and plugin directory
-	libdir => '/home/users/nico/b/ikiwiki',
+	#libdir => '/home/users/nico/b/ikiwiki',
 	# environment variables
 	ENV => {},
 	# regexp of source files to ignore
