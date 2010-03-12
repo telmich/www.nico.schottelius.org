@@ -7,25 +7,30 @@ IKIWIKI=ikiwiki
 all:
 	$(IKIWIKI) --refresh --setup ikiwiki.setup
 
+lall:
+	$(IKIWIKI) --refresh --setup ikiwiki.setup --set destdir=../dst --set srcdir=.
+
 all-unfresh:
 	$(IKIWIKI) --setup ikiwiki.setup
 
-view: all
+view:
 	$(BROWSER) ${DESTDIR}/index.html
 
 clean: all
 	rm -rf ${DESTDIR}
 
-ask:
-	@echo "Press return to publish..."
-	@read avariable
+public:
 	git push --mirror
 
-public: ask public-f
+#public: ask public-f
 
-public-f: all
-	find ${DESTDIR} -type f -exec chmod 0644 {} \;
-	find ${DESTDIR} -type d -exec chmod 0755 {} \;
-	rsync -av --delete ${DESTDIR} ${PUBDIR}
+#public-f: all
+#	find ${DESTDIR} -type f -exec chmod 0644 {} \;
+#	find ${DESTDIR} -type d -exec chmod 0755 {} \;
+#	rsync -av --delete ${DESTDIR} ${PUBDIR}
 
+#ask:
+#	@echo "Press return to publish..."
+#	@read avariable
+#	git push --mirror
 
