@@ -155,6 +155,7 @@ even include it into Debian.
  * There is a general
  [ccollect mailing list](http://l.schottelius.org/mailman/listinfo/ccollect)
  available.
+  * **Warning**: Only subscribers can post.
  * You can join the development ***IRC channel***
    [#cLinux on irc.freenode.org](irc://irc.freenode.org/#cLinux).
 
