@@ -387,8 +387,8 @@ div#toc a:visited { color: blue; }
 <h1>ccollect - Installing, Configuring and Using</h1>
 <span id="author">Nico Schottelius</span><br />
 <span id="email"><tt>&lt;<a href="mailto:nico-ccollect__@__schottelius.org">nico-ccollect__@__schottelius.org</a>&gt;</tt></span><br />
-<span id="revision">version 0.8,</span>
-for ccollect 0.8, Initial Version from 2006-01-13
+<span id="revision">version 0.8.1,</span>
+for ccollect 0.8.1, Initial Version from 2006-01-13
 </div>
 <div id="preamble">
 <div class="sectionbody">
@@ -407,17 +407,17 @@ bourne shell compatible (like <em>dash</em>, <em>ksh</em>, <em>zsh</em>, <em>bas
 <div class="ulist"><ul>
 <li>
 <p>
-GNU/Linux on amd64/hppa/i386/ppc/ARM
-</p>
-</li>
-<li>
-<p>
 FreeBSD   on amd64/i386
 </p>
 </li>
 <li>
 <p>
-Mac OS X 10.5
+GNU/Linux on amd64/arm/hppa/i386/ppc
+</p>
+</li>
+<li>
+<p>
+Mac OS X  10.5
 </p>
 </li>
 <li>
@@ -606,7 +606,7 @@ subdirectory:</p></div>
 <div class="content">
 <pre><tt># get latest ccollect tarball from http://www.nico.schottelius.org/software/ccollect/
 # replace value for CCV with the current version
-export CCV=0.8
+export CCV=0.8.1
 
 #
 # replace 'wget' with 'fetch' on bsd
@@ -751,8 +751,10 @@ following scripts to a directory in $PATH:</p></div>
 <h2 id="_configuring">5. Configuring</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>For configuration aid have a look at the above mentioned tools, which can assist
-you quite well. When you are successfully using <tt>ccollect</tt>, report success using
-<tt>tools/report_success.sh</tt>.</p></div>
+you quite well. When you are successfully using <tt>ccollect</tt>, I would be happy if
+you add a link to your website, stating "I backup with ccollect", which points
+to the ccollect homepage. So more people now about ccollect, use it and
+improve it. You can also report success using <tt>tools/report_success.sh</tt>.</p></div>
 <h3 id="_runtime_options">5.1. Runtime options</h3><div style="clear:left"></div>
 <div class="paragraph"><p><tt>ccollect</tt> looks for its configuration in <em>/etc/ccollect</em> or, if set, in
 the directory specified by the variable <em>$CCOLLECT_CONF</em>:</p></div>
@@ -803,6 +805,26 @@ This number defines how many versions of this interval are kept.</p></div>
 <em>/etc/ccollect/defaults/<tt>pre_exec</tt></em> (same with <tt>post_exec</tt>), <tt>ccollect</tt>
 will start <tt>pre_exec</tt> before the whole backup process and
 <tt>post_exec</tt> after backup of all sources is done.</p></div>
+<div class="paragraph"><p>If <tt>pre_exec</tt> exits with a non-zero return code, the whole backup
+process will be aborted.</p></div>
+<div class="paragraph"><p>The <tt>pre_exec</tt> and <tt>post_exec</tt> script can access the following exported variables:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<em>INTERVAL</em>: the interval selected (<tt>daily</tt>)
+</p>
+</li>
+<li>
+<p>
+<em>no_sources</em>: number of sources to backup (<tt>2</tt>)
+</p>
+</li>
+<li>
+<p>
+<em>source_$no</em>: name of the source, <em>$no</em> starts at 0 (<tt>$source_0</tt>)
+</p>
+</li>
+</ul></div>
 <div class="paragraph"><p>The following example describes how to report free disk space in
 human readable format before and after the whole backup process:</p></div>
 <div class="listingblock">
@@ -1086,6 +1108,32 @@ configuration, <tt>ccollect</tt> will execute this command before and
 respectively after doing the backup for <strong>this specific</strong> source.
 If you want to have pre-/post-exec before and after <strong>all</strong>
 backups, see above for general configuration.</p></div>
+<div class="paragraph"><p>If <tt>pre_exec</tt> exits with a non-zero return code, the backup
+process of <tt>this source</tt> will be aborted (i.e. backup skipped).</p></div>
+<div class="paragraph"><p>The <tt>post_exec</tt> script can access the following exported variables from
+ccollect:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<em>name</em>: name of the source that is being backed up
+</p>
+</li>
+<li>
+<p>
+<em>destination_name</em>: contains the base directory name (<tt>daily.20091031-1013.24496</tt>)
+</p>
+</li>
+<li>
+<p>
+<em>destination_dir</em>: full path (<tt>/tmp/ccollect/daily.20091031-1013.24496</tt>)
+</p>
+</li>
+<li>
+<p>
+<em>destination_full</em>: like <em>destination_dir</em>, but prepended with the remote_host, if set (<tt>host:/tmp/ccollect/daily.20091031-1013.24496</tt> or <tt>/tmp/ccollect/daily.20091031-1013.24496</tt>)
+</p>
+</li>
+</ul></div>
 <div class="paragraph"><p>Example:</p></div>
 <div class="listingblock">
 <div class="content">
@@ -1170,23 +1218,31 @@ Host bruehe
 <div class="ulist"><ul>
 <li>
 <p>
-INTERVAL: The interval specified on the command line
+<em>INTERVAL</em>: The interval specified on the command line
 </p>
 </li>
 <li>
 <p>
-no_sources: number of sources
+<em>no_sources</em>: number of sources
 </p>
 </li>
 <li>
 <p>
-source_$NUM: the name of the source
+<em>source_$NUM</em>: the name of the source
 </p>
 </li>
 <li>
 <p>
-name: the name of the currently being backuped source (not available for
+<em>name</em>: the name of the currently being backuped source (not available for
   generic pre_exec script)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Only available for <tt>post_exec</tt>:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<em>remote_host</em>: name of host we backup to (empty if unused)
 </p>
 </li>
 </ul></div>
@@ -1623,8 +1679,8 @@ rsync -av -H --delete /mnt/archiv/ "$DDIR/archiv/"</tt></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 0.8<br />
-Last updated 2009-08-20 17:37:14 CEST
+Version 0.8.1<br />
+Last updated 2010-03-26 09:36:04 CEST
 </div>
 </div>
 </body>

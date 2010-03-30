@@ -279,4 +279,10 @@ use IkiWiki::Setup::Standard {
 	#add_underlays => [qw{/home/users/nico/wiki.underlay}],
 	# extra template directories to add
 	#add_templates => [qw{/home/users/nico/.ikiwiki/templates}],
+
+   git_wrapper => '/home/services/git/netzseiten/www.nico.schottelius.org/hooks/post-update',
+   git_wrappermode => '06755',
+   gitorigin_branch => 'origin',
+   gitmaster_branch => 'master',
+ 
 }

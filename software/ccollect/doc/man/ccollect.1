@@ -2,12 +2,12 @@
 .\"     Title: ccollect
 .\"    Author: [see the "AUTHOR" section]
 .\" Generator: DocBook XSL Stylesheets v1.75.1 <http://docbook.sf.net/>
-.\"      Date: 07/08/2009
+.\"      Date: 11/01/2009
 .\"    Manual: [FIXME: manual]
 .\"    Source: [FIXME: source]
 .\"  Language: English
 .\"
-.TH "CCOLLECT" "1" "07/08/2009" "[FIXME: source]" "[FIXME: manual]"
+.TH "CCOLLECT" "1" "11/01/2009" "[FIXME: source]" "[FIXME: manual]"
 .\" -----------------------------------------------------------------
 .\" * set default formatting
 .\" -----------------------------------------------------------------
@@ -22,7 +22,7 @@
 ccollect \- (pseudo) incremental backup with different exclude lists using hardlinks and rsync
 .SH "SYNOPSIS"
 .sp
-\fIccollect\&.sh\fR <interval name> [args] <sources to backup>
+\fIccollect\&.sh\fR [args] <interval name> <sources to backup>
 .SH "DESCRIPTION"
 .sp
 ccollect is a backup utility written in the sh\-scripting language\&. It does not depend on a specific shell, only /bin/sh needs to be bourne shell compatibel (like \fIdash\fR, \fIksh\fR, \fIzsh\fR, \fIbash\fR, \&...)\&.
@@ -47,7 +47,12 @@ Backup all sources specified in /etc/ccollect/sources
 .PP
 \-v, \-\-verbose
 .RS 4
-Be very verbose (uses set \-x)\&.
+Be very verbose (uses set \-x)
+.RE
+.PP
+\-V, \-\-version
+.RS 4
+Show version and exit
 .RE
 .SH "SEE ALSO"
 .sp

@@ -1,7 +1,7 @@
 ccollect - Installing, Configuring and Using
 ============================================
 Nico Schottelius <nico-ccollect__@__schottelius.org>
-0.8, for ccollect 0.8, Initial Version from 2006-01-13
+0.8.1, for ccollect 0.8.1, Initial Version from 2006-01-13
 :Author Initials: NS
 
 
@@ -21,9 +21,9 @@ Supported and tested operating systems and architectures
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 `ccollect` was successfully tested on the following platforms:
 
-- GNU/Linux on amd64/hppa/i386/ppc/ARM
 - FreeBSD   on amd64/i386
-- Mac OS X 10.5
+- GNU/Linux on amd64/arm/hppa/i386/ppc
+- Mac OS X  10.5
 - NetBSD    on alpha/amd64/i386/sparc/sparc64
 - OpenBSD   on amd64
 
@@ -159,7 +159,7 @@ For those who do not want to read the whole long document:
 --------------------------------------------------------------------------------
 # get latest ccollect tarball from http://www.nico.schottelius.org/software/ccollect/
 # replace value for CCV with the current version
-export CCV=0.8
+export CCV=0.8.1
 
 #
 # replace 'wget' with 'fetch' on bsd
@@ -264,8 +264,10 @@ After having installed and used ccollect, report success using
 Configuring
 -----------
 For configuration aid have a look at the above mentioned tools, which can assist
-you quite well. When you are successfully using `ccollect`, report success using
-`tools/report_success.sh`.
+you quite well. When you are successfully using `ccollect`, I would be happy if
+you add a link to your website, stating "I backup with ccollect", which points
+to the ccollect homepage. So more people now about ccollect, use it and
+improve it. You can also report success using `tools/report_success.sh`.
 
 
 Runtime options
@@ -332,6 +334,15 @@ If you add '$CCOLLECT_CONF/defaults/`pre_exec`' or
 '/etc/ccollect/defaults/`pre_exec`' (same with `post_exec`), `ccollect`
 will start `pre_exec` before the whole backup process and
 `post_exec` after backup of all sources is done.
+
+If `pre_exec` exits with a non-zero return code, the whole backup
+process will be aborted.
+
+The `pre_exec` and `post_exec` script can access the following exported variables:
+
+- 'INTERVAL': the interval selected (`daily`)
+- 'no_sources': number of sources to backup (`2`)
+- 'source_$no': name of the source, '$no' starts at 0 (`$source_0`)
 
 The following example describes how to report free disk space in
 human readable format before and after the whole backup process:
@@ -597,6 +608,16 @@ respectively after doing the backup for *this specific* source.
 If you want to have pre-/post-exec before and after *all*
 backups, see above for general configuration.
 
+If `pre_exec` exits with a non-zero return code, the backup
+process of `this source` will be aborted (i.e. backup skipped).
+
+The `post_exec` script can access the following exported variables from
+ccollect:
+
+- 'name': name of the source that is being backed up
+- 'destination_name': contains the base directory name (`daily.20091031-1013.24496`)
+- 'destination_dir': full path (`/tmp/ccollect/daily.20091031-1013.24496`)
+- 'destination_full': like 'destination_dir', but prepended with the remote_host, if set (`host:/tmp/ccollect/daily.20091031-1013.24496` or `/tmp/ccollect/daily.20091031-1013.24496`)
 
 Example:
 --------------------------------------------------------------------------------
@@ -702,11 +723,15 @@ Using source names or interval in pre_/post_exec scripts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The pre-/post_exec scripts can access some internal variables from `ccollect`:
 
-- INTERVAL: The interval specified on the command line
-- no_sources: number of sources
-- source_$NUM: the name of the source
-- name: the name of the currently being backuped source (not available for
+- 'INTERVAL': The interval specified on the command line
+- 'no_sources': number of sources
+- 'source_$NUM': the name of the source
+- 'name': the name of the currently being backuped source (not available for
   generic pre_exec script)
+
+Only available for `post_exec`:
+
+- 'remote_host': name of host we backup to (empty if unused)
 
 
 Using rsync protocol without ssh
