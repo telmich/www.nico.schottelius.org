@@ -31,7 +31,7 @@ The latest documentation that is based on the current development version:
    <a href="doc/man/ccollect.htm">HTML (docbook)</a>
  * <a href="screenshots/">screenshots</a>.
 
-## Portability
+### Portability
 As ccollect is a simple shell script, it should run on
 any POSIX compatible OS. It is known or reported to run on:
 
@@ -45,11 +45,21 @@ another OS or architecture.
 
 For more information regarding portability have a look at the [[u2u|net/u2u]] idea.
 
-## Sample configurations
+### Sample configurations
  * <a href="config/ccollect-buche-2006-06-16.tar.bz2">Configuration
    for ccollect 0.4 or later from buche.intern.schottelius.org</a>
  * <a href="config/ccollect-eiche-2006-02-05.tar.bz2">Configuration
    for ccollect 0.3.3 or earlier from eiche.intern.schottelius.org</a>
+
+### Quotes
+
+ * Thorsten Elle, Dr.-Ing.
+
+    Hallo,
+
+    auf der Suche nach einer Lösung für meine Backups (Debian/amd64) bin ich auf ccollect gestoßen.
+    Ist wirklich ein tolles Skript / System und mein Favorit. [...]
+
 
 ## Getting ccollect
 
@@ -62,8 +72,6 @@ Additionally, the following other git ressources are available:
 
  * [Gitweb](http://git.schottelius.org/?p=cLinux/ccollect.git;a=summary).
  * [Mirror at github](http://github.com/telmich/ccollect/tree/master)
-<!-- * [John's tree](http://github.com/jll2/ccollect/) -->
-
 
 ### Releases
  * [[ccollect-0.8.tar.bz2]]
