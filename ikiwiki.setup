@@ -17,7 +17,7 @@ use IkiWiki::Setup::Standard {
 	# where the source of the wiki is located
 	srcdir => '/home/nico/www-src/www.nico.schottelius.org',
 	# where to build the wiki
-	destdir => '/home/services/www/nico/www.nico.schottelius.org',
+	destdir => '/home/services/www/nico/www.nico.schottelius.org/www',
 	# base url to the wiki
 	url => 'http://www.nico.schottelius.org/',
 	# url to the ikiwiki.cgi
