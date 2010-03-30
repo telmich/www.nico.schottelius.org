@@ -53,7 +53,7 @@ For more information regarding portability have a look at the [[u2u|net/u2u]] id
 
 ### Quotes
 
- * Thorsten Elle, Dr.-Ing.
+Thorsten Elle, Dr.-Ing.
 
     Hallo,
 
