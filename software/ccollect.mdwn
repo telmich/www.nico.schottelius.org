@@ -60,6 +60,9 @@ Thorsten Elle, Dr.-Ing.
     auf der Suche nach einer Lösung für meine Backups (Debian/amd64) bin ich auf ccollect gestoßen.
     Ist wirklich ein tolles Skript / System und mein Favorit. [...]
 
+Folken
+
+    thx for an uncomplicated, easy and straightforward backup solution.
 
 ## Getting ccollect
 
