@@ -8,21 +8,20 @@ und verursacht einen hohen administrativen Aufwand.
 
 Die Situation, Verkauf oder Weitergabe von funktionsfähigen Geräten scheint
 mir im Allgemeinen nicht sehr weit ausgeführt an der ETH.
-
 Umso froher war ich, als mir ein Vögelchen von der
 [ETH-Gerätebörse](https://www.geraeteboerse.ethz.ch/) erzählte. Die Börse
 hatte ich vor einiger Zeit zwar schon einmal entdeckt, sie sah jedoch recht
-ausgestorben aus.
+(aus-)gestorben aus.
 
 Nach einem Telefonat mit Herrn Rysler wurde mir jedoch klar: Der Schein trügt.
-Allerdings ist die Gerätebörse jedoch in der ETH allgemein nicht sehr bekannt,
+Allerdings ist die Gerätebörse in der ETH allgemein (noch) nicht sehr bekannt,
 weshalb ich auch diese Notiz schreibe, mit der Bitte an die Lesenden, die
 Information weiterzuverbreiten:
 
     Es gibt eine Möglichkeit, ETH intern Geräte abzugeben!
 
-Es ist das übliche Prinzip, je mehr Leute es wissen, desto mehr können mitmachen,
-desto besser läuft es. Zum Test selber habe ich gerade einen Pentium-4-Rechner
-inseriert, bin gespannt, ob es einen Abnehmer findet!
+Es ist das übliche Prinzip: je mehr Leute es wissen, desto mehr können mitmachen,
+desto besser läuft es. Zum Test habe ich gerade einen Pentium-4-Rechner
+inseriert; ich bin gespannt, ob es einen Abnehmer findet!
 
 [[!tag eth]]
