@@ -64,6 +64,16 @@ Folken
 
     thx for an uncomplicated, easy and straightforward backup solution.
 
+Matteo Contri
+
+    Hi Nico,
+    first of all: congratulation for ccollect, a really lovely script!
+
+    i've tried a lot of backup solution (veritas netbackup, rsnapshot, bacula)
+    but no other software is so simple and effective.
+    ccollect resolves 93% of backup problems in few minutes with standard tools.
+
+
 ## Getting ccollect
 
 ### Development versions
