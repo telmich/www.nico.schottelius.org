@@ -1,0 +1,28 @@
+[[!meta title="Die ETH-Gerätebörse - ein Versuch"]]
+
+Hier an der ETH habe ich häufiger das Problem, das wir Geräte nicht mehr
+benötigen, weil sie in der Forschung keinen Verwendung mehr haben, aber
+noch funktionsfähig sind. Der Verkauf von Geräten nach außen ist an gewisse
+[Regeln](https://www.fc.ethz.ch/docs/vermoegen/inventarwesen.pdf) gebunden
+und verursacht einen hohen administrativen Aufwand.
+
+Die Situation, Verkauf oder Weitergabe von funktionsfähigen Geräten scheint
+mir im Allgemeinen nicht sehr weit ausgeführt an der ETH.
+
+Umso froher war ich, als mir ein Vögelchen von der
+[ETH-Gerätebörse](https://www.geraeteboerse.ethz.ch/) erzählte. Die Börse
+hatte ich vor einiger Zeit zwar schon einmal entdeckt, sie sah jedoch recht
+ausgestorben aus.
+
+Nach einem Telefonat mit Herrn Rysler wurde mir jedoch klar: Der Schein trügt.
+Allerdings ist die Gerätebörse jedoch in der ETH allgemein nicht sehr bekannt,
+weshalb ich auch diese Notiz schreibe, mit der Bitte an die Lesenden, die
+Information weiterzuverbreiten:
+
+    Es gibt eine Möglichkeit, ETH intern Geräte abzugeben!
+
+Es ist das übliche Prinzip, je mehr Leute es wissen, desto mehr können mitmachen,
+desto besser läuft es. Zum Test selber habe ich gerade einen Pentium-4-Rechner
+inseriert, bin gespannt, ob es einen Abnehmer findet!
+
+[[!tag eth]]
