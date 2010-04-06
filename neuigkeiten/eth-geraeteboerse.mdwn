@@ -18,7 +18,7 @@ Allerdings ist die Gerätebörse in der ETH allgemein (noch) nicht sehr bekannt,
 weshalb ich auch diese Notiz schreibe, mit der Bitte an die Lesenden, die
 Information weiterzuverbreiten:
 
-    Es gibt eine Möglichkeit, ETH intern Geräte abzugeben!
+    Es gibt eine Möglichkeit, ETH-intern Geräte abzugeben!
 
 Es ist das übliche Prinzip: je mehr Leute es wissen, desto mehr können mitmachen,
 desto besser läuft es. Zum Test habe ich gerade einen Pentium-4-Rechner
