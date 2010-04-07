@@ -104,6 +104,15 @@ Patrick Drolet
     P.S. Thanks you for offering a nice & pretty backup tools.
          It is very fit in me.
 
+Derek Moore
+
+    Hey, Nico,
+
+    I've used rsnapshot in the past, but recently decided to switch to using
+    your ccollect.  I like that it's implemented in sh.
+
+    ccollect is AWESOME & very handy!
+   
 
 ## Getting ccollect
 
