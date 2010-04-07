@@ -96,8 +96,13 @@ Patrick Drolet
     Hello,
 
     Thank you for making ccollect public; it is a very nice and well written
-    utility.  I am using it to backup two NAS (DNS323 and QNAP TS-209) across
+    utility. I am using it to backup two NAS (DNS323 and QNAP TS-209) across
     the Internet, where bandwidth and upload/download quota is limited.
+
+三宅 兼人 (Kanehito Miyake)
+
+    P.S. Thanks you for offering a nice & pretty backup tools.
+         It is very fit in me.
 
 
 ## Getting ccollect
