@@ -84,6 +84,14 @@ Norbert Titko
 
     works like charm (just upgraded to 0.7.1)
 
+John Lawless
+
+    Dear Nico Schottelius,
+
+    I have started using ccollect and I very much like its design:
+    it is elegant and effective.
+
+
 ## Getting ccollect
 
 ### Development versions
