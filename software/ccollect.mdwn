@@ -80,6 +80,9 @@ Benedikt Köppel
     thank you very much for your great software ccollect. I just started
     using it to backup my notebook, my server and all computers of my family.
 
+Norbert Titko
+
+    works like charm (just upgraded to 0.7.1)
 
 ## Getting ccollect
 
