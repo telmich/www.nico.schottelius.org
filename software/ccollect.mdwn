@@ -91,6 +91,14 @@ John Lawless
     I have started using ccollect and I very much like its design:
     it is elegant and effective.
 
+Patrick Drolet
+
+    Hello,
+
+    Thank you for making ccollect public; it is a very nice and well written
+    utility.  I am using it to backup two NAS (DNS323 and QNAP TS-209) across
+    the Internet, where bandwidth and upload/download quota is limited.
+
 
 ## Getting ccollect
 
