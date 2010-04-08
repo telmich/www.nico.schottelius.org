@@ -13,6 +13,9 @@ lall:
 all-unfresh:
 	$(IKIWIKI) --setup ikiwiki.setup
 
+lall-unfresh:
+	$(IKIWIKI) --setup ikiwiki.setup --set destdir=../dst --set srcdir=. --set git_wrapper= --set git_wrappermode= --set gitorigin_branch= --set gitmaster_branch=
+
 view:
 	$(BROWSER) ${DESTDIR}/index.html
 
