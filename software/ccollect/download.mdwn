@@ -99,6 +99,6 @@ even include it into Debian.
 ## Sample configurations
 
  * [Configuration for ccollect 0.4 or later from
- buche.intern.schottelius.org](config/ccollect-buche-2006-06-16.tar.bz2)
+ buche.intern.schottelius.org](ccollect-buche-2006-06-16.tar.bz2)
  * [Configuration for ccollect 0.3.3 or earlier from
- eiche.intern.schottelius.org](config/ccollect-eiche-2006-02-05.tar.bz2)
+ eiche.intern.schottelius.org](ccollect-eiche-2006-02-05.tar.bz2)
