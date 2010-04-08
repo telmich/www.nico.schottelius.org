@@ -1,0 +1,12 @@
+The latest documentation that is based on the current development version:
+
+ * the ccollect handbook
+   [text](ccollect.text)
+   [html](ccollect.html)
+   [html (docbook)](ccollect.htm)
+ * the ccollect manpage
+   [text](man/ccollect.text)
+   [troff](man/ccollect.1)
+   [html](man/ccollect.html)
+   [html (docbook)](man/ccollect.htm)
+ * [screenshots](../screenshots)
