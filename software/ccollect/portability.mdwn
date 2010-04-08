@@ -1,0 +1,12 @@
+As ccollect is a simple shell script, it should run on
+any POSIX compatible OS. It is known or reported to run on: 
+
+ * FreeBSD:   amd64/i386
+ * Linux:     alpha/hppa/ppc/i386
+ * NetBSD:    alpha/sparc64/i386/amd64
+ * OpenBSD:   amd64
+
+Feel free to send an e-mail if you are running ccollect on
+another OS or architecture.
+
+For more information regarding portability have a look at the [[u2u|net/u2u]] idea.
