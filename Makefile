@@ -8,7 +8,7 @@ all:
 	$(IKIWIKI) --refresh --setup ikiwiki.setup
 
 lall:
-	$(IKIWIKI) --refresh --setup ikiwiki.setup --set destdir=../dst --set srcdir=.
+	$(IKIWIKI) --refresh --setup ikiwiki.setup --set destdir=../dst --set srcdir=. --set git_wrapper= --set git_wrappermode= --set gitorigin_branch= --set gitmaster_branch=
 
 all-unfresh:
 	$(IKIWIKI) --setup ikiwiki.setup
