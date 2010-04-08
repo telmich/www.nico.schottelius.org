@@ -1,0 +1,60 @@
+Thorsten Elle, Dr.-Ing.
+
+    Hallo,
+
+    auf der Suche nach einer Lösung für meine Backups (Debian/amd64) bin ich auf ccollect gestoßen.
+    Ist wirklich ein tolles Skript / System und mein Favorit. [...]
+
+Folken
+
+    thx for an uncomplicated, easy and straightforward backup solution.
+
+Matteo Contri
+
+    Hi Nico,
+    first of all: congratulation for ccollect, a really lovely script!
+
+    i've tried a lot of backup solution (veritas netbackup, rsnapshot, bacula)
+    but no other software is so simple and effective.
+    ccollect resolves 93% of backup problems in few minutes with standard tools.
+
+Benedikt Köppel
+
+    Hi Nico,
+    
+    thank you very much for your great software ccollect. I just started
+    using it to backup my notebook, my server and all computers of my family.
+
+Norbert Titko
+
+    works like charm (just upgraded to 0.7.1)
+
+John Lawless
+
+    Dear Nico Schottelius,
+
+    I have started using ccollect and I very much like its design:
+    it is elegant and effective.
+
+Patrick Drolet
+
+    Hello,
+
+    Thank you for making ccollect public; it is a very nice and well written
+    utility. I am using it to backup two NAS (DNS323 and QNAP TS-209) across
+    the Internet, where bandwidth and upload/download quota is limited.
+
+三宅 兼人 (Kanehito Miyake)
+
+    P.S. Thanks you for offering a nice & pretty backup tools.
+         It is very fit in me.
+
+Derek Moore
+
+    Hey, Nico,
+
+    I've used rsnapshot in the past, but recently decided to switch to using
+    your ccollect.  I like that it's implemented in sh.
+
+    ccollect is AWESOME & very handy!
+
