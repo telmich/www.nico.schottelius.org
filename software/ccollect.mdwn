@@ -21,12 +21,6 @@ configuration in conf/.
  * [[documentation]]
  * [[quotes]]
 
-### Sample configurations
- * <a href="config/ccollect-buche-2006-06-16.tar.bz2">Configuration
-   for ccollect 0.4 or later from buche.intern.schottelius.org</a>
- * <a href="config/ccollect-eiche-2006-02-05.tar.bz2">Configuration
-   for ccollect 0.3.3 or earlier from eiche.intern.schottelius.org</a>
-
 ## Support
  * There is a general
  [ccollect mailing list](http://l.schottelius.org/mailman/listinfo/ccollect)

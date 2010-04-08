@@ -82,7 +82,7 @@ Additionally, the following other git ressources are available:
  * <A HREF="ccollect-0.1.tar.bz2">ccollect-0.1.tar.bz2</A>
    (<A HREF="ccollect-0.1">browse source</A>)
 
-#### Gentoo
+### Gentoo
 
 ccollect is included into gentoo portage. Thanks to Ren&eacute; Nussbaumer.
 
@@ -95,3 +95,12 @@ are currently outdated.
 
 Feel free to use their work to create recent debs or
 even include it into Debian.
+
+## Sample configurations
+
+ * <a href="config/ccollect-buche-2006-06-16.tar.bz2">Configuration
+   for ccollect 0.4 or later from buche.intern.schottelius.org</a>
+ * <a href="config/ccollect-eiche-2006-02-05.tar.bz2">Configuration
+   for ccollect 0.3.3 or earlier from eiche.intern.schottelius.org</a>
+   
+
