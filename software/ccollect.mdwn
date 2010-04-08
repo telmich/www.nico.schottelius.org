@@ -20,25 +20,7 @@ configuration in conf/.
  * [[portability]]
  * [[documentation]]
  * [[quotes]]
-
-## Support
- * There is a general
- [ccollect mailing list](http://l.schottelius.org/mailman/listinfo/ccollect)
- available.
-  * **Warning**: Only subscribers can post.
- * You can join the development ***IRC channel***
-   [#cLinux on irc.freenode.org](irc://irc.freenode.org/#cLinux).
-
-## Related websites
- * [RadioTux](http://blog.radiotux.de) reports about ccollect in the [[RadioTux@HoRadS #76 edition|dokumentationen/radiotux-horads-76]].
- * The German magazine [Linux-Magazin](http://www.linux-magazin.de/)
-   contains the article [[writes about ccollect|dokumentationen/linuxmagazin-clevere-datensicherung-mit-ccollect]].
- * The German magazine [Linux User](http://www.linuxuser.de/)
-   [[writes about ccollect in the 2009/08 edition|about/press]].
- * [ccollect-config](http://0xf00.de/ccollect-config.html) -
-   a configuration tool written by Frederic Jaeckel
- * [German report about ccollect including a description
-   of reverse ssh tunnels](http://muasch.ch/article/show/ccollect-backup-software)
-   by Benedikt K&ouml;ppel,
+ * [[support]]
+ * [[related websites|related]]
 
 [[!tag unix backup]]
