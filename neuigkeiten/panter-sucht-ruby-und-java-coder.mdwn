@@ -1,0 +1,34 @@
+[[!meta title="Panter sucht Ruby on Rails und Java Coder (WERBUNG)"]]
+
+## Stellenangebot
+
+Seit neuestem gibt es in meinem Netznotizbuch nun auch Werbung, und zwar
+für eine Stelle bei [Panter](http://www.panter.ch) als
+[Ruby-on-Rails-Coder](http://rubyonrails.ch/doku.php/jobs:ruby-coder-bei-panter).
+Zusätzlich suchen sie noch einen Java-Coder.
+
+## Hintergrund Stellenangebot allgemein
+
+Ich treffe durch meine Informatik-Technik-Vorliebe häufig interessant
+Menschen in interessanten technischen Berufen oder Firmen. Häufig
+werde ich auch von Leuten gefragt, ob ich gerade einen Job für sie
+im Kopf hätte oder ob ich kompenente Leute kenne. Meist sind sowohl
+die anfragenden Firmen als auch Menschen recht interessant, die
+Antwort von mir jedoch
+
+    "Im Moment nicht, kann es aber im Hinterkopf behalten."
+
+Da mein Kopf leider nur beschränkt viel aufnehmen kann, lagere ich
+hiermit diesen Teil aus und beginne interessante Menschen oder
+Stellen als Neuigkeiten mit der [[Markierung "Stelle"|tags/stelle]]
+zu versehen.
+
+## Hintergrund Stellenangebot Panter
+
+Beat Seeliger ist nicht nur Teil der Firma Panter, sondern auch
+Dozent an der [HSZ-T](http://www.hsz-t.ch), an der ich gerade
+studiere und macht auf mich den Eindruck, dass er versteht,
+von was er spricht (Beat: das sollte mindestens ein 6er Wert sein ;-),
+weshalb ich denke, dass die Stelle lohnenswert ist.
+
+[[!tag stelle]]

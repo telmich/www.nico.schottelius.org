@@ -1,0 +1,3 @@
+Menschen oder Firmen die Stellen suchen oder anbieten.
+
+[[!inline pages="tagged(stelle)" archive="yes" show=0 quick=no]]
