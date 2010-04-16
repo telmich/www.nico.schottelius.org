@@ -5,6 +5,6 @@ This archive contains news from both the [[blog]] and [[neuigkeiten]].
 Dieses Archiv enthält die
 [[Englischen|blog]] und [[Deutschen|neuigkeiten]] Neuigkeiten.
 
-[[!inline pages="(blog/* or neuigkeiten/*) archive="yes" show=0 quick=no]]
+[[!inline pages="(blog/* or neuigkeiten/*)" archive="yes" show=0 quick=no]]
 
 [[!tag net]]

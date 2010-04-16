@@ -9,7 +9,7 @@ in Verbindung stehen:
 
 ## Verwandte Seiten
 
- * [[ETH-Blog|tags/eth]] [(Kopie auf blogs.ethz.ch)](https://blogs.ethz.ch/ns/)
+ * [[ETH-Blog|tags/eth]]
  * [ETH Bilder](http://www.gallery.ethz.ch/ns/)
  * [SystemsGroup](http://www.systems.ethz.ch)
   * [Nico Schottelius @SystemsGroup](http://www.systems.ethz.ch/people/nicosc)

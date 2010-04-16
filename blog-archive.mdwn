@@ -1,7 +1,5 @@
 [[!meta title="Blog archive"]]
 
-## 2009
-
-[[!inline pages="blog/* and creation_year(2009)" archive="yes" show=0 quick=no]]
+[[!inline pages="blog/*" archive="yes" show=0 quick=no]]
 
 [[!tag net]]
