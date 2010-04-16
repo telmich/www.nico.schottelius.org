@@ -1,0 +1,8 @@
+[[!meta title="Der !eof-Planet lebt!"]]
+
+Seit einiger Zeit war es etwas ruhig auf dem [!eof-Planeten](http://planet.eof.name),
+weil der Webserver nach einer Migration nicht mehr angepasst wurde.
+
+Seit heute läuft der Planet wieder und wird mit Inhalt gefüllt!
+
+[[!tag eof]]
