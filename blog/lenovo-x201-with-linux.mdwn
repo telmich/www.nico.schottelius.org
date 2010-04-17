@@ -173,7 +173,7 @@ the auto prepare disk setup a chance, which creates partitions for
 
 Interesting, but not what I would choose, as there no need for
 /boot on x86 for a long time
-([see lba32 option for lilo](http://www.google.com/url?q=lilo%20lba32)).
+([see lba32 option for lilo](http://www.google.com/search?q=lilo%20lba32)).
 It also warned me, after I recreated the partition table, that there
 is no /boot partition.
 
