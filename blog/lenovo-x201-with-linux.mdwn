@@ -55,7 +55,7 @@ the installer from some subpage on [debian.org](http://www.debian.org),
 that contains the **debian installer**. As usual, it cannot be easily
 found by selecting the usual interesting links on debian.org.
 
-A [search via google for debian installer](http://www.google.com/search?q=debian%20installer]
+A [search via google for debian installer](http://www.google.com/search?q=debian%20installer)
 resulted in the
 [correct link for the debian installer](http://www.debian.org/devel/debian-installer/).
 
@@ -67,9 +67,9 @@ Using the
 [Debian Squeeze Alpha1 release](http://ftp.nl.debian.org/debian/dists/testing/main/installer-amd64/current/images/hd-media/boot.img.gz) of the debian installer resulted in a
 funny, though not very productive installation:
 
- * When selecting the language English, country Switzerland, the
-   locale ch_DE.UTF-8 not selectable!
- * The Keymap [Neo 2.0](http://www.neo-layout.org/) not in list of available layouts.
+ * When selecting the language English, country Switzerland, it is not possible to
+   select the locale ch_DE.UTF-8!
+ * The Keymap [Neo 2.0](http://www.neo-layout.org/) is not in the list of available layouts.
  * The installer cannot find the iso (Well, there's none, it was started from an usb stick...)
  * "Detect network hardware" did not find any ethernet card.
 
@@ -80,7 +80,7 @@ Ok, no Debian for the X201 currently.
 I am currently running Ubuntu on the X200, so giving it a try
 on the X201, too.
 
-### 9.10 Beta2
+### 10.04 Beta2
 
 Beta2 is out, what's more loved than early betas and alphas?
 
@@ -96,7 +96,8 @@ which fails with the following kernel messages:
     [1320073.845829]  unable to read partition table
 
 Writing to a SD-Card however worked (although: reproducing that made
-usb-creator-gtk more often fail than succeed).
+usb-creator-gtk more often fail than succeed: It simply did nothing,
+said there's not enough space free and did not reformat the device).
 
 Happily I can select the Neo 2.0 keyboard layout during the installation,
 but not encrypt volumes in the desktop installer, because it's only
@@ -108,7 +109,7 @@ supported with the alternate installation, which I think is a major fault:
     The enhanced privacy is worth the added complexity!
 
 The installer detected the network card and after the reboot wireless
-lan was working perfectly within the installed gnome desktop. And as
+lan was working perfectly and xorg was running with the gnome desktop. And as
 a extra bonus for me, also real transparency of terminals was working!
 
 On the other hand, I've a shiny new Ubuntu installation which is probably
@@ -172,7 +173,7 @@ the auto prepare disk setup a chance, which creates partitions for
 
 Interesting, but not what I would choose, as there no need for
 /boot on x86 for a long time
-([see lba32 option for lilo](http://www.google.com/url?q=lilo%20 lba32)).
+( [see lba32 option for lilo](http://www.google.com/url?q=lilo%20 lba32) ).
 It also warned me, after I recreated the partition table, that there
 is no /boot partition.
 
