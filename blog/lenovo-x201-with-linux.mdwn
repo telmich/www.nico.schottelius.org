@@ -1,4 +1,4 @@
-[!meta title="Linux on the Lenovo X201"]]
+[[!meta title="Linux on the Lenovo X201"]]
 
 ## Introduction
 
@@ -27,12 +27,12 @@ time than to just give the usual suspects a try.
 
 ### Lenny via fai
 
-As I'm running Debian here in the [[eth]], my first approach
+As I'm running Debian here in the [[ETH|eth]], my first approach
 was to netinstall Debian via fai, which failed with a kernel panic,
 because it could not find the root device.
 
 This is normally an indicator, that the network card is unknown,
-but debugging it from a netinstall is not so easy, why I decided
+but debugging it from a netinstall is not so easy. Thus I decided
 to give the installation from an usb stick a try.
 
 ### Lenny via usb stick
@@ -52,7 +52,7 @@ testing a chance.
 
 I remember that installing Debiang testing means to retrieve
 the installer from some subpage on [debian.org](http://www.debian.org),
-that contains the **debian-installer**. As usual, it cannot be easily
+that contains the **debian installer**. As usual, it cannot be easily
 found by selecting the usual interesting links on debian.org.
 
 A [search via google for debian installer](http://www.google.com/search?q=debian%20installer]
