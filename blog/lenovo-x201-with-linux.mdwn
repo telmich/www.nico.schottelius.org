@@ -173,7 +173,7 @@ the auto prepare disk setup a chance, which creates partitions for
 
 Interesting, but not what I would choose, as there no need for
 /boot on x86 for a long time
-( [see lba32 option for lilo](http://www.google.com/url?q=lilo%20 lba32) ).
+( [see lba32 option for lilo](http://www.google.com/url?q=lilo%20lba32) ).
 It also warned me, after I recreated the partition table, that there
 is no /boot partition.
 
@@ -182,13 +182,13 @@ is no /boot partition.
 But in general, the arch installer can be used straightforwarded and
 it says what it does (really like that). The encryption support is
 a bit strange, as it does not prepare the crypttab config, which
-could easibly be integrated into the installer.
+could easily be integrated into the installer.
 
 Arch has an easy integration of crypttab into the boot process,
 but there are two drawbacks:
 
  * Arch does not support Neo 2.0 keyboard layout
- * And the keyboar layout is loaded ***after*** I was asked for the
+ * And the keyboard layout is loaded ***after*** I was asked for the
    passphrase of the crypted devices.
 
 At the end, Archlinux installed fine on the X201 and I keep on using
