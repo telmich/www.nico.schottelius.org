@@ -1,0 +1,194 @@
+[!meta title="Linux on the Lenovo X201"]]
+
+## Introduction
+
+The Lenovo X201, the successor of the X200, has arrived on my desk for some
+days. Every new personal computer makes me think about which Linux distribution
+to choose.
+
+### Requirements
+
+I started with a list of aspects a good distribution would handle well:
+
+ * Straighforward and automatic installation
+  * Support for crypted home, swap and probably even the root filesystem
+ * Good package management
+ * New packages (Linux > 2.6.18 for instance...)
+ * Easy to integrate own packages into
+  * Either via an own mirror or into the main distribution
+ * Good documentation
+ * Friendly and helpful community
+
+After some minutes thinking about the requirements, I've been aware
+that testing all those aspects, and defining them properly, takes more
+time than to just give the usual suspects a try.
+
+## Debian
+
+### Lenny via fai
+
+As I'm running Debian here in the [[eth]], my first approach
+was to netinstall Debian via fai, which failed with a kernel panic,
+because it could not find the root device.
+
+This is normally an indicator, that the network card is unknown,
+but debugging it from a netinstall is not so easy, why I decided
+to give the installation from an usb stick a try.
+
+### Lenny via usb stick
+
+Firstly I put the Debian Lenny Installer 5.0.2 via
+
+    zcat ~nico/boot.img.gz > /dev/sdd
+
+onto the usb stick. Booting the installer worked, but
+it did not find any network interface, either.
+
+Well, we all know that Lenny, as being Debian stable currently,
+is almost outdated when it's released, so let's give Debian
+testing a chance.
+
+### Squeeze
+
+I remember that installing Debiang testing means to retrieve
+the installer from some subpage on [debian.org](http://www.debian.org),
+that contains the **debian-installer**. As usual, it cannot be easily
+found by selecting the usual interesting links on debian.org.
+
+A [search via google for debian installer](http://www.google.com/search?q=debian%20installer]
+resulted in the
+[correct link for the debian installer](http://www.debian.org/devel/debian-installer/).
+
+It has been alarming that the
+[same search on debian.org](http://search.debian.org/cgi-bin/omega?P=debian+installer&DEFAULTOP=or&HITSPERPAGE=10&language=en) does *not* result in the correct result on the first
+result page!
+
+Using the
+[Debian Squeeze Alpha1 release](http://ftp.nl.debian.org/debian/dists/testing/main/installer-amd64/current/images/hd-media/boot.img.gz) of the debian installer resulted in a
+funny, though not very productive installation:
+
+ * When selecting the language English, country Switzerland, the
+   locale ch_DE.UTF-8 not selectable!
+ * The Keymap [Neo 2.0](http://www.neo-layout.org/) not in list of available layouts.
+ * The installer cannot find the iso (Well, there's none, it was started from an usb stick...)
+ * "Detect network hardware" did not find any ethernet card.
+
+Ok, no Debian for the X201 currently.
+
+## Ubuntu
+
+I am currently running Ubuntu on the X200, so giving it a try
+on the X201, too.
+
+### 9.10 Beta2
+
+Beta2 is out, what's more loved than early betas and alphas?
+
+I was trying to write the ISO (!) to a usb stick via **usb-creator-gtk**,
+which fails with the following kernel messages:
+
+    [1320073.833304] end_request: I/O error, dev sdd, sector 0
+    [1320073.845771] sd 72:0:0:0: [sdd] Device not ready
+    [1320073.845777] sd 72:0:0:0: [sdd] Result: hostbyte=DID_OK driverbyte=DRIVER_SENSE
+    [1320073.845786] sd 72:0:0:0: [sdd] Sense Key : Not Ready [current] 
+    [1320073.845795] sd 72:0:0:0: [sdd] Add. Sense: Medium not present
+    [1320073.845804] end_request: I/O error, dev sdd, sector 0
+    [1320073.845829]  unable to read partition table
+
+Writing to a SD-Card however worked (although: reproducing that made
+usb-creator-gtk more often fail than succeed).
+
+Happily I can select the Neo 2.0 keyboard layout during the installation,
+but not encrypt volumes in the desktop installer, because it's only
+supported with the alternate installation, which I think is a major fault:
+
+
+    Dear Ubuntu developers, include encryption via dm-crypt/cryptsetup
+    into your desktop installation, please.
+    The enhanced privacy is worth the added complexity!
+
+The installer detected the network card and after the reboot wireless
+lan was working perfectly within the installed gnome desktop. And as
+a extra bonus for me, also real transparency of terminals was working!
+
+On the other hand, I've a shiny new Ubuntu installation which is probably
+not really what I want: I never use gnome and gdm is fine, but not really
+needed.
+
+But well, the main reason to give another distribution a try, is that
+there's a new kid on the block:
+
+## Archlinux
+
+Archlinux was brought to my attention some time ago, as it is
+the first distribution, that includes [[ccollect|software/ccollect]]
+(not in the main, but aur repo).
+
+Having a look at archlinux, there are some points that straightly coming
+to attention:
+
+ * Arch is x86 only (32 and 64 bit, though)
+ * It does not use .rpm, nor .deb packages
+  (Slackware users, do you feel reminded? :-)
+ * KISS (keep it simple and stupid)
+  * At least one distribution understands why others have so many problems.
+ * Least changes to upstream packages possible
+
+The last point is a very interesting one for
+[[me, as a FOSS developer|about/foss]], because it ensures that
+problems are reported back to me and not corrected elsewhere.
+
+    Dear arch developers, thanks for that decision!
+
+For more information, have a look at
+[The Arch Way](http://wiki.archlinux.org/index.php/The_Arch_Way).
+
+### 2009.08
+
+Once again, written the installer to an usb stick, booting
+and - guessed it - the installer does not detect the network interface.
+
+Ok, there must be something like Debian testing, some kind
+of snapshot, daily or whatever release.
+
+### 2010-04-05 testing image
+
+After I had been searching around, I found
+[an entry in the the forum](http://bbs.archlinux.org/viewtopic.php?pid=739859)
+and got a hint on [IRC](irc://irc.freenode.org/#archlinux) that
+there are [testing ISO images](http://build.archlinux.org/isos/)
+available. 
+
+The interesting thing is, the iso image can be copied
+directly to an usb stick, because grub is being used!
+
+The installer detected the network card and I gave
+the auto prepare disk setup a chance, which creates partitions for
+
+ * /boot (ext2!),
+ * swap,
+ * / and
+ * /home.
+
+Interesting, but not what I would choose, as there no need for
+/boot on x86 for a long time
+([see lba32 option for lilo](http://www.google.com/url?q=lilo%20 lba32)).
+It also warned me, after I recreated the partition table, that there
+is no /boot partition.
+
+    Dear arch developers, why do you depend so much on /boot?
+
+But in general, the arch installer can be used straightforwarded and
+it says what it does (really like that). The encryption support is
+a bit strange, as it does not prepare the crypttab config, which
+could easibly be integrated into the installer.
+
+Arch has an easy integration of crypttab into the boot process,
+but there are two drawbacks:
+
+ * Arch does not support Neo 2.0 keyboard layout
+ * And the keyboar layout is loaded ***after*** I was asked for the
+   passphrase of the crypted devices.
+
+At the end, Archlinux installed fine on the X201 and I keep on using
+it, to give the distribution in general a try.
