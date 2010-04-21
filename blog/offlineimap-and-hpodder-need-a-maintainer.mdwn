@@ -3,7 +3,7 @@
 As [John Goerzen](http://www.complete.org/JohnGoerzen) created at
 least one useful software,
 [offlineimap](http://software.complete.org/software/projects/show/offlineimap),
-which I'm daily using, I think I owe him at least this article.
+which I daily use, I think I owe him at least this article.
 
 He
 [describes an interesting problem](http://changelog.complete.org/archives/1463-moral-obligations-of-free-software-authors), we FOSS developers have:
@@ -15,7 +15,7 @@ pops up with a new situation or problem and I think:
 
     Yeah, how to solve that?
 
-Yes, if I think it's an interesting problme, I take the time
+Yes, if I think it's an interesting problem, I take the time
 to discuss it and maybe to develop a solution for it.
 
 But sometimes I've other priorities (like family, studies or
