@@ -1,0 +1,46 @@
+[[!meta title="How to use the volume keys on the Lenovo X200 and X201"]]
+
+If you want to make use of the volume up/down buttons on your
+X201, you can simply install
+[xbindkeys](http://www.nongnu.org/xbindkeys/xbindkeys.html) and
+add the following to your **~/.xbindkeysrc**:
+
+    #VolDown
+    "amixer -q set Master 5%-"
+        m:0x0 + c:122
+        NoSymbol 
+    
+    #VolUp
+    "amixer -q set Master 5%+"
+        m:0x0 + c:123
+        NoSymbol 
+
+Beware: The keycodes are different on the X200 and the X201! For the
+X200, use the following configuration:
+
+    #VolDown
+    "amixer -q set Master 5%-"
+        m:0x0 + c:174
+        NoSymbol 
+    
+    #VolUp
+    "amixer -q set Master 5%+"
+        m:0x0 + c:176
+        NoSymbol 
+
+For testing, you can launch
+
+    xbindkeys --verbose -n
+
+Afterwards, you can include **xbindkeys** into your **.xinitrc** without any parameters,
+as it automatically forks into the background:
+
+    xbindkeys
+
+The **volume mute** button also generates an event on the X201
+(none on the X200), but it seems like muting is done in hardware,
+so no need for a mapping.
+
+Have fun!
+
+[[!tag unix]]
