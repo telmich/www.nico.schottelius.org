@@ -1,0 +1,58 @@
+[[!meta title="How to disable the touchpad in Xorg with xinput"]]
+
+If you, like me, think that evdev and xinput should somehow help you
+to disable the touchpad without the need of some daemon or gui tool,
+you're right!
+
+Having a look at the output of **xinput list** is already looks promising:
+
+    [18:11] kr:~% xinput list
+    ⎡ Virtual core pointer                       id=2  [master pointer  (3)]
+    ⎜   ↳ Virtual core XTEST pointer                id=4  [slave  pointer  (2)]
+    ⎜   ↳ Macintosh mouse button emulation          id=7  [slave  pointer  (2)]
+    ⎜   ↳ TPPS/2 IBM TrackPoint                     id=8  [slave  pointer  (2)]
+    ⎜   ↳ SynPS/2 Synaptics TouchPad                id=9  [slave  pointer  (2)]
+    ⎣ Virtual core keyboard                      id=3  [master keyboard (2)]
+        ↳ Virtual core XTEST keyboard               id=5  [slave  keyboard (3)]
+        ↳ ThinkPad Extra Buttons                    id=6  [slave  keyboard (3)]
+        ↳ AT Translated Set 2 keyboard              id=10 [slave  keyboard (3)]
+        ↳ Integrated Camera                         id=11 [slave  keyboard (3)]
+        ↳ Sleep Button                              id=12 [slave  keyboard (3)]
+        ↳ Video Bus                                 id=13 [slave  keyboard (3)]
+        ↳ Power Button                              id=14 [slave  keyboard (3)]
+    [18:11] kr:~% 
+
+Having a deeper look at device 9, the touchpad, with **xinput list-props 9**
+reveals an interesting setting:
+
+    [18:12] kr:~% xinput list-props 9 
+    Device 'SynPS/2 Synaptics TouchPad':
+       Device Enabled (125):   0
+       Device Accel Profile (244):   0
+       Device Accel Constant Deceleration (245): 1.000000
+       Device Accel Adaptive Deceleration (247): 1.000000
+       Device Accel Velocity Scaling (248):   10.000000
+       Evdev Reopen Attempts (242):  10
+       Evdev Axis Inversion (249):   0, 0
+       Evdev Axis Calibration (250): <no items>
+       Evdev Axes Swap (251):  0
+       Axis Labels (252):   "Abs X" (262), "Abs Y" (263), "Abs Pressure" (264), "Abs Tool Width" (265)
+       Button Labels (253): "Button Left" (126), "Button Unknown" (243), "Button Right" (128), "Button Wheel Up" (129), "Button Wheel Down" (130)
+       Evdev Middle Button Emulation (254):   2
+       Evdev Middle Button Timeout (255):  50
+       Evdev Wheel Emulation (256):  0
+       Evdev Wheel Emulation Axes (257):   0, 0, 4, 5
+       Evdev Wheel Emulation Inertia (258):   10
+       Evdev Wheel Emulation Timeout (259):   200
+       Evdev Wheel Emulation Button (260): 4
+       Evdev Drag Lock Buttons (261):   0
+    [18:12] kr:~% 
+
+If you expect something like **xinput set-prop** even without
+reading the manpage, you are right:
+
+    [18:12] kr:~% xinput set-prop 9 125 0
+ 
+This disables the touchpad and can be integrated into .xinitrc very well!
+
+[[!tag unix]]
