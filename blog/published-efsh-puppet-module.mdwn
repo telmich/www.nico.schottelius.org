@@ -1,0 +1,11 @@
+[[!meta title="Published puppet module for efsh"]]
+
+To help people easily deploy [[efsh|docs/efsh]],
+I released a puppet module, which realises the basic
+directory structure.
+
+It's still very incomplete, but you can get a first
+impression on
+[git.sans.ethz.ch](http://git.sans.ethz.ch/?p=puppet-modules/efsh;a=summary).
+
+[[!tag eth unix puppet]]
