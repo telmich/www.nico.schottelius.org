@@ -1,0 +1,32 @@
+[[!meta title="Known bugs of nscd with LDAP"]]
+
+As [[stated some time ago|debian-with-ldap-forgets-users]],
+I had the problem that users vanished after some time.
+
+As I get a lot of e-mails regarding this problem, I therefore
+documentate here the details I've found out so far:
+
+## Ncsd works unreliable
+
+    Yes, indeed, switching off nscd removes the problem.
+
+But there are more problems I experienced with nscd:
+
+ * Sometimes it consumes 100% cpu (and does not stop that until being killed)
+ * Sometimes it just crashes.
+ * Sometimes it causes users to "vanish" (the original problem)
+ * Sometimes it hangs and thus slows down the whole system
+
+## The alternatives
+
+In D-INFK department in the ETH we're heavily dependent on the
+LDAP database, as most services are using it as its primary
+database. To overcome the problem, there are several solutions:
+
+ * Dump the ldap database into standard /etc/passwd and /etc/shadow
+ * Shutdown nscd and let the LDAP-Server handle the load
+ * Install [unscd](http://busybox.net/~vda/unscd/)
+
+I'm going for the last one now.
+
+[[!tag eth unix]]
