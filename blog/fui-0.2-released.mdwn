@@ -1,0 +1,6 @@
+[[!meta title="Released fui-0.2"]]
+
+This version of [[fui|software/fui]] contains working ruby
+code that connects to a Unix-Socket (including a testcase !).
+
+[[!tag eof ncurses unix]]
