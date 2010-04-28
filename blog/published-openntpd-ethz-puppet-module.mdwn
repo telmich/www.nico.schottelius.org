@@ -1,0 +1,14 @@
+[[!meta title="Published puppet module for openntpd including ETHZ integration"]]
+
+Continuing our effort to provide reusable puppet modules,
+[we](http://sans.ethz.ch) published an
+[openntpd puppet module](http://git.sans.ethz.ch/?p=puppet-modules/openntpd;a=summary).
+
+Because the default configuration does not work in ETH, when using
+private ip addresses, which cannot reach the internet directly,
+we also created an ETH-specific version, which can be found
+in the
+[ethz puppet module (class ntp)](http://git.sans.ethz.ch/?p=puppet-modules/ethz;a=summary).
+
+
+[[!tag eth unix puppet]]
