@@ -1,0 +1,22 @@
+[[!meta title="Added new short commands to .gitconfig (lo, lco, lpc, lpco, m, pl)"]]
+
+As some of you are using my
+[[git configuration|configs/dot-gitconfig]], there's an updated
+version now, that includes a short version of **--pretty=oneline**
+option for **git log**, which is very useful if you want to get
+a quick impression on what is going on. Thus the new short commands
+are (just an o added at the end):
+
+    git lo
+    git lco
+    git lpo
+    git lpco
+
+Furthermore I added the following new short commands:
+
+    git m (merge)
+    git pl (pull)
+
+Have fun, other lazy people like me!
+
+[[!tag config git unix]]

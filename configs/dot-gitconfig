@@ -1,20 +1,20 @@
 #
 # 2009      Nico Schottelius (nico-configfiles at schottelius.org)
 # 
-# This file is part of nsconfigfiles.
+# This file is part of nsdotfiles.
 #
-# nsconfigfiles is free software: you can redistribute it and/or modify
+# nsdotfiles is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 # 
-# nsconfigfiles is distributed in the hope that it will be useful,
+# nsdotfiles is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 # 
 # You should have received a copy of the GNU General Public License
-# along with nsconfigfiles. If not, see <http://www.gnu.org/licenses/>.
+# along with nsdotfiles. If not, see <http://www.gnu.org/licenses/>.
 #
 
 [alias]
@@ -29,16 +29,25 @@
    d  = diff
    dc = diff --color
    f  = fetch
-   l  = log
-   lc  = log --color
-   lp = log -p --abbrev-commit
-   lpc = log -p --color --abbrev-commit
+   l     = log
+   lo    = log --pretty=oneline
+   lc    = log --color
+   lco   = log --color --pretty=oneline
+   lp    = log -p --abbrev-commit
+   lpo   = log -p --abbrev-commit --pretty=oneline
+   lpc   = log -p --color --abbrev-commit
+   lpco  = log -p --color --abbrev-commit --pretty=oneline
+   m     = merge
    p  = push
+   pl = pull
    s  = status
    t  = tag
 
+[core]
+   excludesfile = /home/users/nico/.gitignore-global
+
 [user]
-   email = nico@ikn.schottelius.org
+   email = nico@kr.ethz.ch
    name = Nico Schottelius
 
 [http]
@@ -46,3 +55,9 @@
 
 [pager]
    status = true
+
+[merge]
+	tool = vimdiff
+
+[push]
+	default = matching
