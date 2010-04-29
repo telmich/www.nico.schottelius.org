@@ -25,6 +25,6 @@ Und das schönste daran, es ist ein Dreifachsieg:
 
  * Der Käufer kommt günstig zu einem nutzbaren Gerät,
  * ich muss das Gerät nicht entsorgen und
- * die ETH erhält einen Betrag der Anschaffungskosten zurück!
+ * die ETH erhält einen Teil der Anschaffungskosten zurück!
 
 [[!tag eth]]
