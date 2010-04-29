@@ -1,0 +1,30 @@
+[[!meta title="Die ETH-Gerätebörse funktioniert"]]
+
+Nachdem ich vor einiger Zeit über die
+[[ETH-Gerätebörse berichtet|blog/eth-geraeteboerse]] habe,
+kann ich nun bereits über positive Erfahrungen berichten:
+
+Bereits zwei Pentium-4-Rechner wurden verkauft und so langsam
+haben Leute auch schon mal von der Gerätebörse gehört.
+
+Ich werde nun bald ein paar ältere, ungenutzte Notebooks
+und weitere Festrechner darauf inserieren.
+
+Die Annahme, der Verkauf von Geräten würde einen hohen administrativen
+Aufwand verursachen hat sich bis jetzt nicht bestätigt. Wir haben bei uns
+intern einen einfach Ablauf definiert, der sich als recht praktikabel
+herausgestellt hat:
+
+ * Der Käufer bezahlt die Ware bar gegen Quittungskopie,
+ * der Sysdamin gibt die Originalquittung mit der Inventarnummer und das Geld
+   an das Sekretariat weiter und
+ * das Sekretariat zahlt das Geld auf die richtigen Konten ein und archiviert die
+   Verkaufsquittung.
+
+Und das schönste daran, es ist ein Dreifachsieg:
+
+ * Der Käufer kommt günstig zu einem nutzbaren Gerät,
+ * ich muss das Gerät nicht entsorgen und
+ * die ETH erhält einen Betrag der Anschaffungskosten zurück!
+
+[[!tag eth]]
