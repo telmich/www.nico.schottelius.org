@@ -1,7 +1,7 @@
 [[!meta title="Die ETH-Gerätebörse funktioniert"]]
 
 Nachdem ich vor einiger Zeit über die
-[[ETH-Gerätebörse berichtet|blog/eth-geraeteboerse]] habe,
+[[ETH-Gerätebörse berichtet|neuigkeiten/eth-geraeteboerse]] habe,
 kann ich nun bereits über positive Erfahrungen berichten:
 
 Bereits zwei Pentium-4-Rechner wurden verkauft und so langsam
