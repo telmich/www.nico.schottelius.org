@@ -4,10 +4,10 @@
 our puppet repo, which resulted in four new
 (more or less standalone) puppet modules:
 
- * [collectd](http://git.sans.ethz.ch/?p=puppet-modules/collectd=summary): Create monitoring and monitored hosts with puppet
- * [java](http://git.sans.ethz.ch/?p=puppet-modules/java=summary): Include all java stuff you ever dreamed of
- * [prayer](http://git.sans.ethz.ch/?p=puppet-modules/prayer=summary): A lightweight webmail
- * [ns_webmail_proxy](http://git.sans.ethz.ch/?p=puppet-modules/prayer=summary): Using prayer and postfix to create a webmail proxy that can also send e-mails
+ * [collectd](http://git.sans.ethz.ch/?p=puppet-modules/collectd;a=summary): Create monitoring and monitored hosts with puppet
+ * [java](http://git.sans.ethz.ch/?p=puppet-modules/java;a=summary): Include all java stuff you ever dreamed of
+ * [prayer](http://git.sans.ethz.ch/?p=puppet-modules/prayer;a=summary): A lightweight webmail
+ * [ns_webmail_proxy](http://git.sans.ethz.ch/?p=puppet-modules/prayer;a=summary): Using prayer and postfix to create a webmail proxy that can also send e-mails
 
 If you enjoy them, we would be happy if you drop us a mail ;-)
 
