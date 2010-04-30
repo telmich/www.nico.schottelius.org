@@ -8,8 +8,8 @@ an den bestehenden Suchpfad an.
 
 Wie die
 [[vielen|blog/published-efsh-puppet-module]]
-[[anderen|published-openntpd-ethz-puppet-module]]
-[[veröffentlichen Module|published-java-prayer-webmail-collectd-puppet-modules]]
+[[anderen|blog/published-openntpd-ethz-puppet-module]]
+[[veröffentlichen Module|blog/published-java-prayer-webmail-collectd-puppet-modules]]
 ist die Ausgliederung in ein eigenes Git-Repository
 Teil unserer Puppetsäuberungsaktion.
 
