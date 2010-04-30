@@ -1,0 +1,21 @@
+[[!meta title="Puppet Module ethz_dinfk_network veröffentlicht"]]
+
+Das Modul
+[ethz_dinfk_network](http://git.sans.ethz.ch/?p=puppet-modules/ethz_dinfk_network;a=summary)
+fügt die Domäne "inf.ethz.ch" via dhclient-Konfiguration in die /etc/resolv.conf
+an den bestehenden Suchpfad an.
+
+
+Wie die
+[[vielen|blog/published-efsh-puppet-module]]
+[[anderen|published-openntpd-ethz-puppet-module]]
+[[veröffentlichen Module|published-java-prayer-webmail-collectd-puppet-modules]]
+ist die Ausgliederung in ein eigenes Git-Repository
+Teil unserer Puppetsäuberungsaktion.
+
+In diesem Fall sogar gleich zweimal, da wir den **inf.ethz.ch**
+Suchpfad [[nicht mehr benutzen|verschiebung-der-rechner-von-inf.ethz.ch-nach-ethz.ch]].
+Wir haben es trotzdem noch gesäubert und veröffentlicht, vielleich kann es
+ja jemand anderes mal gebrauchen.
+
+[[!tag eth unix puppet]]
