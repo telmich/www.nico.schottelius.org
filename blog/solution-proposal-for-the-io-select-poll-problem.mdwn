@@ -1,0 +1,94 @@
+[[!meta title="Solution proposal for the io select/poll problem]]
+
+## The situation
+If you have used select(2) or poll(2) more than time, you may have noticed
+the regular pattern that arrives again and again:
+
+   * The main task of a program is to listen and react on multiple input/output connections.
+   * For each i/o connection (file descriptor, **fd**), you have
+      * a function that opens the **fd** (Let's call it ***conn_open***.)
+      * another function to be executed if an event happens on the **fd** (***conn_handle***)
+   * After ***conn_handle*** has been called, the number of connections may have changed:
+     ***conn_handle*** may
+      * add (think of accept(2))
+      * or remove (think of close(2)) connections
+   * ***conn_open*** and ***conn_handle*** are closely related (**conn_object**)
+
+## The problem
+
+Each and every time this situation occurs, you have to (re-)write
+code to handle that case. I have seen it in some applications I have
+been writing, for instance [[software/ceofhack]] or
+[[software/fui]].
+
+## The solution proposal
+
+Write a solution to the problem
+[once and only once](http://c2.com/xp/OnceAndOnlyOnce.html),
+so you and me
+[don't reapeat ourselves](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself)?
+
+First of all, begin with the obvious part:
+
+### What do we have?
+
+We have to bring together n times
+
+ * open functions
+ * file descriptors
+ * handle functions
+
+Furthermore, we have
+
+ * one main loop that listens for events
+
+### How to connect them properly?
+
+If every **conn_object** supports the following interface, it's
+very easy to write a generic main loop:
+
+    conn_object.open(connection_list)
+
+Where ***connection_list*** consists of ***connection_entries*** like this:
+
+    struct connection_entry {
+       fd,
+       handler,
+       type,
+    }
+
+The type attribute describes, which events to wait for:
+
+ * input
+ * output
+ * errors
+
+The ***conn_object.open*** function can add or remove entries from the list.
+Whether the list is an array, hash, or whatever may be implementation specific.
+
+
+### The main loop
+
+Before launching the main listener loop, we probably need to initialise
+the list, but afterwards it's all up to the handlers:
+
+    connection_list = init_connection_list()
+
+    # connect all conn_objects like this, which implicits opening the fd
+    conn_object.open(connection_list)
+
+    while(true) {
+        events_list = wait_for_event(connection_list)
+
+        for(every_event_in(event_list)) {
+           call_corresponding_handler_for_event_from_connection_list(fd, connection_list)
+         }
+    }
+
+Firstly we pass the **fd**, because one handler may be registered for more
+one connection.
+
+Secondly we add the connection_list, because the handler may decide to add
+more connections or remove itself.
+
+
