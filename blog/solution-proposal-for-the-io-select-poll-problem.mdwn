@@ -81,7 +81,7 @@ Where ***connection_list*** is a list of ***connection_entries*** like this:
        int type;
     };
 
-The ***conn.open*** function can add or remove entries from the list.
+The ***conn_open*** function can add or remove entries from the list.
 Whether the list is an array, linked list, hash or whatever may be implementation specific.
 
 
@@ -91,7 +91,7 @@ Before launching the main listener loop, we need to initialise
 the list and run the **conn_open** function of every **conn_object**:
 
     struct connection_list list = init_connection_list();
-
+    
     connection_add(&list, a_conn_open());
     connection_add(&list, b_conn_open());
 
@@ -104,7 +104,7 @@ Having done this, our main loop now looks pretty simple, doesn't it?
        changed_events = poll_or_select(&poll_or_select_struct);
     
        for(event = changed_events; event != NULL; event = event->next) {
-          find_handler(event->fd, &connection_list);
+          exec_handler(event->fd, &connection_list);
        }
     }
 
