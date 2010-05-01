@@ -1,0 +1,6 @@
+[[!meta title="Released fui-0.3"]]
+
+This version of [[fui|software/fui]] cleanly integrates ncurses,
+has a new screenshot and integrates basic unit testing.
+
+[[!tag eof ncurses unix]]

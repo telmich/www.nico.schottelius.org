@@ -26,10 +26,15 @@ Or browse [gitweb](http://git.schottelius.org/?p=fui).
 
 ### Releases
 
+ * [[fui-0.3.tar]]
  * [[fui-0.2.tar]]
  * [[fui-0.1.tar]]
 
 ## Documentation
+
+### Usage
+
+    ruby main.rb
 
 ### Commands
 
@@ -40,6 +45,7 @@ Or browse [gitweb](http://git.schottelius.org/?p=fui).
 
  * [Ncurses intro](http://invisible-island.net/ncurses/ncurses-intro.html)
  * [Writing Programs with NCURSES](http://web.cs.mun.ca/~rod/ncurses/ncurses.html)
+ * [ncurses-ruby](http://ncurses-ruby.berlios.de/)
  * [IRC](irc://irc.freenode.net/#cLinux)
 
 [[!tag ncurses ruby unix]]
