@@ -1,0 +1,9 @@
+[[!meta title="Announced first ETH sysadmin meeting"]]
+
+Today
+[the announcement of the first /sans/ sysadmin meeting](https://sans.ethz.ch/meetings/2010-05-28/)
+was published.
+
+If you are a sysadmin working at the ETH, feel free to join us!
+
+[[!tag eth]]
