@@ -1,0 +1,119 @@
+[[!meta title="How to add private information to a public puppet repository"]]
+
+## Preamble
+
+If you are like [sans](https://sans.ethz.ch), you are probably
+using [puppet](http://www.puppetlabs.com/) and
+[publishing your modules](https://sans.ethz.ch/projects/puppet/)
+so others can reuse them, too.
+
+At some point, you need to include private data, like passwords
+into your configuration.
+
+## How to cleanly add private stuff with git
+
+We are using [git](http://git-scm.com/) here to manage
+our puppet-modules and exported most of them to
+git-submodules.
+
+## Create a fresh submodule
+
+So first of all, I create a new submodule
+containing the private data:
+
+    % mkdir ethz_systems_private
+    % cd ethz_systems_private
+    # add the private stuff
+    % git init && git add . && git commit -m "init"
+
+## Publish the private module to a private location
+
+I will push the module to the same location as usual, but
+tell git-daemon and gitweb not to show it (I am doing
+this here by removing the file **git-daemon-export-ok**,
+which is configured in gitweb and git-daemon):
+
+    % git remote add origin sans.ethz.ch:/home/services/sans/git/puppet-modules/ethz_systems_private
+    % git push origin master
+
+
+## Add the submodule in a private branch
+
+In our main repository, which contains the information to the
+git-submodules, I have been working in the **master** branch
+up to today. As I don't want others who clone our public repo
+to recognise they are missing data, I'll create a new branch
+called **private** and add our private submodule there:
+
+    % git checkout -b private
+    % git submodule add sans.ethz.ch:/home/services/sans/git/puppet-modules/ethz_systems_private modules/ethz_systems_private
+    % git commit -a -m "Add private submodule ethz_systems_private"
+    % git push origin private
+
+This submodule is added differently than usual, it is accessed via ssh instead
+of using the git protocol we usually use:
+
+    git://git.sans.ethz.ch/puppet-modules/ethz_systems
+
+## Use the new branch on the puppetmaster
+
+On the puppetmaster we essentially use the **update.sh** script, that contains
+only one line:
+
+    git pull && git submodule sync && git submodule update --init
+
+This time, I manually fetch and change to the private branch and make sure
+the private branch works smoothly:
+
+    # git fetch
+    # git checkout -b private origin/private
+    # sh meta/update.sh
+
+The last line fails, as root on sans.ethz.ch cannot login to sans.ethz.ch,
+as there has not been any publickey generated for root, which can easily be
+fixed:
+
+    # ssh-keygen
+    # cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+And finally, the **update.sh** also works!
+
+## How to use the new private branch
+
+It is important to remember that the **private** branch will never be merged
+into the **master** branch, because otherwise people cloning our main repo
+will see a broken submodule reference.
+
+As the puppetmaster always wants to include the private modules, we keep the
+checkout there running the **private** branch and only pulling from the
+remote **private** branch.
+
+As all our public changes will still be made within the **master** branch,
+I created the following script **release.sh** to handle automatic
+propagation of changes from the **master** branch to the **private** branch:
+
+
+    % git checkout master
+    % cat meta/release.sh
+    #!/bin/sh
+    set -e
+    git checkout private
+    git merge master
+    git push origin master private
+    git checkout master
+
+The last command currently throws the error
+
+    warning: unable to rmdir modules/ethz_systems_private: Directory not empty
+
+which seems to be a weiredness of git-submodules I have to figure out how
+to solve.
+
+## Further information
+
+The described repos and scripts can be found via
+[sans' puppet project](https://sans.ethz.ch/projects/puppet/), besides
+the private module...
+
+
+[[!tag eth unix]]
