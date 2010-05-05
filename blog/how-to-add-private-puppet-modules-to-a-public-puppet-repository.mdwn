@@ -109,6 +109,20 @@ The last command currently throws the error
 which seems to be a weiredness of git-submodules I have to figure out how
 to solve.
 
+## Updating the private branch
+
+Whenever there's a need to change something in the **private** branch
+(probably seldom, as this happens only when new private submodules are
+added), it can be done like this:
+
+    % git checkout private
+    % git merge master
+    # *hack* *eat pizza* *hack*
+    % git add fancy-changes
+    % git commit -m "more private stuff"
+    % git push origin private
+    % git checkout master
+
 ## Further information
 
 The described repos and scripts can be found via
