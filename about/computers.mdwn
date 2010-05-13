@@ -1,13 +1,11 @@
+[[!toc  levels=2]]
+
 As every computer geek, I also have a long history of used computers,
 which I publish here, to be able to look back what I used once.
 
 This document also explains the origin of most computer names I have been using.
 
 This site was originally know as **tech.schottelius.org**.
-
-## Notebooks
-
-To be done. :-)
 
 ## Servers
 
@@ -59,6 +57,8 @@ the firewall for the lan at home.
 
  * Productive use: 2003 - 2006
 
+Bruehe is actually still in use, but only as a table below my desk.
+
 ### creme.schottelius.org
 
 Because a customer of me broke a contract, I had to keep
@@ -73,7 +73,7 @@ which means "one of the best".
     NIC:           2* Intel(R) PRO/1000
     CDROM:         Slim line IDE 52x DVD
 
- * Productive use: 
+ * Productive use: 2005 - 2008
 
 ### tee.schottelius.org
 
@@ -90,5 +90,205 @@ Here are the specs:
     CDROM:         Available
 
  * Productive use: 2008 - now
+
+## Notebooks
+
+### flapp.intern.schottelius.org
+
+Flapp was my first notebook, a Acer Travelmate 524TEV.
+Quite a nice machine, bought with the first money I made.
+
+    Processor:       Intel Pentium III 650 Mhz with Speedstep
+    Ram:             64MB (max: 512MB)
+    HD:              10 GB, UDMA 33: IBM-DJSA-210
+    CD:              24x CD / 6x DVD: MATSHITADVD-ROM SR-8175
+    USB:             ALi M5237
+    Network:         Intel Ethernet Pro 100
+    VGA:             ATI 3D Rage P/M Mobility AGP 2x
+    PCMCIA:          O2 Micro OZ6933
+    IDE:             ALi M5229
+    Sound:           ALi 5451
+    Touchpad:        Synaptics
+    Modem:           Lucent SoftModem Version 3.1.66
+    Infrared:        Ali Fast Infrared
+    Display:         13.3" TFT
+
+
+ * Productive use: 1998 - 2003
+
+### scice.intern.schottelius.org
+
+After `flapp` died in 2003 (because tea ran into it), I bought
+`scice`. `Scice` is combined of "scientific" and "silence".
+
+Scice has a Transmeta TM5400 processor and no active cooling. It
+was produced by ECS under the name of "A530".
+
+    Processor:     Transmeta(tm) Crusoe(tm) Processor TM5600, 600Mhz
+    RAM:           128MiB (upgraded to 384MiB later)
+    Optical drive: DVD-ROM / CD-RW
+    Display:       14" TFT
+    Mouse input:   Touchpad
+    Other:         4x USB2.0
+
+ * Productive use: 2003 - 2005
+
+### ei.intern.schottelius.org
+
+Unknown time. Was an IBook G3.
+
+### hydrogenium.intern.schottelius.org
+
+When the accu of `scice` ended its livetime about one year after
+I bought it, I decided to buy a used Compaq Evo N400C.
+
+    Processor:    Pentium III (Coppermine) 850 Mhz
+    Display:      12" TFT
+
+ * Productive use: 2005 - 2008?
+
+### wasserstoff.intern.schottelius.org
+
+To be more precise, when I bought `hydrogenium`, I also bought
+`wasserstoff`, which is also a used Compaq Evo N400C. `Wasserstoff`
+is simply there to spend parts, when `hydrogenium` needs to have
+them replaced.
+
+
+### ast.intern.schottelius.org
+
+Pentium 1 notebook. Never really used it productively,
+was thought to be a terminal.
+
+### denkbrett.intern.schottelius.org
+
+A IBM T60.
+
+### ikn.intern.schottelius.org
+
+A Lenovo Thinkpad X200. The name is derived from its
+main use in ETH Zürich, "Informatikkoordinator Nico".
+
+ * Productive use: 2008 - now
+
+### kobold.intern.schottelius.org
+
+A IBM X31.
+
+    Processor: Intel(R) Pentium(R) M processor 1600MHz
+    RAM: 1 GiB
+    HD: 40 GB
+    Graphics card: ATI Radeon Mobility M6 LY (AGP)
+
+ * Productive use: 2009 - now
+
+### kr.intern.schottelius.org
+
+A Lenovo Thinkpad X201. The name is an abreviation for
+"klapprechner", the German translation for "notebook".
+
+ * Productive use: 2010 - now
+
+## Workstations/Desktops
+
+Systems I used as workstations:
+
+### ozean.intern.schottelius.org
+
+My first own computer was a Pentium 1 bought from Aldi.
+Before that I used my father's computer.
+The case of that computer was painted blue with
+penguins on it by a friend of mine. That case
+actually become the case of bruehe later. Currently
+I do not even remember the naem I gave that box.
+
+    Processor: Pentium 1, 166 Mhz
+    Harddisk: 700 MB + 1 GB SCSI (exchanged the 4 GB IDE HD that came with it)
+    RAM: around 16 MiB
+    Graphics card: ATI with 2 MiB
+    CD-ROM: Single speed SCSI with caddy running at triple speed
+
+### eiche.intern.schottelius.org
+
+Then my father gave me his old computer for present, which was
+named `eiche` (oak in English), because it has a big-tower case.
+
+    Processor:       Intel Pentium IV (mostly running at 80 C)
+
+### buche.intern.schottelius.org
+
+`buche` replaced `eiche` on 2006-06-10, because the mainboard
+of `eiche` had some problems with the Promise ide controller.
+`buche` should now be the file and backup server for the persons
+living in our home.
+
+    Processor:     AMD Athlon(tm) Processor, 800Mhz
+    RAM:           1152MiB
+    Optical drive: DVD-RAM (CD-RW, DVD+/-R/RW)
+    NIC:           3Com Corporation 3c905B 100BaseTX [Cyclone]
+    IDE:           2x onboard, 4x on Promise PDC20270 (TX4)
+    Other:         4x USB2.0, 4xUSB1.1
+
+### dosinux.intern.schottelius.org
+
+Midi tower used for gaming. Name is a combination of "dos on unix",
+because I used dosbox to run old games on it.
+
+### grauerstar
+
+HP J6000, HPPA. Running Debian and Gentoo.
+
+## Embedded
+
+### zwerg.schottelius.org
+
+My first embedded device to play around with. Data mostly
+copied from www.soekris.com:
+
+    266 Mhz NSC SC1100 single chip processor
+    256 Mbyte SDRAM, soldered on board
+    4 Mbit BIOS/BOOT Flash
+    CompactFLASH Type I/II socket
+    UltraDMA-33 interface with 44 pins connector for 2.5" Hard Drive
+    3 10/100 Mbit Ethernet ports, RJ-45
+    2 Serial ports, DB9 and 10 pins header
+    USB 1.1 interface
+    Power LED, Activity LED, Error LED
+    Mini-PCI type III socket. (t.ex for optional hardware encryption.)
+    PCI Slot, right angle 3.3V signaling only, dual PCI slot option planned.
+    12 bit general purpose I/O, 20 pins header
+    Temperature and voltage monitor
+    Hardware watchdog
+    Board size 5.2" x 5.7"
+    Power using external power supply is 6-20V DC, max 15 Watt
+    Option for 5V supply using internal connector
+    Operating temperature 0-60 °C
+
+
+### katze.schottelius.org
+
+After a flash  of  lightning, zwerg died and was replaced by katze,
+a Soekris Net5501. Data again mostly copied and edited from Soekris.com:
+
+    500 Mhz AMD Geode LX single chip processor with CS5536 companion chip
+    512 Mbyte DDR-SDRAM, soldered on board
+    4 Mbit BIOS/BOOT Flash
+    CompactFLASH Type I/II socket.
+    UltraDMA-100 interface with 44 pins connector for 2.5" Hard Drive
+    Serial ATA 1.0 interface for Hard Drive, with +5V and +12V power header
+    1-4 VIA VT6105M 10/100 Mbit Auto MDIX Ethernet ports, RJ-45, protected to 700W/40A Surge
+    2 Serial ports, DB9 and 10 pins internal header
+    USB 2.0 interface, one internal, one external port
+    Power LED, Disk LED, Error LED, Network LED's
+    Mini-PCI type III socket. (for t.ex. hardware encryption or wireless controller)
+    PCI Slot, right angle 3.3V signaling only, dual PCI slot option
+    12 bit general purpose I/O, 20 pins header
+    Temperature and voltage monitor
+    Hardware watchdog
+    Board size 6.3" x 6.5"
+    Power using external power supply is 6-25V DC, max 20 Watt, protected with TVS
+    Option for 5V supply using internal connector
+    Operating temperature 0-60 °C
+
 
 [[!tag net schottelius unix]]
