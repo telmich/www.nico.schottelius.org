@@ -13,7 +13,8 @@ information in the internet, because they are personal (versus public).
 To get an impression of what I do and who I am, you can have a look at
 [[some press articles|press]],
 my [[project list|projects]],
-the [commit list](http://l.schottelius.org/pipermail/commits/)
+the [commit list](http://l.schottelius.org/pipermail/commits/),
+[[computers I have been using|computers]]
 or some of my other [[websites|websites]].
 
 If you want to know more about me, there are
