@@ -6,6 +6,7 @@ and ***sysadmin friendly*** standard.
 
 ## Downloads
 
+ * [[efsh 0.2|efsh-0.2.pdf]]
  * [[efsh 0.1.1|efsh-0.1.1.pdf]]
 
 ## Development
