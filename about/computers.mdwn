@@ -1,0 +1,70 @@
+As every computer geek, I also have a long history of used computers,
+which I publish here, to be able to look back what I used once.
+
+This document also explains the origin of most computer names I have been using.
+
+This site was originally know as **tech.schottelius.org***.
+
+## Notebooks
+
+To be done. :-)
+
+## Servers
+
+### suppe.schottelius.org
+
+First, in 1998, there was `suppe.schottelius.org`. It was my first
+webserver, dns-server and mail-server. I recieved it as a gift
+from a kindergarten, because it was too slow for them.
+The name is derived from the German phrase "suppelte herum",
+which means "is still working, but may break if you look at it
+too strong".
+
+You actually should have seen it, it consisted of the following hardware:
+
+    Processor:     Intel Pentium 120Mhz
+    RAM:           48 MiB (16+16+8+8)
+    Harddisk:      2 GiB IDE (PIO mode/16Bit ;)
+    NIC:           Some 3Com PCI 10Mbit (3c509?)
+    CDROM:         Something like that appeared to be installed
+    Floppy         1x3,5" , 2x5,25"
+
+### bruehe.schottelius.org
+
+Later, in 2003, `suppe` was replaced by `bruehe`. One day, broth ran
+into the `bruehe`, and `bruehe` is the German word for broth.
+
+The first version of `bruehe` had the following technical features:
+
+    Processor:        Pentium3 550Mhz
+    RAM:              640 MB (256+128+128+128)
+    Harddisk (scsi):  3* 4 GB scsi-3 (raid 1, one spare disk)
+    Harddisk (ide):   3* 40 GB ide/udma100 (raid 1, one spare disk)
+    NIC (lan):        3Com Corporation 3c905 100BaseTX [Boomerang]
+    NIC (dmz):        3Com Corporation 3c905 100BaseTX [Boomerang]
+    NIC (inet):       Realtek Semiconductor Co., Ltd. RTL-8029(AS)
+    NIC (wlan):       Global Sun Technology Inc
+    Optical drive:    IDE DVD(+/-, R/RW,RAM) -Burner (old: 32x IDE)
+    Floppy:           removed (was: 1x3,5")
+
+Later the one scsi and one ide drive was removed due to problems
+with the power supply. And an additional NIC was put into.
+
+At the time `bruehe` was replaced by `creme` (see below) it became
+the firewall for the lan at home.
+
+### creme.schottelius.org
+
+Because a customer of me broke a contract, I had to keep
+a very nice dual Xeon server back. This one became 
+`creme.schottelius.org`. The name comes from "creme de la creme"
+which means "one of the best".
+
+    Processor:     Dual Xeon 2.40 Ghz
+    RAM:           1024 MB (2*512)
+    Harddisk:      2* 80 GB ide/udma (raid1)
+    NIC:           2* Intel(R) PRO/1000
+    CDROM:         Slim line IDE 52x DVD
+
+
+[[!tag net schottelius unix]]
