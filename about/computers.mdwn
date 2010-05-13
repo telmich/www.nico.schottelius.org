@@ -3,7 +3,7 @@ which I publish here, to be able to look back what I used once.
 
 This document also explains the origin of most computer names I have been using.
 
-This site was originally know as **tech.schottelius.org***.
+This site was originally know as **tech.schottelius.org**.
 
 ## Notebooks
 
@@ -22,12 +22,15 @@ too strong".
 
 You actually should have seen it, it consisted of the following hardware:
 
+    Chassis:       Midi-Tower
     Processor:     Intel Pentium 120Mhz
     RAM:           48 MiB (16+16+8+8)
     Harddisk:      2 GiB IDE (PIO mode/16Bit ;)
     NIC:           Some 3Com PCI 10Mbit (3c509?)
     CDROM:         Something like that appeared to be installed
     Floppy         1x3,5" , 2x5,25"
+
+ * Productive use: 2000 - 2003
 
 ### bruehe.schottelius.org
 
@@ -36,6 +39,7 @@ into the `bruehe`, and `bruehe` is the German word for broth.
 
 The first version of `bruehe` had the following technical features:
 
+    Chassis:          Midi-Tower
     Processor:        Pentium3 550Mhz
     RAM:              640 MB (256+128+128+128)
     Harddisk (scsi):  3* 4 GB scsi-3 (raid 1, one spare disk)
@@ -53,6 +57,8 @@ with the power supply. And an additional NIC was put into.
 At the time `bruehe` was replaced by `creme` (see below) it became
 the firewall for the lan at home.
 
+ * Productive use: 2003 - 2006
+
 ### creme.schottelius.org
 
 Because a customer of me broke a contract, I had to keep
@@ -60,11 +66,29 @@ a very nice dual Xeon server back. This one became
 `creme.schottelius.org`. The name comes from "creme de la creme"
 which means "one of the best".
 
-    Processor:     Dual Xeon 2.40 Ghz
+    Chassis:       2U
+    Processor:     Dual Single core Xeon 2.40 Ghz
     RAM:           1024 MB (2*512)
     Harddisk:      2* 80 GB ide/udma (raid1)
     NIC:           2* Intel(R) PRO/1000
     CDROM:         Slim line IDE 52x DVD
 
+ * Productive use: 
+
+### tee.schottelius.org
+
+After creme, I bought a smaller 1U server with remote access.
+As it is smaller and thinner then creme, it was named tee.
+Here are the specs:
+
+    Chassis:       Intel S5000PAL
+    Processor:     Quad Core Intel(R) Xeon(R) CPU E5410  @ 2.33GHz
+    RAM:           20 GiB (2*2 GiB, 4*4 GiB)
+    Harddisk:      2* 500 GB sata (raid1)
+    Raid:          ARC-1210 4-Port PCI-Express to SATA RAID Controller
+    NIC:           2* Intel 80003ES2LAN (Gigabit)
+    CDROM:         Available
+
+ * Productive use: 2008 - now
 
 [[!tag net schottelius unix]]
