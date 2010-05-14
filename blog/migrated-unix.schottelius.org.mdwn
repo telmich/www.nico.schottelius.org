@@ -1,0 +1,13 @@
+[[!meta title="Migrated unix.schottelius.org"]]
+
+All bigger projects of **unix.schottelius.org** have been
+moved to this site already. With [[software/cconf]], the
+last "interesting" bits have been moved.
+I did not migrate decr-f, because it needs a major cleanup
+anyway.
+
+If you are missing any software or documentation that used
+to be on **unix.schottelius.org** or
+**linux.schottelius.org**, do not hesitate to contact me.
+
+[[!tag schottelius net unix]]
