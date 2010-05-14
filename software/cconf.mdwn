@@ -17,9 +17,5 @@ cconf aims to be a very lightweight and easy to use build assistant
 ## support
 
 ### IRC
-You can join #cLinux on irc.freenode.org.</P>
 
-### mailing list
-The mailing list can be found at
-
-[http://l.schottelius.org/mailman/listinfo/cconf](http://l.schottelius.org/mailman/listinfo/cconf)
+You can join #cLinux on irc.freenode.org.
