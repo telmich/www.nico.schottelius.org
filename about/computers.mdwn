@@ -277,11 +277,12 @@ because I used dosbox to run old games on it.
 
 ### grauerstar
 
-Nice workstations from HP, a J6000 featured with
+Nice workstations from HP, a
+[[HP J6000|hpJ6000datasheet.pdf]] featured with
 a HPPA processsor. I was running it with both Debian and Gentoo.
 
     Processor:    Dual PA8600 (PCX-W+), 552 Mhz
-    HD:           18 GiB SCSI
+    HD:           18 GiB SCSI (SCA)
 
  * Used: ~2006 - ~2008 (unclear)
  * No real productive use, just played around with it.
