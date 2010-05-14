@@ -20,10 +20,10 @@ For detailled information, have a look at
 
  * Works with conkeror + javaws from Sun Java 6 (archlinux)
  * Works with Mozilla 3.5.9 + Sun Java 6 (windows)
- * Even german menua (locale read?)
- * keyboard doeees not work... select menue sometimes fixes it
+ * Even german menu (java interpreted locales?)
+ * Keyboard doees not work sometimes; selecting something in the menu sometimes fixes it
  * Video refresh is very slow (only parts of **ps aux** can be seen)
- * Has shortcuts in the menu for **alt-fx** and **ctrl-alt-fx***
+ * Has shortcuts in the menu for **alt-fx** and **ctrl-alt-fx**
   * Somebody at Dell or at Avocent (as seen in About iDRAC 6 about) seems to
     have noticed that Linux is available
  * General the KVM website is slow (about 3 seconds to load subpage)
