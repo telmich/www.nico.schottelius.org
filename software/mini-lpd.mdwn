@@ -1,0 +1,17 @@
+A small non-queuing lpd
+
+## Introduction
+mini-lpd is a small lpd. It does not care about the control file sent, nor
+does it honour any lpd specific commands, though it will acknowlegde them.
+It takes a document and puts it on the printer. The client will have
+to wait until it is printed, as mini-lpd does not have any queue (well, it has,
+but only to queue tcp/ip connections ;-).
+mini-lpd should run and compile on every UNIX (Linux, BSD, SunOS, ...)
+(as of version 0.4).
+
+## download
+
+ * [[mini-lpd-0.4.tar.bz2]] - using poll instead of sigio makes mini-lpd portable
+ * [[mini-lpd-0.3.tar.bz2]] - less debug, some cleanups
+ * [[mini-lpd-0.2.tar]] - first working version
+ * [[mini-lpd-0.1.tar]] - initial (broken) release
