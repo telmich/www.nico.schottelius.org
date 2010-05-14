@@ -1,0 +1,3576 @@
+#!/bin/sh
+
+host="$(hostname)"
+dest="${0%%*/}.${host}.log"
+
+(
+   # log, what produced the output
+   cat "$0"
+
+   uname -a
+   dmesg
+
+   # pci stuff
+   lspci -nn
+   lspci -vv
+
+   # hw in total
+   lshw
+
+   # ram
+   free
+
+   # cpu
+   cat /proc/cpuinfo
+
+   # disk
+   mount
+   df -h
+
+) 2>&1 | tee "$dest"
+Linux sgs-dalco2u2nh-01 2.6.26-2-amd64 #1 SMP Tue Mar 9 22:29:32 UTC 2010 x86_64 GNU/Linux
+[    0.000000] Initializing cgroup subsys cpuset
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Linux version 2.6.26-2-amd64 (Debian 2.6.26-21lenny4) (dannf@debian.org) (gcc version 4.1.3 20080704 (prerelease) (Debian 4.1.2-25)) #1 SMP Tue Mar 9 22:29:32 UTC 2010
+[    0.000000] Command line: root=UUID=dc5fe100-b2a3-41fe-b8b2-7e6cafb70a60 ro 
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000]  BIOS-e820: 0000000000000000 - 000000000009a800 (usable)
+[    0.000000]  BIOS-e820: 000000000009a800 - 00000000000a0000 (reserved)
+[    0.000000]  BIOS-e820: 00000000000e7000 - 0000000000100000 (reserved)
+[    0.000000]  BIOS-e820: 0000000000100000 - 00000000bf780000 (usable)
+[    0.000000]  BIOS-e820: 00000000bf78e000 - 00000000bf790000 type 9
+[    0.000000]  BIOS-e820: 00000000bf790000 - 00000000bf79e000 (ACPI data)
+[    0.000000]  BIOS-e820: 00000000bf79e000 - 00000000bf7d0000 (ACPI NVS)
+[    0.000000]  BIOS-e820: 00000000bf7d0000 - 00000000bf7e0000 (reserved)
+[    0.000000]  BIOS-e820: 00000000bf7ec000 - 00000000c0000000 (reserved)
+[    0.000000]  BIOS-e820: 00000000e0000000 - 00000000f0000000 (reserved)
+[    0.000000]  BIOS-e820: 00000000fee00000 - 00000000fee01000 (reserved)
+[    0.000000]  BIOS-e820: 00000000ffc00000 - 0000000100000000 (reserved)
+[    0.000000]  BIOS-e820: 0000000100000000 - 0000000640000000 (usable)
+[    0.000000] Entering add_active_range(0, 0, 154) 0 entries of 3200 used
+[    0.000000] Entering add_active_range(0, 256, 784256) 1 entries of 3200 used
+[    0.000000] Entering add_active_range(0, 1048576, 6553600) 2 entries of 3200 used
+[    0.000000] max_pfn_mapped = 6553600
+[    0.000000] init_memory_mapping
+[    0.000000] DMI present.
+[    0.000000] ACPI: RSDP 000F9C30, 0024 (r2 ACPIAM)
+[    0.000000] ACPI: XSDT BF790100, 007C (r1 121009 XSDT1204 20091210 MSFT       97)
+[    0.000000] ACPI: FACP BF790290, 00F4 (r3 121009 FACP1204 20091210 MSFT       97)
+[    0.000000] ACPI: DSDT BF7904B0, 4F5F (r1  30007 30007000        0 INTL 20051117)
+[    0.000000] ACPI: FACS BF79E000, 0040
+[    0.000000] ACPI: APIC BF790390, 00D2 (r1 121009 APIC1204 20091210 MSFT       97)
+[    0.000000] ACPI: MCFG BF790470, 003C (r1 121009 OEMMCFG  20091210 MSFT       97)
+[    0.000000] ACPI: OEMB BF79E040, 007A (r1 121009 OEMB1204 20091210 MSFT       97)
+[    0.000000] ACPI: SRAT BF79A4B0, 0150 (r1 121009 OEMSRAT         1 INTL        1)
+[    0.000000] ACPI: HPET BF79A600, 0038 (r1 121009 OEMHPET  20091210 MSFT       97)
+[    0.000000] ACPI: SSDT BF79FCD0, 0363 (r1 DpgPmm    CpuPm       12 INTL 20051117)
+[    0.000000] ACPI: EINJ BF79A640, 0130 (r1  AMIER AMI_EINJ 20091210 MSFT       97)
+[    0.000000] ACPI: BERT BF79A7D0, 0030 (r1  AMIER AMI_BERT 20091210 MSFT       97)
+[    0.000000] ACPI: ERST BF79A800, 01B0 (r1  AMIER AMI_ERST 20091210 MSFT       97)
+[    0.000000] ACPI: HEST BF79A9B0, 00A8 (r1  AMIER ABC_HEST 20091210 MSFT       97)
+[    0.000000] SRAT: PXM 0 -> APIC 0 -> Node 0
+[    0.000000] SRAT: PXM 0 -> APIC 2 -> Node 0
+[    0.000000] SRAT: PXM 0 -> APIC 4 -> Node 0
+[    0.000000] SRAT: PXM 0 -> APIC 6 -> Node 0
+[    0.000000] SRAT: PXM 1 -> APIC 16 -> Node 1
+[    0.000000] SRAT: PXM 1 -> APIC 18 -> Node 1
+[    0.000000] SRAT: PXM 1 -> APIC 20 -> Node 1
+[    0.000000] SRAT: PXM 1 -> APIC 22 -> Node 1
+[    0.000000] SRAT: Node 0 PXM 0 0-a0000
+[    0.000000] Entering add_active_range(0, 0, 154) 0 entries of 3200 used
+[    0.000000] SRAT: Node 0 PXM 0 100000-c0000000
+[    0.000000] Entering add_active_range(0, 256, 784256) 1 entries of 3200 used
+[    0.000000] SRAT: Node 0 PXM 0 100000000-340000000
+[    0.000000] Entering add_active_range(0, 1048576, 3407872) 2 entries of 3200 used
+[    0.000000] SRAT: Node 1 PXM 1 340000000-640000000
+[    0.000000] Entering add_active_range(1, 3407872, 6553600) 3 entries of 3200 used
+[    0.000000] NUMA: Allocated memnodemap from 22000 - 2e880
+[    0.000000] NUMA: Using 20 for the hash shift.
+[    0.000000] Bootmem setup node 0 0000000000000000-0000000340000000
+[    0.000000]   NODE_DATA [000000000002e880 - 000000000003387f]
+[    0.000000]   bootmap [0000000000100000 -  0000000000167fff] pages 68
+[    0.000000]   early res: 0 [0-fff] BIOS data page
+[    0.000000]   early res: 1 [6000-7fff] TRAMPOLINE
+[    0.000000]   early res: 2 [200000-675397] TEXT DATA BSS
+[    0.000000]   early res: 3 [37a6d000-37fef61e] RAMDISK
+[    0.000000]   early res: 4 [9a800-fffff] BIOS reserved
+[    0.000000]   early res: 5 [8000-21fff] PGTABLE
+[    0.000000]   early res: 6 [22000-2e87f] MEMNODEMAP
+[    0.000000] Bootmem setup node 1 0000000340000000-0000000640000000
+[    0.000000]   NODE_DATA [0000000340000000 - 0000000340004fff]
+[    0.000000]   bootmap [0000000340005000 -  0000000340064fff] pages 60
+[    0.000000]  [ffffe20000000000-ffffe20003bfffff] PMD -> [ffff810001200000-ffff810003ffffff] on node 0
+[    0.000000]  [ffffe20003c00000-ffffe2000b5fffff] PMD -> [ffff81000c000000-ffff8100139fffff] on node 0
+[    0.000000]  [ffffe2000b600000-ffffe20015dfffff] PMD -> [ffff810340200000-ffff81034a9fffff] on node 1
+[    0.000000] Zone PFN ranges:
+[    0.000000]   DMA             0 ->     4096
+[    0.000000]   DMA32        4096 ->  1048576
+[    0.000000]   Normal    1048576 ->  6553600
+[    0.000000] Movable zone start PFN for each node
+[    0.000000] early_node_map[4] active PFN ranges
+[    0.000000]     0:        0 ->      154
+[    0.000000]     0:      256 ->   784256
+[    0.000000]     0:  1048576 ->  3407872
+[    0.000000]     1:  3407872 ->  6553600
+[    0.000000] On node 0 totalpages: 3143450
+[    0.000000]   DMA zone: 56 pages used for memmap
+[    0.000000]   DMA zone: 1285 pages reserved
+[    0.000000]   DMA zone: 2653 pages, LIFO batch:0
+[    0.000000]   DMA32 zone: 14280 pages used for memmap
+[    0.000000]   DMA32 zone: 765880 pages, LIFO batch:31
+[    0.000000]   Normal zone: 32256 pages used for memmap
+[    0.000000]   Normal zone: 2327040 pages, LIFO batch:31
+[    0.000000]   Movable zone: 0 pages used for memmap
+[    0.000000] On node 1 totalpages: 3145728
+[    0.000000]   DMA zone: 0 pages used for memmap
+[    0.000000]   DMA32 zone: 0 pages used for memmap
+[    0.000000]   Normal zone: 43008 pages used for memmap
+[    0.000000]   Normal zone: 3102720 pages, LIFO batch:31
+[    0.000000]   Movable zone: 0 pages used for memmap
+[    0.000000] ACPI: PM-Timer IO Port: 0x808
+[    0.000000] ACPI: Local APIC address 0xfee00000
+[    0.000000] ACPI: LAPIC (acpi_id[0x01] lapic_id[0x00] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x02] lapic_id[0x02] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x03] lapic_id[0x04] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x04] lapic_id[0x06] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x05] lapic_id[0x10] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x06] lapic_id[0x12] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x07] lapic_id[0x14] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x08] lapic_id[0x16] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x09] lapic_id[0x88] disabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x0a] lapic_id[0x89] disabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x0b] lapic_id[0x8a] disabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x0c] lapic_id[0x8b] disabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x0d] lapic_id[0x8c] disabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x0e] lapic_id[0x8d] disabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x0f] lapic_id[0x8e] disabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x10] lapic_id[0x8f] disabled)
+[    0.000000] ACPI: LAPIC_NMI (acpi_id[0xff] dfl dfl lint[0x1])
+[    0.000000] ACPI: IOAPIC (id[0x01] address[0xfec00000] gsi_base[0])
+[    0.000000] IOAPIC[0]: apic_id 1, version 0, address 0xfec00000, GSI 0-23
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+[    0.000000] ACPI: IRQ0 used by override.
+[    0.000000] ACPI: IRQ2 used by override.
+[    0.000000] ACPI: IRQ9 used by override.
+[    0.000000] Setting APIC routing to physical flat
+[    0.000000] ACPI: HPET id: 0xffffffff base: 0xfed00000
+[    0.000000] Using ACPI (MADT) for SMP configuration information
+[    0.000000] PM: Registered nosave memory: 000000000009a000 - 000000000009b000
+[    0.000000] PM: Registered nosave memory: 000000000009b000 - 00000000000a0000
+[    0.000000] PM: Registered nosave memory: 00000000000a0000 - 00000000000e7000
+[    0.000000] PM: Registered nosave memory: 00000000000e7000 - 0000000000100000
+[    0.000000] PM: Registered nosave memory: 00000000bf780000 - 00000000bf78e000
+[    0.000000] PM: Registered nosave memory: 00000000bf78e000 - 00000000bf790000
+[    0.000000] PM: Registered nosave memory: 00000000bf790000 - 00000000bf79e000
+[    0.000000] PM: Registered nosave memory: 00000000bf79e000 - 00000000bf7d0000
+[    0.000000] PM: Registered nosave memory: 00000000bf7d0000 - 00000000bf7e0000
+[    0.000000] PM: Registered nosave memory: 00000000bf7e0000 - 00000000bf7ec000
+[    0.000000] PM: Registered nosave memory: 00000000bf7ec000 - 00000000c0000000
+[    0.000000] PM: Registered nosave memory: 00000000c0000000 - 00000000e0000000
+[    0.000000] PM: Registered nosave memory: 00000000e0000000 - 00000000f0000000
+[    0.000000] PM: Registered nosave memory: 00000000f0000000 - 00000000fee00000
+[    0.000000] PM: Registered nosave memory: 00000000fee00000 - 00000000fee01000
+[    0.000000] PM: Registered nosave memory: 00000000fee01000 - 00000000ffc00000
+[    0.000000] PM: Registered nosave memory: 00000000ffc00000 - 0000000100000000
+[    0.000000] Allocating PCI resources starting at c2000000 (gap: c0000000:20000000)
+[    0.000000] SMP: Allowing 16 CPUs, 8 hotplug CPUs
+[    0.000000] PERCPU: Allocating 37168 bytes of per cpu data
+[    0.000000] NR_CPUS: 32, nr_cpu_ids: 16
+[    0.000000] Built 2 zonelists in Zone order, mobility grouping on.  Total pages: 6198293
+[    0.000000] Policy zone: Normal
+[    0.000000] Kernel command line: root=UUID=dc5fe100-b2a3-41fe-b8b2-7e6cafb70a60 ro 
+[    0.000000] Initializing CPU#0
+[    0.000000] PID hash table entries: 4096 (order: 12, 32768 bytes)
+[    0.000000] Extended CMOS year: 2000
+[    0.000000] TSC calibrated against PM_TIMER
+[    0.000000] time.c: Detected 2666.759 MHz processor.
+[    0.004000] Console: colour VGA+ 80x25
+[    0.004000] console [tty0] enabled
+[    0.004000] Checking aperture...
+[    0.004000] Calgary: detecting Calgary via BIOS EBDA area
+[    0.004000] Calgary: Unable to locate Rio Grande table in EBDA - bailing!
+[    0.004000] PCI-DMA: Using software bounce buffering for IO (SWIOTLB)
+[    0.004000] Placing software IO TLB between 0x4000000 - 0x8000000
+[    0.004000] Memory: 24735228k/26214400k available (2228k kernel code, 421484k reserved, 1085k data, 392k init)
+[    0.004000] CPA: page pool initialized 1 of 1 pages preallocated
+[    0.004000] hpet clockevent registered
+[    0.083796] Calibrating delay using timer specific routine.. 5337.49 BogoMIPS (lpj=10674990)
+[    0.083956] Security Framework initialized
+[    0.084005] SELinux:  Disabled at boot.
+[    0.084005] Capability LSM initialized
+[    0.084005] Dentry cache hash table entries: 4194304 (order: 13, 33554432 bytes)
+[    0.090303] Inode-cache hash table entries: 2097152 (order: 12, 16777216 bytes)
+[    0.092005] Mount-cache hash table entries: 256
+[    0.092005] Initializing cgroup subsys ns
+[    0.092005] Initializing cgroup subsys cpuacct
+[    0.092005] Initializing cgroup subsys devices
+[    0.092005] CPU: L1 I cache: 32K, L1 D cache: 32K
+[    0.092005] CPU: L2 cache: 256K
+[    0.092005] CPU: L3 cache: 8192K
+[    0.092005] CPU 0/0 -> Node 0
+[    0.092005] CPU: Physical Processor ID: 0
+[    0.092005] CPU: Processor Core ID: 0
+[    0.092080] MCE: warning: using only 9 banks
+[    0.092148] CPU0: Thermal monitoring enabled (TM1)
+[    0.092211] using mwait in idle threads.
+[    0.092939] ACPI: Core revision 20080321
+[    0.144009] CPU0: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz stepping 04
+[    0.144009] Using local APIC timer interrupts.
+[    0.148009] APIC timer calibration result 8333618
+[    0.148009] Detected 8.333 MHz APIC timer.
+[    0.148009] Booting processor 1/2 ip 6000
+[    0.156009] Initializing CPU#1
+[    0.156009] Calibrating delay using timer specific routine.. 5333.35 BogoMIPS (lpj=10666713)
+[    0.156009] CPU: L1 I cache: 32K, L1 D cache: 32K
+[    0.156009] CPU: L2 cache: 256K
+[    0.156009] CPU: L3 cache: 8192K
+[    0.156009] CPU 1/2 -> Node 0
+[    0.156009] CPU: Physical Processor ID: 0
+[    0.156009] CPU: Processor Core ID: 1
+[    0.156009] MCE: warning: using only 9 banks
+[    0.156009] CPU1: Thermal monitoring enabled (TM1)
+[    0.236014] CPU1: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz stepping 04
+[    0.236014] checking TSC synchronization [CPU#0 -> CPU#1]: passed.
+[    0.240015] Booting processor 2/4 ip 6000
+[    0.256016] Initializing CPU#2
+[    0.256016] Calibrating delay using timer specific routine.. 5333.34 BogoMIPS (lpj=10666682)
+[    0.256016] CPU: L1 I cache: 32K, L1 D cache: 32K
+[    0.256016] CPU: L2 cache: 256K
+[    0.256016] CPU: L3 cache: 8192K
+[    0.256016] CPU 2/4 -> Node 0
+[    0.256016] CPU: Physical Processor ID: 0
+[    0.256016] CPU: Processor Core ID: 2
+[    0.256016] MCE: warning: using only 9 banks
+[    0.256016] CPU2: Thermal monitoring enabled (TM1)
+[    0.333894] CPU2: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz stepping 04
+[    0.334686] checking TSC synchronization [CPU#0 -> CPU#2]: passed.
+[    0.340021] Booting processor 3/6 ip 6000
+[    0.348021] Initializing CPU#3
+[    0.348021] Calibrating delay using timer specific routine.. 5333.33 BogoMIPS (lpj=10666676)
+[    0.348021] CPU: L1 I cache: 32K, L1 D cache: 32K
+[    0.348021] CPU: L2 cache: 256K
+[    0.348021] CPU: L3 cache: 8192K
+[    0.348021] CPU 3/6 -> Node 0
+[    0.348021] CPU: Physical Processor ID: 0
+[    0.348021] CPU: Processor Core ID: 3
+[    0.348021] MCE: warning: using only 9 banks
+[    0.348021] CPU3: Thermal monitoring enabled (TM1)
+[    0.430760] CPU3: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz stepping 04
+[    0.431552] checking TSC synchronization [CPU#0 -> CPU#3]: passed.
+[    0.436027] Booting processor 4/16 ip 6000
+[    0.447995] Initializing CPU#4
+[    0.447995] Calibrating delay using timer specific routine.. 5333.38 BogoMIPS (lpj=10666778)
+[    0.447995] CPU: L1 I cache: 32K, L1 D cache: 32K
+[    0.447995] CPU: L2 cache: 256K
+[    0.447995] CPU: L3 cache: 8192K
+[    0.447995] CPU 4/10 -> Node 1
+[    0.447995] CPU: Physical Processor ID: 1
+[    0.447995] CPU: Processor Core ID: 0
+[    0.447995] MCE: warning: using only 9 banks
+[    0.447995] CPU4: Thermal monitoring enabled (TM1)
+[    0.528227] CPU4: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz stepping 04
+[    0.529017] checking TSC synchronization [CPU#0 -> CPU#4]: passed.
+[    0.533495] Booting processor 5/18 ip 6000
+[    0.544974] Initializing CPU#5
+[    0.544974] Calibrating delay using timer specific routine.. 5333.40 BogoMIPS (lpj=10666808)
+[    0.544974] CPU: L1 I cache: 32K, L1 D cache: 32K
+[    0.544974] CPU: L2 cache: 256K
+[    0.544974] CPU: L3 cache: 8192K
+[    0.544974] CPU 5/12 -> Node 1
+[    0.544974] CPU: Physical Processor ID: 1
+[    0.544974] CPU: Processor Core ID: 1
+[    0.544974] MCE: warning: using only 9 banks
+[    0.544974] CPU5: Thermal monitoring enabled (TM1)
+[    0.625196] CPU5: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz stepping 04
+[    0.625987] checking TSC synchronization [CPU#0 -> CPU#5]: passed.
+[    0.630459] Booting processor 6/20 ip 6000
+[    0.641961] Initializing CPU#6
+[    0.641961] Calibrating delay using timer specific routine.. 5333.37 BogoMIPS (lpj=10666758)
+[    0.641961] CPU: L1 I cache: 32K, L1 D cache: 32K
+[    0.641961] CPU: L2 cache: 256K
+[    0.641961] CPU: L3 cache: 8192K
+[    0.641961] CPU 6/14 -> Node 1
+[    0.641961] CPU: Physical Processor ID: 1
+[    0.641961] CPU: Processor Core ID: 2
+[    0.641961] MCE: warning: using only 9 banks
+[    0.641961] CPU6: Thermal monitoring enabled (TM1)
+[    0.722898] CPU6: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz stepping 04
+[    0.723688] checking TSC synchronization [CPU#0 -> CPU#6]: passed.
+[    0.729938] Booting processor 7/22 ip 6000
+[    0.737955] Initializing CPU#7
+[    0.737955] Calibrating delay using timer specific routine.. 5333.37 BogoMIPS (lpj=10666750)
+[    0.737955] CPU: L1 I cache: 32K, L1 D cache: 32K
+[    0.737955] CPU: L2 cache: 256K
+[    0.737955] CPU: L3 cache: 8192K
+[    0.737955] CPU 7/16 -> Node 1
+[    0.737955] CPU: Physical Processor ID: 1
+[    0.737955] CPU: Processor Core ID: 3
+[    0.737955] MCE: warning: using only 9 banks
+[    0.737955] CPU7: Thermal monitoring enabled (TM1)
+[    0.820674] CPU7: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz stepping 04
+[    0.821465] checking TSC synchronization [CPU#0 -> CPU#7]: passed.
+[    0.825944] Brought up 8 CPUs
+[    0.825944] Total of 8 processors activated (42671.07 BogoMIPS).
+[    0.825944] CPU0 attaching sched-domain:
+[    0.825944]  domain 0: span 0-3
+[    0.825944]   groups: 0 1 2 3
+[    0.825944]   domain 1: span 0-7
+[    0.825944]    groups: 0-3 4-7
+[    0.825944] CPU1 attaching sched-domain:
+[    0.825944]  domain 0: span 0-3
+[    0.825944]   groups: 1 2 3 0
+[    0.825944]   domain 1: span 0-7
+[    0.825944]    groups: 0-3 4-7
+[    0.825944] CPU2 attaching sched-domain:
+[    0.825944]  domain 0: span 0-3
+[    0.825944]   groups: 2 3 0 1
+[    0.825944]   domain 1: span 0-7
+[    0.825944]    groups: 0-3 4-7
+[    0.825944] CPU3 attaching sched-domain:
+[    0.825944]  domain 0: span 0-3
+[    0.825944]   groups: 3 0 1 2
+[    0.825944]   domain 1: span 0-7
+[    0.825944]    groups: 0-3 4-7
+[    0.825944] CPU4 attaching sched-domain:
+[    0.825944]  domain 0: span 4-7
+[    0.825944]   groups: 4 5 6 7
+[    0.825944]   domain 1: span 0-7
+[    0.825944]    groups: 4-7 0-3
+[    0.825944] CPU5 attaching sched-domain:
+[    0.825944]  domain 0: span 4-7
+[    0.825944]   groups: 5 6 7 4
+[    0.825944]   domain 1: span 0-7
+[    0.825944]    groups: 4-7 0-3
+[    0.825944] CPU6 attaching sched-domain:
+[    0.825944]  domain 0: span 4-7
+[    0.825944]   groups: 6 7 4 5
+[    0.825944]   domain 1: span 0-7
+[    0.825944]    groups: 4-7 0-3
+[    0.825944] CPU7 attaching sched-domain:
+[    0.825944]  domain 0: span 4-7
+[    0.825944]   groups: 7 4 5 6
+[    0.825944]   domain 1: span 0-7
+[    0.825944]    groups: 4-7 0-3
+[    0.825944] net_namespace: 1224 bytes
+[    0.825944] Booting paravirtualized kernel on bare hardware
+[    0.825944] NET: Registered protocol family 16
+[    0.825944] ACPI: bus type pci registered
+[    0.825944] PCI: MCFG configuration 0: base e0000000 segment 0 buses 0 - 255
+[    0.825944] PCI: MCFG area at e0000000 reserved in E820
+[    0.840592] PCI: Using MMCONFIG at e0000000 - efffffff
+[    0.840656] PCI: Using configuration type 1 for base access
+[    0.841382] ACPI: EC: Look up EC in DSDT
+[    0.849571] ACPI: Interpreter enabled
+[    0.849571] ACPI: (supports S0 S1 S4 S5)
+[    0.849571] ACPI: Using IOAPIC for interrupt routing
+[    0.862400] ACPI: PCI Root Bridge [PCI0] (0000:00)
+[    0.862400] PCI: Transparent bridge - 0000:00:1e.0
+[    0.862400] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0._PRT]
+[    0.862400] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.P0P1._PRT]
+[    0.862400] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.NPE1._PRT]
+[    0.862400] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.NPE2._PRT]
+[    0.862400] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.NPE7._PRT]
+[    0.862400] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.NPE3._PRT]
+[    0.895078] ACPI: PCI Interrupt Link [LNKA] (IRQs 3 4 5 6 7 10 11 12 14 *15)
+[    0.895078] ACPI: PCI Interrupt Link [LNKB] (IRQs 3 4 *5 6 7 10 11 12 14 15)
+[    0.895078] ACPI: PCI Interrupt Link [LNKC] (IRQs 3 4 5 6 7 *10 11 12 14 15)
+[    0.895078] ACPI: PCI Interrupt Link [LNKD] (IRQs 3 4 5 6 7 10 *11 12 14 15)
+[    0.895737] ACPI: PCI Interrupt Link [LNKE] (IRQs 3 4 5 6 7 10 11 12 14 15) *0, disabled.
+[    0.896491] ACPI: PCI Interrupt Link [LNKF] (IRQs 3 4 5 6 7 10 11 12 *14 15)
+[    0.902692] ACPI: PCI Interrupt Link [LNKG] (IRQs 3 4 5 6 7 10 11 12 14 15) *0, disabled.
+[    0.903445] ACPI: PCI Interrupt Link [LNKH] (IRQs 3 4 5 6 *7 10 11 12 14 15)
+[    0.904623] ACPI Warning (tbutils-0217): Incorrect checksum in table [OEMB] - A7, should be A4 [20080321]
+[    0.904623] Linux Plug and Play Support v0.97 (c) Adam Belay
+[    0.904623] pnp: PnP ACPI init
+[    0.904623] ACPI: bus type pnp registered
+[    0.904623] pnp 00:00: parse allocated resources
+[    0.904623] pnp 00:00:   add io  0xcf8-0xcff flags 0x1
+[    0.904630] pnp 00:00: Plug and Play ACPI device, IDs PNP0a08 PNP0a03 (active)
+[    0.904638] pnp 00:01: parse allocated resources
+[    0.904642] pnp 00:01:   add mem 0xfbf00000-0xfbffffff flags 0x1
+[    0.904644] pnp 00:01:   add mem 0xfc000000-0xfcffffff flags 0x1
+[    0.904645] pnp 00:01:   add mem 0xfd000000-0xfdffffff flags 0x1
+[    0.904647] pnp 00:01:   add mem 0xfe000000-0xfebfffff flags 0x1
+[    0.904648] pnp 00:01:   add mem 0xfec8a000-0xfec8afff flags 0x1
+[    0.904649] pnp 00:01:   add mem 0xfed10000-0xfed10fff flags 0x1
+[    0.904651] pnp 00:01: PNP0c01: calling quirk_system_pci_resources+0x0/0x15c
+[    0.908623] pnp 00:01: Plug and Play ACPI device, IDs PNP0c01 (active)
+[    0.908623] pnp 00:02: parse allocated resources
+[    0.908623] pnp 00:02:   add dma 4 flags 0x4
+[    0.908623] pnp 00:02:   add io  0x0-0xf flags 0x1
+[    0.908623] pnp 00:02:   add io  0x81-0x83 flags 0x1
+[    0.908623] pnp 00:02:   add io  0x87-0x87 flags 0x1
+[    0.908623] pnp 00:02:   add io  0x89-0x8b flags 0x1
+[    0.908623] pnp 00:02:   add io  0x8f-0x8f flags 0x1
+[    0.908623] pnp 00:02:   add io  0xc0-0xdf flags 0x1
+[    0.908623] pnp 00:02: Plug and Play ACPI device, IDs PNP0200 (active)
+[    0.908623] pnp 00:03: parse allocated resources
+[    0.908623] pnp 00:03:   add io  0x70-0x71 flags 0x1
+[    0.908623] pnp 00:03:   add irq 8 flags 0x1
+[    0.908623] pnp 00:03: Plug and Play ACPI device, IDs PNP0b00 (active)
+[    0.908623] pnp 00:04: parse allocated resources
+[    0.908623] pnp 00:04:   add io  0x61-0x61 flags 0x1
+[    0.908623] pnp 00:04: Plug and Play ACPI device, IDs PNP0800 (active)
+[    0.908623] pnp 00:05: parse allocated resources
+[    0.908623] pnp 00:05:   add io  0xf0-0xff flags 0x1
+[    0.908623] pnp 00:05:   add irq 13 flags 0x1
+[    0.908623] pnp 00:05: Plug and Play ACPI device, IDs PNP0c04 (active)
+[    0.908623] pnp 00:06: parse allocated resources
+[    0.908623] pnp 00:06:   add io  0x3f8-0x3ff flags 0x1
+[    0.908623] pnp 00:06:   add irq 4 flags 0x1
+[    0.908623] pnp 00:06: parse resource options
+[    0.908623] pnp 00:06: new independent option
+[    0.908623] pnp 00:06: new dependent option (priority 0x0)
+[    0.908623] pnp 00:06:   io  min 0x3f8 max 0x3f8 align 1 size 8 flags 0x1
+[    0.908623] pnp 00:06:   irq bitmask 00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000010 flags 0x1
+[    0.908623] pnp 00:06: new dependent option (priority 0x1)
+[    0.908623] pnp 00:06:   io  min 0x3f8 max 0x3f8 align 1 size 8 flags 0x1
+[    0.908623] pnp 00:06:   irq bitmask 00000000,00000000,00000000,00000000,00000000,00000000,00000000,00001cf8 flags 0x1
+[    0.908623] pnp 00:06: new dependent option (priority 0x1)
+[    0.908623] pnp 00:06:   io  min 0x2f8 max 0x2f8 align 1 size 8 flags 0x1
+[    0.908623] pnp 00:06:   irq bitmask 00000000,00000000,00000000,00000000,00000000,00000000,00000000,00001cf8 flags 0x1
+[    0.908623] pnp 00:06: new dependent option (priority 0x1)
+[    0.908623] pnp 00:06:   io  min 0x3e8 max 0x3e8 align 1 size 8 flags 0x1
+[    0.908623] pnp 00:06:   irq bitmask 00000000,00000000,00000000,00000000,00000000,00000000,00000000,00001cf8 flags 0x1
+[    0.908623] pnp 00:06: new dependent option (priority 0x1)
+[    0.908623] pnp 00:06:   io  min 0x2e8 max 0x2e8 align 1 size 8 flags 0x1
+[    0.908623] pnp 00:06:   irq bitmask 00000000,00000000,00000000,00000000,00000000,00000000,00000000,00001cf8 flags 0x1
+[    0.908623] pnp 00:06: end dependent options
+[    0.908623] pnp 00:06: Plug and Play ACPI device, IDs PNP0501 (active)
+[    0.908623] pnp 00:07: parse allocated resources
+[    0.908623] pnp 00:07:   add io  0x2f8-0x2ff flags 0x1
+[    0.908623] pnp 00:07:   add irq 3 flags 0x1
+[    0.908623] pnp 00:07: parse resource options
+[    0.908623] pnp 00:07: new independent option
+[    0.908623] pnp 00:07: new dependent option (priority 0x0)
+[    0.908623] pnp 00:07:   io  min 0x2f8 max 0x2f8 align 1 size 8 flags 0x1
+[    0.908623] pnp 00:07:   irq bitmask 00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000008 flags 0x1
+[    0.908623] pnp 00:07: new dependent option (priority 0x1)
+[    0.908623] pnp 00:07:   io  min 0x3f8 max 0x3f8 align 1 size 8 flags 0x1
+[    0.908623] pnp 00:07:   irq bitmask 00000000,00000000,00000000,00000000,00000000,00000000,00000000,00001cf8 flags 0x1
+[    0.908623] pnp 00:07: new dependent option (priority 0x1)
+[    0.908623] pnp 00:07:   io  min 0x2f8 max 0x2f8 align 1 size 8 flags 0x1
+[    0.908623] pnp 00:07:   irq bitmask 00000000,00000000,00000000,00000000,00000000,00000000,00000000,00001cf8 flags 0x1
+[    0.908623] pnp 00:07: new dependent option (priority 0x1)
+[    0.908623] pnp 00:07:   io  min 0x3e8 max 0x3e8 align 1 size 8 flags 0x1
+[    0.908623] pnp 00:07:   irq bitmask 00000000,00000000,00000000,00000000,00000000,00000000,00000000,00001cf8 flags 0x1
+[    0.908623] pnp 00:07: new dependent option (priority 0x1)
+[    0.908623] pnp 00:07:   io  min 0x2e8 max 0x2e8 align 1 size 8 flags 0x1
+[    0.908623] pnp 00:07:   irq bitmask 00000000,00000000,00000000,00000000,00000000,00000000,00000000,00001cf8 flags 0x1
+[    0.908623] pnp 00:07: end dependent options
+[    0.908623] pnp 00:07: Plug and Play ACPI device, IDs PNP0501 (active)
+[    0.908623] pnp 00:08: parse allocated resources
+[    0.908623] pnp 00:08:   add io  0x0-0xffffffffffffffff flags 0x10000001
+[    0.908623] pnp 00:08:   add io  0xa00-0xa0f flags 0x1
+[    0.908623] pnp 00:08: PNP0c02: calling quirk_system_pci_resources+0x0/0x15c
+[    0.908623] pnp 00:08: Plug and Play ACPI device, IDs PNP0c02 (active)
+[    0.908623] pnp 00:09: parse allocated resources
+[    0.908623] pnp 00:09:   add io  0x10-0x1f flags 0x1
+[    0.908623] pnp 00:09:   add io  0x22-0x3f flags 0x1
+[    0.908623] pnp 00:09:   add io  0x44-0x5f flags 0x1
+[    0.908623] pnp 00:09:   add io  0x62-0x63 flags 0x1
+[    0.908623] pnp 00:09:   add io  0x65-0x6f flags 0x1
+[    0.908623] pnp 00:09:   add io  0x72-0x7f flags 0x1
+[    0.908623] pnp 00:09:   add io  0x80-0x80 flags 0x1
+[    0.908623] pnp 00:09:   add io  0x84-0x86 flags 0x1
+[    0.908623] pnp 00:09:   add io  0x88-0x88 flags 0x1
+[    0.908623] pnp 00:09:   add io  0x8c-0x8e flags 0x1
+[    0.908623] pnp 00:09:   add io  0x90-0x9f flags 0x1
+[    0.908623] pnp 00:09:   add io  0xa2-0xbf flags 0x1
+[    0.908623] pnp 00:09:   add io  0xe0-0xef flags 0x1
+[    0.908623] pnp 00:09:   add io  0x4d0-0x4d1 flags 0x1
+[    0.908623] pnp 00:09:   add io  0x800-0x87f flags 0x1
+[    0.908623] pnp 00:09:   add io  0x0-0xffffffffffffffff flags 0x10000001
+[    0.908623] pnp 00:09:   add io  0x500-0x57f flags 0x1
+[    0.908623] pnp 00:09:   add mem 0xfed1c000-0xfed1ffff flags 0x1
+[    0.908623] pnp 00:09:   add mem 0xfed20000-0xfed3ffff flags 0x1
+[    0.908623] pnp 00:09:   add mem 0xfed40000-0xfed8ffff flags 0x1
+[    0.908623] pnp 00:09: PNP0c02: calling quirk_system_pci_resources+0x0/0x15c
+[    0.908623] pnp 00:09: Plug and Play ACPI device, IDs PNP0c02 (active)
+[    0.908623] pnp 00:0a: parse allocated resources
+[    0.908623] pnp 00:0a:   add mem 0xfed00000-0xfed003ff flags 0x0
+[    0.908623] pnp 00:0a: Plug and Play ACPI device, IDs PNP0103 (active)
+[    0.908623] pnp 00:0b: parse allocated resources
+[    0.908623] pnp 00:0b:   add io  0x60-0x60 flags 0x0
+[    0.908623] pnp 00:0b:   add io  0x64-0x64 flags 0x0
+[    0.908623] pnp 00:0b:   add mem 0xfec00000-0xfec00fff flags 0x0
+[    0.908623] pnp 00:0b:   add mem 0xfee00000-0xfee00fff flags 0x0
+[    0.908623] pnp 00:0b: PNP0c02: calling quirk_system_pci_resources+0x0/0x15c
+[    0.908623] pnp 00:0b: Plug and Play ACPI device, IDs PNP0c02 (active)
+[    0.908623] pnp 00:0c: parse allocated resources
+[    0.908623] pnp 00:0c:   add io  0xca2-0xca3 flags 0x1
+[    0.908623] pnp 00:0c: PNP0c02: calling quirk_system_pci_resources+0x0/0x15c
+[    0.908623] pnp 00:0c: Plug and Play ACPI device, IDs PNP0c02 (active)
+[    0.908623] pnp 00:0d: parse allocated resources
+[    0.908623] pnp 00:0d:   add mem 0xe0000000-0xefffffff flags 0x0
+[    0.908623] pnp 00:0d: PNP0c02: calling quirk_system_pci_resources+0x0/0x15c
+[    0.908623] pnp 00:0d: Plug and Play ACPI device, IDs PNP0c02 (active)
+[    0.908623] pnp 00:0e: parse allocated resources
+[    0.908623] pnp 00:0e:   add mem 0x0-0x9ffff flags 0x1
+[    0.908623] pnp 00:0e:   add mem 0xc0000-0xcffff flags 0x0
+[    0.908623] pnp 00:0e:   add mem 0xe0000-0xfffff flags 0x0
+[    0.908623] pnp 00:0e:   add mem 0x100000-0xbf8fffff flags 0x1
+[    0.908623] pnp 00:0e:   add mem 0xfed90000-0xffffffff flags 0x0
+[    0.908623] pnp 00:0e: PNP0c01: calling quirk_system_pci_resources+0x0/0x15c
+[    0.908623] pnp 00:0e: Plug and Play ACPI device, IDs PNP0c01 (active)
+[    0.908623] pnp: PnP ACPI: found 15 devices
+[    0.908623] ACPI: ACPI bus type pnp unregistered
+[    0.908623] usbcore: registered new interface driver usbfs
+[    0.908623] usbcore: registered new interface driver hub
+[    0.908623] usbcore: registered new device driver usb
+[    0.908623] PCI: Using ACPI for IRQ routing
+[    0.932529] PCI-GART: No AMD northbridge found.
+[    0.932596] hpet0: at MMIO 0xfed00000, IRQs 2, 8, 0, 0
+[    0.932623] hpet0: 4 64-bit timers, 14318180 Hz
+[    0.932623] ACPI: RTC can wake from S4
+[    0.935093] Switched to high resolution mode on CPU 0
+[    0.936853] Switched to high resolution mode on CPU 1
+[    0.937094] Switched to high resolution mode on CPU 3
+[    0.938449] Switched to high resolution mode on CPU 5
+[    0.938690] Switched to high resolution mode on CPU 4
+[    0.938932] Switched to high resolution mode on CPU 2
+[    0.939175] Switched to high resolution mode on CPU 7
+[    0.940585] Switched to high resolution mode on CPU 6
+[    0.944589] pnp: the driver 'system' has been registered
+[    0.944596] system 00:01: iomem range 0xfbf00000-0xfbffffff has been reserved
+[    0.944664] system 00:01: iomem range 0xfc000000-0xfcffffff has been reserved
+[    0.944841] system 00:01: iomem range 0xfd000000-0xfdffffff has been reserved
+[    0.944909] system 00:01: iomem range 0xfe000000-0xfebfffff has been reserved
+[    0.946920] system 00:01: iomem range 0xfec8a000-0xfec8afff has been reserved
+[    0.946988] system 00:01: iomem range 0xfed10000-0xfed10fff has been reserved
+[    0.947056] system 00:01: driver attached
+[    0.947061] system 00:08: ioport range 0xa00-0xa0f has been reserved
+[    0.947127] system 00:08: driver attached
+[    0.947131] system 00:09: ioport range 0x4d0-0x4d1 has been reserved
+[    0.947197] system 00:09: ioport range 0x800-0x87f has been reserved
+[    0.947264] system 00:09: ioport range 0x500-0x57f has been reserved
+[    0.947331] system 00:09: iomem range 0xfed1c000-0xfed1ffff has been reserved
+[    0.947400] system 00:09: iomem range 0xfed20000-0xfed3ffff has been reserved
+[    0.948573] system 00:09: iomem range 0xfed40000-0xfed8ffff has been reserved
+[    0.948640] system 00:09: driver attached
+[    0.948645] system 00:0b: iomem range 0xfec00000-0xfec00fff has been reserved
+[    0.948714] system 00:0b: iomem range 0xfee00000-0xfee00fff could not be reserved
+[    0.948795] system 00:0b: driver attached
+[    0.948799] system 00:0c: ioport range 0xca2-0xca3 has been reserved
+[    0.948866] system 00:0c: driver attached
+[    0.948870] system 00:0d: iomem range 0xe0000000-0xefffffff could not be reserved
+[    0.948951] system 00:0d: driver attached
+[    0.948955] system 00:0e: iomem range 0x0-0x9ffff could not be reserved
+[    0.949022] system 00:0e: iomem range 0xc0000-0xcffff has been reserved
+[    0.949089] system 00:0e: iomem range 0xe0000-0xfffff could not be reserved
+[    0.949157] system 00:0e: iomem range 0x100000-0xbf8fffff could not be reserved
+[    0.949239] system 00:0e: iomem range 0xfed90000-0xffffffff could not be reserved
+[    0.949294] system 00:0e: driver attached
+[    0.949294] PCI: Bridge: 0000:00:01.0
+[    0.949294]   IO window: d000-dfff
+[    0.949294]   MEM window: 0xfbb00000-0xfbbfffff
+[    0.949294]   PREFETCH window: disabled.
+[    0.949294] PCI: Bridge: 0000:00:02.0
+[    0.949294]   IO window: e000-efff
+[    0.949294]   MEM window: 0xfbc00000-0xfbcfffff
+[    0.949294]   PREFETCH window: disabled.
+[    0.949294] PCI: Bridge: 0000:00:03.0
+[    0.949294]   IO window: disabled.
+[    0.949294]   MEM window: 0xfbd00000-0xfbdfffff
+[    0.949294]   PREFETCH window: 0x00000000f8800000-0x00000000f8ffffff
+[    0.949294] PCI: Bridge: 0000:00:05.0
+[    0.949294]   IO window: disabled.
+[    0.949294]   MEM window: disabled.
+[    0.949294]   PREFETCH window: disabled.
+[    0.949294] PCI: Bridge: 0000:00:07.0
+[    0.949294]   IO window: disabled.
+[    0.949294]   MEM window: disabled.
+[    0.949294]   PREFETCH window: disabled.
+[    0.949294] PCI: Bridge: 0000:00:1e.0
+[    0.949294]   IO window: disabled.
+[    0.949294]   MEM window: 0xfaf00000-0xfb7fffff
+[    0.949294]   PREFETCH window: 0x00000000f9000000-0x00000000f9ffffff
+[    0.949294] PCI: Setting latency timer of device 0000:00:01.0 to 64
+[    0.949294] PCI: Setting latency timer of device 0000:00:02.0 to 64
+[    0.949294] PCI: Setting latency timer of device 0000:00:03.0 to 64
+[    0.949294] PCI: Setting latency timer of device 0000:00:05.0 to 64
+[    0.949294] PCI: Setting latency timer of device 0000:00:07.0 to 64
+[    0.949294] PCI: Setting latency timer of device 0000:00:1e.0 to 64
+[    0.949294] NET: Registered protocol family 2
+[    0.988940] IP route cache hash table entries: 1048576 (order: 11, 8388608 bytes)
+[    0.990612] TCP established hash table entries: 524288 (order: 11, 8388608 bytes)
+[    0.992028] TCP bind hash table entries: 65536 (order: 8, 1048576 bytes)
+[    0.992177] TCP: Hash tables configured (established 524288 bind 65536)
+[    0.997109] TCP reno registered
+[    1.009121] NET: Registered protocol family 1
+[    1.009261] checking if image is initramfs... it is
+[    1.384573] Freeing initrd memory: 5641k freed
+[    1.388875] audit: initializing netlink socket (disabled)
+[    1.388875] type=2000 audit(1269256629.360:1): initialized
+[    1.388875] Total HugeTLB memory allocated, 0
+[    1.389007] VFS: Disk quotas dquot_6.5.1
+[    1.389007] Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    1.389007] msgmni has been set to 32768
+[    1.389007] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+[    1.389007] io scheduler noop registered
+[    1.389007] io scheduler anticipatory registered
+[    1.389007] io scheduler deadline registered
+[    1.389028] io scheduler cfq registered (default)
+[    1.389224] pci 0000:06:01.0: Boot video device
+[    1.392922] PCI: Setting latency timer of device 0000:00:01.0 to 64
+[    1.392922] assign_interrupt_mode Found MSI capability
+[    1.392922] Allocate Port Service[0000:00:01.0:pcie00]
+[    1.392922] Allocate Port Service[0000:00:01.0:pcie01]
+[    1.392922] PCI: Setting latency timer of device 0000:00:02.0 to 64
+[    1.392922] assign_interrupt_mode Found MSI capability
+[    1.392922] Allocate Port Service[0000:00:02.0:pcie00]
+[    1.392922] Allocate Port Service[0000:00:02.0:pcie01]
+[    1.392922] PCI: Setting latency timer of device 0000:00:03.0 to 64
+[    1.392922] assign_interrupt_mode Found MSI capability
+[    1.392922] Allocate Port Service[0000:00:03.0:pcie00]
+[    1.392922] Allocate Port Service[0000:00:03.0:pcie01]
+[    1.392922] PCI: Setting latency timer of device 0000:00:05.0 to 64
+[    1.392922] assign_interrupt_mode Found MSI capability
+[    1.392922] Allocate Port Service[0000:00:05.0:pcie00]
+[    1.392922] Allocate Port Service[0000:00:05.0:pcie01]
+[    1.392922] PCI: Setting latency timer of device 0000:00:07.0 to 64
+[    1.392922] assign_interrupt_mode Found MSI capability
+[    1.392922] Allocate Port Service[0000:00:07.0:pcie00]
+[    1.392922] Allocate Port Service[0000:00:07.0:pcie01]
+[    1.392922] AER service couldn't init device 0000:00:01.0:pcie01 - no _OSC support
+[    1.392922] AER service couldn't init device 0000:00:02.0:pcie01 - no _OSC support
+[    1.392922] AER service couldn't init device 0000:00:03.0:pcie01 - no _OSC support
+[    1.392922] AER service couldn't init device 0000:00:05.0:pcie01 - no _OSC support
+[    1.392922] AER service couldn't init device 0000:00:07.0:pcie01 - no _OSC support
+[    1.392932] hpet_resources: 0xfed00000 is busy
+[    1.392932] Linux agpgart interface v0.103
+[    1.392932] Serial: 8250/16550 driver $Revision: 1.90 $ 4 ports, IRQ sharing enabled
+[    1.392932] serial8250: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+[    1.392932] serial8250: ttyS1 at I/O 0x2f8 (irq = 3) is a 16550A
+[    1.408557] pnp: the driver 'serial' has been registered
+[    1.409324] 00:06: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+[    1.409946] serial 00:06: driver attached
+[    1.409946] 00:07: ttyS1 at I/O 0x2f8 (irq = 3) is a 16550A
+[    1.409946] serial 00:07: driver attached
+[    1.409946] brd: module loaded
+[    1.409946] input: Macintosh mouse button emulation as /class/input/input0
+[    1.409946] pnp: the driver 'i8042 kbd' has been registered
+[    1.409946] pnp: the driver 'i8042 aux' has been registered
+[    1.409946] pnp: the driver 'i8042 kbd' has been unregistered
+[    1.409946] pnp: the driver 'i8042 aux' has been unregistered
+[    1.409946] PNP: No PS/2 controller found. Probing ports directly.
+[    1.422887] serio: i8042 KBD port at 0x60,0x64 irq 1
+[    1.422887] serio: i8042 AUX port at 0x60,0x64 irq 12
+[    1.446886] mice: PS/2 mouse device common for all mice
+[    1.446886] pnp: the driver 'rtc_cmos' has been registered
+[    1.446886] rtc_cmos 00:03: rtc core: registered rtc_cmos as rtc0
+[    1.446886] rtc0: alarms up to one month, y3k
+[    1.446886] rtc_cmos 00:03: driver attached
+[    1.446886] cpuidle: using governor ladder
+[    1.446886] cpuidle: using governor menu
+[    1.446886] No iBFT detected.
+[    1.446886] TCP cubic registered
+[    1.446886] NET: Registered protocol family 17
+[    1.446886] registered taskstats version 1
+[    1.446886] rtc_cmos 00:03: setting system clock to 2010-03-22 11:17:09 UTC (1269256629)
+[    1.446886] Freeing unused kernel memory: 392k freed
+[    1.496453] ACPI: SSDT BF79E0C0, 1C0C (r1 DpgPmm  P001Ist       11 INTL 20051117)
+[    1.500401] ACPI: ACPI0007:00 is registered as cooling_device0
+[    1.501061] ACPI: ACPI0007:01 is registered as cooling_device1
+[    1.501061] ACPI: ACPI0007:02 is registered as cooling_device2
+[    1.501093] ACPI: ACPI0007:03 is registered as cooling_device3
+[    1.503449] ACPI: ACPI0007:04 is registered as cooling_device4
+[    1.504632] ACPI: ACPI0007:05 is registered as cooling_device5
+[    1.507005] ACPI: ACPI0007:06 is registered as cooling_device6
+[    1.510154] ACPI: ACPI0007:07 is registered as cooling_device7
+[    1.587512] mlx4_core: Mellanox ConnectX core driver v0.01 (May 1, 2007)
+[    1.587512] mlx4_core: Initializing 0000:03:00.0
+[    1.587512] ACPI: PCI Interrupt 0000:03:00.0[A] -> GSI 16 (level, low) -> IRQ 16
+[    1.587512] PCI: Setting latency timer of device 0000:03:00.0 to 64
+[    1.600927] e1000e: Intel(R) PRO/1000 Network Driver - 0.3.3.3-k2
+[    1.600995] e1000e: Copyright (c) 1999-2008 Intel Corporation.
+[    1.600927] USB Universal Host Controller Interface driver v3.0
+[    1.614855] No dock devices found.
+[    1.619697] SCSI subsystem initialized
+[    1.623785] libata version 3.00 loaded.
+[    3.810117] ACPI: PCI Interrupt 0000:00:1a.0[A] -> GSI 16 (level, low) -> IRQ 16
+[    3.810117] PCI: Setting latency timer of device 0000:00:1a.0 to 64
+[    3.810117] uhci_hcd 0000:00:1a.0: UHCI Host Controller
+[    3.810117] uhci_hcd 0000:00:1a.0: new USB bus registered, assigned bus number 1
+[    3.810117] uhci_hcd 0000:00:1a.0: irq 16, io base 0x0000b880
+[    3.810117] usb usb1: configuration #1 chosen from 1 choice
+[    3.810117] hub 1-0:1.0: USB hub found
+[    3.810117] hub 1-0:1.0: 2 ports detected
+[    4.814518] usb usb1: New USB device found, idVendor=1d6b, idProduct=0001
+[    4.814586] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    4.814667] usb usb1: Product: UHCI Host Controller
+[    4.814731] usb usb1: Manufacturer: Linux 2.6.26-2-amd64 uhci_hcd
+[    4.814797] usb usb1: SerialNumber: 0000:00:1a.0
+[    4.817243] ACPI: PCI Interrupt 0000:00:1a.1[B] -> GSI 21 (level, low) -> IRQ 21
+[    4.817243] PCI: Setting latency timer of device 0000:00:1a.1 to 64
+[    4.817243] uhci_hcd 0000:00:1a.1: UHCI Host Controller
+[    4.817243] uhci_hcd 0000:00:1a.1: new USB bus registered, assigned bus number 2
+[    4.817243] uhci_hcd 0000:00:1a.1: irq 21, io base 0x0000bc00
+[    4.817243] usb usb2: configuration #1 chosen from 1 choice
+[    4.817243] hub 2-0:1.0: USB hub found
+[    4.817243] hub 2-0:1.0: 2 ports detected
+[    4.918667] usb usb2: New USB device found, idVendor=1d6b, idProduct=0001
+[    4.918736] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    4.918817] usb usb2: Product: UHCI Host Controller
+[    4.918881] usb usb2: Manufacturer: Linux 2.6.26-2-amd64 uhci_hcd
+[    4.918946] usb usb2: SerialNumber: 0000:00:1a.1
+[    4.921243] ACPI: PCI Interrupt 0000:00:1a.2[D] -> GSI 19 (level, low) -> IRQ 19
+[    4.921243] PCI: Setting latency timer of device 0000:00:1a.2 to 64
+[    4.921243] uhci_hcd 0000:00:1a.2: UHCI Host Controller
+[    4.921243] uhci_hcd 0000:00:1a.2: new USB bus registered, assigned bus number 3
+[    4.921243] uhci_hcd 0000:00:1a.2: irq 19, io base 0x0000c000
+[    4.921243] usb usb3: configuration #1 chosen from 1 choice
+[    4.921243] hub 3-0:1.0: USB hub found
+[    4.921243] hub 3-0:1.0: 2 ports detected
+[    5.122933] usb usb3: New USB device found, idVendor=1d6b, idProduct=0001
+[    5.123001] usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    5.123082] usb usb3: Product: UHCI Host Controller
+[    5.123146] usb usb3: Manufacturer: Linux 2.6.26-2-amd64 uhci_hcd
+[    5.123212] usb usb3: SerialNumber: 0000:00:1a.2
+[    5.123146] ACPI: PCI Interrupt 0000:00:1a.7[C] -> GSI 18 (level, low) -> IRQ 18
+[    5.123146] PCI: Setting latency timer of device 0000:00:1a.7 to 64
+[    5.123146] ehci_hcd 0000:00:1a.7: EHCI Host Controller
+[    5.123146] ehci_hcd 0000:00:1a.7: new USB bus registered, assigned bus number 4
+[    5.207139] ehci_hcd 0000:00:1a.7: debug port 1
+[    5.207139] PCI: cache line size of 32 is not supported by device 0000:00:1a.7
+[    5.207139] ehci_hcd 0000:00:1a.7: irq 18, io mem 0xfbed6000
+[    5.259141] ehci_hcd 0000:00:1a.7: USB 2.0 started, EHCI 1.00, driver 10 Dec 2004
+[    5.259263] usb usb4: configuration #1 chosen from 1 choice
+[    5.259345] hub 4-0:1.0: USB hub found
+[    5.259410] hub 4-0:1.0: 6 ports detected
+[    5.367466] usb usb4: New USB device found, idVendor=1d6b, idProduct=0002
+[    5.367533] usb usb4: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    5.367614] usb usb4: Product: EHCI Host Controller
+[    5.367677] usb usb4: Manufacturer: Linux 2.6.26-2-amd64 ehci_hcd
+[    5.367743] usb usb4: SerialNumber: 0000:00:1a.7
+[    5.367415] ACPI: PCI Interrupt 0000:00:1d.0[A] -> GSI 23 (level, low) -> IRQ 23
+[    5.367415] PCI: Setting latency timer of device 0000:00:1d.0 to 64
+[    5.367415] uhci_hcd 0000:00:1d.0: UHCI Host Controller
+[    5.367415] uhci_hcd 0000:00:1d.0: new USB bus registered, assigned bus number 5
+[    5.367415] uhci_hcd 0000:00:1d.0: irq 23, io base 0x0000b400
+[    5.367415] usb usb5: configuration #1 chosen from 1 choice
+[    5.367415] hub 5-0:1.0: USB hub found
+[    5.367415] hub 5-0:1.0: 2 ports detected
+[    5.469210] usb usb5: New USB device found, idVendor=1d6b, idProduct=0001
+[    5.469278] usb usb5: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    5.469360] usb usb5: Product: UHCI Host Controller
+[    5.469423] usb usb5: Manufacturer: Linux 2.6.26-2-amd64 uhci_hcd
+[    5.469489] usb usb5: SerialNumber: 0000:00:1d.0
+[    5.471426] ACPI: PCI Interrupt 0000:00:1d.1[B] -> GSI 19 (level, low) -> IRQ 19
+[    5.471426] PCI: Setting latency timer of device 0000:00:1d.1 to 64
+[    5.471426] uhci_hcd 0000:00:1d.1: UHCI Host Controller
+[    5.471426] uhci_hcd 0000:00:1d.1: new USB bus registered, assigned bus number 6
+[    5.471426] uhci_hcd 0000:00:1d.1: irq 19, io base 0x0000b480
+[    5.471426] usb usb6: configuration #1 chosen from 1 choice
+[    5.471426] hub 6-0:1.0: USB hub found
+[    5.471426] hub 6-0:1.0: 2 ports detected
+[    5.571972] usb usb6: New USB device found, idVendor=1d6b, idProduct=0001
+[    5.572040] usb usb6: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    5.572121] usb usb6: Product: UHCI Host Controller
+[    5.572185] usb usb6: Manufacturer: Linux 2.6.26-2-amd64 uhci_hcd
+[    5.572251] usb usb6: SerialNumber: 0000:00:1d.1
+[    5.575925] ACPI: PCI Interrupt 0000:00:1d.2[C] -> GSI 18 (level, low) -> IRQ 18
+[    5.575925] PCI: Setting latency timer of device 0000:00:1d.2 to 64
+[    5.575925] uhci_hcd 0000:00:1d.2: UHCI Host Controller
+[    5.575925] uhci_hcd 0000:00:1d.2: new USB bus registered, assigned bus number 7
+[    5.575925] uhci_hcd 0000:00:1d.2: irq 18, io base 0x0000b800
+[    5.575925] usb usb7: configuration #1 chosen from 1 choice
+[    5.575925] hub 7-0:1.0: USB hub found
+[    5.575925] hub 7-0:1.0: 2 ports detected
+[    5.729086] usb usb7: New USB device found, idVendor=1d6b, idProduct=0001
+[    5.729154] usb usb7: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    5.729235] usb usb7: Product: UHCI Host Controller
+[    5.729299] usb usb7: Manufacturer: Linux 2.6.26-2-amd64 uhci_hcd
+[    5.729364] usb usb7: SerialNumber: 0000:00:1d.2
+[    5.729299] ACPI: PCI Interrupt 0000:00:1d.7[A] -> GSI 23 (level, low) -> IRQ 23
+[    5.729299] PCI: Setting latency timer of device 0000:00:1d.7 to 64
+[    5.729299] ehci_hcd 0000:00:1d.7: EHCI Host Controller
+[    5.729299] ehci_hcd 0000:00:1d.7: new USB bus registered, assigned bus number 8
+[    5.814168] ehci_hcd 0000:00:1d.7: debug port 1
+[    5.830978] PCI: cache line size of 32 is not supported by device 0000:00:1d.7
+[    5.830982] ehci_hcd 0000:00:1d.7: irq 23, io mem 0xfbed4000
+[    5.846270] ehci_hcd 0000:00:1d.7: USB 2.0 started, EHCI 1.00, driver 10 Dec 2004
+[    5.846386] usb usb8: configuration #1 chosen from 1 choice
+[    5.846466] hub 8-0:1.0: USB hub found
+[    5.846530] hub 8-0:1.0: 6 ports detected
+[    5.958492] usb usb8: New USB device found, idVendor=1d6b, idProduct=0002
+[    5.958559] usb usb8: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    5.958640] usb usb8: Product: EHCI Host Controller
+[    5.958704] usb usb8: Manufacturer: Linux 2.6.26-2-amd64 ehci_hcd
+[    5.958769] usb usb8: SerialNumber: 0000:00:1d.7
+[    5.958704] ACPI: PCI Interrupt 0000:01:00.0[A] -> <7>ahci 0000:00:1f.2: version 3.0
+[    5.987235] ACPI: PCI Interrupt 0000:00:1f.2[B] -> GSI 19 (level, low) -> IRQ 19
+[    5.958704] GSI 16 (level, low) -> IRQ 16
+[    5.958704] PCI: Setting latency timer of device 0000:01:00.0 to 64
+[    6.578811] eth0: (PCI Express:2.5GB/s:Width x1) 00:30:48:cd:ab:7e
+[    6.578878] eth0: Intel(R) PRO/1000 Network Connection
+[    6.579276] eth0: MAC: 3, PHY: 8, PBA No: 0101ff-0ff
+[    6.579277] ACPI: PCI Interrupt 0000:02:00.0[A] -> GSI 16 (level, low) -> IRQ 16
+[    6.579277] PCI: Setting latency timer of device 0000:02:00.0 to 64
+[    6.754683] eth1: (PCI Express:2.5GB/s:Width x1) 00:30:48:cd:ab:7f
+[    6.754750] eth1: Intel(R) PRO/1000 Network Connection
+[    6.754891] eth1: MAC: 3, PHY: 8, PBA No: 0101ff-0ff
+[    6.890522] usb 2-1: new full speed USB device using uhci_hcd and address 2
+[    7.062527] usb 2-1: configuration #1 chosen from 1 choice
+[    7.256610] usb 2-1: New USB device found, idVendor=046b, idProduct=ff10
+[    7.256678] usb 2-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    7.260758] usb 2-1: Product: Virtual Keyboard and Mouse
+[    7.260758] usb 2-1: Manufacturer: American Megatrends Inc.
+[    7.260758] usb 2-1: SerialNumber: serial
+[    7.782575] ahci 0000:00:1f.2: AHCI 0001.0200 32 slots 6 ports 3 Gbps 0x3f impl SATA mode
+[    7.782660] ahci 0000:00:1f.2: flags: 64bit ncq sntf stag pm led clo pio slum part 
+[    7.782743] PCI: Setting latency timer of device 0000:00:1f.2 to 64
+[    7.786012] scsi0 : ahci
+[    7.786012] scsi1 : ahci
+[    7.786539] scsi2 : ahci
+[    7.786539] scsi3 : ahci
+[    7.786539] scsi4 : ahci
+[    7.786539] scsi5 : ahci
+[    7.786539] ata1: SATA max UDMA/133 abar m2048@0xfbefa000 port 0xfbefa100 irq 1272
+[    7.786539] ata2: SATA max UDMA/133 abar m2048@0xfbefa000 port 0xfbefa180 irq 1272
+[    7.786539] ata3: SATA max UDMA/133 abar m2048@0xfbefa000 port 0xfbefa200 irq 1272
+[    7.786539] ata4: SATA max UDMA/133 abar m2048@0xfbefa000 port 0xfbefa280 irq 1272
+[    7.786539] ata5: SATA max UDMA/133 abar m2048@0xfbefa000 port 0xfbefa300 irq 1272
+[    7.786539] ata6: SATA max UDMA/133 abar m2048@0xfbefa000 port 0xfbefa380 irq 1272
+[    7.822544] usb 5-1: new low speed USB device using uhci_hcd and address 2
+[    8.426405] usb 5-1: configuration #1 chosen from 1 choice
+[    8.448291] usb 5-1: New USB device found, idVendor=046a, idProduct=0011
+[    8.448359] usb 5-1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    8.678414] ata1: SATA link up 3.0 Gbps (SStatus 123 SControl 300)
+[    8.678401] ata1.00: ATA-8: WDC WD2500AAJS-00L7A0, 01.03E01, max UDMA/133
+[    8.678401] ata1.00: 488397168 sectors, multi 0: LBA48 NCQ (depth 31/32)
+[    8.678401] ata1.00: configured for UDMA/133
+[    9.012171] ata2: SATA link down (SStatus 0 SControl 300)
+[    9.348270] ata3: SATA link down (SStatus 0 SControl 300)
+[    9.684271] ata4: SATA link down (SStatus 0 SControl 300)
+[   10.020269] ata5: SATA link down (SStatus 0 SControl 300)
+[   10.598555] ata6: SATA link down (SStatus 0 SControl 300)
+[   10.614503] scsi 0:0:0:0: Direct-Access     ATA      WDC WD2500AAJS-0 01.0 PQ: 0 ANSI: 5
+[   11.130115] Driver 'sd' needs updating - please use bus_type methods
+[   11.130227] sd 0:0:0:0: [sda] 488397168 512-byte hardware sectors (250059 MB)
+[   11.130302] sd 0:0:0:0: [sda] Write Protect is off
+[   11.130365] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+[   11.130378] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[   11.130494] sd 0:0:0:0: [sda] 488397168 512-byte hardware sectors (250059 MB)
+[   11.130568] sd 0:0:0:0: [sda] Write Protect is off
+[   11.130632] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+[   11.130645] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[   11.130730]  sda:<6>usbcore: registered new interface driver hiddev
+[   11.139732]  sda1 sda2 sda3
+[   11.143672] input: American Megatrends Inc. Virtual Keyboard and Mouse as /class/input/input1
+[   11.151671] sd 0:0:0:0: [sda] Attached SCSI disk
+[   11.163704] input,hidraw0: USB HID v1.10 Keyboard [American Megatrends Inc. Virtual Keyboard and Mouse] on usb-0000:00:1a.1-1
+[   11.171672] input: American Megatrends Inc. Virtual Keyboard and Mouse as /class/input/input2
+[   11.187696] input,hidraw1: USB HID v1.10 Mouse [American Megatrends Inc. Virtual Keyboard and Mouse] on usb-0000:00:1a.1-1
+[   11.239730] input: HID 046a:0011 as /class/input/input3
+[   11.262801] input,hidraw2: USB HID v1.11 Keyboard [HID 046a:0011] on usb-0000:00:1d.0-1
+[   11.263057] usbcore: registered new interface driver usbhid
+[   11.263122] usbhid: v2.6:USB HID core driver
+[   11.400797] kjournald starting.  Commit interval 5 seconds
+[   11.400797] EXT3-fs: mounted filesystem with ordered data mode.
+[   12.229121] udevd version 125 started
+[   12.604060] input: Power Button (FF) as /class/input/input4
+[   12.636077] ACPI: Power Button (FF) [PWRF]
+[   12.636196] input: Power Button (CM) as /class/input/input5
+[   12.652211] input: PC Speaker as /class/input/input6
+[   12.652211] ACPI: PCI Interrupt 0000:00:1f.3[C] -> GSI 18 (level, low) -> IRQ 18
+[   12.676327] Error: Driver 'pcspkr' is already registered, aborting...
+[   12.689140] ACPI: Power Button (CM) [PWRB]
+[   13.753778] Adding 2096472k swap on /dev/sda2.  Priority:-1 extents:1 across:2096472k
+[   13.981946] EXT3 FS on sda1, internal journal
+[   14.666409] usbcore: registered new interface driver usbkbd
+[   14.666409] usbkbd: :USB HID Boot Protocol keyboard driver
+[   14.704797] ohci_hcd: 2006 August 04 USB 1.1 'Open' Host Controller (OHCI) Driver
+[   15.140789] kjournald starting.  Commit interval 5 seconds
+[   15.144973] EXT3 FS on sda3, internal journal
+[   15.145080] EXT3-fs: mounted filesystem with ordered data mode.
+[   18.689028] eth0: Link is Up 1000 Mbps Full Duplex, Flow Control: RX/TX
+[   25.920724] NET: Registered protocol family 10
+[   25.920724] lo: Disabled Privacy Extensions
+[   41.879928] eth0: no IPv6 routers present
+[ 1483.208204] pnp: the driver 'parport_pc' has been registered
+[ 1483.208204] lp: driver loaded but no devices found
+[ 1483.226306] ppdev: user-space parallel port driver
+[ 1638.162244] device-mapper: uevent: version 1.0.3
+[ 1638.162244] device-mapper: ioctl: 4.13.0-ioctl (2007-10-18) initialised: dm-devel@redhat.com
+[ 2237.559143] program swap-offset is using a deprecated SCSI ioctl, please convert it to SG_IO
+[ 2304.361383] warning: `ntpd' uses 32-bit capabilities (legacy support in use)
+[ 2758.546284] ADDRCONF(NETDEV_UP): eth0: link is not ready
+[ 2763.004833] eth0: Link is Up 1000 Mbps Full Duplex, Flow Control: RX/TX
+[ 2763.007248] ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[ 2781.710554] eth0: no IPv6 routers present
+[ 2916.853419] ip_tables: (C) 2000-2006 Netfilter Core Team
+[ 5720.900194] INFO: task stress:19893 blocked for more than 120 seconds.
+[ 5720.900700] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 5720.900783] stress        D ffff8100010250c0     0 19893  19883
+[ 5720.901806]  ffff81033d125dd8 0000000000000086 ffff81063e002850 000000000000000e
+[ 5720.903397]  ffff81024055cad0 ffff81033e5c57b0 ffff81024055cd58 0000000080270e48
+[ 5720.904157]  ffff81033d125df8 ffff81033d125ed8 0000000000000000 ffff81063c88b918
+[ 5720.904352] Call Trace:
+[ 5720.904483]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 5720.904549]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 5720.904616]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 5720.904685]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 5720.904754]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 5720.904822]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 5720.904890]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 5720.904958]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 5720.905119]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 5720.905183]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 5720.905248]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 5720.905317] 
+[ 5727.341139] INFO: task stress:19885 blocked for more than 120 seconds.
+[ 5727.341208] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 5727.341291] stress        D ffff81034aa08928     0 19885  19883
+[ 5727.343610]  ffff810264587dd8 0000000000000086 ffff81063e002850 000000000000000e
+[ 5727.344101]  ffff810264509020 ffff8102645096b0 ffff8102645092a8 0000000280270e48
+[ 5727.345089]  ffff810264587df8 ffff810264587ed8 0000000000000000 ffff81063c88b918
+[ 5727.345280] Call Trace:
+[ 5727.345408]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 5727.345473]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 5727.345538]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 5727.345606]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 5727.345674]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 5727.345741]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 5727.345808]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 5727.345875]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 5727.345941]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 5727.346005]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 5727.346070]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 5727.346138] 
+[ 5727.346197] INFO: task stress:19897 blocked for more than 120 seconds.
+[ 5727.346264] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 5727.346346] stress        D ffff81034aa08928     0 19897  19883
+[ 5727.346493]  ffff81033c427dd8 0000000000000086 ffff81063e002850 000000000000000e
+[ 5727.346739]  ffff810240410b10 ffff810264509020 ffff810240410d98 0000000280270e48
+[ 5727.346985]  ffff81033c427df8 ffff81033c427ed8 0000000000000000 ffff81063c88b918
+[ 5727.347177] Call Trace:
+[ 5727.347295]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 5727.347359]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 5727.347424]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 5727.347491]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 5727.347559]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 5727.347627]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 5727.347694]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 5727.347761]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 5727.347827]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 5727.347892]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 5727.347956]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 5727.348025] 
+[ 5729.488304] INFO: task stress:19901 blocked for more than 120 seconds.
+[ 5729.488374] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 5729.488457] stress        D ffff8100010250c0     0 19901  19883
+[ 5729.488694]  ffff810224845dd8 0000000000000086 ffff81063e002850 000000000000000e
+[ 5729.489178]  ffff81033e5c57b0 ffff81033c6556b0 ffff81033e5c5a38 0000000080270e48
+[ 5729.489792]  ffff810224845df8 ffff810224845ed8 0000000000000000 ffff81063c88b918
+[ 5729.489985] Call Trace:
+[ 5729.490117]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 5729.490183]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 5729.490249]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 5729.490318]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 5729.490387]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 5729.490455]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 5729.490523]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 5729.490590]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 5729.490658]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 5729.490724]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 5729.490789]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 5729.490858] 
+[ 6051.609109] INFO: task stress:19905 blocked for more than 120 seconds.
+[ 6051.609180] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6051.609263] stress        D ffff81000102b0c0     0 19905  19883
+[ 6051.609413]  ffff8102404a3dd8 0000000000000082 ffff81063e002850 000000000000000e
+[ 6051.609775]  ffff81033c5ccfe0 ffff810264509020 ffff81033c5cd268 0000000080270e48
+[ 6051.610213]  ffff8102404a3df8 ffff8102404a3ed8 0000000000000000 ffff81063c88b918
+[ 6051.611686] Call Trace:
+[ 6051.611815]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 6051.611881]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 6051.611946]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 6051.612015]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 6051.612083]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 6051.612151]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 6051.612218]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 6051.612285]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 6051.612352]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 6051.612417]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6051.612482]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6051.612551] 
+[ 6199.786402] INFO: task stress:19897 blocked for more than 120 seconds.
+[ 6199.786472] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6199.786554] stress        D ffff8102179a0e40     0 19897  19883
+[ 6199.787126]  ffff81033c427d98 0000000000000086 ffffffff80627400 ffffffff8023ce81
+[ 6199.788975]  ffff810240410b10 ffff81033e59ee20 ffff810240410d98 0000000000000001
+[ 6199.790250]  0000000000000292 0000000000000003 ffff81033c427d98 ffffffff8022accf
+[ 6199.790441] Call Trace:
+[ 6199.790567]  [<ffffffff8023ce81>] lock_timer_base+0x26/0x4b
+[ 6199.790634]  [<ffffffff8022accf>] __wake_up+0x38/0x4f
+[ 6199.790705]  [<ffffffffa00f6614>] :jbd:log_wait_commit+0x9f/0xed
+[ 6199.790771]  [<ffffffff80246111>] autoremove_wake_function+0x0/0x2e
+[ 6199.790842]  [<ffffffffa00f24f9>] :jbd:journal_stop+0x165/0x18d
+[ 6199.790910]  [<ffffffff802b676f>] __writeback_single_inode+0x17f/0x29d
+[ 6199.790978]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 6199.791045]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 6199.791113]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 6199.791179]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 6199.791245]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 6199.791309]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6199.791374]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6199.791442] 
+[ 6199.791502] INFO: task stress:19913 blocked for more than 120 seconds.
+[ 6199.791569] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6199.791651] stress        D ffff81000102c8c0     0 19913  19883
+[ 6199.791799]  ffff810240485dd8 0000000000000082 ffff810215fdf150 ffffffff8027182a
+[ 6199.792044]  ffff81033c6556b0 ffff81033c4a8440 ffff81033c655938 0000000180270e48
+[ 6199.792289]  ffff810240485df8 ffff810240485ed8 0000000000000000 ffff81063c88b918
+[ 6199.792480] Call Trace:
+[ 6199.792596]  [<ffffffff8027182a>] wait_on_page_writeback_range+0xc8/0x113
+[ 6199.792666]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 6199.792731]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 6199.792796]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 6199.792862]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 6199.792930]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 6199.792997]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 6199.793064]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 6199.793130]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 6199.793196]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 6199.793261]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6199.793265]  [<ffffffff8020bf5b>] sysret_careful+0x1c/0x1f
+[ 6199.793265]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6199.793336] 
+[ 6330.782132] INFO: task stress:19889 blocked for more than 120 seconds.
+[ 6330.782201] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6330.782284] stress        D ffff81000102c8c0     0 19889  19883
+[ 6330.783265]  ffff810224927dd8 0000000000000082 ffff81063e002850 000000000000000e
+[ 6330.784844]  ffff81033e59ee20 ffff81024055cad0 ffff81033e59f0a8 0000000080270e48
+[ 6330.785089]  ffff810224927df8 ffff810224927ed8 0000000000000000 ffff81063c88b918
+[ 6330.785280] Call Trace:
+[ 6330.785409]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 6330.785473]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 6330.785539]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 6330.785607]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 6330.785675]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 6330.785744]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 6330.785811]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 6330.785880]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 6330.785947]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 6330.786012]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6330.786078]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6330.786147] 
+[ 6416.682981] INFO: task stress:19897 blocked for more than 120 seconds.
+[ 6416.683051] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6416.683134] stress        D ffff81000102c8c0     0 19897  19883
+[ 6416.684625]  ffff81033c427dd8 0000000000000086 0000000000001000 ffff81033e11ec80
+[ 6416.685850]  ffff810240410b10 ffff81033e5a50e0 ffff810240410d98 0000000315dc3b50
+[ 6416.686912]  ffffffffa0112a10 ffff81033c154800 0000000000000000 ffff81033d598180
+[ 6416.687103] Call Trace:
+[ 6416.687231]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 6416.687296]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 6416.687362]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 6416.687430]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 6416.687499]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 6416.687566]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 6416.687633]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 6416.687700]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 6416.687766]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 6416.687831]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6416.687896]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6416.687964] 
+[ 6416.688025] INFO: task stress:19913 blocked for more than 120 seconds.
+[ 6416.688091] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6416.688174] stress        D ffff8102179a0270     0 19913  19883
+[ 6416.688322]  ffff810240485d98 0000000000000082 ffffffff80627400 ffffffff8023ce81
+[ 6416.688568]  ffff81033c6556b0 ffff81033e59e100 ffff81033c655938 0000000300000001
+[ 6416.688818]  0000000000000292 0000000000000003 ffff810240485d98 ffffffff8022accf
+[ 6416.689014] Call Trace:
+[ 6416.689135]  [<ffffffff8023ce81>] lock_timer_base+0x26/0x4b
+[ 6416.689205]  [<ffffffff8022accf>] __wake_up+0x38/0x4f
+[ 6416.689277]  [<ffffffffa00f6614>] :jbd:log_wait_commit+0x9f/0xed
+[ 6416.689345]  [<ffffffff80246111>] autoremove_wake_function+0x0/0x2e
+[ 6416.689417]  [<ffffffffa00f24f9>] :jbd:journal_stop+0x165/0x18d
+[ 6416.689487]  [<ffffffff802b676f>] __writeback_single_inode+0x17f/0x29d
+[ 6416.689556]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 6416.689624]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 6416.689693]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 6416.689761]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 6416.689828]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 6416.689894]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6416.689960]  [<ffffffff8020bf5b>] sysret_careful+0x1c/0x1f
+[ 6416.690027]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6416.690118] 
+[ 6554.123395] INFO: task stress:19885 blocked for more than 120 seconds.
+[ 6554.123466] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6554.123550] stress        D ffff81000102b048     0 19885  19883
+[ 6554.124046]  ffff810264587dd8 0000000000000086 ffff81063e002850 000000000000000e
+[ 6554.126098]  ffff810264509020 ffff81033e5c57b0 ffff8102645092a8 0000000080270e48
+[ 6554.127340]  ffff810264587df8 ffff810264587ed8 0000000000000000 ffff81063c88b918
+[ 6554.127634] Call Trace:
+[ 6554.127764]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 6554.127828]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 6554.127894]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 6554.127962]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 6554.128030]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 6554.128097]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 6554.128164]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 6554.128231]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 6554.128297]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 6554.128362]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6554.128426]  [<ffffffff8020bf5b>] sysret_careful+0x1c/0x1f
+[ 6554.128491]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6554.128560] 
+[ 6577.746205] INFO: task stress:19901 blocked for more than 120 seconds.
+[ 6577.746274] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6577.746357] stress        D ffff81000102b048     0 19901  19883
+[ 6577.747550]  ffff810224845dd8 0000000000000086 ffff810215f9b408 ffffffff8027182a
+[ 6577.748608]  ffff81033e5c57b0 ffff81033e59ee20 ffff81033e5c5a38 0000000080270e48
+[ 6577.749849]  ffff810224845df8 ffff810224845ed8 0000000000000000 ffff81063c88b918
+[ 6577.750040] Call Trace:
+[ 6577.750167]  [<ffffffff8027182a>] wait_on_page_writeback_range+0xc8/0x113
+[ 6577.750238]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 6577.750303]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 6577.750368]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 6577.750436]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 6577.750504]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 6577.750571]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 6577.750638]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 6577.750705]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 6577.750771]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 6577.750835]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6577.750900]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6577.750969] 
+[ 6577.751027] INFO: task stress:19905 blocked for more than 120 seconds.
+[ 6577.751094] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6577.751176] stress        D ffff8102179a0390     0 19905  19883
+[ 6577.751325]  ffff8102404a3d98 0000000000000082 ffffffff80627400 ffffffff8023ce81
+[ 6577.751571]  ffff81033c5ccfe0 ffff81033e5c57b0 ffff81033c5cd268 0000000000000001
+[ 6577.751818]  0000000000000292 0000000000000003 ffff8102404a3d98 ffffffff8022accf
+[ 6577.752011] Call Trace:
+[ 6577.752128]  [<ffffffff8023ce81>] lock_timer_base+0x26/0x4b
+[ 6577.752196]  [<ffffffff8022accf>] __wake_up+0x38/0x4f
+[ 6577.752267]  [<ffffffffa00f6614>] :jbd:log_wait_commit+0x9f/0xed
+[ 6577.752333]  [<ffffffff80246111>] autoremove_wake_function+0x0/0x2e
+[ 6577.752405]  [<ffffffffa00f24f9>] :jbd:journal_stop+0x165/0x18d
+[ 6577.752473]  [<ffffffff802b676f>] __writeback_single_inode+0x17f/0x29d
+[ 6577.752541]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 6577.752608]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 6577.752676]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 6577.752743]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 6577.752809]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 6577.752874]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6577.752938]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6577.753028] 
+[ 6590.629103] INFO: task stress:19909 blocked for more than 120 seconds.
+[ 6590.629174] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6590.629258] stress        D ffff81000102b048     0 19909  19883
+[ 6590.631732]  ffff8102248fddd8 0000000000000086 0000000000000000 000000001c5339f6
+[ 6590.632708]  ffff81033c4a8440 ffff8102e51ef120 ffff81033c4a86c8 0000000080a5e000
+[ 6590.632959]  0000000000000000 0000000000000000 ffff8102248fde08 ffff8102248fde18
+[ 6590.633244] Call Trace:
+[ 6590.633374]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 6590.633439]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 6590.633505]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 6590.633573]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 6590.633641]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 6590.633709]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 6590.633776]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 6590.633843]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 6590.633910]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 6590.633974]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6590.634039]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6590.634109] 
+[ 6751.689723] INFO: task stress:19913 blocked for more than 120 seconds.
+[ 6751.689793] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6751.689875] stress        D ffff8100010250c0     0 19913  19883
+[ 6751.690060]  ffff810240485dd8 0000000000000082 0000000000000000 00000000099ca02d
+[ 6751.691684]  ffff81033c6556b0 ffff81033e59ee20 ffff81033c655938 0000000080a5e000
+[ 6751.691929]  0000000000000000 0000000000000000 ffff810240485e08 ffff810240485e18
+[ 6751.692120] Call Trace:
+[ 6751.692249]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 6751.697223]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 6751.697292]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 6751.697361]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 6751.697429]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 6751.697497]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 6751.697563]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 6751.697630]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 6751.697696]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 6751.697761]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6751.697825]  [<ffffffff8020bf5b>] sysret_careful+0x1c/0x1f
+[ 6751.697891]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6751.697959] 
+[ 6755.984394] INFO: task stress:19885 blocked for more than 120 seconds.
+[ 6755.984463] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6755.984546] stress        D ffff8102179a0390     0 19885  19883
+[ 6755.984756]  ffff810264587d98 0000000000000086 ffffffff80627400 ffffffff8023ce81
+[ 6755.986600]  ffff810264509020 ffff81024055c440 ffff8102645092a8 0000000000000001
+[ 6755.986851]  0000000000000292 0000000000000003 ffff810264587d98 ffffffff8022accf
+[ 6755.987389] Call Trace:
+[ 6755.987519]  [<ffffffff8023ce81>] lock_timer_base+0x26/0x4b
+[ 6755.987588]  [<ffffffff8022accf>] __wake_up+0x38/0x4f
+[ 6755.987661]  [<ffffffffa00f6614>] :jbd:log_wait_commit+0x9f/0xed
+[ 6755.987729]  [<ffffffff80246111>] autoremove_wake_function+0x0/0x2e
+[ 6755.987801]  [<ffffffffa00f24f9>] :jbd:journal_stop+0x165/0x18d
+[ 6755.987872]  [<ffffffff802b676f>] __writeback_single_inode+0x17f/0x29d
+[ 6755.987941]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 6755.988010]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 6755.988078]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 6755.988148]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 6755.988216]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 6755.988282]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6755.988348]  [<ffffffff8020bf5b>] sysret_careful+0x1c/0x1f
+[ 6755.988415]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6755.988485] 
+[ 6755.988544] INFO: task stress:19889 blocked for more than 120 seconds.
+[ 6755.988611] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6755.988747] stress        D 00007fffffffb7c0     0 19889  19883
+[ 6755.988896]  ffff810224927ea8 0000000000000082 0000000000000001 0000000000000000
+[ 6755.989142]  ffff81033e59ee20 ffff810240410b10 ffff81033e59f0a8 0000000000000001
+[ 6755.989388]  0000000000000296 0000000000000003 ffff810224927ea8 ffffffff8022accf
+[ 6755.989579] Call Trace:
+[ 6755.989701]  [<ffffffff8022accf>] __wake_up+0x38/0x4f
+[ 6755.989772]  [<ffffffffa00f6614>] :jbd:log_wait_commit+0x9f/0xed
+[ 6755.989839]  [<ffffffff80246111>] autoremove_wake_function+0x0/0x2e
+[ 6755.989909]  [<ffffffffa00f64d7>] :jbd:__log_start_commit+0x2c/0x34
+[ 6755.989985]  [<ffffffffa010bda9>] :ext3:ext3_sync_fs+0x46/0x4f
+[ 6755.990053]  [<ffffffff8031e08f>] __up_read+0x13/0x8a
+[ 6755.990119]  [<ffffffff8029d071>] sync_filesystems+0xae/0xfa
+[ 6755.990186]  [<ffffffff802b973f>] do_sync+0x2f/0x5a
+[ 6755.990251]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6755.990317]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6755.990409] 
+[ 6755.990469] INFO: task stress:19893 blocked for more than 120 seconds.
+[ 6755.990535] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6755.990618] stress        D ffff8100969fa7f8     0 19893  19883
+[ 6755.990767]  ffff81033d125d98 0000000000000086 ffffffff80627400 ffffffff8023ce81
+[ 6755.991013]  ffff81024055cad0 ffff81033c5ccfe0 ffff81024055cd58 0000000000000001
+[ 6755.991377]  0000000000000292 0000000000000003 ffff81033d125d98 ffffffff8022accf
+[ 6755.991570] Call Trace:
+[ 6755.991691]  [<ffffffff8023ce81>] lock_timer_base+0x26/0x4b
+[ 6755.991760]  [<ffffffff8022accf>] __wake_up+0x38/0x4f
+[ 6755.991831]  [<ffffffffa00f6614>] :jbd:log_wait_commit+0x9f/0xed
+[ 6755.991898]  [<ffffffff80246111>] autoremove_wake_function+0x0/0x2e
+[ 6755.991969]  [<ffffffffa00f24f9>] :jbd:journal_stop+0x165/0x18d
+[ 6755.992038]  [<ffffffff802b676f>] __writeback_single_inode+0x17f/0x29d
+[ 6755.992106]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 6755.992174]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 6755.992241]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 6755.992308]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 6755.992375]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 6755.992439]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6755.992504]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6755.992573] 
+[ 6755.992633] INFO: task stress:19901 blocked for more than 120 seconds.
+[ 6755.992700] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6755.992783] stress        D ffff81000102b048     0 19901  19883
+[ 6755.992931]  ffff810224845dd8 0000000000000086 ffff810215f9b408 ffffffff8027182a
+[ 6755.993178]  ffff81033e5c57b0 ffff81033c4a8440 ffff81033e5c5a38 0000000080270e48
+[ 6755.993425]  ffff810224845df8 ffff810224845ed8 0000000000000000 ffff81063c88b918
+[ 6755.993617] Call Trace:
+[ 6755.993739]  [<ffffffff8027182a>] wait_on_page_writeback_range+0xc8/0x113
+[ 6755.993810]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 6755.993876]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 6755.993942]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 6755.994009]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 6755.994078]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 6755.994145]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 6755.994212]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 6755.994279]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 6755.994345]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 6755.994411]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6755.994526]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6755.994595] 
+[ 6755.994655] INFO: task stress:19909 blocked for more than 120 seconds.
+[ 6755.994722] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6755.994804] stress        D ffff81000102b048     0 19909  19883
+[ 6755.994952]  ffff8102248fddd8 0000000000000086 0000000000000000 000000001c5339f6
+[ 6755.995198]  ffff81033c4a8440 ffff81033c5ccfe0 ffff81033c4a86c8 0000000080a5e000
+[ 6755.995445]  0000000000000000 0000000000000000 ffff8102248fde08 ffff8102248fde18
+[ 6755.995640] Call Trace:
+[ 6755.995761]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 6755.995827]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 6755.995894]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 6755.995961]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 6755.996029]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 6755.996096]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 6755.996164]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 6755.996231]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 6755.996298]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 6755.996362]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6755.996427]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6755.996496] 
+[ 6824.704349] INFO: task stress:19905 blocked for more than 120 seconds.
+[ 6824.704418] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 6824.704502] stress        D 00007fffffffb7c0     0 19905  19883
+[ 6824.704923]  ffff8102404a3ef0 0000000000000082 0000000000000000 ffff81033c154800
+[ 6824.706857]  ffff81033c5ccfe0 ffff81033c5cc2c0 ffff81033c5cd268 00000000ffffb7c0
+[ 6824.708304]  0000000000000000 0000000000000000 ffff81033bd30000 ffff81033bd30070
+[ 6824.708525] Call Trace:
+[ 6824.708657]  [<ffffffff8042961d>] __mutex_lock_slowpath+0x64/0x9b
+[ 6824.708726]  [<ffffffff80429482>] mutex_lock+0xa/0xb
+[ 6824.708793]  [<ffffffff8029cfd6>] sync_filesystems+0x13/0xfa
+[ 6824.708860]  [<ffffffff802b9738>] do_sync+0x28/0x5a
+[ 6824.708925]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 6824.708990]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 6824.709059] 
+[ 7013.684021] INFO: task stress:19913 blocked for more than 120 seconds.
+[ 7013.684051] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7013.684095] stress        D 00007fffffffb7c0     0 19913  19883
+[ 7013.684125]  ffff810240485ef0 0000000000000082 0000000000000000 ffff81033c581800
+[ 7013.684174]  ffff81033c6556b0 ffff810264509020 ffff81033c655938 00000000ffffb7c0
+[ 7013.684894]  0000000000000000 0000000000000000 ffff81033bd30000 ffff81033bd30070
+[ 7013.684928] Call Trace:
+[ 7013.684979]  [<ffffffff8042961d>] __mutex_lock_slowpath+0x64/0x9b
+[ 7013.685008]  [<ffffffff80429482>] mutex_lock+0xa/0xb
+[ 7013.685034]  [<ffffffff8029cfd6>] sync_filesystems+0x13/0xfa
+[ 7013.685062]  [<ffffffff802b9738>] do_sync+0x28/0x5a
+[ 7013.685087]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7013.685375]  [<ffffffff8020bf5b>] sysret_careful+0x1c/0x1f
+[ 7013.685401]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7013.685431] 
+[ 7060.927739] INFO: task stress:19885 blocked for more than 120 seconds.
+[ 7060.927768] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7060.927812] stress        D 00007fffffffb7c0     0 19885  19883
+[ 7060.927843]  ffff810264587ef0 0000000000000086 ffffe2000ac0c8f8 ffffe200088727e0
+[ 7060.927892]  ffff810264509020 ffff81033e5c4a90 ffff8102645092a8 00000001078e10b8
+[ 7060.929082]  ffffe200159480c8 ffffe20007e20a60 ffff81033bd30000 ffff81033bd30070
+[ 7060.929115] Call Trace:
+[ 7060.935709]  [<ffffffff8042961d>] __mutex_lock_slowpath+0x64/0x9b
+[ 7060.935739]  [<ffffffff80429482>] mutex_lock+0xa/0xb
+[ 7060.935765]  [<ffffffff8029cfd6>] sync_filesystems+0x13/0xfa
+[ 7060.935793]  [<ffffffff802b9738>] do_sync+0x28/0x5a
+[ 7060.935819]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7060.935844]  [<ffffffff8020bf5b>] sysret_careful+0x1c/0x1f
+[ 7060.935870]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7060.935900] 
+[ 7060.935919] INFO: task stress:19893 blocked for more than 120 seconds.
+[ 7060.935947] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7060.935990] stress        D 00007fffffffb7c0     0 19893  19883
+[ 7060.936020]  ffff81033d125ef0 0000000000000086 000000000067f77a ffff81063c88b918
+[ 7060.936069]  ffff81024055cad0 ffff81033e5c57b0 ffff81024055cd58 00000000ffffb7c0
+[ 7060.936118]  0000000000000000 0000000000000000 ffffffff802776f3 0000000000000010
+[ 7060.936151] Call Trace:
+[ 7060.936190]  [<ffffffff802776f3>] do_writepages+0x20/0x2d
+[ 7060.936216]  [<ffffffff802718e4>] __filemap_fdatawrite_range+0x51/0x5b
+[ 7060.936246]  [<ffffffff8042961d>] __mutex_lock_slowpath+0x64/0x9b
+[ 7060.936275]  [<ffffffff80429482>] mutex_lock+0xa/0xb
+[ 7060.936300]  [<ffffffff8029cfd6>] sync_filesystems+0x13/0xfa
+[ 7060.936328]  [<ffffffff802b9738>] do_sync+0x28/0x5a
+[ 7060.936353]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7060.936379]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7060.936408] 
+[ 7060.936427] INFO: task stress:19897 blocked for more than 120 seconds.
+[ 7060.936455] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7060.936499] stress        D 00007fffffffb7c0     0 19897  19883
+[ 7060.936529]  ffff81033c427ef0 0000000000000086 0000000000000000 ffff81033c154800
+[ 7060.936578]  ffff810240410b10 ffff810240411830 ffff810240410d98 00000003ffffb7c0
+[ 7060.936627]  0000000000000000 0000000000000000 ffff81033bd30000 ffff81033bd30070
+[ 7060.936661] Call Trace:
+[ 7060.936701]  [<ffffffff8042961d>] __mutex_lock_slowpath+0x64/0x9b
+[ 7060.936729]  [<ffffffff80429482>] mutex_lock+0xa/0xb
+[ 7060.936755]  [<ffffffff8029cfd6>] sync_filesystems+0x13/0xfa
+[ 7060.936782]  [<ffffffff802b9738>] do_sync+0x28/0x5a
+[ 7060.936807]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7060.936832]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7060.936862] 
+[ 7060.936881] INFO: task stress:19901 blocked for more than 120 seconds.
+[ 7060.936909] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7060.936952] stress        D 00007fffffffb7c0     0 19901  19883
+[ 7060.936981]  ffff810224845ef0 0000000000000086 0000000000000000 ffff81033c154800
+[ 7060.937030]  ffff81033e5c57b0 ffff81033c4a8440 ffff81033e5c5a38 00000000ffffb7c0
+[ 7060.937079]  0000000000000000 0000000000000000 ffffffff802776f3 0000000000000010
+[ 7060.937113] Call Trace:
+[ 7060.937150]  [<ffffffff802776f3>] do_writepages+0x20/0x2d
+[ 7060.937177]  [<ffffffff802718e4>] __filemap_fdatawrite_range+0x51/0x5b
+[ 7060.937206]  [<ffffffff8042961d>] __mutex_lock_slowpath+0x64/0x9b
+[ 7060.937235]  [<ffffffff80429482>] mutex_lock+0xa/0xb
+[ 7060.937260]  [<ffffffff8029cfd6>] sync_filesystems+0x13/0xfa
+[ 7060.937287]  [<ffffffff802b9738>] do_sync+0x28/0x5a
+[ 7060.937313]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7060.937338]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7060.937367] 
+[ 7060.937387] INFO: task stress:19909 blocked for more than 120 seconds.
+[ 7060.937415] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7060.937458] stress        D 00007fffffffb7c0     0 19909  19883
+[ 7060.937487]  ffff8102248fdef0 0000000000000086 ffffe2000ac0c8f8 ffffe200088727e0
+[ 7060.937536]  ffff81033c4a8440 ffff81033c5cc2c0 ffff81033c4a86c8 00000000078e10b8
+[ 7060.937585]  ffffe200159480c8 ffffe20007e20a60 ffffe20007c84908 ffffe20015a82f78
+[ 7060.937619] Call Trace:
+[ 7060.937657]  [<ffffffff802718e4>] __filemap_fdatawrite_range+0x51/0x5b
+[ 7060.937687]  [<ffffffff8042961d>] __mutex_lock_slowpath+0x64/0x9b
+[ 7060.937715]  [<ffffffff80429482>] mutex_lock+0xa/0xb
+[ 7060.937741]  [<ffffffff8029cfd6>] sync_filesystems+0x13/0xfa
+[ 7060.937768]  [<ffffffff802b9738>] do_sync+0x28/0x5a
+[ 7060.937793]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7060.937818]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7060.937848] 
+[ 7189.778048] INFO: task stress:19885 blocked for more than 120 seconds.
+[ 7189.778078] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7189.778122] stress        D 00007fffffffb7c0     0 19885  19883
+[ 7189.778153]  ffff810264587ef0 0000000000000086 ffffe2000ac0c8f8 ffffe200088727e0
+[ 7189.778202]  ffff810264509020 ffff81033e5c4a90 ffff8102645092a8 00000001078e10b8
+[ 7189.780183]  ffffe200159480c8 ffffe20007e20a60 ffff81033bd30000 ffff81033bd30070
+[ 7189.780217] Call Trace:
+[ 7189.780269]  [<ffffffff8042961d>] __mutex_lock_slowpath+0x64/0x9b
+[ 7189.780298]  [<ffffffff80429482>] mutex_lock+0xa/0xb
+[ 7189.780324]  [<ffffffff8029cfd6>] sync_filesystems+0x13/0xfa
+[ 7189.780353]  [<ffffffff802b9738>] do_sync+0x28/0x5a
+[ 7189.780379]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7189.780507]  [<ffffffff8020bf5b>] sysret_careful+0x1c/0x1f
+[ 7189.780533]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7189.780563] 
+[ 7189.780583] INFO: task stress:19893 blocked for more than 120 seconds.
+[ 7189.780610] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7189.780654] stress        D 00007fffffffb7c0     0 19893  19883
+[ 7189.780684]  ffff81033d125ef0 0000000000000086 000000000067f77a ffff81063c88b918
+[ 7189.780743]  ffff81024055cad0 ffff81033e5c57b0 ffff81024055cd58 00000000ffffb7c0
+[ 7189.780792]  0000000000000000 0000000000000000 ffffffff802776f3 0000000000000010
+[ 7189.780826] Call Trace:
+[ 7189.781981]  [<ffffffff802776f3>] do_writepages+0x20/0x2d
+[ 7189.782007]  [<ffffffff802718e4>] __filemap_fdatawrite_range+0x51/0x5b
+[ 7189.782037]  [<ffffffff8042961d>] __mutex_lock_slowpath+0x64/0x9b
+[ 7189.782066]  [<ffffffff80429482>] mutex_lock+0xa/0xb
+[ 7189.782091]  [<ffffffff8029cfd6>] sync_filesystems+0x13/0xfa
+[ 7189.782118]  [<ffffffff802b9738>] do_sync+0x28/0x5a
+[ 7189.782144]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7189.782169]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7189.782199] 
+[ 7189.782218] INFO: task stress:19901 blocked for more than 120 seconds.
+[ 7189.782246] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7189.782289] stress        D 00007fffffffb7c0     0 19901  19883
+[ 7189.782319]  ffff810224845ef0 0000000000000086 0000000000000000 ffff81033c154800
+[ 7189.782368]  ffff81033e5c57b0 ffff81033c4a8440 ffff81033e5c5a38 00000000ffffb7c0
+[ 7189.782417]  0000000000000000 0000000000000000 ffffffff802776f3 0000000000000010
+[ 7189.782451] Call Trace:
+[ 7189.782489]  [<ffffffff802776f3>] do_writepages+0x20/0x2d
+[ 7189.782515]  [<ffffffff802718e4>] __filemap_fdatawrite_range+0x51/0x5b
+[ 7189.782545]  [<ffffffff8042961d>] __mutex_lock_slowpath+0x64/0x9b
+[ 7189.782574]  [<ffffffff80429482>] mutex_lock+0xa/0xb
+[ 7189.782599]  [<ffffffff8029cfd6>] sync_filesystems+0x13/0xfa
+[ 7189.782627]  [<ffffffff802b9738>] do_sync+0x28/0x5a
+[ 7189.782653]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7189.782678]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7189.782708] 
+[ 7189.782727] INFO: task stress:19909 blocked for more than 120 seconds.
+[ 7189.782755] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7189.782799] stress        D 00007fffffffb7c0     0 19909  19883
+[ 7189.782828]  ffff8102248fdef0 0000000000000086 ffffe2000ac0c8f8 ffffe200088727e0
+[ 7189.782878]  ffff81033c4a8440 ffff81033c5cc2c0 ffff81033c4a86c8 00000000078e10b8
+[ 7189.782927]  ffffe200159480c8 ffffe20007e20a60 ffffe20007c84908 ffffe20015a82f78
+[ 7189.782961] Call Trace:
+[ 7189.782999]  [<ffffffff802718e4>] __filemap_fdatawrite_range+0x51/0x5b
+[ 7189.783029]  [<ffffffff8042961d>] __mutex_lock_slowpath+0x64/0x9b
+[ 7189.783058]  [<ffffffff80429482>] mutex_lock+0xa/0xb
+[ 7189.783083]  [<ffffffff8029cfd6>] sync_filesystems+0x13/0xfa
+[ 7189.783110]  [<ffffffff802b9738>] do_sync+0x28/0x5a
+[ 7189.783136]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7189.783162]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7189.783191] 
+[ 7226.282748] INFO: task stress:19897 blocked for more than 120 seconds.
+[ 7226.282778] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7226.282822] stress        D 00007fffffffb7c0     0 19897  19883
+[ 7226.282853]  ffff81033c427ef0 0000000000000086 0000000000000000 ffff81033c154800
+[ 7226.282902]  ffff810240410b10 ffff81033ce61160 ffff810240410d98 00000003ffffb7c0
+[ 7226.283767]  0000000000000000 0000000000000000 ffff81033bd30000 ffff81033bd30070
+[ 7226.283801] Call Trace:
+[ 7226.283852]  [<ffffffff8042961d>] __mutex_lock_slowpath+0x64/0x9b
+[ 7226.283997]  [<ffffffff80429482>] mutex_lock+0xa/0xb
+[ 7226.284023]  [<ffffffff8029cfd6>] sync_filesystems+0x13/0xfa
+[ 7226.284052]  [<ffffffff802b9738>] do_sync+0x28/0x5a
+[ 7226.284078]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7226.284104]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7226.290717] 
+[ 7273.529884] INFO: task stress:19905 blocked for more than 120 seconds.
+[ 7273.529914] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7273.529958] stress        D 00007fffffffb7c0     0 19905  19883
+[ 7273.529989]  ffff8102404a3ef0 0000000000000082 0000000000000000 ffff81033c154800
+[ 7273.530038]  ffff81033c5ccfe0 ffff81033e5a50e0 ffff81033c5cd268 00000000ffffb7c0
+[ 7273.530381]  0000000000000000 0000000000000000 ffff81033bd30000 ffff81033bd30070
+[ 7273.530414] Call Trace:
+[ 7273.530466]  [<ffffffff8042961d>] __mutex_lock_slowpath+0x64/0x9b
+[ 7273.530495]  [<ffffffff80429482>] mutex_lock+0xa/0xb
+[ 7273.530521]  [<ffffffff8029cfd6>] sync_filesystems+0x13/0xfa
+[ 7273.530549]  [<ffffffff802b9738>] do_sync+0x28/0x5a
+[ 7273.530575]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7273.530600]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7273.530630] 
+[ 7318.627452] INFO: task stress:19909 blocked for more than 120 seconds.
+[ 7318.627482] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7318.627526] stress        D 00007fffffffb7c0     0 19909  19883
+[ 7318.627556]  ffff8102248fdef0 0000000000000086 ffffe2000ac0c8f8 ffffe200088727e0
+[ 7318.627605]  ffff81033c4a8440 ffff81033c5cc2c0 ffff81033c4a86c8 00000000078e10b8
+[ 7318.627654]  ffffe200159480c8 ffffe20007e20a60 ffffe20007c84908 ffffe20015a82f78
+[ 7318.627688] Call Trace:
+[ 7318.627737]  [<ffffffff802718e4>] __filemap_fdatawrite_range+0x51/0x5b
+[ 7318.627975]  [<ffffffff8042961d>] __mutex_lock_slowpath+0x64/0x9b
+[ 7318.628004]  [<ffffffff80429482>] mutex_lock+0xa/0xb
+[ 7318.628029]  [<ffffffff8029cfd6>] sync_filesystems+0x13/0xfa
+[ 7318.628059]  [<ffffffff802b9738>] do_sync+0x28/0x5a
+[ 7318.629638]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7318.629664]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7318.629693] 
+[ 7552.702031] INFO: task stress:19889 blocked for more than 120 seconds.
+[ 7552.702061] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7552.702105] stress        D ffff81000102f8c0     0 19889  19883
+[ 7552.702135]  ffff810224927dd8 0000000000000082 ffff81063e002740 ffffffff8027182a
+[ 7552.702185]  ffff81033e59ee20 ffff81033e5a50e0 ffff81033e59f0a8 0000000124927ec8
+[ 7552.702620]  0000000000000000 ffff81063c88b918 ffff81033e11ee50 ffffffff80278d7e
+[ 7552.702654] Call Trace:
+[ 7552.702702]  [<ffffffff8027182a>] wait_on_page_writeback_range+0xc8/0x113
+[ 7552.702733]  [<ffffffff80278d7e>] pagevec_lookup_tag+0x1a/0x21
+[ 7552.702762]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 7552.702787]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 7552.702814]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 7552.703135]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 7552.703164]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 7552.703192]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 7552.703220]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 7552.703863]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 7552.703890]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 7552.703915]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7552.703941]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7552.704947] 
+[ 7552.704967] INFO: task stress:19897 blocked for more than 120 seconds.
+[ 7552.704994] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7552.705038] stress        D ffff81000102f8c0     0 19897  19883
+[ 7552.705068]  ffff81033c427dd8 0000000000000086 0000000000000001 000000001a35e024
+[ 7552.705117]  ffff810240410b10 ffff81033c6556b0 ffff810240410d98 0000000080a5e000
+[ 7552.705166]  0000000000000000 0000000000000000 ffff81033c427e08 ffff81033c427e18
+[ 7552.705992] Call Trace:
+[ 7552.706031]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 7552.706057]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 7552.706082]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 7552.706110]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 7552.706138]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 7552.706167]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 7552.706195]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 7552.706223]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 7552.706250]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 7552.706275]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7552.706300]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7552.706330] 
+[ 7552.706349] INFO: task stress:19901 blocked for more than 120 seconds.
+[ 7552.706377] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7552.706420] stress        D ffff81000102f8c0     0 19901  19883
+[ 7552.706450]  ffff810224845dd8 0000000000000086 0000000000000000 000000000f503d14
+[ 7552.706500]  ffff81033e5c57b0 ffff810264509020 ffff81033e5c5a38 0000000080a5e000
+[ 7552.706549]  0000000000000000 0000000000000000 ffff810224845e08 ffff810224845e18
+[ 7552.706583] Call Trace:
+[ 7552.706623]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 7552.706649]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 7552.706675]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 7552.706703]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 7552.706733]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 7552.706761]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 7552.706789]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 7552.706817]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 7552.706844]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 7552.706870]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7552.706896]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7552.706926] 
+[ 7552.706946] INFO: task stress:19913 blocked for more than 120 seconds.
+[ 7552.706974] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7552.707018] stress        D ffff81000102f8c0     0 19913  19883
+[ 7552.707048]  ffff810240485dd8 0000000000000082 0000000000000000 000000000000b68e
+[ 7552.707097]  ffff81033c6556b0 ffff81033e5c57b0 ffff81033c655938 0000000080a5e000
+[ 7552.707147]  0000000000000000 0000000000000000 ffff810240485e08 ffff810240485e18
+[ 7552.707180] Call Trace:
+[ 7552.707222]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 7552.707247]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 7552.707273]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 7552.707301]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 7552.707330]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 7552.707359]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 7552.707387]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 7552.707415]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 7552.707442]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 7552.707468]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7552.707493]  [<ffffffff8020bf5b>] sysret_careful+0x1c/0x1f
+[ 7552.707520]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7552.707549] 
+[ 7561.291113] INFO: task stress:19885 blocked for more than 120 seconds.
+[ 7561.291143] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7561.291187] stress        D ffff81000102f8c0     0 19885  19883
+[ 7561.291218]  ffff810264587dd8 0000000000000086 0000000000000002 000000000c23a234
+[ 7561.291267]  ffff810264509020 ffff81024055cad0 ffff8102645092a8 0000000080a5e000
+[ 7561.291317]  0000000000000000 0000000000000000 ffff810264587e08 ffff810264587e18
+[ 7561.292115] Call Trace:
+[ 7561.292166]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 7561.292192]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 7561.292219]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 7561.292249]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 7561.292278]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 7561.292306]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 7561.292334]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 7561.292362]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 7561.292389]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 7561.292415]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7561.292440]  [<ffffffff8020bf5b>] sysret_careful+0x1c/0x1f
+[ 7561.292467]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7561.292496] 
+[ 7565.588616] INFO: task stress:19905 blocked for more than 120 seconds.
+[ 7565.588647] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7565.588691] stress        D ffff81000102f8c0     0 19905  19883
+[ 7565.588721]  ffff8102404a3dd8 0000000000000082 ffff81063e002850 000000000000000e
+[ 7565.588771]  ffff81033c5ccfe0 ffff81024055cad0 ffff81033c5cd268 0000000080270e48
+[ 7565.589332]  ffff8102404a3df8 ffff8102404a3ed8 0000000000000000 ffff81063c88b918
+[ 7565.589366] Call Trace:
+[ 7565.589418]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 7565.589444]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 7565.589471]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 7565.589501]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 7565.589530]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 7565.589558]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 7565.589586]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 7565.589614]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 7565.589641]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 7565.590237]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7565.590264]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7565.590293] 
+[ 7578.471148] INFO: task stress:19893 blocked for more than 120 seconds.
+[ 7578.471178] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7578.471222] stress        D ffff81000102f8c0     0 19893  19883
+[ 7578.471252]  ffff81033d125dd8 0000000000000086 ffff81063e002850 000000000000000e
+[ 7578.471302]  ffff81024055cad0 ffff81063e670710 ffff81024055cd58 0000000080270e48
+[ 7578.471351]  ffff81033d125df8 ffff81033d125ed8 0000000000000000 ffff81063c88b918
+[ 7578.471384] Call Trace:
+[ 7578.471436]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 7578.471461]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 7578.471488]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 7578.471517]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 7578.471546]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 7578.471575]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 7578.471603]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 7578.471631]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 7578.471658]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 7578.471683]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7578.471709]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7578.471738] 
+[ 7825.432430] INFO: task stress:19889 blocked for more than 120 seconds.
+[ 7825.432460] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7825.432504] stress        D ffff8100010208c0     0 19889  19883
+[ 7825.432535]  ffff810224927dd8 0000000000000082 ffff810224927df8 ffff810224927e70
+[ 7825.432584]  ffff81033e59ee20 ffff810321d28140 ffff81033e59f0a8 0000000124927ec8
+[ 7825.432826]  0000000000000000 ffff81063c88b918 ffff81033e11ee50 ffffffff80278d7e
+[ 7825.432860] Call Trace:
+[ 7825.432910]  [<ffffffff80278d7e>] pagevec_lookup_tag+0x1a/0x21
+[ 7825.432939]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 7825.432965]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 7825.432992]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 7825.433020]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 7825.433063]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 7825.433091]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 7825.433119]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 7825.433147]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 7825.433405]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 7825.433431]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7825.433457]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7825.433486] 
+[ 7825.433506] INFO: task stress:19897 blocked for more than 120 seconds.
+[ 7825.433534] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7825.433577] stress        D ffff8100010208c0     0 19897  19883
+[ 7825.433607]  ffff81033c427dd8 0000000000000086 ffff81063e002850 000000000000000e
+[ 7825.433657]  ffff810240410b10 ffff81033c5ccfe0 ffff810240410d98 0000000080270e48
+[ 7825.433706]  ffff81033c427df8 ffff81033c427ed8 0000000000000000 ffff81063c88b918
+[ 7825.436382] Call Trace:
+[ 7825.436421]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 7825.436447]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 7825.436473]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 7825.436501]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 7825.436530]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 7825.436559]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 7825.436587]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 7825.436616]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 7825.436643]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 7825.436668]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7825.436694]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7825.436724] 
+[ 7825.436743] INFO: task stress:19901 blocked for more than 120 seconds.
+[ 7825.436771] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7825.436815] stress        D ffff8100010208c0     0 19901  19883
+[ 7825.436845]  ffff810224845dd8 0000000000000086 ffff81063e002850 000000000000000e
+[ 7825.436894]  ffff81033e5c57b0 ffff810240410b10 ffff81033e5c5a38 0000000080270e48
+[ 7825.436943]  ffff810224845df8 ffff810224845ed8 0000000000000000 ffff81063c88b918
+[ 7825.436977] Call Trace:
+[ 7825.437020]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 7825.437046]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 7825.437073]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 7825.437102]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 7825.437131]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 7825.437160]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 7825.437188]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 7825.437216]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 7825.437243]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 7825.437269]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7825.437294]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7825.437324] 
+[ 7825.437343] INFO: task stress:19905 blocked for more than 120 seconds.
+[ 7825.437371] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7825.437415] stress        D ffff8100010208c0     0 19905  19883
+[ 7825.437445]  ffff8102404a3dd8 0000000000000082 ffff81063e002850 000000000000000e
+[ 7825.437494]  ffff81033c5ccfe0 ffff81033c6556b0 ffff81033c5cd268 0000000080270e48
+[ 7825.437543]  ffff8102404a3df8 ffff8102404a3ed8 0000000000000000 ffff81063c88b918
+[ 7825.437577] Call Trace:
+[ 7825.437618]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 7825.437643]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 7825.437670]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 7825.437697]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 7825.437726]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 7825.437755]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 7825.437783]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 7825.437811]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 7825.437838]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 7825.437863]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7825.437890]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7825.437919] 
+[ 7825.437940] INFO: task stress:19913 blocked for more than 120 seconds.
+[ 7825.437968] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7825.438011] stress        D ffff8100010208c0     0 19913  19883
+[ 7825.438041]  ffff810240485dd8 0000000000000082 ffff81063e002850 000000000000000e
+[ 7825.438091]  ffff81033c6556b0 ffff81033e5a50e0 ffff81033c655938 0000000080270e48
+[ 7825.438140]  ffff810240485df8 ffff810240485ed8 0000000000000000 ffff81063c88b918
+[ 7825.438174] Call Trace:
+[ 7825.438215]  [<ffffffff802ac84c>] inode_wait+0x0/0xe
+[ 7825.438241]  [<ffffffff802ac855>] inode_wait+0x9/0xe
+[ 7825.438267]  [<ffffffff804293d2>] __wait_on_bit+0x40/0x6e
+[ 7825.438295]  [<ffffffff802b66d5>] __writeback_single_inode+0xe5/0x29d
+[ 7825.438324]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 7825.438353]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 7825.438381]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 7825.438410]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 7825.438437]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 7825.438463]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7825.438488]  [<ffffffff8020bf5b>] sysret_careful+0x1c/0x1f
+[ 7825.438514]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7825.438545] 
+[ 7892.005056] INFO: task stress:19885 blocked for more than 120 seconds.
+[ 7892.005086] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[ 7892.005131] stress        D ffff8100969fa810     0 19885  19883
+[ 7892.005161]  ffff810264587d98 0000000000000086 ffff81033e4d4000 ffffffff8023ce81
+[ 7892.005211]  ffff810264509020 ffff81033c655020 ffff8102645092a8 0000000200000001
+[ 7892.005260]  0000000000000292 0000000000000003 ffff810264587d98 ffffffff8022accf
+[ 7892.005294] Call Trace:
+[ 7892.005342]  [<ffffffff8023ce81>] lock_timer_base+0x26/0x4b
+[ 7892.005370]  [<ffffffff8022accf>] __wake_up+0x38/0x4f
+[ 7892.005402]  [<ffffffffa00f6614>] :jbd:log_wait_commit+0x9f/0xed
+[ 7892.005430]  [<ffffffff80246111>] autoremove_wake_function+0x0/0x2e
+[ 7892.005462]  [<ffffffffa00f24f9>] :jbd:journal_stop+0x165/0x18d
+[ 7892.005985]  [<ffffffff802b676f>] __writeback_single_inode+0x17f/0x29d
+[ 7892.006013]  [<ffffffff8024613f>] wake_bit_function+0x0/0x23
+[ 7892.006042]  [<ffffffff802b6bf8>] sync_sb_inodes+0x1b1/0x293
+[ 7892.006070]  [<ffffffff802b6d74>] sync_inodes_sb+0x9a/0xa6
+[ 7892.007487]  [<ffffffff802b6dd9>] __sync_inodes+0x59/0xa2
+[ 7892.007514]  [<ffffffff802b9746>] do_sync+0x36/0x5a
+[ 7892.007540]  [<ffffffff802b9778>] sys_sync+0xe/0x16
+[ 7892.007565]  [<ffffffff8020bf5b>] sysret_careful+0x1c/0x1f
+[ 7892.007700]  [<ffffffff8020beda>] system_call_after_swapgs+0x8a/0x8f
+[ 7892.007730] 
+[ 7934.780702] RPC: Registered udp transport module.
+[ 7934.780730] RPC: Registered tcp transport module.
+00:00.0 Host bridge [0600]: Intel Corporation QuickPath Architecture I/O Hub to ESI Port [8086:3406] (rev 13)
+00:01.0 PCI bridge [0604]: Intel Corporation QuickPath Architecture I/O Hub PCI Express Root Port 1 [8086:3408] (rev 13)
+00:02.0 PCI bridge [0604]: Intel Corporation QuickPath Architecture I/O Hub PCI Express Root Port 2 [8086:3409] (rev 13)
+00:03.0 PCI bridge [0604]: Intel Corporation QuickPath Architecture I/O Hub PCI Express Root Port 3 [8086:340a] (rev 13)
+00:05.0 PCI bridge [0604]: Intel Corporation QuickPath Architecture I/O Hub PCI Express Root Port 5 [8086:340c] (rev 13)
+00:07.0 PCI bridge [0604]: Intel Corporation QuickPath Architecture I/O Hub PCI Express Root Port 7 [8086:340e] (rev 13)
+00:0e.0 Host bridge [0600]: Intel Corporation Device [8086:341c] (rev 13)
+00:0e.1 Host bridge [0600]: Intel Corporation Device [8086:341d] (rev 13)
+00:0e.2 Host bridge [0600]: Intel Corporation Device [8086:341e] (rev 13)
+00:14.0 PIC [0800]: Intel Corporation QuickPath Architecture I/O Hub System Management Registers [8086:342e] (rev 13)
+00:14.1 PIC [0800]: Intel Corporation QuickPath Architecture I/O Hub GPIO and Scratch Pad Registers [8086:3422] (rev 13)
+00:14.2 PIC [0800]: Intel Corporation QuickPath Architecture I/O Hub Control Status and RAS Registers [8086:3423] (rev 13)
+00:14.3 PIC [0800]: Intel Corporation QuickPath Architecture I/O Hub Throttle Registers [8086:3438] (rev 13)
+00:16.0 System peripheral [0880]: Intel Corporation DMA Engine [8086:3430] (rev 13)
+00:16.1 System peripheral [0880]: Intel Corporation DMA Engine [8086:3431] (rev 13)
+00:16.2 System peripheral [0880]: Intel Corporation DMA Engine [8086:3432] (rev 13)
+00:16.3 System peripheral [0880]: Intel Corporation DMA Engine [8086:3433] (rev 13)
+00:16.4 System peripheral [0880]: Intel Corporation DMA Engine [8086:3429] (rev 13)
+00:16.5 System peripheral [0880]: Intel Corporation DMA Engine [8086:342a] (rev 13)
+00:16.6 System peripheral [0880]: Intel Corporation DMA Engine [8086:342b] (rev 13)
+00:16.7 System peripheral [0880]: Intel Corporation DMA Engine [8086:342c] (rev 13)
+00:1a.0 USB Controller [0c03]: Intel Corporation 82801JI (ICH10 Family) USB UHCI Controller #4 [8086:3a37]
+00:1a.1 USB Controller [0c03]: Intel Corporation 82801JI (ICH10 Family) USB UHCI Controller #5 [8086:3a38]
+00:1a.2 USB Controller [0c03]: Intel Corporation 82801JI (ICH10 Family) USB UHCI Controller #6 [8086:3a39]
+00:1a.7 USB Controller [0c03]: Intel Corporation 82801JI (ICH10 Family) USB2 EHCI Controller #2 [8086:3a3c]
+00:1d.0 USB Controller [0c03]: Intel Corporation 82801JI (ICH10 Family) USB UHCI Controller #1 [8086:3a34]
+00:1d.1 USB Controller [0c03]: Intel Corporation 82801JI (ICH10 Family) USB UHCI Controller #2 [8086:3a35]
+00:1d.2 USB Controller [0c03]: Intel Corporation 82801JI (ICH10 Family) USB UHCI Controller #3 [8086:3a36]
+00:1d.7 USB Controller [0c03]: Intel Corporation 82801JI (ICH10 Family) USB2 EHCI Controller #1 [8086:3a3a]
+00:1e.0 PCI bridge [0604]: Intel Corporation 82801 PCI Bridge [8086:244e] (rev 90)
+00:1f.0 ISA bridge [0601]: Intel Corporation 82801JIR (ICH10R) LPC Interface Controller [8086:3a16]
+00:1f.2 SATA controller [0106]: Intel Corporation 82801JI (ICH10 Family) SATA AHCI Controller [8086:3a22]
+00:1f.3 SMBus [0c05]: Intel Corporation 82801JI (ICH10 Family) SMBus Controller [8086:3a30]
+01:00.0 Ethernet controller [0200]: Intel Corporation 82574L Gigabit Network Connection [8086:10d3]
+02:00.0 Ethernet controller [0200]: Intel Corporation 82574L Gigabit Network Connection [8086:10d3]
+03:00.0 InfiniBand [0c06]: Mellanox Technologies MT26428 [ConnectX IB QDR, PCIe 2.0 5GT/s] [15b3:673c] (rev a0)
+06:01.0 VGA compatible controller [0300]: Matrox Graphics, Inc. MGA G200eW WPCM450 [Hermon] - Winbond/Nuvoton [102b:0532] (rev 0a)
+00:00.0 Host bridge: Intel Corporation QuickPath Architecture I/O Hub to ESI Port (rev 13)
+	Subsystem: Intel Corporation Device 0000
+	Control: I/O- Mem- BusMaster- SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Capabilities: [60] Message Signalled Interrupts: Mask+ 64bit- Queue=0/1 Enable-
+		Address: 00000000  Data: 0000
+		Masking: 00000000  Pending: 00000000
+	Capabilities: [90] Express (v2) Root Port (Slot-), MSI 00
+		DevCap:	MaxPayload 128 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag+ RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed 2.5GT/s, Width x4, ASPM L0s L1, Latency L0 <512ns, L1 <4us
+			ClockPM- Suprise+ LLActRep+ BwNot+
+		LnkCtl:	ASPM Disabled; RCB 64 bytes Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed 2.5GT/s, Width x4, TrErr- Train- SlotClk+ DLActive+ BWMgmt- ABWMgmt-
+		RootCtl: ErrCorrectable- ErrNon-Fatal- ErrFatal- PMEIntEna- CRSVisible-
+		RootCap: CRSVisible-
+		RootSta: PME ReqID 0000, PMEStatus- PMEPending-
+	Capabilities: [e0] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0+,D1-,D2-,D3hot+,D3cold+)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+	Capabilities: [100] Advanced Error Reporting <?>
+	Capabilities: [150] Access Controls <?>
+	Capabilities: [160] Vendor Specific Information <?>
+
+00:01.0 PCI bridge: Intel Corporation QuickPath Architecture I/O Hub PCI Express Root Port 1 (rev 13) (prog-if 00 [Normal decode])
+	Control: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR+ FastB2B- DisINTx+
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 256 bytes
+	Bus: primary=00, secondary=01, subordinate=01, sec-latency=0
+	I/O behind bridge: 0000d000-0000dfff
+	Memory behind bridge: fbb00000-fbbfffff
+	Secondary status: 66MHz- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- <SERR- <PERR-
+	BridgeCtl: Parity- SERR+ NoISA- VGA- MAbort- >Reset- FastB2B-
+		PriDiscTmr- SecDiscTmr- DiscTmrStat- DiscTmrSERREn-
+	Capabilities: [40] Subsystem: Intel Corporation Device 0000
+	Capabilities: [60] Message Signalled Interrupts: Mask+ 64bit- Queue=0/1 Enable+
+		Address: fee00000  Data: 4049
+		Masking: 00000003  Pending: 00000000
+	Capabilities: [90] Express (v2) Root Port (Slot+), MSI 00
+		DevCap:	MaxPayload 256 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag+ RBE+ FLReset-
+		DevCtl:	Report errors: Correctable+ Non-Fatal+ Fatal+ Unsupported+
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 256 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed 5GT/s, Width x2, ASPM L0s L1, Latency L0 <512ns, L1 <4us
+			ClockPM- Suprise+ LLActRep+ BwNot+
+		LnkCtl:	ASPM Disabled; RCB 64 bytes Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed 2.5GT/s, Width x1, TrErr- Train- SlotClk+ DLActive+ BWMgmt- ABWMgmt-
+		SltCap:	AttnBtn- PwrCtrl- MRL- AttnInd- PwrInd- HotPlug- Surpise-
+			Slot #  0, PowerLimit 0.000000; Interlock- NoCompl-
+		SltCtl:	Enable: AttnBtn- PwrFlt- MRL- PresDet- CmdCplt- HPIrq- LinkChg-
+			Control: AttnInd Off, PwrInd Off, Power- Interlock-
+		SltSta:	Status: AttnBtn- PowerFlt- MRL- CmdCplt- PresDet+ Interlock-
+			Changed: MRL- PresDet+ LinkState+
+		RootCtl: ErrCorrectable- ErrNon-Fatal- ErrFatal- PMEIntEna- CRSVisible-
+		RootCap: CRSVisible-
+		RootSta: PME ReqID 0000, PMEStatus- PMEPending-
+	Capabilities: [e0] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0+,D1-,D2-,D3hot+,D3cold+)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+	Capabilities: [100] Advanced Error Reporting <?>
+	Capabilities: [150] Access Controls <?>
+	Capabilities: [160] Vendor Specific Information <?>
+	Kernel driver in use: pcieport-driver
+	Kernel modules: shpchp
+
+00:02.0 PCI bridge: Intel Corporation QuickPath Architecture I/O Hub PCI Express Root Port 2 (rev 13) (prog-if 00 [Normal decode])
+	Control: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR+ FastB2B- DisINTx+
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 256 bytes
+	Bus: primary=00, secondary=02, subordinate=02, sec-latency=0
+	I/O behind bridge: 0000e000-0000efff
+	Memory behind bridge: fbc00000-fbcfffff
+	Secondary status: 66MHz- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- <SERR- <PERR-
+	BridgeCtl: Parity- SERR+ NoISA- VGA- MAbort- >Reset- FastB2B-
+		PriDiscTmr- SecDiscTmr- DiscTmrStat- DiscTmrSERREn-
+	Capabilities: [40] Subsystem: Intel Corporation Device 0000
+	Capabilities: [60] Message Signalled Interrupts: Mask+ 64bit- Queue=0/1 Enable+
+		Address: fee00000  Data: 4051
+		Masking: 00000003  Pending: 00000000
+	Capabilities: [90] Express (v2) Root Port (Slot+), MSI 00
+		DevCap:	MaxPayload 256 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag+ RBE+ FLReset-
+		DevCtl:	Report errors: Correctable+ Non-Fatal+ Fatal+ Unsupported+
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 256 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed 5GT/s, Width x2, ASPM L0s L1, Latency L0 <512ns, L1 <4us
+			ClockPM- Suprise+ LLActRep+ BwNot+
+		LnkCtl:	ASPM Disabled; RCB 64 bytes Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed 2.5GT/s, Width x1, TrErr- Train- SlotClk+ DLActive+ BWMgmt- ABWMgmt-
+		SltCap:	AttnBtn- PwrCtrl- MRL- AttnInd- PwrInd- HotPlug- Surpise-
+			Slot #  0, PowerLimit 0.000000; Interlock- NoCompl-
+		SltCtl:	Enable: AttnBtn- PwrFlt- MRL- PresDet- CmdCplt- HPIrq- LinkChg-
+			Control: AttnInd Off, PwrInd Off, Power- Interlock-
+		SltSta:	Status: AttnBtn- PowerFlt- MRL- CmdCplt- PresDet+ Interlock-
+			Changed: MRL- PresDet+ LinkState+
+		RootCtl: ErrCorrectable- ErrNon-Fatal- ErrFatal- PMEIntEna- CRSVisible-
+		RootCap: CRSVisible-
+		RootSta: PME ReqID 0000, PMEStatus- PMEPending-
+	Capabilities: [e0] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0+,D1-,D2-,D3hot+,D3cold+)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+	Capabilities: [100] Advanced Error Reporting <?>
+	Capabilities: [150] Access Controls <?>
+	Kernel driver in use: pcieport-driver
+	Kernel modules: shpchp
+
+00:03.0 PCI bridge: Intel Corporation QuickPath Architecture I/O Hub PCI Express Root Port 3 (rev 13) (prog-if 00 [Normal decode])
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR+ FastB2B- DisINTx+
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 256 bytes
+	Bus: primary=00, secondary=03, subordinate=03, sec-latency=0
+	Memory behind bridge: fbd00000-fbdfffff
+	Prefetchable memory behind bridge: 00000000f8800000-00000000f8ffffff
+	Secondary status: 66MHz- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort+ <SERR- <PERR-
+	BridgeCtl: Parity- SERR+ NoISA- VGA- MAbort- >Reset- FastB2B-
+		PriDiscTmr- SecDiscTmr- DiscTmrStat- DiscTmrSERREn-
+	Capabilities: [40] Subsystem: Intel Corporation Device 0000
+	Capabilities: [60] Message Signalled Interrupts: Mask+ 64bit- Queue=0/1 Enable+
+		Address: fee00000  Data: 4059
+		Masking: 00000003  Pending: 00000000
+	Capabilities: [90] Express (v2) Root Port (Slot+), MSI 00
+		DevCap:	MaxPayload 256 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag+ RBE+ FLReset-
+		DevCtl:	Report errors: Correctable+ Non-Fatal+ Fatal+ Unsupported+
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 256 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed 5GT/s, Width x8, ASPM L0s L1, Latency L0 <512ns, L1 <4us
+			ClockPM- Suprise+ LLActRep+ BwNot+
+		LnkCtl:	ASPM Disabled; RCB 64 bytes Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed 5GT/s, Width x8, TrErr- Train- SlotClk+ DLActive+ BWMgmt- ABWMgmt-
+		SltCap:	AttnBtn- PwrCtrl- MRL- AttnInd- PwrInd- HotPlug- Surpise-
+			Slot #  0, PowerLimit 0.000000; Interlock- NoCompl-
+		SltCtl:	Enable: AttnBtn- PwrFlt- MRL- PresDet- CmdCplt- HPIrq- LinkChg-
+			Control: AttnInd Off, PwrInd Off, Power- Interlock-
+		SltSta:	Status: AttnBtn- PowerFlt- MRL- CmdCplt- PresDet+ Interlock-
+			Changed: MRL- PresDet+ LinkState+
+		RootCtl: ErrCorrectable- ErrNon-Fatal- ErrFatal- PMEIntEna- CRSVisible-
+		RootCap: CRSVisible-
+		RootSta: PME ReqID 0000, PMEStatus- PMEPending-
+	Capabilities: [e0] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0+,D1-,D2-,D3hot+,D3cold+)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+	Capabilities: [100] Advanced Error Reporting <?>
+	Capabilities: [150] Access Controls <?>
+	Capabilities: [160] Vendor Specific Information <?>
+	Kernel driver in use: pcieport-driver
+	Kernel modules: shpchp
+
+00:05.0 PCI bridge: Intel Corporation QuickPath Architecture I/O Hub PCI Express Root Port 5 (rev 13) (prog-if 00 [Normal decode])
+	Control: I/O- Mem- BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR+ FastB2B- DisINTx+
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 256 bytes
+	Bus: primary=00, secondary=04, subordinate=04, sec-latency=0
+	Secondary status: 66MHz- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- <SERR- <PERR-
+	BridgeCtl: Parity- SERR+ NoISA- VGA- MAbort- >Reset- FastB2B-
+		PriDiscTmr- SecDiscTmr- DiscTmrStat- DiscTmrSERREn-
+	Capabilities: [40] Subsystem: Intel Corporation Device 0000
+	Capabilities: [60] Message Signalled Interrupts: Mask+ 64bit- Queue=0/1 Enable+
+		Address: fee00000  Data: 4061
+		Masking: 00000003  Pending: 00000000
+	Capabilities: [90] Express (v2) Root Port (Slot+), MSI 00
+		DevCap:	MaxPayload 256 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag+ RBE+ FLReset-
+		DevCtl:	Report errors: Correctable+ Non-Fatal+ Fatal+ Unsupported+
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed 5GT/s, Width x8, ASPM L0s L1, Latency L0 <512ns, L1 <4us
+			ClockPM- Suprise+ LLActRep+ BwNot+
+		LnkCtl:	ASPM Disabled; RCB 64 bytes Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed 2.5GT/s, Width x0, TrErr- Train- SlotClk+ DLActive- BWMgmt- ABWMgmt-
+		SltCap:	AttnBtn- PwrCtrl- MRL- AttnInd- PwrInd- HotPlug- Surpise-
+			Slot #  0, PowerLimit 0.000000; Interlock- NoCompl-
+		SltCtl:	Enable: AttnBtn- PwrFlt- MRL- PresDet- CmdCplt- HPIrq- LinkChg-
+			Control: AttnInd Off, PwrInd Off, Power- Interlock-
+		SltSta:	Status: AttnBtn- PowerFlt- MRL- CmdCplt- PresDet- Interlock-
+			Changed: MRL- PresDet+ LinkState-
+		RootCtl: ErrCorrectable- ErrNon-Fatal- ErrFatal- PMEIntEna- CRSVisible-
+		RootCap: CRSVisible-
+		RootSta: PME ReqID 0000, PMEStatus- PMEPending-
+	Capabilities: [e0] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0+,D1-,D2-,D3hot+,D3cold+)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+	Capabilities: [100] Advanced Error Reporting <?>
+	Capabilities: [150] Access Controls <?>
+	Kernel driver in use: pcieport-driver
+	Kernel modules: shpchp
+
+00:07.0 PCI bridge: Intel Corporation QuickPath Architecture I/O Hub PCI Express Root Port 7 (rev 13) (prog-if 00 [Normal decode])
+	Control: I/O- Mem- BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR+ FastB2B- DisINTx+
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 256 bytes
+	Bus: primary=00, secondary=05, subordinate=05, sec-latency=0
+	Secondary status: 66MHz- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- <SERR- <PERR-
+	BridgeCtl: Parity- SERR+ NoISA- VGA- MAbort- >Reset- FastB2B-
+		PriDiscTmr- SecDiscTmr- DiscTmrStat- DiscTmrSERREn-
+	Capabilities: [40] Subsystem: Intel Corporation Device 0000
+	Capabilities: [60] Message Signalled Interrupts: Mask+ 64bit- Queue=0/1 Enable+
+		Address: fee00000  Data: 4069
+		Masking: 00000003  Pending: 00000000
+	Capabilities: [90] Express (v2) Root Port (Slot+), MSI 00
+		DevCap:	MaxPayload 256 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag+ RBE+ FLReset-
+		DevCtl:	Report errors: Correctable+ Non-Fatal+ Fatal+ Unsupported+
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed 5GT/s, Width x16, ASPM L0s L1, Latency L0 <512ns, L1 <4us
+			ClockPM- Suprise+ LLActRep+ BwNot+
+		LnkCtl:	ASPM Disabled; RCB 64 bytes Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed 2.5GT/s, Width x0, TrErr- Train- SlotClk+ DLActive- BWMgmt- ABWMgmt-
+		SltCap:	AttnBtn- PwrCtrl- MRL- AttnInd- PwrInd- HotPlug- Surpise-
+			Slot #  1, PowerLimit 25.000000; Interlock- NoCompl-
+		SltCtl:	Enable: AttnBtn- PwrFlt- MRL- PresDet- CmdCplt- HPIrq- LinkChg-
+			Control: AttnInd Off, PwrInd Off, Power- Interlock-
+		SltSta:	Status: AttnBtn- PowerFlt- MRL- CmdCplt- PresDet- Interlock-
+			Changed: MRL- PresDet+ LinkState-
+		RootCtl: ErrCorrectable- ErrNon-Fatal- ErrFatal- PMEIntEna- CRSVisible-
+		RootCap: CRSVisible-
+		RootSta: PME ReqID 0000, PMEStatus- PMEPending-
+	Capabilities: [e0] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0+,D1-,D2-,D3hot+,D3cold+)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+	Capabilities: [100] Advanced Error Reporting <?>
+	Capabilities: [150] Access Controls <?>
+	Capabilities: [160] Vendor Specific Information <?>
+	Kernel driver in use: pcieport-driver
+	Kernel modules: shpchp
+
+00:0e.0 Host bridge: Intel Corporation Device 341c (rev 13)
+	Control: I/O- Mem- BusMaster- SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Capabilities: [40] Express (v2) Root Complex Integrated Endpoint, MSI 00
+		DevCap:	MaxPayload 128 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed unknown, Width x0, ASPM L0s, Latency L0 unlimited, L1 unlimited
+			ClockPM- Suprise+ LLActRep+ BwNot+
+		LnkCtl:	ASPM Disabled; Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed unknown, Width x0, TrErr- Train- SlotClk+ DLActive- BWMgmt- ABWMgmt-
+	Capabilities: [60] #00 [0000]
+	Capabilities: [100] Vendor Specific Information <?>
+
+00:0e.1 Host bridge: Intel Corporation Device 341d (rev 13)
+	Control: I/O- Mem- BusMaster- SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Capabilities: [40] Express (v2) Root Complex Integrated Endpoint, MSI 00
+		DevCap:	MaxPayload 128 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed unknown, Width x0, ASPM L0s, Latency L0 unlimited, L1 unlimited
+			ClockPM- Suprise+ LLActRep+ BwNot+
+		LnkCtl:	ASPM Disabled; Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed unknown, Width x0, TrErr- Train- SlotClk+ DLActive- BWMgmt- ABWMgmt-
+	Capabilities: [60] #00 [0000]
+
+00:0e.2 Host bridge: Intel Corporation Device 341e (rev 13)
+	Control: I/O- Mem- BusMaster- SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Capabilities: [40] Express (v2) Root Complex Integrated Endpoint, MSI 00
+		DevCap:	MaxPayload 128 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed unknown, Width x0, ASPM L0s, Latency L0 unlimited, L1 unlimited
+			ClockPM- Suprise+ LLActRep+ BwNot+
+		LnkCtl:	ASPM Disabled; Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed unknown, Width x0, TrErr- Train- SlotClk+ DLActive- BWMgmt- ABWMgmt-
+	Capabilities: [60] #00 [0000]
+
+00:14.0 PIC: Intel Corporation QuickPath Architecture I/O Hub System Management Registers (rev 13) (prog-if 00 [8259])
+	Control: I/O- Mem- BusMaster- SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Capabilities: [40] Express (v2) Root Complex Integrated Endpoint, MSI 00
+		DevCap:	MaxPayload 128 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed unknown, Width x0, ASPM L0s, Latency L0 unlimited, L1 unlimited
+			ClockPM- Suprise+ LLActRep+ BwNot+
+		LnkCtl:	ASPM Disabled; Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed unknown, Width x0, TrErr- Train- SlotClk+ DLActive- BWMgmt- ABWMgmt-
+
+00:14.1 PIC: Intel Corporation QuickPath Architecture I/O Hub GPIO and Scratch Pad Registers (rev 13) (prog-if 00 [8259])
+	Control: I/O- Mem- BusMaster- SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Capabilities: [40] Express (v2) Root Complex Integrated Endpoint, MSI 00
+		DevCap:	MaxPayload 128 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed unknown, Width x0, ASPM L0s, Latency L0 unlimited, L1 unlimited
+			ClockPM- Suprise+ LLActRep+ BwNot+
+		LnkCtl:	ASPM Disabled; Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed unknown, Width x0, TrErr- Train- SlotClk+ DLActive- BWMgmt- ABWMgmt-
+
+00:14.2 PIC: Intel Corporation QuickPath Architecture I/O Hub Control Status and RAS Registers (rev 13) (prog-if 00 [8259])
+	Control: I/O- Mem- BusMaster- SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Capabilities: [40] Express (v2) Root Complex Integrated Endpoint, MSI 00
+		DevCap:	MaxPayload 128 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed unknown, Width x0, ASPM L0s, Latency L0 unlimited, L1 unlimited
+			ClockPM- Suprise+ LLActRep+ BwNot+
+		LnkCtl:	ASPM Disabled; Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed unknown, Width x0, TrErr- Train- SlotClk+ DLActive- BWMgmt- ABWMgmt-
+
+00:14.3 PIC: Intel Corporation QuickPath Architecture I/O Hub Throttle Registers (rev 13) (prog-if 00 [8259])
+	Control: I/O- Mem- BusMaster- SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap- 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+
+00:16.0 System peripheral: Intel Corporation DMA Engine (rev 13)
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 256 bytes
+	Interrupt: pin A routed to IRQ 15
+	Region 0: Memory at fbed8000 (64-bit, non-prefetchable) [size=16K]
+	Capabilities: [80] MSI-X: Enable- Mask- TabSize=1
+		Vector table: BAR=0 offset=00002000
+		PBA: BAR=0 offset=00003000
+	Capabilities: [90] Express (v2) Root Complex Integrated Endpoint, MSI 00
+		DevCap:	MaxPayload 128 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed unknown, Width x0, ASPM unknown, Latency L0 <64ns, L1 <1us
+			ClockPM- Suprise- LLActRep- BwNot-
+		LnkCtl:	ASPM Disabled; Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed unknown, Width x0, TrErr- Train- SlotClk- DLActive- BWMgmt- ABWMgmt-
+	Capabilities: [e0] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0-,D1-,D2-,D3hot-,D3cold-)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+
+00:16.1 System peripheral: Intel Corporation DMA Engine (rev 13)
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 256 bytes
+	Interrupt: pin B routed to IRQ 5
+	Region 0: Memory at fbedc000 (64-bit, non-prefetchable) [size=16K]
+	Capabilities: [80] MSI-X: Enable- Mask- TabSize=1
+		Vector table: BAR=0 offset=00002000
+		PBA: BAR=0 offset=00003000
+	Capabilities: [90] Express (v2) Root Complex Integrated Endpoint, MSI 00
+		DevCap:	MaxPayload 128 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed unknown, Width x0, ASPM unknown, Latency L0 <64ns, L1 <1us
+			ClockPM- Suprise- LLActRep- BwNot-
+		LnkCtl:	ASPM Disabled; Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed unknown, Width x0, TrErr- Train- SlotClk- DLActive- BWMgmt- ABWMgmt-
+	Capabilities: [e0] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0-,D1-,D2-,D3hot-,D3cold-)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+
+00:16.2 System peripheral: Intel Corporation DMA Engine (rev 13)
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 256 bytes
+	Interrupt: pin C routed to IRQ 10
+	Region 0: Memory at fbee0000 (64-bit, non-prefetchable) [size=16K]
+	Capabilities: [80] MSI-X: Enable- Mask- TabSize=1
+		Vector table: BAR=0 offset=00002000
+		PBA: BAR=0 offset=00003000
+	Capabilities: [90] Express (v2) Root Complex Integrated Endpoint, MSI 00
+		DevCap:	MaxPayload 128 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed unknown, Width x0, ASPM unknown, Latency L0 <64ns, L1 <1us
+			ClockPM- Suprise- LLActRep- BwNot-
+		LnkCtl:	ASPM Disabled; Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed unknown, Width x0, TrErr- Train- SlotClk- DLActive- BWMgmt- ABWMgmt-
+	Capabilities: [e0] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0-,D1-,D2-,D3hot-,D3cold-)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+
+00:16.3 System peripheral: Intel Corporation DMA Engine (rev 13)
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 256 bytes
+	Interrupt: pin D routed to IRQ 11
+	Region 0: Memory at fbee4000 (64-bit, non-prefetchable) [size=16K]
+	Capabilities: [80] MSI-X: Enable- Mask- TabSize=1
+		Vector table: BAR=0 offset=00002000
+		PBA: BAR=0 offset=00003000
+	Capabilities: [90] Express (v2) Root Complex Integrated Endpoint, MSI 00
+		DevCap:	MaxPayload 128 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed unknown, Width x0, ASPM unknown, Latency L0 <64ns, L1 <1us
+			ClockPM- Suprise- LLActRep- BwNot-
+		LnkCtl:	ASPM Disabled; Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed unknown, Width x0, TrErr- Train- SlotClk- DLActive- BWMgmt- ABWMgmt-
+	Capabilities: [e0] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0-,D1-,D2-,D3hot-,D3cold-)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+
+00:16.4 System peripheral: Intel Corporation DMA Engine (rev 13)
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 256 bytes
+	Interrupt: pin A routed to IRQ 15
+	Region 0: Memory at fbee8000 (64-bit, non-prefetchable) [size=16K]
+	Capabilities: [80] MSI-X: Enable- Mask- TabSize=1
+		Vector table: BAR=0 offset=00002000
+		PBA: BAR=0 offset=00003000
+	Capabilities: [90] Express (v2) Root Complex Integrated Endpoint, MSI 00
+		DevCap:	MaxPayload 128 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed unknown, Width x0, ASPM unknown, Latency L0 <64ns, L1 <1us
+			ClockPM- Suprise- LLActRep- BwNot-
+		LnkCtl:	ASPM Disabled; Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed unknown, Width x0, TrErr- Train- SlotClk- DLActive- BWMgmt- ABWMgmt-
+	Capabilities: [e0] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0-,D1-,D2-,D3hot-,D3cold-)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+
+00:16.5 System peripheral: Intel Corporation DMA Engine (rev 13)
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 256 bytes
+	Interrupt: pin B routed to IRQ 5
+	Region 0: Memory at fbeec000 (64-bit, non-prefetchable) [size=16K]
+	Capabilities: [80] MSI-X: Enable- Mask- TabSize=1
+		Vector table: BAR=0 offset=00002000
+		PBA: BAR=0 offset=00003000
+	Capabilities: [90] Express (v2) Root Complex Integrated Endpoint, MSI 00
+		DevCap:	MaxPayload 128 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed unknown, Width x0, ASPM unknown, Latency L0 <64ns, L1 <1us
+			ClockPM- Suprise- LLActRep- BwNot-
+		LnkCtl:	ASPM Disabled; Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed unknown, Width x0, TrErr- Train- SlotClk- DLActive- BWMgmt- ABWMgmt-
+	Capabilities: [e0] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0-,D1-,D2-,D3hot-,D3cold-)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+
+00:16.6 System peripheral: Intel Corporation DMA Engine (rev 13)
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 256 bytes
+	Interrupt: pin C routed to IRQ 10
+	Region 0: Memory at fbef0000 (64-bit, non-prefetchable) [size=16K]
+	Capabilities: [80] MSI-X: Enable- Mask- TabSize=1
+		Vector table: BAR=0 offset=00002000
+		PBA: BAR=0 offset=00003000
+	Capabilities: [90] Express (v2) Root Complex Integrated Endpoint, MSI 00
+		DevCap:	MaxPayload 128 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed unknown, Width x0, ASPM unknown, Latency L0 <64ns, L1 <1us
+			ClockPM- Suprise- LLActRep- BwNot-
+		LnkCtl:	ASPM Disabled; Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed unknown, Width x0, TrErr- Train- SlotClk- DLActive- BWMgmt- ABWMgmt-
+	Capabilities: [e0] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0-,D1-,D2-,D3hot-,D3cold-)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+
+00:16.7 System peripheral: Intel Corporation DMA Engine (rev 13)
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 256 bytes
+	Interrupt: pin D routed to IRQ 11
+	Region 0: Memory at fbef4000 (64-bit, non-prefetchable) [size=16K]
+	Capabilities: [80] MSI-X: Enable- Mask- TabSize=1
+		Vector table: BAR=0 offset=00002000
+		PBA: BAR=0 offset=00003000
+	Capabilities: [90] Express (v2) Root Complex Integrated Endpoint, MSI 00
+		DevCap:	MaxPayload 128 bytes, PhantFunc 0, Latency L0s <64ns, L1 <1us
+			ExtTag- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 128 bytes, MaxReadReq 128 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #0, Speed unknown, Width x0, ASPM unknown, Latency L0 <64ns, L1 <1us
+			ClockPM- Suprise- LLActRep- BwNot-
+		LnkCtl:	ASPM Disabled; Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed unknown, Width x0, TrErr- Train- SlotClk- DLActive- BWMgmt- ABWMgmt-
+	Capabilities: [e0] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0-,D1-,D2-,D3hot-,D3cold-)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+
+00:1a.0 USB Controller: Intel Corporation 82801JI (ICH10 Family) USB UHCI Controller #4 (prog-if 00 [UHCI])
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O+ Mem- BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Interrupt: pin A routed to IRQ 16
+	Region 4: I/O ports at b880 [size=32]
+	Capabilities: [50] PCIe advanced features <?>
+	Kernel driver in use: uhci_hcd
+	Kernel modules: uhci-hcd
+
+00:1a.1 USB Controller: Intel Corporation 82801JI (ICH10 Family) USB UHCI Controller #5 (prog-if 00 [UHCI])
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O+ Mem- BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Interrupt: pin B routed to IRQ 21
+	Region 4: I/O ports at bc00 [size=32]
+	Capabilities: [50] PCIe advanced features <?>
+	Kernel driver in use: uhci_hcd
+	Kernel modules: uhci-hcd
+
+00:1a.2 USB Controller: Intel Corporation 82801JI (ICH10 Family) USB UHCI Controller #6 (prog-if 00 [UHCI])
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O+ Mem- BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Interrupt: pin D routed to IRQ 19
+	Region 4: I/O ports at c000 [size=32]
+	Capabilities: [50] PCIe advanced features <?>
+	Kernel driver in use: uhci_hcd
+	Kernel modules: uhci-hcd
+
+00:1a.7 USB Controller: Intel Corporation 82801JI (ICH10 Family) USB2 EHCI Controller #2 (prog-if 20 [EHCI])
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Interrupt: pin C routed to IRQ 18
+	Region 0: Memory at fbed6000 (32-bit, non-prefetchable) [size=1K]
+	Capabilities: [50] Power Management version 2
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=375mA PME(D0+,D1-,D2-,D3hot+,D3cold+)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+	Capabilities: [58] Debug port: BAR=1 offset=00a0
+	Capabilities: [98] PCIe advanced features <?>
+	Kernel driver in use: ehci_hcd
+	Kernel modules: ehci-hcd
+
+00:1d.0 USB Controller: Intel Corporation 82801JI (ICH10 Family) USB UHCI Controller #1 (prog-if 00 [UHCI])
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O+ Mem- BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Interrupt: pin A routed to IRQ 23
+	Region 4: I/O ports at b400 [size=32]
+	Capabilities: [50] PCIe advanced features <?>
+	Kernel driver in use: uhci_hcd
+	Kernel modules: uhci-hcd
+
+00:1d.1 USB Controller: Intel Corporation 82801JI (ICH10 Family) USB UHCI Controller #2 (prog-if 00 [UHCI])
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O+ Mem- BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Interrupt: pin B routed to IRQ 19
+	Region 4: I/O ports at b480 [size=32]
+	Capabilities: [50] PCIe advanced features <?>
+	Kernel driver in use: uhci_hcd
+	Kernel modules: uhci-hcd
+
+00:1d.2 USB Controller: Intel Corporation 82801JI (ICH10 Family) USB UHCI Controller #3 (prog-if 00 [UHCI])
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O+ Mem- BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Interrupt: pin C routed to IRQ 18
+	Region 4: I/O ports at b800 [size=32]
+	Capabilities: [50] PCIe advanced features <?>
+	Kernel driver in use: uhci_hcd
+	Kernel modules: uhci-hcd
+
+00:1d.7 USB Controller: Intel Corporation 82801JI (ICH10 Family) USB2 EHCI Controller #1 (prog-if 20 [EHCI])
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Interrupt: pin A routed to IRQ 23
+	Region 0: Memory at fbed4000 (32-bit, non-prefetchable) [size=1K]
+	Capabilities: [50] Power Management version 2
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=375mA PME(D0+,D1-,D2-,D3hot+,D3cold+)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME+
+	Capabilities: [58] Debug port: BAR=1 offset=00a0
+	Capabilities: [98] PCIe advanced features <?>
+	Kernel driver in use: ehci_hcd
+	Kernel modules: ehci-hcd
+
+00:1e.0 PCI bridge: Intel Corporation 82801 PCI Bridge (rev 90) (prog-if 01 [Subtractive decode])
+	Control: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR+ FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Bus: primary=00, secondary=06, subordinate=06, sec-latency=32
+	Memory behind bridge: faf00000-fb7fffff
+	Prefetchable memory behind bridge: 00000000f9000000-00000000f9ffffff
+	Secondary status: 66MHz- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort+ <SERR- <PERR-
+	BridgeCtl: Parity- SERR+ NoISA- VGA+ MAbort- >Reset- FastB2B-
+		PriDiscTmr- SecDiscTmr- DiscTmrStat- DiscTmrSERREn-
+	Capabilities: [50] Subsystem: Super Micro Computer Inc Device 0007
+
+00:1f.0 ISA bridge: Intel Corporation 82801JIR (ICH10R) LPC Interface Controller
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Capabilities: [e0] Vendor Specific Information <?>
+
+00:1f.2 SATA controller: Intel Corporation 82801JI (ICH10 Family) SATA AHCI Controller (prog-if 01 [AHCI 1.0])
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx+
+	Status: Cap+ 66MHz+ UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Interrupt: pin B routed to IRQ 1272
+	Region 0: I/O ports at c400 [size=8]
+	Region 1: I/O ports at cc00 [size=4]
+	Region 2: I/O ports at c880 [size=8]
+	Region 3: I/O ports at c800 [size=4]
+	Region 4: I/O ports at c480 [size=32]
+	Region 5: Memory at fbefa000 (32-bit, non-prefetchable) [size=2K]
+	Capabilities: [80] Message Signalled Interrupts: Mask- 64bit- Queue=0/4 Enable+
+		Address: fee00000  Data: 40a9
+	Capabilities: [70] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0-,D1-,D2-,D3hot+,D3cold-)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+	Capabilities: [a8] SATA HBA <?>
+	Capabilities: [b0] PCIe advanced features <?>
+	Kernel driver in use: ahci
+	Kernel modules: ahci
+
+00:1f.3 SMBus: Intel Corporation 82801JI (ICH10 Family) SMBus Controller
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O+ Mem+ BusMaster- SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap- 66MHz- UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Interrupt: pin C routed to IRQ 18
+	Region 0: Memory at fbef8000 (64-bit, non-prefetchable) [size=256]
+	Region 4: I/O ports at 0400 [size=32]
+	Kernel driver in use: i801_smbus
+	Kernel modules: i2c-i801
+
+01:00.0 Ethernet controller: Intel Corporation 82574L Gigabit Network Connection
+	Subsystem: Super Micro Computer Inc Device 10d3
+	Control: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx+
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 64 bytes
+	Interrupt: pin A routed to IRQ 16
+	Region 0: Memory at fbbe0000 (32-bit, non-prefetchable) [size=128K]
+	Region 2: I/O ports at dc00 [size=32]
+	Region 3: Memory at fbbdc000 (32-bit, non-prefetchable) [size=16K]
+	Capabilities: [c8] Power Management version 2
+		Flags: PMEClk- DSI+ D1- D2- AuxCurrent=0mA PME(D0+,D1-,D2-,D3hot+,D3cold+)
+		Status: D0 PME-Enable- DSel=0 DScale=1 PME-
+	Capabilities: [d0] Message Signalled Interrupts: Mask- 64bit+ Queue=0/0 Enable-
+		Address: 0000000000000000  Data: 0000
+	Capabilities: [e0] Express (v1) Endpoint, MSI 00
+		DevCap:	MaxPayload 256 bytes, PhantFunc 0, Latency L0s <512ns, L1 <64us
+			ExtTag- AttnBtn- AttnInd- PwrInd- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
+			MaxPayload 256 bytes, MaxReadReq 512 bytes
+		DevSta:	CorrErr+ UncorrErr- FatalErr- UnsuppReq+ AuxPwr+ TransPend-
+		LnkCap:	Port #0, Speed 2.5GT/s, Width x1, ASPM L0s L1, Latency L0 <128ns, L1 <64us
+			ClockPM- Suprise- LLActRep- BwNot-
+		LnkCtl:	ASPM Disabled; RCB 64 bytes Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed 2.5GT/s, Width x1, TrErr- Train- SlotClk+ DLActive- BWMgmt- ABWMgmt-
+	Capabilities: [a0] MSI-X: Enable+ Mask- TabSize=5
+		Vector table: BAR=3 offset=00000000
+		PBA: BAR=3 offset=00002000
+	Capabilities: [100] Advanced Error Reporting <?>
+	Capabilities: [140] Device Serial Number 7e-ab-cd-ff-ff-48-30-00
+	Kernel driver in use: e1000e
+	Kernel modules: e1000e
+
+02:00.0 Ethernet controller: Intel Corporation 82574L Gigabit Network Connection
+	Subsystem: Super Micro Computer Inc Device 10d3
+	Control: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx+
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 64 bytes
+	Interrupt: pin A routed to IRQ 16
+	Region 0: Memory at fbce0000 (32-bit, non-prefetchable) [size=128K]
+	Region 2: I/O ports at ec00 [size=32]
+	Region 3: Memory at fbcdc000 (32-bit, non-prefetchable) [size=16K]
+	Capabilities: [c8] Power Management version 2
+		Flags: PMEClk- DSI+ D1- D2- AuxCurrent=0mA PME(D0+,D1-,D2-,D3hot+,D3cold+)
+		Status: D0 PME-Enable- DSel=0 DScale=1 PME-
+	Capabilities: [d0] Message Signalled Interrupts: Mask- 64bit+ Queue=0/0 Enable-
+		Address: 0000000000000000  Data: 0000
+	Capabilities: [e0] Express (v1) Endpoint, MSI 00
+		DevCap:	MaxPayload 256 bytes, PhantFunc 0, Latency L0s <512ns, L1 <64us
+			ExtTag- AttnBtn- AttnInd- PwrInd- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
+			MaxPayload 256 bytes, MaxReadReq 512 bytes
+		DevSta:	CorrErr+ UncorrErr- FatalErr- UnsuppReq+ AuxPwr+ TransPend-
+		LnkCap:	Port #2, Speed 2.5GT/s, Width x1, ASPM L0s L1, Latency L0 <128ns, L1 <64us
+			ClockPM- Suprise- LLActRep- BwNot-
+		LnkCtl:	ASPM Disabled; RCB 64 bytes Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed 2.5GT/s, Width x1, TrErr- Train- SlotClk+ DLActive- BWMgmt- ABWMgmt-
+	Capabilities: [a0] MSI-X: Enable+ Mask- TabSize=5
+		Vector table: BAR=3 offset=00000000
+		PBA: BAR=3 offset=00002000
+	Capabilities: [100] Advanced Error Reporting <?>
+	Capabilities: [140] Device Serial Number 7f-ab-cd-ff-ff-48-30-00
+	Kernel driver in use: e1000e
+	Kernel modules: e1000e
+
+03:00.0 InfiniBand: Mellanox Technologies MT26428 [ConnectX IB QDR, PCIe 2.0 5GT/s] (rev a0)
+	Subsystem: Mellanox Technologies Device 0004
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx+
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 256 bytes
+	Interrupt: pin A routed to IRQ 16
+	Region 0: Memory at fbd00000 (64-bit, non-prefetchable) [size=1M]
+	Region 2: Memory at f8800000 (64-bit, prefetchable) [size=8M]
+	Capabilities: [40] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0-,D1-,D2-,D3hot-,D3cold-)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+	Capabilities: [48] Vital Product Data <?>
+	Capabilities: [9c] MSI-X: Enable+ Mask- TabSize=256
+		Vector table: BAR=0 offset=0007c000
+		PBA: BAR=0 offset=0007d000
+	Capabilities: [60] Express (v2) Endpoint, MSI 00
+		DevCap:	MaxPayload 256 bytes, PhantFunc 0, Latency L0s <64ns, L1 unlimited
+			ExtTag- AttnBtn- AttnInd- PwrInd- RBE+ FLReset-
+		DevCtl:	Report errors: Correctable- Non-Fatal- Fatal- Unsupported-
+			RlxdOrd- ExtTag- PhantFunc- AuxPwr- NoSnoop-
+			MaxPayload 256 bytes, MaxReadReq 512 bytes
+		DevSta:	CorrErr- UncorrErr- FatalErr- UnsuppReq- AuxPwr- TransPend-
+		LnkCap:	Port #8, Speed 5GT/s, Width x8, ASPM L0s, Latency L0 unlimited, L1 unlimited
+			ClockPM- Suprise- LLActRep- BwNot-
+		LnkCtl:	ASPM Disabled; RCB 64 bytes Disabled- Retrain- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed 5GT/s, Width x8, TrErr- Train- SlotClk- DLActive- BWMgmt- ABWMgmt-
+	Capabilities: [100] #0e
+	Kernel driver in use: mlx4_core
+	Kernel modules: mlx4_core
+
+06:01.0 VGA compatible controller: Matrox Graphics, Inc. MGA G200eW WPCM450 [Hermon] - Winbond/Nuvoton (rev 0a) (prog-if 00 [VGA controller])
+	Subsystem: Super Micro Computer Inc Device 0007
+	Control: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B+ ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 64 (4000ns min, 8000ns max), Cache Line Size: 256 bytes
+	Interrupt: pin A routed to IRQ 10
+	Region 0: Memory at f9000000 (32-bit, prefetchable) [size=16M]
+	Region 1: Memory at faffc000 (32-bit, non-prefetchable) [size=16K]
+	Region 2: Memory at fb000000 (32-bit, non-prefetchable) [size=8M]
+	Capabilities: [dc] Power Management version 1
+		Flags: PMEClk- DSI+ D1- D2- AuxCurrent=0mA PME(D0-,D1-,D2-,D3hot-,D3cold-)
+		Status: D0 PME-Enable- DSel=0 DScale=0 PME-
+
+sgs-dalco2u2nh-01
+    description: System
+    product: X8DTT-H
+    vendor: Supermicro
+    version: 1234567890
+    serial: 1234567890
+    width: 64 bits
+    capabilities: smbios-2.6 dmi-2.6 vsyscall64 vsyscall32
+    configuration: boot=normal chassis=server uuid=00020003-0004-0005-0006-000700080009
+  *-core
+       description: Motherboard
+       product: X8DTT-H
+       vendor: Supermicro
+       physical id: 0
+       version: 1234567890
+       serial: 1234567890
+       slot: 1234567890
+     *-firmware
+          description: BIOS
+          vendor: American Megatrends Inc.
+          physical id: 0
+          version: 080015 (12/10/2009)
+          size: 64KiB
+          capacity: 4032KiB
+          capabilities: isa pci pnp upgrade shadowing escd cdboot bootselect socketedrom edd int13floppy1200 int13floppy720 int13floppy2880 int5printscreen int9keyboard int14serial int17printer int10video acpi usb ls120boot zipboot biosbootspecification
+     *-cpu:0
+          description: CPU
+          product: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz
+          vendor: Intel Corp.
+          physical id: 4
+          bus info: cpu@0
+          version: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz
+          serial: To Be Filled By O.E.M.
+          slot: CPU 1
+          size: 2666MHz
+          capacity: 2800MHz
+          width: 64 bits
+          clock: 133MHz
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp x86-64 constant_tsc arch_perfmon pebs bts rep_good pni monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr dca sse4_1 sse4_2 popcnt lahf_lm ida
+        *-cache:0
+             description: L1 cache
+             physical id: 5
+             slot: L1-Cache
+             size: 256KiB
+             capacity: 256KiB
+             capabilities: internal write-through instruction
+        *-cache:1
+             description: L2 cache
+             physical id: 6
+             slot: L2-Cache
+             size: 1MiB
+             capacity: 1MiB
+             capabilities: internal write-through unified
+        *-cache:2
+             description: L3 cache
+             physical id: 7
+             slot: L3-Cache
+             size: 8MiB
+             capacity: 8MiB
+             capabilities: internal write-back unified
+     *-cpu:1
+          description: CPU
+          product: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz
+          vendor: Intel Corp.
+          physical id: 8
+          bus info: cpu@1
+          version: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz
+          serial: To Be Filled By O.E.M.
+          slot: CPU 2
+          size: 2666MHz
+          capacity: 2800MHz
+          width: 64 bits
+          clock: 133MHz
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp x86-64 constant_tsc arch_perfmon pebs bts rep_good pni monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr dca sse4_1 sse4_2 popcnt lahf_lm ida
+        *-cache:0
+             description: L1 cache
+             physical id: 9
+             slot: L1-Cache
+             size: 256KiB
+             capacity: 256KiB
+             capabilities: internal write-through instruction
+        *-cache:1
+             description: L2 cache
+             physical id: a
+             slot: L2-Cache
+             size: 1MiB
+             capacity: 1MiB
+             capabilities: internal write-through unified
+        *-cache:2
+             description: L3 cache
+             physical id: b
+             slot: L3-Cache
+             size: 8MiB
+             capacity: 8MiB
+             capabilities: internal write-back unified
+     *-memory
+          description: System Memory
+          physical id: f
+          slot: System board or motherboard
+          size: 24GiB
+        *-bank:0
+             description: DIMM 1333 MHz (0.8 ns)
+             product: HMT151R7BFR4C-H9
+             vendor: Hyundai
+             physical id: 0
+             serial: 1CC2C01E
+             slot: P1-DIMM1A
+             size: 4GiB
+             width: 64 bits
+             clock: 1333MHz (0.8ns)
+        *-bank:1
+             description: DIMM [empty]
+             physical id: 1
+             slot: P1-DIMM1B
+             width: 64 bits
+        *-bank:2
+             description: DIMM 1333 MHz (0.8 ns)
+             product: HMT151R7BFR4C-H9
+             vendor: Hyundai
+             physical id: 2
+             serial: FCC1A01E
+             slot: P1-DIMM2A
+             size: 4GiB
+             width: 64 bits
+             clock: 1333MHz (0.8ns)
+        *-bank:3
+             description: DIMM [empty]
+             physical id: 3
+             slot: P1-DIMM2B
+             width: 64 bits
+        *-bank:4
+             description: DIMM 1333 MHz (0.8 ns)
+             product: HMT151R7BFR4C-H9
+             vendor: Hyundai
+             physical id: 4
+             serial: 09C2101E
+             slot: P1-DIMM3A
+             size: 4GiB
+             width: 64 bits
+             clock: 1333MHz (0.8ns)
+        *-bank:5
+             description: DIMM [empty]
+             physical id: 5
+             slot: P1-DIMM3B
+             width: 64 bits
+        *-bank:6
+             description: DIMM 1333 MHz (0.8 ns)
+             product: HMT151R7BFR4C-H9
+             vendor: Hyundai
+             physical id: 6
+             serial: FDC1401E
+             slot: P2-DIMM1A
+             size: 4GiB
+             width: 64 bits
+             clock: 1333MHz (0.8ns)
+        *-bank:7
+             description: DIMM [empty]
+             physical id: 7
+             slot: P2-DIMM1B
+             width: 64 bits
+        *-bank:8
+             description: DIMM 1333 MHz (0.8 ns)
+             product: HMT151R7BFR4C-H9
+             vendor: Hyundai
+             physical id: 8
+             serial: 1DC2301E
+             slot: P2-DIMM2A
+             size: 4GiB
+             width: 64 bits
+             clock: 1333MHz (0.8ns)
+        *-bank:9
+             description: DIMM [empty]
+             physical id: 9
+             slot: P2-DIMM2B
+             width: 64 bits
+        *-bank:10
+             description: DIMM 1333 MHz (0.8 ns)
+             product: HMT151R7BFR4C-H9
+             vendor: Hyundai
+             physical id: a
+             serial: 0DC2A01E
+             slot: P2-DIMM3A
+             size: 4GiB
+             width: 64 bits
+             clock: 1333MHz (0.8ns)
+        *-bank:11
+             description: DIMM [empty]
+             physical id: b
+             slot: P2-DIMM3B
+             width: 64 bits
+     *-pci:0
+          description: Host bridge
+          product: QuickPath Architecture I/O Hub to ESI Port
+          vendor: Intel Corporation
+          physical id: 100
+          bus info: pci@0000:00:00.0
+          version: 13
+          width: 32 bits
+          clock: 33MHz
+        *-pci:0
+             description: PCI bridge
+             product: QuickPath Architecture I/O Hub PCI Express Root Port 1
+             vendor: Intel Corporation
+             physical id: 1
+             bus info: pci@0000:00:01.0
+             version: 13
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci msi pciexpress pm normal_decode bus_master cap_list
+             configuration: driver=pcieport-driver
+           *-network
+                description: Ethernet interface
+                product: 82574L Gigabit Network Connection
+                vendor: Intel Corporation
+                physical id: 0
+                bus info: pci@0000:01:00.0
+                logical name: eth0
+                version: 00
+                serial: 00:30:48:cd:ab:7e
+                size: 1GB/s
+                capacity: 1GB/s
+                width: 32 bits
+                clock: 33MHz
+                capabilities: pm msi pciexpress msix bus_master cap_list ethernet physical tp 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
+                configuration: autonegotiation=on broadcast=yes driver=e1000e driverversion=0.3.3.3-k2 duplex=full firmware=1.9-0 ip=172.25.0.32 latency=0 link=yes module=e1000e multicast=yes port=twisted pair speed=1GB/s
+        *-pci:1
+             description: PCI bridge
+             product: QuickPath Architecture I/O Hub PCI Express Root Port 2
+             vendor: Intel Corporation
+             physical id: 2
+             bus info: pci@0000:00:02.0
+             version: 13
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci msi pciexpress pm normal_decode bus_master cap_list
+             configuration: driver=pcieport-driver
+           *-network DISABLED
+                description: Ethernet interface
+                product: 82574L Gigabit Network Connection
+                vendor: Intel Corporation
+                physical id: 0
+                bus info: pci@0000:02:00.0
+                logical name: eth1
+                version: 00
+                serial: 00:30:48:cd:ab:7f
+                capacity: 1GB/s
+                width: 32 bits
+                clock: 33MHz
+                capabilities: pm msi pciexpress msix bus_master cap_list ethernet physical tp 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
+                configuration: autonegotiation=on broadcast=yes driver=e1000e driverversion=0.3.3.3-k2 firmware=1.9-0 latency=0 link=no module=e1000e multicast=yes port=twisted pair
+        *-pci:2
+             description: PCI bridge
+             product: QuickPath Architecture I/O Hub PCI Express Root Port 3
+             vendor: Intel Corporation
+             physical id: 3
+             bus info: pci@0000:00:03.0
+             version: 13
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci msi pciexpress pm normal_decode bus_master cap_list
+             configuration: driver=pcieport-driver
+           *-serial
+                description: InfiniBand
+                product: MT26428 [ConnectX IB QDR, PCIe 2.0 5GT/s]
+                vendor: Mellanox Technologies
+                physical id: 0
+                bus info: pci@0000:03:00.0
+                version: a0
+                width: 64 bits
+                clock: 33MHz
+                capabilities: pm vpd msix pciexpress bus_master cap_list
+                configuration: driver=mlx4_core latency=0 module=mlx4_core
+        *-pci:3
+             description: PCI bridge
+             product: QuickPath Architecture I/O Hub PCI Express Root Port 5
+             vendor: Intel Corporation
+             physical id: 5
+             bus info: pci@0000:00:05.0
+             version: 13
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci msi pciexpress pm normal_decode bus_master cap_list
+             configuration: driver=pcieport-driver
+        *-pci:4
+             description: PCI bridge
+             product: QuickPath Architecture I/O Hub PCI Express Root Port 7
+             vendor: Intel Corporation
+             physical id: 7
+             bus info: pci@0000:00:07.0
+             version: 13
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci msi pciexpress pm normal_decode bus_master cap_list
+             configuration: driver=pcieport-driver
+        *-system:0 UNCLAIMED
+             description: PIC
+             product: QuickPath Architecture I/O Hub System Management Registers
+             vendor: Intel Corporation
+             physical id: 14
+             bus info: pci@0000:00:14.0
+             version: 13
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pciexpress 8259 cap_list
+             configuration: latency=0
+        *-system:1 UNCLAIMED
+             description: PIC
+             product: QuickPath Architecture I/O Hub GPIO and Scratch Pad Registers
+             vendor: Intel Corporation
+             physical id: 14.1
+             bus info: pci@0000:00:14.1
+             version: 13
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pciexpress 8259 cap_list
+             configuration: latency=0
+        *-system:2 UNCLAIMED
+             description: PIC
+             product: QuickPath Architecture I/O Hub Control Status and RAS Registers
+             vendor: Intel Corporation
+             physical id: 14.2
+             bus info: pci@0000:00:14.2
+             version: 13
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pciexpress 8259 cap_list
+             configuration: latency=0
+        *-system:3 UNCLAIMED
+             description: PIC
+             product: QuickPath Architecture I/O Hub Throttle Registers
+             vendor: Intel Corporation
+             physical id: 14.3
+             bus info: pci@0000:00:14.3
+             version: 13
+             width: 32 bits
+             clock: 33MHz
+             capabilities: 8259
+             configuration: latency=0
+        *-system:4 UNCLAIMED
+             description: System peripheral
+             product: DMA Engine
+             vendor: Intel Corporation
+             physical id: 16
+             bus info: pci@0000:00:16.0
+             version: 13
+             width: 64 bits
+             clock: 33MHz
+             capabilities: msix pciexpress pm bus_master cap_list
+             configuration: latency=0
+        *-system:5 UNCLAIMED
+             description: System peripheral
+             product: DMA Engine
+             vendor: Intel Corporation
+             physical id: 16.1
+             bus info: pci@0000:00:16.1
+             version: 13
+             width: 64 bits
+             clock: 33MHz
+             capabilities: msix pciexpress pm bus_master cap_list
+             configuration: latency=0
+        *-system:6 UNCLAIMED
+             description: System peripheral
+             product: DMA Engine
+             vendor: Intel Corporation
+             physical id: 16.2
+             bus info: pci@0000:00:16.2
+             version: 13
+             width: 64 bits
+             clock: 33MHz
+             capabilities: msix pciexpress pm bus_master cap_list
+             configuration: latency=0
+        *-system:7 UNCLAIMED
+             description: System peripheral
+             product: DMA Engine
+             vendor: Intel Corporation
+             physical id: 16.3
+             bus info: pci@0000:00:16.3
+             version: 13
+             width: 64 bits
+             clock: 33MHz
+             capabilities: msix pciexpress pm bus_master cap_list
+             configuration: latency=0
+        *-system:8 UNCLAIMED
+             description: System peripheral
+             product: DMA Engine
+             vendor: Intel Corporation
+             physical id: 16.4
+             bus info: pci@0000:00:16.4
+             version: 13
+             width: 64 bits
+             clock: 33MHz
+             capabilities: msix pciexpress pm bus_master cap_list
+             configuration: latency=0
+        *-system:9 UNCLAIMED
+             description: System peripheral
+             product: DMA Engine
+             vendor: Intel Corporation
+             physical id: 16.5
+             bus info: pci@0000:00:16.5
+             version: 13
+             width: 64 bits
+             clock: 33MHz
+             capabilities: msix pciexpress pm bus_master cap_list
+             configuration: latency=0
+        *-system:10 UNCLAIMED
+             description: System peripheral
+             product: DMA Engine
+             vendor: Intel Corporation
+             physical id: 16.6
+             bus info: pci@0000:00:16.6
+             version: 13
+             width: 64 bits
+             clock: 33MHz
+             capabilities: msix pciexpress pm bus_master cap_list
+             configuration: latency=0
+        *-system:11 UNCLAIMED
+             description: System peripheral
+             product: DMA Engine
+             vendor: Intel Corporation
+             physical id: 16.7
+             bus info: pci@0000:00:16.7
+             version: 13
+             width: 64 bits
+             clock: 33MHz
+             capabilities: msix pciexpress pm bus_master cap_list
+             configuration: latency=0
+        *-usb:0
+             description: USB Controller
+             product: 82801JI (ICH10 Family) USB UHCI Controller #4
+             vendor: Intel Corporation
+             physical id: 1a
+             bus info: pci@0000:00:1a.0
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: uhci bus_master cap_list
+             configuration: driver=uhci_hcd latency=0 module=uhci_hcd
+           *-usbhost
+                product: UHCI Host Controller
+                vendor: Linux 2.6.26-2-amd64 uhci_hcd
+                physical id: 1
+                bus info: usb@1
+                logical name: usb1
+                version: 2.06
+                capabilities: usb-1.10
+                configuration: driver=hub slots=2 speed=12.0MB/s
+        *-usb:1
+             description: USB Controller
+             product: 82801JI (ICH10 Family) USB UHCI Controller #5
+             vendor: Intel Corporation
+             physical id: 1a.1
+             bus info: pci@0000:00:1a.1
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: uhci bus_master cap_list
+             configuration: driver=uhci_hcd latency=0 module=uhci_hcd
+           *-usbhost
+                product: UHCI Host Controller
+                vendor: Linux 2.6.26-2-amd64 uhci_hcd
+                physical id: 1
+                bus info: usb@2
+                logical name: usb2
+                version: 2.06
+                capabilities: usb-1.10
+                configuration: driver=hub slots=2 speed=12.0MB/s
+              *-usb
+                   description: Keyboard
+                   product: Virtual Keyboard and Mouse
+                   vendor: American Megatrends Inc.
+                   physical id: 1
+                   bus info: usb@2:1
+                   version: 1.00
+                   serial: serial
+                   capabilities: usb-1.10
+                   configuration: driver=usbhid speed=12.0MB/s
+        *-usb:2
+             description: USB Controller
+             product: 82801JI (ICH10 Family) USB UHCI Controller #6
+             vendor: Intel Corporation
+             physical id: 1a.2
+             bus info: pci@0000:00:1a.2
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: uhci bus_master cap_list
+             configuration: driver=uhci_hcd latency=0 module=uhci_hcd
+           *-usbhost
+                product: UHCI Host Controller
+                vendor: Linux 2.6.26-2-amd64 uhci_hcd
+                physical id: 1
+                bus info: usb@3
+                logical name: usb3
+                version: 2.06
+                capabilities: usb-1.10
+                configuration: driver=hub slots=2 speed=12.0MB/s
+        *-usb:3
+             description: USB Controller
+             product: 82801JI (ICH10 Family) USB2 EHCI Controller #2
+             vendor: Intel Corporation
+             physical id: 1a.7
+             bus info: pci@0000:00:1a.7
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pm debug ehci bus_master cap_list
+             configuration: driver=ehci_hcd latency=0 module=ehci_hcd
+           *-usbhost
+                product: EHCI Host Controller
+                vendor: Linux 2.6.26-2-amd64 ehci_hcd
+                physical id: 1
+                bus info: usb@4
+                logical name: usb4
+                version: 2.06
+                capabilities: usb-2.00
+                configuration: driver=hub slots=6 speed=480.0MB/s
+        *-usb:4
+             description: USB Controller
+             product: 82801JI (ICH10 Family) USB UHCI Controller #1
+             vendor: Intel Corporation
+             physical id: 1d
+             bus info: pci@0000:00:1d.0
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: uhci bus_master cap_list
+             configuration: driver=uhci_hcd latency=0 module=uhci_hcd
+           *-usbhost
+                product: UHCI Host Controller
+                vendor: Linux 2.6.26-2-amd64 uhci_hcd
+                physical id: 1
+                bus info: usb@5
+                logical name: usb5
+                version: 2.06
+                capabilities: usb-1.10
+                configuration: driver=hub slots=2 speed=12.0MB/s
+              *-usb
+                   description: Keyboard
+                   product: G83 (RS 6000) Keyboard
+                   vendor: Cherry GmbH
+                   physical id: 1
+                   bus info: usb@5:1
+                   version: 1.00
+                   capabilities: usb-2.00
+                   configuration: driver=usbhid maxpower=100mA speed=1.5MB/s
+        *-usb:5
+             description: USB Controller
+             product: 82801JI (ICH10 Family) USB UHCI Controller #2
+             vendor: Intel Corporation
+             physical id: 1d.1
+             bus info: pci@0000:00:1d.1
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: uhci bus_master cap_list
+             configuration: driver=uhci_hcd latency=0 module=uhci_hcd
+           *-usbhost
+                product: UHCI Host Controller
+                vendor: Linux 2.6.26-2-amd64 uhci_hcd
+                physical id: 1
+                bus info: usb@6
+                logical name: usb6
+                version: 2.06
+                capabilities: usb-1.10
+                configuration: driver=hub slots=2 speed=12.0MB/s
+        *-usb:6
+             description: USB Controller
+             product: 82801JI (ICH10 Family) USB UHCI Controller #3
+             vendor: Intel Corporation
+             physical id: 1d.2
+             bus info: pci@0000:00:1d.2
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: uhci bus_master cap_list
+             configuration: driver=uhci_hcd latency=0 module=uhci_hcd
+           *-usbhost
+                product: UHCI Host Controller
+                vendor: Linux 2.6.26-2-amd64 uhci_hcd
+                physical id: 1
+                bus info: usb@7
+                logical name: usb7
+                version: 2.06
+                capabilities: usb-1.10
+                configuration: driver=hub slots=2 speed=12.0MB/s
+        *-usb:7
+             description: USB Controller
+             product: 82801JI (ICH10 Family) USB2 EHCI Controller #1
+             vendor: Intel Corporation
+             physical id: 1d.7
+             bus info: pci@0000:00:1d.7
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pm debug ehci bus_master cap_list
+             configuration: driver=ehci_hcd latency=0 module=ehci_hcd
+           *-usbhost
+                product: EHCI Host Controller
+                vendor: Linux 2.6.26-2-amd64 ehci_hcd
+                physical id: 1
+                bus info: usb@8
+                logical name: usb8
+                version: 2.06
+                capabilities: usb-2.00
+                configuration: driver=hub slots=6 speed=480.0MB/s
+        *-pci:5
+             description: PCI bridge
+             product: 82801 PCI Bridge
+             vendor: Intel Corporation
+             physical id: 1e
+             bus info: pci@0000:00:1e.0
+             version: 90
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci subtractive_decode bus_master cap_list
+           *-display UNCLAIMED
+                description: VGA compatible controller
+                product: MGA G200eW WPCM450 [Hermon] - Winbond/Nuvoton
+                vendor: Matrox Graphics, Inc.
+                physical id: 1
+                bus info: pci@0000:06:01.0
+                version: 0a
+                width: 32 bits
+                clock: 33MHz
+                capabilities: pm vga_controller bus_master cap_list
+                configuration: latency=64 maxlatency=32 mingnt=16
+        *-isa
+             description: ISA bridge
+             product: 82801JIR (ICH10R) LPC Interface Controller
+             vendor: Intel Corporation
+             physical id: 1f
+             bus info: pci@0000:00:1f.0
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: isa bus_master cap_list
+             configuration: latency=0
+        *-storage
+             description: SATA controller
+             product: 82801JI (ICH10 Family) SATA AHCI Controller
+             vendor: Intel Corporation
+             physical id: 1f.2
+             bus info: pci@0000:00:1f.2
+             logical name: scsi0
+             version: 00
+             width: 32 bits
+             clock: 66MHz
+             capabilities: storage msi pm ahci_1.0 bus_master cap_list emulated
+             configuration: driver=ahci latency=0 module=ahci
+           *-disk
+                description: ATA Disk
+                product: WDC WD2500AAJS-0
+                vendor: Western Digital
+                physical id: 0.0.0
+                bus info: scsi@0:0.0.0
+                logical name: /dev/sda
+                version: 01.0
+                serial: WD-WMAV2A572705
+                size: 232GiB (250GB)
+                capabilities: partitioned partitioned:dos
+                configuration: ansiversion=5 signature=00025509
+              *-volume:0
+                   description: EXT3 volume
+                   vendor: Linux
+                   physical id: 1
+                   bus info: scsi@0:0.0.0,1
+                   logical name: /dev/sda1
+                   logical name: /
+                   version: 1.0
+                   serial: dc5fe100-b2a3-41fe-b8b2-7e6cafb70a60
+                   size: 14GiB
+                   capacity: 14GiB
+                   capabilities: primary journaled extended_attributes large_files huge_files recover ext3 ext2 initialized
+                   configuration: created=2010-03-22 12:13:12 filesystem=ext3 modified=2010-03-22 12:17:18 mount.fstype=ext3 mount.options=rw,errors=remount-ro,data=ordered mounted=2010-03-22 12:17:18 state=mounted
+              *-volume:1
+                   description: Linux swap volume
+                   physical id: 2
+                   bus info: scsi@0:0.0.0,2
+                   logical name: /dev/sda2
+                   version: 1
+                   serial: cc1a7759-e946-4604-8dd5-a35b54f40663
+                   size: 2047MiB
+                   capacity: 2047MiB
+                   capabilities: primary nofs swap initialized
+                   configuration: filesystem=swap pagesize=4096
+              *-volume:2
+                   description: EXT3 volume
+                   vendor: Linux
+                   physical id: 3
+                   bus info: scsi@0:0.0.0,3
+                   logical name: /dev/sda3
+                   logical name: /local
+                   version: 1.0
+                   serial: a4b3ad08-a9ae-46f9-aac6-75004b880728
+                   size: 215GiB
+                   capacity: 215GiB
+                   capabilities: primary journaled extended_attributes large_files huge_files recover ext3 ext2 initialized
+                   configuration: created=2010-03-22 12:13:19 filesystem=ext3 modified=2010-03-22 12:17:19 mount.fstype=ext3 mount.options=rw,errors=continue,data=ordered mounted=2010-03-22 12:17:19 state=mounted
+        *-serial
+             description: SMBus
+             product: 82801JI (ICH10 Family) SMBus Controller
+             vendor: Intel Corporation
+             physical id: 1f.3
+             bus info: pci@0000:00:1f.3
+             version: 00
+             width: 64 bits
+             clock: 33MHz
+             configuration: driver=i801_smbus latency=0 module=i2c_i801
+     *-pci:1
+          description: Host bridge
+          product: Intel Corporation
+          vendor: Intel Corporation
+          physical id: 101
+          bus info: pci@0000:00:0e.0
+          version: 13
+          width: 32 bits
+          clock: 33MHz
+     *-pci:2
+          description: Host bridge
+          product: Intel Corporation
+          vendor: Intel Corporation
+          physical id: 102
+          bus info: pci@0000:00:0e.1
+          version: 13
+          width: 32 bits
+          clock: 33MHz
+     *-pci:3
+          description: Host bridge
+          product: Intel Corporation
+          vendor: Intel Corporation
+          physical id: 103
+          bus info: pci@0000:00:0e.2
+          version: 13
+          width: 32 bits
+          clock: 33MHz
+             total       used       free     shared    buffers     cached
+Mem:      24741264   22307296    2433968          0     263092    6884260
+-/+ buffers/cache:   15159944    9581320
+Swap:      2096472          4    2096468
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 26
+model name	: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz
+stepping	: 4
+cpu MHz		: 2666.759
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good pni monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr dca sse4_1 sse4_2 popcnt lahf_lm ida
+bogomips	: 5337.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 26
+model name	: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz
+stepping	: 4
+cpu MHz		: 2666.759
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good pni monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr dca sse4_1 sse4_2 popcnt lahf_lm ida
+bogomips	: 5333.35
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 26
+model name	: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz
+stepping	: 4
+cpu MHz		: 2666.759
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good pni monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr dca sse4_1 sse4_2 popcnt lahf_lm ida
+bogomips	: 5333.34
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 26
+model name	: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz
+stepping	: 4
+cpu MHz		: 2666.759
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 4
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good pni monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr dca sse4_1 sse4_2 popcnt lahf_lm ida
+bogomips	: 5333.33
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 26
+model name	: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz
+stepping	: 4
+cpu MHz		: 2666.759
+cache size	: 8192 KB
+physical id	: 1
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 16
+initial apicid	: 16
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good pni monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr dca sse4_1 sse4_2 popcnt lahf_lm ida
+bogomips	: 5333.38
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 26
+model name	: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz
+stepping	: 4
+cpu MHz		: 2666.759
+cache size	: 8192 KB
+physical id	: 1
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 18
+initial apicid	: 18
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good pni monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr dca sse4_1 sse4_2 popcnt lahf_lm ida
+bogomips	: 5333.40
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 26
+model name	: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz
+stepping	: 4
+cpu MHz		: 2666.759
+cache size	: 8192 KB
+physical id	: 1
+siblings	: 4
+core id		: 2
+cpu cores	: 4
+apicid		: 20
+initial apicid	: 20
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good pni monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr dca sse4_1 sse4_2 popcnt lahf_lm ida
+bogomips	: 5333.37
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 26
+model name	: Intel(R) Xeon(R) CPU           X5560  @ 2.80GHz
+stepping	: 4
+cpu MHz		: 2666.759
+cache size	: 8192 KB
+physical id	: 1
+siblings	: 4
+core id		: 3
+cpu cores	: 4
+apicid		: 22
+initial apicid	: 22
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 11
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good pni monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr dca sse4_1 sse4_2 popcnt lahf_lm ida
+bogomips	: 5333.37
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+/dev/sda1 on / type ext3 (rw,errors=remount-ro)
+tmpfs on /lib/init/rw type tmpfs (rw,nosuid,mode=0755)
+proc on /proc type proc (rw,noexec,nosuid,nodev)
+sysfs on /sys type sysfs (rw,noexec,nosuid,nodev)
+procbususb on /proc/bus/usb type usbfs (rw)
+udev on /dev type tmpfs (rw,mode=0755)
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
+devpts on /dev/pts type devpts (rw,noexec,nosuid,gid=5,mode=620)
+/dev/sda3 on /local type ext3 (rw)
+fs.alonso.inf.ethz.ch:/export/groups/alonso/h1/home/nicosc on /home/nicosc type nfs (rw,noatime,addr=129.132.19.26)
+Dateisystem          Größe Benut  Verf Ben% Eingehängt auf
+/dev/sda1              15G  5.0G  9.1G  36% /
+tmpfs                  12G  4.0K   12G   1% /lib/init/rw
+udev                   10M  784K  9.3M   8% /dev
+tmpfs                  12G  4.0K   12G   1% /dev/shm
+/dev/sda3             213G  5.2G  208G   3% /local
+fs.alonso.inf.ethz.ch:/export/groups/alonso/h1/home/nicosc
+                      996G  546G  450G  55% /home/nicosc
