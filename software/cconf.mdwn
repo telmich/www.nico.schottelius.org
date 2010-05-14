@@ -11,8 +11,8 @@ cconf aims to be a very lightweight and easy to use build assistant
 
 ### releases
 
-* cconf-0.0.2: [[cconf-0.0.2.tar.lzma] [[cconf-0.0.2.tar.bz2]]] [[cconf-0.0.2.tar.gz]]
-* cconf-0.0.1: [[cconf-0.0.1.tar.lzma] [[cconf-0.0.1.tar.bz2]]] [[cconf-0.0.1.tar.gz]]
+* cconf-0.0.2: [[cconf-0.0.2.tar.lzma]] [[cconf-0.0.2.tar.bz2]] [[cconf-0.0.2.tar.gz]]
+* cconf-0.0.1: [[cconf-0.0.1.tar.lzma]] [[cconf-0.0.1.tar.bz2]] [[cconf-0.0.1.tar.gz]]
 
 ## support
 
