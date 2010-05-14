@@ -11,7 +11,7 @@ This site was originally know as **tech.schottelius.org**.
 
 ### suppe.schottelius.org
 
-First, in 1998, there was `suppe.schottelius.org`. It was my first
+First, in 1998, there was **suppe.schottelius.org**. It was my first
 webserver, dns-server and mail-server. I recieved it as a gift
 from a kindergarten, because it was too slow for them.
 The name is derived from the German phrase "suppelte herum",
@@ -32,10 +32,10 @@ You actually should have seen it, it consisted of the following hardware:
 
 ### bruehe.schottelius.org
 
-Later, in 2003, `suppe` was replaced by `bruehe`. One day, broth ran
-into the `bruehe`, and `bruehe` is the German word for broth.
+Later, in 2003, **suppe** was replaced by **bruehe**. One day, broth ran
+into the **bruehe**, and **bruehe** is the German word for broth.
 
-The first version of `bruehe` had the following technical features:
+The first version of **bruehe** had the following technical features:
 
     Chassis:          Midi-Tower
     Processor:        Pentium3 550Mhz
@@ -52,7 +52,7 @@ The first version of `bruehe` had the following technical features:
 Later the one scsi and one ide drive was removed due to problems
 with the power supply. And an additional NIC was put into.
 
-At the time `bruehe` was replaced by `creme` (see below) it became
+At the time **bruehe** was replaced by **creme** (see below) it became
 the firewall for the lan at home.
 
  * Productive use: 2003 - 2006
@@ -63,7 +63,7 @@ Bruehe is actually still in use, but only as a table below my desk.
 
 Because a customer of me broke a contract, I had to keep
 a very nice dual Xeon server back. This one became 
-`creme.schottelius.org`. The name comes from "creme de la creme"
+**creme.schottelius.org**. The name comes from "creme de la creme"
 which means "one of the best".
 
     Chassis:       2U
@@ -118,8 +118,8 @@ Quite a nice machine, bought with the first money I made.
 
 ### scice.intern.schottelius.org
 
-After `flapp` died in 2003 (because tea ran into it), I bought
-`scice`. `Scice` is combined of "scientific" and "silence".
+After **flapp** died in 2003 (because tea ran into it), I bought
+**scice**. **Scice** is combined of "scientific" and "silence".
 
 Scice has a Transmeta TM5400 processor and no active cooling. It
 was produced by ECS under the name of "A530".
@@ -137,32 +137,45 @@ was produced by ECS under the name of "A530".
 
 Unknown time. Was an IBook G3.
 
+    Processor:    Power PC
+
 ### hydrogenium.intern.schottelius.org
 
-When the accu of `scice` ended its livetime about one year after
+When the accu of **scice** ended its livetime about one year after
 I bought it, I decided to buy a used Compaq Evo N400C.
 
     Processor:    Pentium III (Coppermine) 850 Mhz
     Display:      12" TFT
 
- * Productive use: 2005 - 2008?
+ * Productive use: 2005 - 2008
 
 ### wasserstoff.intern.schottelius.org
 
-To be more precise, when I bought `hydrogenium`, I also bought
-`wasserstoff`, which is also a used Compaq Evo N400C. `Wasserstoff`
-is simply there to spend parts, when `hydrogenium` needs to have
+To be more precise, when I bought **hydrogenium**, I also bought
+**wasserstoff**, which is also a used Compaq Evo N400C. **Wasserstoff**
+is simply there to spend parts, when **hydrogenium** needs to have
 them replaced.
 
 
 ### ast.intern.schottelius.org
 
 Pentium 1 notebook. Never really used it productively,
-was thought to be a terminal.
+was thought to be a terminal. It also had the alias "alzheimer"
+as the main and the bios battery were both broken.
+
+    Processor: Pentium 1, 75 Mhz
+    HD: 30 GB (yes, not originally and Bios sees only 8 GB ;-)
+    Vendor: AST
 
 ### denkbrett.intern.schottelius.org
 
-A IBM T60.
+An IBM T60.
+
+    Processor: ?
+    HD:                 80 GB
+    Wireless-lan:       Intel(R) PRO/Wireless 3945ABG
+
+ * Productive use: 2007 - 2008
 
 ### ikn.intern.schottelius.org
 
@@ -173,12 +186,16 @@ main use in ETH Zürich, "Informatikkoordinator Nico".
 
 ### kobold.intern.schottelius.org
 
-A IBM X31.
+An IBM X31 running as wireless access point, router,
+firewall, fileserver (three usb harddrives connected,
+running raid5 under the crypt layer) and video player.
 
-    Processor: Intel(R) Pentium(R) M processor 1600MHz
-    RAM: 1 GiB
-    HD: 40 GB
-    Graphics card: ATI Radeon Mobility M6 LY (AGP)
+    Processor:       Intel(R) Pentium(R) M processor 1600MHz
+    RAM:             1 GiB
+    HD:              40 GB
+    Graphics card:   ATI Radeon Mobility M6 LY (AGP)
+    Wireless-lan:    Atheros AR5212 802.11abg
+    Ethernet:        Intel Corporation 82540EP Gigabit Ethernet Controller (Mobile)
 
  * Productive use: 2009 - now
 
@@ -186,6 +203,14 @@ A IBM X31.
 
 A Lenovo Thinkpad X201. The name is an abreviation for
 "klapprechner", the German translation for "notebook".
+
+    Processor:       Dual Core Intel(R) Core(TM) i5 CPU M 520  @ 2.40GHz (4 threads)
+    RAM:             4 GiB
+    HD:              500 GB SATA
+    Graphics card:   Intel Corporation Core Processor Integrated Graphics Controller
+    Wireless-lan:    Intel Corporation WiFi Link 6000 Series
+    Ethernet:        Intel Corporation 82577LM Gigabit Network
+    Display:         12", LED backlight
 
  * Productive use: 2010 - now
 
@@ -208,18 +233,22 @@ I do not even remember the naem I gave that box.
     Graphics card: ATI with 2 MiB
     CD-ROM: Single speed SCSI with caddy running at triple speed
 
+
+    * Productive use: ???? - ~2000
+
 ### eiche.intern.schottelius.org
 
 Then my father gave me his old computer for present, which was
-named `eiche` (oak in English), because it has a big-tower case.
+named **eiche** (oak in English), because it has a big-tower case.
 
     Processor:       Intel Pentium IV (mostly running at 80 C)
 
+
 ### buche.intern.schottelius.org
 
-`buche` replaced `eiche` on 2006-06-10, because the mainboard
-of `eiche` had some problems with the Promise ide controller.
-`buche` should now be the file and backup server for the persons
+**buche** replaced **eiche** on 2006-06-10, because the mainboard
+of **eiche** had some problems with the Promise ide controller.
+**buche** should now be the file and backup server for the persons
 living in our home.
 
     Processor:     AMD Athlon(tm) Processor, 800Mhz
@@ -229,6 +258,8 @@ living in our home.
     IDE:           2x onboard, 4x on Promise PDC20270 (TX4)
     Other:         4x USB2.0, 4xUSB1.1
 
+    * Productive use: at least in 2007
+
 ### dosinux.intern.schottelius.org
 
 Midi tower used for gaming. Name is a combination of "dos on unix",
@@ -236,7 +267,19 @@ because I used dosbox to run old games on it.
 
 ### grauerstar
 
-HP J6000, HPPA. Running Debian and Gentoo.
+Nice workstations from HP, a J6000 featured with
+a HPPA processsor. I was running it with both Debian and Gentoo.
+
+    Processor:    Dual PA8600 (PCX-W+), 552 Mhz
+    HD:           18 GiB SCSI
+
+ * Used: ~2006 - ~2008 (unclear)
+ * No real productive use, just played around with it.
+
+### grauerklon
+
+Same machine as grauerstar. Just bought two of them, you never
+know how many HPPAs you need, don't you?
 
 ## Embedded
 
