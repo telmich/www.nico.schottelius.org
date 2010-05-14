@@ -1,0 +1,7 @@
+[[!meta title="Migrated tech.schottelius.org"]]
+
+The small and mostly static site
+**tech.schottelius.org** has been merged into
+this site at [[about/computers]].
+
+[[!tag schottelius net]]
