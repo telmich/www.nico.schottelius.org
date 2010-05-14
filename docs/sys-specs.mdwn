@@ -1,0 +1,8 @@
+[[!meta title="System specifications"]]
+
+Tech specs of systems I had in my hands.
+
+[[!inline pages="sys-specs/*" archive="yes" show=0]]
+
+
+[[!tag net]]

@@ -14,7 +14,7 @@ That's what you get with that "little box":
  * iDrac6
 
 For detailled information, have a look at
-[[the get-sysinfo output|get-sysinfo.sh.sgs-r815-01.log]].
+[[the get-sysinfo output|docs/sys-specs/get-sysinfo.sh.dell-r815.log]].
 
 ## Remote access / iDrac6
 
