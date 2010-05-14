@@ -19,3 +19,5 @@ cconf aims to be a very lightweight and easy to use build assistant
 ### IRC
 
 You can join #cLinux on irc.freenode.org.
+
+[[!tag unix]]
