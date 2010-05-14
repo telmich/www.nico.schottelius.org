@@ -273,9 +273,10 @@ living in our home.
 ### dosinux.intern.schottelius.org
 
 Midi tower used for gaming. Name is a combination of "dos on unix",
-because I used dosbox to run old games on it.
+because I used dosbox to run old games on it. The case was
+bought from Dicks Computer Dienst, with a blue handle.
 
-### grauerstar
+### grauerstar.intern.schottelius.org
 
 Nice workstations from HP, a
 [[HP J6000|hpJ6000datasheet.pdf]] featured with
@@ -287,7 +288,7 @@ a HPPA processsor. I was running it with both Debian and Gentoo.
  * Used: ~2006 - ~2008 (unclear)
  * No real productive use, just played around with it.
 
-### grauerklon
+### grauerklon.intern.schottelius.org
 
 Same machine as grauerstar. Just bought two of them, you never
 know how many HPPAs you need, don't you?

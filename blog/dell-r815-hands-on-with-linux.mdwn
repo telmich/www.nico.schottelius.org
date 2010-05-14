@@ -1,0 +1,57 @@
+[[!meta title="Linux on the Dell R815"]]
+
+In my office resides a
+[Dell R815 testmachine](http://www.dell.com/downloads/global/products/pedge/en/poweredge-r815-spec-sheet-en.pdf), which would like to get infected with Linux and get tested.
+
+## Dell R815?
+
+That's what you get with that "little box":
+
+ * 2U 19" rack chassis
+ * 4x 12 Cores (AMD Opteron(tm) Processor 6174) ("Magny Cours")
+ * 64 GiB memory (DDR3, 1333 Mhz)
+ * 5x 136 GiB HD
+ * iDrac6
+
+For detailled information, have a look at
+[[the get-sysinfo output|get-sysinfo.sh.sgs-r815-01.log]].
+
+## Remote access / iDrac6
+
+ * Works with conkeror + javaws from Sun Java 6 (archlinux)
+ * Works with Mozilla 3.5.9 + Sun Java 6 (windows)
+ * Even german menua (locale read?)
+ * keyboard doeees not work... select menue sometimes fixes it
+ * Video refresh is very slow (only parts of **ps aux** can be seen)
+ * Has shortcuts in the menu for **alt-fx** and **ctrl-alt-fx***
+  * Somebody at Dell or at Avocent (as seen in About iDRAC 6 about) seems to
+    have noticed that Linux is available
+ * General the KVM website is slow (about 3 seconds to load subpage)
+ * Boot device can be forced (without going to the BIOS)
+ * Has syslog support
+  * No logs when enabling
+  * Tried to trigger via cold boot of the system (no success)
+  * Seems to work only with the ip address
+  * IP address is submitted as the hostname (instead of sgs-r815-ra01)
+ * Need to select "Use DHCP to obtain DNS server addresses" manually
+
+## Debian Lenny
+
+See only 32 cores, kernel is compiled with this limit. As Debian
+Lennys Linux kernel (2.6.26) does not support the raid controller
+found in the system, it's not possible to install it currently.
+
+## Ubuntu 10.04
+
+Ubuntu 10.04 installs fine on the machine. As another friendly sysadmin
+has already prepared an automated network installation of Ubuntu
+(thanks Steven!), I could easily get the machine up and running.
+
+## Future
+
+The machine is now up and running with Ubuntu 10.04 and configured with
+puppet. It's now open for the
+[Systems Group people](http://www.systems.ethz.ch/) for use. Have fun!
+
+
+[[!tag eth unix]]
