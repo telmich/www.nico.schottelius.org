@@ -1,0 +1,25 @@
+cconf is a  small and smart build assistant.
+cconf aims to be a very lightweight and easy to use build assistant
+(like auto*, but with fun).
+
+## how to get it?
+
+### git
+
+ * git-clone http://unix.schottelius.org/git/cLinux/cconf
+ * [gitweb](http://git.schottelius.org/?p=cLinux/cconf;a=summary)
+
+### releases
+
+* cconf-0.0.2: [[cconf-0.0.2.tar.lzma] [[cconf-0.0.2.tar.bz2]]] [[cconf-0.0.2.tar.gz]]
+* cconf-0.0.1: [[cconf-0.0.1.tar.lzma] [[cconf-0.0.1.tar.bz2]]] [[cconf-0.0.1.tar.gz]]
+
+## support
+
+### IRC
+You can join #cLinux on irc.freenode.org.</P>
+
+### mailing list
+The mailing list can be found at
+
+[http://l.schottelius.org/mailman/listinfo/cconf](http://l.schottelius.org/mailman/listinfo/cconf)
