@@ -164,6 +164,7 @@ was thought to be a terminal. It also had the alias "alzheimer"
 as the main and the bios battery were both broken.
 
     Processor: Pentium 1, 75 Mhz
+    RAM: ?
     HD: 30 GB (yes, not originally and Bios sees only 8 GB ;-)
     Vendor: AST
 
@@ -171,7 +172,8 @@ as the main and the bios battery were both broken.
 
 An IBM T60.
 
-    Processor: ?
+    Processor:          Dual Core ..?
+    RAM:                3 GiB
     HD:                 80 GB
     Wireless-lan:       Intel(R) PRO/Wireless 3945ABG
 
@@ -181,6 +183,14 @@ An IBM T60.
 
 A Lenovo Thinkpad X200. The name is derived from its
 main use in ETH Zürich, "Informatikkoordinator Nico".
+
+    Processor:       Dual Core Intel(R) Core(TM)2 Duo CPU     P8400  @ 2.26GHz
+    RAM:             4 GiB
+    HD:              250 GB SATA
+    Graphics card:   Intel Corporation Mobile 4 Series Chipset Integrated Graphics Controller
+    Wireless-lan:    Intel Corporation Wireless WiFi Link 5300
+    Ethernet:        Intel Corporation 82567LM Gigabit
+    Display:         12"
 
  * Productive use: 2008 - now
 
