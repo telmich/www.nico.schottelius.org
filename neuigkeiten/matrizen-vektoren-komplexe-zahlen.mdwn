@@ -1,0 +1,66 @@
+[[!meta title="Matrizen, Vektoren und komplexe Zahlen"]]
+
+Liebe Lehrer, Professoren, Mathematiker,
+
+während meines Studiums an der [HSZ-T](http://www.hsz-t.ch) ist mir
+beim Neu-Lernen der komplexen Zahlen und Wiederholen der Matrizen
+eine Sache aufgefallen:
+
+    Komplexe Zahlen sind "anders" geschriebene Vektoren und Matrizen sind nur ein Haufen Vektoren.
+
+## Vektoren
+
+Vektoren sind meines Erachtens nach die Basis der drei Themen und lassen
+sich ganz einfach beschreiben:
+
+    Vektoren sind eigentlich nur Pfeile im Raum.
+
+Das ist es schon. Alles andere lässt sich durch Nachdenken herausfinden
+(Senkrecht stehen, Ebenen Bilden, ...).
+
+## Komplexe Zahlen
+
+Komplex - und schon erscheint der Angstschweiß auf der Stirn des Studenten - Zahlen,
+ein meines Erachtenes nach viel zu weit nach hinten verlegtes Thema in der
+Mathematik. **Komplex**, ein dazu noch besonders schönes Wort um Menschen
+abzuschrecken, bedeutet es doch nach [Wiktionary](http://de.wiktionary.org/wiki/komplex)
+
+    verflochten, zusammenhängend, umfassend, vielschichtig
+
+Welcher Mensch hat nicht zunächst Berührungsängste mit einem
+vielschichtigem Thema von dem er nichts weiß?
+
+Wäre es nicht viel einfacher, liebe Leser, einfach zu schreiben:
+
+    Eine komplexe Zahl ist ein Vektor ausgedrückt in Länge (Betrag) und Winkel.
+
+Damit wäre dann auch der "Hokuspokus" geklärt, **weshalb ein Quadrat -1** ergeben kann:
+
+    Da i einem Winkel von 90° entspricht (Punkt 0/1), ist i^2 180° und damit (-1/0).
+
+## Matrizen
+
+Matrizen sind im Prinzip nur Tabellen mit n-Dimensionalen Vektoren.
+
+    Eine Matrix ist eine Ansammlung von Vektoren.
+
+Je nach Interpretation oder Drehung handelt es sich dann um Spalten- oder
+Zeilenvektoren. Aber ansonsten sind auch Matrizen außer dem "mehr an Freude"
+nichts anderes als Vektoren.
+
+## Weniger Zauber, mehr Spaß
+
+Um zum Ursprungstheme zurückzukehren: Liebe Lehrkräfte, egal ob Grundschule
+oder Hochschule oder dazwischen:
+
+    Weshalb räumt ihr nicht auf mit dem ganzen Durcheinander?
+
+Und bereitet uns Lernenden mehr Spaß an der Mathematik und lasst aus Vektoren
+sowohl Matrizen als auch komplexe Zahlen wachsen?
+
+    Die Verbindung zu etwas Bekanntem macht bekanntlich (!) das Lernen einfacher.
+
+Wären die Wege im Gehirn bereits frühzeitig mit Vektoren geprägt und
+sowohl Matrizen und komplexe Zahlen nicht neue Hochstraßen sondern
+Abzweigungen von Vektoren, würden wir sie sicher sicherer begehen.
+schon vorhanden
