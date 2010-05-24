@@ -35,7 +35,7 @@ I recommened using PGP to encrypt any mail. The fingerprint of my
 
     BFE4 C736 ABE5 406F 8F42  F7CF B8BE F92A 9885 188C
 
-(the [[previous one|pgp-key-9217A3DF.txt]] was BFE4 C736 ABE5 406F 8F42  F7CF B8BE F92A 9885 188C).
+(the [[previous one|pgp-key-9217A3DF.txt]] was 9692 C77B 91A2 CB72 5ED7  B1CD 666C 8924 9217 A3DF).
 
 
 ## Donations
