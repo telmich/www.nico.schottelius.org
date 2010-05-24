@@ -13,10 +13,10 @@ eine Sache aufgefallen:
 Vektoren sind meines Erachtens nach die Basis der drei Themen und lassen
 sich ganz einfach beschreiben:
 
-    Vektoren sind eigentlich nur Pfeile im Raum.
+    Vektoren sind Pfeile im Raum.
 
 Das ist es schon. Alles andere lässt sich durch Nachdenken herausfinden
-(Senkrecht stehen, Ebenen Bilden, ...).
+(Senkrecht stehen, Ebenen bilden, Räume konstruieren, ...).
 
 ## Komplexe Zahlen
 
@@ -63,4 +63,3 @@ sowohl Matrizen als auch komplexe Zahlen wachsen?
 Wären die Wege im Gehirn bereits frühzeitig mit Vektoren geprägt und
 sowohl Matrizen und komplexe Zahlen nicht neue Hochstraßen sondern
 Abzweigungen von Vektoren, würden wir sie sicher sicherer begehen.
-schon vorhanden
