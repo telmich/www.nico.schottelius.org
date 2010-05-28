@@ -52,7 +52,7 @@ I get from others.
 
 In case you have an opinion regarding gpm2, think there's a need for it,
 or totally disagree with me (or anything in between),
-I would like you to drop me a mail to **nico-gpm2 () schottelius.org**
+I would like you to drop a mail to the [[gpm mailinglist|software/gpm]]
 and let me know what you think about gpm2.
 
 And if you like them very much, you're invited to port or rewrite
