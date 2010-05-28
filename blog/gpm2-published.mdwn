@@ -1,0 +1,59 @@
+[[!meta title="Published gpm2"]]
+
+After a very long time I decided to give a rewrite of [[software/gpm]]
+a try.
+
+## Motivation
+
+The
+[recent discussion on the mailing list](http://lists.linux.it/pipermail/gpm/2010-May/thread.html)
+reminded me of one thing, since I overtook gpm maintenance:
+
+ * There are a lot of problems with gpm
+
+Don't understand me wrong, gpm is a great software, knows how to handle
+a lot of mice and has many interesting programming techniques inside.
+
+To extend gpm or to debug it, is pretty hard, as the code is not easy
+to read nor to understand (though fun if you do).
+
+Some time ago I asked around in the world of BSDs, in the Linux kernel,
+what their preferred way would be to handle mice.
+
+As there have been almost no responses, it seems everybody does his
+own thing. I was also considering whether merging gpm into some
+"general input library" makes sense, but at the end of the day:
+I only care about mice.
+
+## Current situation
+
+So yesterday evening I began to hack a new version of gpm, [[software/gpm2]],
+which can show you some ps/2 mouse movements as of today.
+
+The concepts of gpm2 are quite different to those of gpm, especially that
+gpm2 itself **cannot**
+
+ * decode mice protocols
+ * draw a pointer
+
+Instead the idea of gpm2 is to have external programs do that and make
+gpm2d just an interface to access the various mice.
+
+The "special case" of drawing a pointer can be realised by writing a
+client that does only that particular job.
+
+## The future
+
+I am not sure whether to invest a lot of work into gpm2 or not.
+On the one hand I would be pretty happy to have a clean, portable
+mouse handling daemon on the other hand I am not sure whether there
+is really a need for it.
+
+In case you think there's a need for it, I would like you to drop me
+a mail to **nico-gpm2 () schottelius.org** and let me know what you
+think about the current design ideas.
+
+And if you like them very much, you're invited to port / rewrite
+mouse drivers for gpm2. ;-)
+
+[[!tag unix]]
