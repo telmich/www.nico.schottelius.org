@@ -17,8 +17,8 @@ a lot of mice and has many interesting programming techniques inside.
 To extend gpm or to debug it, is pretty hard, as the code is not easy
 to read nor to understand (though fun if you do).
 
-Some time ago I asked around in the world of BSDs, in the Linux kernel,
-what their preferred way would be to handle mice.
+Some time ago I asked around in the world of BSDs, in the Linux kernel
+and the xorg developers, what their preferred way would be to handle mice.
 
 As there have been almost no responses, it seems everybody does his
 own thing. I was also considering whether merging gpm into some
@@ -40,20 +40,22 @@ Instead the idea of gpm2 is to have external programs do that and make
 gpm2d just an interface to access the various mice.
 
 The "special case" of drawing a pointer can be realised by writing a
-client that does only that particular job.
+gpm2 client that does only that particular job.
 
 ## The future
 
 I am not sure whether to invest a lot of work into gpm2 or not.
 On the one hand I would be pretty happy to have a clean, portable
 mouse handling daemon on the other hand I am not sure whether there
-is really a need for it.
+is really a need for it. That said, it depends a lot on the feedback
+I get from others.
 
-In case you think there's a need for it, I would like you to drop me
-a mail to **nico-gpm2 () schottelius.org** and let me know what you
-think about the current design ideas.
+In case you have an opinion regarding gpm2, think there's a need for it,
+or totally disagree with me (or anything in between),
+I would like you to drop me a mail to **nico-gpm2 () schottelius.org**
+and let me know what you think about gpm2.
 
-And if you like them very much, you're invited to port / rewrite
-mouse drivers for gpm2. ;-)
+And if you like them very much, you're invited to port or rewrite
+mouse drivers for [[software/gpm2]]. ;-)
 
 [[!tag unix]]
