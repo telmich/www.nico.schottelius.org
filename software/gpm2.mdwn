@@ -13,9 +13,8 @@ The idea of gpm2 is to be a nicer hack:
 gpm2 is in its early design stage, but can so far display movement of a
 ps/2 compatible mouse.
 
-    git clone git://git.schottelius.org/gpm
-    cd gpm
-    git checkout -b gpm2 origin/gpm-2-hack
+    git clone git://git.schottelius.org/gpm2
+    cd gpm2
     ./gpm2hack.sh /dev/input/mice
     # move the mouse
     # press enter key to end demonstration
@@ -59,13 +58,56 @@ to take care of:
 If at some point gpm2d needs to pass protocol options to the protocol
 handler, they can be found in GPM2_PROTO_OPTS.
 
-## Client protocols
+## Support
+
+### IRC
+
+You can join #gpm on irc.freenode.org.
+
+
+## WARNING
+
+Everything below this line are just random thoughts.
+
+## Events
+
+Events are produced by the mice handlers and forwarded to gpm2d.
+
+### Format
+
+As gpm2 can be used independently of the programming language, no
+binary data is exchanged. An event always consists of one line
+(terminated with \n), which contains up to GPM2_LINE_MAX characters
+(including \n).
+
+
+## Client channel
 
 Clients for gpm2 do not need to be c programs, but can be of any kind.
 The communication is a simple ASCII stream.
 
-### Connect to gpm2d
+### Client connection to gpm2d
 
 Clients need to open /var/run/gpm2/gpm2d.sock to connect to gpm2d.
+
+### Event: mouse_event
+
+    mouseid ev-type ... (more to follow)
+
+### Event: mouse_added <file> <proto>
+### Event: mouse_removed <file> <proto>
+
+## Control channel
+
+The control channel can be used to change things in gpm2, whereas
+the client channel is read-only.
+
+### Control connection to gpm2d
+
+If you want to control gpm2d, you need to open /var/run/gpm2/gpm2d-control.sock.
+
+### Command: mouse_add <file> <proto>
+### Command: mouse_remove <file> <proto>
+
 
 [[!tag unix]]
