@@ -10,6 +10,7 @@
  *    - Made links better viewable
  *    - Smaller footer
  *
+ * css for dummies: # = id, . = class
  */
 
 .sidebar, .pagecloud {
@@ -112,12 +113,15 @@ pre {
    border: none;
    padding: 4px;
    color: #efefef;
-   font-family: sans-serif;
-   font-size: 60%;
 }
 
 .selflink { background: yellow; color: black }
-
 .actions ul { background: #640000; border: none; padding-bottom: 0px; font-family: sans-serif;}
 .actions a  { margin-right: 1ex; color: #dfdfdf; font-family: sans-serif;}
 #footer { border: none; font-family: sans-serif;}
+
+/* elements at the bottom should be a bit smaller */
+.pagefooter {
+   font-family: sans-serif;
+   font-size: 60%;
+}
