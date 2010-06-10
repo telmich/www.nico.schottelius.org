@@ -3,6 +3,19 @@
 ceofhack is the first implementation of ***EOF*** (Eris Onion Forwarding),
 the secure, peer-to-peer (p2), decentralised anonymous chat network.
 
+## How to test ceofhack?
+
+Simply run the following lines:
+
+    git clone git://git.schottelius.org/EOF/ceofhack
+    cd ceofhack
+    ./scripts/init_home.sh
+    ./ceofhack
+
+In a second terminal, start the ui:
+
+   cd ceofhack && ./ui-cmd/ui_cmd
+
 ## How to get ceofhack?
 
 ### Official releases
