@@ -12,7 +12,7 @@
  *
  */
 
-#sidebar, .pagecloud {
+.sidebar, .pagecloud {
    background: #800000;
    border: 2px solid #500000;
    font-size: 80%;
@@ -20,7 +20,7 @@
    color: #c0c0c0 !important;
 }
 
-#sidebar {
+.sidebar {
    width: 20ex;
    float: left;
    margin-top: 10px;
@@ -33,7 +33,7 @@
    margin-right: 0px;
 }
  
-#sidebar ul {
+.sidebar ul {
         list-style-type: none;
         padding-left: 1em;
 }
