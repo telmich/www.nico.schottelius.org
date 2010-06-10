@@ -12,14 +12,13 @@ Simply run the following lines:
     ./scripts/init_home.sh
     ./ceofhack
 
-In a second terminal, start the ui:
-
-   cd ceofhack && ./ui-cmd/ui_cmd
+In another terminal, start the ui, as found in **ui-cmd** subfolder.
 
 ## How to get ceofhack?
 
 ### Official releases
 
+ * [[ceofhack-0.6.tar.xz]] - [[EOF-0.6.pdf]] - Usable UI interface
  * [[ceofhack-0.5.tar.lzma]] - the first usable version
 
 ### Development
