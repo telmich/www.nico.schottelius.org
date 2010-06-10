@@ -1,7 +1,7 @@
 ## Introduction
 
 ceofhack is the first implementation of ***EOF*** (Eris Onion Forwarding),
-the secure, peer-to-peer (p2), decentralised anonymous chat network.
+the secure, peer-to-peer (p2p), decentralised anonymous chat network.
 
 ## How to test ceofhack?
 
