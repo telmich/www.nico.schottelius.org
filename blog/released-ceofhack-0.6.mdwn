@@ -1,0 +1,14 @@
+[[!meta title="Released ceofhack 0.6"]]
+
+A new version of [[ceofhack|software/ceofhack]] has been released,
+which includes a clean UI interface.
+
+It also includes a "sample UI", **ui-cmd*", which can be used
+on the command line for testing.
+
+In theory, all new commands can be handled asynchronously,
+the implementation is still synchronised though.
+
+Have fun with it and let me know, whether it works for you or not!
+
+[[!tag unix net]]
