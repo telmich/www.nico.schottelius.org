@@ -1,3 +1,5 @@
+[[!toc  levels=2]]
+
 To get into EOF through ceofhack, you should make sure you understand
 [[how to use|user]] ceofhack in general. Depeding on your skills and
 interests, you may either be interested in
