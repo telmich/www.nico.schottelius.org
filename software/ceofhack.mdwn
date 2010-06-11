@@ -3,67 +3,23 @@
 ceofhack is the first implementation of ***EOF*** (Eris Onion Forwarding),
 the secure, peer-to-peer (p2p), decentralised anonymous chat network.
 
-## How to test ceofhack?
-
-Simply run the following lines:
-
-    git clone git://git.schottelius.org/EOF/ceofhack
-    cd ceofhack
-    ./scripts/init_home.sh
-    ./ceofhack
-
-In another terminal, start the ui, as found in **ui-cmd** subfolder.
-
-## How to get ceofhack?
-
-### Official releases
-
- * [[ceofhack-0.6.tar.xz]] - [[EOF-0.6.pdf]] - Usable UI interface
- * [[ceofhack-0.5.tar.lzma]] - the first usable version
-
-### Development
-
-The latest development code can be found in git.
-You can view latest changes in
-[gitweb](http://git.schottelius.org/?p=EOF/ceofhack;a=summary)
-or clone the latest sources using 
-
-    git clone git://git.schottelius.org/EOF/ceofhack
-
-Git mirrors can be found at
-
- * [github](http://github.com/telmich/ceofhack/tree/master)
- * [gitorious](http://gitorious.org/ceofhack)
-
-There are (at least) these branches:
-
- * ***master***: latest "stable" code
- * ***hacking***: may not compile, but contains latest ideas
- * ***user_interface***: latest work regarding user interfaces
-
-To submit changes, simply follow the instructions
-on [how to setup a public git repo](http://book.git-scm.com/4_setting_up_a_public_repository.html).
-
-There are also some
-[CIA bot statistics](http://cia.vc/stats/project/EOF/ceofhack) available.
+ * [[user documentationy|user]]
 
 ## Support
-
-### Documentation
-
- * [[The first presentation (in German)|eof-die-erste-vorstellung]]
-
-### IRC
 
 There are two IRC (!) channels, in which development takes places:
 
  * [!eof](irc://IRCNet/!eof) - German
  * [#cLinux](irc://irc.freenode.org/#cLinux) - Multi language (German/English)
 
-You can also subscribe to the
+You can subscribe to the
 [!eof mailinglist](http://l.schottelius.org/mailman/listinfo/eof).
 
 You can also [[contact me directly|about]].
+
+## Other stuff
+
+ * [[The first presentation (in German)|eof-die-erste-vorstellung]]
 
 
 [[!tag unix]]

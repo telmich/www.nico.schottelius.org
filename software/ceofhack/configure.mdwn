@@ -1,0 +1,24 @@
+## Introduction
+
+ceofhack and all other EOF subsystems need a common place to find themselves
+and to function properly.
+
+## Initial configuration: the easy way
+
+Simply run the following line:
+
+    cd ceofhack && ./scripts/init_home.sh
+
+This will 
+
+ * create a the configuration directory **$HOME/.ceof**,
+ * create a new pgp key pair,
+ * add the tcp transport protool
+ * and enable the tcp transport protocol to listen to **0.0.0.0:4242**. 
+
+## Initial configuration: the expert way
+
+Read and understand **./scripts/init_home.sh** and consult
+the current EOF standard document.
+
+[[!tag unix]]

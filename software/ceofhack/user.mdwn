@@ -1,0 +1,64 @@
+[[!toc  levels=2]]
+
+## How to get ceofhack running?
+
+There are three simple steps to get ceofhack running:
+
+ * [[Get ceofhack|get]]
+ * [[Build ceofhack|build]]
+ * [[Configure ceofhack|configure]]
+
+## How to use ceofhack?
+
+ceofhack is only the main part of an EOF implementation.
+ceofhack itself is **not** a user interface (**ui**).
+There is, however, a sample command line user interface
+included, called **ui_cmd**. Thus, to make real use of
+ceofhack, you need to
+
+ * start ceofhack
+ * and start a user interface
+
+The following sections explain the ui_cmd user interface,
+but the principles are the same for other user interfaces.
+All the following examples assume that ceofhack is already
+running.
+
+## How to chat with ceofhack?
+
+As EOF is a p2p chat network, there's no central server. Thus, you need
+to specify where your chat partner ("peer" in EOF speak) can be found.
+In ui_cmd you do that with **ui_cmd_peer_add**:
+
+    ./ui_cmd_peer_add telmich tcp:127.0.0.1:4242 A310FB220BA776083559C8276A8817C51B70A5DF
+
+Where
+
+ * **telmich** is the nickname I gave that peer
+ * **tcp:127.0.0.1:4242** is the initial address of that peer
+ * **A310FB220BA776083559C8276A8817C51B70A5DF** is the pgp fingerprint
+
+### Getting the fingerprints
+
+You can retrieve all fingerprints known to EOF in a copy & past compatible
+format, if you run this command:
+
+    gpg --homedir $HOME/.ceof/gpg --fingerprint | sed 's/ //g'
+
+### Getting keys
+
+As the current protocol does not define a key exchange, you need
+to manually import pgp keys of other peers. You can do that by dowloading
+the public key of the peer to **peer.key** and then running
+
+    gpg --homedir $HOME/.ceof/gpg --import peer.key
+
+
+### Exporting your key
+
+To allow others to chat with you, you need to publish your public
+key somewhere. You can retrieve it the following way:
+
+    gpg --homedir $HOME/.ceof/gpg --export -a <yourkeyid> > mykey.key
+
+[[!tag unix]]
