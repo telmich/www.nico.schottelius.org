@@ -53,12 +53,29 @@ the public key of the peer to **peer.key** and then running
 
     gpg --homedir $HOME/.ceof/gpg --import peer.key
 
-
 ### Exporting your key
 
 To allow others to chat with you, you need to publish your public
 key somewhere. You can retrieve it the following way:
 
     gpg --homedir $HOME/.ceof/gpg --export -a <yourkeyid> > mykey.key
+
+### Sending a message
+
+After you successfully added the new peer, you can drop her a message
+by issuing
+
+    ./ui_cmd_peer_send telmich "What's up?"
+
+### Displaying messages
+
+ceofhack will always receive messages, independently of whether
+a user interface is connected or not. The user interface must
+take care of displaying them. The included ui support a generic
+listen command, which will display all incoming ui commands:
+
+    ./ui_cmd_listen
+
+And in addition, it will also show the messages received.
 
 [[!tag unix]]
