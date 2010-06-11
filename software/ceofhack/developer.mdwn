@@ -56,4 +56,9 @@ You can use the following code as a start:
     mkdir -p "$HOME/.ceof/tp/listen/${scheme}-${address}"
     echo "${scheme}${address}" > "$HOME/.ceof/tp/listen/${scheme}-${address}/url"
 
+### Submitting a transport protocol for inclusion into the mainline
+
+ * Create a branch ${scheme}-${implementation} on your side
+ * Submit a pull request (via ML, IRC, github, whatever)
+
 [[!tag unix]]
