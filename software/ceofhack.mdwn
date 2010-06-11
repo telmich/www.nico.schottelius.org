@@ -4,6 +4,7 @@ ceofhack is the first implementation of ***EOF*** (Eris Onion Forwarding),
 the secure, peer-to-peer (p2p), decentralised anonymous chat network.
 
  * [[user documentationy|user]]
+ * [[developer documentationy|developer]]
 
 ## Support
 
@@ -14,7 +15,6 @@ There are two IRC (!) channels, in which development takes places:
 
 You can subscribe to the
 [!eof mailinglist](http://l.schottelius.org/mailman/listinfo/eof).
-
 You can also [[contact me directly|about]].
 
 ## Other stuff
