@@ -1,0 +1,10 @@
+[[!meta title="Published puppet module for postgresql"]]
+
+Yet another clean and shiny puppet-module published by
+[/sans/](http://sans.ethz.ch) that can be used by you!
+
+This [postgresql puppet module](http://git.sans.ethz.ch/?p=puppet-modules/postgresql;a=summary)
+allows you to specify the version of postgresql and whether to enable or disable the
+service!
+
+[[!tag eth unix puppet]]
