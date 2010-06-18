@@ -1,0 +1,59 @@
+[[!meta title="Sysadmin bootstrap - the beginning"]]
+
+If you read this blog regulary, you probably know that
+I work as a [[sysadmin|tags/sysadmin]] at the
+[ETH Zürich](http://www.ethz.ch).
+
+I decided to think about all the services I provide and
+to document them very well, so that anybody else with
+some technical background could redo, what I did.
+
+## Motivation
+
+For most jobs I've had, it was always one aim to make myself
+redundant, because this proves that I did a good job.
+
+Secondly this gives me a good chance to review my infrastructure
+and verify that every services can be brought up again very
+fast and with a minimal amount of time spent from my side.
+
+## Step one: The console
+
+Probably the most important device in a sysadmins life is the
+own machine. All the cool tools I've found, scripted or
+documentation boundled together took me years of time.
+
+Sure, most of the stuff is also mirrored to my brain, but
+definitely not perfect, nor very easy to share with others.
+
+Thus if I had to restart my job as a sysadmin, the first steps
+I would take, are the following:
+
+ * Get a machine (if it's a notebook, desktop, mobile phone doesn't matter)
+ * Setup with an OS
+ * Copy existing data to my home folder
+ * Setup company specific details
+
+Now I would be ready to start working. But from my experiences, I would
+add two more things before beginning to work:
+
+ * Setting up regular backup
+ * Get a second, mostly identical machine
+
+I guess the reasons for having a backup is clear for every sysadmin reading
+this. The reason for the second device may not be clear for everybody:
+
+If my console dies (and hardware does that pretty often), I'm unable to
+work until I setup a new machine. Thus the first security to create in
+my job as a sysadmin, is to ensure **I** can work and resume working
+after a damage as soon as possible.
+
+## Upcoming posts
+
+This post is the start of a small series containing all the steps needed
+to the current infrastructure I maintain in the
+[Systems Group](http://www.systems.ethz.ch). Upcoming posts will be both
+tagged with **eth** and **sysadmin**.
+
+
+[[!tag eth sysadmin]]
