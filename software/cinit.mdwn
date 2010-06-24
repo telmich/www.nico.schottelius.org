@@ -25,7 +25,7 @@ on every Unix system.
 
 ### Why should I use cinit?
 
- * To significant speedup the startup process
+ * To significantly speedup the startup process
  * To use highest level of parallelisation at startup
  * To benefit from real dependencies (so called ***needs*** and ***wants***)
  * To easily create profiles that can be chosen at startup (even **before** init is started!)
