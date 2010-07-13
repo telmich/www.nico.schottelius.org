@@ -7,10 +7,10 @@ it's now time to find out
 
 ## Background
 
-When I start a new jobs somewhere, the biggest challenge in the beginning
-is to find out, what, where, when and how to do. In most companies this
+When I start a new job somewhere, the biggest challenge in the beginning
+is to find out, what to do, where, when and how. In most companies this
 becomes clear after a few days. In ETH, it's a bit different: There are
-many internal service  providers with very different focus. To find out
+many internal service  providers, each with very different focus. To find out
 which are the machines I have to take care of, where they are located
 and which services are running on them took me about a year.
 
@@ -64,7 +64,7 @@ to the right places.
 
 ### /sans/: Sysadmins home
 
-This is still a pretty youg project, but unique at ETH: It is a
+This is still a pretty young project, but unique at ETH: It is a
 regular sysadmin meeting and information exchange, without the formal
 stuff or the the borders of departements. You may find a lot of
 sysadmin related information directly on the website or find out more
@@ -80,13 +80,13 @@ to get in contact with them: In case the network is not working anymore,
 they are the right ones to ask for help.
 
 There's a "little" trap though: The ID combine a lot of "smaller"
-departements, of which one has to find the right one for the right problem.
+departements and one has to find the right one for the right problem.
 
 
 ## Step three: Not offering your own services
 
 While after some time a sysadmin will find out that a particular service
-is missing in the group, it is probably worth *not* to offer it yourself:
+is missing in the group, it is probably worth **not** to offer it yourself:
 Although one may get the impression that this particular service is not
 available at ETH, you may almost always be wrong:
 
