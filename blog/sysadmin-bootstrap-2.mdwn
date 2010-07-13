@@ -1,0 +1,102 @@
+[[!meta title="Sysadmin bootstrap - seek for information"]]
+
+After [[having setup the sysadmin console|sysadmin-bootstrap-1]],
+it's now time to find out
+
+    Where to start?
+
+## Background
+
+When I start a new jobs somewhere, the biggest challenge in the beginning
+is to find out, what, where, when and how to do. In most companies this
+becomes clear after a few days. In ETH, it's a bit different: There are
+many internal service  providers with very different focus. To find out
+which are the machines I have to take care of, where they are located
+and which services are running on them took me about a year.
+
+
+## Step one: My bosses and the local sysadmins
+
+The ones who hired me should best know, what needs to be done.
+After getting some basic information, the next
+information centre here in ETH is the ISG, the
+"IT Service Group", which takes care of general IT issues
+in the department. In my case this is the the
+[isginf](http://www.isg.inf.ethz.ch/).
+
+### Your local ISG
+
+So, what's about that ISG thingy? Why is it needed if I am hired
+as a sysadmin? Aren't we competing against each other? The simple
+answer is: **No.** While the ISG is also doing sysadmin related
+stuff, their focus is on a broader view than the one of a dedicated
+sysadmin. To quote from
+[their site](http://www.isg.inf.ethz.ch/AboutUs):
+
+    ...purchasing and repairing hardware....
+    ...operating various central services...
+    ...administration of several hundreds of workstations...
+    ...allow the users...to concentrate on their main tasks...
+
+So as a sysadmin, maintaining hundreds of server and cluster machines,
+focussing on the groups demands, the sysadmin is mostly working in
+a different area. On the other hand, a sysadmin can have the ISG
+maintain stuff in the group, which they can do good 
+and the sysadmin probably does not want to do (like Windows workstations).
+
+
+## Step two: Retrieve information from newly know sources
+
+After the initial contact with the local folks, I'm ready to
+dig into other sources I am know aware of. In this case:
+
+ * [The Systems Group wiki](https://wiki.systems.ethz.ch/)
+ * [The Sysadmin wiki](https://trac.systems.inf.ethz.ch/trac/systems/ns/)
+ * [/sans/: sysadmins home](http://sans.ethz.ch/)
+ * [Informatikdienste](https://www1.ethz.ch/id/services/a_z)
+
+### Systems Group in detail
+
+Most of the information related to the sysadmin job for the Systems
+Group can be found in the wiki. Though the wiki is probably always
+a little bit behind the reality, it is heavily used and gives pointers
+to the right places.
+
+### /sans/: Sysadmins home
+
+This is still a pretty youg project, but unique at ETH: It is a
+regular sysadmin meeting and information exchange, without the formal
+stuff or the the borders of departements. You may find a lot of
+sysadmin related information directly on the website or find out more
+in one of the meetings.
+
+### ID: Informatikdienste
+
+The ID are offering basic IT services for the whole ETH. Most of the
+network stuff and things like the [Blog service](http://blogs.ethz.ch/)
+is made by them. Although as a sysadmin you're mostly just using their
+services without interacting with the people behind them, it's a good thought
+to get in contact with them: In case the network is not working anymore,
+they are the right ones to ask for help.
+
+There's a "little" trap though: The ID combine a lot of "smaller"
+departements, of which one has to find the right one for the right problem.
+
+
+## Step three: Not offering your own services
+
+While after some time a sysadmin will find out that a particular service
+is missing in the group, it is probably worth *not* to offer it yourself:
+Although one may get the impression that this particular service is not
+available at ETH, you may almost always be wrong:
+
+    Almost every service is already being provided somewhere at ETH.
+
+## Step four: Offering your own services
+
+After one has tried out the various services, you may still be unsatisfied:
+Either because the service is not being offered they way you require or it
+takes you a lot of time and energy to use it. While it may be worth and useful
+to run your own service, always triple check step three!
+
+[[!tag eth sysadmin]]
