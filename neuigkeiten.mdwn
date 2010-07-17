@@ -3,4 +3,4 @@
 An [[alten Neuigkeiten|neuigkeiten-archiv]] interessiert?
 Sie sind im [[Archiv der Neuigkeiten|neuigkeiten-archiv]] zu finden.
 
-[[!inline pages="neuigkeiten/*" show="10" rootpage="neuigkeiten"]]
+[[!inline pages="neuigkeiten/* and !neuigkeiten/*/*" show="10" rootpage="neuigkeiten"]]

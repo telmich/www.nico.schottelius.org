@@ -1,5 +1,5 @@
 [[!meta title="Blog archive"]]
 
-[[!inline pages="blog/*" archive="yes" show=0 quick=no]]
+[[!inline pages="blog/* and !blog/*/*" archive="yes" show=0 quick=no]]
 
 [[!tag net]]

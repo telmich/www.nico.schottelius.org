@@ -3,7 +3,7 @@
 Looking for [[old news|blog-archive]]? Jump directly to the
 [[news archive|blog-archive]]!
 
-[[!inline pages="blog/*" archive="no" show=10]]
+[[!inline pages="blog/* and !blog/*/*" archive="no" show=10]]
 
 
 [[!tag net]]
