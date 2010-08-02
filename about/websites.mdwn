@@ -18,4 +18,9 @@ and cloned via
 
     git clone git://git.schottelius.org/netzseiten/www.nico.schottelius.org
 
+## Old websites
+
+Websites (partially) migrated or stopped running can now be found on
+[archive.schottelius.org](archive.schottelius.org).
+
 [[!tag git schottelius]]
