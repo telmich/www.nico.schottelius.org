@@ -1,0 +1,11 @@
+[[!meta title="Started Archive.Schottelius.Org"]]
+
+After a long time running websites, I decided to take some websites
+of mine down and to migrate the interesting parts into this website.
+
+The unmodified versions have now a place to rest until I stop
+running websites: [archive.schottelius.org](http://archive.schottelius.org)
+(and also the German version [archiv.schottelius.org](http://archiv.schottelius.org))
+is the new home for my old websites.
+
+[[!tag net]]
