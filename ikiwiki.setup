@@ -15,7 +15,7 @@ use IkiWiki::Setup::Standard {
 	# users who are banned from the wiki
 	banned_users => [],
 	# where the source of the wiki is located
-	srcdir => '/home/nico/www-src/www.nico.schottelius.org',
+	srcdir => '/home/nico/netzseiten/www.nico.schottelius.org-ikiwiki',
 	# where to build the wiki
 	destdir => '/home/services/www/nico/www.nico.schottelius.org/www',
 	# base url to the wiki
