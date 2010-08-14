@@ -1,0 +1,55 @@
+[[!meta title="Setting static nameserver and search path with dhcpcd"]]
+
+If you're changing networks a lot, but want to keep a some static
+settings, this is **one** way to do it.
+
+## Motivation
+
+As most wireless networks are featured with unreliable and slow connections,
+I'm running my own (caching only) dns server on my notebook, to keep the
+answers in my local cache. Thus I always want to have
+
+    nameserver 127.0.0.1
+
+as the first entry in my ***resolv.conf***.
+
+Additionally, I always want to have **schottelius.org** and **ethz.ch**
+in my search path, resulting in
+
+    search schottelius.org ethz.ch
+
+Thus I am always able to type only the hostname, independent of my location.
+
+## Implementation
+
+I am currently using [dhcpcd](http://roy.marples.name/projects/dhcpcd/),
+which is shipped with [archlinux](http://www.archlinux.org/) by default.
+
+The package contains **/usr/lib/dhcpcd/dhcpcd-hooks/20-resolv.conf**,
+which takes ***/etc/resolv.conf.head*** and ***/etc/resolv.conf.tail***
+into account.
+
+According to **resolv.conf(5)**, if multiple nameservers are specified,
+they will be asked in the order listed, so 
+
+    echo nameserver 127.0.0.1 > /etc/resolv.conf.head
+
+ensures that my local nameserver is asked firstly. As the **domain** and
+**search** field override each other, the last entry wins:
+
+    echo search schottelius.org ethz.ch > /etc/resolv.conf.tail
+
+## Further information
+
+The same can easily be done with other modular dhcp-clients, like udhcpc
+(part of [busybox](http://www.busybox.net/)).
+
+The behaviour of your resolver library may be different, be sure to
+check your local system documentation.
+
+There are a lot of small caching nameservers available. I have good
+experiences with [dnscache](http://cr.yp.to/djbdns/dnscache.html),
+[dnsmasq](http://www.thekelleys.org.uk/dnsmasq/) and
+[unbound](http://www.unbound.net/).
+
+[[!tag net sysadmin unix]]
