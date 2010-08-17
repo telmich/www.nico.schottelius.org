@@ -1,0 +1,11 @@
+[[!meta title="Next /sans/ meeting with puppet as main topic"]]
+
+Back from the holidays,
+[the sysadmins are meeting](http://sans.ethz.ch/meetings/2010-08-25/)
+in the ETH to discuss [Puppet](http://www.puppetlabs.com/) on
+
+    Wednesday, 2010-08-25, 15:00, CAB/E/79 (meeting point)
+
+If you're interested, feel free to join us!
+
+[[!tag eth sysadmin]]
