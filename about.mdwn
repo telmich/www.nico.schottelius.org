@@ -60,4 +60,9 @@ or directly by transfering money to my account with the IBAN
 
 ([Postfinance, Switzerland](http://www.postfinance.ch/)).
 
+## Public SSH key
+
+You would like to give me access to your system?
+Use [this public key|id_rsa.pub].
+
 [[!tag schottelius]]
