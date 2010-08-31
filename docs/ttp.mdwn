@@ -1,15 +1,15 @@
 [[!meta title="ttp - tiny transfer protocol"]]
 [[!meta date="2003-10-13 07:42:23"]]
 
-ttp is a small and fast protocol. 
+    ttp is a small and fast protocol. 
 
-it is used within environments where people forget the 'h' before the url,
-like chats, mails, etc.
+    it is used within environments where people forget the 'h' before the url,
+    like chats, mails, etc.
 
-it doesn't transfer any data.
-it doesn't have any overhead.
-it doesn't have any sense.
+    it doesn't transfer any data.
+    it doesn't have any overhead.
+    it doesn't have any sense.
 
-it is ttp.
+    it is ttp.
 
-[[!tag net]]
+[[!tag net unix]]
