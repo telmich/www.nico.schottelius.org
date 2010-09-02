@@ -1,0 +1,12 @@
+[[!meta title="Published creature"]]
+
+Did you have a look at current virtual machine management programs?
+Do you also feel that there's no easy-to-use, straightforward
+solution out there?
+
+My try to fix that problem is named [[creature|software/creature]].
+
+It's still in it's early design phase, but digging through the
+README and the code can give you an impression of where it directs to.
+
+[[!tag unix vm]]
