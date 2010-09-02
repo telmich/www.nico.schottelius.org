@@ -1,0 +1,29 @@
+creature - manage virtual machines
+
+## What's creature?
+
+Easy virtual machine management with support for machines, pools, storages and supervisors.
+It is intended to be a frontend for different supervisors, but the focus for the initial
+release is on qemu/kvm.
+
+## Requirements
+
+ * posix shell
+ * the used supervisor
+
+## Download
+
+### Via git
+
+Clone it via
+
+    git clone git://github.com/telmich/creature.git
+
+Or browse on [github](http://github.com/telmich/creature)
+
+## See also
+
+ * [ganeti](http://code.google.com/p/ganeti/)
+ * [libvirt](http://libvirt.org/)
+
+[[!tag net unix vm]]
