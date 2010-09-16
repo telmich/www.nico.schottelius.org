@@ -65,6 +65,7 @@ smooth | small | undecided | Good overall, but "M" looks weired and font feels s
 artsie | small | yes | Good readable
 -*-terminus-*-*-*-*-12-*-*-*-*-*-*-* | tiny-small | yes | Good readable
 smoothansi | small | undecided | Good overall, but "M" looks weired and font feels stretched
+xft:DejaVu Sans Mono:pixelsize=10 | small | yes | Good readable
 kates | small-medium | no | Very fancy (impressive?), but partly hard to read
 bigcaps | small-medium | no | Hurts my eyes
 xft:Liberation Mono:style=Regular | small-medium | yes | Good readable
@@ -91,5 +92,6 @@ lucidasanstypewriter-24 | extra large | yes | Even blind can read it
  * [Nice fonts for X terminals](http://adamspiers.org/computing/zsh/files/prompts/X_fonts.README)
  * [Vico's little Linux site/fonts](http://vico.kleinplanet.de/fonts.html)
  * [suxus font](http://oldhome.schmorp.de/marc/suxus.html)
+ * [Archlinux Terminal Emulator font discussion](https://bbs.archlinux.org/viewtopic.php?pid=283004)
 
 [[!tag unix]]
