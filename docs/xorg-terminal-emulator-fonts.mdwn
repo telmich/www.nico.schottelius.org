@@ -26,6 +26,12 @@ So I load a new font, issue an **ls** in my home directory
 read the content easily or not and whether it made
 some kind of special impression.
 
+Reloading or adding core fonts can be via
+
+    xset fp+ /usr/share/fonts/local/
+    xset fp rehash
+
+
 ## Objectives
 
 There are a lot of different objectives for choosing
@@ -55,12 +61,14 @@ edges | tiny | no | Similar to nexus, more edges
 suxus | tiny | no | Unreadable
 tixus | tiny | yes | Very good readable for such a small font
 smallcaps | small | no | filenames as caps on unix?
-artsie | small | yes | Good readable
 smooth | small | undecided | Good overall, but "M" looks weired and font feels stretched
+artsie | small | yes | Good readable
+-*-terminus-*-*-*-*-12-*-*-*-*-*-*-* | tiny-small | yes | Good readable
 smoothansi | small | undecided | Good overall, but "M" looks weired and font feels stretched
 kates | small-medium | no | Very fancy (impressive?), but partly hard to read
 bigcaps | small-medium | no | Hurts my eyes
-ai14 | medium | yes | Good readable
+a14 | medium | yes | Good readable
+-*-terminus-*-*-*-*-14-*-*-*-*-*-*-* | medium | yes | Good readable
 lucidasans-10 | medium | no | Way too much whitespace
 lucidasanstypewriter-10 | medium | yes | Good readable
 10x20 | medium | no | Mostly good readable, looks a bit disarranged
@@ -69,6 +77,7 @@ variable | medium-large | no | Unreadable
 12x24 | large | undecided | Good readable, strange style, good size
 xft:Bitstream Vera Serif:style=Roman | large | | Too much whitespace
 xft:DejaVu Sans,DejaVu Sans Condensed:style=Condensed Bold,Bold| large | | Too much whitespace
+-*-terminus-*-*-*-*-32-*-*-*-*-*-*-* | large | yes |
 lucidasanstypewriter-24 | extra large | yes | Even blind can read it
 """]]
 
