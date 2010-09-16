@@ -1,7 +1,9 @@
 [[!meta title="Published Xorg terminal emulator font list"]]
 
-While I was trying to find out, why [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html)
-chose sometimes a different font, I digged into the font selection problematic.
+While I was trying to find out why
+[rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html)
+chose sometimes a different font I digged into the font selection problem
+(i.e. which font to choose for my terminal).
 Especially small fonts, which enable me to get a lot of stuff on the screen
 and huge fonts for presentations are in my interest.
 

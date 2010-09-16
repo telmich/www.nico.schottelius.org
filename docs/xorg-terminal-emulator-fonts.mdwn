@@ -91,6 +91,7 @@ lucidasanstypewriter-24 | extra large | yes | Even blind can read it
 
  * [Optimal Use of Fonts on Linux](http://avi.alkalay.net/linux/docs/font-howto/Font.html)
  * [Nice fonts for X terminals](http://adamspiers.org/computing/zsh/files/prompts/X_fonts.README)
+ * [Terminus font](http://fractal.csie.org/~eric/wiki/Terminus_font)
  * [Vico's little Linux site/fonts](http://vico.kleinplanet.de/fonts.html)
  * [suxus font](http://oldhome.schmorp.de/marc/suxus.html)
  * [Archlinux Terminal Emulator font discussion](https://bbs.archlinux.org/viewtopic.php?pid=283004)
