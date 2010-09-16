@@ -70,9 +70,11 @@ bigcaps | small-medium | no | Hurts my eyes
 a14 | medium | yes | Good readable
 -*-terminus-*-*-*-*-14-*-*-*-*-*-*-* | medium | yes | Good readable
 lucidasans-10 | medium | no | Way too much whitespace
+xft:Droid Sans:style=Regular | medium | no | Too much whitespace, not instantly good readable
 lucidasanstypewriter-10 | medium | yes | Good readable
 10x20 | medium | no | Mostly good readable, looks a bit disarranged
 xft:Bitstream Vera Sans Mono:style=Bold | medium | yes | Good readable
+xft:Bitstream Vera Sans Mono:style=Roman | medium | yes | Good readable
 variable | medium-large | no | Unreadable
 12x24 | large | undecided | Good readable, strange style, good size
 xft:Bitstream Vera Serif:style=Roman | large | | Too much whitespace
