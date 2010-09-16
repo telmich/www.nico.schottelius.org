@@ -1,15 +1,25 @@
+[[!meta title="Xorg terminal emulator font list"]]
+
 ## Introduction
 
 This page describes fonts I tested for usability in
 a terminal emulator. The ratings may be highly subjective
 and describe my way to find good fonts.
+This site is inspired by the
+[Nice fonts for X terminals](http://adamspiers.org/computing/zsh/files/prompts/X_fonts.README)
+site. It does not try to make things better, just again
+to find my personal preferences.
 
 ## How I tested
 
 I'm using a small script named **urxvt-font-change**,
 which is part of the nsbin git repository. This script
 allows me to dynamically change the font in the running
-terminal.
+terminal. Besides searching around the net for font names,
+I've used two local sources:
+
+ * xlsfonts (core X font subsystem)
+ * fc-list (xft)
 
 
 ## Objectives
@@ -33,9 +43,20 @@ And here's the actual font table:
 
 [[!table  data="""
 Font name | Size | Recommended | Remarks
+5x7 | tiny | no | Unreadable
+nexus | tiny | no | Digiclock style font, but hard to read
+shine | tiny | no | Similar to nexus, bit better
+outcast | tiny | no | Similar to shine, bit better
+edges | tiny | no | Similar to nexus, more edges
+suxus | tiny | no | Unreadable
+tixus | tiny | yes | Very good readable for such a small font
+xft:Bitstream Vera Sans Mono:style=Bold | big | yes | Good readable
 xft:Bitstream Vera Serif:style=Roman | big | | Too much whitespace
-
 """]]
 
+## See also
+
+ * [Optimal Use of Fonts on Linux](http://avi.alkalay.net/linux/docs/font-howto/Font.html)
+ * [Nice fonts for X terminals](http://adamspiers.org/computing/zsh/files/prompts/X_fonts.README)
 
 [[!tag unix]]
