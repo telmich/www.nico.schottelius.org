@@ -1,4 +1,4 @@
-[[!meta title="How to change the font in urxt (rxvt-unicode) dynamically"]]
+[[!meta title="How to change the font in urxvt (rxvt-unicode) dynamically"]]
 
 After [[I had a look at some fonts for terminal emulators|published-xorg-terminal-emulator-fonts]],
 I chose some of the fonts to be used for my terminal.

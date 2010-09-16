@@ -59,28 +59,28 @@ shine | tiny | no | Similar to nexus, bit better
 outcast | tiny | no | Similar to shine, bit better
 edges | tiny | no | Similar to nexus, more edges
 suxus | tiny | no | Unreadable
-tixus | tiny | yes | Very good readable for such a small font
+tixus | tiny | yes | Very well readable for such a small font
 smallcaps | small | no | filenames as caps on unix?
 smooth | small | undecided | Good overall, but "M" looks weired and font feels stretched
-artsie | small | yes | Good readable
--*-terminus-*-*-*-*-12-*-*-*-*-*-*-* | tiny-small | yes | Good readable
+artsie | small | yes | Well readable
+-*-terminus-*-*-*-*-12-*-*-*-*-*-*-* | tiny-small | yes | Well readable
 smoothansi | small | undecided | Good overall, but "M" looks weired and font feels stretched
-xft:DejaVu Sans Mono:pixelsize=10 | small | yes | Good readable
+xft:DejaVu Sans Mono:pixelsize=10 | small | yes | Well readable
 kates | small-medium | no | Very fancy (impressive?), but partly hard to read
 bigcaps | small-medium | no | Hurts my eyes
-xft:Liberation Mono:style=Regular | small-medium | yes | Good readable
-a14 | medium | yes | Good readable
-xft:Inconsolata:style=Medium | medium | yes | Good readable
--*-terminus-*-*-*-*-14-*-*-*-*-*-*-* | medium | yes | Good readable
+xft:Liberation Mono:style=Regular | small-medium | yes | Well readable
+a14 | medium | yes | Well readable
+xft:Inconsolata:style=Medium | medium | yes | Well readable
+-*-terminus-*-*-*-*-14-*-*-*-*-*-*-* | medium | yes | Well readable
 lucidasans-10 | medium | no | Way too much whitespace
 xft:Droid Sans:style=Regular | medium | no | Too much whitespace, not instantly good readable
 MonteCarlo:style=Sans Bold | medium | no | Not Bold, nor incredible easy to read
-lucidasanstypewriter-10 | medium | yes | Good readable
+lucidasanstypewriter-10 | medium | yes | Very well readable
 10x20 | medium | no | Mostly good readable, looks a bit disarranged
-xft:Bitstream Vera Sans Mono:style=Bold | medium | yes | Good readable
-xft:Bitstream Vera Sans Mono:style=Roman | medium | yes | Good readable
+xft:Bitstream Vera Sans Mono:style=Bold | medium | yes | Very well readable
+xft:Bitstream Vera Sans Mono:style=Roman | medium | yes | Very well readable
 variable | medium-large | no | Unreadable
-12x24 | large | undecided | Good readable, strange style, good size
+12x24 | large | undecided | Well readable, strange style, good size
 xft:Bitstream Vera Serif:style=Roman | large | | Too much whitespace
 xft:DejaVu Sans,DejaVu Sans Condensed:style=Condensed Bold,Bold| large | | Too much whitespace
 -*-terminus-*-*-*-*-32-*-*-*-*-*-*-* | large | yes |
