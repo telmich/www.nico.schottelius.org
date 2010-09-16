@@ -1,0 +1,41 @@
+## Introduction
+
+This page describes fonts I tested for usability in
+a terminal emulator. The ratings may be highly subjective
+and describe my way to find good fonts.
+
+## How I tested
+
+I'm using a small script named **urxvt-font-change**,
+which is part of the nsbin git repository. This script
+allows me to dynamically change the font in the running
+terminal.
+
+
+## Objectives
+
+There are a lot of different objectives for choosing
+a font that suits you. For me, the following objectives
+are interesting: Is the font usable for ...
+
+ * small screens
+ * presentations
+ * my eyes
+
+The last point is probably mostly subjective, a font
+must "look good" to me.
+
+
+## Font list
+
+And here's the actual font table:
+
+
+[[!table  data="""
+Font name | Size | Recommended | Remarks
+xft:Bitstream Vera Serif:style=Roman | big | | Too much whitespace
+
+"""]]
+
+
+[[!tag unix]]
