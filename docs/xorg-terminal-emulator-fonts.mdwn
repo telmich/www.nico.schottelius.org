@@ -21,6 +21,10 @@ I've used two local sources:
  * xlsfonts (core X font subsystem)
  * fc-list (xft)
 
+So I load a new font, issue an **ls** in my home directory
+(which is pretty much mixed up) and decide whether I can
+read the content easily or not and whether it made
+some kind of special impression.
 
 ## Objectives
 
@@ -57,6 +61,7 @@ smoothansi | small | undecided | Good overall, but "M" looks weired and font fee
 kates | small-medium | no | Very fancy (impressive?), but partly hard to read
 bigcaps | small-medium | no | Hurts my eyes
 lucidasans-10 | medium | no | Way too much whitespace
+lucidasanstypewriter-10 | medium | yes | Good readable
 10x20 | medium | no | Mostly good readable, looks a bit disarranged
 xft:Bitstream Vera Sans Mono:style=Bold | medium | yes | Good readable
 12x24 | large | no | Reminds me of handwriting, no very well suited for filenames
