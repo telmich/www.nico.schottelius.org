@@ -1,0 +1,29 @@
+! .Xressources
+!
+! Nico Schottelius, 1998 - 2010
+! Feel free to copy, modify, whatever, this is just my config file.
+
+
+! Depends on my mood
+!URxvt.background: LightYellow2
+!URxvt.foreground: black
+URxvt.foreground: white
+URxvt.background: black
+
+URxvt.scrollBar:  False
+URxvt.inheritPixmap: false
+URxvt.cursorBlink: true
+URxvt.secondaryScroll:  true
+URxvt.visualBell: true
+
+! Fonts
+URxvt.font:tixus
+
+! Change fonts on demand
+URxvt.keysym.M-C-1: command:\033]710;tixus\007\033]711;tixus\007
+URxvt.keysym.M-C-2: command:\033]710;artsie\007\033]711;artsie\007
+URxvt.keysym.M-C-3: command:\033]710;lucidasanstypewriter-10\007\033]711;lucidasanstypewriter-10\007
+URxvt.keysym.M-C-4: command:\033]710;xft:Liberation Mono:style=Regular\007\033]711;xft:Liberation Mono:style=Regular\007
+URxvt.keysym.M-C-5: command:\033]710;xft:Bitstream Vera Sans Mono:style=Bold\007\033]711;xft:Bitstream Vera Sans Mono:style=Bold\007
+URxvt.keysym.M-C-6: command:\033]710;12x24\007\033]711;12x24\007
+URxvt.keysym.M-C-0: command:\033]710;lucidasanstypewriter-24\007\033]711;lucidasanstypewriter-24\007

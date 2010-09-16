@@ -1,0 +1,14 @@
+[[!meta title="How to change the font in urxt (rxvt-unicode) dynamically"]]
+
+After [[I had a look at some fonts for terminal emulators|published-xorg-terminal-emulator-fonts]],
+I chose some of the fonts to be used for my terminal.
+[rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html) has excellent support for 
+dynamic font changes, as described
+in the [urxvt faq](http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.7.pod#Rendering_Font_amp_Look_and_Feel_Iss).
+I decided to write a tiny script around the printf call
+named [urxvt-font-change](http://git.schottelius.org/?p=nsbin;a=commit;h=c0e8fa882655867abf5f6359bdff9498c02bf717).
+
+This resulted in a clean [.Xresources|configs/dot-Xresources] file, which allows me to change the font
+using ***Control-Alt-{1-6,0}***.
+
+[[!tag unix]]
