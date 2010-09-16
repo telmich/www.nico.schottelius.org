@@ -50,8 +50,18 @@ outcast | tiny | no | Similar to shine, bit better
 edges | tiny | no | Similar to nexus, more edges
 suxus | tiny | no | Unreadable
 tixus | tiny | yes | Very good readable for such a small font
-xft:Bitstream Vera Sans Mono:style=Bold | big | yes | Good readable
-xft:Bitstream Vera Serif:style=Roman | big | | Too much whitespace
+smallcaps | small | no | filenames as caps on unix?
+artsie | small | yes | Good readable
+smooth | small | undecided | Good overall, but "M" looks weired and font feels stretched
+smoothansi | small | undecided | Good overall, but "M" looks weired and font feels stretched
+kates | small-medium | no | Very fancy (impressive?), but partly hard to read
+bigcaps | small-medium | no | Hurts my eyes
+lucidasans-10 | medium | no | Way too much whitespace
+10x20 | medium | no | Mostly good readable, looks a bit disarranged
+xft:Bitstream Vera Sans Mono:style=Bold | medium | yes | Good readable
+12x24 | large | no | Reminds me of handwriting, no very well suited for filenames
+xft:Bitstream Vera Serif:style=Roman | large | | Too much whitespace
+xft:DejaVu Sans,DejaVu Sans Condensed:style=Condensed Bold,Bold| large | | Too much whitespace
 """]]
 
 ## See also
