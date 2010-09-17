@@ -1,0 +1,10 @@
+[[!meta title="Created photo website: photo.nico.schottelius.org"]]
+
+I created a new photo website,
+[photo.nico.schottelius.org](http://photo.nico.schottelius.org),
+which contains latest photos taken. The old galleries may get
+imported later.
+
+[Let me know|about], if you find an interesting photo on it!
+
+[[!tag net]]
