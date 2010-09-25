@@ -1,0 +1,20 @@
+[[!meta title="Linux cannot ping itself, but others can ping the box"]]
+
+This is just a small reminder for me and everybody else who gets
+fooled like me:
+
+    If the loopback device (lo) is not up, you cannot ping localhost!
+
+This is true for all local addresses, even though they are not
+on the loopback interface! It's kind of confusing, because everybody
+else can ping the box, only Linux cannot ping (or reach anyhow) localhost.
+So the quick solution is
+
+    ip link set lo up
+
+This problem has been solved and described on other sites as well,
+but if this one helps you not to spend three hours debugging your
+nfs setup, it's worth populating the net with yet another article
+regarding this problem.
+
+[[!tag unix]]
