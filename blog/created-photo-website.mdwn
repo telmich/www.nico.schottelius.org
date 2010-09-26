@@ -5,6 +5,6 @@ I created a new photo website,
 which contains latest photos taken. The old galleries may get
 imported later.
 
-[Let me know|about], if you find an interesting photo on it!
+[[Let me know|about]], if you find an interesting photo on it!
 
 [[!tag net]]
