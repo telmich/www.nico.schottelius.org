@@ -10,6 +10,8 @@ LDAP authentication.
 
     git clone git://git.schottelius.org/mbs
 
+The backup url is **git://git.sans.ethz.ch/mbs**.
+
 ### Requirements
 
 To get mbs up and running, you need ruby and rails and the gems specified
@@ -48,7 +50,7 @@ Nethz-LDAP-Authentication, but can easily be adopted to other
 systems.
 
 The nethz method uses the input username and password and binds to
-ldaps02.ethz.ch (most reliable). If that succeeds, the username
+**ldaps02.ethz.ch** (most reliable). If that succeeds, the username
 is copied into the database, to create an id.
 
 ### Machines types
@@ -69,4 +71,7 @@ select **new booking**.
 ### Admin
 
 The admin area is accessable for everybody, because everybody
-authenticated is trusted.
+authenticated is trusted. It is reachable below **/admin**,
+but not linked, because it may confuse users.
+
+[[!tag eth]]
