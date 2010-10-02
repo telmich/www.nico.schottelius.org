@@ -1,0 +1,65 @@
+[[!meta title="Machine Booking System (mbs)"]]
+
+The machine booking system allows users of the ETH Zurich to book machines.
+It could be easily adjusted to support other institutions, with or without
+LDAP authentication.
+
+## Installation
+
+### Get mbs
+
+    git clone git://git.schottelius.org/mbs
+
+### Requirements
+
+To get mbs up and running, you need ruby and rails and the gems specified
+in the Gemfile. You may use rvm to assist you, like the following commandline:
+
+    rvm install ruby-1.8.7
+    rvm ruby-1.8.7
+    rvm gemset create mbs
+    rvm ruby-1.8.7@mbs
+    gem install bundler
+    cd mbs/
+    bundle install
+ 
+### Initialise Database
+
+   cd mbs
+   rake db:setup 
+
+## Setup
+
+After mbs is up and running, you need to setup some basic data, before
+you can actually use it.
+
+### Authentication
+
+The authentication part is defined in
+**app/controllers/application_controller.rb** and currently bound to
+Nethz-LDAP-Authentication, but can easily be adopted to other
+systems.
+
+The nethz method uses the input username and password and binds to
+ldaps02.ethz.ch (most reliable). If that succeeds, the username
+is copied into the database, to create an id.
+
+### Machines types
+
+mbs is heavily focussed on machine types. So the first thing is to
+select ***admin => machine types => new machine type*** and  create
+a new machine type with a number of associated machines.
+
+## Usage
+
+Now you are ready to use mbs!
+
+### Bookings
+
+After you are authenticated, you can create bookings,
+select **new booking**.
+
+### Admin
+
+The admin area is accessable for everybody, because everybody
+authenticated is trusted.
