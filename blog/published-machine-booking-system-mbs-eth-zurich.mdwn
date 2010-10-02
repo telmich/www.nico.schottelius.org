@@ -1,0 +1,6 @@
+[[!meta title="Published mbs: A machine booking system for the ETH Zurich"]]
+
+[[MBS|software/mbs]] now has a homepage and will soon be used productively
+in the ETH Zurich!
+
+[[!tag eth ruby]]
