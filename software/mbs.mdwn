@@ -4,6 +4,16 @@ The machine booking system allows users of the ETH Zurich to book machines.
 It could be easily adjusted to support other institutions, with or without
 LDAP authentication.
 
+
+## Screenshots!
+
+ * [booking overview](screenshots/booking-overview-screenshot-20101002.png "Overview of bookings")
+ * [booking successful](screenshots/booking-successful-screenshot-20101002.png "Booking successful")
+ * [booking error](screenshots/booking-error-screenshot-20101002.png "Booking error")
+ * [free machines](screenshots/free-machines-screenshot-20101002.png "Free machines")
+ * [used machines](screenshots/used-machines-screenshot-20101002.png "Used machines")
+ * [admin view](screenshots/admin-screenshot-20101002.png "Admin view")
+
 ## Installation
 
 ### Get mbs
