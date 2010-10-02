@@ -1,0 +1,10 @@
+<P ALIGN="center">
+![booking overview](booking-overview-screenshot-20101002.png "Overview of bookings")
+
+admin-screenshot-20101002.png
+booking-error-screenshot-20101002.png
+booking-overview-screenshot-20101002.png
+booking-successful-screenshot-20101002.png
+free-machines-screenshot-20101002.png
+used-machines-screenshot-20101002.png
+</p>
