@@ -1,0 +1,42 @@
+[[!meta title="Puppet empties new and existing files"]]
+
+After [we](http://sans.ethz.ch) changed our puppetmaster to run
+under unicorn plus nginx and the first 2.6.0 client connected,
+I realised that puppetd created empty files on the client.
+Not even new files created are affected, but also existing
+files.
+
+It seems that [issue 4319](http://projects.puppetlabs.com/issues/4319)
+is related to that problem, as the same entries are found in the
+logfile.
+
+The [[client reports about|debuglog]] duplicated files in the filebucket:
+
+    info: FileBucket got a duplicate file /etc/pam.d/common-password ({md5}d41d8cd98f00b204e9800998ecf8427e)
+    info: FileBucket got a duplicate file /etc/pam.d/common-account ({md5}d41d8cd98f00b204e9800998ecf8427e)
+    info: FileBucket got a duplicate file /etc/pam.d/common-auth ({md5}d41d8cd98f00b204e9800998ecf8427e)
+
+But hey, they are duplicate, because they all have the same checksum!
+And the checksum is everywhere the same, because all files are empty:
+
+    % touch test
+    % md5sum test
+    d41d8cd98f00b204e9800998ecf8427e  test
+
+In the syslog of the puppetmaster one can see
+
+    Oct  1 14:31:14 sans-puppetca puppetmaster_unicorn: 129.132.85.166 - - [01/Oct/2010 14:31:14] "GET /production/file_content//autofs/auto.net HTTP/1.0" 404 44 0.0012
+
+So in essence, what happens is:
+
+ * puppetd 2.6.0 submits two slashes in the path (//)
+ * puppetmaster via unicorn does not find the file, because of the double slash
+ * puppetd sees the 404 error and creates a empty file
+
+Switching to webbrick as a workaround works, because it accepts the two slashes.
+
+Replacing the two slashes with one in the server does not fix the origin
+of the problem, nor does it address the issue that puppetd creates
+empty files, if it gets a 404 for the file content.
+
+[[!tag config eth unix]]
