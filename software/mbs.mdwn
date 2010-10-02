@@ -13,7 +13,8 @@ LDAP authentication.
 ### Requirements
 
 To get mbs up and running, you need ruby and rails and the gems specified
-in the Gemfile. You may use rvm to assist you, like the following commandline:
+in the Gemfile. You may use [rvm](http://rvm.beginrescueend.com/)
+to assist you, like the following commandline:
 
     rvm install ruby-1.8.7
     rvm ruby-1.8.7
@@ -25,8 +26,14 @@ in the Gemfile. You may use rvm to assist you, like the following commandline:
  
 ### Initialise Database
 
-   cd mbs
-   rake db:setup 
+    cd mbs
+    rake db:setup 
+
+You can also use
+
+    rake bootstrap
+
+to add some example data.
 
 ## Setup
 
