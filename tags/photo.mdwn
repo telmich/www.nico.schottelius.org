@@ -1,0 +1,4 @@
+Posts containing hints to photos.
+May almost always hint to my [photo site](http://photo.nico.schottelius.org).
+
+[[!inline pages="tagged(photo)" archive="yes" show=0]]
