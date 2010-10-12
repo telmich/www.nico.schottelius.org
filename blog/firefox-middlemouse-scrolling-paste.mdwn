@@ -1,0 +1,21 @@
+[[!meta title="How to scroll and paste with the middle mouse button in Firefox"]]
+
+If you're like me and use firefox with a trackpoint (i.e. no scroll "buttons"),
+you're probably also happy with these settings:
+
+## middlemouse.paste=true
+
+This adds pasting from the x clipboard.
+
+## middlemouse.contentLoadURL=false
+
+Do not try to load website from content in clipboard.
+
+## general.autoScroll=true
+
+Enable scrolling using the middle mouse button.
+
+Now firefox behaves similar to [conkeror](http://conkeror.org/),
+which is my default browser currently.
+
+[[!tag unix net]]
