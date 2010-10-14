@@ -40,21 +40,8 @@ I recommened using PGP to encrypt any mail. The fingerprint of my
 
 ## Donations
 
-If you enjoy some stuff I've written, you can donate some money via
-paypal
-
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_donations">
-<input type="hidden" name="business" value="nico-paypal-ch@schottelius.org">
-<input type="hidden" name="lc" value="CH">
-<input type="hidden" name="item_name" value="FOSS development">
-<input type="hidden" name="currency_code" value="CHF">
-<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
-<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1">
-</form>
-
-or directly by transfering money to my account with the IBAN
+If you enjoy some stuff I've written, you can donate money 
+by transfering it to my account with the IBAN
 
     CH 8909 0000 0040 4660 816
 
