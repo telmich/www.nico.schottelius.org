@@ -36,6 +36,24 @@ this is probably the most often used navigation part.
     mkdir cgg-output      
     cgg -s cgg-input  -o cgg-output/
 
+## [gthumb](http://live.gnome.org/gthumb) (2.10.12)
+
+   * Next image: Various
+   * Output: Different directory
+   * Original image reference: Link from scaled image
+   * Original image location: Copy (optional)
+   * Image scaling: supported
+   * Exif: Supported
+   * Default design: Good usable
+   * Configuration: GUI
+   * Subdirectory index: No
+   * Other: Different designs available
+
+### Sample usage:
+
+    cp -r basis gthumb-input
+    gthumb gthumb-input
+
 ## [igal2](http://igal.trexler.at/) (2.0)
 
    * Next image: Link below and above image
