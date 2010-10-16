@@ -1,0 +1,8 @@
+[[!meta title="Published Static image gallery generator comparison"]]
+
+As I tested some static image gallery generators,
+I wrote down my notes and
+published a
+[small comparison of static image gallery generators|docs/tatic-image-gallery-generator-comparison].
+
+[[!tag net unix]]
