@@ -112,9 +112,9 @@ this is probably the most often used navigation part.
 
 ## [swiggle](http://homepage.univie.ac.at/l.ertl/swiggle/) 0.4
 
-### Sample usage:
-
 Generates html file without any links.
+
+### Sample usage:
 
     mkdir swiggle-input
     cp -r basis swiggle-input 
