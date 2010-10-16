@@ -114,11 +114,10 @@ this is probably the most often used navigation part.
 
 ### Sample usage:
 
- * Other: generates html file without any links
+Generates html file without any links.
 
     mkdir swiggle-input
     cp -r basis swiggle-input 
     swiggle swiggle-input 
-    # 4 albums processed.
 
 [[!tag unix]]
