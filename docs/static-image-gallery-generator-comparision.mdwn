@@ -1,0 +1,124 @@
+[[!meta title="Static image gallery generator comparison (FOSS)"]]
+
+## Introduction
+
+This document describes several static image gallery generators,
+their advantages and disadvantages. All of them are FOSS and
+have been tested under a Unix like operating system.
+If you have any kind of update, do not hesitate to
+[[contact me|about]]. I am using a downscaled sample directory
+(**basis**) for testing.
+
+I'm not referencing the navigation, but only "Next Image", because
+this is probably the most often used navigation part.
+
+## [cataract](http://cgg.bzatek.net/) (1.0.0)
+
+   * Next image: Click on image
+   * Output: Different directory
+   * Original image reference: links to original image (full size)
+   * Original image location: Originals are copied
+   * Image scaling: supported
+   * Exif: Supported
+   * Default design: Good usable
+   * Configuration: XML files
+   * Subdirectory index: No
+   * Other: Scrolling (middle mouse button) does not work
+
+### Sample usage:
+
+    cp -r basis cgg-input
+    cd cgg-input 
+
+    # create directory listing
+    cgg-dirgen > index.xml
+    cd ..
+    mkdir cgg-output      
+    cgg -s cgg-input  -o cgg-output/
+
+## [igal2](http://igal.trexler.at/) (2.0)
+
+   * Next image: Link below and above image
+   * Output: Same directory
+   * Original image reference: Link from scaled image
+   * Original image location: .
+   * Image scaling: ***unsupported***
+   * Exif: ***unsupported***
+   * Default design: Very basic
+   * Configuration: Command line
+   * Subdirectory index: No
+   * Other: Automatic link to parent directory
+
+### Sample usage:
+
+    cp -r basis igal2-input
+    cd igal2-input 
+    igal2 --www
+
+## [lazygal](http://sousmonlit.dyndns.org/~niol/playa/oss/projects/lazygal/) (0.5)
+
+   * Next image: Image preview next to the image
+   * Output: Different directory
+   * Original image reference: Text below image
+   * Original image location: Copy (optional)
+   * Image scaling: supported
+   * Exif: supported
+   * Default design: Basic
+   * Configuration: Command line
+   * Subdirectory index: Yes
+   * Subdirectory removal: Yes / Warning
+   * Other: Automatic link to parent directory
+
+
+### Sample usage:
+
+    cp -r basis lazygal-input
+    mkdir lazygal-output
+    lazygal -o lazygal-output lazygal-input 
+    
+    # Including copy of original images:
+    lazygal -O -o lazygal-output lazygal-input 
+
+## [llgal](http://home.gna.org/llgal/) (0.13.15)
+
+   * Next image: Link below and above image
+   * Output: Same directory
+   * Original image reference: Link from scaled image
+   * Original image location: .
+   * Image scaling: supported
+   * Exif: supported
+   * Default design: Usable
+   * Configuration: Command line
+   * Subdirectory index: Yes
+   * Subdirectory removal: Yes
+   * Other: Support for different languages, optional link to parent site
+
+
+### Sample usage:
+
+    cp -r basis llgal-input
+    cd llgal-input 
+    llgal
+    
+    # limit size:
+    llgal --sx 1000 --sy 700  
+    
+    # Track subdirectories
+    llgal --sx 1000 --sy 700 -R
+    
+    # Create real world site
+    llgal --sx 1000 --sy 700 -R --exif --fe  -L  --li --title "Nico Schottelius' Photos" --www --lang en_US
+
+
+## [swiggle](http://homepage.univie.ac.at/l.ertl/swiggle/) 0.4
+
+### Sample usage:
+
+ * Other: generates html file without any links
+
+    mkdir swiggle-input
+    cp -r basis swiggle-input 
+    swiggle swiggle-input 
+    # 4 albums processed.
+
+[[!tag unix]]
