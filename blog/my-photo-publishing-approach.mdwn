@@ -1,0 +1,43 @@
+[[!meta title="My photo publishing approach"]]
+
+During a discussion about image management software like
+[gthumb](http://live.gnome.org/gthumb),
+[f-spot](http://f-spot.org/) or [shotwell](http://yorba.org/shotwell/),
+we came up with the question how far a management software should go.
+Should it provide basic image manipulation? Publishing to the web?
+Creation of static web albums?
+
+For me the feature "create static webalbum" is very important,
+as I don't want to publish my images/photos on sites like
+[picasa](http://picasaweb.google.com/) or
+[flickr](http://www.flickr.com/), because I don't want to depend
+on these companies. I especially do not want to recreate
+all the albums, if one of those companies stops providing the service.
+
+One of the main questions is, which program should handle the gallery
+creation process:
+
+ * the image viewing / managing utility (most likely with a gui)
+ * an external command line utility
+
+After some time, I think there are some key points:
+
+ * a special desigend command line utility may be better suited for the job
+ * a gui may be very good suited to actually select the right images
+
+## How I create and publish static photo galleries
+
+So in the end, I decided for the following setup:
+
+ * Use shotwell to organise photos
+ * Use shotwell to export downscaled version of photos to a directory
+ (one per event)
+ * Create a Makefile, which utilises llgal to (re-)create the whole website
+
+Thus I can change the gui, but do not need to change the gallery format.
+
+## SEE ALSO
+
+ * [[docs/static-image-gallery-generator-comparison]]
+
+[[!tag net unix]]
