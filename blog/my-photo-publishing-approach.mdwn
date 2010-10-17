@@ -22,7 +22,7 @@ creation process:
 
 After some time, I think there are some key points:
 
- * a special desigend command line utility may be better suited for the job
+ * a special designed command line utility may be better suited for the job
  * a gui may be very good suited to actually select the right images
 
 ## How I create and publish static photo galleries
@@ -35,6 +35,8 @@ So in the end, I decided for the following setup:
  * Create a Makefile, which utilises llgal to (re-)create the whole website
 
 Thus I can change the gui, but do not need to change the gallery format.
+You can find the result at
+[photo.nico.schottelius.org](http://photo.nico.schottelius.org).
 
 ## SEE ALSO
 
