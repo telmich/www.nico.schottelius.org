@@ -12,6 +12,25 @@ If you have any kind of update, do not hesitate to
 I'm not referencing the navigation, but only "Next Image", because
 this is probably the most often used navigation part.
 
+### Terms
+
+A small definition of the terms:
+
+[[!table  data="""
+Term | Description
+Next image | What to click to reach the next image
+Output | Tools either output in the source directory or in a different one
+Original image reference | How to reach the full size image
+Original image location | During creation, how are original images handled
+Image scaling | Does the tool support scaling the images?
+Exif | Can the tool display exif information?
+Default Design | Hints on the default design chosen by the tool
+Configuration | Configuration possibilities
+Subdirectory index | Does a run include the subdirectories?
+Subdirectory removal | Can the tool handle removal of a subdirectory?
+Other | Stuff not categorised / special about this tool
+"""]]
+
 ## [cataract](http://cgg.bzatek.net/) (1.0.0)
 
    * Next image: Click on image
@@ -82,10 +101,10 @@ this is probably the most often used navigation part.
    * Image scaling: supported
    * Exif: supported
    * Default design: Basic
-   * Configuration: Command line
+   * Configuration: Command line and configuration file
    * Subdirectory index: Yes
    * Subdirectory removal: Yes / Warning
-   * Other: Automatic link to parent directory
+   * Other: Automatic link to parent directory, RSS feed, HTML5 videos for video files
 
 
 ### Sample usage:
