@@ -1,0 +1,10 @@
+[[!meta title="ETH blogs unterstützen RSS-Feed import"]]
+
+Dank der hervorragenden Arbeit deDank der hervorragenden Arbeit der
+[ID-Basisdienste und NET](http://blogs.ethz.ch/uber-uns/)
+werden nun meine ETH-relevanten Seiten im
+[ETH-Blog](http://blogs.ethz.ch/ns/) sichtbar gemacht.
+
+Habt vielen Dank!
+
+[[!tag eth]]
