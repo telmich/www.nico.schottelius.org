@@ -5,7 +5,29 @@ This document is ***WORK IN PROGRESS***
 ## Introduction
 
 This article tries to summarise Linux Virtual Machine
-methods and is in its early stage.
+methods and is in its early stage. It does not focus
+on different types of hypervisors, but more on the
+issues and features you get with each hypervisor.
+
+### Host Kernel
+
+Some supervisors need their own (modified Linux) kernel
+to operate, whereas others work with any Linux kernel.
+Though some of them again need some configurations
+to be turned on in the stock kernel.
+
+## Comparision table
+
+[[!table  data="""
+Name | Host Kernel
+[QEMU](http://wiki.qemu.org/) | Original
+[KVM](http://www.linux-kvm.org/) | Original w/KVM
+[Linux Containers](http://lxc.sourceforge.net/) | Original w/Containers
+[User Mode Linux](http://user-mode-linux.sourceforge.net/) | Original
+[VMWare](http://www.vmware.com/) | Own
+[Xen](http://www.xen.org/) | Own
+"""]]
+
 
 
 ## Raw import of notes
@@ -16,18 +38,24 @@ be the basis for this article.
 
 Try all of them and handle them via creature!
 
+Installation
+------------
+
+From host like lxc.
+
+From "inside" like KVM/QEMU/VMWare.
+
+
 status
 ------
 eth: ip addresses / mac / dhcp
 
+VMWare
+------
 
-vmware
--------
-different host os
+Commercial solution, modified Linux.
 
-
-lxc
----
+### lxc
 Not completly isolated. Linux only. Many changes to the guest os.
 Some scripts existent (lxc-debian, lxc-fedora). The latter does
 not work on debian.
@@ -45,6 +73,9 @@ Ressources are shared, if nothing else is specified.
    => network = all!
 
 First installation - than virtualisation!
+
+
+
 
 openvz
 ------
