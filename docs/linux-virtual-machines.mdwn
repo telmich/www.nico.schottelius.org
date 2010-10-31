@@ -1,4 +1,4 @@
-[[!meta title="Linux Virtual Machine overview"]]
+[[!meta title="Linux Virtual Machine Overview"]]
 
 This document is ***WORK IN PROGRESS***
 
@@ -77,9 +77,6 @@ Ressources are shared, if nothing else is specified.
    => network = all!
 
 First installation - than virtualisation!
-
-
-
 
 kvm
 ---
