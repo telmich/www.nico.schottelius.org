@@ -16,6 +16,38 @@ to operate, whereas others work with any Linux kernel.
 Though some of them again need some configurations
 to be turned on in the stock kernel.
 
+### VM Installation
+
+Depending on the hypervisor, there are different requirements
+and methods for the installation:
+
+ * Installation can be done within the VM for completly isolated machines
+ * Installation must be done outside / on the host for systems without own kernel
+
+Some hypervisors can boot from the network, whereas others just
+create a very lightweight isolation and boot an installed system
+only.
+
+### Guest OS changes
+
+Some hypervisors require changes to the virtual machines, to be able
+to run successfully. Others allow a original OS version to be
+installed.
+
+### Network configuration
+
+Whether the VM is attached to a bridge, a tun/tap device, treated
+as a normal process, there may be a lot of different configurations.
+Furthermore, firewall (masquerade/nat) configurations may be necessary.
+
+Additionally, some of the hypervisors support dynamic allocation
+of mac or even ip addresses.
+
+
+### Templates
+
+Some hypervisors support reusage of installations.
+
 ### Management
 
 Most hypervisors contain some minor collection of utilities
@@ -30,21 +62,37 @@ Typical issues are:
  * Manual start/stop of VMs
  * Listing of running / existing VMs
 
+### Automated usage
+
+Especially interesting for a sysadmin is, how easy a system can
+be automated, which steps need to be taken to get a new image
+or copy of an existing one. This aspect is one focus of this
+document.
+
 ## Hypervisors
 
 [[!table  data="""
-Name | Host Kernel
-[QEMU](http://wiki.qemu.org/) | Original
-[KVM](http://www.linux-kvm.org/) | Original w/KVM
-[Lguest](http://lguest.ozlabs.org/) | Original w/Lguest
-[Linux Containers](http://lxc.sourceforge.net/) | Original w/Containers
-[Linux VServer](http://linux-vserver.org) | Own
-[User Mode Linux](http://user-mode-linux.sourceforge.net/) | Original
-[OpenVZ](http://wiki.openvz.org/Main_Page) | Own
-[Virtualbox](http://www.virtualbox.org/) | Original+Modules
-[VMWare](http://www.vmware.com/) | Original+Modules / Own
-[Xen](http://www.xen.org/) | Own
+Name | Host Kernel | Guest OS changes
+[QEMU](http://wiki.qemu.org/) | Original | no
+[KVM](http://www.linux-kvm.org/) | Original w/KVM | no
+[Lguest](http://lguest.ozlabs.org/) | Original w/Lguest | ?
+[Linux Containers](http://lxc.sourceforge.net/) | Original w/Containers | yes
+[Linux VServer](http://linux-vserver.org) | Own | ?
+[User Mode Linux](http://user-mode-linux.sourceforge.net/) | Original | ?
+[OpenVZ](http://wiki.openvz.org/Main_Page) | Own | ?
+[Virtualbox](http://www.virtualbox.org/) | Original+Modules | no
+[VMWare](http://www.vmware.com/) | Original+Modules / Own | no
+[Xen](http://www.xen.org/) | Own | ?
 """]]
+
+### lxc
+
+Some hints on lxc:
+
+ * Helper scripts existent (lxc-debian, lxc-fedora, ...)
+ * adjust init. change dev. do not run udev (why?)
+ * Root open in the filesystem
+ * No network specified = all from host accessible!
 
 ## Libraries / Frameworks
 
@@ -53,65 +101,5 @@ Name | Hints
 Ganetti |
 Libvirt |
 """]]
-
-## Raw import of notes
-
-The following notes I made some months ago, which will
-be the basis for this article.
-
-
-Try all of them and handle them via creature!
-
-Installation
-------------
-
-From host like lxc.
-
-From "inside" like KVM/QEMU/VMWare.
-
-
-status
-------
-eth: ip addresses / mac / dhcp
-
-### lxc
-Not completly isolated. Linux only. Many changes to the guest os.
-Some scripts existent (lxc-debian, lxc-fedora). The latter does
-not work on debian.
-
-lxc-debian mit cache (schlau)
-no real hypervisor existent.
-
-mac / ipv4 management missing => creature
-
-adjust init. change dev. do not run udev (why?)
-
-Root open in the filesystem. Nice. Quota?
-
-Ressources are shared, if nothing else is specified.
-   => network = all!
-
-First installation - than virtualisation!
-
-kvm
----
-mac address,
-ip address => dhcp???
-
-
-Bootstrapping
--------------
-how tos
-different methods
-which way for which vm-type
-
-Network
--------
-Always dhcp? Either on the vm-host or external.
-Reason: Easy to configure. Scales dynamically.
-
-How to handle bridges etc.? Independent of the os?
-Reuse OS
-
 
 [[!tag net unix]]
