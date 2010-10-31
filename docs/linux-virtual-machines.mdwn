@@ -16,12 +16,27 @@ to operate, whereas others work with any Linux kernel.
 Though some of them again need some configurations
 to be turned on in the stock kernel.
 
+### Management
+
+Most hypervisors contain some minor collection of utilities
+to manage virtual machines. Some libraries / frameworks
+try to integrate those utilities, to abstract the different
+implementations.
+
+Typical issues are:
+
+ * Autostart machines on startup / autostop on shutdown
+ * Creation of new VMs / including template handling
+ * Manual start/stop of VMs
+ * Listing of running / existing VMs
+
 ## Hypervisors
 
 [[!table  data="""
 Name | Host Kernel
 [QEMU](http://wiki.qemu.org/) | Original
 [KVM](http://www.linux-kvm.org/) | Original w/KVM
+[Lguest](http://lguest.ozlabs.org/) | Original w/Lguest
 [Linux Containers](http://lxc.sourceforge.net/) | Original w/Containers
 [Linux VServer](http://linux-vserver.org) | Own
 [User Mode Linux](http://user-mode-linux.sourceforge.net/) | Original
