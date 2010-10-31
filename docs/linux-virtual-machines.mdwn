@@ -1,4 +1,4 @@
-[[!meta title="Linux Virtual Machines (overview)"]]
+[[!meta title="Linux Virtual Machine overview"]]
 
 This document is ***WORK IN PROGRESS***
 
@@ -16,19 +16,28 @@ to operate, whereas others work with any Linux kernel.
 Though some of them again need some configurations
 to be turned on in the stock kernel.
 
-## Comparision table
+## Hypervisors
 
 [[!table  data="""
 Name | Host Kernel
 [QEMU](http://wiki.qemu.org/) | Original
 [KVM](http://www.linux-kvm.org/) | Original w/KVM
 [Linux Containers](http://lxc.sourceforge.net/) | Original w/Containers
+[Linux VServer](http://linux-vserver.org) | Own
 [User Mode Linux](http://user-mode-linux.sourceforge.net/) | Original
-[VMWare](http://www.vmware.com/) | Own
+[OpenVZ](http://wiki.openvz.org/Main_Page) | Own
+[Virtualbox](http://www.virtualbox.org/) | Original+Modules
+[VMWare](http://www.vmware.com/) | Original+Modules / Own
 [Xen](http://www.xen.org/) | Own
 """]]
 
+## Libraries / Frameworks
 
+[[!table  data="""
+Name | Hints
+Ganetti |
+Libvirt |
+"""]]
 
 ## Raw import of notes
 
@@ -49,11 +58,6 @@ From "inside" like KVM/QEMU/VMWare.
 status
 ------
 eth: ip addresses / mac / dhcp
-
-VMWare
-------
-
-Commercial solution, modified Linux.
 
 ### lxc
 Not completly isolated. Linux only. Many changes to the guest os.
@@ -77,37 +81,11 @@ First installation - than virtualisation!
 
 
 
-openvz
-------
-templates
-/vz/template/osname/osversion/vz-addons/
-
-http://wiki.openvz.org/Introduction_to_virtualization
-
-vserver
--------
-http://linux-vserver.org/
-
-virtualbox
-----------
-
-xen
----
-different host kernel
-
 kvm
 ---
 mac address,
 ip address => dhcp???
 
-
-user-mode-linux
----------------
-
-
-libvirt
--------
-broken many many times.
 
 Bootstrapping
 -------------

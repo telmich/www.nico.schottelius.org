@@ -52,7 +52,7 @@ Other | Stuff not categorised / special about this tool
     # create directory listing
     cgg-dirgen > index.xml
     cd ..
-    mkdir cgg-output      
+    # cgg automatically creates the destination directory
     cgg -s cgg-input  -o cgg-output/
 
 ## [gthumb](http://live.gnome.org/gthumb) (2.10.12)
