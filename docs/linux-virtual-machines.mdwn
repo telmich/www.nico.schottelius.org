@@ -94,12 +94,21 @@ Some hints on lxc:
  * Root open in the filesystem
  * No network specified = all from host accessible!
 
-## Libraries / Frameworks
+## Management Libraries / Frameworks
 
 [[!table  data="""
 Name | Hints
 Ganetti |
 Libvirt |
 """]]
+
+## Poor man's management
+
+This sections describes typical vm management tasks, done with
+easy commands.
+
+### Creating a new (sparse) image file
+
+    dd if=/dev/zero of=<filename> bs=1 count=0 seek=<gigabytes>G
 
 [[!tag net unix]]
