@@ -72,17 +72,17 @@ document.
 ## Hypervisors
 
 [[!table  data="""
-Name | Host Kernel | Guest OS changes
-[QEMU](http://wiki.qemu.org/) | Original | no
-[KVM](http://www.linux-kvm.org/) | Original w/KVM | no
-[Lguest](http://lguest.ozlabs.org/) | Original w/Lguest | ?
-[Linux Containers](http://lxc.sourceforge.net/) | Original w/Containers | yes
-[Linux VServer](http://linux-vserver.org) | Own | ?
-[User Mode Linux](http://user-mode-linux.sourceforge.net/) | Original | ?
-[OpenVZ](http://wiki.openvz.org/Main_Page) | Own | ?
-[Virtualbox](http://www.virtualbox.org/) | Original+Modules | no
-[VMWare](http://www.vmware.com/) | Original+Modules / Own | no
-[Xen](http://www.xen.org/) | Own | ?
+Name | Host Kernel | Guest OS changes | Installation
+[QEMU](http://wiki.qemu.org/) | Original | no | inside
+[KVM](http://www.linux-kvm.org/) | Original w/KVM | no | inside
+[Lguest](http://lguest.ozlabs.org/) | Original w/Lguest | ? | ?
+[Linux Containers](http://lxc.sourceforge.net/) | Original w/Containers | yes | outside
+[Linux VServer](http://linux-vserver.org) | Own | ? | ?
+[User Mode Linux](http://user-mode-linux.sourceforge.net/) | Original | ? | outside
+[OpenVZ](http://wiki.openvz.org/Main_Page) | Own | ? | ?
+[Virtualbox](http://www.virtualbox.org/) | Original+Modules | no | inside
+[VMWare](http://www.vmware.com/) | Original+Modules / Own | no | inside
+[Xen](http://www.xen.org/) | Own | ? | ?
 """]]
 
 ### lxc
