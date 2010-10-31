@@ -1,0 +1,96 @@
+[[!meta title="Linux Virtual Machines (overview)"]]
+
+This document is ***WORK IN PROGRESS***
+
+## Introduction
+
+This article tries to summarise Linux Virtual Machine
+methods and is in its early stage.
+
+
+## Raw import of notes
+
+The following notes I made some months ago, which will
+be the basis for this article.
+
+
+Try all of them and handle them via creature!
+
+status
+------
+eth: ip addresses / mac / dhcp
+
+
+vmware
+-------
+different host os
+
+
+lxc
+---
+Not completly isolated. Linux only. Many changes to the guest os.
+Some scripts existent (lxc-debian, lxc-fedora). The latter does
+not work on debian.
+
+lxc-debian mit cache (schlau)
+no real hypervisor existent.
+
+mac / ipv4 management missing => creature
+
+adjust init. change dev. do not run udev (why?)
+
+Root open in the filesystem. Nice. Quota?
+
+Ressources are shared, if nothing else is specified.
+   => network = all!
+
+First installation - than virtualisation!
+
+openvz
+------
+templates
+/vz/template/osname/osversion/vz-addons/
+
+http://wiki.openvz.org/Introduction_to_virtualization
+
+vserver
+-------
+http://linux-vserver.org/
+
+virtualbox
+----------
+
+xen
+---
+different host kernel
+
+kvm
+---
+mac address,
+ip address => dhcp???
+
+
+user-mode-linux
+---------------
+
+
+libvirt
+-------
+broken many many times.
+
+Bootstrapping
+-------------
+how tos
+different methods
+which way for which vm-type
+
+Network
+-------
+Always dhcp? Either on the vm-host or external.
+Reason: Easy to configure. Scales dynamically.
+
+How to handle bridges etc.? Independent of the os?
+Reuse OS
+
+
+[[!tag net unix]]
