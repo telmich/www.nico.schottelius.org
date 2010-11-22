@@ -1,0 +1,48 @@
+[[!meta title="Reboot Linux if task blocked for more than n seconds"]]
+
+If you've run into the situation that your Linux box does not respond
+to ssh anymore and you want it to reboot, because some processes are
+taking away all the system resources, this article may be for you.
+
+The usual message that can be seen on the console of such a system is
+
+    INFO: task java:4242 blocked for more than 120 seconds.
+
+According to
+[cateee.net/](http://cateee.net/lkddb/web-lkddb/BOOTPARAM_HUNG_TASK_PANIC.html)
+the panic on hung feature was added to Linux as of 2.6.30.
+Looking at **kernel/hung_task.c**, around lines 96-99 and 105-106, Linux 2.6.35:
+
+     96    printk(KERN_ERR "INFO: task %s:%d blocked for more than "
+     97          "%ld seconds.\n", t->comm, t->pid, timeout);
+     98    printk(KERN_ERR "\"echo 0 > /proc/sys/kernel/hung_task_timeout_secs\""
+     99          " disables this message.\n");
+    [...]
+    105    if (sysctl_hung_task_panic)
+    106       panic("hung_task: blocked tasks");
+
+We can see that if the sysctl_hung_task_panic is true (!=0),
+the system will panic. A system that panic'ed isn't of much
+use for me either (similar to hanging), thus I would like to
+reboot it.
+
+Setting up the sysctl **kernel.panic** to a value greater than
+0 tells the kernel to reboot after that amount of seconds after
+a panic.
+
+Furthermore the default timeout after a task is considered hanging
+is 120 seconds, which my users would like increase to 5 minutes.
+Thus the full setup to make a Linux system reboot after a process
+hung for 300 seconds, triggered through a panic is
+
+    # Reboot 5 seconds after panic
+    kernel.panic = 5
+
+    # Panic if a hung task was found
+    kernel.hung_task_panic = 1
+
+    # Setup timeout for hung task to 300 seconds
+    kernel.hung_task_timeout_secs = 300
+
+
+[[!tag eth unix]]
