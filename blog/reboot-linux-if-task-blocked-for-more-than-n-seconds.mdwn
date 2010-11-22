@@ -9,7 +9,7 @@ The usual message that can be seen on the console of such a system is
     INFO: task java:4242 blocked for more than 120 seconds.
 
 According to
-[cateee.net/](http://cateee.net/lkddb/web-lkddb/BOOTPARAM_HUNG_TASK_PANIC.html)
+[cateee.net](http://cateee.net/lkddb/web-lkddb/BOOTPARAM_HUNG_TASK_PANIC.html)
 the panic on hung feature was added to Linux as of 2.6.30.
 Looking at **kernel/hung_task.c**, around lines 96-99 and 105-106, Linux 2.6.35:
 
@@ -32,7 +32,7 @@ a panic.
 
 Furthermore the default timeout after a task is considered hanging
 is 120 seconds, which my users would like increase to 5 minutes.
-Thus the full setup to make a Linux system reboot after a process
+Thus the full **sysctl** setup to make a Linux system reboot after a process
 hung for 300 seconds, triggered through a panic is
 
     # Reboot 5 seconds after panic
