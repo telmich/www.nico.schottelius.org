@@ -1,0 +1,80 @@
+[[!meta title="What is configuration management?"]]
+
+As I'm currently thinking about writing a configuration management tool,
+I'm sitting in the train and philosophise about 
+the general question: ***What is configuration management (CM)?***
+
+## View 1: The System
+
+Let's imagine I am a computer system.
+What happens to me, if I am put it under version control?
+Somebody (**a process**) which is running on me, changes
+stuff on me, so that she (the process) is happy afterwards.
+
+I recognise that some files are added, changed or deleted.
+Some processes are being run, some killed.
+
+That's probably it, because I don't own anything else, she
+can change.
+
+## View 2: The Sysadmin
+
+I'm one of those guys, who are told to do world domination,
+but got bored. I'm a sysadmin. I am very, very lazy.
+
+I installed a lot of systems, just for fun.
+Now somebody (probably even a user!) tells me, he wants
+something to be changed, because he wants to actually
+use the system (pretty awkward idea, but heard about
+those situations).
+
+As my boss told me that we cannot exist without users,
+I even consider doing the change, though I'm afraid:
+
+ * What happens if the user requests more changes?
+ * What if the machine crashes?
+ * What if another sysadmin needs to add changes?
+ * What if two system should look very identical, though not completly?
+
+This leads to some easy objectives:
+
+ * CM must be easy to read and understand, so I can understand tomorrow what I did today.
+ * CM must be able to redo the work
+ * CM must provide a way to have multiple commiters
+ * Having a way to reuse already defined stuff is helpful
+
+Oh, there's another interesting point:
+To be able to communicate with a user and to understand him,
+it would be very helpful, if I can tell my CM **this is what
+the user wants** instead of **do x, y and z**, which neither
+the user understand, nor do I know why I did it.
+
+
+## View 3: The manager
+
+Yes, it can get even worse, there may be managers or bosses
+around, who pay the poor sysadmin. The sysadmin claims to do
+her best job, but as a manager, I don't understand what he's
+doing. Nor do I really care. I care about the users
+(which could be customers as well!) and that their demands.
+And about how many users and how many demands my sysadmin
+fullfilled. And I want fancy graphics, 24 bit coloured pie
+charts in 3D and whatever comes to my crazy manager mind.
+And numbers. Many numbers.
+
+## View 4: Merging the views
+
+Assuming these are the players in my first round of CM
+brainstorming, there are some outcomes:
+
+ * CM must be easy to use, so the lazy sysadmin will use it
+ * CM includes ideas from users
+ * The implementation is done by the sysadmin
+ * Your managers are happy, if the CM outputs "manager readable data"
+
+## More stuff
+
+I'll add more ideas about CM here soon. If you (dis|)agree with me,
+just [let me know|about] so I can include your critics in the next article.
+
+[[!tag config eth unix]]
