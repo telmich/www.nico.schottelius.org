@@ -34,7 +34,7 @@ I even consider doing the change, though I'm afraid:
  * What happens if the user requests more changes?
  * What if the machine crashes?
  * What if another sysadmin needs to add changes?
- * What if two system should look very identical, though not completely?
+ * What if two systems should look very identical, though not completely?
 
 This leads to some easy objectives:
 
