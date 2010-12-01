@@ -54,7 +54,7 @@ the user understand, nor do I know why I did it.
 
 Yes, it can get even worse, there may be managers or bosses
 around, who pay the poor sysadmin. The sysadmin claims to do
-her best job, but as a manager, I don't understand what he's
+her best job, but as a manager, I don't understand what she's
 doing. Nor do I really care. I care about the users
 (which could be customers as well!) and that their demands.
 And about how many users and how many demands my sysadmin
@@ -69,7 +69,7 @@ brainstorming, there are some outcomes:
 
  * CM must be easy to use, so the lazy sysadmin will use it
  * CM includes ideas from users
- * The implementation is done by the sysadmin
+ * The configuration management is maintained by the sysadmin
  * Your managers are happy, if the CM outputs "manager readable data"
 
 ## More stuff
