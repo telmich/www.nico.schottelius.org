@@ -7,14 +7,14 @@ the general question: ***What is configuration management (CM)?***
 ## View 1: The System
 
 Let's imagine I am a computer system.
-What happens to me, if I am put it under version control?
+What happens to me, if I am put under version control?
 Somebody (**a process**) which is running on me, changes
 stuff on me, so that she (the process) is happy afterwards.
 
 I recognise that some files are added, changed or deleted.
 Some processes are being run, some killed.
 
-That's probably it, because I don't own anything else, she
+That's probably it, because I don't own anything else she
 can change.
 
 ## View 2: The Sysadmin
@@ -34,7 +34,7 @@ I even consider doing the change, though I'm afraid:
  * What happens if the user requests more changes?
  * What if the machine crashes?
  * What if another sysadmin needs to add changes?
- * What if two system should look very identical, though not completly?
+ * What if two system should look very identical, though not completely?
 
 This leads to some easy objectives:
 
@@ -58,7 +58,7 @@ her best job, but as a manager, I don't understand what she's
 doing. Nor do I really care. I care about the users
 (which could be customers as well!) and that their demands.
 And about how many users and how many demands my sysadmin
-fullfilled. And I want fancy graphics, 24 bit coloured pie
+fulfilled. And I want fancy graphics, 24 bit coloured pie
 charts in 3D and whatever comes to my crazy manager mind.
 And numbers. Many numbers.
 
