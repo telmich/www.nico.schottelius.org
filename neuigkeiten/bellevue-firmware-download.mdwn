@@ -1,3 +1,5 @@
+[[!meta title="Firmware-Aktualisierung am Bellevue"]]
+
 Zu sehen heute morgen am Bellevue in Zürich:
 
 ![firmware download](photo-firmware-bellevue.jpg "Firmware download Bellevue")
