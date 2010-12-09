@@ -1,0 +1,5 @@
+Zu sehen heute morgen am Bellevue in Zürich:
+
+![firmware download](photo-firmware-bellevue.jpg "Firmware download Bellevue")
+
+[[!tag photo net]]
