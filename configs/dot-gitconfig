@@ -29,17 +29,21 @@
    d  = diff
    dc = diff --color
    f  = fetch
+
    l     = log
-   lo    = log --pretty=oneline
+
    lc    = log --color
-   lco   = log --color --pretty=oneline
+   ln    = log --name-only
+   lo    = log --pretty=oneline
    lp    = log -p --abbrev-commit
-   lpo   = log -p --abbrev-commit --pretty=oneline
+
+   loc   = log --color --pretty=oneline
    lpc   = log -p --color --abbrev-commit
-   lpco  = log -p --color --abbrev-commit --pretty=oneline
+
    m     = merge
    p  = push
    pl = pull
+   r  = reset
    s  = status
    t  = tag
 
