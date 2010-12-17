@@ -1,0 +1,101 @@
+[[!meta title="Archlinux: One way to create one account for all systems"]]
+
+## Introduction
+
+If you use archlinux and use more than one of the web tools, you'll have
+multiple accounts, because each tool has its own authentication database.
+
+## Motivation
+
+Having Single-Sign-On (SSO) or at least one account for all systems
+would simplify life with the webtools.
+
+## Quick overview
+
+As of today, I see at least four systems being used:
+
+ * [bugs/flyspray](https://bugs.archlinux.org/)
+ * [wiki/mediawiki](https://wiki.archlinux.org/)
+ * [aur/aur](https://aur.archlinux.org/)
+ * [forum/fluxbb](https://bbs.archlinux.org/)
+ * [mailinglist/mailman](http://mailman.archlinux.org/mailman/listinfo/)
+
+## Quick analysis
+
+In the bugtracker you can see a
+[bug](http://bugs.archlinux.org/task/10703) in which using
+openid is described. [OpenID](http://openid.net/) may be an
+interesting option, though I see another one that could
+be doable.
+
+## Database support
+
+All applications with the exception of mailman, are database based.
+Fluxbb support at least MySQL and PostgreSQL, Mediawiki
+support MySQL and PostgreSQL, Flyspray supports
+MySQL and PostgreSQL and aur seems to use MySQL
+(seen in ***support/schema/aur-schema.sql***).
+
+Mailman has no database support, but from my point of view,
+it makes sense to leave mailman seperated, as mailman's
+primary key is an email address, which may be different
+for each mailinglist anyway (I'm using a different e-mail address
+for every person / mailinglist).
+
+## One database, multiple schemas
+
+All these tools have their own schemas and are not written to
+support each other. But there's a very elegant way supported
+by PostgreSQL to access different "views" in a read-write
+manner: schemas.
+
+PostgreSQL normally has one default schema, named "public".
+With PostgreSQL one could create a new database that contains
+all the authentication information and map it into the
+schemas of the other databases.
+
+## This is a proposal
+
+I'm not good in politics, nor interested in arguing or fighting
+for a solution. Instead, I'm giving this proposal, which I'm
+willing to help and/or coordinate with Archlinux Sysadmins.
+
+## One way to do it
+
+Coming back to the original idea, here's one way to do it:
+
+### Test the proposal
+
+ * Create a new userdb
+ * Analyse schemas of applications
+ * Create mappings from application schemas to userdb
+ * Verify that applications work
+
+### Prepare the migration
+
+ * Try to import data from current live sources
+ * Fix any collisions
+  * Define what a fix is: Delete or merge or rename or whatever
+ * Ensure that AUR also supports postgresql
+
+### Test the migration
+
+ * Import data from live systems into the new databases
+ * Setup tools on test system to use new database
+ * Verify everything works
+
+### Do the migration
+
+ * Announce migration date
+ * Freeze database
+ * Import data
+ * Change applications to use the databases
+ * Test each application
+ * Allow access from outside again
+ * Announce migration finish
+
+## Comments?
+
+I'm reachable as telmich in #archlinux or [[the usual way|about]].
+
+[[!tag unix]]
