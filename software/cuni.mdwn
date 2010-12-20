@@ -1,0 +1,69 @@
+## About
+
+cuni creates unix network installers. It is for those of you, who
+(want to) run a tftp server and install their clients from the network.
+
+## Using cuni
+
+Type ***cuni*** and read the usage description.
+
+## Using the unix installers
+
+Most unix installers have different semantics for execution.
+Some of them are able to do automatic installations, some of
+them even need a hint on what to boot from where.
+
+It is planned to make this information available directly in
+cuni, but until then, examples on how to use them are provided
+here:
+
+### Debian/Ubuntu
+
+ * Can be automated using Preseed
+
+Syslinux sample code:
+
+    LABEL debian_lenny_amd64
+      MENU LABEL Debian Lenny amd64
+      KERNEL syslinux/pxechain.com
+      APPEND ::debian/amd64/lenny/pxelinux.0
+
+### OpenBSD
+
+Syslinux sample code:
+
+    # works, needs "openbsd/bsd.rd"
+    LABEL openbesdtest
+       MENU LABEL OpenBSD
+       KERNEL syslinux/pxechain.com
+       APPEND ::openbsd/pxeboot
+
+
+
+
+## Adding a new OS installer
+
+Assume, you want to add support for the installer of OS "kroet", which requires
+the arguments "version" and "arch".
+
+    * Define arguments needed
+    kroet_args="version arch"
+
+    # Add code here, that is executed in the destination directory
+    cuni_kroet()
+    {
+      # MUST Define ddir: subdirectory which contains the actual installer
+      ddir="${arch}/${version}"
+
+      # MUST Define bootfile: file that should be booted
+      bootfile="$ddir/pxelinux.0"
+
+      # create os specific directory structure
+      # get os specific installer
+    }
+
+## Testing a new OS installer
+
+You can test the new installation with qemu for example:
+
+    qemu-kvm -boot n -net nic -net user,hostname=cunitest,tftp=/home/services/tftp/root,bootfile=/pxelinux.0
