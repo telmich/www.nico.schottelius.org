@@ -1,0 +1,16 @@
+[[!meta title="Neu: Timeserver auf Sans-Veröffentlichung: Liste von interessanten Diensten"]]
+
+Auf der [Sans-Netzseite](https://sans.ethz.ch) regt sich etwas,
+und zwar ist seit heute die erste Version der
+[Dienstliste](https://sans.ethz.ch/services/) verfügbar.
+
+Die Idee ist, eine Art Zusammenstellung der interessanten
+Dienste (für Sysadmins) rund um die ETH zu erstellen, damit das
+Suchen und wiederholte Aufbauen gleicher Dienstleistungen ein
+Ende hat.
+
+Daten von anderen Quellen werden in nächster Zeit
+die momentan noch bescheidene Liste erweitern - reinschauen
+lohnt sich also sicher ;-)
+
+[[!tag eth]]
