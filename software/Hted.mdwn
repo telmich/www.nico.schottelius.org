@@ -1,10 +1,10 @@
-Hted is a very simple "HTML editor" written in 1998.
+Hted is a very simple "HTML editor" written in Java in 1998.
 
 ## Getting it
 
 ### Via git
 
-You can get the latest development version via git:
+You can get the latest version via git:
 
     git clone git://git.schottelius.org/Hted
 
