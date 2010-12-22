@@ -1,7 +1,15 @@
 ## About
 
-cuni creates unix network installers. It is for those of you, who
-(want to) run a tftp server and install their clients from the network.
+Cuni installs unix network installers. The aim of cuni is to
+be able to install any unix from any unix via network:
+
+ * cuni creates a structure usable for PXE-networkbooting and installing
+
+To make use of what cuni provides, you need to run a tftp server
+to be able to install clients over the network.
+
+Cuni is a very basic infrastructure tool and helps you to setup
+and upgrade install servers.
 
 ## Using cuni
 
