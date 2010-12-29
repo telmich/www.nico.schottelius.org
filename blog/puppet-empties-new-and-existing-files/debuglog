@@ -1,0 +1,424 @@
+warning: You have configuration parameter $server specified in [puppetd], which is a deprecated section. I'm assuming you meant [agent]
+debug: Failed to load library 'rubygems' for feature 'rubygems'
+debug: Failed to load library 'selinux' for feature 'selinux'
+debug: Puppet::Type::User::ProviderPw: file pw does not exist
+debug: Puppet::Type::User::ProviderDirectoryservice: file /usr/bin/dscl does not exist
+debug: Failed to load library 'ldap' for feature 'ldap'
+debug: Puppet::Type::User::ProviderLdap: feature ldap is missing
+debug: Puppet::Type::User::ProviderUser_role_add: file roleadd does not exist
+debug: Puppet::Type::File::ProviderMicrosoft_windows: feature microsoft_windows is missing
+debug: /File[/var/lib/puppet/ssl/private]: Autorequiring File[/var/lib/puppet/ssl]
+debug: /File[/var/lib/puppet/ssl/public_keys]: Autorequiring File[/var/lib/puppet/ssl]
+debug: /File[/var/lib/puppet/ssl]: Autorequiring File[/var/lib/puppet]
+debug: /File[/var/lib/puppet/clientbucket]: Autorequiring File[/var/lib/puppet]
+debug: /File[/etc/puppet/puppet.conf]: Autorequiring File[/etc/puppet]
+debug: /File[/var/lib/puppet/state/classes.txt]: Autorequiring File[/var/lib/puppet/state]
+debug: /File[/var/lib/puppet/lib]: Autorequiring File[/var/lib/puppet]
+debug: /File[/var/lib/puppet/state/graphs]: Autorequiring File[/var/lib/puppet/state]
+debug: /File[/var/lib/puppet/ssl/private_keys/sans-lab-31.ethz.ch.pem]: Autorequiring File[/var/lib/puppet/ssl/private_keys]
+debug: /File[/var/lib/puppet/ssl/crl.pem]: Autorequiring File[/var/lib/puppet/ssl]
+debug: /File[/var/lib/puppet/reports]: Autorequiring File[/var/lib/puppet]
+debug: /File[/var/lib/puppet/ssl/certificate_requests]: Autorequiring File[/var/lib/puppet/ssl]
+debug: /File[/var/lib/puppet/ssl/private_keys]: Autorequiring File[/var/lib/puppet/ssl]
+debug: /File[/var/lib/puppet/ssl/certs/ca.pem]: Autorequiring File[/var/lib/puppet/ssl/certs]
+debug: /File[/var/lib/puppet/ssl/public_keys/sans-lab-31.ethz.ch.pem]: Autorequiring File[/var/lib/puppet/ssl/public_keys]
+debug: /File[/var/lib/puppet/client_data]: Autorequiring File[/var/lib/puppet]
+debug: /File[/var/lib/puppet/ssl/certs]: Autorequiring File[/var/lib/puppet/ssl]
+debug: /File[/var/lib/puppet/ssl/certs/sans-lab-31.ethz.ch.pem]: Autorequiring File[/var/lib/puppet/ssl/certs]
+debug: /File[/var/lib/puppet/facts]: Autorequiring File[/var/lib/puppet]
+debug: /File[/var/lib/puppet/state]: Autorequiring File[/var/lib/puppet]
+debug: /File[/var/lib/puppet/state/state.yaml]: Autorequiring File[/var/lib/puppet/state]
+debug: /File[/var/lib/puppet/client_yaml]: Autorequiring File[/var/lib/puppet]
+debug: Finishing transaction 69930056496780
+debug: /File[/var/lib/puppet/ssl/certs]: Autorequiring File[/var/lib/puppet/ssl]
+debug: /File[/var/lib/puppet/ssl/certs/ca.pem]: Autorequiring File[/var/lib/puppet/ssl/certs]
+debug: /File[/var/lib/puppet/ssl/crl.pem]: Autorequiring File[/var/lib/puppet/ssl]
+debug: /File[/var/lib/puppet/facts]: Autorequiring File[/var/lib/puppet]
+debug: /File[/var/lib/puppet/ssl/certificate_requests]: Autorequiring File[/var/lib/puppet/ssl]
+debug: /File[/var/lib/puppet/ssl/private_keys/sans-lab-31.ethz.ch.pem]: Autorequiring File[/var/lib/puppet/ssl/private_keys]
+debug: /File[/var/lib/puppet/reports]: Autorequiring File[/var/lib/puppet]
+debug: /File[/var/lib/puppet/state]: Autorequiring File[/var/lib/puppet]
+debug: /File[/var/lib/puppet/ssl/private]: Autorequiring File[/var/lib/puppet/ssl]
+debug: /File[/var/lib/puppet/ssl/certs/sans-lab-31.ethz.ch.pem]: Autorequiring File[/var/lib/puppet/ssl/certs]
+debug: /File[/var/lib/puppet/ssl/public_keys]: Autorequiring File[/var/lib/puppet/ssl]
+debug: /File[/var/lib/puppet/ssl/private_keys]: Autorequiring File[/var/lib/puppet/ssl]
+debug: /File[/var/lib/puppet/ssl/public_keys/sans-lab-31.ethz.ch.pem]: Autorequiring File[/var/lib/puppet/ssl/public_keys]
+debug: /File[/var/lib/puppet/lib]: Autorequiring File[/var/lib/puppet]
+debug: /File[/var/lib/puppet/ssl]: Autorequiring File[/var/lib/puppet]
+debug: Finishing transaction 69930056699700
+debug: Using cached certificate for ca
+debug: Using cached certificate for sans-lab-31.ethz.ch
+debug: Finishing transaction 69930056229460
+debug: Loaded state in 0.00 seconds
+debug: Using cached certificate for ca
+debug: Using cached certificate for sans-lab-31.ethz.ch
+debug: Using cached certificate_revocation_list for ca
+debug: catalog supports formats: b64_zlib_yaml dot marshal pson raw yaml; using pson
+info: Caching catalog for sans-lab-31.ethz.ch
+debug: Puppet::Type::Package::ProviderUp2date: file /usr/sbin/up2date-nox does not exist
+debug: Puppet::Type::Package::ProviderZypper: file /usr/bin/zypper does not exist
+debug: Puppet::Type::Package::ProviderHpux: file /usr/sbin/swremove does not exist
+debug: Puppet::Type::Package::ProviderSunfreeware: file pkg-get does not exist
+debug: Puppet::Type::Package::ProviderRpm: file rpm does not exist
+debug: Puppet::Type::Package::ProviderPkg: file /usr/bin/pkg does not exist
+debug: Puppet::Type::Package::ProviderPortage: file /usr/bin/emerge does not exist
+debug: Puppet::Type::Package::ProviderPorts: file /usr/local/sbin/pkg_deinstall does not exist
+debug: Puppet::Type::Package::ProviderGem: file gem does not exist
+debug: Puppet::Type::Package::ProviderFink: file /sw/bin/fink does not exist
+debug: Puppet::Type::Package::ProviderFreebsd: file /usr/sbin/pkg_info does not exist
+debug: Puppet::Type::Package::ProviderOpenbsd: file pkg_info does not exist
+debug: Puppet::Type::Package::ProviderPortupgrade: file /usr/local/sbin/pkg_deinstall does not exist
+debug: Puppet::Type::Package::ProviderAix: file /usr/bin/lslpp does not exist
+debug: Puppet::Type::Package::ProviderUrpmi: file rpm does not exist
+debug: Puppet::Type::Package::ProviderAptrpm: file rpm does not exist
+debug: Puppet::Type::Package::ProviderSun: file /usr/sbin/pkgrm does not exist
+debug: Puppet::Type::Package::ProviderRug: file /usr/bin/rug does not exist
+debug: Puppet::Type::Package::ProviderNim: file /usr/sbin/nimclient does not exist
+debug: Puppet::Type::Package::ProviderYum: file rpm does not exist
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: Puppet::Type::Service::ProviderDaemontools: file /usr/bin/svc does not exist
+debug: Puppet::Type::Service::ProviderGentoo: file /sbin/rc-update does not exist
+debug: Puppet::Type::Service::ProviderRedhat: file /sbin/chkconfig does not exist
+debug: Puppet::Type::Service::ProviderLaunchd: file /bin/launchctl does not exist
+debug: Puppet::Type::Service::ProviderRunit: file /usr/bin/sv does not exist
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/dpkg-query -W --showformat ${Status} ${Package} ${Version}\n autofs5'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: Creating default schedules
+debug: Loaded state in 0.00 seconds
+debug: Prefetching crontab resources for cron
+debug: Prefetching apt resources for package
+debug: Executing '/usr/bin/dpkg-query -W --showformat '${Status} ${Package} ${Version}\n''
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/dpkg-query -W --showformat '${Status} ${Package} ${Version}\n''
+debug: /Stage[main]/Pam_krb5::Debian/File[/etc/pam.d/common-account]/require: requires File[/etc/krb5.conf]
+debug: /Stage[main]/Ethz_dinfk::Auto_home/File[/etc/ethz/autofs/ldap_autofs_query.py]/require: requires Class[Ethz::Autofs]
+debug: /Stage[main]/Ethz_dinfk::Auto_home/File[/etc/ethz/autofs/ldap_autofs_query.py]/require: requires Package[python-ldap]
+debug: /Stage[main]/Ethz/Certificates::Add_cert[sureserverEDU.crt]/File[/usr/share/ca-certificates/local/sureserverEDU.crt]/require: requires File[ca_cert_local_dir]
+debug: /Stage[main]/Ethz_systems::Autofs/Autofs::Map[/pub]/Concat::Fragment[/pub]/require: requires File[/etc/ethz/autofs/auto.pub]
+debug: /Stage[main]/Certificates/Exec[update_ca_certs]/require: requires Package[ca-certificates]
+debug: /Stage[main]/Postfix/Package[postfix]/require: requires File[/var/cache/debconf/postfix.seeds]
+debug: /Stage[main]/Pam_krb5/File[/etc/krb5.conf]/require: requires Package[libpam-krb5]
+debug: /Stage[main]/Pam_krb5::Debian/File[/etc/pam.d/common-password]/require: requires File[/etc/krb5.conf]
+debug: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/notify: subscribes to Service[autofs]
+debug: /Stage[main]/Certificates/File[ca_cert_conf]/require: requires Package[ca-certificates]
+debug: /Stage[main]/Syslog_ng/Service[syslog-ng]/subscribe: subscribes to Package[syslog-ng]
+debug: /Stage[main]/Syslog_ng/Service[syslog-ng]/subscribe: subscribes to File[/etc/syslog-ng/syslog-ng.conf]
+debug: /Stage[main]/Openntpd/File[openntpd_config]/require: requires Package[openntpd]
+debug: /Stage[main]/Ethz/Certificates::Add_cert[id.crt]/Certificates::Add_cert_to_config[local/id.crt]/Exec[echo local/id.crt >> /etc/ca-certificates.conf]/require: requires File[ca_cert_conf]
+debug: /Stage[main]/Ethz/Certificates::Add_cert[id.crt]/Certificates::Add_cert_to_config[local/id.crt]/Exec[echo local/id.crt >> /etc/ca-certificates.conf]/notify: subscribes to Exec[update_ca_certs]
+debug: /Stage[main]/Syslog_ng/File[/etc/syslog-ng/syslog-ng.conf]/require: requires Package[syslog-ng]
+debug: /Stage[main]/Ethz/Certificates::Add_cert[QuoVadisGlobal_SSL_ICA.crt]/Certificates::Add_cert_to_config[local/QuoVadisGlobal_SSL_ICA.crt]/Exec[echo local/QuoVadisGlobal_SSL_ICA.crt >> /etc/ca-certificates.conf]/require: requires File[ca_cert_conf]
+debug: /Stage[main]/Ethz/Certificates::Add_cert[QuoVadisGlobal_SSL_ICA.crt]/Certificates::Add_cert_to_config[local/QuoVadisGlobal_SSL_ICA.crt]/Exec[echo local/QuoVadisGlobal_SSL_ICA.crt >> /etc/ca-certificates.conf]/notify: subscribes to Exec[update_ca_certs]
+debug: /Stage[main]/Ethz/Certificates::Add_cert[id.crt]/File[/usr/share/ca-certificates/local/id.crt]/require: requires File[ca_cert_local_dir]
+debug: /Stage[main]/Autofs::Net/Autofs::Map[/net]/Concat::Fragment[/net]/require: requires File[/etc/auto.net]
+debug: /Stage[main]/Ethz_dinfk::Auto_home/File[/etc/ethz/autofs/auto_home]/require: requires File[/etc/ethz/autofs/ldap_autofs_query.py]
+debug: /Stage[main]/Ethz_systems/Tempdir::Directory[/local]/File[/local/README]/subscribe: subscribes to File[/local]
+debug: /Stage[main]/Certificates/File[ca_cert_local_dir]/require: requires Package[ca-certificates]
+debug: /Stage[main]/Ethz/Certificates::Add_cert[sureserverEDU.crt]/Certificates::Add_cert_to_config[local/sureserverEDU.crt]/require: requires File[/usr/share/ca-certificates/local/sureserverEDU.crt]
+debug: /Stage[main]/Ethz::Autofs/File[/etc/ethz/autofs]/require: requires Class[Ethz]
+debug: /Stage[main]/Puppet::Client/Augeas[puppet.conf/puppetd server]/require: requires File[/etc/puppet/puppet.conf]
+debug: /Stage[main]/Ethz_dinfk::Auto_home/Autofs::Map[/home]/Concat::Fragment[/home]/File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments/10__home]/notify: subscribes to Exec[concat_/etc/auto.master]
+debug: /Stage[main]/Autofs::Net/Autofs::Map[/net]/Concat::Fragment[/net]/File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments/10__net]/notify: subscribes to Exec[concat_/etc/auto.master]
+debug: /Stage[main]/Ethz_dinfk::Auto_home/Autofs::Map[/home]/Concat::Fragment[/home]/require: requires File[/etc/ethz/autofs/auto_home]
+debug: /Stage[main]/Ethz_systems::Autofs/Autofs::Map[/pub]/Concat::Fragment[/pub]/File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments/10__pub]/notify: subscribes to Exec[concat_/etc/auto.master]
+debug: /Stage[main]/Ethz/Certificates::Add_cert[QuoVadisGlobal_SSL_ICA.crt]/File[/usr/share/ca-certificates/local/QuoVadisGlobal_SSL_ICA.crt]/require: requires File[ca_cert_local_dir]
+debug: /Stage[main]/Openntpd/Service[openntpd]/subscribe: subscribes to Package[openntpd]
+debug: /Stage[main]/Openntpd/Service[openntpd]/subscribe: subscribes to File[openntpd_config]
+debug: /Stage[main]/Openntpd/Service[openntpd]/subscribe: subscribes to File[openntpd_rc_config]
+debug: /Stage[main]/Ethz_systems::Collectd/Collectd::Collectd_config[puppet]/File[/etc/collectd/collectd.conf]/require: requires File[/etc/collectd]
+debug: /Stage[main]/Ethz_systems::Collectd/Collectd::Collectd_config[puppet]/File[/etc/collectd/collectd.conf]/notify: subscribes to Service[collectd]
+debug: /Stage[main]/Java/Package[sun-java6-jdk]/require: requires File[/var/cache/debconf/java.seeds]
+debug: /Stage[main]/Autofs/Concat::Fragment[autofs_header]/File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments/01_autofs_header]/notify: subscribes to Exec[concat_/etc/auto.master]
+debug: /Stage[main]/Pam_krb5::Debian/File[/etc/pam.d/common-auth]/require: requires File[/etc/krb5.conf]
+debug: /Stage[main]/Autofs/Service[autofs]/subscribe: subscribes to Package[autofs]
+debug: /Stage[main]/Collectd/Service[collectd]/subscribe: subscribes to Package[collectd]
+debug: /Stage[main]/Collectd/Service[collectd]/subscribe: subscribes to File[/etc/collectd/collectd.conf]
+debug: /Stage[main]/Collectd/Service[collectd]/subscribe: subscribes to Package[liboping0]
+debug: /Stage[main]/Ethz/Certificates::Add_cert[id.crt]/Certificates::Add_cert_to_config[local/id.crt]/require: requires File[/usr/share/ca-certificates/local/id.crt]
+debug: /Stage[main]/Pam_krb5::Debian/File[/etc/pam.d/common-session]/require: requires File[/etc/krb5.conf]
+debug: /Stage[main]/Puppet::Client/Service[puppet]/require: requires File[/etc/puppet/puppet.conf]
+debug: /Stage[main]/Java/Package[openjdk-6-jdk]/require: requires File[/var/cache/debconf/java.seeds]
+debug: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/Exec[concat_/etc/auto.master]/require: requires File[/etc/puppet/bin/concatfragments.sh]
+debug: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/Exec[concat_/etc/auto.master]/require: requires File[/var/lib/puppet/modules/concat/_etc_auto.master]
+debug: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/Exec[concat_/etc/auto.master]/require: requires File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments]
+debug: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/Exec[concat_/etc/auto.master]/require: requires File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments.concat]
+debug: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/Exec[concat_/etc/auto.master]/subscribe: subscribes to File[/var/lib/puppet/modules/concat/_etc_auto.master]
+debug: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/Exec[concat_/etc/auto.master]/notify: subscribes to File[/etc/auto.master]
+debug: /Stage[main]/Ethz/Certificates::Add_cert[sureserverEDU.crt]/Certificates::Add_cert_to_config[local/sureserverEDU.crt]/Exec[echo local/sureserverEDU.crt >> /etc/ca-certificates.conf]/require: requires File[ca_cert_conf]
+debug: /Stage[main]/Ethz/Certificates::Add_cert[sureserverEDU.crt]/Certificates::Add_cert_to_config[local/sureserverEDU.crt]/Exec[echo local/sureserverEDU.crt >> /etc/ca-certificates.conf]/notify: subscribes to Exec[update_ca_certs]
+debug: /Stage[main]/Ethz/Certificates::Add_cert[QuoVadisGlobal_SSL_ICA.crt]/Certificates::Add_cert_to_config[local/QuoVadisGlobal_SSL_ICA.crt]/require: requires File[/usr/share/ca-certificates/local/QuoVadisGlobal_SSL_ICA.crt]
+debug: /Stage[main]/Syslimits/File[/etc/security/limits.conf]/require: requires Package[libpam-modules]
+debug: /Stage[main]/Openntpd/File[openntpd_rc_config]/require: requires Package[openntpd]
+debug: /Stage[main]/Ethz_dinfk::Auto_home/File[/etc/ethz/autofs/ldap_autofs_query.py]: Autorequiring File[/etc/ethz/autofs]
+debug: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments.concat.out]: Autorequiring File[/var/lib/puppet/modules/concat/_etc_auto.master]
+debug: /Stage[main]/Ethz_dinfk::Auto_home/File[/etc/ethz/autofs/auto_home]: Autorequiring File[/etc/ethz/autofs]
+debug: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/Utils::Module_dir[concat/_etc_auto.master/fragments]/File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments]: Autorequiring File[/var/lib/puppet/modules/concat/_etc_auto.master]
+debug: /Stage[main]/Ethz::Autofs/File[/etc/ethz/autofs]: Autorequiring File[/etc/ethz]
+debug: /Stage[main]/Ethz_systems::Autofs/Autofs::Map[/pub]/File[/etc/ethz/autofs/auto.pub]: Autorequiring File[/etc/ethz/autofs]
+debug: /Stage[main]/Ethz_dinfk::Auto_home/Autofs::Map[/home]/Concat::Fragment[/home]/File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments/10__home]: Autorequiring File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments]
+debug: /Stage[main]/Ethz_systems::Autofs/Autofs::Map[/pub]/Concat::Fragment[/pub]/File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments/10__pub]: Autorequiring File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments]
+debug: /Stage[main]/Autofs::Net/Autofs::Map[/net]/Concat::Fragment[/net]/File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments/10__net]: Autorequiring File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments]
+debug: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/Utils::Module_dir[concat/_etc_auto.master]/File[/var/lib/puppet/modules/concat/_etc_auto.master]: Autorequiring File[/var/lib/puppet/modules/concat]
+debug: /Stage[main]/Autofs/Concat::Fragment[autofs_header]/File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments/01_autofs_header]: Autorequiring File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments]
+debug: /Stage[main]/Concat/File[/etc/puppet/bin/concatfragments.sh]: Autorequiring File[/etc/puppet/bin]
+debug: /Stage[main]/Concat/Utils::Module_dir[concat]/File[/var/lib/puppet/modules/concat]: Autorequiring File[/var/lib/puppet/modules]
+debug: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/Exec[concat_/etc/auto.master]: Autorequiring File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments.concat.out]
+debug: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/File[/var/lib/puppet/modules/concat/_etc_auto.master/fragments.concat]: Autorequiring File[/var/lib/puppet/modules/concat/_etc_auto.master]
+debug: /Stage[main]/Puppet::Client/File[/etc/puppet/bin/parselocalconfig.rb]: Autorequiring File[/etc/puppet/bin]
+info: Applying configuration version '1285935245'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy make'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/dpkg-query -W --showformat ${Status} ${Package} ${Version}\n libmemcached2'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Motd/File[motd_file]/content: Executing 'diff -u /etc/motd.tail /tmp/puppet-file20101001-22962-2k3au8-0'
+debug: Finishing transaction 69930054214080
+info: FileBucket got a duplicate file /etc/motd.tail ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Motd/File[motd_file]: Filebucketed /etc/motd.tail to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Motd/File[motd_file]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}529a485112f2a374cab2381385e37a82'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy libc6-dev'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Concat/File[/etc/puppet/bin/concatfragments.sh]/content: Executing 'diff -u /etc/puppet/bin/concatfragments.sh /tmp/puppet-file20101001-22962-dr2vys-0'
+info: FileBucket got a duplicate file /etc/puppet/bin/concatfragments.sh ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Concat/File[/etc/puppet/bin/concatfragments.sh]: Filebucketed /etc/puppet/bin/concatfragments.sh to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Concat/File[/etc/puppet/bin/concatfragments.sh]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}d34caaf2fb5e077d69c46d2fd210ca67'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Puppet::Client/File[/etc/puppet/bin/parselocalconfig.rb]/content: Executing 'diff -u /etc/puppet/bin/parselocalconfig.rb /tmp/puppet-file20101001-22962-1aua01a-0'
+info: FileBucket got a duplicate file /etc/puppet/bin/parselocalconfig.rb ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Puppet::Client/File[/etc/puppet/bin/parselocalconfig.rb]: Filebucketed /etc/puppet/bin/parselocalconfig.rb to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Puppet::Client/File[/etc/puppet/bin/parselocalconfig.rb]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}d6df5328277e914aad28ef2b8b381eee'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy python-ldap'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy sudo'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy liboping0'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/dpkg-query -W --showformat ${Status} ${Package} ${Version}\n memcached'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy ca-certificates'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Ethz/Certificates::Add_cert[id.crt]/File[/usr/share/ca-certificates/local/id.crt]/content: Executing 'diff -u /usr/share/ca-certificates/local/id.crt /tmp/puppet-file20101001-22962-1qd7xep-0'
+info: FileBucket got a duplicate file /usr/share/ca-certificates/local/id.crt ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Ethz/Certificates::Add_cert[id.crt]/File[/usr/share/ca-certificates/local/id.crt]: Filebucketed /usr/share/ca-certificates/local/id.crt to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Ethz/Certificates::Add_cert[id.crt]/File[/usr/share/ca-certificates/local/id.crt]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}52482418b44fac23e33cf451c034c4a6'
+debug: /Stage[main]/Ethz/Certificates::Add_cert[id.crt]/Certificates::Add_cert_to_config[local/id.crt]/Exec[echo local/id.crt >> /etc/ca-certificates.conf]: Executing check 'grep -q local/id.crt /etc/ca-certificates.conf'
+debug: Executing 'grep -q local/id.crt /etc/ca-certificates.conf'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Ethz/Certificates::Add_cert[QuoVadisGlobal_SSL_ICA.crt]/File[/usr/share/ca-certificates/local/QuoVadisGlobal_SSL_ICA.crt]/content: Executing 'diff -u /usr/share/ca-certificates/local/QuoVadisGlobal_SSL_ICA.crt /tmp/puppet-file20101001-22962-if6ya3-0'
+info: FileBucket got a duplicate file /usr/share/ca-certificates/local/QuoVadisGlobal_SSL_ICA.crt ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Ethz/Certificates::Add_cert[QuoVadisGlobal_SSL_ICA.crt]/File[/usr/share/ca-certificates/local/QuoVadisGlobal_SSL_ICA.crt]: Filebucketed /usr/share/ca-certificates/local/QuoVadisGlobal_SSL_ICA.crt to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Ethz/Certificates::Add_cert[QuoVadisGlobal_SSL_ICA.crt]/File[/usr/share/ca-certificates/local/QuoVadisGlobal_SSL_ICA.crt]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}fb2121e0f3f22d6ed3e638fcbb5ef130'
+debug: /Stage[main]/Ethz/Certificates::Add_cert[QuoVadisGlobal_SSL_ICA.crt]/Certificates::Add_cert_to_config[local/QuoVadisGlobal_SSL_ICA.crt]/Exec[echo local/QuoVadisGlobal_SSL_ICA.crt >> /etc/ca-certificates.conf]: Executing check 'grep -q local/QuoVadisGlobal_SSL_ICA.crt /etc/ca-certificates.conf'
+debug: Executing 'grep -q local/QuoVadisGlobal_SSL_ICA.crt /etc/ca-certificates.conf'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Ethz/Certificates::Add_cert[sureserverEDU.crt]/File[/usr/share/ca-certificates/local/sureserverEDU.crt]/content: Executing 'diff -u /usr/share/ca-certificates/local/sureserverEDU.crt /tmp/puppet-file20101001-22962-1ett6l0-0'
+info: FileBucket got a duplicate file /usr/share/ca-certificates/local/sureserverEDU.crt ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Ethz/Certificates::Add_cert[sureserverEDU.crt]/File[/usr/share/ca-certificates/local/sureserverEDU.crt]: Filebucketed /usr/share/ca-certificates/local/sureserverEDU.crt to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Ethz/Certificates::Add_cert[sureserverEDU.crt]/File[/usr/share/ca-certificates/local/sureserverEDU.crt]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}05d4bc906870350867137ebafe86b0e3'
+debug: /Stage[main]/Ethz/Certificates::Add_cert[sureserverEDU.crt]/Certificates::Add_cert_to_config[local/sureserverEDU.crt]/Exec[echo local/sureserverEDU.crt >> /etc/ca-certificates.conf]: Executing check 'grep -q local/sureserverEDU.crt /etc/ca-certificates.conf'
+debug: Executing 'grep -q local/sureserverEDU.crt /etc/ca-certificates.conf'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Ethz_systems::Autofs/Autofs::Map[/pub]/File[/etc/ethz/autofs/auto.pub]/content: Executing 'diff -u /etc/ethz/autofs/auto.pub /tmp/puppet-file20101001-22962-npnc6g-0'
+info: FileBucket got a duplicate file /etc/ethz/autofs/auto.pub ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Ethz_systems::Autofs/Autofs::Map[/pub]/File[/etc/ethz/autofs/auto.pub]: Filebucketed /etc/ethz/autofs/auto.pub to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Ethz_systems::Autofs/Autofs::Map[/pub]/File[/etc/ethz/autofs/auto.pub]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}3ed865cc2d08eaba9cf475023d205bee'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Ethz_dinfk::Auto_home/File[/etc/ethz/autofs/ldap_autofs_query.py]/content: Executing 'diff -u /etc/ethz/autofs/ldap_autofs_query.py /tmp/puppet-file20101001-22962-v5o14d-0'
+info: FileBucket got a duplicate file /etc/ethz/autofs/ldap_autofs_query.py ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Ethz_dinfk::Auto_home/File[/etc/ethz/autofs/ldap_autofs_query.py]: Filebucketed /etc/ethz/autofs/ldap_autofs_query.py to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Ethz_dinfk::Auto_home/File[/etc/ethz/autofs/ldap_autofs_query.py]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}50a2c941258c212ed786e13eefab1c0a'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Ethz_systems/Tempdir::Directory[/local]/File[/local/README]/content: Executing 'diff -u /local/README /tmp/puppet-file20101001-22962-f3wxyf-0'
+info: FileBucket got a duplicate file /local/README ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Ethz_systems/Tempdir::Directory[/local]/File[/local/README]: Filebucketed /local/README to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Ethz_systems/Tempdir::Directory[/local]/File[/local/README]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}5b6a98e55b05caefda5b44b6f92a426e'
+debug: /Stage[main]/Apache2::Disabled/Exec[/etc/init.d/apache2 stop]: Executing '/etc/init.d/apache2 stop'
+debug: Executing '/etc/init.d/apache2 stop'
+notice: /Stage[main]/Apache2::Disabled/Exec[/etc/init.d/apache2 stop]/returns: Stopping web server: apache2.
+notice: /Stage[main]/Apache2::Disabled/Exec[/etc/init.d/apache2 stop]/returns: executed successfully
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/dpkg-query -W --showformat ${Status} ${Package} ${Version}\n openntpd'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-get -q -y -o DPkg::Options::=--force-confold install openntpd'
+err: /Stage[main]/Openntpd/Package[openntpd]/ensure: change from purged to latest failed: Could not update: Execution of '/usr/bin/apt-get -q -y -o DPkg::Options::=--force-confold install openntpd' returned 100: Reading package lists...
+Building dependency tree...
+Reading state information...
+E: Package 'openntpd' has no installation candidate
+ at /etc/puppet/modules/openntpd/manifests/init.pp:14
+info: /Stage[main]/Openntpd/Package[openntpd]: Scheduling refresh of Service[openntpd]
+notice: /Stage[main]/Openntpd/File[openntpd_rc_config]: Dependency Package[openntpd] has failures: true
+warning: /Stage[main]/Openntpd/File[openntpd_rc_config]: Skipping because of failed dependencies
+notice: /Stage[main]/Openntpd/File[openntpd_config]: Dependency Package[openntpd] has failures: true
+warning: /Stage[main]/Openntpd/File[openntpd_config]: Skipping because of failed dependencies
+notice: /Stage[main]/Openntpd/Service[openntpd]: Dependency Package[openntpd] has failures: true
+warning: /Stage[main]/Openntpd/Service[openntpd]: Skipping because of failed dependencies
+debug: Service[openntpd](provider=debian): Executing 'ps -ef'
+debug: /Stage[main]/Openntpd/Service[openntpd]: Skipping restart; service is not running
+notice: /Stage[main]/Openntpd/Service[openntpd]: Triggered 'refresh' from 1 events
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy puppet'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy libtool'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy openssh-client'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy libpam-krb5'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Pam_krb5/File[/etc/krb5.conf]/content: Executing 'diff -u /etc/krb5.conf /tmp/puppet-file20101001-22962-1bna5uc-0'
+info: FileBucket got a duplicate file /etc/krb5.conf ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Pam_krb5/File[/etc/krb5.conf]: Filebucketed /etc/krb5.conf to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Pam_krb5/File[/etc/krb5.conf]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}ea621b58f46b090a009130c3b7db030b'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Pam_krb5::Debian/File[/etc/pam.d/common-password]/content: Executing 'diff -u /etc/pam.d/common-password /tmp/puppet-file20101001-22962-dh192r-0'
+info: FileBucket got a duplicate file /etc/pam.d/common-password ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Pam_krb5::Debian/File[/etc/pam.d/common-password]: Filebucketed /etc/pam.d/common-password to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Pam_krb5::Debian/File[/etc/pam.d/common-password]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}1b8dcbe4fd12312d21ccafa971e2ba06'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Pam_krb5::Debian/File[/etc/pam.d/common-account]/content: Executing 'diff -u /etc/pam.d/common-account /tmp/puppet-file20101001-22962-1v4phz3-0'
+info: FileBucket got a duplicate file /etc/pam.d/common-account ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Pam_krb5::Debian/File[/etc/pam.d/common-account]: Filebucketed /etc/pam.d/common-account to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Pam_krb5::Debian/File[/etc/pam.d/common-account]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}1866653be7ea83ecd38fa6578ca37a4f'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Pam_krb5::Debian/File[/etc/pam.d/common-auth]/content: Executing 'diff -u /etc/pam.d/common-auth /tmp/puppet-file20101001-22962-1osve8a-0'
+info: FileBucket got a duplicate file /etc/pam.d/common-auth ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Pam_krb5::Debian/File[/etc/pam.d/common-auth]: Filebucketed /etc/pam.d/common-auth to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Pam_krb5::Debian/File[/etc/pam.d/common-auth]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}0bd62fb87dda51735bf71451995d11e9'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Pam_krb5::Debian/File[/etc/pam.d/common-session]/content: Executing 'diff -u /etc/pam.d/common-session /tmp/puppet-file20101001-22962-1osg0g1-0'
+info: FileBucket got a duplicate file /etc/pam.d/common-session ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Pam_krb5::Debian/File[/etc/pam.d/common-session]: Filebucketed /etc/pam.d/common-session to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Pam_krb5::Debian/File[/etc/pam.d/common-session]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}7c76bd6480115d40fbf2e78df922c8ef'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy syslog-ng'
+debug: Service[syslog-ng](provider=debian): Executing 'ps -ef'
+debug: Service[syslog-ng](provider=debian): PID is 27756
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Ethz::Apt_proxy/File[/etc/apt/apt.conf.d/90eth-apt-proxy]/content: Executing 'diff -u /etc/apt/apt.conf.d/90eth-apt-proxy /tmp/puppet-file20101001-22962-ke7a67-0'
+info: FileBucket got a duplicate file /etc/apt/apt.conf.d/90eth-apt-proxy ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Ethz::Apt_proxy/File[/etc/apt/apt.conf.d/90eth-apt-proxy]: Filebucketed /etc/apt/apt.conf.d/90eth-apt-proxy to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Ethz::Apt_proxy/File[/etc/apt/apt.conf.d/90eth-apt-proxy]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}d72515ff3362ec72254435c7733b7078'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy collectd'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Java/File[/var/cache/debconf/java.seeds]/content: Executing 'diff -u /var/cache/debconf/java.seeds /tmp/puppet-file20101001-22962-j52sq1-0'
+info: FileBucket got a duplicate file /var/cache/debconf/java.seeds ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Java/File[/var/cache/debconf/java.seeds]: Filebucketed /var/cache/debconf/java.seeds to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Java/File[/var/cache/debconf/java.seeds]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}933b4147b90f0a53a92cdb8032758cb9'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/dpkg-query -W --showformat ${Status} ${Package} ${Version}\n sun-java6-jdk'
+info: Package[sun-java6-jdk](provider=apt): Preseeding /var/cache/debconf/java.seeds to debconf-set-selections
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/debconf-set-selections /var/cache/debconf/java.seeds'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-get -q -y -o DPkg::Options::=--force-confold install sun-java6-jdk'
+err: /Stage[main]/Java/Package[sun-java6-jdk]/ensure: change from purged to latest failed: Could not update: Execution of '/usr/bin/apt-get -q -y -o DPkg::Options::=--force-confold install sun-java6-jdk' returned 100: Reading package lists...
+Building dependency tree...
+Reading state information...
+E: Package 'sun-java6-jdk' has no installation candidate
+ at /etc/puppet/modules/java/manifests/init.pp:24
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy openjdk-6-jdk'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy gcc'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy openssh-server'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Sudo/File[/etc/sudoers]/content: Executing 'diff -u /etc/sudoers /tmp/puppet-file20101001-22962-1k5rc6d-0'
+info: FileBucket got a duplicate file /etc/sudoers ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Sudo/File[/etc/sudoers]: Filebucketed /etc/sudoers to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Sudo/File[/etc/sudoers]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}ec7cafbaca51f04fada71c214aebb2fe'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy autoconf'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Puppet::Client/File[/etc/default/puppet]/content: Executing 'diff -u /etc/default/puppet /tmp/puppet-file20101001-22962-1uu3uhg-0'
+info: FileBucket got a duplicate file /etc/default/puppet ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Puppet::Client/File[/etc/default/puppet]: Filebucketed /etc/default/puppet to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Puppet::Client/File[/etc/default/puppet]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}1bba62ebf7f8c9b4e0557411f652157b'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy autofs5'
+debug: Service[collectd](provider=debian): Executing 'ps -ef'
+debug: Service[collectd](provider=debian): PID is 7178
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy libpam-modules'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Syslimits/File[/etc/security/limits.conf]/content: Executing 'diff -u /etc/security/limits.conf /tmp/puppet-file20101001-22962-10qb5vp-0'
+info: FileBucket got a duplicate file /etc/security/limits.conf ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Syslimits/File[/etc/security/limits.conf]: Filebucketed /etc/security/limits.conf to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Syslimits/File[/etc/security/limits.conf]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}c531137f8556a15b0a01ec567a2371f9'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/dpkg-query -W --showformat ${Status} ${Package} ${Version}\n gcc-doc'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-get -q -y -o DPkg::Options::=--force-confold install gcc-doc'
+err: /Stage[main]/Development/Package[gcc-doc]/ensure: change from purged to latest failed: Could not update: Execution of '/usr/bin/apt-get -q -y -o DPkg::Options::=--force-confold install gcc-doc' returned 100: Reading package lists...
+Building dependency tree...
+Reading state information...
+E: Package 'gcc-doc' has no installation candidate
+ at /etc/puppet/modules/development/manifests/init.pp:6
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy libncurses5-dev'
+debug: Service[apache2](provider=debian): Executing 'ps -ef'
+debug: Puppet::Type::Service::ProviderDebian: Executing '/usr/sbin/update-rc.d -f apache2 remove'
+debug: Puppet::Type::Service::ProviderDebian: Executing '/usr/sbin/update-rc.d apache2 stop 00 1 2 3 4 5 6 .'
+notice: /Stage[main]/Apache2::Disabled/Service[apache2]/enable: enable changed 'true' to 'false'
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Postfix/File[/var/cache/debconf/postfix.seeds]/content: Executing 'diff -u /var/cache/debconf/postfix.seeds /tmp/puppet-file20101001-22962-1y5uhbp-0'
+info: FileBucket got a duplicate file /var/cache/debconf/postfix.seeds ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Postfix/File[/var/cache/debconf/postfix.seeds]: Filebucketed /var/cache/debconf/postfix.seeds to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Postfix/File[/var/cache/debconf/postfix.seeds]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}941bdfa7ed315a036516cd84275de3c0'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/dpkg-query -W --showformat ${Status} ${Package} ${Version}\n postfix'
+info: Package[postfix](provider=apt): Preseeding /var/cache/debconf/postfix.seeds to debconf-set-selections
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/debconf-set-selections /var/cache/debconf/postfix.seeds'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-get -q -y -o DPkg::Options::=--force-confold install postfix'
+notice: /Stage[main]/Postfix/Package[postfix]/ensure: ensure changed 'purged' to 'latest'
+debug: Puppet::Type::Package::ProviderApt: Executing '/usr/bin/apt-cache policy build-essential'
+debug: Service[puppet](provider=debian): Executing 'ps -ef'
+debug: Service[puppet](provider=debian): PID is 22962
+debug: Service[puppet](provider=debian): Executing '/etc/init.d/puppet stop'
+debug: Puppet::Type::Service::ProviderDebian: Executing '/usr/sbin/update-rc.d -f puppet remove'
+debug: Puppet::Type::Service::ProviderDebian: Executing '/usr/sbin/update-rc.d puppet stop 00 1 2 3 4 5 6 .'
+notice: /Stage[main]/Puppet::Client/Service[puppet]/ensure: ensure changed 'running' to 'stopped'
+debug: Augeas[puppet.conf/puppetd server](provider=augeas): Opening augeas with root /, lens path , flags 0
+debug: Augeas[puppet.conf/puppetd server](provider=augeas): Augeas version 0.7.2 is installed
+debug: Augeas[puppet.conf/puppetd server](provider=augeas): Closed the augeas connection
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+debug: /Stage[main]/Autofs::Net/Autofs::Map[/net]/File[/etc/auto.net]/content: Executing 'diff -u /etc/auto.net /tmp/puppet-file20101001-22962-1sxawbq-0'
+info: FileBucket got a duplicate file /etc/auto.net ({md5}d41d8cd98f00b204e9800998ecf8427e)
+info: /Stage[main]/Autofs::Net/Autofs::Map[/net]/File[/etc/auto.net]: Filebucketed /etc/auto.net to main with sum d41d8cd98f00b204e9800998ecf8427e
+debug: file_metadata supports formats: b64_zlib_yaml marshal pson raw yaml; using pson
+notice: /Stage[main]/Autofs::Net/Autofs::Map[/net]/File[/etc/auto.net]/content: content changed '{md5}d41d8cd98f00b204e9800998ecf8427e' to '{md5}762a26605ec335e723fea429e486d267'
+debug: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/Exec[concat_/etc/auto.master]: Executing check '/etc/puppet/bin/concatfragments.sh -o /var/lib/puppet/modules/concat/_etc_auto.master/fragments.concat.out -d /var/lib/puppet/modules/concat/_etc_auto.master -t -s sort  '
+debug: Executing '/etc/puppet/bin/concatfragments.sh -o /var/lib/puppet/modules/concat/_etc_auto.master/fragments.concat.out -d /var/lib/puppet/modules/concat/_etc_auto.master -t -s sort  '
+debug: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/Exec[concat_/etc/auto.master]: Executing '/etc/puppet/bin/concatfragments.sh -o /var/lib/puppet/modules/concat/_etc_auto.master/fragments.concat.out -d /var/lib/puppet/modules/concat/_etc_auto.master -s sort  '
+debug: Executing '/etc/puppet/bin/concatfragments.sh -o /var/lib/puppet/modules/concat/_etc_auto.master/fragments.concat.out -d /var/lib/puppet/modules/concat/_etc_auto.master -s sort  '
+err: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/Exec[concat_/etc/auto.master]/returns: change from notrun to 0 failed: /etc/puppet/bin/concatfragments.sh -o /var/lib/puppet/modules/concat/_etc_auto.master/fragments.concat.out -d /var/lib/puppet/modules/concat/_etc_auto.master -s sort   returned 1 instead of one of [0] at /etc/puppet/modules/concat/manifests/file.pp:138
+info: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/Exec[concat_/etc/auto.master]: Scheduling refresh of Service[autofs]
+notice: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/File[/etc/auto.master]: Dependency Exec[concat_/etc/auto.master] has failures: true
+warning: /Stage[main]/Autofs/Concat::File[/etc/auto.master]/File[/etc/auto.master]: Skipping because of failed dependencies
+notice: /Stage[main]/Autofs/Service[autofs]: Dependency Exec[concat_/etc/auto.master] has failures: true
+warning: /Stage[main]/Autofs/Service[autofs]: Skipping because of failed dependencies
+debug: Service[autofs](provider=debian): Executing 'ps -ef'
+debug: Service[autofs](provider=debian): PID is 22167
+debug: Service[autofs](provider=debian): Executing '/etc/init.d/autofs restart'
+notice: /Stage[main]/Autofs/Service[autofs]: Triggered 'refresh' from 1 events
+debug: Finishing transaction 69930055082700
+debug: Storing state
+debug: Stored state in 0.03 seconds
+notice: Finished catalog run in 10.11 seconds
