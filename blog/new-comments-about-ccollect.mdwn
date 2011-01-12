@@ -1,0 +1,19 @@
+[[!meta title="New comments about ccollect published"]]
+
+If you are a FOSS-developer, like [[me|about]], you'll understand
+that getting feedback for you application is a great thing and
+helps either to improve the software or to feel good.
+
+In case of [[ccollect|software/ccollect]], the included script
+**tools/report_success** submits aids users to give feedback.
+
+If the user allows me to publish the quote, it will
+appear on [[ccollect's quotes site|software/ccollect/quotes]],
+like it happened again today.
+
+The motivation of this post is
+
+ * to show you that ccollect is great software
+ * to show FOSS developers how to get happy with their great software
+
+[[!tag backup unix]]
