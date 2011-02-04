@@ -22,7 +22,7 @@ view:
 clean: all
 	rm -rf ${DESTDIR}
 
-public:
+pub:
 	git push --mirror
 
 #public: ask public-f
