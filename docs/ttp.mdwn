@@ -12,4 +12,9 @@
 
     it is ttp.
 
+## Submission to the Journal of Universal Rejection (JofUR)
+
+ttp was submitted and rejected by
+[JofUR](http://www.universalrejection.org/) on 2011-03-04.
+
 [[!tag net unix]]
