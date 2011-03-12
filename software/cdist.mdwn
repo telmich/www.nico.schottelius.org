@@ -1,6 +1,6 @@
 [[!meta title="cdist - configuration management"]]
 
-    
+     
                  ..          .       .x+=:.        s   
                dF           @88>    z`    ^%      :8  
               '88bu.        %8P        .   <k    .88 
@@ -13,7 +13,7 @@
     ?8888u../ .888N..888    888&  .888888P`    ^%888*
      "8888P'   `"888*""     R888" `   ^"F        'Y" 
        "P'        ""         ""  
-    
+     
 
 [[!toc  levels=2]]
 
