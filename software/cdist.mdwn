@@ -64,6 +64,16 @@ but is not. Or: Why I began to write cdist:
  * Easy upgrade: ***There is no need to update cdist on target hosts!***
   * cdist only needs to be update on the master server
 
+### OS support
+
+cdist was tested or is know to run on at least
+
+ * [Archlinux](http://www.archlinux.org/)
+ * [Debian](http://www.debian.org/)
+ * [Gentoo](http://www.gentoo.org/)
+ * [Mac OS X](http://www.apple.com/macosx/)
+ * [Ubuntu](http://www.ubuntu.com/)
+
 
 ## Requirements
 
@@ -173,9 +183,9 @@ Yes, I'm actually eating my own dogfood and currently managing
  * [kerberos (mit)](http://web.mit.edu/kerberos/) (authentication)
  * [ircd-hybrid](http://www.ircd-hybrid.org/) (chat)
  * [stunnel](http://stunnel.mirt.net/) (SSL tunnel)
- * [mercurial-server](http://www.lshift.net/mercurial-server.html)
- * [xfce](http://www.xfce.org/)
- * [slim](http://slim.berlios.de/)
+ * [mercurial-server](http://www.lshift.net/mercurial-server.html) (version control)
+ * [xfce](http://www.xfce.org/) (lightweight desktop environment)
+ * [slim](http://slim.berlios.de/) (graphical login manager for X11)
 
 with cdist on a total of **5** production machines of the
 [Systems Group](http://www.systems.ethz.ch) at the
