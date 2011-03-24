@@ -626,6 +626,16 @@ parents
    Whether to create parents as well (mkdir -p behaviour). Must be yes or no.
 </p>
 </dd>
+<dt class="hdlist1">
+recursive
+</dt>
+<dd>
+<p>
+   If supplied the chgrp and chown call will run recursively.
+   This does <strong>not</strong> influence the behaviour of chmod.
+   Must be yes or no.
+</p>
+</dd>
 </dl></div>
 </div>
 </div>
@@ -641,7 +651,10 @@ __directory /tmp/foobar
 __directory /etc --owner root --group root --mode 0755
 
 # Create nfs service directory, including parents
-__directory /home/services/nfs --parents yes</tt></pre>
+__directory /home/services/nfs --parents yes
+
+# Change permissions recursively
+__directory /home/services --recursive yes --owner root --group root</tt></pre>
 </div></div>
 </div>
 </div>
@@ -668,7 +681,7 @@ granted under the terms of the GNU General Public License version 3 (GPLv3).</p>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2011-03-21 09:44:00 CET
+Last updated 2011-03-22 09:53:34 CET
 </div>
 </div>
 </body>
