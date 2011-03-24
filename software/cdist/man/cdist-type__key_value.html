@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.6.4" />
-<title>cdist-env(1)</title>
+<title>cdist-type__key_value(7)</title>
 <style type="text/css">
 /* Sans-serif font. */
 h1, h2, h3, h4, h5, h6,
@@ -567,60 +567,105 @@ footnotes: function () {
 </head>
 <body class="article">
 <div id="header">
-<h1>cdist-env(1)</h1>
-<span id="author">Nico Schottelius</span><br />
-<span id="email"><tt>&lt;<a href="mailto:nico-cdist--@--schottelius.org">nico-cdist--@--schottelius.org</a>&gt;</tt></span><br />
+<h1>cdist-type__key_value(7)</h1>
+<span id="author">Steven Armstrong</span><br />
+<span id="email"><tt>&lt;<a href="mailto:steven-cdist--@--armstrong.cc">steven-cdist--@--armstrong.cc</a>&gt;</tt></span><br />
 </div>
 <div id="content">
 <div class="sect1">
 <h2 id="_name">NAME</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>cdist-env - Setup environment for using cdist</p></div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_synopsis">SYNOPSIS</h2>
-<div class="sectionbody">
-<div class="paragraph"><p>cdist-env</p></div>
+<div class="paragraph"><p>cdist-type__key_value - Change property values in files</p></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_description">DESCRIPTION</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>cdist-env outputs two strings suitable for usage in your current shell,
-so you can use cdist from the checkout. cdist-env essentially helps you
-to easily setup PATH and MANPATH.</p></div>
-<div class="paragraph"><p>If you&#8217;ve multiple checkouts of cdist and run cdist-env from the various
-checkouts, a new run will prepend the last directory, thus ensures you
-can run it multiple times and does what one expects.</p></div>
+<div class="paragraph"><p>This cdist type allows you to change values in a key value based config
+file.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_required_parameters">REQUIRED PARAMETERS</h2>
+<div class="sectionbody">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+value
+</dt>
+<dd>
+<p>
+   The value for the key. Setting the value to <em>NOTSET</em> will remove the key
+   from the file.
+</p>
+</dd>
+<dt class="hdlist1">
+file
+</dt>
+<dd>
+<p>
+   The file to operate on.
+</p>
+</dd>
+<dt class="hdlist1">
+delimiter
+</dt>
+<dd>
+<p>
+   The delimiter which seperates the key from the value.
+</p>
+</dd>
+</dl></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_optional_parameters">OPTIONAL PARAMETERS</h2>
+<div class="sectionbody">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+key
+</dt>
+<dd>
+<p>
+   The key to change. Defaults to object_id.
+</p>
+</dd>
+</dl></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_examples">EXAMPLES</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>For use in bourne shell variants (like dash, bash, ksh) as well as
-in csh variants (csh, tcsh):</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>eval `./bin/cdist-env`</tt></pre>
-</div></div>
-<div class="paragraph"><p>For bourne shell, there is also a shorter version:</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><tt>. ./bin/cdist-env</tt></pre>
+<pre><tt># Set the maximum system user id
+__key_value SYS_UID_MAX --file /etc/login.defs --value 666 --delimiter ' '
+
+# Same with fancy id
+__key_value my-fancy-id --file /etc/login.defs --key SYS_UID_MAX --value 666 \
+   --delimiter ' '
+
+# Enable packet forwarding
+__key_value net.ipv4.ip_forward --file /etc/sysctl.conf --value 1 \
+   --delimiter '='</tt></pre>
 </div></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_see_also">SEE ALSO</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>cdist(7)</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+cdist-type(7)
+</p>
+</li>
+</ul></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_copying">COPYING</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Copyright (C) 2011 Nico Schottelius. Free use of this software is
+<div class="paragraph"><p>Copyright (C) 2011 Steven Armstrong. Free use of this software is
 granted under the terms of the GNU General Public License version 3 (GPLv3).</p></div>
 </div>
 </div>
@@ -628,7 +673,7 @@ granted under the terms of the GNU General Public License version 3 (GPLv3).</p>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2011-03-24 23:31:56 CET
+Last updated 2011-03-24 23:32:10 CET
 </div>
 </div>
 </body>
