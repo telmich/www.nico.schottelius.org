@@ -599,6 +599,23 @@ may be of great help as well.</p></div>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_coding_conventions_core">CODING CONVENTIONS (CORE)</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+All variables exported by cdist are prefixed with a double underscore (__)
+</p>
+</li>
+<li>
+<p>
+All cdist-internal variables are prefixed with <em>_cdist</em> and are generally not exported.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_how_to_submit_stuff_for_inclusion_into_upstream_cdist">HOW TO SUBMIT STUFF FOR INCLUSION INTO UPSTREAM CDIST</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>If you did some cool changes to cdist, which you value as a benefit for
@@ -629,6 +646,12 @@ Code submissions must be in your master branch
 <li>
 <p>
 Exception: If you only want a comment on your code, but not an inclusion.
+</p>
+</li>
+<li>
+<p>
+Do not add conf/manifest/init - This file should only be touched in your
+  private branch!
 </p>
 </li>
 </ul></div>
@@ -669,7 +692,7 @@ granted under the terms of the GNU General Public License version 3 (GPLv3).</p>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2011-03-24 15:35:17 CET
+Last updated 2011-03-24 15:58:35 CET
 </div>
 </div>
 </body>
