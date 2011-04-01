@@ -1,0 +1,54 @@
+[[!meta title="Automated Unix Installations"]]
+
+From time to time I'm playing around with different Unices,
+mostly free ones like *BSD and Linux and wonder how easy it is
+to have an automatic installation.
+
+## Preample: There's only one way to do it
+
+My expererience as a sysadmin is that the only way to scale
+out installations is via network install: USB sticks, cdroms
+or floppies just require too much manual work. As most installations
+need network connectivity anyway, there is no need to rely on these
+old fashioned, non scalable methods.
+
+## Network install
+
+If an (unix) operating system supports network install, it should
+require only a TFTP server. The reason for this is that for network
+installations using PXE a TFTP server is required anyway.
+
+After the installer is running, it can definitely use the usual
+methods to retrieve components like packages (i.e. HTTP, NFS, etc.),
+but this not require me, as a sysadmin, to setup any additional
+service.
+
+## The challenge
+
+Now I'm sitting in front of some computers and I'm wondering how
+easy it can be to setup these boxes with different Unices
+*automated*.
+
+## Current status
+
+I've started the [[cuni|software/cuni]] project some time ago to
+learn about the unix installers and I'm aware of at least
+Kickstart for Redhat/Fedora, Preseed for Debian/Ubuntu
+and Fai for Debian. I guess there are many other out there and
+I'm wondering how easy it is for every Unix to get into a
+complete unattendet, autoamated installation.
+
+## Help appreciated, comments and critics welcome
+
+I'm aware that this is a bigger project, but at the end it would
+be very useful for sysadmins maintaining small and large infrastructures
+to be able to have *one way to rule them all*.
+
+So if you are an expert of $Unix and know how to automate the
+installation of it via network, [[just drop me a mail|contact]].
+
+I plan to extend [[cuni|software/cuni]] to be able to create automated
+installation environments, as soon as I've collected the necessary
+information on how to do so.
+
+[[!tag eth foss unix]]
