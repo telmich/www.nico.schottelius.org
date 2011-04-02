@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>cdist-reference(7)</title><link rel="stylesheet" type="text/css" href="docbook-xsl.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.76.1" /></head><body><div xml:lang="en" class="article" title="cdist-reference(7)" lang="en"><div class="titlepage"><div><div><h2 class="title"><a id="id426348"></a>cdist-reference(7)</h2></div><div><div class="author"><h3 class="author"><span class="firstname">Nico</span> <span class="surname">Schottelius</span></h3><code class="email">&lt;<a class="email" href="mailto:nico-cdist--@--schottelius.org">nico-cdist--@--schottelius.org</a>&gt;</code></div></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="section"><a href="#_name">1. NAME</a></span></dt><dt><span class="section"><a href="#_description">2. DESCRIPTION</a></span></dt><dt><span class="section"><a href="#_paths">3. PATHS</a></span></dt><dt><span class="section"><a href="#_types">4. TYPES</a></span></dt><dt><span class="section"><a href="#_variables">5. VARIABLES</a></span></dt><dt><span class="section"><a href="#_see_also">6. SEE ALSO</a></span></dt><dt><span class="section"><a href="#_copying">7. COPYING</a></span></dt></dl></div><div class="section" title="1. NAME"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_name"></a>1. NAME</h2></div></div></div><p>cdist-reference - Variable, path and type reference for cdist</p></div><div class="section" title="2. DESCRIPTION"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_description"></a>2. DESCRIPTION</h2></div></div></div><p>Various scripts which are not in the core need information on how
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>cdist-reference(7)</title><link rel="stylesheet" type="text/css" href="docbook-xsl.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.76.1" /></head><body><div xml:lang="en" class="article" title="cdist-reference(7)" lang="en"><div class="titlepage"><div><div><h2 class="title"><a id="id306881"></a>cdist-reference(7)</h2></div><div><div class="author"><h3 class="author"><span class="firstname">Nico</span> <span class="surname">Schottelius</span></h3><code class="email">&lt;<a class="email" href="mailto:nico-cdist--@--schottelius.org">nico-cdist--@--schottelius.org</a>&gt;</code></div></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="section"><a href="#_name">1. NAME</a></span></dt><dt><span class="section"><a href="#_description">2. DESCRIPTION</a></span></dt><dt><span class="section"><a href="#_paths">3. PATHS</a></span></dt><dt><span class="section"><a href="#_types">4. TYPES</a></span></dt><dt><span class="section"><a href="#_variables">5. VARIABLES</a></span></dt><dt><span class="section"><a href="#_see_also">6. SEE ALSO</a></span></dt><dt><span class="section"><a href="#_copying">7. COPYING</a></span></dt></dl></div><div class="section" title="1. NAME"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_name"></a>1. NAME</h2></div></div></div><p>cdist-reference - Variable, path and type reference for cdist</p></div><div class="section" title="2. DESCRIPTION"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_description"></a>2. DESCRIPTION</h2></div></div></div><p>Various scripts which are not in the core need information on how
 to find information. This manpage summarises the available environment
 variables, types and paths and clearifies with part may access which variables.</p></div><div class="section" title="3. PATHS"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_paths"></a>3. PATHS</h2></div></div></div><p>If not specified otherwise, all paths are relative to the checkout directory.</p><div class="variablelist"><dl><dt><span class="term">
 conf/
@@ -167,6 +167,8 @@ __package_pacman.text
 </li><li class="listitem">
 __package.text
 </li><li class="listitem">
+__package_yum
+</li><li class="listitem">
 __package_yum.html
 </li><li class="listitem">
 __package_yum.text
@@ -243,102 +245,36 @@ cdist(7)
 </li><li class="listitem">
 cdist-type__addifnosuchline(7)
 </li><li class="listitem">
-cdist-type__addifnosuchline.html(7)
-</li><li class="listitem">
-cdist-type__addifnosuchline.text(7)
-</li><li class="listitem">
 cdist-type__apt_ppa(7)
-</li><li class="listitem">
-cdist-type__apt_ppa.html(7)
-</li><li class="listitem">
-cdist-type__apt_ppa.text(7)
 </li><li class="listitem">
 cdist-type__debconf_set_selections(7)
 </li><li class="listitem">
-cdist-type__debconf_set_selections.html(7)
-</li><li class="listitem">
-cdist-type__debconf_set_selections.text(7)
-</li><li class="listitem">
 cdist-type__directory(7)
-</li><li class="listitem">
-cdist-type__directory.html(7)
-</li><li class="listitem">
-cdist-type__directory.text(7)
 </li><li class="listitem">
 cdist-type__file(7)
 </li><li class="listitem">
-cdist-type__file.html(7)
-</li><li class="listitem">
-cdist-type__file.text(7)
-</li><li class="listitem">
 cdist-type__group(7)
-</li><li class="listitem">
-cdist-type__group.html(7)
-</li><li class="listitem">
-cdist-type__group.text(7)
 </li><li class="listitem">
 cdist-type__issue(7)
 </li><li class="listitem">
-cdist-type__issue.html(7)
-</li><li class="listitem">
-cdist-type__issue.text(7)
-</li><li class="listitem">
 cdist-type__key_value(7)
-</li><li class="listitem">
-cdist-type__key_value.html(7)
-</li><li class="listitem">
-cdist-type__key_value.text(7)
 </li><li class="listitem">
 cdist-type__link(7)
 </li><li class="listitem">
-cdist-type__link.html(7)
-</li><li class="listitem">
-cdist-type__link.text(7)
-</li><li class="listitem">
 cdist-type__motd(7)
-</li><li class="listitem">
-cdist-type__motd.html(7)
-</li><li class="listitem">
-cdist-type__motd.text(7)
 </li><li class="listitem">
 cdist-type__package(7)
 </li><li class="listitem">
 cdist-type__package_apt(7)
 </li><li class="listitem">
-cdist-type__package_apt.html(7)
-</li><li class="listitem">
-cdist-type__package_apt.text(7)
-</li><li class="listitem">
-cdist-type__package.html(7)
-</li><li class="listitem">
 cdist-type__package_pacman(7)
 </li><li class="listitem">
-cdist-type__package_pacman.html(7)
-</li><li class="listitem">
-cdist-type__package_pacman.text(7)
-</li><li class="listitem">
-cdist-type__package.text(7)
-</li><li class="listitem">
-cdist-type__package_yum.html(7)
-</li><li class="listitem">
-cdist-type__package_yum.text(7)
+cdist-type__package_yum(7)
 </li><li class="listitem">
 cdist-type__process(7)
 </li><li class="listitem">
-cdist-type__process.html(7)
-</li><li class="listitem">
-cdist-type__process.text(7)
-</li><li class="listitem">
 cdist-type__removeline(7)
 </li><li class="listitem">
-cdist-type__removeline.html(7)
-</li><li class="listitem">
-cdist-type__removeline.text(7)
-</li><li class="listitem">
 cdist-type__user(7)
-</li><li class="listitem">
-cdist-type__user.html(7)
-</li><li class="listitem">
-cdist-type__user.text(7)
 </li></ul></div></div><div class="section" title="7. COPYING"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_copying"></a>7. COPYING</h2></div></div></div><p>Copyright (C) 2011 Nico Schottelius. Free use of this software is
 granted under the terms of the GNU General Public License version 3 (GPLv3).</p></div></div></body></html>
