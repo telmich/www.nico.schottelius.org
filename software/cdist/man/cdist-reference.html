@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>cdist-reference(7)</title><link rel="stylesheet" type="text/css" href="docbook-xsl.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.76.1" /></head><body><div xml:lang="en" class="article" title="cdist-reference(7)" lang="en"><div class="titlepage"><div><div><h2 class="title"><a id="id348797"></a>cdist-reference(7)</h2></div><div><div class="author"><h3 class="author"><span class="firstname">Nico</span> <span class="surname">Schottelius</span></h3><code class="email">&lt;<a class="email" href="mailto:nico-cdist--@--schottelius.org">nico-cdist--@--schottelius.org</a>&gt;</code></div></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="section"><a href="#_name">1. NAME</a></span></dt><dt><span class="section"><a href="#_description">2. DESCRIPTION</a></span></dt><dt><span class="section"><a href="#_paths">3. PATHS</a></span></dt><dt><span class="section"><a href="#_types">4. TYPES</a></span></dt><dt><span class="section"><a href="#_variables">5. VARIABLES</a></span></dt><dt><span class="section"><a href="#_see_also">6. SEE ALSO</a></span></dt><dt><span class="section"><a href="#_copying">7. COPYING</a></span></dt></dl></div><div class="section" title="1. NAME"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_name"></a>1. NAME</h2></div></div></div><p>cdist-reference - Variable, path and type reference for cdist</p></div><div class="section" title="2. DESCRIPTION"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_description"></a>2. DESCRIPTION</h2></div></div></div><p>Various scripts which are not in the core need information on how
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>cdist-reference(7)</title><link rel="stylesheet" type="text/css" href="docbook-xsl.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.76.1" /></head><body><div xml:lang="en" class="article" title="cdist-reference(7)" lang="en"><div class="titlepage"><div><div><h2 class="title"><a id="id483282"></a>cdist-reference(7)</h2></div><div><div class="author"><h3 class="author"><span class="firstname">Nico</span> <span class="surname">Schottelius</span></h3><code class="email">&lt;<a class="email" href="mailto:nico-cdist--@--schottelius.org">nico-cdist--@--schottelius.org</a>&gt;</code></div></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="section"><a href="#_name">1. NAME</a></span></dt><dt><span class="section"><a href="#_description">2. DESCRIPTION</a></span></dt><dt><span class="section"><a href="#_paths">3. PATHS</a></span></dt><dt><span class="section"><a href="#_types">4. TYPES</a></span></dt><dt><span class="section"><a href="#_variables">5. VARIABLES</a></span></dt><dt><span class="section"><a href="#_see_also">6. SEE ALSO</a></span></dt><dt><span class="section"><a href="#_copying">7. COPYING</a></span></dt></dl></div><div class="section" title="1. NAME"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_name"></a>1. NAME</h2></div></div></div><p>cdist-reference - Variable, path and type reference for cdist</p></div><div class="section" title="2. DESCRIPTION"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_description"></a>2. DESCRIPTION</h2></div></div></div><p>Various scripts which are not in the core need information on how
 to find information. This manpage summarises the available environment
 variables, types and paths and clearifies with part may access which variables.</p></div><div class="section" title="3. PATHS"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_paths"></a>3. PATHS</h2></div></div></div><p>If not specified otherwise, all paths are relative to the checkout directory.</p><div class="variablelist"><dl><dt><span class="term">
 conf/
@@ -88,109 +88,8 @@ tmp_dir
    A tempdir and a tempfile is used by cdist internally,
    which will be removed when the scripts end automatically.
    See cdist-config(1).
-</dd></dl></div></div><div class="section" title="4. TYPES"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_types"></a>4. TYPES</h2></div></div></div><p>The following types are available:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-__addifnosuchline
-</li><li class="listitem">
-__addifnosuchline.html
-</li><li class="listitem">
-__addifnosuchline.text
-</li><li class="listitem">
-__apt_ppa
-</li><li class="listitem">
-__apt_ppa.html
-</li><li class="listitem">
-__apt_ppa.text
-</li><li class="listitem">
-__debconf_set_selections
-</li><li class="listitem">
-__debconf_set_selections.html
-</li><li class="listitem">
-__debconf_set_selections.text
-</li><li class="listitem">
-__directory
-</li><li class="listitem">
-__directory.html
-</li><li class="listitem">
-__directory.text
-</li><li class="listitem">
-__file
-</li><li class="listitem">
-__file.html
-</li><li class="listitem">
-__file.text
-</li><li class="listitem">
-__group
-</li><li class="listitem">
-__group.html
-</li><li class="listitem">
-__group.text
-</li><li class="listitem">
-__issue
-</li><li class="listitem">
-__issue.html
-</li><li class="listitem">
-__issue.text
-</li><li class="listitem">
-__key_value
-</li><li class="listitem">
-__key_value.html
-</li><li class="listitem">
-__key_value.text
-</li><li class="listitem">
-__link
-</li><li class="listitem">
-__link.html
-</li><li class="listitem">
-__link.text
-</li><li class="listitem">
-__motd
-</li><li class="listitem">
-__motd.html
-</li><li class="listitem">
-__motd.text
-</li><li class="listitem">
-__package
-</li><li class="listitem">
-__package_apt
-</li><li class="listitem">
-__package_apt.html
-</li><li class="listitem">
-__package_apt.text
-</li><li class="listitem">
-__package.html
-</li><li class="listitem">
-__package_pacman
-</li><li class="listitem">
-__package_pacman.html
-</li><li class="listitem">
-__package_pacman.text
-</li><li class="listitem">
-__package.text
-</li><li class="listitem">
-__package_yum
-</li><li class="listitem">
-__package_yum.html
-</li><li class="listitem">
-__package_yum.text
-</li><li class="listitem">
-__process
-</li><li class="listitem">
-__process.html
-</li><li class="listitem">
-__process.text
-</li><li class="listitem">
-__removeline
-</li><li class="listitem">
-__removeline.html
-</li><li class="listitem">
-__removeline.text
-</li><li class="listitem">
-__user
-</li><li class="listitem">
-__user.html
-</li><li class="listitem">
-__user.text
-</li></ul></div></div><div class="section" title="5. VARIABLES"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_variables"></a>5. VARIABLES</h2></div></div></div><div class="variablelist"><dl><dt><span class="term">
+</dd></dl></div></div><div class="section" title="4. TYPES"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_types"></a>4. TYPES</h2></div></div></div><p>The available types are listed in the SEE ALSO section
+and are referenced as cdist-type__TYPENAME.</p></div><div class="section" title="5. VARIABLES"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_variables"></a>5. VARIABLES</h2></div></div></div><div class="variablelist"><dl><dt><span class="term">
 __explorer
 </span></dt><dd>
    Directory that contains all explorers.
