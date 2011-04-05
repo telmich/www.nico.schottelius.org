@@ -1,0 +1,131 @@
+[[!meta title="Migrating away from puppet to cdist"]
+
+For those not being subscribed to the puppet-mailing list,
+here's my "goodbye and thanks for the fish"-message to puppet:
+
+    Date: Mon, 4 Apr 2011 19:26:06 +0200
+    From: Nico -telmich- Schottelius <nico-puppet-users --at-- schottelius.org>
+    To: puppet-users --at-- @googlegroups.com
+    Cc: steven-puppet-users --at-- @armstrong.cc
+    Subject: [Puppet Users] Migrating away from puppet to cdist
+    
+    Good morning puppet users,
+    
+    we, some sysadmins [0] at the computer science departement [1]
+    at ETH Zurich [2], developed a new configuration management
+    system called cdist [3], to which we migrate from our puppet
+    configuration.
+    
+    I'm writing to this list for two reasons:
+    
+    1) Say thanks and goodbye to puppet-*
+    
+      Puppet in contrast to other systems emphasised on "define what I want"
+      versus "define what todo", which is a great approach and we've
+      shameless cloned this approach.
+    
+      Also we discussed a lot of ideas used in puppet (as well as other
+      systems), from which we learned.
+    
+      Puppet was the first CM I seriously adopted and it initially saved
+      me a lot of time. Thanks to the puppet team!
+    
+    2) Show other puppet users how to get around (common) puppet problems
+    
+      We're pretty confident that cdist solves some issues we've seen
+      in puppet and in the sense of FOSS, we'd like to inform others
+      how we've solved those issues in cdist:
+    
+      Bootstrap problem
+        With puppet we needed to have ruby + some gems on the target
+        hosts. In cdist we only use a posix shell on the target plus
+        common UNIX tools (like find, rm, grep), as defined by POSIX.
+    
+      Complex CA / SSL setup / issues
+        We've had some trouble using ssl certificates, especially with
+        multi master and frequent reinstallations. In cdist we only   
+        rely on SSH.                                               
+    
+      Defining configuration in multiple locations
+        Defining a type multiple times in different locations in puppet
+        requires use of virtual ressources. In cdist you don't need to 
+        care about this, as long as the parameters stay exactly the   
+        same.                                                      
+    
+      Error messages
+        If you encountered errors like "400 Bad Request",
+        "undefined method `closed?'", "can't convert nil into String",
+        or "undefined method `closed?' for nil:NilClass", you'll be   
+        happy to hear that cdist's error messages contain usable
+        information.
+    
+      Very easy extension
+        Whereas puppet has modules, types and providers, cdist only knows
+        about types. A type in cdist contains some functionality,
+        independent of whether you or upstream decided to implement it.
+    
+      Pull versus Push approach
+        Puppet requires one (or more for redundancy reasons) central server,
+        because clients usually contact the master and ask for changes.
+    
+        Cdist operatas in push mode and can be run from a small machine
+        like the sysadmin notebook.
+    
+      Integrated version control
+        Cdist is usually cloned via git from upstream and changes are
+        kept in a different git branch. This encourages you to use the
+        existing version control for your own configuration.
+    
+      Integrated clean documentation
+        All cdist documentation is included into the release and can be
+        compiled into HTML or manpages. Cdist also includes a reference
+        document that contains all available paths, types and environment
+        variables.
+    
+      Unobstrusive upgrade path
+        Upgrading cdist just requires one "git pull" on your master machine,
+        no update needed on any client.
+    
+      Clean release cycle
+        When in puppet things stopped to work within a minor version,
+        the cdist release cycle clearly defines that any incompatibility
+        forces a change on at least the minor (1.x -> 1.y) version.
+    
+        If you stay on a specific version, like 1.5, things will not break. Promised.
+    
+      No automatic (magic) behaviour
+        In puppet you can use title or name without setting it explicitly.
+        This may be useful in some parts, but maybe surprising as well.
+    
+        In cdist only the globally available environment variables are
+        documented and have the same meaning everywhere.
+    
+      Codebase / Bugs
+        Puppet contains around 100k lines of code, with cdist you only need
+        to debug ~ 1k/2k lines (core/with types) lines of code
+        (according to sloccount[5]).
+    
+      Age
+        Warning: Although most pointers above may make cdist look like
+        superior compared to puppet, cdist is still pretty young
+        (~4 months old) and may lack some functionality puppet already has.
+    
+        cdist is usable in production environments already.
+        It may just not work in very fancy or ancient environments.
+    
+    
+    If you've any questions, do not hesitate to subscribe to the cdist
+    mailing list [4] and ask them there.
+    
+    Cheers,
+    
+    Nico
+    
+    [0]: http://sans.ethz.ch
+    [1]: http://www.inf.ethz.ch
+    [2]: http://www.ethz.ch
+    [3]: http://www.nico.schottelius.org/software/cdist/
+    [4]: http://l.schottelius.org/mailman/listinfo/cdist
+    [5]: http://www.dwheeler.com/sloccount/
+
+[[!tag config eth sysadmin unix]]
