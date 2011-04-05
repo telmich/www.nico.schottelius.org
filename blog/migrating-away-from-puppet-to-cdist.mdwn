@@ -1,4 +1,4 @@
-[[!meta title="Migrating away from puppet to cdist"]
+[[!meta title="Migrating away from puppet to cdist"]]
 
 For those not being subscribed to the puppet-mailing list,
 here's my "goodbye and thanks for the fish"-message to puppet:
