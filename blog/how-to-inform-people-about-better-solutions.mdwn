@@ -1,0 +1,44 @@
+[[!meta title="How to inform people about better solutions?"]]
+
+I'm wondering how to handle the following social-political-technial
+situation and would be interested in your opinion!
+
+## Situation
+
+Imagine you are an expert in some topic, let's use knitting for the
+example. Further assume you read posts in a lot of different
+knitting techniques forums.
+There is one specific forum driven by a specific
+knitting needle manufacturer, in which a lot of newbies post into
+and hope to do some good knitting with the manufacturers knitting needles.
+
+## The problem
+
+Now, as you are the expert, you are aware that the knitting needles
+produced by this manufacturer are obsolete and contain bugs that
+makes knitting way more difficult than it needs to be.
+But you know there is a different product out there that does the
+job way better and costs the same.
+
+Now you feel responsible to let those newbies know about the better
+knitting needles, but **how would you tell them?**
+
+### Posting to the forum
+
+Posting to that specific forum that there are better knitting needles 
+out there more than once may be seen as an abuse of the forum, because it's
+still driven by the obsolete manufacturer.
+
+### Posting to individuals
+
+Replying to an individual when a question was asked within a forum
+is usually seen as bad behaviour and may be interpreted by the
+manufacturer as a indirect attack.
+
+
+### What's the best solution?
+
+To me it looks like neither of the two options are good ones.
+Thus I'd like to [[hear your proposal to solve this situation|about]].
+
+[[!tag sysadmin unix]]
