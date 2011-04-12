@@ -1,17 +1,13 @@
 [[!meta title="Puppet an der ETH Zürich"]]
 
-[Puppet](http://reductivelabs.com/products/puppet/) ist eine
-zentrale Konfigurationsverwaltung für
-[POSIX-(ähnliche)-Systeme](http://reductivelabs.com/trac/puppet/wiki/PuppetCompatibility).
-Im Rahmen des [[Sans-Projektes|eth/sans]] ist eine Puppet-Infrastruktur
-zur Verwaltung von Rechnern im
-[Departement Informatik](http://www.inf.ethz.ch/) entstanden.
-Zur Zeit verwalten wir mit Puppet etwa 250 Rechner in 60 Puppet-Klassen mit
-zwei Puppetmaster-Rechnern.
 
-Wir sind gerade dabei die Puppet-Einstellungen aufzuräumen und planen
-diese, mit allen benutzten Modulen, in der nahen Zukunft zu
-veröffentlichen.
+Im Rahmen des [[Sans-Projektes|eth/sans]] ist die alte
+[Puppet](http://reductivelabs.com/products/puppet/)-Infrastruktur
+zur Verwaltung von Rechnern im
+[Departement Informatik](http://www.inf.ethz.ch/) 
+durch [[software/cdist]] ersetzt worden.
+
+Zur Zeit verwalten wir mit cdist etwa 250 Rechner in etwa 20 cdist-Typen mit.
 
 Die Konfiguration enthält unter anderem folgende Module:
 
@@ -23,12 +19,5 @@ Die Konfiguration enthält unter anderem folgende Module:
  * Java ([Sun 5, Sun 6 und Open](http://www.sun.com/software/opensource/java/))-Verwaltung
  * [nscd](http://www.gnu.org/software/libc/manual/html_node/Running-make-install.html)-Verwaltung 
  * [postgresql](http://www.postgresql.org/)-Verwaltung 
- * puppetmaster-Verwaltung (mit Lastverteilung via
-   [nginx](http://nginx.net/)+[mongrel](http://mongrel.rubyforge.org/))
-
-Wer Interesse an den Puppet-Einstellungen oder -Entwicklung hat, kann sich
-gerne an dem
-[Puppet-E-Post-Verteiler](https://lists.inf.ethz.ch/mailman/listinfo/puppet)
-anmelden.
 
 [[!tag eth]]
