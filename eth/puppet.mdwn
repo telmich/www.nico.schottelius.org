@@ -6,6 +6,9 @@ Im Rahmen des [[Sans-Projektes|eth/sans]] ist die alte
 zur Verwaltung von Rechnern im
 [Departement Informatik](http://www.inf.ethz.ch/) 
 durch [[software/cdist]] ersetzt worden.
+Mehr Informationen zur Migration sind in der
+[google-Gruppe](http://groups.google.com/group/puppet-users/browse_thread/thread/83801a03c0fea665)
+zu finden.
 
 Zur Zeit verwalten wir mit cdist etwa 250 Rechner in etwa 20 cdist-Typen.
 
