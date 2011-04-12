@@ -7,9 +7,9 @@ zur Verwaltung von Rechnern im
 [Departement Informatik](http://www.inf.ethz.ch/) 
 durch [[software/cdist]] ersetzt worden.
 
-Zur Zeit verwalten wir mit cdist etwa 250 Rechner in etwa 20 cdist-Typen mit.
+Zur Zeit verwalten wir mit cdist etwa 250 Rechner in etwa 20 cdist-Typen.
 
-Die Konfiguration enthält unter anderem folgende Module:
+Die Konfiguration enthält unter anderem folgende Software/Dienste:
 
  * [autofs](http://www.autofs.org/)-Verwaltung (allgemein und ETH spezifisch)
  * [collectd](http://collectd.org/)-Verwaltung 
