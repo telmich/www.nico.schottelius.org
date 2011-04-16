@@ -1,0 +1,36 @@
+[[!meta title="uc - manage a UNIX company"]]
+
+[[!toc levels=2]]
+
+## Introduction
+
+uc is a shell orientated management tool for Unix gurus running
+geeky Unix companies. It is intented to be run by geeks and requires
+**git** and **shell**.
+
+### Documentation
+
+Use **uc help me**.
+
+### OS support
+
+cdist should run on any Posix alike OS.
+
+## Getting uc
+
+    git clone git://git.schottelius.org/uc
+    cd uc
+    export PATH=$PATH:$(pwd -P)/bin
+
+### Update
+
+To upgrade in the current branch use
+
+    git pull
+
+## Support
+
+### IRC
+
+You can join the development ***IRC channel***
+[#cLinux on irc.freenode.org](irc://irc.freenode.org/#cLinux).
