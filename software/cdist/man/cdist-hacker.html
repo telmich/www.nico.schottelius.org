@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>cdist-hacker(7)</title><link rel="stylesheet" type="text/css" href="docbook-xsl.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.76.1" /></head><body><div xml:lang="en" class="article" title="cdist-hacker(7)" lang="en"><div class="titlepage"><div><div><h2 class="title"><a id="id385900"></a>cdist-hacker(7)</h2></div><div><div class="author"><h3 class="author"><span class="firstname">Nico</span> <span class="surname">Schottelius</span></h3><code class="email">&lt;<a class="email" href="mailto:nico-cdist--@--schottelius.org">nico-cdist--@--schottelius.org</a>&gt;</code></div></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="section"><a href="#_name">1. NAME</a></span></dt><dt><span class="section"><a href="#_welcome">2. WELCOME</a></span></dt><dt><span class="section"><a href="#_reporting_bugs">3. REPORTING BUGS</a></span></dt><dt><span class="section"><a href="#_understanding_cdist_internals">4. UNDERSTANDING CDIST INTERNALS</a></span></dt><dt><span class="section"><a href="#_coding_conventions_everywhere">5. CODING CONVENTIONS (EVERYWHERE)</a></span></dt><dt><span class="section"><a href="#_coding_conventions_core">6. CODING CONVENTIONS (CORE)</a></span></dt><dt><span class="section"><a href="#_how_to_submit_stuff_for_inclusion_into_upstream_cdist">7. HOW TO SUBMIT STUFF FOR INCLUSION INTO UPSTREAM CDIST</a></span></dt><dt><span class="section"><a href="#_how_to_submit_a_new_type">8. HOW TO SUBMIT A NEW TYPE</a></span></dt><dt><span class="section"><a href="#_see_also">9. SEE ALSO</a></span></dt><dt><span class="section"><a href="#_copying">10. COPYING</a></span></dt></dl></div><div class="section" title="1. NAME"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_name"></a>1. NAME</h2></div></div></div><p>cdist-hacker - How to get (stuff) into cdist</p></div><div class="section" title="2. WELCOME"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_welcome"></a>2. WELCOME</h2></div></div></div><p>Welcome dear hacker! I invite you to a tour of pointers to
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>cdist-hacker(7)</title><link rel="stylesheet" type="text/css" href="docbook-xsl.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.76.1" /></head><body><div xml:lang="en" class="article" title="cdist-hacker(7)" lang="en"><div class="titlepage"><div><div><h2 class="title"><a id="id358115"></a>cdist-hacker(7)</h2></div><div><div class="author"><h3 class="author"><span class="firstname">Nico</span> <span class="surname">Schottelius</span></h3><code class="email">&lt;<a class="email" href="mailto:nico-cdist--@--schottelius.org">nico-cdist--@--schottelius.org</a>&gt;</code></div></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="section"><a href="#_name">1. NAME</a></span></dt><dt><span class="section"><a href="#_welcome">2. WELCOME</a></span></dt><dt><span class="section"><a href="#_reporting_bugs">3. REPORTING BUGS</a></span></dt><dt><span class="section"><a href="#_understanding_cdist_internals">4. UNDERSTANDING CDIST INTERNALS</a></span></dt><dt><span class="section"><a href="#_coding_conventions_everywhere">5. CODING CONVENTIONS (EVERYWHERE)</a></span></dt><dt><span class="section"><a href="#_coding_conventions_core">6. CODING CONVENTIONS (CORE)</a></span></dt><dt><span class="section"><a href="#_how_to_submit_stuff_for_inclusion_into_upstream_cdist">7. HOW TO SUBMIT STUFF FOR INCLUSION INTO UPSTREAM CDIST</a></span></dt><dt><span class="section"><a href="#_how_to_submit_a_new_type">8. HOW TO SUBMIT A NEW TYPE</a></span></dt><dt><span class="section"><a href="#_see_also">9. SEE ALSO</a></span></dt><dt><span class="section"><a href="#_copying">10. COPYING</a></span></dt></dl></div><div class="section" title="1. NAME"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_name"></a>1. NAME</h2></div></div></div><p>cdist-hacker - How to get (stuff) into cdist</p></div><div class="section" title="2. WELCOME"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_welcome"></a>2. WELCOME</h2></div></div></div><p>Welcome dear hacker! I invite you to a tour of pointers to
 get into the usable configuration mangament system, cdist.</p><p>The first thing to know is probably that cdist is brought to
 you by people who care about how code looks like and who think
 twice before merging or implementing a feature: Less features
@@ -19,16 +19,21 @@ everybody using cdist, you’re welcome to propose inclusion into upstream.</p><
 work nor kill the authors brain:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 Code submission must be done via git
 </li><li class="listitem">
+Do not add conf/manifest/init - This file should only be touched in your
+  private branch!
+</li><li class="listitem">
 Code to be included should be branched of the upstream "master" branch
 </li><li class="listitem">
 Exception: Bugfixes to a version branch
 </li><li class="listitem">
-Code submissions must be in your master branch
+Code submissions should be in your master branch
 </li><li class="listitem">
-Exception: If you only want a comment on your code, but not an inclusion.
+Other branches are fine as well, but you need to tell me which branch
+     your work is in!
 </li><li class="listitem">
-Do not add conf/manifest/init - This file should only be touched in your
-  private branch!
+If you developed more than <span class="strong"><strong>one</strong></span> feature, consider submitting them in
+  seperate branches. This way one feature can already be included, even if
+  the other needs to be improved.
 </li></ul></div><p>As soon as your work meets these requirements, you can contact me
 (IRC, Mailinglist, Phone, RFC 1149) and I’ll check your code before
 including it.</p></div><div class="section" title="8. HOW TO SUBMIT A NEW TYPE"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_how_to_submit_a_new_type"></a>8. HOW TO SUBMIT A NEW TYPE</h2></div></div></div><p>Submitting a type works as described above, with the additional requirement
