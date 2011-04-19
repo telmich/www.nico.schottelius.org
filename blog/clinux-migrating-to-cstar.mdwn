@@ -1,0 +1,13 @@
+[[!meta title="Moving on: Migrating from #cLinux to #cstar"]]
+
+There has been the IRC channel #cLinux, which I created for
+development on cLinux, a "better Linux distribution", which
+I'm not focussing anymore.
+
+cLinux became more a "cunix" project or, well, not even limiting
+to Unix. Thus the idea of **cstar** was born and made reality.
+
+Thus, if you've just joined #cLinux, please move on to #cstar,
+the home of c*.
+
+[[!tag unix foss]]
