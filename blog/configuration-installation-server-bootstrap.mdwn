@@ -51,7 +51,7 @@ earlier:
 
 ## Ok, but what to do with these information?
 
-As you might have watched my recent activites,
+As you might have watched my recent activities,
 I've written a new
 [[configuration management tool named cdist|software/cdist]],
 started a project to install
