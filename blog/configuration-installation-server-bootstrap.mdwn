@@ -1,0 +1,73 @@
+[[!meta title="Bootstrapping configuration and installation servers"]]
+
+## Introduction
+
+Imagine you can start from beginning in a new environment. There
+are no automatic frameworks to install and configure systems
+in place.
+
+## Installation versus Configuration
+
+We need a system to install machines and one to configure machines.
+Although there are systems out there which try to do both at the
+same time, the experience is having two specialised tools for this job
+is the better choice: Each tool can focus on its own task best.
+
+Some tools even enforce a reinstallation, if something needs to be
+reconfigured, which is a good example why having two tools is the
+better choice.
+
+Seperating the installation from the configuration also allows you
+to have the newly setup system minimally configured and adjust it
+on demand, wheras having both in the same step would require
+to define the use at installation time.
+
+## Where to start?
+
+Now the question is, which tool do we install first? The automatic
+installation or configuration?
+From a logical way on how a system is built, the installation
+method should be preferred, because only an installed system can
+be configured. But as you can see shortly, this is a bad choice,
+as it results in the following steps:
+
+ * Manual installation of a system
+ * Manual installation of installation tool
+ * Manual configuration of installation tool
+ * Automatic installation of a new system for the configuration tool (optional)
+ * Manual installation of configuration tool
+ * Manual configuration of the configuration tool
+ * Automatic configuration of installation and configuration tool possible
+
+If we change the order, we'll benefit from an automatic infrastructure
+earlier:
+
+ * Manual installation of a system
+ * Manual installation of a configuration tool
+ * Manual configuration of the configuration tool
+ * Automatic installation of an installation tool
+ * Automatic configuration of an installation tool
+ * Automatic installation of a new system for the configuration or installation tool (optional)
+
+## Ok, but what to do with these information?
+
+As you might have watched my recent activites,
+I've written a new
+[[configuration management tool named cdist|software/cdist]],
+started a project to install
+[[unix installers named cuni|software/cuni]] and try to
+bring together the [[unix community in the u2u project|net/u2u]].
+
+The idea described above is the result of an old discussion, but
+not having an installation framework at home a current problem.
+
+## The plan
+
+As **cdist** is ready to be used in production mode, I plan to write
+some **cdist** types to setup installation servers soon.
+
+Watch this blog for updates, if you want to install a installation
+server via configuration management or begin to bootstrap a UNIX
+infrastructure.
+
+[[!tag eth sysadmin unix]]
