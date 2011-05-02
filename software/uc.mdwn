@@ -30,7 +30,4 @@ To upgrade in the current branch use
 
 ## Support
 
-### IRC
-
-You can join the development ***IRC channel***
-[#cLinux on irc.freenode.org](irc://irc.freenode.org/#cLinux).
+[[!inline pages="includes/irc" archive="no" raw=yes show=0]]

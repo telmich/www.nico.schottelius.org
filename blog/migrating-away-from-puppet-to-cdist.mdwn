@@ -1,7 +1,8 @@
 [[!meta title="Migrating away from puppet to cdist"]]
 
-For those not being subscribed to the puppet-mailing list,
-here's my "goodbye and thanks for the fish"-message to puppet:
+For those not being subscribed to the puppet-users mailing list,
+here's my
+["goodbye and thanks for the fish"-message](http://groups.google.com/group/puppet-users/browse_thread/thread/83801a03c0fea665?pli=1):
 
     Date: Mon, 4 Apr 2011 19:26:06 +0200
     From: Nico -telmich- Schottelius <nico-puppet-users --at-- schottelius.org>
