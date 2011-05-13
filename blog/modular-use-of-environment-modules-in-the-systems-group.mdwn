@@ -1,0 +1,100 @@
+[[!meta title="Modular use of environment modules in the systems group]]
+
+## The problem
+
+Maintaining custom software as a sysadmin is not easily possible for
+a research group, because ressources needed to do so easily exceed
+the available working time, as soon as the number of software is
+getting too big or the software too complex.
+
+Researchers on the other hand rely on up-to-date or unpackaged
+software to do their work.
+
+## General solution
+
+One way to solve this issue is to provide a way researchers can install
+and maintain their own software, without interferring with the system
+software.
+
+## Software solution
+
+One possible software solution is provide by the
+[Environment Modules Project](http://modules.sourceforge.net/).
+
+
+## Implementation
+
+The path **/pub/env-modules** should contain the user maintained
+software and is mounted via **nfs** and **autofs**.
+The Environment Modules Package is installed below
+**/pub/env-modules/Modules**, the files to configure modules
+(**modulefiles**) reside below **/pub/env-modules/modulefiles/**.
+
+### Installation of modules
+
+The usual three step work fine, if you've tcl installed:
+
+    modules-3.2.8% ./configure --prefix=/pub/env-modules --with-module-path=/pub/env-modules/modulefiles
+    modules-3.2.8% make
+    modules-3.2.8% make install
+
+## Usage
+
+### Creating a new module (sysadmin part)
+
+Create a new directory below **/pub/env-modules** and a link
+below **/pub/env-modules/modulefiles/** to the newly created directory.
+Now give ownership to the researcher who is maintaining the new software,
+who can install the software and create a specific modulefile for the
+software. For instance:
+
+    % mkdir /pub/env-modules/cdist
+    % chown nicosc /pub/env-modules/cdist
+    
+    # Delegate support for cdist maintenance into the user owned folder
+    % ln -s /pub/env-modules/cdist/modulefiles /pub/env-modules/modulefiles/cdist
+
+### Creating a new module (user part)
+
+Install the software into your directory and create modulefiles below the
+modulefiles directory:
+
+    % git clone git://git.schottelius.org/cdist /pub/env-modules/cdist/
+    % mkdir /pub/env-modules/cdist/modulefiles
+    % cat << eof > /pub/env-modules/cdist/modulefiles/git
+    #%Module1.0#####################################################################
+    ##
+    ## cdist modulefile
+    ##
+    ## 
+    ##
+    proc ModulesHelp { } {
+       puts stderr "\tLet's you use cdist"
+    }
+    
+    module-whatis  "Configuration Management"
+    
+    append-path PATH  /pub/env-modules/cdist/bin
+    eof
+
+### Using env modules
+
+To actually make use of the new modules, you need to add env modules into your
+shell. The following commands illustrates the way for the **bash**:
+
+    % . /pub/env-modules/Modules/3.2.8/init/bash
+    % module avail
+    
+    ----------------------------------- /pub/env-modules/Modules/versions -----------------------------------
+    3.2.8
+    
+    ------------------------------------- /pub/env-modules/modulefiles --------------------------------------
+    cdist/git
+    % module load cdist/git
+    % module list
+    Currently Loaded Modulefiles:
+      1) cdist/git
+
+
+
+[[!tag config eth unix]]
