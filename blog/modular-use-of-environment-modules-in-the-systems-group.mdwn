@@ -1,11 +1,11 @@
-[[!meta title="Modular use of environment modules in the systems group]]
+[[!meta title="Modular use of environment modules in the Systems Group"]]
 
 ## The problem
 
 Maintaining custom software as a sysadmin is not easily possible for
 a research group, because ressources needed to do so easily exceed
-the available working time, as soon as the number of software is
-getting too big or the software too complex.
+the available working time, as soon as the number of software 
+installations is getting too big or the software too complex.
 
 Researchers on the other hand rely on up-to-date or unpackaged
 software to do their work.
@@ -18,9 +18,8 @@ software.
 
 ## Software solution
 
-One possible software solution is provide by the
+One possible software solution is provided by the
 [Environment Modules Project](http://modules.sourceforge.net/).
-
 
 ## Implementation
 
