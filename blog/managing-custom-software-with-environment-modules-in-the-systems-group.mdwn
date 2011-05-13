@@ -1,4 +1,4 @@
-[[!meta title="Modular use of environment modules in the Systems Group"]]
+[[!meta title="Managing custom software with environment modules in the Systems Group"]]
 
 ## The problem
 
@@ -79,7 +79,7 @@ modulefiles directory:
 ### Using env modules
 
 To actually make use of the new modules, you need to add env modules into your
-shell. The following commands illustrates the way for the **bash**:
+shell. The following commands illustrate the way for the **bash**:
 
     % . /pub/env-modules/Modules/3.2.8/init/bash
     % module avail
