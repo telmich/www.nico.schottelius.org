@@ -11,7 +11,7 @@ the secure, peer-to-peer (p2p), decentralised anonymous chat network.
 There are two IRC (!) channels, in which development takes places:
 
  * [!eof](irc://IRCNet/!eof) - German
- * [#cLinux](irc://irc.freenode.org/#cLinux) - Multi language (German/English)
+ * [#cstar](irc://irc.freenode.org/#cstar) - Multi language (German/English)
 
 You can subscribe to the
 [!eof mailinglist](http://l.schottelius.org/mailman/listinfo/eof).
