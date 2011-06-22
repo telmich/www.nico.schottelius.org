@@ -60,6 +60,6 @@ Derek Moore
 
 Marco Meile
 
-    best backup software ever - we use it for Groupon on about 100 hosts yay
+    best backup software ever - we use it for our company on about 100 hosts yay
 
 
