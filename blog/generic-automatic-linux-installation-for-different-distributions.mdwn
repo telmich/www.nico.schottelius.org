@@ -13,9 +13,9 @@ May it be [kickstart](http://fedoraproject.org/wiki/Anaconda/Kickstart),
 I've not mentioned), all contain their own specific settings to do
 the same again and again.
 
-Having a lot of discussions with regarding this topic, there is one
+Having a lot of discussions regarding this topic, there is one
 approach that seems to kick them all, can be automated easily and
-extended for other distributions (or other Unices) and probably
+extended for other distributions (or Unices) and probably
 easily developed as well:
 
 ## Unix = collection of files + metadata
@@ -43,8 +43,10 @@ by using specific tools like
 [febootstrap](http://people.redhat.com/~rjones/febootstrap/) or
 [archbootstrap](https://wiki.archlinux.org/index.php/Archbootstrap).
 
-This proces is pretty easy and can be used as a starting point for
-a generic installation.
+This proces is pretty easy
+(especially if you compare it to all the options you get
+with the preseed/kickstart/etc., this is just **one** command line!)
+and can be used as a starting point for a generic installation.
 
 ## Add some metadata
 
@@ -71,7 +73,7 @@ though booting from the network
 via PXE may even get around this.
 Finally the network configuration (distribution specific!) must be
 adjusted and ssh should be installed, so the system can be configured
-remotely (for instace with [[software/cdist]]).
+remotely (for instance with [[software/cdist]]).
 
 ## Todo
 
@@ -82,7 +84,7 @@ Write something that automatically
  * creates filesystems
  * mounts the filesystems
  * copies files from a know location
- * adjust the operating system
+ * adjusts the operating system
  * umounts everything and
  * reboots
 
