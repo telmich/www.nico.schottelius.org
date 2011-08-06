@@ -1,0 +1,93 @@
+[[!meta title="Generic automatic installation for different Linux distributions"]]
+
+## Introduction / Motivation
+
+If you've been a little bit longer active as a sysadmin, you'll have faced
+different Linux distributions and got used to their pros and cons.
+
+One thing though that I cannot (and do not) want to get used to, is that
+every distribution contains its own way of having an automated installation.
+May it be [kickstart](http://fedoraproject.org/wiki/Anaconda/Kickstart),
+[preseed](http://wiki.debian.org/DebianInstaller/Preseed) or
+[aif](http://www.archlinux.org/packages/extra/any/aif/) (or any other
+I've not mentioned), all contain their own specific settings to do
+the same again and again.
+
+Having a lot of discussions with regarding this topic, there is one
+approach that seems to kick them all, can be automated easily and
+extended for other distributions (or other Unices) and probably
+easily developed as well:
+
+## Unix = collection of files + metadata
+
+Unices and Linux distributions are just a number of files in some particular
+filesystem plus some metadata like partitions (or slices),  as
+some other people at [OpenQRM](http://openqrm.com/?q=node/2)
+have recognised this as well:
+
+    We asked ourself "what is linux ?", it is the kernel, an initrd, 
+    some modules and a root-filesystem. Those are all "just" files 
+    ..... so we should treat them like files by putting and managing 
+    them on modern storage-servers.
+
+But instead of doing the whole infrastructure management stuff,
+virtualisation (hear the cloud?) and monitoring environment, I'll
+just focus on the part of the installation.
+
+## Installation into/from a directory
+
+Assume the following: Every Linux distribution can somehow be put
+into a directory. Either by tar'ing an existing installation or
+by using specific tools like
+[debootstrap](http://wiki.debian.org/Debootstrap),
+[febootstrap](http://people.redhat.com/~rjones/febootstrap/) or
+[archbootstrap](https://wiki.archlinux.org/index.php/Archbootstrap).
+
+This proces is pretty easy and can be used as a starting point for
+a generic installation.
+
+## Add some metadata
+
+Now take this directory, and put it onto the harddisk. Installation
+done.  Well. almost:
+
+ * Todo before
+  * Create partitions
+  * Create filesystems
+ * Todo after
+  * Adjust /etc/fstab
+  * Add correct boot loader
+  * Configure network + ssh
+
+After you've created the partitions and the filesystem
+(which is distribution independent!), you can copy over the files
+to the target diretory, in which the selected partitions are mounted.
+
+For post processing, you need to adjust the fstab, so partitions 
+(and swap, do not forget computers with 4 or 8 MiB main memory!) 
+will be used at the right location. Adding a bootloader would be of
+great help for the boot process (almost distribution independent), 
+though booting from the network
+via PXE may even get around this.
+Finally the network configuration (distribution specific!) must be
+adjusted and ssh should be installed, so the system can be configured
+remotely (for instace with [[software/cdist]]).
+
+## Todo
+
+So the next steps are pretty straight forward: 
+Write something that automatically
+
+ * configures partitions 
+ * creates filesystems
+ * mounts the filesystems
+ * copies files from a know location
+ * adjust the operating system
+ * umounts everything and
+ * reboots
+
+Doesn't sound like very much and so
+I'll probably give it a try in the next weeks, so stay tuned if you're
+interested in this topic.
+
+[[!tag eth unix]]
