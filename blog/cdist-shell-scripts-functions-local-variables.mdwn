@@ -1,0 +1,43 @@
+[[!meta title="Cdist: The scripts vs. functions and local variables problem"]]
+
+Today I've found a very nasty problem during development of 
+[cdist|software/cdist] 1.8.0,
+related to shell functions and the non-local variables.
+
+## Background
+
+cdist, up to version 1.7.x, is implemented in shell scripts. As it turned out,
+most of the time during a cdist call is spent within the kernel, which seems
+to be related to some thousands of forks we do for each run (you can use
+oprofile to verify this yourself). To speedup cdist, the idea was to rewrite
+cdist to use functions for internal functionality, instead of the shell
+scripts.
+
+## The implementation
+
+So the idea was very simple:
+
+ * Take all existing shell scripts
+ * Add a function header
+ * Move shell script from bin/ to core/
+ * Source all functions from core/
+
+But the first problem that came up is that the **local** keyword had been removed
+from the POSIX standard. Thus I began to eliminate global variables by
+either prefixing them with the function name or by removing them completly.
+
+
+## The problem
+
+After a some time I realised that the __cdist_object_run() function calls itself
+recursively. This leads to subsequent overwritten variables, which in turn leads
+to unwanted behaviour.
+
+
+## The question
+
+I'm aware that the **local** keyword is still supported by some shells, but I am
+wondering, whether you have a good idea, on how to speedup cdist (having fast
+fork()s would be great!) without violating the POSIX standard?
+
+[[!tag config eth unix]]
