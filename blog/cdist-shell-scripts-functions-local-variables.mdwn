@@ -1,7 +1,7 @@
 [[!meta title="Cdist: The scripts vs. functions and local variables problem"]]
 
 Today I've found a very nasty problem during development of 
-[cdist|software/cdist] 1.8.0,
+[[cdist|software/cdist]] 1.8.0,
 related to shell functions and the non-local variables.
 
 ## Background
