@@ -33,7 +33,7 @@ parallel:
          set -- "$@" $host;  
          cdist -c ~/p/cdist-nutzung -p "$@";
       done
-   ) 2>&1 | tee ~/benchmark-home
+    ) 2>&1 | tee ~/benchmark-home
 
 
 ## The results
@@ -59,6 +59,6 @@ still much faster than the linear case.
 * Cdist can deploy to more than 30 hosts on 2 cores/4 threads within 5 minutes
 * As cdist runs massively parallel, it can utilise all existing CPUs 
 * And even more important: cdist can scale out, if you add more CPUs (or machines),
-  it can simply use them to be able to deploy to more machines in parallel
+  it can simply use them to deploy to more machines in parallel
 
 [[!tag config eth unix]]
