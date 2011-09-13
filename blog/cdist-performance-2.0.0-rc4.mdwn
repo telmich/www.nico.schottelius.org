@@ -42,7 +42,7 @@ Deploying to one host took 72 seconds, to three hosts 77 seconds,
 to 6 hosts 108 seconds and to 31 hosts 282 seconds, as can be seen
 in the following graph:
 
-[[!img cdist-2.0.0-rc4-graph.png size="400x300" alt="Cdist graph"]]
+[[!img cdist-2.0.0-rc4-graph.png size="600x450" alt="Cdist graph"]]
 
 In a sequential run, it would have taken 2232 seconds to deploy
 to 31 hosts. At higher parallel configurations (>10), it can be seen
