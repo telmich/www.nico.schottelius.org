@@ -1,0 +1,64 @@
+[[!meta title="Performance of cdist 2.0.0-rc4"]]
+
+As you may have notice, [[cdist|software/cdist]] 2.0.0
+has been rewritten in Python due to performance issues with
+fork(). This article shows the first performance results of
+the new implementation
+
+
+## Background
+
+All configurations were done using the productive
+configuration of the Systems Group in the ETH Zurich.
+All hosts were configured from a cable modem connection
+on my Lenovo X201, with 2 cores, 4 threads
+(Intel(R) Core(TM) i5 CPU M 520 @ 2.40GHz) and 4 GiB
+RAM. The configuration contains 189 objects, of which
+142 are of type **__package**.
+The duration was taken from cdist output and the measurements
+were taken by deploying to one, two, ..., thirty one hosts in
+parallel:
+
+    (
+    set --; 
+      for host in ikq02.ethz.ch ikq03.ethz.ch ikq04.ethz.ch ikq05.ethz.ch \
+      ikq06.ethz.ch ikq07.ethz.ch ikr01.ethz.ch ikr02.ethz.ch ikr03.ethz.ch \
+      ikr05.ethz.ch ikr07.ethz.ch ikr09.ethz.ch ikr10.ethz.ch ikr11.ethz.ch \
+      ikr13.ethz.ch ikr14.ethz.ch ikr15.ethz.ch ikr16.ethz.ch ikr17.ethz.ch \
+      ikr19.ethz.ch ikr20.ethz.ch ikr21.ethz.ch ikr23.ethz.ch ikr24.ethz.ch \
+      ikr25.ethz.ch ikr26.ethz.ch ikr27.ethz.ch ikr28.ethz.ch ikr29.ethz.ch \
+      ikr30.ethz.ch ikr31.ethz.ch; 
+      
+      do
+         set -- "$@" $host;  
+         cdist -c ~/p/cdist-nutzung -p "$@";
+      done
+   ) 2>&1 | tee ~/benchmark-home
+
+
+## The results
+
+Deploying to one host took 72 seconds, to three hosts 77 seconds,
+to 6 hosts 108 seconds and to 31 hosts 282 seconds, as can be seen
+in the following graph:
+
+[[!img cdist-2.0.0-rc4-graph.png size="400x300" alt="Cdist graph"]]
+
+In a sequential run, it would have taken 2232 seconds to deploy
+to 31 hosts. At higher parallel configurations (>10), it can be seen
+that cdist becomes CPU bound.
+
+Although deploying to 31 hosts takes much longer than 1 host, it is
+still much faster than the linear case.
+
+## Conclusion
+
+* 72 seconds is still pretty long for one run, but can easily be improved
+  by comparing the configuration against the cache and only run the new
+  parts (or nothing if rerunning)
+* Cdist can deploy to more than 30 hosts on 2 cores/4 threads within 5 minutes
+* As cdist runs massively parallel, it can utilise all existing CPUs 
+* And even more important: cdist can scale out, if you add more CPUs (or machines),
+  it can simply use them to be able to deploy to more machines in parallel
+
+[[!tag config eth unix]]
