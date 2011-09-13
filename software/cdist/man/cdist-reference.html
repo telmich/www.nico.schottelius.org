@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>cdist-reference(7)</title><link rel="stylesheet" type="text/css" href="docbook-xsl.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.76.1" /></head><body><div xml:lang="en" class="article" title="cdist-reference(7)" lang="en"><div class="titlepage"><div><div><h2 class="title"><a id="id371018"></a>cdist-reference(7)</h2></div><div><div class="author"><h3 class="author"><span class="firstname">Nico</span> <span class="surname">Schottelius</span></h3><code class="email">&lt;<a class="email" href="mailto:nico-cdist--@--schottelius.org">nico-cdist--@--schottelius.org</a>&gt;</code></div></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="section"><a href="#_name">1. NAME</a></span></dt><dt><span class="section"><a href="#_description">2. DESCRIPTION</a></span></dt><dt><span class="section"><a href="#_paths">3. PATHS</a></span></dt><dt><span class="section"><a href="#_types">4. TYPES</a></span></dt><dt><span class="section"><a href="#_environment_variables">5. ENVIRONMENT VARIABLES</a></span></dt><dt><span class="section"><a href="#_see_also">6. SEE ALSO</a></span></dt><dt><span class="section"><a href="#_copying">7. COPYING</a></span></dt></dl></div><div class="section" title="1. NAME"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_name"></a>1. NAME</h2></div></div></div><p>cdist-reference - Variable, path and type reference for cdist</p></div><div class="section" title="2. DESCRIPTION"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_description"></a>2. DESCRIPTION</h2></div></div></div><p>This reference summarises</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-environment variables
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>cdist-reference(7)</title><link rel="stylesheet" type="text/css" href="docbook-xsl.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.76.1" /></head><body><div xml:lang="en" class="article" title="cdist-reference(7)" lang="en"><div class="titlepage"><div><div><h2 class="title"><a id="id332831"></a>cdist-reference(7)</h2></div><div><div class="author"><h3 class="author"><span class="firstname">Nico</span> <span class="surname">Schottelius</span></h3><code class="email">&lt;<a class="email" href="mailto:nico-cdist--@--schottelius.org">nico-cdist--@--schottelius.org</a>&gt;</code></div></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="section"><a href="#_name">1. NAME</a></span></dt><dt><span class="section"><a href="#_explorers">2. EXPLORERS</a></span></dt><dt><span class="section"><a href="#_paths">3. PATHS</a></span></dt><dt><span class="section"><a href="#_types">4. TYPES</a></span></dt><dt><span class="section"><a href="#_environment_variables">5. ENVIRONMENT VARIABLES</a></span></dt><dt><span class="section"><a href="#_see_also">6. SEE ALSO</a></span></dt><dt><span class="section"><a href="#_copying">7. COPYING</a></span></dt></dl></div><div class="section" title="1. NAME"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_name"></a>1. NAME</h2></div></div></div><p>cdist-reference - Variable, path and type reference for cdist</p></div><div class="section" title="2. EXPLORERS"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_explorers"></a>2. EXPLORERS</h2></div></div></div><p>The following global explores are available:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+hostname
 </li><li class="listitem">
-paths
+machine
 </li><li class="listitem">
-types
+os
+</li><li class="listitem">
+os_version
 </li></ul></div></div><div class="section" title="3. PATHS"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_paths"></a>3. PATHS</h2></div></div></div><p>If not specified otherwise, all paths are relative to the checkout directory.</p><div class="variablelist"><dl><dt><span class="term">
 conf/
 </span></dt><dd>
@@ -122,15 +124,21 @@ __link (cdist-type__link(7))
 </li><li class="listitem">
 __motd (cdist-type__motd(7))
 </li><li class="listitem">
-__package (cdist-type__package(7))
-</li><li class="listitem">
 __package_apt (cdist-type__package_apt(7))
 </li><li class="listitem">
 __package_pacman (cdist-type__package_pacman(7))
 </li><li class="listitem">
 __package_pkg_openbsd (cdist-type__package_pkg_openbsd(7))
 </li><li class="listitem">
+__package_rubygem (cdist-type__package_rubygem(7))
+</li><li class="listitem">
+__package (cdist-type__package(7))
+</li><li class="listitem">
 __package_yum (cdist-type__package_yum(7))
+</li><li class="listitem">
+__postgres_database (cdist-type__postgres_database(7))
+</li><li class="listitem">
+__postgres_role (cdist-type__postgres_role(7))
 </li><li class="listitem">
 __process (cdist-type__process(7))
 </li><li class="listitem">
@@ -144,7 +152,7 @@ __user (cdist-type__user(7))
 </li></ul></div></div><div class="section" title="5. ENVIRONMENT VARIABLES"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_environment_variables"></a>5. ENVIRONMENT VARIABLES</h2></div></div></div><div class="variablelist"><dl><dt><span class="term">
 __explorer
 </span></dt><dd>
-   Directory that contains all explorers.
+   Directory that contains all global explorers.
    Available for: explorer
 </dd><dt><span class="term">
 __manifest
@@ -155,27 +163,27 @@ __manifest
 __global
 </span></dt><dd>
    Directory that contains generic output like explorer.
-   Available for: initial manifest, type manifest, type explorer, type codegen
+   Available for: initial manifest, type manifest, type gencode
 </dd><dt><span class="term">
 __object
 </span></dt><dd>
    Directory that contains the current object.
-   Available for: type manifest, type explorer, type codegen
+   Available for: type manifest, type explorer, type gencode
 </dd><dt><span class="term">
 __object_id
 </span></dt><dd>
    The type unique object id.
-   Available for: type manifest, type explorer, type codegen
+   Available for: type manifest, type explorer, type gencode
 </dd><dt><span class="term">
 __self
 </span></dt><dd>
    The full qualified name of the current object.
-   Available for: type manifest, type explorer, type codegen
+   Available for: type manifest, type explorer, type gencode
 </dd><dt><span class="term">
 __target_host
 </span></dt><dd>
    The host we are deploying to.
-   Available for: initial manifest, type manifest, type codegen
+   Available for: initial manifest, type manifest, type gencode
 </dd><dt><span class="term">
 __target_user
 </span></dt><dd>
@@ -187,7 +195,7 @@ __type
    Path to the current type.
    Available for: type manifest
 </dd><dt><span class="term">
-__type_explorers
+__type_explorer
 </span></dt><dd>
    Directory that contains the type explorers.
    Available for: type explorer
