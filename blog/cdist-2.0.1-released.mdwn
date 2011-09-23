@@ -1,0 +1,25 @@
+[[!meta title="Subject: Cdist 2.0.1 released ..."]]
+
+... which mainly includes bugfixes to the bugs seen in the last
+days.
+
+But it also adds the beginning feature of object dependent
+code execution:
+
+Imagine you want to restart apache, but only if __apache_vhost
+generated code, you can do so now, by checking all 
+__apache_vhost objects for the "changed" flag and if and only if
+the flag is existing, generate the restart command.
+
+You can access all objects through the __global variable.
+
+This feature is in its early stage and I'd be pretty happy to
+get some feedback, if it useful for you and if you've some
+other enhancements to propose.
+
+As usual, the best proposals are the ones with included merge
+request to a git source :-p 
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag config eth unix]]
