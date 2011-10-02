@@ -1,0 +1,115 @@
+[[!meta title="How to format and partition a SD-Card (USB-Stick) under Linux for the Canon CP800 printer"]]
+
+## Introduction
+
+From time to time I encounter devices that still require some old kind legacy
+partitioning scheme and filesystem: Namely MBR type partitioning and
+the VFAT filesystem.
+
+One of these devices is the Canon Selphy CP800 photo printer, which reads
+photos from various kinds of storage mediums, like USB sticks, SD cards
+or CF cards.
+
+Most of my usb sticks are formatted using ext3, jfs,
+btrfs, LUKS encrypted, or even contain RAID signatures.
+
+In case I need to transfer data to the printer, I often use pre-formatted
+SD cards, because the cards I simply format with ***mkfs.vfat*** are not
+recognised.
+
+## Motivation
+
+Not depending on those cards and being able to re-create correct format,
+everywhere and everytime, makes me more independent (and thus more happy).
+
+
+## Analysis
+
+Having a look at my new **128GB SDXC card** shows the following
+partitioning scheme.
+
+    [14:31] kr:/# fdisk -l /dev/sdb        
+    
+    Disk /dev/sdb: 132.0 GB, 132035641344 bytes
+    255 heads, 63 sectors/track, 16052 cylinders, total 257882112 sectors
+    Units = sectors of 1 * 512 = 512 bytes
+    Sector size (logical/physical): 512 bytes / 512 bytes
+    I/O size (minimum/optimal): 512 bytes / 512 bytes
+    Disk identifier: 0x00000000
+    
+       Device Boot      Start         End      Blocks   Id  System
+    /dev/sdb1            2048     1026047      512000   27  Hidden NTFS WinRE
+    /dev/sdb2         1026048     2050047      512000   83  Linux
+    /dev/sdb3         2050048   257882078   127916015+  83  Linux
+
+Although /dev/sdb1 is formatted with mkfs.vfat, it is not recognised
+by the printer. Comparing this with a working 4GB card reveals the
+following partitioning scheme:
+
+    [14:31] kr:/# fdisk -l /dev/sdb
+    
+    Disk /dev/sdb: 3999 MB, 3999268864 bytes
+    82 heads, 17 sectors/track, 5603 cylinders, total 7811072 sectors
+    Units = sectors of 1 * 512 = 512 bytes
+    Sector size (logical/physical): 512 bytes / 512 bytes
+    I/O size (minimum/optimal): 512 bytes / 512 bytes
+    Disk identifier: 0x00000000
+    
+       Device Boot      Start         End      Blocks   Id  System
+    /dev/sdb1            8192     7811071     3901440    b  W95 FAT32
+
+## Changing the first card
+
+Using the **fdisk** utility to change the partition ID to ***b***
+is sufficient to make the printer recognise the card:
+ 
+
+    [14:31] kr:/# fdisk /dev/sdb
+    
+    Command (m for help): t
+    Partition number (1-4): 1
+    Hex code (type L to list codes): b
+    Changed system type of partition 1 to b (W95 FAT32)
+    
+    Command (m for help): 
+    
+    Command (m for help): p
+    
+    Disk /dev/sdb: 132.0 GB, 132035641344 bytes
+    255 heads, 63 sectors/track, 16052 cylinders, total 257882112 sectors
+    Units = sectors of 1 * 512 = 512 bytes
+    Sector size (logical/physical): 512 bytes / 512 bytes
+    I/O size (minimum/optimal): 512 bytes / 512 bytes
+    Disk identifier: 0x00000000
+    
+       Device Boot      Start         End      Blocks   Id  System
+    /dev/sdb1            2048     1026047      512000    b  W95 FAT32
+    /dev/sdb2         1026048     2050047      512000   83  Linux
+    /dev/sdb3         2050048   257882078   127916015+  83  Linux
+    
+    Command (m for help): 
+    
+    Command (m for help): w
+    The partition table has been altered!
+
+## Summary
+
+Thus, if you encounter a card that is not readable, the following two
+commands should give you a working card on VFAT requiring devices:
+
+ * Change partition ID to ***b***
+  * ***fdisk <your-device>***, use commands ***t1bwq***
+  * Ensure changes are written to disk and table is reread by kernel
+   * You can either remove/add the card or use ***hdparm -z*** to trigger this
+ * Create a VFAT filesystem
+  * ***mkfs.vfat <your-device>***
+
+Some other hints:
+
+ * Using a GPT partition table may make the card unusable on older devices
+ * Not sure whether the device will seek through all partitions, sticking to the
+   first partition may give you a higher chance of a working setup
+ * Using **no partition** at all, putting the filesystem on the device directly
+   also used to work on another printer
+
+[[!tag unix]]
