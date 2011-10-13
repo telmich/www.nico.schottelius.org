@@ -1,0 +1,142 @@
+[[!meta title="Installing Linux on a Macbook Air (4,2)"]]
+
+These are my first impressions of the Archlinux installation
+on the MacBook Air (4,2).
+
+## General impression
+
+The installation feels pretty rough, very much like the installation
+to a PPC based iBook some years ago: A lot of stuff is still different
+from a usual PC, there is no intuitive debugging on bootup, the keyboard
+and trackpad works differently, etc. etc.
+
+But in general: ***Linux works on the MacBook Air***, there are just
+some workarounds needed today, which may vanish tomorrow already.
+
+## Installation
+
+I choose to use Archlinux on the MacBook Air, but this is just a minor
+detail, the hints can be used on any other distribution as well.
+
+## Shrink MacOS X partiton
+
+In MacOS X I've shrinked the HFS partiton to 50GB using the disk utility
+to make up some free space for Linux. Although removing MacOS X completly
+was in my mind, it may be useful in the end to get Linux working.
+
+## Install refit
+
+[Refit](http://refit.sourceforge.net/) is the de-facto standard for
+multiboot on Macs, in the FOSS world, which allows me to easily
+select a different OS.
+
+## Prepare install medium
+
+I've used **archlinux-2011.08.19-core-dual.iso** and put it to a
+USB stick:
+
+    dd if=archlinux-2011.08.19-core-dual.iso of=/dev/sdc
+
+## Bootup
+
+Without refit, you could hold down the option key on the mac
+and select the USB drive. With refit, you'll see the usb stick
+directly and can boot from it.
+
+## Partitioning
+
+I've not touched the three partitions from MacOS X
+(efi, customer, recovery hd), but added two new partitions:
+
+ * /dev/sda4: Used for /boot
+ * /dev/sda5: Used for /, encrypted using Luks
+
+Using parted or sgdisk (preferred)
+
+## Bootloader
+
+My first idea was to use Syslinux on vfat on /dev/sda4, but
+that does not work: refit sees the partition and allows you to
+boot from it, but trying to boot it goes into a black screen
+heading the following line:
+
+    No bootable device -- insert boot disk and press any key
+
+After I reformatted /dev/sda4 with ext4 and used extlinux instead with
+
+    extlinux --install /boot
+
+the boot into syslinux works.
+
+## Mouse
+
+I've read some forum entries about loading appletouch before usbhid, but
+on this device it actually needs to be ***bcm5974***. A temporay workaround
+to behave like a synaptics touchpad is the following command:
+
+    rmmod usbhid; rmmod bcm5974; modprobe bcm5974; modprobe usbhid
+
+I'm somehow wondering whether module loading order should be significant
+(I know it had been at some other situations, but it does not feel right),
+but for now it definitely is.
+
+## WLAN
+
+The **bcma** module is loaded by default, which needs to be blacklisted
+([arch1](https://wiki.archlinux.org/index.php/Broadcom_wireless#Wi-Fi_card_does_not_work.2Fshow_up_since_kernel_upgrade_.28brcmsmac.29),
+[arch2](https://wiki.archlinux.org/index.php/Kernel_modules#Blacklisting)
+)
+
+Temporay & Permanent fix:
+
+    # echo 'blacklist bcma' >> /etc/modprobe.d/modprobe.conf
+    # rmmod bcma
+    # rmmod  brcmsmac
+    # modprobe brcmsmac
+    # mkinitcpio -p linux
+
+## Keyboard
+
+The **fn-key** does currently not work on my installation
+and thus I cannot access the emulated Page-Down/Page-Up/Home/End
+keys, you usually get when using fn+cursor keys.
+
+This also seems to be related to hid_apple, but issuing the following
+commands stops input from working at all:
+
+    rmmod usbhid; rmmod hid_apple; modprobe hid_apple; modprobe usbhid
+
+I've opened a 
+[bugreport on the archlinux site](https://bugs.archlinux.org/task/26425).
+
+## Keyboard Backlight
+
+The backlight driver (***applesmc***) works pretty well and can be used
+by simple adding the brightness into a sysfs file.
+
+I've started the [kbsd](http://git.schottelius.org/?p=kbsd) project
+to automatically adjust the brightness depending on the environment
+light, as detected by the light sensor.
+
+## Display
+
+The machine boots up into a 1280x800 screen, although the panel
+natively supports 1440x900.
+
+Using the intel driver xorg does not start at all,
+using fbdev instead is a workaround. You can use fbdev by putting
+the following content into ***/etc/X11/xorg.conf.d/20-fbdev.conf***:
+
+    Section "Device"
+       Driver "fbdev"
+       Identifier "card0"
+    EndSection
+
+There is also a [bugreport for the display issue](https://bugs.archlinux.org/task/26426).
+
+Keith Packard is also working on this issue,
+as can be read [here](http://keithp.com/blogs/MacBook-Air/) and
+[here](http://keithp.com/blogs/MacBook-Air-2/).
+
+
+[[!tag unix]]
