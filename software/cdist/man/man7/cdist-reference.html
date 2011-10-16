@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>cdist-reference(7)</title><link rel="stylesheet" type="text/css" href="docbook-xsl.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.76.1" /></head><body><div xml:lang="en" class="article" title="cdist-reference(7)" lang="en"><div class="titlepage"><div><div><h2 class="title"><a id="id348703"></a>cdist-reference(7)</h2></div><div><div class="author"><h3 class="author"><span class="firstname">Nico</span> <span class="surname">Schottelius</span></h3><code class="email">&lt;<a class="email" href="mailto:nico-cdist--@--schottelius.org">nico-cdist--@--schottelius.org</a>&gt;</code></div></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="section"><a href="#_name">1. NAME</a></span></dt><dt><span class="section"><a href="#_explorers">2. EXPLORERS</a></span></dt><dt><span class="section"><a href="#_paths">3. PATHS</a></span></dt><dt><span class="section"><a href="#_types">4. TYPES</a></span></dt><dt><span class="section"><a href="#_objects">5. OBJECTS</a></span></dt><dt><span class="section"><a href="#_environment_variables">6. ENVIRONMENT VARIABLES</a></span></dt><dt><span class="section"><a href="#_see_also">7. SEE ALSO</a></span></dt><dt><span class="section"><a href="#_copying">8. COPYING</a></span></dt></dl></div><div class="section" title="1. NAME"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_name"></a>1. NAME</h2></div></div></div><p>cdist-reference - Variable, path and type reference for cdist</p></div><div class="section" title="2. EXPLORERS"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_explorers"></a>2. EXPLORERS</h2></div></div></div><p>The following global explores are available:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>cdist-reference(7)</title><link rel="stylesheet" type="text/css" href="docbook-xsl.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.76.1" /></head><body><div xml:lang="en" class="article" title="cdist-reference(7)" lang="en"><div class="titlepage"><div><div><h2 class="title"><a id="id374531"></a>cdist-reference(7)</h2></div><div><div class="author"><h3 class="author"><span class="firstname">Nico</span> <span class="surname">Schottelius</span></h3><code class="email">&lt;<a class="email" href="mailto:nico-cdist--@--schottelius.org">nico-cdist--@--schottelius.org</a>&gt;</code></div></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="section"><a href="#_name">1. NAME</a></span></dt><dt><span class="section"><a href="#_explorers">2. EXPLORERS</a></span></dt><dt><span class="section"><a href="#_paths">3. PATHS</a></span></dt><dt><span class="section"><a href="#_types">4. TYPES</a></span></dt><dt><span class="section"><a href="#_objects">5. OBJECTS</a></span></dt><dt><span class="section"><a href="#_environment_variables">6. ENVIRONMENT VARIABLES</a></span></dt><dt><span class="section"><a href="#_see_also">7. SEE ALSO</a></span></dt><dt><span class="section"><a href="#_copying">8. COPYING</a></span></dt></dl></div><div class="section" title="1. NAME"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_name"></a>1. NAME</h2></div></div></div><p>cdist-reference - Variable, path and type reference for cdist</p></div><div class="section" title="2. EXPLORERS"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_explorers"></a>2. EXPLORERS</h2></div></div></div><p>The following global explores are available:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 hostname
 </li><li class="listitem">
 machine
@@ -100,7 +100,67 @@ tmp_dir
    which will be removed when the scripts end automatically.
    See cdist-config(1).
 </dd></dl></div></div><div class="section" title="4. TYPES"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_types"></a>4. TYPES</h2></div></div></div><p>The following types are available:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-<span class="emphasis"><em>_* (cdist-type_</em></span>*(7))
+__addifnosuchline (cdist-type__addifnosuchline(7))
+</li><li class="listitem">
+__apt_ppa (cdist-type__apt_ppa(7))
+</li><li class="listitem">
+__apt_update_index (cdist-type__apt_update_index(7))
+</li><li class="listitem">
+__autofs_map (cdist-type__autofs_map(7))
+</li><li class="listitem">
+__autofs_master (cdist-type__autofs_master(7))
+</li><li class="listitem">
+__crontab (cdist-type__crontab(7))
+</li><li class="listitem">
+__debconf_set_selections (cdist-type__debconf_set_selections(7))
+</li><li class="listitem">
+__directory (cdist-type__directory(7))
+</li><li class="listitem">
+__file (cdist-type__file(7))
+</li><li class="listitem">
+__group (cdist-type__group(7))
+</li><li class="listitem">
+__init_script (cdist-type__init_script(7))
+</li><li class="listitem">
+__issue (cdist-type__issue(7))
+</li><li class="listitem">
+__key_value (cdist-type__key_value(7))
+</li><li class="listitem">
+__link (cdist-type__link(7))
+</li><li class="listitem">
+__mkfs (cdist-type__mkfs(7))
+</li><li class="listitem">
+__motd (cdist-type__motd(7))
+</li><li class="listitem">
+__package_apt (cdist-type__package_apt(7))
+</li><li class="listitem">
+__package_pacman (cdist-type__package_pacman(7))
+</li><li class="listitem">
+__package_pkg_openbsd (cdist-type__package_pkg_openbsd(7))
+</li><li class="listitem">
+__package_rubygem (cdist-type__package_rubygem(7))
+</li><li class="listitem">
+__package (cdist-type__package(7))
+</li><li class="listitem">
+__package_yum (cdist-type__package_yum(7))
+</li><li class="listitem">
+__partition_msdos_apply (cdist-type__partition_msdos_apply(7))
+</li><li class="listitem">
+__partition_msdos (cdist-type__partition_msdos(7))
+</li><li class="listitem">
+__postgres_database (cdist-type__postgres_database(7))
+</li><li class="listitem">
+__postgres_role (cdist-type__postgres_role(7))
+</li><li class="listitem">
+__process (cdist-type__process(7))
+</li><li class="listitem">
+__removeline (cdist-type__removeline(7))
+</li><li class="listitem">
+__ssh_authorized_key (cdist-type__ssh_authorized_key(7))
+</li><li class="listitem">
+__timezone (cdist-type__timezone(7))
+</li><li class="listitem">
+__user (cdist-type__user(7))
 </li></ul></div></div><div class="section" title="5. OBJECTS"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_objects"></a>5. OBJECTS</h2></div></div></div><p>For object to object communication and tests, the following paths are
 usable within a object directory:</p><div class="variablelist"><dl><dt><span class="term">
 changed
@@ -113,7 +173,7 @@ __debug
    If this variable is setup, cdist runs in debug mode.
    You can use this information, to only output stuff in debug
    mode as well.
-   Available for: initial manifest, type manifest
+   Available for: initial manifest, type manifest, gencode, code
 </dd><dt><span class="term">
 __explorer
 </span></dt><dd>

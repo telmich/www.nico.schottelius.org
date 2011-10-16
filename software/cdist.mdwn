@@ -105,6 +105,23 @@ Archlinux already has python >= 3.2, so you only need to do:
     easy_install3 argparse
 
 
+#### Gentoo
+
+Gentoo only provides python 3.2 in testing packages (http://www.gentoo.org/doc/en/handbook/handbook-x86.xml?part=3&chap=3).
+If you want to ensure nothing breaks you must set back the python version to what was default before.
+
+    emerge -av =python-3.2.2 --autounmask-write
+    emerge -av =python-3.2.2
+    eselect python list
+    eselect python list set python3.2
+
+#### Max OS X
+
+Ensure you have port installed and configured (http://www.macports.org/install.php).
+
+    port install python32
+    ln -s /opt/local/bin/python3.2 /opt/local/bin/python3
+
 ### Get cdist
 
 You can clone cdist from git, which gives you the advantage of having
@@ -154,6 +171,7 @@ may vanish at any point. To select a specific branch use
 ### Mirrors
 
  * git://github.com/telmich/cdist.git ([github](https://github.com/telmich/cdist))
+ * git://git.code.sf.net/p/cdist/code ([sourceforge](https://sourceforge.net/p/cdist/code)
 
 ## Update
 
