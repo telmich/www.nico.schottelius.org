@@ -1,0 +1,38 @@
+[[!meta title="Getting the keyboard, touchpad and correct screen resolution working on the MacBook Air 4,2"]]
+
+## Introduction
+
+If you are running Linux on the MacBook Air 4,2 and have any of the following problems,
+this article is for you:
+
+ * FN key not working / modifying keys
+ * Touchpad not working in Multitouch mode
+ * Resolution is 1280x800 instead of 1440x900
+
+
+## Touchpad and Keyboard
+
+In Jiris [for-next branch](http://git.kernel.org/?p=linux/kernel/git/jikos/hid.git;a=summary)
+of the hid tree the keyboard and touchpad issues have been solved.
+
+
+## Screen resolution
+
+Keith fixed the screen resolution issues in his tree that you can retrieve:
+
+    git clone -b fix-edp-vdd-power git://people.freedesktop.org/~keithp/linux
+
+
+## Getting both fixes
+
+Until the changes are merged into Linus' tree, I've setup a tree that merged the
+two previous ones:
+
+ * [gitweb](http://git.schottelius.org/?p=foreign/linux-keith-jiri-mba;a=summary)
+ * git://git.schottelius.org/foreign/linux-keith-jiri-mba
+
+I've used the config.gz from Archlinux as base for .config and added the
+new config options, which resulted in a 
+[working .config for the MacBook Air](dot-config).
+
+[[!tag net unix]]
