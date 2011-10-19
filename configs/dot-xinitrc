@@ -1,0 +1,101 @@
+#!/bin/sh
+# Nico Schottelius
+# Copying: GPLv3
+
+# Support for Hangeul
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
+# Fix/Setup mutt
+MAIL="$HOME/Maildir/"
+export MAIL
+
+# Background
+xsetroot -solid black
+
+# Add "private fonts"
+xset fp+ ~/oeffentlich/rechner/os/unix/xf86/fonts
+xset fp rehash
+
+# Read the resources
+xrdb < ~/.Xresources
+  
+# remove mouse
+unclutter &
+
+# Make touchpad usable
+synclient PalmDetect=1
+synclient TapButton2=2
+synclient TapButton3=3
+
+# Disable mouse tapping while writing and one second later
+syndaemon -i 1 -R -t -d
+
+# Use less memory for huge urxvtd
+urxvtd &
+
+# assign some keys to actions
+xbindkeys
+
+# keyboard
+setxkbmap de neo
+xset r rate 200 30
+
+# i3status | i3bar -d &
+exec i3 > ~/.i3log-$(date +%s) 2>&1
+
+################################################################################
+# Old stuff
+#
+
+# enable fancy hotkeys
+# gnome-power-manager &
+
+# Backgrounds
+#xloadimage -zoom 46 -onroot -quiet -center  ~/bilder/2007-09-29/fueller/20070929234709.jpg &
+#xloadimage -zoom 46 -onroot -quiet -center  ~/photos/20070929.gossau.fueller/20070929234709.jpg &
+
+
+# Screensavers used
+# xscreensaver &
+# screensaver with fading
+#gnome-screensaver
+
+
+# Ratest tested, but not liked
+#xset r rate 100 40
+#xset r rate 150 30
+
+# Previous method to load neo keyboard layout
+#setxkbmap de neo -print | xkbcomp - -I/home/user/nico/build/neo/linux/X $DISPLAY
+
+# Helper programs used
+# unclutter &
+# transeterm blue &
+# transeterm red &
+# transeterm yellow &
+# transeterm green &
+#firefox &
+#urxvtcd &
+#( sleep 5; tmutt & ) &
+#( sleep 2; cd ceofhack && 4xterm ) &
+#tmutt &
+# pull together the "visible" autostart apps
+#x-autostart
+
+
+# Window managers used
+# ( i3status | dzen2 -fg white -ta r -w 1280  -fn "-misc-fixed-medium-r-normal--13-120-75-75-C-70-iso8859-1" -ta c ) &
+# exec i3 > ~/.i3log 2>&1
+#exec blackbox
+#exec /usr/bin/scrotwm
+#exec blender
+#exec fluxbox
+#exec ion
+#exec ion2
+#exec ion3
+#exec /usr/packages/wmii-snap/bin/wmii
+#wmii -V 2>~/WMIILOG
+#exec awesome
+#exec i3 -V -d all > ~/.i3log-$(date +%s) 2>&1
