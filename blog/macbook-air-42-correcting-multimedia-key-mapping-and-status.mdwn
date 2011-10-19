@@ -1,0 +1,35 @@
+[[!meta title="Corrected the multimedia keys mapping on the MacBook Air 4,2"]]
+
+## Introduction
+
+The mapping of the multimedia keys of the MacBook Air 4,2 (probably earlier
+ones as well) was
+[slightly off by one and had the Eject key mapped](https://lkml.org/lkml/2011/10/17/326),
+although the MBA does not have an optical drive.
+
+## Two trees available with fixes
+
+The patch against [Jiris for-next branch of the hid-tree](http://git.kernel.org/?p=linux/kernel/git/jikos/hid.git;a=summary) can be found
+in [my **mba42-fixes** branch](http://git.schottelius.org/?p=foreign/linux-jiri-hid;a=summary).
+
+The second tree is the one I use to run with the
+[[correct keyboard mapping and screen resolultion patches|macbook-air-42-touchpad-keyboard-correct-screen-resolution]], which contains the change in the
+[**keyboardmappingfix** branch](http://git.schottelius.org/?p=foreign/linux-keith-jiri-mba;a=summary).
+
+## General status / todo list
+
+The notebook is pretty good usable with the current patches applied. There are
+some gotchas, though, which I'll try to fix in the next time:
+
+ * [network process hang issue in the **brcmsmac** driver](https://lkml.org/lkml/2011/10/18/145)
+ * The mouse pointer does not move when the mouse button is pressed (probably a configuration problem of the synaptics touchpad)
+ * Brightness is not adjusted in xorg when pressing FN-F1 (but can be done via **echo <value> > /sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-eDP-1/intel_backlight/brightness**)
+ * Display is not switched off when lid is closed (acpi reports the lid event, though) (probably related to the previous problem)
+ * I'm not sure how to adjust the keyboard backlight correctly:
+  * Correct map the ambient light values (0-255) to the keyboard light brightness (0-255)
+   * Straight brightness=255-ambient_light does not look good
+  * Probably off, when the lid is closed
+  * See [kbsd](http://git.schottelius.org/?p=kbsd;a=summary) for an early idea of what can
+    be done
+
+[[!tag net unix]]
