@@ -25,6 +25,8 @@ some gotchas, though, which I'll try to fix in the next time:
  * The mouse pointer does not move when the mouse button is pressed (probably a configuration problem of the synaptics touchpad)
  * Brightness is not adjusted in xorg when pressing FN-F1 (but can be done via **echo VALUE > /sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-eDP-1/intel_backlight/brightness**)
  * Display is not switched off when lid is closed (acpi reports the lid event, though) (probably related to the previous problem)
+ * Incorrect representation when using a Mini-Display-Port to HDMI adapter on external screen
+ * No output on external monitor when using a Mini-Display-Port to DVI adapter
  * I'm not sure how to adjust the keyboard backlight correctly:
   * Correct map the ambient light values (0-255) to the keyboard light brightness (0-255)
    * Straight brightness=255-ambient_light does not look good
