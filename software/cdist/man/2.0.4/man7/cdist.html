@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>cdist(7)</title><link rel="stylesheet" type="text/css" href="docbook-xsl.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.76.1" /></head><body><div xml:lang="en" class="article" title="cdist(7)" lang="en"><div class="titlepage"><div><div><h2 class="title"><a id="id386302"></a>cdist(7)</h2></div><div><div class="author"><h3 class="author"><span class="firstname">Nico</span> <span class="surname">Schottelius</span></h3><code class="email">&lt;<a class="email" href="mailto:nico-cdist--@--schottelius.org">nico-cdist--@--schottelius.org</a>&gt;</code></div></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="section"><a href="#_name">1. NAME</a></span></dt><dt><span class="section"><a href="#_description">2. DESCRIPTION</a></span></dt><dt><span class="section"><a href="#_see_also">3. SEE ALSO</a></span></dt><dt><span class="section"><a href="#_copying">4. COPYING</a></span></dt></dl></div><div class="section" title="1. NAME"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_name"></a>1. NAME</h2></div></div></div><p>cdist - Configuration management system</p></div><div class="section" title="2. DESCRIPTION"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_description"></a>2. DESCRIPTION</h2></div></div></div><p>Cdist is a usable configuration management system.
+The easiest way to get started with cdist is to initialise
+the environment and run cdist-quickstart:</p><pre class="screen">eval `./bin/cdist-env` &amp;&amp; cdist-quickstart</pre><p>Cdist configurations are written in the shell scripting language.
+The mapping of configurations to hosts is defined in so called manifests,
+logical units of functionality are called "types" in cdist jargon.
+Cdist ships with some types included. You can use or change them, create new
+ones or even submit your types for inclusion into cdist.</p><p>The main command is cdist-deploy-to, which runs several stages to push
+configurations to a host. If you want to deeply understand cdist, reading
+the source of cdist-deploy-to is recommended.
+Cdist currently uses the push approach (a server pushes out the
+configuration to the clients), but future version will also support the
+pull mechanism (client requests configuration).</p></div><div class="section" title="3. SEE ALSO"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_see_also"></a>3. SEE ALSO</h2></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+Website: <a class="ulink" href="http://www.nico.schottelius.org/software/cdist/" target="_top">http://www.nico.schottelius.org/software/cdist/</a>
+</li><li class="listitem">
+cdist-hacker(7)
+</li><li class="listitem">
+cdist-manifest(7)
+</li><li class="listitem">
+cdist-type(7)
+</li><li class="listitem">
+cdist(1)
+</li><li class="listitem">
+cdist(7)
+</li></ul></div></div><div class="section" title="4. COPYING"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_copying"></a>4. COPYING</h2></div></div></div><p>Copyright (C) 2010-2011 Nico Schottelius. Free use of this software is
+granted under the terms of the GNU General Public License version 3 (GPLv3).</p></div></div></body></html>
