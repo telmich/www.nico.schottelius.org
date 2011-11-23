@@ -23,7 +23,7 @@ You can clone it using
 
 There is a IRC channels, in which development takes places:
 
- * [#cLinux](irc://irc.freenode.org/#cLinux) - Multi language (German/English)
+ * [#cstar](irc://irc.freenode.org/#cstar) - Multi language (German/English)
 
 You can also [[contact me directly|about]].
 

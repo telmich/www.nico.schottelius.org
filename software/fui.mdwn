@@ -46,6 +46,6 @@ Or browse [gitweb](http://git.schottelius.org/?p=fui).
  * [Ncurses intro](http://invisible-island.net/ncurses/ncurses-intro.html)
  * [Writing Programs with NCURSES](http://web.cs.mun.ca/~rod/ncurses/ncurses.html)
  * [ncurses-ruby](http://ncurses-ruby.berlios.de/)
- * [IRC](irc://irc.freenode.net/#cLinux)
+ * [IRC](irc://irc.freenode.net/#cstar)
 
 [[!tag ncurses ruby unix]]

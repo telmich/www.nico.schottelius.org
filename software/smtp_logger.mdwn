@@ -58,7 +58,7 @@ There are also some
 
 ### IRC
 
- * [#cLinux](irc://irc.freenode.org/#cLinux) - Multi language (German/English)
+ * [#cstar](irc://irc.freenode.org/#cstar) - Multi language (German/English)
 
 ### Mail
 
