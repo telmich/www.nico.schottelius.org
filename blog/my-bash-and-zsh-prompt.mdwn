@@ -1,7 +1,7 @@
 [[!meta title="My Bash and Zsh prompt"]]
 
-This article is for those who wonder how my very simple but helpful prompt
-in the shell are created and the motivation behind it.
+This article is for those who wonder how my very simple, but helpful prompt
+in the shell is created and to learn the motivation behind it.
 
 ## How it looks like
 
@@ -15,15 +15,15 @@ Bash:
 
 Zsh:
 
-     PS1="[%T] %B%m%b:%c%# "
+    PS1="[%T] %B%m%b:%c%# "
 
 ## Motivation
 
-# I need the hostname to know on which box I am working
-# Time is helpful for copy & paste in logs (and to not waste space with ***xclock***)
-# Short directory name (\W, %c) is helpful, long paths make the prompt 
+* I need the hostname to know on which box I am working
+* Time is helpful for copy & paste in logs (and to not waste space with ***xclock***)
+* Short directory name (\W, %c) is helpful, long paths make the prompt 
 unusable and I usually know which tree I am in (if not: pwd helps)
-# No need for **username@** like most distros do: If I am a user,
+* No need for **username@** like most distros do: If I am a user,
 I am ***nico*** (***$*** in bash, ***%*** in zsh). Otherwise I am root (***#***).
 
 [[!tag config sysadmin unix]]
