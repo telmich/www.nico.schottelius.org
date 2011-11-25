@@ -1,0 +1,29 @@
+[[!meta title="My Bash and Zsh prompt"]]
+
+This article is for those who wonder how my very simple but helpful prompt
+in the shell are created and the motivation behind it.
+
+## How it looks like
+
+[[!img bash-zsh-prompt-screenshot-20111125.png alt="Bash/Zsh Prompt"]]
+
+## How it is created
+
+Bash:
+
+    PS1='[\t] \[\033[1m\]\h\[\033[0m\]:\W\$ '
+
+Zsh:
+
+     PS1="[%T] %B%m%b:%c%# "
+
+## Motivation
+
+# I need the hostname to know on which box I am working
+# Time is helpful for copy & paste in logs (and to not waste space with ***xclock***)
+# Short directory name (\W, %c) is helpful, long paths make the prompt 
+unusable and I usually know which tree I am in (if not: pwd helps)
+# No need for **username@** like most distros do: If I am a user,
+I am ***nico*** (***$*** in bash, ***%*** in zsh). Otherwise I am root (***#***).
+
+[[!tag config sysadmin unix]]
