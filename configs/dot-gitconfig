@@ -1,5 +1,5 @@
 #
-# 2009      Nico Schottelius (nico-configfiles at schottelius.org)
+# 2009-2011 Nico Schottelius (nico-configfiles at schottelius.org)
 # 
 # This file is part of nsdotfiles.
 #
@@ -31,28 +31,25 @@
    f  = fetch
 
    l     = log
-
    lc    = log --color
    ln    = log --name-only
    lo    = log --pretty=oneline
    lp    = log -p --abbrev-commit
-
    loc   = log --color --pretty=oneline
    lpc   = log -p --color --abbrev-commit
 
-   m     = merge
+   m  = merge
    p  = push
    pl = pull
    r  = reset
    s  = status
    t  = tag
 
+   # Useful for SVN operation
+   srd = !git svn rebase && git svn dcommit
+
 [core]
    excludesfile = /home/users/nico/.gitignore-global
-
-[user]
-   email = nico@kr.ethz.ch
-   name = Nico Schottelius
 
 [http]
    sslVerify=false
@@ -65,3 +62,17 @@
 
 [push]
 	default = matching
+
+[color]
+	ui = auto
+#
+# PRIVATE STUFF
+#
+
+[user]
+   email = nico@MYHOSTNAME
+   name = Nico Schottelius
+
+[cia]
+   email = nico@MYCIAADRESS
+   url= http://git.schottelius.org/?p=@@project@@;a=commit;h=@@sha1@@
