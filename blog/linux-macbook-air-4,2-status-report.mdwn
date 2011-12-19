@@ -1,0 +1,93 @@
+[[!meta title="Status of Linux on the MacBook Air 4,2"]]
+
+## Introduction
+
+Following up my 
+[[recent|macbook-air-42-correcting-multimedia-key-mapping-and-status]]
+[[posts|macbook-air-42-touchpad-keyboard-correct-screen-resolution]]
+[[about the MacBook Air 4,2|macbook-air-42-archlinux]] with Linux,
+here's a status report of what works and what is still missing.
+
+This report is based on ***Linux 3.2.0-rc5***.
+
+## Screen Resolution and external screens
+
+Great news, Linus' tree merged patches necessary for full screen resolution
+and external screens work as well:
+
+    Screen 0: minimum 320 x 200, current 2560 x 2340, maximum 8192 x 8192
+    eDP1 connected 1440x900+0+1440 (normal left inverted right x axis y axis) 30mm x 179mm
+       1440x900       60.0*+
+    VGA1 disconnected (normal left inverted right x axis y axis)
+    HDMI1 disconnected (normal left inverted right x axis y axis)
+    DP1 disconnected 2560x1440+0+0 (normal left inverted right x axis y axis) 0mm x 0mm
+    HDMI2 disconnected (normal left inverted right x axis y axis)
+    HDMI3 disconnected (normal left inverted right x axis y axis)
+    DP2 disconnected (normal left inverted right x axis y axis)
+    DP3 disconnected (normal left inverted right x axis y axis)
+      2560x1440 (0xb2)  241.5MHz
+            h: width  2560 start 2608 end 2640 total 2720 skew    0 clock   88.8KHz
+            v: height 1440 start 1443 end 1448 total 1481           clock   60.0Hz
+
+An external monitor was tested via Mini-DP-to-HDMI adapter and Mini-DP-to-DVI
+adapter with resolutions from 1920x1080 (24" Samsung) up to 2560x1440 (27" Dell).
+
+
+## Keyboard/Multimedia Keys (FN+F1..F12)
+
+With the current kernel all multimedia keys match correctly.
+
+
+## Keyboard/Backlight
+
+Keyboard backlight can be controlled using 
+[kbsd](http://git.schottelius.org/?p=kbsd;a=summary). This works fine,
+but it could be improved to react on the light sensor.
+The question simply is, how to map the light sensor values to keyboard
+backlight settings. If you've got a good table or function to apply,
+drop me a mail, so I can include it.
+
+
+## Touchpad
+
+The touchpad works almost completly, the only
+problem left is that
+the mouse pointer does not move when the mouse button is pressed.
+This may be a configuration problem of the synaptics touchpad, but
+I haven't found a fix for this.
+
+
+## Screen backlight
+
+The nice utility **xbacklight** still does not work,
+
+    [11:14] brief:~% xbacklight 
+    No outputs have backlight property
+
+but dimming works manually via echo:
+
+    [21:15] brief:~# echo 2200 > /sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-eDP-1/intel_backlight/brightness  
+
+And the display is not switched off when lid is closed. 
+ACPI reports the lid event, though. Probably a related problem.
+
+
+## WLAN / brcmsmac / Broadcom BCM43224
+
+This used to be fixed in my own patched kernel, but since I've got
+a new macbook air 4,2, it does suffers the 
+[network process hang issue in the **brcmsmac** driver](https://lkml.org/lkml/2011/10/18/145)
+again. Iterating over several different kernels did not yet fix this problem.
+
+Though interestingly after 2 suspend and resume cycles it works, until the 4th of 5th
+suspend cycle, at which all network processes hang again, if the connection to the
+AP is lost.
+
+## Current problem summary
+
+ * Clicking and moving the mouse pointer does not work
+ * xbacklight does not recognise backlight controls
+ * Display is not switched off on lid close
+ * Network processes hang when the connection to the AP is lost/cannot be established
+
+[[!tag net unix]]
