@@ -1,0 +1,173 @@
+[[!meta title="cdist: Why we require Python 3.2 on the source host"]]
+
+## Introduction
+
+As [[cdist|software/cdist]] is getting more popular, more people are using 
+cdist and some questions arrive more often from newbies than others.
+One of them is why we require having Python 3.2 on the source host.
+If you are also wondering about the motivation, or you're screaming because
+you only have Python 2.x or Python 3.1 available in your distribution, this
+article is for you.
+
+    Note: Cdist does *not* require Python on the target hosts!
+    Note: Cdist requires only ssh and a posix shell on the targets.
+
+
+## History of cdist
+
+Because you may be one of the people who are screaming, I'm giving you
+an overview about the whole development history of cdist, which will 
+make things more clear for you.
+
+At the end of 2010 [I was claiming that most current configuration management
+(***CM***) tools are not only overly complex designed, but also that their
+implementations are way too
+complex](http://www.usenix.org/event/lisa10/tech/slides/snyder_bof2.pdf).
+This is definitely a strong statement, which I
+also used to provoke people to thing about the current situation of CM.
+
+The logical consequence of my statement was to try out, whether it's
+actually possible to write a CM tool completly in a very simple manner.
+For instance in posix shell script. This led to the first commit to the 
+newly born cdist repository:
+
+    commit 28a9807fe5e6bfa95015fe72456d63cbb2a5821f
+    Date:   Thu Sep 16 02:20:35 2010 +0200
+
+After a lot of discussions, design ideas, pictures on the whiteboard,
+trying out different implementations, weighting up advantages of
+each one, the first official release of cdist was put into public,
+cdist 1.0.0:
+
+    tag 1.0.0
+    Date:   Mon Mar 7 18:21:18 2011 +0100
+
+Cdist 1.0.0 is completly implemented in posix shell and had almost all 
+features of the current cdist implementation. With one major drawback:
+Performance. When running cdist 1.0.0 in parallel mode, the source host
+easily became the bottleneck. A typical run of cdist 1.0.0 caused around
+3500 - 5000 forks. Running in parallel mode with about 10-15 target hosts, 
+most time of a cdist run was spent in kernel space to handle the forks.
+
+The logical sequence again was to search for the reason for the huge amount
+of forks, which was easily detected: Every routine was a shell script on its
+own, that required a new launch of the shell. Now, for some operations,
+like working on the dependency tree, a lot of sub-routines were called, leading
+to the huge number of forks.
+
+We tried to minimise the number of forks by migrating from shell scripts to
+shell functions, which was a big pain, when we realised that posix shell
+does not have **local** variable support anymore. Posix states that you should
+use shell scripts instead of shell functions, if you need distinct environments.
+Which is exactly were we came from...
+
+Thus we decided to switch to a different programming language for cdist's core,
+but only for the core. For us it is very important to minimise the dependencies
+on the target hosts: We do not want to install Ruby, Python, Java, libfoo or
+anything that is not usually available on a freshly installed base system.
+Cdist should be able to take over, as soon as the system is setup in a very
+basic state.
+
+The choice felt on Python, because it felt very mature and easy to use.
+Additionally, Python 3 already provides a lot of functionality in its
+base installation: Everything we were used to do in shell, could easily be
+rewritten in plain Python 3. After **exactly** one year after
+the initial commit, ***cdist 2.0.0***, a complete rewrite in Python 3
+was finished and released:
+
+    tag 2.0.0
+    Date:   Fri Sep 16 12:11:28 2011 +0200
+
+
+## Now, why Python 3.2?
+
+During the development of cdist 2.0, we had a lot of discussions
+about clean design, pythonic ways of doing stuff (versus using the
+shell approach in python) and which functions to use. In the beginning,
+we were discussing about whether to settle for Python 2 or Python 3.
+As we did not have any dependencies or old code that relies on Python 2,
+the choice for the current stable tree, Python 3, was easy to make.
+
+Python 3.2, in contrast to Python 3.1, includes the very good usable
+[argparse module](http://docs.python.org/py3k/library/argparse.html),
+as well as an enhanced variant of the
+[os.makedirs](http://docs.python.org/py3k/library/os.html#os.makedirs)
+method that supports the ***exist_ok*** parameter.
+
+The argparse module is also available for Python 3.1, but not the
+enhanced **os.makedirs** method. So we had to decide: Should we
+integrate a simple workaround to support the previous Python 3 release,
+Python 3.1, or shall we upset users with old Python installations?
+
+To answer this question, we had a look at the current situation of
+Python in various distributions.
+
+## Python support in Linux/BSD
+
+A very quick research showed the following results:
+
+[[!table  data="""
+Distro | Version | Python version | Python 3? | Usable as cdist source host?
+Archlinux | rolling release | 3.2.2 | yes | yes
+CentOS | 6 | 2.6.6 | no | no
+Debian | squeeze | 3.1.3 | yes | no
+Debian | wheezy | 3.2.2 | yes | yes
+Fedora | 14 | 3.1.2 | yes | no
+Fedora | 15-17 | 3.2 - 3.2.2 | yes | yes
+FreeBSD | Ports | 3.2.2 | yes | yes
+Gentoo | rolling release | 3.2.2 | yes | yes
+NetBSD | Ports | 3.1.4 | yes | no
+OpenBSD: | -current | 2.7.1 | no | no
+OpenBSD: | Ports | 3.2.2 | yes | yes
+OpenSuse | 11.4 | 3.1.3 | yes | no
+OpenSuse | 12.1 | 3.2.1 | yes | yes
+Redhat | 6 | 2.6.6 | no | no
+Slackware | 13.37 | 2.6.6 | no | no
+Ubuntu | maverick (10.10) | 3.1.3 | yes | no
+Ubuntu | natty (11.04) - precise (12.04) | 3.2 - 3.2.2 | yes | yes
+"""]]
+
+So we have the following situations:
+
+ * There are a lot of distros with Python 3.2 available (Archlinux,
+    Debian >= Wheezy, Fedora >= 15, FreeBSD, Gentoo, OpenBSD, OpenSuse,
+    Ubuntu >= 11.04)
+ * There are distros which do not have Python 3 at all (Centos, Redhat, Slackware)
+  * Python 3 is definitely needed, so requiring 3.1 or 3.2 
+    does not make a difference
+ * There are only two cases, which would make it interesting to support 
+   Python 3.1: Debian Squeeze (currently stable) and NetBSD.
+  * As I've been a long time Debian user, I understand this may be a bit
+    annoying, because it's unclear, when wheezy will become stable.
+    On the other hand, you can easily install python 3.2 from source to
+    anywhere, like you'd do in the situation, when you wouldn't have
+    python 3 at all.
+  * Another point speaking against 3.1 support for Debian is the fact that
+    distributions should support the user and not developers should support
+    distributions that ship old software (there's nothing against supporting
+    old **and** new versions, though). That's by the way one of the reasons 
+    why I moved away from Debian...
+  * I am short on experience regarding NetBSD, but installing via source 
+    shouldn't be an issue either.
+
+To summarise: Support for Python 3.1 only makes sense for Debian Squeeze
+and NetBSD at the moment. This requirement will soon [tm] be superseeded
+and can easily be worked around by selecting one of many distributions 
+with more recent software packages. And that's the reason, why we settled
+for Python 3.2.
+
+## Btw, who is we?
+
+You mave have noticed that I am often referring to **we** in this article.
+The second main developer for cdist is 
+[Steven Armstrong](https://github.com/asteven), a sysadmin at
+ETH Zurich and good friend of mine.
+The discussions and development time we spent together was very valuable
+for me as well for the whole cdist project and thus I wanted to use this
+article to say
+    
+    Thank you, Steven.
+
+[Disclaimer: I do not work for ETH Zurich anymore, but for [local.ch](http://www.local.ch)]
+
+[[!tag config sysadmin unix]]
