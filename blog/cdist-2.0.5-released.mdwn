@@ -1,0 +1,18 @@
+[[!meta title="Cdist 2.0.5 released"]]
+
+Here's a short overview about the changes found in this release:
+
+    * Bugfix __key_value: Use correct delimiters
+        (Steven Armstrong, Daniel Maher)
+    * Cleanup: Explicitly require Python >= 3.2 (do not fail implicitly)
+    * Documentation: (Re)write of the tutorial
+    * Feature: __addifnosuchline supports matching on  
+        regular expressions (Daniel Maher)
+    * Feature: __directory, __file, __link:
+        Add --state parameter (Steven Armstrong)
+    * New Type: __package_luarocks (Christian G. Warden)
+    * New Type: __cdistmarker (Daniel Maher)
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag config unix]]
