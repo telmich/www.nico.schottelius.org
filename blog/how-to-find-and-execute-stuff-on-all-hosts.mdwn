@@ -1,0 +1,27 @@
+[[!meta title="How to find and execute stuff on all hosts?"]]
+
+## Motivation
+
+Assume that you are managing a pretty large infrastructure of hosts,
+sometimes there is a need to execute a command on all of them.
+
+The big question is, where to find out, which hosts exist.
+
+## Solution
+
+The usual approach is to invent some kind of centralised daemon that collects
+or searches for available hosts. There is a way simpler solution available in
+my situation, which may help you as well:
+We do have a monitoring infrastructure, to which all hosts transmit their
+configuration. The configuration is stored containing the full hostname
+(like **foo.bar.local.ch**) plus the .cfg suffix.
+
+Thus a script that can be used to execute something on all hosts (sequentially though)
+can look like this:
+
+    for host in $(ssh monitoring01 "cd /opt/icinga/etc/hosts.d; ls"); do
+        host=${host%.cfg}
+        ssh "root@$host" "$@"
+    done
+
+[[!tag sysadmin localch unix]]
