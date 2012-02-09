@@ -1,0 +1,7 @@
+Artikel und Dokumentation, die im Zusammenhang mit
+[Local.ch](http://www.local.ch) entstanden sind.
+
+Articles and documentation, which contain information related
+to the [Local.ch](http://www.local.ch).
+
+[[!inline pages="tagged(localch)" archive="yes" show=0]]
