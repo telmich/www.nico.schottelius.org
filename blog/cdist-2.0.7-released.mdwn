@@ -1,0 +1,16 @@
+[[!meta title="Cdist 2.0.7 released"]]
+
+Here's a short overview about the changes found in this release:
+
+        * Bugfix __file: Use chmod after chown/chgrp (Matt Coddington)
+        * Bugfix __user: Correct shadow field in explorer (Matt Coddington)
+        * Bugfix __link: Properly handle existing links (Steven Armstrong)
+        * Bugfix __key_value: More robust implementation (Steven Armstrong)
+        * Bugfix __user: Fix for changing a user's group by name (Matt Coddington)
+        * New Type: __package_pip
+        * Bugfix/Cleanup: Correctly allow Object ID to start and end with /, but
+                not contain //.
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag config unix]]
