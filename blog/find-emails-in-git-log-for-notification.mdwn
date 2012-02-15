@@ -20,17 +20,57 @@ A typical line of interest looks like this:
 
     -        command => '/usr/local/bin/cronwrapper.sh EMAIL@EXAMPLE.COM "[mob][low][dev03-sth][front] description" /usr/bin/php /some/script',
 
-Thanks to grep, sed, awk, there is a pretty simple solution 
-(not the most beautiful) to this problem:
+Thanks to git, grep, sed, awk, there is a pretty simple solution 
+(not the most beautiful) to this problem. First of all, get all patches:
 
-    git log -p | grep ^- | grep cronwrapper | grep '@' | sed 's/.* \(.*@.*\)/\1/' | \
-        awk '{ print $1 }' | sed -e 's/\\"//g' -e 's/"//g' -e "s/'//g" | sort | uniq
+    git log -p
+
+Then find all removal entries of cronwrapper:
+
+    grep ^- | grep cronwrapper
+
+But only those containing an e-mail address:
+
+    grep '@'
+
+And filter out the e-mail address:
+
+    sed 's/.* \(.*@.*\)/\1/' | awk '{ print $1 }'
+
+Replace all quotes and backslash quotes:
+
+    sed -e 's/\\"//g' -e 's/"//g' -e "s/'//g"
+
+The problem now is that some e-mail adresses are indeed multiple e-mail adresses
+(abc@example.com;def@example.com) and some e-mail adresses are lower, some upper case.
+
+Breaking up the concatenated addresses can be done use awk easily:
+
+    awk '{ gsub(";", "\n"); print $0 }'
+
+Transforming all addresses to lower case can be done using the fine utility **tr**:
+
+    tr '[A-Z]' '[a-z]'
+
+Filter out all duplicates:
+
+    sort | uniq
 
 The result is a list of e-mail addresses. Making them usable for copy & paste
 into webmail of exchange needs another filter to convert **\n** to **;**, but
 add one **\n** at the end:
 
-    git log -p | grep ^- | grep cronwrapper | grep '@' | sed 's/.* \(.*@.*\)/\1/' | awk '{ print $1 }' | sed -e 's/\\"//g' -e 's/"//g' -e "s/'//g" | sort | uniq | awk 'ORS=";" { print $0 } END { ORS="\n"; print "" }' 
+    awk 'ORS=";" { print $0 } END { ORS="\n"; print "" }' 
+
+So in the end, the complete chanin looks like this:
+
+    git log -p | grep ^- | grep cronwrapper | \
+    grep '@' | sed 's/.* \(.*@.*\)/\1/' | awk '{ print $1 }' | \
+    sed -e 's/\\"//g' -e 's/"//g' -e "s/'//g" | \
+    tr '[A-Z]' '[a-z]' | \
+    awk '{ gsub(";", "\n"); print $0 }' | \
+    sort | uniq | \
+    awk 'ORS=";" { print $0 } END { ORS="\n"; print "" }'
 
 For me, this is a nice demonstration of the power of shell, unix tools and filtering via pipes.
 
