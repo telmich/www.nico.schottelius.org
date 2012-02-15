@@ -1,0 +1,37 @@
+[[!meta title="Find e-mail adresses of people in git log output"]]
+
+## Motivation
+
+Some days ago I've replaced **cronwrapper**, a script to monitor output of
+cron scripts with the replacement **cwrap** in local.ch's puppet configuration.
+
+If the script prints on stdout, **cwrap** does not raise an error by default,
+which **cronwrapper** did.
+
+To notify every user of the change, I want to send an email to every 
+ex-**cronwrapper** user.
+
+## Solution
+
+The configuration is stored in a subversion repo, which I locally sync using
+**git svn**. Thus I can use **git log -p** to see all changes.
+
+A typical line of interest looks like this:
+
+    -        command => '/usr/local/bin/cronwrapper.sh EMAIL@EXAMPLE.COM "[mob][low][dev03-sth][front] description" /usr/bin/php /some/script',
+
+Thanks to grep, sed, awk, there is a pretty simple solution 
+(not the most beautiful) to this problem:
+
+    git log -p | grep ^- | grep cronwrapper | grep '@' | sed 's/.* \(.*@.*\)/\1/' | \
+        awk '{ print $1 }' | sed -e 's/\\"//g' -e 's/"//g' -e "s/'//g" | sort | uniq
+
+The result is a list of e-mail addresses. Making them usable for copy & paste
+into webmail of exchange needs another filter to convert **\n** to **;**, but
+add one **\n** at the end:
+
+    git log -p | grep ^- | grep cronwrapper | grep '@' | sed 's/.* \(.*@.*\)/\1/' | awk '{ print $1 }' | sed -e 's/\\"//g' -e 's/"//g' -e "s/'//g" | sort | uniq | awk 'ORS=";" { print $0 } END { ORS="\n"; print "" }' 
+
+For me, this is a nice demonstration of the power of shell, unix tools and filtering via pipes.
+
+[[!tag config sysadmin localch unix]]
