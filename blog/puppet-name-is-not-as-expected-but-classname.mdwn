@@ -48,10 +48,10 @@ when starting the cdist project. In this case, it had been:
  * Do what the user expects
  * Consistent behaviour
 
-<spam>
+<<spam>>
 If you are interested, there is 
 [commercial support available](http://firma.schottelius.org/english/infrastructure/) for
 puppet to cdist migrations.
-</spam>
+<</spam>>
 
 [[!tag config sysadmin localch unix]]
