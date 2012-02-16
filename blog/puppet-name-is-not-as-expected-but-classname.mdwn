@@ -1,0 +1,57 @@
+[[!meta title="In puppet, $name is not always what you expect"]]
+
+## Situation
+
+I've tried to create a smart file definition for two files that belong into one
+directory using this code snippet:
+
+    file { ["check-disk-shell-net-snmp", "check_icinga_config.sh"]:
+        ensure => present,
+        path => "${check_base}/${name}",
+        source => "puppet:///modules/icinga2/${name}",
+        owner => icinga,
+        group => icinga,
+        mode => 775,
+        require => File["${check_base}"];
+    }   
+
+As described in the
+[puppet documentation](http://docs.puppetlabs.com/references/2.7.0/type.html),
+the path is usually constructed by using **namevar**, which I interpret as
+"the variable named **name**".
+
+## The problem
+
+What happens is actually something totally different:
+
+    err: Failed to apply catalog: Cannot alias File[check-disk-shell-net-snmp] to
+    ["/opt/local.ch/sys/icinga/checks/icinga2::serverchecks"] at
+    /etc/puppet/modules/icinga2/manifests/serverchecks.pp:25; resource
+    ["File", "/opt/local.ch/sys/icinga/checks/icinga2::serverchecks"] already defined at
+    /etc/puppet/modules/icinga2/manifests/serverchecks.pp:25
+
+The internal alias message is a bit confusing 
+(I did not intentionally create an alias), but that puppet is using the classname
+instead of the name supplied to file is surprising.
+
+## The solution
+
+Well, there are two solutions:
+
+ * rewrite to two file entries (simple, code redundancy, ugly)
+ * switch over to using [[cdist|software/cdist]] (more initial effort, biased author)
+
+It is very good from time to time being remembered, which motivations I had
+when starting the cdist project. In this case, it had been:
+
+ * Supply understandable, good error messages to the user
+ * Do what the user expects
+ * Consistent behaviour
+
+<spam>
+If you are interested, there is 
+[commercial support available](http://firma.schottelius.org/english/infrastructure/) for
+puppet to cdist migrations.
+</spam>
+
+[[!tag config sysadmin localch unix]]
