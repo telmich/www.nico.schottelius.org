@@ -34,6 +34,17 @@ The internal alias message is a bit confusing
 (I did not intentionally create an alias), but that puppet is using the classname
 instead of the name supplied to file is surprising.
 
+**Update:** I've found the correct documentation part in the
+[puppet language guide](http://docs.puppetlabs.com/guides/language_guide.html)
+that describes the feature I was trying to use:
+
+    Most resources have an attribute (often called simply name) whose value 
+    will default to the title if you don’t specify it. (Internally, this is 
+    called the “namevar.”) For the file type, the path will default to the 
+    title. A resource’s namevar value almost always has to be unique. 
+    (The exec and notify types are the exceptions.)
+
+
 ## The solution
 
 Well, there are two solutions:
