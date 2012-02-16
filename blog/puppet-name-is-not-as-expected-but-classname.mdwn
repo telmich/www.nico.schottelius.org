@@ -22,7 +22,7 @@ the path is usually constructed by using **namevar**, which I interpret as
 
 ## The problem
 
-What happens is actually something totally different:
+What happens is actually something totally different (puppet --version: 2.7.5):
 
     err: Failed to apply catalog: Cannot alias File[check-disk-shell-net-snmp] to
     ["/opt/local.ch/sys/icinga/checks/icinga2::serverchecks"] at
