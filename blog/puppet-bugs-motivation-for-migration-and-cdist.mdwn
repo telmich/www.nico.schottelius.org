@@ -39,6 +39,6 @@ This is the initial short list, explanations may follow.
 
 If you think there's something wrong here and want to discuss the listing, do not hesitate
 to discuss it on one of the 
-[cdist communication channels (irc, mailing list, mail)|software/cdist].
+[[cdist communication channels (irc, mailing list, mail)|software/cdist]].
 
 [[!tag config sysadmin localch unix]]
