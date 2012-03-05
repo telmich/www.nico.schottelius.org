@@ -1,4 +1,4 @@
-[[!meta title="Puppet bugs that motivated me to migrate away and write cdist"]]
+[[!meta title="Puppet bugs that motivated me to migrate away from puppet and write cdist"]]
 
 ## Introduction
 
