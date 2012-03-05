@@ -1,0 +1,44 @@
+[[!meta title="Puppet bugs that motivated me to migrate away and write cdist"]]
+
+## Introduction
+
+For a long time I had a "secret list" of bugs that made me going crazy when
+using puppet. But as I get more often asked ***Why have you writen
+[[cdist|software/cdist]] and migrate away from puppet?***, I'm publishing the
+list here, to give it a real home.
+
+Early clearification, before rumors come up and bad blood created:
+This is **not intented** to be a **bash puppet page**, but a
+**I don't need to re-explain why I moved away from puppet and
+have written cdist page**.
+
+## Bugs
+
+This is the initial short list, explanations may follow.
+
+ * [puppet parser order dependant](http://projects.puppetlabs.com/issues/1565)
+ * [cannot get return code of command - 1 year idle](http://projects.puppetlabs.com/issues/2538)
+ * [local puppet != remote - untreated ](http://projects.puppetlabs.com/issues/3767)
+ * [service stopping broken in debian - 8 months idle](http://projects.puppetlabs.com/issues/3936)
+ * [${var} does not work everywhere - 9 months idle, > 1 year old](http://projects.puppetlabs.com/issues/3987)
+ * ["magic var" only in some scopes - rejected](http://projects.puppetlabs.com/issues/3997)
+ * [mount/autorequire - 5 months idle](http://projects.puppetlabs.com/issues/3998)
+ * [old bug marked as duplicate of a new one](http://projects.puppetlabs.com/issues/3998)
+ * [implicit design change - rejected](http://projects.puppetlabs.com/issues/4220)
+ * [ssl cert not submitted to new master -  5 months idle](http://projects.puppetlabs.com/issues/4680)
+ * [reusing defines not possible - rejected](http://projects.puppetlabs.com/issues/4715)
+ * [param a=$undef broken - fixed](http://projects.puppetlabs.com/issues/4780)
+ * [templating broken - fixed](http://projects.puppetlabs.com/issues/4805)
+ * [fixed symptom, not source](http://projects.puppetlabs.com/issues/4922)
+ * [not important enough, scheduled from 2.6.5 to 2.6.x](http://projects.puppetlabs.com/issues/4922)
+ * ["" is not a valid resource reference](http://projects.puppetlabs.com/issues/5048)
+ * [puppet changes the errror message on 2nd run](http://projects.puppetlabs.com/issues/6209)
+ * [weired error messages](http://projects.puppetlabs.com/issues/6210)
+
+## Contact
+
+If you think there's something wrong here and want to discuss the listing, do not hesitate
+to discuss it on one of the 
+[cdist communication channels (irc, mailing list, mail)|software/cdist].
+
+[[!tag config sysadmin localch unix]]
