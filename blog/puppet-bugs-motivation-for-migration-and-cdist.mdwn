@@ -30,7 +30,7 @@ This is the initial short list, explanations may follow.
  * [param a=$undef broken - fixed](http://projects.puppetlabs.com/issues/4780)
  * [templating broken - fixed](http://projects.puppetlabs.com/issues/4805)
  * [fixed symptom, not source](http://projects.puppetlabs.com/issues/4922)
- * [not important enough, scheduled from 2.6.5 to 2.6.x](http://projects.puppetlabs.com/issues/4922)
+ * [Puppetd creates empty files, if it gets a 404 - not important enough, scheduled from 2.6.5 to 2.6.7](http://projects.puppetlabs.com/issues/4922)
  * ["" is not a valid resource reference](http://projects.puppetlabs.com/issues/5048)
  * [puppet changes the errror message on 2nd run](http://projects.puppetlabs.com/issues/6209)
  * [weired error messages](http://projects.puppetlabs.com/issues/6210)
