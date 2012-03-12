@@ -1,0 +1,21 @@
+[[!meta title="Cdist 2.0.9 released"]]
+
+Here's a short overview about the changes found in this release:
+
+        * Cleanup documentation: Fix environment variable list to be properly 
+                displayed (Giel van Schijndel)
+        * Cleanup documentation: Some minor corrections
+        * New Type: __package_opkg (Giel van Schijndel)
+        * New Type: __package_pkg_freebsd (Jake Guffey)
+        * New Type: __mysql_database (Benedikt Koeppel)
+        * Feature __package: Support for OpenWRT (Giel van Schijndel)
+        * Feature __start_on_boot: Support for OpenWRT (Giel van Schijndel)
+        * Feature __start_on_boot: Support for Amazon Linux (Matt Coddington)
+        * New Example: Use rsync to backup files (Matt Coddington) 
+        * Feature core: Exit non-zero, if configuration failed
+        * Documentation: Describe how to do templating (Aurélien Bondis)
+
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag config unix]]
