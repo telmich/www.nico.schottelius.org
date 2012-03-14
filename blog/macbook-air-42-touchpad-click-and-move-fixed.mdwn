@@ -1,0 +1,24 @@
+[[!meta title="MacBook Air 4,2: Xorg/Synaptics touchpad click and move fixed"]]
+
+## Introduction
+
+For some time when you pressed button 1 on the Mac Book Air 4,2 under Linux/Xorg
+and moved the finger (classic **select** something on the screen behaviour),
+a button 3 (right click) even was emitted.
+
+## Current status
+
+As reported on [bugzilla](https://bugs.freedesktop.org/show_bug.cgi?id=45396),
+it seems Peter Hutterer
+[merged the relevant fixes](http://cgit.freedesktop.org/xorg/driver/xf86-input-synaptics/commit/?id=6c457c0c61a0834361f45a073148db7b4c9be40b)
+into the master tree, which were submitted by
+Chase Douglas in the patches
+[9210](http://patchwork.freedesktop.org/patch/9210/) until
+[9219](http://patchwork.freedesktop.org/patch/9219/)
+([9214](http://patchwork.freedesktop.org/patch/9214/) and
+[9215](http://patchwork.freedesktop.org/patch/9215/) seem
+to be the relevant ones)
+
+I haven't tested it so far, but the commits around the merge look good!
+
+[[!tag net unix]]
