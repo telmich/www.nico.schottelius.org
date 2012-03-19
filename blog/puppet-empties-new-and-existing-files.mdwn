@@ -39,4 +39,8 @@ Replacing the two slashes with one in the server does not fix the origin
 of the problem, nor does it address the issue that puppetd creates
 empty files, if it gets a 404 for the file content.
 
+# Update #1
+
+I switched over to use [[cdist|software/cdist]] instead of Puppet.
+
 [[!tag config eth unix]]

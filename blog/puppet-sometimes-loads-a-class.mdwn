@@ -35,4 +35,8 @@ If you've a comment to this blog article, please redirect it to
 mailinglist](http://reductivelabs.com/trac/puppet/wiki/GettingHelp#mailing-lists),
 to which I sent a notice about this article.
 
+# Update #1
+
+I switched over to use [[cdist|software/cdist]] instead of Puppet.
+
 [[!tag config unix]]
