@@ -129,5 +129,8 @@ The described repos and scripts can be found via
 [sans' puppet project](https://sans.ethz.ch/projects/puppet/), besides
 the private module...
 
+# Update #1
+
+I switched over to use [[cdist|software/cdist]] instead of Puppet.
 
 [[!tag eth unix]]

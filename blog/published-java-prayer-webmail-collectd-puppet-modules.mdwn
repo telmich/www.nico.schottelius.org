@@ -11,4 +11,8 @@ our puppet repo, which resulted in four new
 
 If you enjoy them, we would be happy if you drop us a mail ;-)
 
+# Update #1
+
+I switched over to use [[cdist|software/cdist]] instead of Puppet.
+
 [[!tag eth unix puppet]]

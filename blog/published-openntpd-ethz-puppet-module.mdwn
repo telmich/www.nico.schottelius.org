@@ -10,5 +10,9 @@ we also created an ETH-specific version, which can be found
 in the
 [ethz puppet module (class ntp)](http://git.sans.ethz.ch/?p=puppet-modules/ethz;a=summary).
 
+# Update #1
+
+I switched over to use [[cdist|software/cdist]] instead of Puppet.
+
 
 [[!tag eth unix puppet]]

@@ -19,4 +19,8 @@ After I upgraded puppetmasterd to **0.25.1**, it is runs fine again.
 
 If you also have been running into this problem, the article is for you!
 
+# Update #1
+
+I switched over to use [[cdist|software/cdist]] instead of Puppet.
+
 [[!tag eth unix]]

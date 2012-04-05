@@ -8,4 +8,8 @@ It's still very incomplete, but you can get a first
 impression on
 [git.sans.ethz.ch](http://git.sans.ethz.ch/?p=puppet-modules/efsh;a=summary).
 
+# Update #1
+
+I switched over to use [[cdist|software/cdist]] instead of Puppet.
+
 [[!tag eth unix puppet]]
