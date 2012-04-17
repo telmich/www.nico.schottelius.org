@@ -28,6 +28,9 @@ We had this bug before, but this time it is different:
 ## Solution
 
 In our situation **/etc/cron.d/0hourly** was missing, because we removed all
-files from **/etc/cron.d/** and put only our own files in there.
+files from **/etc/cron.d/** and put only our own files in there. The simple
+fix is to ensure the contents of this directory are not removed anymore and to 
+reinstall the **cronie** package to recreate the **/etc/cron.d/0hourly** file.
+
 
 [[!tag config sysadmin localch unix]]
