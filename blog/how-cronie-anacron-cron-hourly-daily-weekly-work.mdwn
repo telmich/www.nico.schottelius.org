@@ -1,0 +1,33 @@
+[[!meta title="Anacron and cronie: How cron.hourly, cron.daily and cron.weekly work"]]
+
+## Situation
+
+We noticed that the [nginx](http://nginx.org/) logfile is not being rotated
+on some freshly setup Centos 6.2 servers, which should have been triggered by
+logrotate running from cron. The used cron implementation is cronie together
+with anacron.
+
+## Background
+
+I first suspected the setup being broken due permissions issues
+with cronie, which requires special permissions as found in the
+**CAVEATS** section of cron(8):
+
+    The crontab files have to be regular files or symlinks to regular files,
+    they must not be executable  or  writable  by anyone  else than the owner.
+    This requirement can be overridden by using the -p option on the crond command line.
+
+We had this bug before, but this time it is different:
+
+ * The Logrotate cronjob is located at **/etc/cron.daily/logrotate**
+ * The cron.{daily, weekly, monthly} jobs are defined in **/etc/anacrontab**
+ * The **anacron** command interprets jobs in **/etc/anacrontab**
+ * Anacron is called from **/etc/cron.hourly/0anacron**
+ * **/etc/cron.d/0hourly** contains **01 * * * * root run-parts /etc/cron.hourly**
+
+## Solution
+
+In our situation **/etc/cron.d/0hourly** was missing, because we removed all
+files from **/etc/cron.d/** and put only our own files in there.
+
+[[!tag config sysadmin localch unix]]
