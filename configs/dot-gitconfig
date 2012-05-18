@@ -36,6 +36,7 @@
    lo    = log --pretty=oneline
    lp    = log -p --abbrev-commit
    loc   = log --color --pretty=oneline
+   lol   = log --pretty=oneline --abbrev-commit --graph --decorate
    lpc   = log -p --color --abbrev-commit
 
    m  = merge
@@ -46,6 +47,8 @@
    t  = tag
 
    # Useful for SVN operation
+   srb = svn rebase
+   sdc = svn dcommit
    srd = !git svn rebase && git svn dcommit
 
 [core]
@@ -70,9 +73,9 @@
 #
 
 [user]
-   email = nico@MYHOSTNAME
+   email = nico@HOSTNAME
    name = Nico Schottelius
 
 [cia]
-   email = nico@MYCIAADRESS
+   email = nico-cia.vc@HOSTNAME
    url= http://git.schottelius.org/?p=@@project@@;a=commit;h=@@sha1@@
