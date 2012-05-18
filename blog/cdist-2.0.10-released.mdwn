@@ -1,0 +1,21 @@
+[[!meta title="Cdist 2.0.10 released"]]
+
+Here's a short overview about the changes found in this release:
+
+        * Cleanup __group: No getent gshadow in old Redhat, use groupmod -g
+                (Matt Coddington)
+        * Bugfix __package_yum: Missing cat
+        * Bugfix __start_on_boot: Correctly use sed and quotes (Steven Armstrong)
+        * Feature __file: Support for --state exists (Steven Armstrong)
+        * Feature core: Make variable __manifest available to type manifests
+        * Feature core: Correct parent dependency handling (Steven Armstrong)
+        * Bugfix several types: Fix sed for FreeBSD (Istvan Beregszaszi)
+        * New Type: __jail (Jake Guffey)
+        * Change Type: __rvm*: --state present/absent not installed/remvoed (Evax Software)
+        * Bugfix Type: __cron: Hide error output from crontab
+        * Various smaller bugfixes (Chris Lamb)
+
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag config unix]]
