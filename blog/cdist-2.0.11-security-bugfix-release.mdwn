@@ -1,0 +1,17 @@
+[[!meta title="Cdist 2.0.11 released"]]
+
+This is a security bugfix release:
+Cdist has so far used whatever umask has been setup on the local and remote
+system. This may have lead to 
+**/var/lib/cdist** being accessable by others, 
+including data from explorers.
+
+This release fixes this bug and setups a **umask of 077** within cdist.
+That means if you are using the **__file** type without the **--mode**
+parameter, your files may now have "more secure permissions" than you
+would like.
+
+It is recommended to update as soon as possible.
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag config unix]]
