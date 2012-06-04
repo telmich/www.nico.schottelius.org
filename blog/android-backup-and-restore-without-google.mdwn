@@ -1,0 +1,25 @@
+[[!meta title="Backup and Restore Android Devices without Google"]]
+
+## Introduction
+
+If you want to backup and restore your contacts and 
+calendar entries without going via Google, this blog entry is for you.
+
+## Requirements
+
+This article only applies to rooted Android devices which have
+a ssh server (like
+[SSHDroid](https://play.google.com/store/apps/details?id=berserker.android.apps.sshdroid&hl=de))
+running.
+
+## Implementation
+
+Within a seminar in my study I developed a simple shell script that
+connects to the device via ssh, copies away or back the relevant
+sqlite database.
+
+The source can be found in 
+[the git repository](http://git.schottelius.org/?p=hszt/rooted_android_backup;a=tree).
+
+
+[[!tag unix]]
