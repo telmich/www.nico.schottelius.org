@@ -1,0 +1,15 @@
+[[!meta title="Cdist 2.0.13 released"]]
+
+Here's a short overview about the changes found in this release:
+
+        * Bugfix __ssh_authorized_key: Ensure it sets proper group (contradict)
+        * Bugfix __addifnosuchline: Fixed quotes/interpolation bug ("a  b" became "a b")
+        * New Explorer: interfaces (Sébastien Gross)
+        * Feature core: Support reading from stdin in types (Steven Armstrong)
+        * Feature core: Support multiple parameters for types (Steven Armstrong)
+        * Feature __file: Support reading from stdin with - syntax (Steven Armstrong)
+
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag config unix]]
