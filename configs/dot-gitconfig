@@ -42,6 +42,7 @@
    m  = merge
    p  = push
    pl = pull
+   plp = !git pull && git push
    r  = reset
    s  = status
    t  = tag
