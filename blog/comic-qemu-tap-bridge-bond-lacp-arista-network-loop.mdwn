@@ -1,0 +1,5 @@
+[[!meta title="Network loop powered by Qemu, Bonding, Bridging and Arista"]]
+
+[[!img comic.png alt="Comic"]]
+
+[[!tag comic sysadmin localch unix]]
