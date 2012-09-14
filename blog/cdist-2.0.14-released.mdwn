@@ -1,0 +1,18 @@
+[[!meta title="Cdist 2.0.14 released"]]
+
+Here's a short overview about the changes found in this release:
+
+    * Bugfix Type: __jail: Use correct variable (Jake Guffey)
+    * Change Type: __jail: Parameter jailbase now optional (Jake Guffey)
+    * Bugfix Type: __user: Use passwd database on FreeBSD (Jake Guffey)
+    * Bugfix Type: __start_on_boot: Do not change parameters
+    * Feature __user: Added support for BSDs (Sébastien Gross)
+    * Feature __group: Added support for FreeBSD (Jake Guffey)
+    * New Type: __package_zypper                              
+    * Feature Types: Initial Support for SuSE Linux
+
+
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag config unix]]
