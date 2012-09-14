@@ -1,6 +1,5 @@
 [[!meta title="(Virtual) Network loop powered by Qemu, Bonding, Bridging and Arista"]]
 
 [[!img comic.png alt="Comic" title="A real loop created by a virtual switch"]]
-[[comic.png]]
 
 [[!tag comic sysadmin localch unix]]
