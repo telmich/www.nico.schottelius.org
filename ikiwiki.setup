@@ -23,8 +23,6 @@ use IkiWiki::Setup::Standard {
 	url => 'http://www.nico.schottelius.org/',
 	# url to the ikiwiki.cgi
 	cgiurl => '',
-    allow_symlinks_before_srcdir => 1,
-
 	# filename of cgi wrapper to generate
 	cgi_wrapper => '',
 	# mode for cgi_wrapper (can safely be made suid)
