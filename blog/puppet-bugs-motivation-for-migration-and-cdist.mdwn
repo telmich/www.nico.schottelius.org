@@ -16,6 +16,8 @@ have written cdist page**.
 
 This is the initial short list, explanations may follow.
 
+ * [Puppet cannot create directories and their parents, 2006, rejected](http://projects.puppetlabs.com/issues/86)
+
  * [Puppet parser order dependant, 2008, still open in 2012](http://projects.puppetlabs.com/issues/1565)
  * [Cannot get return code of command, 2009](http://projects.puppetlabs.com/issues/2538)
  * [Local puppet != remote, 2010, >= 2 years idle](http://projects.puppetlabs.com/issues/3767)
