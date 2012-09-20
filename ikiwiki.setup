@@ -5,6 +5,7 @@
 # wrappers and build the wiki.
 #
 # Remember to re-run ikiwiki --setup any time you edit this file.
+
 use IkiWiki::Setup::Standard {
 	# name of the wiki
 	wikiname => 'Nico Schottelius',
