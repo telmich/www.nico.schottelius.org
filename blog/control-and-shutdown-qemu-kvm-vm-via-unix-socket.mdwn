@@ -1,0 +1,71 @@
+[[!meta title="How to control (shutdown) Virtual machines from Qemu/KVM via commandline"]]
+
+## Introduction
+
+When you have read
+[[the article about tunneling a vnc socket over ssh|tunneling-qemu-kvm-unix-socket-via-ssh]],
+you already know that I am a fan of using simple technologies like Unix 
+sockets and ssh to access virtual machine information.
+
+I am currently in a project to create a new virtual machine infrastructure
+based on Qemu/KVM. The problem we were facing is "How to shutdown a virtual
+machine, when the host is being shut down".
+
+## Background
+
+Qemu/KVM has a so called 
+[monitor](https://en.wikibooks.org/wiki/QEMU/Monitor) to control
+the VM. Usually this monitor is reachable from the VNC socket
+(or whatever you use to view the console) by pressing
+Ctrl-Alt-2.
+
+This is inappropriate for automatic shutdown (I'm not in the mood
+to script vnc sessions currently), so there must be a better solution.
+
+
+## The solution
+
+Qemu/KVM is able to redirect the monitor to a "character device".
+There are ways to create a character device with Qemu/KVM and then
+attach the monitor to it, but you can have it more easy by connecting
+the monitor directly to a UNIX socket:
+
+    qemu-kvm ... -monitor unix:/opt/local.ch/sys/kvm/vm/kvmtest-vm-inx01.intra.local.ch/monitor,server,nowait
+
+This way we can connect (and control!) Qemu/KVM using
+[socat](http://www.dest-unreach.org/socat/]:
+
+    socat - UNIX-CONNECT:/opt/local.ch/sys/kvm/vm/kvmtest-vm-inx01.intra.local.ch/monitor
+
+And when we can connect to it, we can also shutdown a virtual machine:
+
+    echo system_powerdown | socat - UNIX-CONNECT:/opt/local.ch/sys/kvm/vm/kvmtest-vm-inx01.intra.local.ch/monitor
+
+Or we could reset it:
+
+    echo system_reset | socat - UNIX-CONNECT:/opt/local.ch/sys/kvm/vm/kvmtest-vm-inx01.intra.local.ch/monitor
+
+## The full implementation
+
+The full command line for running a VM as we do it in this project looks like this:
+
+    [root@kvm-hw-inx01 kvmtest-vm-inx01.intra.local.ch]# cat start
+    #!/bin/sh
+    /usr/libexec/qemu-kvm -m 65536 \
+        -hda /opt/local.ch/sys/kvm/vm/kvmtest-vm-inx01.intra.local.ch/system-disk \
+        -vnc unix:/opt/local.ch/sys/kvm/vm/kvmtest-vm-inx01.intra.local.ch/vnc \
+        -boot order=nc \
+        -net nic,macaddr=00:16:3e:00:00:2d,vlan=200 \
+            -net tap,script=/opt/local.ch/sys/kvm/bin/ifup-pz,downscript=/opt/local.ch/sys/kvm/bin/ifdown,vlan=200 \
+        -net nic,macaddr=00:16:3e:00:00:2e,vlan=300 \
+            -net tap,script=/opt/local.ch/sys/kvm/bin/ifup-fz,downscript=/opt/local.ch/sys/kvm/bin/ifdown,vlan=300 \
+        -smp 16 \
+        -name kvmtest-vm-inx01.intra.local.ch \
+        -enable-kvm \
+        -monitor unix:/opt/local.ch/sys/kvm/vm/kvmtest-vm-inx01.intra.local.ch/monitor,server,nowait
+
+As the VMs are currently not performing as well as they should, we will do
+some investigations into performance tuning of Qemu/KVM. So stay tuned, if
+you are interested in this topic.
+
+[[!tag localch unix vm]]
