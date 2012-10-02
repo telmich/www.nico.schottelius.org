@@ -1,0 +1,36 @@
+[[!meta title="Adobe Source Code Pro font - Nice to read, but not on small sizes"]]
+
+A friend of mine pointed me to the
+release of the
+[Source Code Pro font](https://blogs.adobe.com/typblography/2012/09/source-code-pro.html)
+from Adobe, which can be found on
+[github](https://github.com/adobe/Source-Code-Pro).
+
+I told urxvt to use the font using the escape sequence
+
+    printf '\33]50;%s\007' "xft:Source Code Pro"    
+
+which looks like this:
+
+[[!img scp.png alt="Source Code Pro in a terminal"]]
+
+(this required a new urxvt instance to be started, because urxvtd seems
+not to pickup font additions during run)
+
+As the resolution on the MacBook Air is "only" 1440x900, I am normally
+using the **fixed** font to have a lot of space for the text. This
+is how it looks like:
+
+[[!img fixed.png alt="Source Code Pro in a terminal"]]
+
+Putting both terminals side by side, I am loosing 12 rows from the size
+different.
+
+As the 
+[Source Code Pro font is not designed for this small size](https://github.com/adobe/Source-Code-Pro/issues/28)
+I happily continue to use fixed for now.
+
+Besides being to large for my use case, Source Code Pro could become a quite
+interesting font for coders.
+
+[[!tag net unix]]
