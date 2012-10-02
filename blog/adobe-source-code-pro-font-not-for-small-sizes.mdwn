@@ -33,4 +33,8 @@ I happily continue to use fixed for now.
 Besides being to large for my use case, Source Code Pro could become a quite
 interesting font for coders.
 
+If you are interested in more usable fonts for terminals,
+have a look at the
+[[Xorg terminal emulator font list|docs/xorg-terminal-emulator-fonts]].
+
 [[!tag net unix]]

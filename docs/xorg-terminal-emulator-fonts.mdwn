@@ -63,12 +63,14 @@ tixus | tiny | yes | Very well readable for such a small font
 smallcaps | small | no | filenames as caps on unix?
 smooth | small | undecided | Good overall, but "M" looks weired and font feels stretched
 artsie | small | yes | Well readable
+fixed | small | yes | Well readable
 -*-terminus-*-*-*-*-12-*-*-*-*-*-*-* | tiny-small | yes | Well readable
 smoothansi | small | undecided | Good overall, but "M" looks weired and font feels stretched
 xft:DejaVu Sans Mono:pixelsize=10 | small | yes | Well readable
 kates | small-medium | no | Very fancy (impressive?), but partly hard to read
 bigcaps | small-medium | no | Hurts my eyes
 xft:Liberation Mono:style=Regular | small-medium | yes | Well readable
+xft:Source Code Pro| small-medium | yes | Well readable, i,l,1 well distinguishable
 a14 | medium | yes | Well readable
 xft:Inconsolata:style=Medium | medium | yes | Well readable
 -*-terminus-*-*-*-*-14-*-*-*-*-*-*-* | medium | yes | Well readable
