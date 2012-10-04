@@ -1,0 +1,54 @@
+[[!meta title="Why CentOS does not stop your init script"]]
+
+## Introduction
+
+If you created a simple init script below **/etc/init.d**, which
+gets started, but not stopped on reboot or system halt, this
+article is for you.
+
+## Background
+
+I assume you ensured that the **chkconfig** information in the
+script is correct and that you ran chkconfig $name on. The output
+of chkconfig should look like this:
+
+    [root@kvm-hw-snr01 ~]# chkconfig --list  | grep kvm-vms
+    kvm-vms         0:off   1:off   2:on    3:on    4:on    5:on    6:off
+    [root@kvm-hw-snr01 ~]# 
+
+Although this looks correct, there is a small block in **/etc/rc.d/rc**
+that prevents your init script from being called on stop:
+
+    # First, run the KILL scripts.
+    for i in /etc/rc$runlevel.d/K* ; do
+    
+            # Check if the subsystem is already up.
+            subsys=${i#/etc/rc$runlevel.d/K??}
+            [ -f /var/lock/subsys/$subsys -o -f /var/lock/subsys/$subsys.init ] || continue
+            check_runlevel "$i" || continue
+    
+            # Bring the subsystem down.
+            [ -n "$UPSTART" ] && initctl emit --quiet stopping JOB=$subsys
+            $i stop
+            [ -n "$UPSTART" ] && initctl emit --quiet stopped JOB=$subsys
+    done
+
+So only if your script creates 
+/var/lock/subsys/**yourscriptname** or /var/lock/subsys/**yourscriptname**.init,
+it will be called on stop.
+
+## Solution
+
+You can include the following three lines into your script to get
+your script stopped:
+
+    broken_lock_file_for_centos=/var/lock/subsys/kvm-vms
+
+    # In the start block
+    touch "$broken_lock_file_for_centos"
+
+    # In the stop block
+    rm -f "$broken_lock_file_for_centos"
+
+
+[[!tag localch net unix]]
