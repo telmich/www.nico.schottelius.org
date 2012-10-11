@@ -1,0 +1,29 @@
+[[!meta title="Sexy - the Swiss Army Knife for inventory management"]]
+
+[[!toc levels=3]]
+
+## Introduction
+
+Sexy stores inventory information in a cconfig database and
+allows to control and change your environment using backends.
+
+Thus you can always use the same tool to manage your inventory
+and simply change the backend, if working in another environment.
+
+## Installation
+
+Get sexy from git ([gitweb](http://git.schottelius.org/?p=sexy;a=summary)):
+
+    git clone git://git.schottelius.org/sexy
+
+
+### Mirrors
+
+ * git://github.com/telmich/sexy.git ([github](https://github.com/telmich/sexy))
+
+## Support
+
+### IRC
+
+You can join the development ***IRC channel***
+[#cstar on irc.freenode.net](irc://irc.freenode.org/#cstar).
