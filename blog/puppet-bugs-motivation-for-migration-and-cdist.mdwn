@@ -36,10 +36,10 @@ This is the initial short list, explanations may follow.
  * ["" (empty string) is not a valid resource reference, 2010, fixed](http://projects.puppetlabs.com/issues/5048)
  * [Puppet changes the errror message on 2nd run, 2011, >= 1 year idle](http://projects.puppetlabs.com/issues/6209)
  * [Fix error messages to be meaningful, 2011, >= 1 year idle](http://projects.puppetlabs.com/issues/6210)
- * [[In puppet, $name is not always what you expect|blog/puppet-name-is-not-as-expected-but-classname]]
- * [Error "regexp buffer overflow" when backing up binary data](http://projects.puppetlabs.com/issues/8229)
- * [Could not intern from pson: expected (with pseudo random values afterwards)](http://projects.puppetlabs.com/issues/14577)
- * [Regular expressions take precendence over direct node specifications](http://projects.puppetlabs.com/issues/16946)
+ * [[In puppet, $name is not always what you expect, 2012|blog/puppet-name-is-not-as-expected-but-classname]]
+ * [Error "regexp buffer overflow" when backing up binary data, 2011](http://projects.puppetlabs.com/issues/8229)
+ * [Could not intern from pson: expected (with pseudo random values afterwards), 2012](http://projects.puppetlabs.com/issues/14577)
+ * [Regular expressions take precendence over direct node specifications, 2012](http://projects.puppetlabs.com/issues/16946)
 
 ## Contact
 
