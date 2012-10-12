@@ -1,0 +1,48 @@
+[[!meta title="Sexy and cdist interaction: Sexy chooses hosts, cdist configures"]]
+
+## Introduction
+
+Version 2 of [[sexy|software/sexy]], 
+the Swiss Army Knife for inventory management, is already
+**using** and **usable** from [[cdist/software/cdist]].
+
+This is the first blog post of a series showing examples of
+using sexy and cdist.
+
+## Example
+
+Cdist is executed with a list of hosts to operate on:
+
+    % cdist config
+    usage: cdist config [-h] [-d] [-v] [-c CDIST_HOME] [-i MANIFEST] [-p] [-s]
+                        [--remote-copy REMOTE_COPY] [--remote-exec REMOTE_EXEC]
+                        host [host ...]
+
+
+Sexy in turn is able to manage hosts, mac addresses and networks:
+
+    % sexy
+    usage: sexy [-h] [-d] [-v] [-V] {net-ipv4,host,mac} ...
+    sexy: error: too few arguments
+
+Sexy knows about a command to list hosts, named **host list**.
+So I can use sexy to tell cdist which hosts to configure. For instance
+all dhcp servers:
+
+    % sexy host list | grep dhcp
+    dhcp-vm-inx01.intra.local.ch
+    dhcp-vm-inx02.intra.local.ch
+    dhcp-vm-snr01.intra.local.ch
+    dhcp-vm-snr02.intra.local.ch
+
+    % ./bin/cdist config -vp $(sexy host list | grep dhcp)
+    INFO: dhcp-vm-inx01.intra.local.ch: Running global explorers
+    INFO: dhcp-vm-snr01.intra.local.ch: Running global explorers
+    INFO: dhcp-vm-snr02.intra.local.ch: Running global explorers
+    INFO: dhcp-vm-inx02.intra.local.ch: Running global explorers
+    ...
+
+Sexy, isn't it?
+
+
+[[!tag cdist localch net sexy unix]]
