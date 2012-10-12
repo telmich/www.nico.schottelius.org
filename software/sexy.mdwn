@@ -41,3 +41,5 @@ Get sexy from git ([gitweb](http://git.schottelius.org/?p=sexy;a=summary)):
 
 You can join the development ***IRC channel***
 [#cstar on irc.freenode.net](irc://irc.freenode.org/#cstar).
+
+[[!tag sexy unix]]
