@@ -39,6 +39,7 @@ This is the initial short list, explanations may follow.
  * [[In puppet, $name is not always what you expect|blog/puppet-name-is-not-as-expected-but-classname]]
  * [Error "regexp buffer overflow" when backing up binary data](http://projects.puppetlabs.com/issues/8229)
  * [Could not intern from pson: expected (with pseudo random values afterwards)](http://projects.puppetlabs.com/issues/14577)
+ * [Regular expressions take precendence over direct node specifications](http://projects.puppetlabs.com/issues/16946)
 
 ## Contact
 
