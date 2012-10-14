@@ -1,0 +1,8 @@
+[[!meta title="Ctt 0.4 released"]]
+
+This is the first public release of **ctt**. Ctt is a time tracker for
+geeks.
+
+For more information visit the [[ctt homepage|software/ctt]].
+
+[[!tag config ctt unix]]
