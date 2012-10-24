@@ -179,4 +179,4 @@ created during this tutorial, as well as
 the [cdist configuration](http://git.schottelius.org/?p=cdist-nico;a=summary)
 that is used to configure the router.
 
-[[!tag localch net sexy unix]]
+[[!tag cdist net sexy unix]]

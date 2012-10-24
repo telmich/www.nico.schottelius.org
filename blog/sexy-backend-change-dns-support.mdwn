@@ -1,0 +1,39 @@
+[[!meta title="Sexy example: Small backend change and you are managing DNS"]]
+
+## Introduction
+
+This previous article about
+[[bootstrapping a network with sexy|sexy-network-bootstrap]]
+explained in detail how to manage a network and how to configure
+it with cdist.
+
+This article shows you what needs to be changed to support DNS resolution
+in addition to the configured DHCP service.
+
+## Background
+
+I am using [dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html) on my
+router, which can act as a DNS and DHCP server. DNS A entries can be added
+to the configuration using the **host-record** command.
+
+## The change
+
+Taking the previously net-ipv4 backend, 
+[the change is very small](http://git.schottelius.org/?p=sexy-database;a=commit;h=e7f45dccc1feace042bec1549079f073aa476739):
+
+    -        line="dhcp-host=${mac},$ipv4a,$hostname"
+    -        echo "${line}" >> "${tmp}"
+    +        echo "dhcp-host=${mac},$ipv4a,$hostname" >> "${tmp}"
+    +        echo "host-record=$hostname,$fqdn,$ipv4a" >> "${tmp}"
+
+
+Thanks to the modular configuration and the easiness of both sexy and cdist,
+this change and a call to **sexy net-ipv4 apply --all** is everything that is needed
+to make dnsmasq serve internal DNS names.
+
+## The result
+
+What this article should show is that whatever you do in the backend, sexy is not affected
+at all and you can dramatically change whatever happens on **sexy net-ipv4 apply --all**.
+
+[[!tag cdist net sexy unix]]
