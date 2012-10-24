@@ -1,0 +1,173 @@
+[[!meta title="Bootstrapping a network with sexy"]]
+
+## Introduction
+
+This article will explain how to begin to manage a network
+with [[sexy|software/sexy]]. I assume you can start almost on a green field, 
+if not, insert your site specific changes into the process.
+
+## Prerequisites
+
+First of all, you need to have sexy installed, as described on
+the [[sexy homepage|software/sexy]]. Secondly, if you already played
+around with sexy, you should empty the sexy database, which is located
+at **~/.sexy**:
+
+    % rm -rf ~/.sexy
+
+Or, if you are using **git** to manage your ~/.sexy directory, create a fresh
+branch, which does not contain any files:
+
+    % cd ~/.sexy 
+    % git checkout -b network_bootstrap
+
+    # Ensure all (committed and non-committed) files are gone
+    % rm -rf db/ backend/
+    % git rm -r db/ backend/
+    % git commit -m "Empty sexy database"
+
+
+## Add the first host
+
+First of all, let us add a host. Sexy wants to know its type (virtual machine
+or hardware). Sexy expects all names as fully qualified domain names (FQDNs):
+
+    % sexy host add -t hw katze.intern.schottelius.org 
+
+**Hint:** You can use the **-h** flag to get help for any command.
+Using **host list**, we can verify the host has been added:
+
+    % sexy host list
+    katze.intern.schottelius.org
+
+Now we can network cards to this host:
+
+    % sexy host nic-add -m 00:00:24:c8:da:bc -n eth0 katze.intern.schottelius.org 
+    % sexy host nic-add -m 00:00:24:c8:da:bd -n eth1 katze.intern.schottelius.org 
+
+## Add the network
+
+In sexy, the host and net-ipv4 areas are disconnected: You can use sexy to manage
+only hosts, to manage only networks or to manage both. To allow this flexibility,
+the network part does not know about any information from the host part.
+Luckily enough, you don't need to re-enter the information, but you can retrieve
+them from the database. Currently, sexy only allows you to manage IPv4 based networks 
+- IPv6 may be added in future releases. So the command to remember for now, is
+**net-ipv4**:
+
+    % sexy net-ipv4 add --mask 22 192.168.24.0
+    % sexy net-ipv4 list
+    192.168.24.0
+
+Now we created the network 192.168.24.0/22.
+
+## Add a host to a network
+
+The previously added host, **katze.intern.schottelius.org**, is the router of
+my home network and it should use the first IPv4 address in the network.
+The **net-ipv4 host-add** command can be used to add a host:
+
+    % sexy net-ipv4 host-add
+    usage: sexy net-ipv4 host-add [-h] [-d] [-v] -m MAC_ADDRESS -f FQDN
+                              [-i IPV4_ADDRESS]
+                              network
+
+
+So adding the host to a network requires giving in at least the mac address,
+which we entered before. So we can use the following line to add the host to
+our new network:
+
+    % host=katze.intern.schottelius.org
+    % mac=$(sexy host nic-addr-get -n eth0 $host)
+    % sexy net-ipv4 host-add -m $mac -f $host 192.168.24.0
+
+Sexy will be default use the next free address and as this is the first host in
+the network, it used .1:
+
+    % sexy net-ipv4 host-ipv4-address-get 192.168.24.0 -f katze.intern.schottelius.org
+    192.168.24.1
+
+## Making use of the entered information
+
+Sexy does not know which DNS or DHCP server you may be using.
+To implement changes to your architecture (probably using
+a software like [[cdist|software/cdist]]), sexy supports using
+**backends**.
+
+For my home network, I am going to use 
+[dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html), because the
+router is a small [Soekris net5501](http://soekris.com/net5501.htm).
+
+The backends are stored in **~/.sexy/backend** and for this 
+example tutorial, I will only create **~/.sexy/backend/net-ipv4/apply**:
+
+    % cat ~/.sexy/backend/net-ipv4/apply 
+    #!/bin/sh -e
+
+    cdist_base="/home/users/nico/p/cdist/nico"
+    cdist_bin="$cdist_base/bin/cdist"
+    dst_dir="$cdist_base/conf/type/__nico_router/files/dnsmasq.d"
+    tmp=$(mktemp /tmp/foooooo.XXXXXXXXXXXXXXXX)
+
+    for network in "$@"; do
+        dstfile="${dst_dir}/${network}-dhcp.conf"
+
+        cat << eof > "$tmp"
+    # WARNING: sexy generated file, do *not* edit directly.
+    eof
+
+        for fqdn in $(sexy net-ipv4 host-list $network); do
+            mac=$(sexy net-ipv4 host-mac-address-get -f "$fqdn" "$network")
+            ipv4a=$(sexy net-ipv4 host-ipv4-address-get -f "$fqdn" "$network")
+            hostname=$(echo $fqdn | sed 's/\..*//')
+
+            line="dhcp-host=${mac},$ipv4a,$hostname"
+            echo "${line}" >> "${tmp}"
+        done
+
+        mv "${tmp}" "${dstfile}"
+    eof
+    done
+
+    cd "${dst_dir}"
+    git add .
+    git commit -m "Update Sexy generated network configuration" -o -- .
+    echo "Transferring changes to git remote"
+    git pull
+    git push
+
+    "$cdist_bin" config -v zuhause.schottelius.org
+
+This backend in essence creates the dnsmasq configuration and executes cdist afterwards
+to apply the changes.
+
+## Adding more hosts
+
+To make this tutorial useful and my router actually provide a dhcp
+server, I'll add my notebook and the fileserver to sexy:
+
+    % sexy host add -t hw loch.intern.schottelius.org                                 
+    % sexy host nic-add -m f4:6d:04:71:c5:ce loch.intern.schottelius.org
+    % sexy net-ipv4 host-add -m $(sexy host  nic-addr-get -n nic0 loch.intern.schottelius.org) -f loch.intern.schottelius.org 192.168.24.0     
+    % sexy host add -t hw brief.intern.schottelius.org                                                                  
+    % sexy host nic-add -m b8:8d:12:15:fd:fa brief.intern.schottelius.org                                                                  
+    % sexy net-ipv4 host-add -m $(sexy host  nic-addr-get -n nic0 brief.intern.schottelius.org) -f brief.intern.schottelius.org 192.168.24.0    
+
+As you can see, if I do not specify the name of the nic, sexy automatically uses **nic0**
+for the first nic and counts up. This decision was made, as network device names vary between
+operating systems and even operating system versions.
+
+
+## The result
+
+Using only the steps above, I've created a sexy maintained network,
+**192.168.24.0/22**, which calls [[cdist|software/cdist]] to configure
+the router with dnsmasq.
+
+You can browse 
+[the real sexy database](http://git.schottelius.org/?p=sexy-database;a=summary)
+created during this tutorial, as well as
+the [cdist configuration](http://git.schottelius.org/?p=cdist-nico;a=summary)
+that is used to configure the router.
+
+[[!tag localch net sexy unix]]
