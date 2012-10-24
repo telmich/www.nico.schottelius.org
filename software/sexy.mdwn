@@ -38,6 +38,11 @@ installed:
     % cd sexy
     % export PATH=$PATH:$(pwd -P)/bin
 
+Now you should be able to display the current sexy version:
+
+    % sexy -V
+    sexy 1.9.11-1-g837532c
+
 ### Mirrors
 
  * git://github.com/telmich/sexy.git ([github](https://github.com/telmich/sexy))
