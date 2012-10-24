@@ -19,7 +19,7 @@ to the configuration using the **host-record** command.
 ## The change
 
 Taking the previously net-ipv4 backend, 
-[the change is very small](http://git.schottelius.org/?p=sexy-database;a=commit;h=e7f45dccc1feace042bec1549079f073aa476739):
+[the required change is very small](http://git.schottelius.org/?p=sexy-database;a=commit;h=e7f45dccc1feace042bec1549079f073aa476739):
 
     -        line="dhcp-host=${mac},$ipv4a,$hostname"
     -        echo "${line}" >> "${tmp}"
@@ -35,5 +35,10 @@ to make dnsmasq serve internal DNS names.
 
 What this article should show is that whatever you do in the backend, sexy is not affected
 at all and you can dramatically change whatever happens on **sexy net-ipv4 apply --all**.
+
+You can browse 
+[the sexy database](http://git.schottelius.org/?p=sexy-database;a=summary)
+as well as
+the [cdist configuration](http://git.schottelius.org/?p=cdist-nico;a=summary).
 
 [[!tag cdist net sexy unix]]
