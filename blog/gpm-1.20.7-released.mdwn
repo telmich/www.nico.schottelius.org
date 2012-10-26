@@ -1,6 +1,6 @@
 [[!meta title="GPM 1.20.7 released"]]
 
 After about 3 years, a new version of [[gpm|software/gpm]] is available.
-Enjoy it while it's fresh!
+Enjoy it, while it's fresh!
 
 [[!tag gpm unix]]
