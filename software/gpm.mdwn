@@ -5,10 +5,12 @@
 
 You can browse the [static archives](archives) or use git:
 
-    git-clone git://git.schottelius.org/gpm
+    git clone git://git.schottelius.org/gpm
 
-The archives are also mirrored at
-[ar.linux.it](http://www.ar.linux.it/pub/gpm/).
+The archives are mirrored at
+[ar.linux.it](http://www.ar.linux.it/pub/gpm/),
+the git repository is mirrored at
+[github](https://github.com/telmich/gpm).
 
 ## Support
 
