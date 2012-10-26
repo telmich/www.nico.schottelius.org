@@ -1,68 +1,28 @@
-    general purpose mouse
+[[!meta title="gpm - general purpose mouse"]]
+
     
-gpm is the mouse support for Linux on the console
+## How to get gpm?
 
-## how to get gpm
-
-### git
-Currently the best way to get gpm is via git:
+You can browse the [static archives](archives) or use git:
 
     git-clone git://git.schottelius.org/gpm
 
- * Alternate clone URLs:
-  * http://git.schottelius.org/gpm (plain http instead of git://)
- * Gitweb:
-  * [http://git.schottelius.org/](http://git.schottelius.org/?p=gpm)
-
-### archives and source browser
-
- * gpm2 (development branch): ***gpm-1.99.7***:
-  * [changes](browse_source/gpm-1.99.7/doc/changes/1.99.7)
-  * [browse source](browse_source/gpm-1.99.7)
-  * [tar.bz2](archives/gpm-1.99.7.tar.bz2)
-  * [tar.bz2.sha512sum](archives/gpm-1.99.7.tar.bz2.sha512sum)
-  * [tar.gz](archives/gpm-1.99.7.tar.gz)
-  * [tar.gz.sha512sum](archives/gpm-1.99.7.tar.gz.sha512sum)
-  * [tar.lzma](archives/gpm-1.99.7.tar.lzma)
-  * [gpm-1.99.7.tar.lzma.sha512sum](archives/gpm-1.99.7.tar.lzma.sha512sum)
- * gpm1 (stable branch): ***gpm-1.20.6***:
-  * [changes](browse_source/gpm-1.20.6/doc/changes/1.20.6)
-  * [browse source](browse_source/gpm-1.20.6)
-  * [tar.bz2](archives/gpm-1.20.6.tar.bz2)
-  * [tar.bz2.sha512sum](archives/gpm-1.20.6.tar.bz2.sha512sum)
-  * [tar.gz](archives/gpm-1.20.6.tar.gz)
-  * [tar.gz.sha512sum](archives/gpm-1.20.6.tar.gz.sha512sum)
-  * [tar.lzma](archives/gpm-1.20.6.tar.lzma)
-  * [tar.lzma.sha512sum](archives/gpm-1.20.6.tar.lzma.sha512sum)
- * [Older archives](archives)
- * You can [browse the source](browse_source) of the old releases, too.
-
-There is the mirror
-<a href="http://www.ar.linux.it/pub/gpm/">http://www.ar.linux.it/pub/gpm/</a>
-available.
+The archives are also mirrored at
+[ar.linux.it](http://www.ar.linux.it/pub/gpm/).
 
 ## Support
-### IRC
+
 There is the irc channel [#gpm](irc.freenode.org/#gpm) on irc.freenode.org.
 
-### mailing lists
-#### development and discussion list
 The mailing list devoted to gpm is "gpm@lists.linux.it".
 In order to subscribe to the mailing list, visit
-<a href="http://lists.linux.it/listinfo/gpm">http://lists.linux.it/listinfo/gpm</a>
+[lists.linux.it](http://lists.linux.it/listinfo/gpm)
 or send a message with "subscribe" in its body to gpm-request@lists.linux.it.
 For example:
 
     echo subscribe | mail gpm-request@lists.linux.it
 
-The mailing list archive can be found at
-<A
-HREF="http://lists.linux.it/pipermail/gpm/">http://lists.linux.it/pipermail/gpm/</A>
+Or you can browse the 
+[mailing list archive](http://lists.linux.it/pipermail/gpm/).
 
-#### Commits mailinglist 
-
-All published commits from the projects I am involved in are send
-to this mailinglist, including those commits to gpm.
-
- * [Archive](http://l.schottelius.org/pipermail/commits/)
- * [Mailinglist](http://l.schottelius.org/mailman/listinfo/commits/)
+[[!tag gpm unix]]

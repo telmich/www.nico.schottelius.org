@@ -1,1 +1,0 @@
-gpm-1.99.6/../../gpm2/include/gpm2-messages.h
