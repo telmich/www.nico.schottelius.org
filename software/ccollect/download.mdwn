@@ -10,77 +10,24 @@ Additionally, the following other git ressources are available:
  * [Mirror at github](http://github.com/telmich/ccollect/tree/master)
 
 ## Releases
- * [[ccollect-0.8.tar.bz2]]
-   ([browse source](ccollect-0.8))
-   ([[Changes|ccollect-0.8/doc/changes/0.8]])
-   ([[RPM|ccollect-0.8-0.noarch.rpm]])
-   <!-- -------------------------------------------------------- -->
+ * [[ccollect-0.8.tar.bz2]] ([[RPM|ccollect-0.8-0.noarch.rpm]])
  * <A HREF="ccollect-0.7.1.tar.bz2">ccollect-0.7.1.tar.bz2</A>
-   (<A HREF="ccollect-0.7.1">browse source</A>)
-   (<A HREF="ccollect-0.7.1/doc/changes/0.7.1">Changes</A>)
-   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.7.0.tar.bz2">ccollect-0.7.0.tar.bz2</A>
-   (<A HREF="ccollect-0.7.0">browse source</A>)
-   (<A HREF="ccollect-0.7.0/doc/CHANGES">Changes</A>)
-   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.6.2.tar.bz2">ccollect-0.6.2.tar.bz2</A>
-   (<A HREF="ccollect-0.6.2">browse source</A>)
-   (<A HREF="ccollect-0.6.2/doc/CHANGES">Changes</A>)
-   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.6.1.tar.bz2">ccollect-0.6.1.tar.bz2</A>
-   (<A HREF="ccollect-0.6.1">browse source</A>)
-   (<A HREF="ccollect-0.6.1/doc/CHANGES">Changes</A>)
-   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.6.tar.bz2">ccollect-0.6.tar.bz2</A>
-   (<A HREF="ccollect-0.6">browse source</A>)
-   (<A HREF="ccollect-0.6/doc/CHANGES">Changes</A>)
-   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.5.2.tar.bz2">ccollect-0.5.2.tar.bz2</A>
-   (<A HREF="ccollect-0.5.2">browse source</A>)
-   (<A HREF="ccollect-0.5.2/doc/CHANGES">Changes</A>)
-   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.5.1.tar.bz2">ccollect-0.5.1.tar.bz2</A>
-   (<A HREF="ccollect-0.5.1">browse source</A>)
-   (<A HREF="ccollect-0.5.1/doc/CHANGES">Changes</A>)
-   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.5.tar.bz2">ccollect-0.5.tar.bz2</A>
-   (<A HREF="ccollect-0.5">browse source</A>)
-   (<A HREF="ccollect-0.5/doc/CHANGES">Changes</A>)
-   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.4.2.tar.bz2">ccollect-0.4.2.tar.bz2</A>
-   (<A HREF="ccollect-0.4.2">browse source</A>)
-   (<A HREF="ccollect-0.4.2/doc/CHANGES">Changes</A>)
-   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.4.1.tar.bz2">ccollect-0.4.1.tar.bz2</A>
-   (<A HREF="ccollect-0.4.1">browse source</A>)
-   (<A HREF="ccollect-0.4.1/doc/CHANGES">Changes</A>)
-   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.4.tar.bz2">ccollect-0.4.tar.bz2</A>
-   (<A HREF="ccollect-0.4">browse source</A>)
-   (<A HREF="ccollect-0.4/doc/CHANGES">Changes</A>)
-   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.3.3.tar.bz2">ccollect-0.3.3.tar.bz2</A>
-   (<A HREF="ccollect-0.3.3">browse source</A>)
-   (<A HREF="ccollect-0.3.3/doc/CHANGES">Changes</A>)
-   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.3.2.tar.bz2">ccollect-0.3.2.tar.bz2</A>
-   (<A HREF="ccollect-0.3.2">browse source</A>)
-   (<A HREF="ccollect-0.3.2/doc/CHANGES">Changes</A>)
-   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.3.1.tar.bz2">ccollect-0.3.1.tar.bz2</A>
-   (<A HREF="ccollect-0.3.1">browse source</A>)
-   (<A HREF="ccollect-0.3.1/doc/CHANGES">Changes</A>)
-   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.3.tar.bz2">ccollect-0.3.tar.bz2</A>
-   (<A HREF="ccollect-0.3">browse source</A>)
-   (<A HREF="ccollect-0.3/doc/CHANGES">Changes</A>)
-   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.2.tar.bz2">ccollect-0.2.tar.bz2</A>
-   (<A HREF="ccollect-0.2">browse source</A>)
-   (<A HREF="ccollect-0.2/doc/CHANGES">Changes</A>)
-   <!-- -------------------------------------------------------- -->
  * <A HREF="ccollect-0.1.tar.bz2">ccollect-0.1.tar.bz2</A>
-   (<A HREF="ccollect-0.1">browse source</A>)
 
 ### Gentoo
 

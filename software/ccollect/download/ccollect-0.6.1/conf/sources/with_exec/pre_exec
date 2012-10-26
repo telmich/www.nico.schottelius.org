@@ -1,5 +1,0 @@
-#!/bin/sh
-
-# Show whats free before
-
-df -h
