@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Sexy is the the Swiss Army Knife for inventory management.
+Sexy is the Swiss Army Knife for inventory management.
 It allows you to manage hosts and network with a simple command
 line interface.
 
