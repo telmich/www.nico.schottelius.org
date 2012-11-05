@@ -26,9 +26,4 @@ You can subscribe to the
 [!eof mailinglist](http://l.schottelius.org/mailman/listinfo/eof).
 You can also [[contact me directly|about]].
 
-## Other stuff
-
- * [[The first presentation (in German)|eof-die-erste-vorstellung]]
-
-
-[[!tag unix]]
+[[!tag ceof crypot chat net unix]]
