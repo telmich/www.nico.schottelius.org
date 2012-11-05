@@ -1,10 +1,19 @@
 ## Introduction
 
-ceofhack is the first implementation of ***EOF*** (Eris Onion Forwarding),
+ceof is the implementation and documentation
+of ***EOF*** (Eris Onion Forwarding),
 the secure, peer-to-peer (p2p), decentralised anonymous chat network.
 
- * [[user documentationy|user]]
- * [[developer documentationy|developer]]
+You can read the 
+[bachelor thesis](http://git.schottelius.org/?p=ceof;a=blob;f=doc/thesis.pdf),
+which describes the motivation and goals or you
+can view [the poster that was used on the presentation](http://git.schottelius.org/?p=ceof;a=blob;f=doc/appendix/poster.pdf).
+
+## Get ceof
+
+You can get ceof via git:
+
+    git clone git://git.schottelius.org/ceof
 
 ## Support
 
