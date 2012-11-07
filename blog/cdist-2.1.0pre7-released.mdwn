@@ -1,0 +1,10 @@
+[[!meta title="Cdist 2.1.0pre7 released"]]
+
+Here's a short overview about the changes found in this release:
+
+	* Core: All unit tests restored back to working
+	* Core: Print error message on missing initial manifest
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag cdist config unix]]
