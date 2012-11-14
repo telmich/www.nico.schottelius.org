@@ -192,7 +192,7 @@ main use in ETH Zürich, "Informatikkoordinator Nico".
     Ethernet:        Intel Corporation 82567LM Gigabit
     Display:         12"
 
- * Productive use: 2008 - now
+ * Productive use: 2008 - 2010
 
 ### kobold.intern.schottelius.org
 
@@ -207,7 +207,7 @@ running raid5 under the crypt layer) and video player.
     Wireless-lan:    Atheros AR5212 802.11abg
     Ethernet:        Intel Corporation 82540EP Gigabit Ethernet Controller (Mobile)
 
- * Productive use: 2009 - now
+ * Productive use: 2009 - 2011
 
 ### kr.intern.schottelius.org
 
@@ -222,7 +222,40 @@ A Lenovo Thinkpad X201. The name is an abreviation for
     Ethernet:        Intel Corporation 82577LM Gigabit Network
     Display:         12", LED backlight
 
- * Productive use: 2010 - now
+ * Productive use: 2010 - 2011
+
+### tablett.intern.schottelius.org
+
+A Lenovo T60. Used for putting glasses on it.
+
+ * Productive use: 2011 - now
+
+### fernseher.intern.schottelius.org
+
+A Lenovo T6?.
+
+ * Productive use: unknown
+
+### kino.intern.schottelius.org
+
+A Lenovo T61p.
+
+ * Productive use: unknown
+
+### brief.intern.schottelius.org
+
+An Apple Mac Book Air 4,2 given to me by my
+employer. The name is the German name for "letter".
+
+    Processor:       Dual Core Intel(R) Core(TM) i7-2677M CPU @ 1.80GHz (4 threads)
+    RAM:             4 GiB
+    HD:              256 GB SSD
+    Graphics card:   Intel Corporation 2nd Generation Core Processor Family Integrated Graphics Controller (rev 09)
+    Wireless-lan:    Broadcom Corporation BCM43224 802.11a/b/g/n (rev 01)
+    Ethernet:        No ethernet
+    Display:         13", LED backlight, 1440x900
+
+ * Productive use: 2011 - now
 
 ## Workstations/Desktops
 
@@ -322,7 +355,7 @@ copied from www.soekris.com:
 
 ### katze.schottelius.org
 
-After a flash  of  lightning, zwerg died and was replaced by katze,
+After a flash of lightning, zwerg died and was replaced by katze,
 a Soekris Net5501. Data again mostly copied and edited from Soekris.com:
 
     500 Mhz AMD Geode LX single chip processor with CS5536 companion chip
