@@ -326,6 +326,10 @@ a HPPA processsor. I was running it with both Debian and Gentoo.
 Same machine as grauerstar. Just bought two of them, you never
 know how many HPPAs you need, don't you?
 
+### loch.intern.schottelius.org
+
+A fileserver that contains 6x 3.5" HDs.
+
 ## Embedded
 
 ### zwerg.schottelius.org
