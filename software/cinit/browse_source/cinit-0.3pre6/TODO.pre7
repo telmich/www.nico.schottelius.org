@@ -1,2 +1,0 @@
-   - Added general shutdown support (via kill -TERM, -HUP, -USR1)
-

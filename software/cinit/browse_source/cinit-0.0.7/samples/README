@@ -1,5 +1,0 @@
-There is currently only one sample (debian.tar).
-
-The others are only linked to it, because the multi-distribution
-support is already included into bin/cinit.install.test.
-

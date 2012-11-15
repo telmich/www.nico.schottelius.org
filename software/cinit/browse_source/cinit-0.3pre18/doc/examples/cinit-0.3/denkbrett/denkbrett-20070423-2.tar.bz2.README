@@ -1,3 +1,0 @@
-getty on tty2 running, but displays
-"Unable to determine your tty name".
-Possibly problem with empty /dev.

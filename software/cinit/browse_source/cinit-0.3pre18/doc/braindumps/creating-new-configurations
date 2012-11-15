@@ -1,6 +1,0 @@
-scripts/create_baseconfig.sh        # create base
-scripts/cinit.install.standard.dirs # create common categories
-
-- create fsck
-- set hostname
-- create getty(s)

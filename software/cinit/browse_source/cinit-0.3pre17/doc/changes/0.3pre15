@@ -1,3 +1,0 @@
-Released: 2009-09-23
-Changes:
-   * Changed child handling (no function calls in sig_child handler anymore)

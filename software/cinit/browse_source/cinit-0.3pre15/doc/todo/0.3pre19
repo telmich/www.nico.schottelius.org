@@ -1,4 +1,0 @@
-- enable fast shutdown:
-   - ignores services and jumps directly to conf/last
-- enable ultrafast shutdown
-   - even skips conf/last

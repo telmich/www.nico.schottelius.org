@@ -1,6 +1,0 @@
-#!/bin/sh
-umount -a
-sync
-# report, there should be nothing left
-ps axuwww 
-umount -a

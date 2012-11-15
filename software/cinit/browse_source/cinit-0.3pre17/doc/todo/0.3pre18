@@ -1,3 +1,0 @@
-- add support to manually set status of a service:
-   cmd -s respawn, failed, once, ...
-- make get status = -g

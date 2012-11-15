@@ -1,5 +1,0 @@
-msgq
-
-The type of IPC (inter process communication) to use.
-Valid values can be optained by issuing `ls src/ipc/`.
-

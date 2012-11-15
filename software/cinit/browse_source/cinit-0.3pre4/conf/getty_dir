@@ -1,4 +1,0 @@
-getty
-
-This is the subdirectry in which the scripts will create the gettys,
-if you are using 'install-conf'. It's not used be cinit internally.

@@ -1,5 +1,0 @@
-cprofile=
-
-The argument should be passed to cinit to recognize that
-a profile will follow. "cprofile=" is the standard.
-Under Linux you specify it to the bootloader like grub or lilo.

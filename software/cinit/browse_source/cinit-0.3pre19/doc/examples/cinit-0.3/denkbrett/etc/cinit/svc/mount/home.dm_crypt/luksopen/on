@@ -1,5 +1,0 @@
-#!/bin/sh
-# read key until success
-while true; do
-	cryptsetup luksOpen /dev/sda3 home && break
-done
