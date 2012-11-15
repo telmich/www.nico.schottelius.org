@@ -1,0 +1,7 @@
+[[!meta title="Documentation"]]
+
+You can browse the latest
+[latest version of the manpages](man/latest) or
+have a look at [all versions](man).
+
+[[!tag cdist unix]]
