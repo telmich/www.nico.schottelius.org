@@ -257,6 +257,22 @@ employer. The name is the German name for "letter".
 
  * Productive use: 2011 - now
 
+### matte.intern.schottelius.org
+
+I got a Dell System XPS L321X as a present from Dell after
+some almost failed negotiations. As its exterior is matt grey and
+as an ultrabook it is pretty slim, it was named **matte** (German for "mat").
+
+    Processor:       Dual Core Intel(R) Core(TM) i5-2467M CPU @ 1.60GHz
+    RAM:             4 GiB
+    HD:              128 GB SSD
+    Graphics card:   Intel Corporation 2nd Generation Core Processor Family Integrated Graphics Controller (rev 09)
+    Wireless-lan:    Intel Corporation Centrino Advanced-N 6230 [Rainbow Peak] (rev 34)
+    Ethernet:        No ethernet
+    Display:         13", LED backlight
+
+ * Productive use: 2012 - now
+
 ## Workstations/Desktops
 
 Systems I used as workstations:
