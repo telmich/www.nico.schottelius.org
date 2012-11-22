@@ -3,7 +3,7 @@
 ## Introduction
 
 This article describes one solution to transfer a folder
-and all of its contents recursively with [[cdist homepage|software/cdist]]
+and all of its contents recursively with [[cdist|software/cdist]]
 to target hosts. I am motivated to do so, because I want to have one
 central place to configure the tftproot that I may use on a variety
 of KVM hosts.
@@ -11,7 +11,11 @@ of KVM hosts.
 Traditionally, it is not an easy job to handle recursive transfer correctly
 and efficiently in a configuration management system. Using a sophisticated
 tool like [rsync](http://rsync.samba.org/) or
-[unison](http://www.cis.upenn.edu/~bcpierce/unison/) makes life way easier.
+[unison](http://www.cis.upenn.edu/~bcpierce/unison/) makes life 
+usually way easier.
+
+If you just have a minor number of files, like I have in this case,
+doing a recursive copy with cdist may be the easist way.
 
 ## Copying the files recursively
 
@@ -20,14 +24,14 @@ file transfer and directory management.
 The type **\_\_nico\_tftp\_root**,
 which can be found in the
 [cdist-nico git repository](http://git.schottelius.org/?p=cdist-nico)
-(below **cdist/conf/type**) recursively copies all files it has to
+(below **cdist/conf/type**) recursively copies all files it contains to
 the folder **/home/service/tftp**. Only when a file is changed, it
 is transferred again (the **\_\_file** type takes care of this).
 
 ## The manifest
 
 In cdist, a manifest of a type defines, which other types to use.
-A manifest file is essentially shell code, that can call other
+A manifest file is essentially shell code that can call other
 cdist types.
 
 To accomplish the task, first of all the base directory is created
@@ -51,7 +55,7 @@ Now, for every file I determine the remote file name. Furthermore
 dependencies to the required directories are setup: 
 You can **require** another type to be run before a type, by setting
 up the **require** environment variable (this will be changed in cdist
-2.1. and replaced in 2.2, but there is still some time until this is released).
+2.1. and replaced in 2.2, but there is still some time until this happens).
 
 The remote name is constructed by this line:
 
@@ -62,8 +66,8 @@ And the requirement is setup using this line:
         # Require the previous directory in the path
         export require="__directory/${name%/*}"
 
-The shell (!) knows about string manipulation: ${variablename%/*} replaces
-the shortest matching suffix that equals "/*". And thus the previous
+The shell (!) knows about string manipulation: ${variablename%/\*} replaces
+the shortest matching suffix that equals "/\*". And thus the previous
 statement removes the last part of the path (also known as dirname).
 
 If the file found by find is a file, we call the \_\_file type,
