@@ -1,7 +1,14 @@
 [[!meta title="Documentation"]]
 
+## Manpages
+
 You can browse the latest
 [latest version of the manpages](/software/cdist/man/latest) or
 have a look at [all versions](/software/cdist/man).
+
+## Speeches
+
+* [[LISA'12 Presentation in San Diego|cdist-bof-lisa2012.pdf]]
+
 
 [[!tag cdist unix]]
