@@ -8,7 +8,7 @@ have a look at [all versions](/software/cdist/man).
 
 ## Speeches
 
-* [[LISA'12 Presentation in San Diego|cdist-bof-lisa2012.pdf]]
+* [[LISA'12 Presentation in San Diego|cdist-bof-lisa2012.pdf]] (2.1.0 release)
 
 
 [[!tag cdist unix]]
