@@ -44,7 +44,7 @@ is [infamously known for their Anti-Campaings](msad.jpg) like the new
 ## Cdist gets its own domain
 
 Suggestions to FOSS I write or maintain is highly appreciated.
-Getting a domain for [[software/cdist|cdist]] was proposed and will
+Getting a domain for [[cdist|software/cdist]] was proposed and will
 soon be activated.
 
 [[!tag cdist unix foss news ubuntu]]
