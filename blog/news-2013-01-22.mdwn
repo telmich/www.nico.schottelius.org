@@ -1,0 +1,50 @@
+[[!meta title="News 2013-01-22"]]
+
+## Dell sells Notebook with Ubuntu on it
+
+As all of you know, Ubuntu is the Linux distro being mostly marketed
+currently. Dell, on the other hand has trouble staying in the business
+and rumours say that Dell is searching for some investors.
+
+Thus it's interesting to hear that
+[Dell is now selling the XPS 13" with Ubuntu on it](http://www.dell.com/us/soho/p/xps-13-linux/pd?dgc=AF&cid=6504&lid=167784&acd=240157118117280)
+
+## Linux is (becoming) a gaming plattform
+
+Various different news show you an interesting movement for 2013:
+Android (and thus Linux) is becoming a gaming plattform:
+
+[Valve ported Steam to Linux](http://www.bit-tech.net/news/gaming/2012/07/17/valve-steam-linux/)
+and begins to 
+[promote Linux to Windows users](http://www.geek.com/articles/games/valve-starts-promoting-steam-for-linux-to-windows-users-20130121/).
+[The Ouya console is successfully being developed](http://www.ouya.tv/)
+and even [they have a competitor, the GameStick](http://www.kickstarter.com/projects/872297630/gamestick-the-most-portable-tv-games-console-ever), which is also based on Android.
+
+## Microsoft to (finally) die
+
+Thanks to the decreasing PC market and people focussing on swiping around their
+tablets (instead of doing real work [tm]), Microsoft got a hard time.
+
+It even got so worse that they are selling Windows 8 for almost nothing. But hey,
+who wants a disease for free anyway?
+
+Seeing the Nokia/Microsoft deal in which Nokia agreed to build Windows phones is
+like seeing someone betting on a dying horse, but it is worse than that:
+Why would you get a Windows phone, if you can buy an Android or IOS based phone?
+
+Reading about 
+[Microsoft probably selling the
+Xbox](http://www.geek.com/articles/games/analyst-believes-microsoft-will-sell-off-xbox-division-maybe-even-to-sony-20130121/) gives another indicator for someone totally being frustrated - probably
+realising the good times are over.
+
+This hasn't though changed the FUD approach of Microsoft, which
+is [infamously known for their Anti-Campaings](msad.jpg) like the new
+[scroogled](http://www.scroogled.com/) one.
+
+## Cdist gets its own domain
+
+Suggestions to FOSS I write or maintain is highly appreciated.
+Getting a domain for [[software/cdist|cdist]] was proposed and will
+soon be activated.
+
+[[!tag cdist unix foss news ubuntu]]
