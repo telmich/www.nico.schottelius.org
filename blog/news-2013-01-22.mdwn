@@ -1,10 +1,10 @@
 [[!meta title="News 2013-01-22"]]
 
-## Dell sells Notebook with Ubuntu on it
+## Dell sells notebook with Ubuntu on it
 
-As all of you know, Ubuntu is the Linux distro being mostly marketed
-currently. Dell, on the other hand has trouble staying in the business
-and rumours say that Dell is searching for some investors.
+As all of you know, Ubuntu is the most promoted Linux distro currently being on 
+the market. Dell, on the other hand, has trouble staying in the business
+and rumours say that Dell is even searching for some investors.
 
 Thus it's interesting to hear that
 [Dell is now selling the XPS 13" with Ubuntu on it](http://www.dell.com/us/soho/p/xps-13-linux/pd?dgc=AF&cid=6504&lid=167784&acd=240157118117280)
@@ -20,7 +20,7 @@ and begins to
 [The Ouya console is successfully being developed](http://www.ouya.tv/)
 and even [they have a competitor, the GameStick](http://www.kickstarter.com/projects/872297630/gamestick-the-most-portable-tv-games-console-ever), which is also based on Android.
 
-## Microsoft to (finally) die
+## Microsoft to die (finally)
 
 Thanks to the decreasing PC market and people focussing on swiping around their
 tablets (instead of doing real work [tm]), Microsoft got a hard time.
@@ -34,7 +34,7 @@ Why would you get a Windows phone, if you can buy an Android or IOS based phone?
 
 Reading about 
 [Microsoft probably selling the
-Xbox](http://www.geek.com/articles/games/analyst-believes-microsoft-will-sell-off-xbox-division-maybe-even-to-sony-20130121/) gives another indicator for someone totally being frustrated - probably
+Xbox division](http://www.geek.com/articles/games/analyst-believes-microsoft-will-sell-off-xbox-division-maybe-even-to-sony-20130121/) gives another indicator for someone totally being frustrated - probably
 realising the good times are over.
 
 This hasn't though changed the FUD approach of Microsoft, which
