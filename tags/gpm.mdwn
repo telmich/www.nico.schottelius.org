@@ -1,0 +1,4 @@
+[[!meta title="pages tagged gpm"]]
+
+[[!inline pages="tagged(gpm)" actions="no" archive="yes"
+feedshow=10]]

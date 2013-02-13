@@ -1,0 +1,4 @@
+[[!meta title="pages tagged sexy"]]
+
+[[!inline pages="tagged(sexy)" actions="no" archive="yes"
+feedshow=10]]

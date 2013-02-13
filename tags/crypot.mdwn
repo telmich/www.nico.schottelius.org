@@ -1,0 +1,4 @@
+[[!meta title="pages tagged crypot"]]
+
+[[!inline pages="tagged(crypot)" actions="no" archive="yes"
+feedshow=10]]
