@@ -1,0 +1,73 @@
+[[!meta title="How to backup The Piratebay and its content"]]
+
+## Introduction
+
+If you haven't seen [TPB - AFK](http://watch.tpbafk.tv/), it's a good time
+to do so now.
+
+## Introduction^2
+
+Imagine you want to support TPB and create a P2P backup of
+TPB (and all of its torrents and the referenced content from the torrents).
+This post describes some ideas to do that.
+
+## Backup destination
+
+For every backup you need a destination: some space to store the
+content and some network bandwidth to pull and push the data.
+
+In this post I assume that the backup destination is "a [big] 
+number of volunteers". I chose this one, because it is harder to
+bring down a huge number of hosts than it is to bring down some
+datacenters.
+
+## Problem: You may not upload some kind of content
+
+Some countries have restrictions that disallow people to **upload**
+some kind of content, but allow them to download it.
+
+Some people may also not want to upload specific content.
+
+To make life easier for volunteers, we may want to make them unaware
+of which content they are backing up and providing for restore.
+
+## Solution: Hide what the volunteer serves
+
+Assume that there is a torrent serving funny cat pics I have taken over the 
+last years. One of the volunteers likes dogs and hates cat and would thus
+never serve the content of this torrent, if she know it contains cat pictures.
+
+But: If she doesn't know - she doesn't care.
+
+## Technical Solution
+
+So this volunteer, let's call her Alice, wants to offer 10 Gigabyte
+of her hard disk, 1 Mbit/s of her upstream and 5 Mbit/s of her downstream
+to backup data.
+John wants to backup his cat pictures, which he is seeding.
+
+Let's see how Alice can share the cat pictures, without knowing she does.
+
+* Alice registers at a **backup tracker**
+* John creates an **encrypted torrent** that contains 
+** a private and public key pair
+** references to the data blocks, which are encryped using the above key 
+(like a normal torrent - just all the content is encrypted 
+with the public key which is included into the torrent)
+** references to the regular tracker(s)
+** and references to the backup tracker(s)
+* John also creates a **plain torrent** that does **not** contain the private and public key
+* John submits the **encrypted torrent** to a regular tracker - 
+everybody who wants to download the cat pictures (and decrypt them) can do so
+* John submits the **plain torrent** (withouth the keys) to the backup tracker
+* Alice modified torrent client picks up latest torrents from the backup tracker until
+her space or network bandwidth exceeds
+* Alice cannot decrypt the content, as she does not have the private key
+
+## The result
+
+* Alice is happy, because she aids in supporting a more robust internet
+* John is happy, because his cat pictures are still available, although his computer may be offline
+* Bob is happy, because he can download the awesome cat pictures, although John is away
+
+[[!tag net tpb]]
