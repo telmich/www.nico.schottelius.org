@@ -11,7 +11,7 @@ Imagine you want to support TPB and create a P2P backup of
 TPB (and all of its torrents and the referenced content from the torrents).
 This post describes some ideas to do that.
 
-## Backup destination
+## Backup Destination
 
 For every backup you need a destination: some space to store the
 content and some network bandwidth to pull and push the data.
