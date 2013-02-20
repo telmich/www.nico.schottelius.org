@@ -70,4 +70,12 @@ her space or network bandwidth exceeds
 * John is happy, because his cat pictures are still available, although his computer may be offline
 * Bob is happy, because he can download the awesome cat pictures, although John is away
 
+## Future Work
+
+This is just a short and quick hack to do a backup of TPB. 
+There are probably many more variants available and further optimisations
+could be done (for instance rewarding those serving backup with higher
+download rate).
+
+
 [[!tag net tpb]]
