@@ -30,7 +30,7 @@ use IkiWiki::Setup::Standard {
 	# rcs backend to use
 	rcs => '',
 	# plugins to add to the default configuration
-	add_plugins => [qw{git goodstuff meta sidebar tag rawhtml}],
+	add_plugins => [qw{git goodstuff meta sidebar tag rawhtml flattr}],
 	# plugins to disable
 	disable_plugins => [qw{smiley openid}],
 	# location of template files
