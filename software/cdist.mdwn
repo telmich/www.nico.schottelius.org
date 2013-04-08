@@ -18,6 +18,4 @@ and [puppet](http://www.puppetlabs.com/).
  * [[Update|update]]
  * [[Support|support]]
 
-[[!flattr]]
-
 [[!tag cdist unix]]
