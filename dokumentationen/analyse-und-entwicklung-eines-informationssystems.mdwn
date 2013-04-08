@@ -1,0 +1,12 @@
+[[!meta title="Analyse und Entwicklung eines Informationssystems"]]
+[[!meta date="2004-09-04"]]
+
+Dies ist meine Abschlussarbeit für das
+Studium zum Wirtschaftsinformatiker das
+an der [Leibniz-Akademie Hannover](http://www.leibniz-akademie.de/)
+entstanden ist.
+
+ * [[Abschlussarbeit als PDF|analyse-und-entwicklung-eines-informationssystems.pdf]]
+ * [[Archiv der Abschlussarbeit mit LaTeX-Quellent|analyse-und-entwicklung-eines-informationssystems.tar.bz2]]
+
+[[!tag publication]]
