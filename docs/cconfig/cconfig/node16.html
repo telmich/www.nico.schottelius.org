@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>init system (cinit)</TITLE>
+<META NAME="description" CONTENT="init system (cinit)">
+<META NAME="keywords" CONTENT="cconfig">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cconfig.css">
+
+<LINK REL="previous" HREF="node15.html">
+<LINK REL="up" HREF="node13.html">
+<LINK REL="next" HREF="node17.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html244"
+  HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html240"
+  HREF="node13.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html236"
+  HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html242"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html245"
+  HREF="node17.html">Problems</A>
+<B> Up:</B> <A NAME="tex2html241"
+  HREF="node13.html">Examples</A>
+<B> Previous:</B> <A NAME="tex2html237"
+  HREF="node15.html">Samba</A>
+ &nbsp; <B>  <A NAME="tex2html243"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00053000000000000000">
+init system (cinit)</A>
+</H2>
+Cinit[<A
+ HREF="node19.html#cinit">2</A>] is a fast init system, which uses cconfig.
+"`/etc/cinit"' is its basic configuration directory. Below that directory
+exist the basic configuration:
+<PRE>
+wasserstoff# ls -l /etc/cinit         
+total 8
+drwxr-xr-x  10 root root 4096 Aug 20 20:55 getty
+drwxr-xr-x   3 root root   56 Aug 24 22:04 init
+drwxr-xr-x   2 root root    1 Aug 20 20:38 local-services
+drwxr-xr-x   5 root root   32 Aug 24 22:14 local-tuning
+drwxr-xr-x  10 root root   72 Aug 24 06:40 mount
+drwxr-xr-x   7 root root   48 Aug 28 13:57 network
+drwxr-xr-x   4 root root   16 Aug 20 20:51 remote-services
+drwxr-xr-t   2 root root   60 Aug 28 14:00 tmp
+</PRE>
+"`/etc/cinit/init"' is the first service cinit normally boots,
+from there it has dependencies to other services:
+<PRE>
+wasserstoff# ls -l /etc/cinit/init/*
+lrwxrwxrwx  1 root root  9 Aug 20 20:43 /etc/cinit/init/on -&gt; /bin/echo
+-rw-r--r--  1 root root 22 Aug 20 20:43 /etc/cinit/init/on.params
+
+/etc/cinit/init/wants:
+total 0
+lrwxrwxrwx  1 root root 12 Aug 20 20:43 getty -&gt; ../../getty/
+lrwxrwxrwx  1 root root 21 Aug 20 20:51 local-services -&gt; ../../local-services/
+lrwxrwxrwx  1 root root 19 Aug 20 20:42 local-tuning -&gt; ../../local-tuning/
+lrwxrwxrwx  1 root root 12 Aug 20 20:51 mount -&gt; ../../mount/
+lrwxrwxrwx  1 root root 14 Aug 20 20:51 network -&gt; ../../network/
+lrwxrwxrwx  1 root root 22 Aug 20 20:51 remote-services -&gt; ../../remote-services/
+</PRE>
+The "`wants"' describe soft-dependencies, "`on"' specifies what to start
+and "`on.params"' are the parameters to pass.
+<BR><HR>
+<ADDRESS>
+Nico
+2005-08-28
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Samba</TITLE>
+<META NAME="description" CONTENT="Samba">
+<META NAME="keywords" CONTENT="cconfig">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cconfig.css">
+
+<LINK REL="next" HREF="node16.html">
+<LINK REL="previous" HREF="node14.html">
+<LINK REL="up" HREF="node13.html">
+<LINK REL="next" HREF="node16.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html234"
+  HREF="node16.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html230"
+  HREF="node13.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html224"
+  HREF="node14.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html232"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html235"
+  HREF="node16.html">init system (cinit)</A>
+<B> Up:</B> <A NAME="tex2html231"
+  HREF="node13.html">Examples</A>
+<B> Previous:</B> <A NAME="tex2html225"
+  HREF="node14.html">printer daemon (mini-lpd)</A>
+ &nbsp; <B>  <A NAME="tex2html233"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00052000000000000000">
+Samba</A>
+</H2>
+Samba[<A
+ HREF="node19.html#samba">7</A>] is the well-known Unix SMB server. It exists and
+does <SPAN  CLASS="textbf">not</SPAN> use cconfig for its configuration, but this describes
+how it could:
+"`/etc/samba"' is currently the configuration directory. Instead of
+the smb.conf you would have the object "`config"'. Bool
+variables<A NAME="tex2html8"
+  HREF="footnode.html#foot58"><SUP><SPAN CLASS="arabic">8</SPAN></SUP></A> could simply
+be represented by "`file exists"' (true) or "`file does not exist"'.
+Variables with text could be realised with writing the text into the file:
+"`/etc/samba/config/workgroup"' could contain "`cworkgroup"'.
+Shares could be objects below "`/etc/samba/shares"':
+"`/etc/samba/shares/cdrom"' could contain a file name "`path"' which links
+to the real path, a file "`groups"' which would contain a <code>\n</code> seperated
+list of groups which may access this share.
+<BR><HR>
+<ADDRESS>
+Nico
+2005-08-28
+</ADDRESS>
+</BODY>
+</HTML>
