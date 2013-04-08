@@ -4,11 +4,6 @@
 
 ## Introduction
 
-Have a look at [-1] for the latest version. Copying is allowed, as long as the
-document is unmodified. Please send corrections to me
-(`myfirstname@mylastname.org').
-
-
 ### What is a cryptoloop?
 
 It's a method to encrypt data written to a storage device:
@@ -49,8 +44,7 @@ it gets stolen, nobody will be able to read your (sensitive) data.
 ### Some buzzwords...
 
 You may want to know what cryptoloop uses, how it works. I don't really want
-to explain that here, but I'll give you some buzzwords you can lookup at [0]
-and [1]:
+to explain that here, but I'll give you some buzzwords you can lookup:
 
    -  Linux Kernel v2.6
    -  Cryptographic API
@@ -190,7 +184,7 @@ To understand why, I give you a small explanation about how booting works:
              |
              v
     ___________________
-    | (sysV) init      | or minit [2] or runit [3],
+    | (sysV) init      | or cinit, minit or runit,
     -------------------  which all are loaded from the root filesystem
 
 
@@ -327,7 +321,7 @@ read encrypted MBRs/bootloader.
 On x86 you could possibly replace your BIOS with a Linux kernel,
 which is able to boot from cryptoloop, in the ROM,
 
-This does _not_ mean you should use TCPA[4]! With TCPA you give
+This does _not_ mean you should use [TCPA](https://en.wikipedia.org/wiki/Trusted_Computing_Platform_Alliance)! With TCPA you give
 away the right to modify your computer to companies like Intel.
 
 ## Summary
@@ -336,15 +330,3 @@ You have a protection against someone reading your data, as long as
 your laptop/computer is 'trusted'. This means, whenever someone is
 able to modify the unencrypted part(s), your cryptoloop data could be
 modified.
-
-
-## Sources
-
-[-1]: source:  http://nico.schotteli.us/papers/linux/cryptoloop-partial-security
-[0]:  google:  http://www.google.org/linux
-[1]:  TLDP:    http://www.tldp.org
-[2]:  minit:   http://www.fefe.de/minit/
-[3]:  runit:   http://smarden.org/runit/
-[4]:  tcpa:    http://www.notcpa.de/
-               http://www.againsttcpa.com/
-               http://www.trustedcomputing.org
