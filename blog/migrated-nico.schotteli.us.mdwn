@@ -1,0 +1,8 @@
+[[!meta title="Migrated nico.schotteli.us"]]
+
+The content of **nico.schotteli.us** has been migrated into this site.
+
+If you are missing any software or documentation that used
+to be on **nico.schotteli.us**, do not hesitate to contact me.
+
+[[!tag schottelius net unix]]
