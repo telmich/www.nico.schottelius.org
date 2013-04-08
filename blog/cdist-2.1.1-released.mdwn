@@ -1,0 +1,16 @@
+[[!meta title="Cdist 2.1.1 released"]]
+
+Here's a short overview about the changes found in this release:
+
+	* Core: Use dynamic dependency resolver to allow indirect self dependencies
+	* Core: Remove umask call - protect /var/lib/cdist only (Arkaitz Jimenez)
+	* Explorer os: Added Slackware support (Eivind Uggedal)
+	* Type __git: Support mode and fix owner/group settings (contradict)
+	* Type __jail: State absent should implies stopped (Jake Guffey)
+	* Type __directory: Make stat call compatible with FreeBSD (Jake Guffey)
+	* Type __cron: Allow crontab without entries (Arkaitz Jimenez)
+	* Type __user: Add support for creating user home (Arkaitz Jimenez)
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag cdist config unix]]
