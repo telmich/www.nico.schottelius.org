@@ -3,5 +3,5 @@
 cconfig is a proposal for configurations on Unix-alike systems.
 You can read it in the following formats:
 
- * [[cconfig.pdf|PDF]]
- * [[cconfig.tex|LaTeX]]
+ * [[PDF|cconfig.pdf]]
+ * [[LaTeX|cconfig.tex]]
