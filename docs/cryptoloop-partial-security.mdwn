@@ -1,0 +1,350 @@
+[[!meta title="Cryptoloop - why they are only partial secure"]]
+[[!meta date="2004-03-27"]]
+[[!toc  levels=2]]
+
+## Introduction
+
+Have a look at [-1] for the latest version. Copying is allowed, as long as the
+document is unmodified. Please send corrections to me
+(`myfirstname@mylastname.org').
+
+
+### What is a cryptoloop?
+
+It's a method to encrypt data written to a storage device:
+
+
+     _________________________
+     | applications like vim |
+     -------------------------
+              ^
+              | i/o with files
+              |
+              v
+     _______________________
+     | filesystem like xfs |
+     -----------------------
+              ^
+              | i/o with blocks
+              |
+              v
+        _____________
+        | cryptoloop | en/decrypts data
+        -------------
+              ^
+              | 
+              |
+              v
+     ________________
+     | block device | writes physically
+     ----------------
+
+
+### What is it used for?
+
+It's used to achieve higher security. For instance, if you lose your laptop or
+it gets stolen, nobody will be able to read your (sensitive) data.
+
+
+### Some buzzwords...
+
+You may want to know what cryptoloop uses, how it works. I don't really want
+to explain that here, but I'll give you some buzzwords you can lookup at [0]
+and [1]:
+
+   -  Linux Kernel v2.6
+   -  Cryptographic API
+   -  Blowfish,AES,MD5,SHA384 and SHA512, ...
+
+
+## Conditions and use-cases
+
+I'll now show you in which situations you can/may use cryptoloop.
+
+
+### regular file
+
+Howto do it:
+
+Create a regular file:
+
+   scice% dd if=/dev/urandom of=testcrypt bs=1024 count=1024
+   1024+0 records in
+   1024+0 records out
+   1048576 bytes transferred in 0.059929 seconds (17496971 bytes/sec)
+
+Setup the loop device and enter the password used for encryption:
+
+   scice# /sbin/losetup -e blowfish /dev/loop/1 testcrypt
+   Password:
+
+And now access the loop like a standard block device:
+
+   scice# mkfs.xfs /dev/loop/1
+   meta-data=/dev/loop/1            isize=256    agcount=1, agsize=4096 blks
+            =                       sectsz=512
+   data     =                       bsize=4096   blocks=4096, imaxpct=25
+            =                       sunit=0      swidth=0 blks, unwritten=1
+   naming   =version 2              bsize=4096
+   log      =internal log           bsize=4096   blocks=1200, version=1
+            =                       sectsz=512   sunit=0 blks
+   realtime =none                   extsz=65536  blocks=0, rtextents=0
+
+
+Look at the cryptoloop:
+
+   scice# file -s /dev/loop/1
+   /dev/loop/1: SGI XFS filesystem data (blksz 4096, inosz 256, v2 dirs)
+
+And look at the file:
+
+   scice# file testcrypt
+   testcrypt: data
+
+Remove the cryptoloop:
+
+   scice# losetup -d /dev/loop/1
+
+When you mount your encrypted file, you need to specify the password:
+   
+   scice# mount testcrypt /mnt/ -o loop,encryption=blowfish
+   Password:
+
+
+So far, so good. You can have as many encrypted loops as loopback devices you
+have (normally 8).
+
+
+Benefits:
+   - you can hide your encrypted data within your home
+     (attention: security by obscurity!)
+   - you can create many encrypted files
+
+Disadvantages:
+   - indirect access
+   - slower than partitions / raw devices
+
+
+### optional partition
+
+Having filesystems on files is ugly, as you enforce indirection
+(application->filesystem->cryptoloop->file->filesystem->blockdevice instead of
+ application->filesystem->cryptoloop->blockdevice).
+
+If you don't have much data which is seldom accessed, you may use
+an unused partition for that case. Simply replace testcrypt from above
+with the appropriate partition.
+
+Benefits:
+   - if you don't name the partition in /etc/fstab, perhaps nobody will
+     ever guess you have an encrypted data partition
+     (attention: security by obscurity!)
+   - faster than regular files
+
+Disadvantages:
+   - not very comfortable, as you cannot just type 'mount /mnt/data'
+   - you need to pay attention that you _only_ write to /mnt/data and
+     don't have a prior version on an unencrypted medium, as it is
+     generally possible to restore 'deleted' files
+
+
+### home partition
+
+You may want to generally keep all data on your home directories encrypted.
+Use this entry in fstab to achieve it:
+
+/dev/discs/disc0/part4  /home   xfs     loop,encryption=blowfish 0      0
+
+Benefits:
+   - faster than regular files
+   - very comfortable
+   - transparent to your users
+
+Disadvantages:
+   - your data is secured, but do you really know that 'vi' is still
+     vi and not a program calling `cp` and then vi?
+
+
+### root partition
+
+If you want to encrypt your root (/) partition, you need to pay attention!
+
+To understand why, I give you a small explanation about how booting works:
+
+    ___________________
+    | hardware checks | like BIOS on x86
+    -------------------
+             ^
+             |
+             v
+    ___________________
+    |    bootloader   | like grub,lilo,milo
+    -------------------
+             ^
+             |
+             v
+    ___________________
+    |      kernel     | Linux hopefully
+    -------------------
+             ^
+             |
+             v
+    ___________________
+    | (sysV) init      | or minit [2] or runit [3],
+    -------------------  which all are loaded from the root filesystem
+
+
+First of all, the bootloader needs to be readable (== unencrypted) for the
+basic i/o system.
+This is normally no problem, as the bootloader is found in the MBR of
+a harddisk (at least partially, enough to start).
+
+Then the bootloader needs to find its data/configuration files and after
+that it needs to find the kernel.
+
+Normally this is achieved by using an unencrypted /boot partition, which
+contains the other bootloader parts and the kernel.
+
+When the kernel finished initalizing, it needs to find (a variant of) init.
+Well, it cannot find init, because init is encrypted. To be able to
+read the root (and init), we'll need a ramdisk containing losetup, which reads
+a password and creates a loop device.
+
+Ramdisks are checked before the kernel tries to load init, so this works
+pretty good.
+
+You can then check from your now decrypted root, that /boot didn't change
+(with md5sum or tripwire for example). If it changed you can stop booting.
+
+Benefits:
+   - most parts of the system are encrypted
+
+Disadvantages:
+   - needs a ramdisk
+   - need to pay attention, when you make changes to /boot (when updating
+     the kernel for instance)
+
+
+### whole system + unencrypted external device
+
+You could put the /boot partition on a USB Stick, a r/o CDROM.
+
+Benefits:
+   - you have no unencrypted data on your computer
+
+Disadvantages:
+   - you always need to pay attention to carry the external medium with you
+   - same as above
+
+
+## Problems / insecurity
+### partial encryption
+
+Well, you always have some unencrypted data. Especially the bootloader,
+your kernel and your ramdisk cannot be encrypted (correct me when I'm wrong).
+
+
+### fake system
+
+If somebody gets access to your system, he may replace your unencrypted data
+and place his faked versions. I've name faked version with a 'F' prefix.
+
+
+### attack possibilities
+#### points
+
+I'll assume the attacker cannot decrypt our cryptoloop data. So he has
+to attack
+
+   - the bootloader
+   - the kernel
+   - the ramdisk
+
+
+#### replacements
+
+First he could try to replace the bootloader. The Fbootloader
+could possibly load a Fkernel which has a modified cryptoloop module.
+
+Secondly he could try just to replace the kernel with Fkernel, again
+having modified the cryptoloop module.
+
+At last he could replace the contents of the ramdisk. This Framdisk
+could contain a modified losetup.
+
+
+#### sniff and copy
+
+Let's assume the attacker modified the bootloader and the kernel.
+You enter the password and the kernel boots up your standard init.
+Your checksum checking program (like md5sum, see above) detects that 
+the kernel is modified.
+
+If you've got luck the kernel module didn't configure your
+network opened a connection to the net. If it did, you password is
+gone and you'll need to recreate your cryptoloop
+(this is not really difficult: losetup the raw device again, with the new
+password. dd if=/dev/oldloop of=/dev/newloop).
+
+Assume the attacker replaced your ramdisk, too.
+Now the attacker modified LOSETUP! Doesn't really matter you think?
+Well, let's see:
+
+You enter the password for your root partition. Flosetup doesn't exit
+normally, instead it mounts your root and replaces your system libs and unmounts
+the root after that. Your checksum program loads the Flib and the md5sum
+function returns always the same value. Your check-script then assumes
+that the ramdisk, the kernel and the bootloader are unmodified and starts
+the system.
+As the libs are modified, the connect() call could try to connect to
+a password collecting host and to the one specified.
+
+Flosetup could even have modified _anything_. This includes your check-script,
+/etc/shadow, /sbin/init and so on.
+
+You cannot trust the integrity of your system anymore.
+
+
+#### change encrypted checksums
+
+Oh, and it would be much easier just to replace the cached checksums on the
+encrypted root. 
+
+
+## Solutions
+### Secure unencrypted data
+
+
+A way to have secure cryptoloops is to do what's described in 2.5.
+You must keep your unencrypted data secure. This means that you got
+to wear at _always_. 
+
+### Get a real system [tm]
+
+The other choice would be to have a 'trusted' system, which is able to
+read encrypted MBRs/bootloader.
+
+On x86 you could possibly replace your BIOS with a Linux kernel,
+which is able to boot from cryptoloop, in the ROM,
+
+This does _not_ mean you should use TCPA[4]! With TCPA you give
+away the right to modify your computer to companies like Intel.
+
+## Summary
+
+You have a protection against someone reading your data, as long as
+your laptop/computer is 'trusted'. This means, whenever someone is
+able to modify the unencrypted part(s), your cryptoloop data could be
+modified.
+
+
+## Sources
+
+[-1]: source:  http://nico.schotteli.us/papers/linux/cryptoloop-partial-security
+[0]:  google:  http://www.google.org/linux
+[1]:  TLDP:    http://www.tldp.org
+[2]:  minit:   http://www.fefe.de/minit/
+[3]:  runit:   http://smarden.org/runit/
+[4]:  tcpa:    http://www.notcpa.de/
+               http://www.againsttcpa.com/
+               http://www.trustedcomputing.org
