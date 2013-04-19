@@ -10,7 +10,7 @@ job more easy or hard.
 This guide is created by those who you try to manage: The IT crowd.
 
 Discussion for enhancements 
-takes place on [Hackernews](https://news.ycombinator.com/).
+takes place on [Hackernews](https://news.ycombinator.com/item?id=5575419).
 
 ## Background
 
@@ -61,6 +61,7 @@ but you hired those people to do a good job, not just to execute your thoughts, 
 ## More to come
 
 This article is work in progress and is going to be enhanced by input
-from other IT professionals - don't miss the discussion on Hackernews.
+from other IT professionals - don't miss the discussion on 
+[Hackernews](https://news.ycombinator.com/item?id=5575419).
 
 [[!tag localch net unix]]
