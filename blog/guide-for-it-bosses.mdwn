@@ -1,0 +1,66 @@
+[[!meta title="The guide for IT bosses"]]
+
+## Introduction
+
+You are an IT boss. Your job is to manage the
+[IT crowd](https://en.wikipedia.org/wiki/The_IT_Crowd).
+Depending on your skills and knowledge you may find this 
+job more easy or hard.
+
+This guide is created by those who you try to manage: The IT crowd.
+
+Discussion for enhancements 
+takes place on [Hackernews](https://news.ycombinator.com/).
+
+## Background
+
+I am a System Engineer currently working 80% 
+for [local.ch (Swiss Phonebook)](http://www.local.ch) and 20% for
+[ungleich (Unix/Linux infrastructure company)](http://www.ungleich.ch).
+
+On a daily basis I see how employees and bosses are acting and I spent time 
+on analysing the behaviour of both parties (for fun - not profit).
+As I often see common mistakes and  behaviour patterns, which make
+good or bad bosses, the idea was born to create a guide for IT bosses.
+
+## Guidelines
+
+### Be honest
+
+Not a special requirement in regards of IT, but if you want your
+employees to respect you, you definitely need to be honest.
+
+Don't even think about playing tricks on them, they will find out and
+everybody will lose the respect for you. Guaranteed.
+
+### Be available
+
+Your job involves a lot of meetings and coordination. 
+Your employees understand that and may even be very thankful you took that job.
+Still, as you are the boss, communicate straightly when you are available, so
+people can bring their questions and problems to you.
+
+If you see there is too less time to be available for your team, it's probably
+good time to split up the team or to move on to another position
+and promote somebody else for being the head of IT crowd.
+
+### Give freedom
+
+More important than in probably most other areas is the amount of freedom you
+give: IT professionals are usually bright people who understand their job very
+well. The learn on the job (which includes getting side tracked from time to time),
+they are keen to touch the latest and newest technologies and have a high motivation.
+
+Adding artifical borders to the way the work makes them less productive, less motivated and
+in the worst case leave your workplace.
+
+Pay even more attention on this topic, if you have some technical background. 
+You may know (or think you know!) what the best solution or technical choice is,
+but you hired those people to do a good job, not just to execute your thoughts, did you?
+
+## More to come
+
+This article is work in progress and is going to be enhanced by input
+from other IT professionals - don't miss the discussion on Hackernews.
+
+[[!tag localch net unix]]
