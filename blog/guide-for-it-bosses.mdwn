@@ -9,9 +9,6 @@ job more easy or hard.
 
 This guide is created by those who you try to manage: The IT crowd.
 
-Discussion for enhancements 
-takes place on [Hackernews](https://news.ycombinator.com/item?id=5575419).
-
 ## Background
 
 I am a System Engineer currently working 80% 
@@ -89,6 +86,7 @@ is worth the motivation you gain from it?
 
 This article is work in progress and is going to be enhanced by input
 from other IT professionals - don't miss the discussion on 
-[Hackernews](https://news.ycombinator.com/item?id=5575419).
+[Hackernews](https://news.ycombinator.com/item?id=5575419)
+and [reddit](http://www.reddit.com/r/sysadmin/comments/1co3y5/a_guide_for_it_bosses/).
 
 [[!tag localch net unix]]
