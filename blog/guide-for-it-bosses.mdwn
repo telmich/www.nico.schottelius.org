@@ -82,6 +82,21 @@ Regarding value: Did you consider that the 3000 USD notebook,
 even if it is not better than the employees current computer, 
 is worth the motivation you gain from it?
 
+### Plan, assist and communicate objectives
+
+Your key competence as an IT boss is probably planning and communication.
+Use this power to **assist (!)** your IT crowd: Aid them in planning their work,
+show them how to plan and communicate what you expect from them.
+
+Don't try to squeeze them into a specific way of working. Better: Let your employees know
+what the objectives are (expected results, date of delivery). 
+They probably
+figure better out how to reach it than you. Always remember: 
+IT guys are different,
+some of them love to work in the night, 
+some of them cannot concentrate in open plan offices 
+and some of them want to work under high pressure (do all the work in one night).
+
 ## More to come
 
 This article is work in progress and is going to be enhanced by input
