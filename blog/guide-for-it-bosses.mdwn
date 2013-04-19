@@ -58,6 +58,17 @@ Pay even more attention on this topic, if you have some technical background.
 You may know (or think you know!) what the best solution or technical choice is,
 but you hired those people to do a good job, not just to execute your thoughts, did you?
 
+### Don't assume
+
+Don't try to enhance the working situation 
+of your employees with stuff you assume could be good for them.
+
+You will most likely be wrong. 
+
+Instead listen to your employees or ask them about your idea. 
+Spending an hour or day discussing is probably more worth than throwing away your
+shiny new invention.
+
 ### Give tools
 
 Have you ever seen a good craftsman working with broken tools? Probably not. Take the same
