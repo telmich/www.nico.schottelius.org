@@ -58,6 +58,22 @@ Pay even more attention on this topic, if you have some technical background.
 You may know (or think you know!) what the best solution or technical choice is,
 but you hired those people to do a good job, not just to execute your thoughts, did you?
 
+### Give tools
+
+Have you ever seen a good craftsman working with broken tools? Probably not. Take the same
+approach for your IT professionals: If they request specific tools 
+(software, notebook, mobile phone, screen, etc.), they probably have a good reason for it.
+
+Don't hesitate to question the request ("Why do you need this / how does it make you more
+efficient?"), but also don't hesitate to let them buy the right tools afterwards.
+
+Denying to give good tools makes your employees less motivated, less productive and
+indicate you don't value their work.
+
+Regarding value: Did you consider that the 3000 USD notebook, 
+even if it is not better than the employees current computer, 
+is worth the motivation you gain from it?
+
 ## More to come
 
 This article is work in progress and is going to be enhanced by input
