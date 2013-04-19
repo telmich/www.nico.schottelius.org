@@ -99,9 +99,9 @@ and some of them want to work under high pressure (do all the work in one night)
 
 ## More to come
 
-This article is work in progress and is going to be enhanced by input
-from other IT professionals - don't miss the discussion on 
-[Hackernews](https://news.ycombinator.com/item?id=5575419)
-and [reddit](http://www.reddit.com/r/sysadmin/comments/1co3y5/a_guide_for_it_bosses/).
+This article is work in progress and is being enhanced by input
+from other IT professionals. If you want to contribute,
+you can add a comment on [Hackernews](https://news.ycombinator.com/item?id=5575419)
+or [reddit](http://www.reddit.com/r/sysadmin/comments/1co3y5/a_guide_for_it_bosses/).
 
 [[!tag localch net unix]]
