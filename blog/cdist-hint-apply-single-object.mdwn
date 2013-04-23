@@ -7,7 +7,7 @@ object on a remote host, like this:
 
 Using the initial manifest option (-i) and stdin makes this easy:
 
-    echo __file /need/this/now --state present --source $(pwd -P)/myfile --mode 0755 | cdist config -v -i - targethost
+    echo "__file /need/this/now --state present --source $(pwd -P)/myfile --mode 0755" | cdist config -v -i - targethost
 
 For more information about cdist visit the [[cdist homepage|software/cdist]].
 
