@@ -1,0 +1,14 @@
+[[!meta title="Cdist: How to apply a single object"]]
+
+Sometime it would be nice if you could only apply a single
+object on a remote host, like this:
+
+    __file /need/this/now --state present --source $(pwd -P)/myfile --mode 0755
+
+Using the initial manifest option (-i) and stdin makes this easy:
+
+    echo __file /need/this/now --state present --source $(pwd -P)/myfile --mode 0755 | cdist config -v -i - targethost
+
+For more information about cdist visit the [[cdist homepage|software/cdist]].
+
+[[!tag cdist config unix]]
