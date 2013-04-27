@@ -1,0 +1,14 @@
+[[!meta title="ctt 0.7 released: new format option"]]
+
+## Introduction
+
+ctt is a time tracking tool for geeks. 
+It supports project based reporting, custom report formats and 
+stores its data in a [[cconfig|docs/cconfig]] database.
+
+## Changes
+
+    * Added -f / --format support for reporting
+
+
+[[!tag release ctt unix]]
