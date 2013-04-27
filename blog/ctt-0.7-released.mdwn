@@ -2,7 +2,7 @@
 
 ## Introduction
 
-ctt is a time tracking tool for geeks. 
+[[ctt|software/ctt]] is a time tracking tool for geeks. 
 It supports project based reporting, custom report formats and 
 stores its data in a [[cconfig|docs/cconfig]] database.
 
