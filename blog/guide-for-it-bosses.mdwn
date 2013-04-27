@@ -98,11 +98,22 @@ some of them love to work in the night,
 some of them cannot concentrate in open plan offices 
 and some of them want to work under high pressure (do all the work in one night).
 
+## See also
+
+The following resources may be of interest for you as well:
+
+    * [The Hacker FAQ](http://www.seebs.net/faqs/hacker.html)
+    * [Managing Humans: Biting and Humorous Tales of a Software Engineering Manager](http://www.amazon.com/Managing-Humans-Humorous-Software-Engineering/dp/1430243147/ref=sr_1_1?ie=UTF8&qid=1366379157&sr=8-1)
+    * [How to Work with Software Engineers](https://www.kennethnorton.com/essays/how-to-work-with-software-engineers.html)
+
 ## More to come
 
 This article is work in progress and is being enhanced by input
-from other IT professionals. If you want to contribute,
-you can add a comment on [Hackernews](https://news.ycombinator.com/item?id=5575419)
-or [reddit](http://www.reddit.com/r/sysadmin/comments/1co3y5/a_guide_for_it_bosses/).
+from other IT professionals (thanks for all the great comments!).
+
+If you want to contribute,
+you can add a comment on [Hackernews](https://news.ycombinator.com/item?id=5575419),  
+[reddit](http://www.reddit.com/r/sysadmin/comments/1co3y5/a_guide_for_it_bosses/)
+or [[contact me directly|about]].
 
 [[!tag localch net unix]]
