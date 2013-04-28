@@ -98,6 +98,32 @@ some of them love to work in the night,
 some of them cannot concentrate in open plan offices 
 and some of them want to work under high pressure (do all the work in one night).
 
+### Consider the difference
+
+Compared to many other professions, IT people are behaving a **bit** differently
+(that's why sysadmins have their own 
+[time management](http://www.amazon.com/Management-System-Administrators-Thomas-Limoncelli/dp/0596007833/)
+book, for example). This may require special treatments from your side: For instance
+the usual motivation factors may not work as expected. If you listen carefully, you
+may hear "weird" requests like "I'd like to start working at 14:00 until the night".
+If possible, try to honour these requests: They don't cost a lot of ressources, but
+they require an open minded leader.
+
+### Set values in relation
+
+IT projects are quite often expensive and there are various reasons for it.
+One of them being a future orientated market requires using latest high
+technology equipment. IT guys are used to carrying around computers worth
+a car or a bigger house. Thus IT guys are aware of the money that is being
+spent on IT equipment.
+
+As stated before, your IT guys may have special requirements, not only in terms
+of working time, but also their choice of tools may be non standard.
+
+Instead of denying to buy simple tools for your IT guys, include those costs into
+the project budget. Also consider reading
+[Parkinson's law of triviality](https://en.wikipedia.org/wiki/Parkinson%27s_Law_of_Triviality).
+
 ## See also
 
 The following resources may be of interest for you as well:
