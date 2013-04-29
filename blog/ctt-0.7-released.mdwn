@@ -11,4 +11,4 @@ stores its data in a [[cconfig|docs/cconfig]] database.
     * Added -f / --format support for reporting
 
 
-[[!tag release ctt unix]]
+[[!tag time_tracking release ctt unix]]

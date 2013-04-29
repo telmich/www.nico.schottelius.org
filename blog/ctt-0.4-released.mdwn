@@ -5,4 +5,4 @@ geeks.
 
 For more information visit the [[ctt homepage|software/ctt]].
 
-[[!tag config ctt unix]]
+[[!tag time_tracking ctt unix]]
