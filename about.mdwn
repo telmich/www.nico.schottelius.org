@@ -37,6 +37,7 @@ I recommened using PGP to encrypt any mail. The fingerprint of my
 
 (the [[previous one|pgp-key-9217A3DF.txt]] was 9692 C77B 91A2 CB72 5ED7  B1CD 666C 8924 9217 A3DF).
 
+I also have a [twitter handle](https://twitter.com/NicoSchottelius).
 
 ## Donations
 
