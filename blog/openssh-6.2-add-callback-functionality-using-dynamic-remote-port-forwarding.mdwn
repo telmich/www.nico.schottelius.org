@@ -19,7 +19,7 @@ Assume you have two hosts:
 Assume further that the target host can directly reach the control
 host, but the control host cannot connect to the target host directly.
 
-This is for instance the case, 
+For instance, it's the case, 
 when the target host is hidden by NAT
 or protected by a firewall.
 
