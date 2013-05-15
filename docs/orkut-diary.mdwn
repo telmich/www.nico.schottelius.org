@@ -1,0 +1,296 @@
+[[!meta title="Orkut - dangerous Big Brother database or fun place?"]]
+[[!meta date="2004-08-25"]]
+[[!toc]]
+
+This is my personal diary about using Orkut (www.orkut.com).
+
+## 27-Feb-2004
+   I got invited to orkut.
+
+## 29-Feb-2004
+   Getting first impressions. What is this "orkut"?
+   Looks like a secure thing: Only people who are invited may
+   join. So you most likely know that those are really the people
+   you know and not fake ones.
+
+   Well, you can even trust the communication, as 'dangerous people'
+   keep outside, can't you?
+
+   But why are they using HTTP and not HTTPS? Just keep that in mind..
+
+   Ok, lets register. What's that? In affilation with google?
+   Does that mean one can google through orkut?
+   Or does that mean google will sell their database to others?
+
+   Wow what the hell do they want to know? And why should it be senseful
+   to tell them all of my mail adresses? Don't I remember getting
+   spam on all adresses I use on the web? Let's create a Pseudo
+   Email, only used for Orkut, so we can track back the spam.
+
+   After only telling the needed information I see that the one who invited
+   me is my friend. And that he's got other friends. And they have
+   friends again. Wow. What a fucking big network.
+
+   Let's go to bed, continue tomorrow.
+
+## 01-Mar-2004
+   Currently I am browsing through the friends network. Seeing
+   what information I get, so I can conclude on what I will present
+   to others, when participating in orkut.
+   
+   There is the nice thing "communities", so I can see what the
+   persons interests are. Currently orkut looks like a big database of
+   many friends linked together. Perhaps I can profit from it?
+
+   Wow, there are many interesting communities. Everything I like is around me.
+   Logical, as my friends like same things I do.
+
+   Wait..as I am always logged in while viewing, they'll have a full
+   view for what is interesting for me.
+
+   They (=the ones who brougth up orkut) know who invited me. They know
+   his/her interests. Think about this in a chain.
+
+   So they can see who (with what attributes) is interested in which
+   communities and what you do.
+
+   Do you surf on in the "Bi & Lesbian"-section or are you enjoying
+   the "Internet" community?
+
+   Every klick is one point more for data collection. Every move
+   you make is recorded.
+
+   That sounds for me like "1984". What a horrible vision (or reality?).
+
+   Oh, let's have a look at whois, who owns orkut:
+
+    Domain Name: ORKUT.COM
+    Registrar: NETWORK SOLUTIONS, INC.
+    Whois Server: whois.networksolutions.com
+    Referral URL: http://www.networksolutions.com
+    Name Server: NS11.WORLDNIC.COM
+    Name Server: NS12.WORLDNIC.COM
+    Status: ACTIVE
+    Updated Date: 11-nov-2003
+    Creation Date: 08-dec-2002
+    Expiration Date: 08-dec-2006
+    
+    BUYUKKOKTEN, ORKUT (UHGFNCTSOD)
+    2400 W El Camino Real, Apt 419
+    MOUNTAIN VIEW, CA 94040-1680
+    US
+    
+    Domain Name: ORKUT.COM
+    
+    Administrative Contact:
+       BUYUKKOKTEN, ORKUT  (OBD36)               orkut@cs.stanford.edu
+       2400 W El Camino Real, Apt 419
+       MOUNTAIN VIEW, CA 94040-1680
+       US
+       650 888 5822 fax: 123 123 1234
+    
+    Technical Contact:
+       Network Solutions, Inc.  (HOST-ORG)               customerservice@networksolutions.
+    
+       13200 Woodland Park Drive
+       Herndon, VA 20171-3025
+       US
+       1-888-642-9675 fax: 571-434-4620
+    
+    Record expires on 08-Dec-2006.
+    Record created on 08-Dec-2002.
+    Database last updated on 1-Mar-2004 10:57:20 EST.
+    
+    Domain servers in listed order:
+    
+    NS11.WORLDNIC.COM            216.168.225.141
+    NS12.WORLDNIC.COM            216.168.225.142
+    
+
+   Well, this company does not tell me anything at all...
+   If you know something about them, please tell me.
+
+
+## 02-Mar-2004
+   After some researching I know that Orkut is being developed by someone
+   working at Google, BUYUKKOKTEN, ORKUT. (As seen in the whois,
+   but before I didn't know whether this is a person or a company.
+
+   While phoning with some people yesterday I developed some questions and structures:
+      
+      - orkut know who invited which persons 
+      - they know which communities somebody is interested in
+      - they see in whom or what you are interested, because
+        every visit is tracked with a username.
+      - if you enter wrong data (e.g. wrong surname) people will/may check
+        the "Bogus"-Button to tell that you are faking somebody
+      - the information provided in orkut are 
+
+
+## 22-Mar-2004
+   I didn't use my orkut account since 02-Mar-2004 and will now write an
+   email to 'them', requesting to delete my account.
+
+   Some people argument "But my data can also be found through google, why
+   should I not tell them Orkut?"
+
+   My answer: With google you cannot track what people do, what they like
+   and this together with country information, your hobbies, etc.
+
+   In my opinion Orkut is a BigBrother version in the web and I don't like
+   to participate and show 'them' every step I make.
+
+## 24-Mar-2004
+   Just got again the statement
+
+      "You should stop using IRC, delete all your mail accounts and stop surfing.",
+
+   after I said
+
+      "I wrote a message to orkut, that I would like to have them remove my account.
+      Look at http://nico.schotteli.us/papers/net/orkut-diary, why.".
+   
+
+   I'll try to explain the difference for you:
+
+      IRC: 
+         - it's easy to track "my" behaviour in IRC
+         - you cannot verify the identity of me very good
+         - when trying to track you, 'they' must normally join every channel
+           you are in (*see mark:1*)
+         - Queries cannot get tracked (*see mark:1*)
+   
+      Mail:
+         - mails are sent to different people on different hosts
+         - to read all my incoming mail, you got to have access to the mail
+           server hosting my email
+         - to read my outgoing mail, you need
+            a) to be my ISP and get all data while sending out (*see mark:1*)
+            b) to control _all_ mail servers of people I write to
+
+         - mails can easily be encrypted with PGP/GPG (http://www.gnupg.org)
+
+      WWW:
+         - normally if you visit two different websites
+           (e.g. www.google.com and www.astalavista.com), they don't know
+           from each other
+         - if you visit one website _from_ another site, the second one
+           knows where you come from (if not explicit disabled in your browser)
+           
+           E.g.:
+
+           http://linux.schottelius.org/gpm/ links to
+           http://lists.linux.it/pipermail/gpm/.
+
+           When you click on the link at http://linux.schottelius.org/gpm/, 
+           the host lists.linux.it registers that you come from
+           http://linux.schottelius.org/gpm/.
+
+           As said above, this can easily disabled in (good) browsers.
+         
+         - if you visit many links within one page
+           (e.g. looking at http://www.userfriendly.org cartoon archive),
+           it may be possible to track you, while you are keeping the same ip
+         
+         - if sites set and read cookies, they may assign you a unique id.
+           E.g.:
+           You visit www.microsoft.com. This sites sets the cookie
+           "customer_nr=3434oeuntoheu45ouonethaonehp".
+           After that you visit www.sco.com (not from a link from microsoft).
+
+           Your browser allows www.sco.com to readout the cookie
+           "customer_nr" and can exchange access logs with Microsoft
+           (this should generally not be possible todo cross-site-reading,
+           but can easily be done with a 'middle'-host like an adserver).
+
+           Most browser allow disabling cookies or at least to show a popup
+           box, asking you whether to use it or not.
+
+
+      mark 1:
+         Actually IRC, SMTP or HTTP are plain text protocols.
+         Every person sitting at a router at your ISP can see what you are
+         doing and the contents of every package you send and recieve.
+         
+         You should consider use SILC, TLS/SMTP, HTTPS or PGP encrypted mails
+         instead for better security.
+
+      Orkut:
+         - you have to login before you can visit anything
+         - every click (changing profile, reading other profiles, joining and
+           leaving communities, ..., just everything) is logged
+         - everything you do can easily added to statistics
+         - 'they' can do track user behaviours, user paths
+         
+         An example of path-tracking:
+         1. I (person_b) get invited by person_a
+         2. person_a is in community_a und community_b
+         3. I join community_a, too.
+         --> Now 'they' may know from which scene/interest area we come.
+         4. I click through the friends path of person_a and see that
+            there are some friends I know, too.
+         5. I click on a friend of person_a, whose name is person_h and
+            ask him to be 'my friend'.
+         6. There can be some reasons why I want to be his friend, the 
+            most obvious one is because I know person_a and person_h.
+         7. Now 'they' about some relationship...
+         
+         This information could be selled or transfered to the FBI for
+         instance...
+
+## 30-Mar-2004
+
+   Today I recieved information about what companies pay for filtered
+   user information, it's between $1 per address upto $10 per (snail-mail-)address.
+
+## 08-Apr-2004
+   
+   Just want to re-read their terms of Service. (http://www.orkut.com/terms.html)
+   Here are some interesting parts:
+
+   'We also reserve the right to modify these Terms of Service from time to time without notice.'
+   
+    --> nice, I don't hear or see anything, but will agree and use new
+        Terms of Service.
+
+   'In addition, you must provide true, accurate and complete registration information to be an orkut.com member ("Member").'
+
+   --> complete..very nice..if I would really complete fill out the form, they
+       would know everything about me.
+
+   'Other examples of illegal or unauthorized uses include, but are not limited to:'
+
+   ...'using any robot, spider, site search/retrieval application, or other device to retrieve or index any portion or the orkut.com service;'
+
+   --> well, 'they' may do it, we not...
+
+   'By submitting, posting or displaying any Materials on or through the orkut.com service, you automatically grant to us a worldwide, non-exclusive, sublicenseable, transferable, royalty-free, perpetual, irrevocable right to copy, distribute, create derivative works of, publicly perform and display such Materials. '
+
+
+   Sure, there are more, these are just examples.
+   There are more intersting things in 'http://www.orkut.com/privacy.html'.
+   
+   Looks like this story will end soon...
+
+## 17-May-2004
+
+   Looks like I got to reinvest time in my "Orkut-Diary".
+   It seems people sometimes don't see how they are confronted
+   with Orkut, although they are NOT part of it.
+
+   Did you ever think about what happened if you recieve an invitation
+   message? No?
+
+   Well, someone (perhaps a "friend") of you thought it would be nice to invite
+   you to Orkut. He/She entered your 
+      - First name
+      - Last name
+      - your Email
+      - and the level of which he/she knows you
+        (haven't met, acquaintance, friend, good friend, best friend)
+
+   Perhaps you decline the invitation Email, but what happens with this
+   data is unknown to you, to her/him. Perhaps the data will get sold
+   to other companies, perhaps Google uses it for their internal
+   statistics, perhaps they won't even have a look at them..
+   We don't know.
