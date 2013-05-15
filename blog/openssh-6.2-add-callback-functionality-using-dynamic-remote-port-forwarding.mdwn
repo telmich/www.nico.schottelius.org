@@ -94,7 +94,9 @@ The given patch has some known limitations:
 
 ## Future
 
-The patch will be submitted to the 
+The patch
+[has been submitted](http://lists.mindrot.org/pipermail/openssh-unix-dev/2013-May/031337.html)
+to the 
 [openssh-unix-dev mailinglist](https://lists.mindrot.org/mailman/listinfo/openssh-unix-dev) for discussion.
 
 [[!tag net unix]]
