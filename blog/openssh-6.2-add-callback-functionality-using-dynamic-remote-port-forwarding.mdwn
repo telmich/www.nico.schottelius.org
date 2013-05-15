@@ -1,0 +1,98 @@
+[[!meta title="OpenSSH 6.2: Add callback functionality (using dynamic remote port forwarding)"]]
+
+## Introduction
+
+This article describes a patch to OpenSSH 6.2 that I wrote to enable
+**ssh callback** using dynamic ports. This is rather useful to have
+for various types of software, including [[cdist|software/cdist]]
+and [[ccollect|software/ccollect]].
+
+## Background
+
+Assume you have two hosts: 
+
+ * A **target host**
+ * A **control host**
+    (backup server in case of [[ccollect|software/ccollect]],
+     configuration server in case of [[cdist|software/cdist]])
+
+Assume further that the target host can directly reach the control
+host, but the control host cannot connect to the target host directly.
+
+This is for instance the case, 
+when the target host is hidden by NAT
+or protected by a firewall.
+
+## Approaches
+
+### Create a tunnel from the target host to the control host
+
+A very simple solution is to create a static tunnel
+from the target host to the control host, which allows
+the control host to connect back:
+
+    targethost% ssh -R 42523:localhost:22 controlhost
+    controlhost% ssh -p 42523 localhost
+
+The drawback is that the remote port needs to be defined
+beforehand and both sides needs to know about it.
+
+This is especially nasty, if you have a lot of
+target hosts that need to be backed up / configured.
+
+### Use dynamic port allocation
+
+The [OpenSSH](http://openssh.org/) developers seem to have
+spotted this problem and include an option to use a random
+free port: If port 0 is chosen as the remote
+forwarding port, the port is dynamically chosen by the
+ssh server, which in our case runs on the controlhost.
+
+Even better, the port information is also displayed on stdout:
+
+    targethost% ssh -R 0:localhost:22 controlhost
+    Allocated port 59818 for remote forward to localhost:22
+
+The problem here is: The shell on the remote side does not
+know which port was chosen, as it is only printed on stdout
+by the **ssh client**.
+
+
+### Expose remote forwarding ports
+
+[[This patch|openssh-6.2p1-expose-remote-port-forwarding.diff]]
+against OpenSSH 6.2p1 creates a new environment variable
+***SSH_REMOTE_FORWARDING_PORTS***, which contains all ports
+that are used for remote forwarding:
+
+    targethost % ssh -R 1234:localhost:22 controlhost
+    controlhost % echo $SSH_REMOTE_FORWARDING_PORTS
+    1234
+
+As this works for all remotely forwarded ports, this can
+also be used for dynamic port assignments:
+
+    targethost % ssh -R 0:localhost:22 controlhost
+    controlhost % echo $SSH_REMOTE_FORWARDING_PORTS
+    54294
+
+If more than one port forwarding definition is given, they are listed
+space separated:
+
+    targethost % ssh -R 0:localhost:22 -R 1234:localhost:22 controlhost
+    controlhost % echo $SSH_REMOTE_FORWARDING_PORTS
+    59056 1234
+
+## Limitations
+
+The given patch has some known limitations:
+
+ * The destination is not shown, as it is not known for ssh2 connections
+ * The number of listed ports is limited by the buffer size of 256 characters
+
+## Future
+
+The patch will be submitted to the 
+[openssh-unix-dev mailinglist](https://lists.mindrot.org/mailman/listinfo/openssh-unix-dev) for discussion.
+
+[[!tag net unix]]
