@@ -87,7 +87,9 @@ space separated:
 
 The given patch has some known limitations:
 
- * The destination is not shown, as it is not known for ssh2 connections
+ * The destination of the remote forwarding is not shown.
+   Debugging the ssh server shows that this information was present
+   in ssh1, but is absent in ssh2.
  * The number of listed ports is limited by the buffer size of 256 characters
 
 ## Future
