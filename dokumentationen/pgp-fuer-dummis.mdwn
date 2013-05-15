@@ -1,0 +1,47 @@
+[[!meta date="2004-11-18"]]
+[[!meta title="PGP fuer Dummis - fuer Alex, jedoch nicht exklusiv"]]
+[[!toc]]
+
+## Was ist dieser komische Anhang (*.asc) in der Mail?
+
+Das ist eine digitale Signatur. Durch diese kann ueberprueft werden, ob die
+E-Mail wirklich von mir stammt.
+
+
+## Wie ueberpruefe ich denn nun, ob die Mail von dir ist?
+
+Zuerst muss man sich meinen oeffentlichen PGP-Schluessel holen.
+Den kann man entweder von ftp://ftp.schottelius.org/pub/family/nico/pgp-key.new
+herunterladen oder von einem "Key-Server" herunterladen.
+Diese Key-Server erreicht man mit seinem PGP-Programm. Dort
+verlangt man dann meine PGP-ID, die 8D0E27A4.
+
+Wenn der Schluessel in dein PGP-Programm eingefuegt ist, sollte es automatisch
+anzeigen, dass die E-Mail eine 'gute Signatur', das heisst das
+sie verifiziert werden konnte, hat.
+
+
+## Kann ich dir auch eine verschluesselte Mail senden?
+
+Ja, und das solltest du auch grundsaetzlich machen, wenn du von jemanden den
+oeffentlichen Schluessel hast. Ansonsten hat deine E-Mail den
+Status einer Postkarte, sie kann von jedem eingesehen werden.
+
+
+## Und wie kann ich nun eine verschluesselte E-Mail senden?
+
+Meinen oeffentlichen Schluessel hast du schon in dein PGP-Programm
+eingefuegt (wenn nicht musst du das jetzt erst einmal tun).
+
+Wenn du eine E-Mail an mich sendest, musst du beim Versenden
+zum Verschluesseln meine PGP-ID auswaehlen.
+
+Nachdem die E-Mail verschluesselt wurde, ist sie nur noch lesbar fuer mich.
+
+
+## Wie funktioniert das mit dem Empfangen von verschluesselten E-Mails?
+
+Der Sender muss deinen oeffentlichen Schluessel haben. Den kannst du entweder
+(voellig gefahrlos) auf eine Webseite legen oder ihn an einen
+Key-Server uebertragen. Derjenige, der dir dann eine E-Mail verschluesselt
+senden will, verfaehrt genauso wie du beim Schritt 4.
