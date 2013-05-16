@@ -91,6 +91,7 @@ The given patch has some known limitations:
    Debugging the ssh server shows that this information was present
    in ssh1, but is absent in ssh2.
  * The number of listed ports is limited by the buffer size of 256 characters
+ * Includes only remote port forwardings specified at startup, not the ones added later
 
 ## Future
 
