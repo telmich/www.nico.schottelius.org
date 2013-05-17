@@ -83,6 +83,52 @@ space separated:
     controlhost % echo $SSH_REMOTE_FORWARDING_PORTS
     59056 1234
 
+### Use socat
+
+Adapted from a proposal of
+[Philipp Marek](http://lists.mindrot.org/pipermail/openssh-unix-dev/2013-May/031350.html).
+
+A different approach is using socat like this:
+
+    targethost% socat TCP:localhost:22,retry=forever "EXEC:ssh controlhost"
+    controlhost% cat .ssh/authorized_keys
+    command="~/myscript 1224" ssh-rsa ...
+    controlhost% cat ~/myscript
+    socat - TCP-LISTEN:1234 &
+    ssh -p 1234 ...
+
+The drawback with this solution is to use pre-defined ports
+as well as socat on the targethost exiting after the 
+first connection has been closed. It works for a single shot
+callback, though.
+
+### Use ProxyCommand with stdin/stdout
+
+As proposed by 
+[Darren Tucker](http://lists.mindrot.org/pipermail/openssh-unix-dev/2013-May/031353.html) (some parts are copied & pasted from his original mail):
+
+    # Create fifo/named pipe for sshd
+    targethost% mkfifo sshd_in sshd_out
+
+    # Start ssh on the controlhost from the targethost
+    # and create a control socket. Use ProxyCommand=-
+    # to make use of stdin/stdout for proxying packets through.
+
+    targethost$ ssh <sshd_in >sshd_out -T -y controlhost "ssh -y -N -T -MS/tmp/ctl -oProxyCommand=- targethost" &
+    
+    # Start a new sshd on the client, which listens on the newly
+    # created fifos
+
+    targethost$ /usr/sbin/sshd -i -f < sshd_in > sshd_out
+
+    # on the server, use the control socket to talk to the 
+    # sshd running on the targethost
+    controlhost% ssh -S /tmp/ctl targethost
+
+Drawback: Quite complicated setup required, thus probably error prone on day-to-day use. 
+Advantage: Very beautiful use of FIFOs, ssh, controlsockets and proxycommand. A setup
+every geek must love.
+
 ## Limitations
 
 The given patch has some known limitations:
