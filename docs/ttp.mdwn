@@ -17,4 +17,11 @@
 ttp was submitted to [JofUR](http://www.universalrejection.org/)
 and rejected on 2011-03-04.
 
+## Irssi transformation plugin
+
+Ville Likitalo hosts a 
+[ttp irssi plugin](http://koti.kapsi.fi/~liki/irssi/ttp.pl) 
+that hypertransforms ttp and ttps (not described here) to
+http and https.
+
 [[!tag net unix]]
