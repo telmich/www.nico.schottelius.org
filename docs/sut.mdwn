@@ -1,0 +1,127 @@
+[[!meta title="Simple Universal Time (SUT)"]]
+
+## Introduction
+
+This article describes a simple solution to the
+problem of having to care about time zones, 
+clock adjusting due to summer and winter time
+changes. It also addresses the problematic to
+of non-metric conversion when used with other
+units.
+
+**Simple Universal Time (SUT)**  
+is suited for instant implementation and does
+not interfer with any current time system.
+
+## Motivation
+
+The life of individuals becomes more and more
+global:
+
+  * Communication takes place covering several time zones
+  * Travelling accross multiple time zones has become normal
+
+Due to this change, people are more and more confronted to
+think about the time in different time zones.
+
+To place a call, you have to find out
+
+  * in which time zone the target person is
+  * how much offset to UTC this particular time zone has
+  * remember the delta from my time zone to UTC
+  * create the delta from both time zones
+  * find a good time for a call
+
+This is quite cumbersome and wastes a lot of energy
+world wide, every day.
+
+Furthermore, changes from summer time to winter time zone
+make this process even harder: If you remember the offset
+for a particular location, the time zone may have changed
+due to summer time changes...
+
+There is another problem with the current time scheme:
+that is being non-metric. Having scientific 
+calculations with all metric units is usually broken up
+due to the non-metric behaviour of time. This is simply
+unecessary and can be easily fixed as the following
+proposal will show.
+
+## Proposal
+
+To simplify this time disaster, the following two changes
+are proposed for change:
+
+    * Convert the time of day to a metric system
+    * Drop all time zones and only use SUT
+
+### Conversion to metric
+
+For a simple start, assume there is no time definition and
+that we can start from scratch. Assume:
+
+  * A day has 10 hours
+  * An hour has 100 minutes
+  * A minutes has 100 seconds
+
+This would create a day that has 
+**10 * 100 * 100 = 100000*** seconds.
+
+The old scheme used to have 24 hours, 60 minutes per hour
+and 60 seconds per minute, which resulted in
+**24 * 60 * 60 = 86400** seconds.
+
+Let us prefix the new definition with the word 
+**simple** to be able to distinguish between the two schemes and
+let us convert them into another:
+
+    100000 simple seconds = 86400 seconds # divide by 100000
+    1 simple second = 0.864 seconds
+
+Or the other way around:
+
+    86400 seconds = 100000 simple seconds # divide by 86400
+    1 second = 1.157407 (periodical, rounded)
+
+### Drop all time zones
+
+To be able to have one global time that everybody can use
+without the need of calculations, there won't be any time
+zones defined for use with **SUT**. Instead, SUT is based
+on UTC.
+
+### Time format
+
+As SUT only includes 10 hours, you can display time of the
+day using the following format:
+
+    H:MM:SS
+
+where **H** is in the range of **0-9**, **MM** in the range of
+**00-99** and **SS** in the range of **00-99**.
+
+## Implications for Society
+
+When changing to SUT, societies productivity will
+improve pretty fast. 
+If a particular society wants to keep the 
+unclear advantage of summe time, it can even do so by using
+SUT: 
+
+Instead of changing the time, this society can announce that
+all shops open up earlier in summer and open up later in
+winter time. Beware: An actual advantage of using summer time
+for a society using **summer time** of one that doesn't 
+**has not been proven**.
+
+## Using SUT
+
+You can start right away to use SUT in your daily work.
+
+SKMP created a javascript implementation of SUT, so you
+can easily see the current time:
+
+[[js.html]]
+
+The source is available 
+[at github](https://github.com/telmich/sut).
