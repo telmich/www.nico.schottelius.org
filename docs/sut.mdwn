@@ -130,6 +130,5 @@ As societies are adopting more and supporting utilities
 will be created. You are advised to open source them
 and add them to the [sut git repository](https://github.com/telmich/sut).
 
-SUT may become
-[a new standard](http://xkcd.com/927/) to replace
-all existing timezones zone.
+SUT is [the new standard](http://xkcd.com/927/) to replace
+timezones, summer time changes and the 24 hour day.
