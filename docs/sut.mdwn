@@ -119,12 +119,10 @@ for a society using **summer time** of one that doesn't
 You can start right away to use SUT in your daily work.
 
 SKMP created a javascript implementation of SUT, so you
-can easily see the current time:
+can easily see the current time.
+It is hosted at
 
-[[!inline pages="sut.js" raw="yes" rss="no" atom="no"l]]
-
-The source is available 
-[at github](https://github.com/telmich/sut).
+[http://telmich.github.io/sut](http://telmich.github.io/sut)
 
 ## Future Work
 
