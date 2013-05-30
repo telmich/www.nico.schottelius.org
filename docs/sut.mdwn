@@ -118,7 +118,8 @@ for a society using **summer time** of one that doesn't
 
 You can start right away to use SUT in your daily work.
 
-SKMP created a javascript implementation of SUT, so you
+[Stefanos Kornilios Mitsis Poiitidis](https://github.com/skmp)
+created a javascript implementation of SUT, so you
 can easily see the current time.
 It is hosted at
 
