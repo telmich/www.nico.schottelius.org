@@ -121,7 +121,7 @@ You can start right away to use SUT in your daily work.
 SKMP created a javascript implementation of SUT, so you
 can easily see the current time:
 
-[[js.html]]
+[[!inline sut.jsl]]
 
 The source is available 
 [at github](https://github.com/telmich/sut).
