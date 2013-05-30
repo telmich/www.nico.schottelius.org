@@ -65,7 +65,7 @@ that we can start from scratch. Assume:
   * A minutes has 100 seconds
 
 This would create a day that has 
-**10 * 100 * 100 = 100000*** seconds.
+**10 * 100 * 100 = 100000** seconds.
 
 The old scheme used to have 24 hours, 60 minutes per hour
 and 60 seconds per minute, which resulted in
