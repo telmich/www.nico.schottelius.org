@@ -121,7 +121,17 @@ You can start right away to use SUT in your daily work.
 SKMP created a javascript implementation of SUT, so you
 can easily see the current time:
 
-[[!inline pages="sut.js" raw="yes"l]]
+[[!inline pages="sut.js" raw="yes" rss="no" atom="no"l]]
 
 The source is available 
 [at github](https://github.com/telmich/sut).
+
+## Future Work
+
+As societies are adopting more and supporting utilities
+will be created. You are advised to open source them
+and add them to the [sut git repository](https://github.com/telmich/sut).
+
+SUT may become
+[a new standard](http://xkcd.com/927/) to replace
+all existing timezones zone.
