@@ -122,7 +122,6 @@ You can start right away to use SUT in your daily work.
 created a javascript implementation of SUT, so you
 can easily see the current time.
 It is hosted at
-
 [http://telmich.github.io/sut](http://telmich.github.io/sut)
 
 ## Future Work
