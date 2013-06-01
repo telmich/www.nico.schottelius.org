@@ -1,0 +1,23 @@
+[[!meta title="Introducing Simple Universal Time (SUT)"]]
+
+For some time I've been discussing this idea with some friends:
+One simple time format that simplifies our lifes: 
+**Simple Universal Time (SUT)**.
+
+Instead of relying on time zones, it simplifies life by
+reducing life to the max: It skips time zones.
+Instead of using 24 hours, 60 minutes and 60 seconds
+scheme, it is a metric centric time: Simple Universal
+Time knows about 10 hours a day, with 100 minutes
+and 100 seconds.
+
+Thanks to **Stefanos Kornilios Mitsis Poiitidis**
+you can see the
+[current time in SUT](http://telmich.github.io/sut).
+The [[Simple Universal Time page|docs/sut]] shows in detail
+how it works.
+
+Make your life easier by switching to SUT - your brain and
+your phone partners will be thankful!
+
+[[!tag net time]]
