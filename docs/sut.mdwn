@@ -83,6 +83,17 @@ Or the other way around:
     86400 seconds = 100000 simple seconds # divide by 86400
     1 second = 1.157407 (periodical, rounded)
 
+So having the seconds calculated, we can also compare the
+minutes and hours:
+
+    1 simple minute = 100 simple seconds => 86.4 seconds = 1 minute 26.4 seconds
+    1 simple hour = 10000 simple seconds => 8640 seconds = 144 minutes = 2h 24 minutes
+
+And the other way round:
+
+    1 minute = 60 seconds => 69.4 simple seconds (not one simple minute!)
+    1 hour = 3600 seconds => 4166.67 simple seconds = 41.6667 simple minutes = 0.4167 simple hours 
+
 ### Drop all time zones
 
 To be able to have one global time that everybody can use
@@ -124,7 +135,11 @@ can easily see the current time.
 It is hosted at
 [http://telmich.github.io/sut](http://telmich.github.io/sut)
 
-## Future Work
+## Future and Related Work
+
+Parts of the SUT proposal are also covered by the
+[Decimal Time](http://en.wikipedia.org/wiki/Decimal_time),
+which has been used in France around 1792.
 
 As societies are adopting more and supporting utilities
 will be created. You are advised to open source them
