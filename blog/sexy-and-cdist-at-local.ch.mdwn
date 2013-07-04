@@ -1,0 +1,134 @@
+[[!meta title="Sexy and cdist @ local.ch"]]
+
+## Introduction
+
+This article describes the real world setup of
+[[sexy|software/sexy]] and
+[[cdist/software/cdist]] at [local.ch](http://www.local.ch).
+Sexy and cdist are used to configure
+
+ * dhcp servers
+ * dns servers
+ * KVM hosts
+
+at local.ch.
+
+As I am soon leaving local.ch, this blog post is written for
+those interested in sexy and cdist, as well as the other
+sysadmins at local.ch to remember how things are setup.
+
+The following picture will give you a general impression how things
+are setup.
+
+[[!img sexy-cdist-interaction-local.ch.png alt="How cdist and sexy act at local.ch"]]
+
+## Sexy installation
+
+As you may be aware, sexy is an inventory management utility. It manages
+**hosts** and **IPv4 networks** (IPv6 support planned - but currently not required).
+
+Sexy uses a [[cconfig|documentation/cconfig]] database, which is stored at **~/.sexy**.
+At local.ch, almost all important configurations are backed up at
+[github](http://www.github.com). The sexy database is backed up there in a private
+repository named **sexy-database**.
+
+Sexy requires only Python 3 to be installed.
+
+### Sexy database
+
+[[!img sexy-database-overview.png alt="Overview of the sexy database"]]
+
+As you can see in the above image,
+the sexy database contains three databases:
+
+ * host
+ * mac
+ * net-ipv4
+
+The **host** database contain all hosts, including mac addresses, host type (VM or hardware),
+network cards, etc.
+
+The **mac** database contains the prefix for generating new mac addresses (we are using 00:16:3e -
+guess which vendor it is!) and the used mac addresses. The mac database is essentially used
+for generating mac addresses for virtual machines.
+
+The **net-ipv4** database contains the configured **IPv4 networks**.
+Each IPv4 network contains
+
+ * the network mask
+ * last used address
+ * list of free addresses
+ * list of hosts
+
+Every hosts in an **IPv4 network** contains
+
+ * an IPv4 address
+ * a mac address
+
+### Sexy backends
+
+Sexy uses backends to interact with other systems. As can be seen
+below, both the **host** and **net-ipv4** backends write configuration
+files in cdist.
+
+[[!img sexy-backends-local.ch.png alt="Sexy backends @local.ch"]]
+
+Sexy outputs the VM to KVM host mapping into a cdist manifest stored in
+**cdist/manifest/kvm-hosts**. The cdist type  **\_\_localch_kvm_vm** is
+being used to create VMs.
+
+Sexy also generates [BIND](https://www.isc.org/downloads/bind/) zone files
+as well as [DHCP](https://www.isc.org/downloads/DHCP/) configuration files.
+These files are stored within the cdist types
+**\_\_localch_bind** and **\_\_localch_dhcpd**.
+
+## cdist installation
+
+Similar to sexy, cdist requires only Python 3 to be installed, but only on the
+computer you use to configure the target hosts. The target hosts only require
+shell and ssh.
+
+cdist normally reads its configuration from **~/.cdist**. As the
+current installation is old-style, the custom configuration and cdist code
+is both stored at **~/localch/vcs/cdist**, which is also backed up 
+as a private repository named **cdist** at github.
+
+cdist is currently being used directly from the sysadmin notebooks and thus
+requires to synchronise the repository before running.
+cdist is being utilised using scripts from the **sysadmin-logs** repository,
+which are stored in the **cdist** folder. They mainly wrap around
+**cdist config -vp <hostnames...>**.
+
+## Interaction with other systems
+
+### Sexy connection to cdist
+
+To be able to interact with cdist, the sexy backends do have some paths hardcoded.
+One of them being **~/localch/vcs/cdist**, which refers to the cdist installation.
+
+On **sexy host apply --all**, sexy will regenerate the
+cdist manifest **~/localch/vcs/cdist/conf/manifest/kvm-hosts**, which contains
+the configuration for all kvm hosts.
+
+### cdist with dhcp and dns servers
+
+To configure the dhcp servers, the script **sysadmin-logs/cdist/dhcp-servers** can
+be used, to configure the dns servers, the script
+**sysadmin-logs/cdist/dns-servers** can be used.
+If you want to change both systems at the same time, the
+script **sysadmin-logs/cdist/dhcp-dns-together**.
+
+All three scripts depend on sexy and the sexy database being installed, as they lookup
+the host names using sexy.
+
+### cdist creates virtual machines
+
+The KVM infrastructure is based on very simple assumptions: All files are contained
+on the host, machines are started from simple shell scripts. The shell scripts are
+maintained or created within cdist. Virtual machines are not started by default,
+because the installation process is triggered manually at PXE bootup.
+
+
+## Outlook
+
+In one of the next articles I'll cover the KVM VM infrastructure of local.ch.
