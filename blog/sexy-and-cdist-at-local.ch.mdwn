@@ -4,7 +4,7 @@
 
 This article describes the real world setup of
 [[sexy|software/sexy]] and
-[[cdist/software/cdist]] at [local.ch](http://www.local.ch).
+[[cdist|software/cdist]] at [local.ch](http://www.local.ch).
 Sexy and cdist are used to configure
 
  * dhcp servers
