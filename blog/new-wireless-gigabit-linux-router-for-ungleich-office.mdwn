@@ -38,9 +38,10 @@ Drawback: It has only 8 MiB of flash attached
 and its [OpenWRT and 802.11ac support](https://forum.openwrt.org/viewtopic.php?id=44201) is still work in progress.
 
 Given that all our clients support 802.11n only currently,
-I was considering some other router. Remembering that
+I was considering other routers as well. Remembering that
 I've recently installed a
-[RB750GL](http://routerboard.com/RB750GL) and seen some
+[RB750GL](http://routerboard.com/RB750GL) 
+at [panter](http://www.panter.ch) and seen some
 Mikrotik devices on the OpenWRT page, I also checked out
 their website, which brings me to the router I chose:
 [RB2011UAS-2HnD-IN](http://routerboard.com/RB2011UAS-2HnD-IN):

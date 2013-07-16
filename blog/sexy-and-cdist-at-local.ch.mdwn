@@ -27,7 +27,7 @@ are setup.
 As you may be aware, sexy is an inventory management utility. It manages
 **hosts** and **IPv4 networks** (IPv6 support planned - but currently not required).
 
-Sexy uses a [[cconfig|documentation/cconfig]] database, which is stored at **~/.sexy**.
+Sexy uses a [[cconfig|docs/cconfig]] database, which is stored at **~/.sexy**.
 At local.ch, almost all important configurations are backed up at
 [github](http://www.github.com). The sexy database is backed up there in a private
 repository named **sexy-database**.
