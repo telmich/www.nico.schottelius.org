@@ -1,0 +1,58 @@
+[[!meta title="New Linux wireless gigabit Linux router for ungleich office"]]
+
+[[!img rb2011uas2hnd-in.jpg alt="Mikrotik RB2011UAS-2HnD-IN"]]
+
+
+## Introduction
+
+We are getting a new 150Mbit/s (down) Internet connection
+in the [ungleich office](http://www.ungleich.ch) in August 2013.
+Unfortunately, our current router **katze**, a 
+[Soekris net5501](http://soekris.com/products/net5501.html),
+is not able to process 150 Mbit/s, as it contains only
+Fast Ethernet interfaces.
+
+So it's time for a geeky replacement.
+
+## Searching for available products
+
+What's the best plattform to search for a Linux based
+router that is probably good supported by FOSS?
+
+I started to cross match devices from the local
+vendor [digitec](http://www.digitec.ch) with the list
+of [supported device of OpenWRT](http://wiki.openwrt.org/toh/start).
+
+Essentially I was looking for devices with
+
+ * high cpu speed (to be able to handle gigabit traffic)
+ * some memory to flash an open image like OpenWRT on it
+ * support for hardware already in the Linux kernel
+ * support for at least 802.11n, 802.11ac optional
+
+## Selecting a router
+
+After digging into the specs of many routers, the
+[TP-Link Archer C7](http://www.tp-link.com.de/products/details/?categoryid=2872&model=Archer+C7) looked pretty well and even supports 802.11ac.
+Drawback: It has only 8 MiB of flash attached
+and its [OpenWRT and 802.11ac support](https://forum.openwrt.org/viewtopic.php?id=44201) is still work in progress.
+
+Given that all our clients support 802.11n only currently,
+I was considering some other router. Remembering that
+I've recently installed a
+[RB750GL](http://routerboard.com/RB750GL) and seen some
+Mikrotik devices on the OpenWRT page, I also checked out
+their website, which brings me to the router I chose:
+[RB2011UAS-2HnD-IN](http://routerboard.com/RB2011UAS-2HnD-IN):
+
+ * Gigabit, 802.11n supported
+ * Should be OpenWRT supported using nand flash
+ * Geeky LCD
+ * 11W power consumption
+
+As [Mikrotik](http://www.mikrotik.com/) 
+seems to produce a lot of cool devices, the decision
+was also made to support this company instead of the usual
+big ones.
+
+[[!tag net unix foss ungleich]]
