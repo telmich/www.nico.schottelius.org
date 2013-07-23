@@ -1,0 +1,350 @@
+[[!meta title="KVM Virtual Machines managed with cdist and sexy @ local.ch"]]
+
+## Introduction
+
+This article describes the KVM setup of [local.ch](http://www.local.ch), which is
+managed by [[sexy|software/sexy]] and configured by [[cdist/software/cdist]].
+
+If you haven't so far, you may want to have a look at the
+[[Sexy and cdist @ local.ch|sexy-and-cdist-at-local.ch]] 
+article before continuing to read this one.
+
+## KVM Host configuration
+
+The KVM hosts are Dell R815 with CentOS 6.x installed. Why Dell? Because they
+offered us a good price/value combination for the boxes. Why CentOS? Historical
+reasons. The hosts got a minimal set of BIOS tuning to support the VM performance:
+
+ * Enable the usual virtualisation flags (don't forget the IOMMU!)
+ * Change the power profile to **Maximum Perforamnce**
+
+Furthermore, as the CentOS kernel is pretty old (2.6.32-279) and 
+conservatively configured, the kernel needs the following 
+command line option to enable the IOMMU:
+
+    amd_iommu=on
+
+Not enabling this option degrades the performance by at least 100%. In our case,
+enabling it dropped the latency of the application by a factor of 10.
+
+One big motivation of the the KVM setup at local.ch is to make the 
+KVM hosts as independent as possible and sensibly fault tolerant. That said,
+VMs are stored on local storage and hosts are always redundantly connected
+to two switches use [LACP](https://en.wikipedia.org/wiki/Link_aggregation).
+
+
+## KVM Host Network Configuration
+
+[[!img kvm-setup-local.ch-overview.png alt="Overview of KVM setup at local.ch"]]
+
+As can be seen in the picture above, every KVM host is connected to two
+**10G Arista switches (7050T-52-R)** using LACP. Besides being capable
+of running 10G, the Arista switches are actually pretty neat for the Unix geek,
+because they are Linux based with a
+[FPGA](https://en.wikipedia.org/wiki/Field-programmable_gate_array) 
+attached. Furthermore you can easily
+gain access to a shell by typing **enable** followed by **bash**.
+
+The Arista switches are connected together with 2x 10G links, over which LACP+MLAG
+is configured. This gives us the ability to connect every KVM host with LACP to two
+**different** switches: They use MLAG to synchronise their LACP states.
+
+On the KVM host, the network is configured as follows:
+
+The dual Port 10G card (Intel Corporation 82599EB) is bonded together into bond0.
+
+    [root@kvm-hw-inx01 network-scripts]# cat /proc/net/bonding/bond0 
+    Ethernet Channel Bonding Driver: v3.6.0 (September 26, 2009)
+    
+    Bonding Mode: IEEE 802.3ad Dynamic link aggregation
+    Transmit Hash Policy: layer2 (0)
+    MII Status: up
+    MII Polling Interval (ms): 0
+    Up Delay (ms): 0
+    Down Delay (ms): 0
+    
+    802.3ad info
+    LACP rate: slow
+    Aggregator selection policy (ad_select): stable
+    Active Aggregator Info:
+        Aggregator ID: 3
+        Number of ports: 2
+        Actor Key: 33
+        Partner Key: 30
+        Partner Mac Address: 02:1c:73:1b:f5:b2
+    
+    Slave Interface: eth4
+    MII Status: up
+    Speed: 10000 Mbps
+    Duplex: full
+    Link Failure Count: 0
+    Permanent HW addr: 68:05:ca:0b:5b:6a
+    Aggregator ID: 3
+    Slave queue ID: 0
+    
+    Slave Interface: eth5
+    MII Status: up
+    Speed: 10000 Mbps
+    Duplex: full
+    Link Failure Count: 0
+    Permanent HW addr: 68:05:ca:0b:5b:6b
+    Aggregator ID: 3
+    Slave queue ID: 0
+
+The following configuration is used to create the bond0 device:
+
+    [root@kvm-hw-inx01 network-scripts]# cat ifcfg-bond0
+    DEVICE=bond0
+    BOOTPROTO=none
+    BONDING_OPTS="mode=802.3ad"
+    ONBOOT=yes
+    MTU=9000
+
+    [root@kvm-hw-inx01 sysconfig]# cat network-scripts/ifcfg-eth4
+    DEVICE="eth4"
+    NM_CONTROLLED="yes"
+    USERCTL=no
+    ONBOOT=yes
+    MASTER=bond0
+    SLAVE=yes
+    BOOTPROTO=none
+    
+    [root@kvm-hw-inx01 sysconfig]# cat network-scripts/ifcfg-eth5
+    DEVICE="eth5"
+    NM_CONTROLLED="yes"
+    USERCTL=no
+    ONBOOT=yes
+    MASTER=bond0
+    SLAVE=yes
+    BOOTPROTO=none
+
+The MTU of the 10G cards has been set to 9000, as the Aristas support 
+[Jumbo Frames](https://en.wikipedia.org/wiki/Jumbo_frame).
+
+Every VM is attached to two different networks:
+
+ * PZ: presentation (for general traffic) (10.18x.0.0/22 network)
+ * FZ: filerzone (for NFS and database traffic) (10.18x.64.0/22 network)
+
+Both networks are seperated using the VLAN tags 2 (pz) and 3 (fz), which result
+in **bond0.2** and **bond0.3**:
+
+    [root@kvm-hw-inx01 network-scripts]# ip l | grep bond
+    6: eth4: <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP> mtu 9000 qdisc mq master bond0 state UP qlen 1000
+    7: eth5: <BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP> mtu 9000 qdisc mq master bond0 state UP qlen 1000
+    8: bond0: <BROADCAST,MULTICAST,MASTER,UP,LOWER_UP> mtu 9000 qdisc noqueue state UP 
+    139: bond0.2@bond0: <BROADCAST,MULTICAST,MASTER,UP,LOWER_UP> mtu 9000 qdisc noqueue state UP 
+    140: bond0.3@bond0: <BROADCAST,MULTICAST,MASTER,UP,LOWER_UP> mtu 9000 qdisc noqueue state UP 
+
+To keep things simple, the two vlan tagged (bonded) interfaces are added to a bridge each,
+to which the VMs are attached later on. The full configuration looks like this:
+
+    [root@kvm-hw-inx01 network-scripts]# cat ifcfg-bond0.2 
+    DEVICE="bond0.2"
+    ONBOOT=yes
+    VLAN=yes
+    BRIDGE=brpz
+    
+    [root@kvm-hw-inx01 network-scripts]# cat ifcfg-brpz
+    DEVICE=brpz
+    TYPE=Bridge
+    ONBOOT=yes
+    DELAY=0
+    NM_CONTROLLED=no
+    MTU=9000
+
+This is how a bridge looks like in production (with about 70 lines stripped):
+
+    [root@kvm-hw-inx01 network-scripts]# brctl show
+    bridge name bridge id       STP enabled interfaces
+    brfz        8000.024db29ca91f   no      bond0.3
+                                tap13
+                                tap73
+                                [...]
+    brpz        8000.02f6742800b2   no      bond0.2
+                                tap0
+                                tap1
+                                [...]
+
+Summarised, the network configuration of a KVM host looks like this:
+
+    arista1 arista2
+      |       |
+    [eth4 + eth5]   -> bond0
+                        |
+                        |
+                       / \
+                bond0.2  bond0.3
+                 /             \
+            brpz              brfz
+                 \             /
+                tap1        tap2 
+                     \     /
+                       VM
+
+
+
+## VM configuration
+
+The VM configuration can be found below **/opt/local.ch/sys/kvm**
+on every KVM host. Every VM is stored below
+**/opt/local.ch/sys/kvm/vm/<vm name>** and contains the following
+files:
+
+    [root@kvm-hw-inx03 jira-vm-inx01.intra.local.ch]# ls
+    monitor  pid  start  start-on-boot  system-disk  vnc
+
+
+ * monitor: socket to the monitor from KVM
+ * pid: the pid of the VM
+ * start: the script to start the VM (see below for an example)
+ * start-on-boot: if this file exists, the VM will be started on boot
+ * system-disk: the qcow2 image of the system disk
+ * vnc: socket to the screen of the VM
+
+With the exception of monitor, pid and vnc are all files generated by cdist.
+One of the major concerns of this KVM setup is that all hosts have as little
+as possible dependencies. That said, the start script of a VM looks like this:
+
+    [root@kvm-hw-inx03 jira-vm-inx01.intra.local.ch]# cat start
+    #!/bin/sh
+    # Generated shell script - do not modify
+    #
+    
+    /usr/libexec/qemu-kvm \
+        -name jira-vm-inx01.intra.local.ch \
+        -enable-kvm \
+        -m 8192 \
+        -drive file=/opt/local.ch/sys/kvm/vm/jira-vm-inx01.intra.local.ch/system-disk,if=virtio \
+        -vnc unix:/opt/local.ch/sys/kvm/vm/jira-vm-inx01.intra.local.ch/vnc \
+        -cpu host \
+        -boot order=nc \
+        -pidfile "/opt/local.ch/sys/kvm/vm/jira-vm-inx01.intra.local.ch/pid" \
+        -monitor "unix:/opt/local.ch/sys/kvm/vm/jira-vm-inx01.intra.local.ch/monitor,server,nowait" \
+        -net nic,macaddr=00:16:3e:02:00:ab,model=virtio,vlan=200 \
+            -net tap,script=/opt/local.ch/sys/kvm/bin/ifup-pz,downscript=/opt/local.ch/sys/kvm/bin/ifdown,vlan=200 \
+        -net nic,macaddr=00:16:3e:02:00:ac,model=virtio,vlan=300 \
+            -net tap,script=/opt/local.ch/sys/kvm/bin/ifup-fz,downscript=/opt/local.ch/sys/kvm/bin/ifdown,vlan=300 \
+        -smp 4
+    
+Most parameter values depend on output of sexy, which uses the cdist type, which in turn
+assembles this start script. The above script may be useful for one or more of my readers,
+as it includes a lot of tuning we have done to KVM.
+
+
+## Automatic startup of VMs
+
+The virtual machines are brought up by an init script located at
+***/etc/init.d/kvm-vms***.  As every VM contains its own startup script
+and is marked whether it should be started at boot, the init script
+is pretty simple:
+
+    basedir=/opt/local.ch/sys/kvm/vm
+    
+    broken_lock_file_for_centos=/var/lock/subsys/kvm-vms
+    
+    case "$1" in
+        start)
+            cd "$basedir"
+            
+            # Specific VM given
+            if [ "$2" ]; then
+                vm_list=$2
+            else
+                vm_list=$(ls)
+            fi
+    
+            for vm in $vm_list; do
+                vm_base_dir="$basedir/$vm"
+                start_script="$vm_base_dir/start"
+    
+                # Skip start of machines which should not start
+                if [ ! -f "$vm/start-on-boot" ]; then
+                    continue
+                fi
+    
+                echo "Starting VM $vm ..."
+                logger -t kvm-vms "Starting VM $vm ..."
+                screen -d -m -S "$vm" "$start_script"
+            done
+    
+            touch "$broken_lock_file_for_centos"
+        ;;
+
+As you can see, every VM is started in its own
+[screen](http://www.gnu.org/software/screen/). We decided to go for this approach,
+as screen is sometimes buggy and hangs itself up. This way, we only lose on machine
+on every screen death, not all of them at the same time. Furthermore, screen is usually
+limited to a maximum number of windows it can server.
+When everything went successful, the process output for a virtual machine looks like this:
+
+    root     64611  0.0  0.0 118840   852 ?        Ss   Mar11   0:00 SCREEN -d -m -S binarypool-vm-inx02.intra.local.ch /opt/local.ch/sys/kvm/vm/binarypool-vm-inx02.intra.local.ch/start
+    root     64613  0.0  0.0 106092  1180 pts/22   Ss+  Mar11   0:00 /bin/sh /opt/local.ch/sys/kvm/vm/binarypool-vm-inx02.intra.local.ch/start
+    root     64614  2.9  2.2 9106828 5819748 pts/22 Sl+ Mar11 5221:41 /usr/libexec/qemu-kvm -name binarypool-vm-inx02.intra.local.ch -enable-kvm -m 8192 -drive file=/opt/local.ch/sys/kvm/vm/binarypool-vm-inx02.intra.local.ch/system-disk,if=virtio -vnc unix:/opt/local.ch/sys/kvm/vm/binarypool-vm-inx02.intra.local.ch/vnc -cpu host -boot order=nc -pidfile /opt/local.ch/sys/kvm/vm/binarypool-vm-inx02.intra.local.ch/pid -monitor unix:/opt/local.ch/sys/kvm/vm/binarypool-vm-inx02.intra.local.ch/monitor,server,nowait -net nic,macaddr=00:16:3e:02:00:7f,model=virtio,vlan=200 -net tap,script=/opt/local.ch/sys/kvm/bin/ifup-pz,downscript=/opt/local.ch/sys/kvm/bin/ifdown,vlan=200 -net nic,macaddr=00:16:3e:02:00:80,model=virtio,vlan=300 -net tap,script=/opt/local.ch/sys/kvm/bin/ifup-fz,downscript=/opt/local.ch/sys/kvm/bin/ifdown,vlan=300 -smp 4
+
+## Common Tasks
+
+The following sections show you how to do regular maintenance
+tasks on the KVM infrastructure.
+
+### Create a VM
+
+VMs can easily be created using the script **vm/create-vm** from the sysadmin-logs repository
+(local.ch internally), which looks like this:
+
+    sexy host add --type vm $fqdn
+    sexy host vm-host-set --vm-host $vmhost $fqdn
+    sexy host disk-add --size $disksize $fqdn
+    sexy host memory-set --memory $memory $fqdn
+    sexy host cores-set --cores $cores $fqdn
+    
+    mac_pz=$(sexy mac generate)
+    mac_fz=$(sexy mac generate)
+    sexy host nic-add $fqdn -m $mac_pz -n pz
+    sexy host nic-add $fqdn -m $mac_fz -n fz
+    
+    sexy net-ipv4 host-add "$net_pz" -m "$mac_pz" -f "$fqdn"
+    sexy net-ipv4 host-add "$net_fz" -m "$mac_fz" -f "$fz_fqdn"
+    
+    echo "Updating git / github ..."
+    cd ~/.sexy
+    git add db
+    git commit -m "Added host $fqdn"
+    git pull
+    git push
+    
+    # Apply changes: first network, so dhcp & dns are ok, then create VM
+    cat << eof
+    Todo for apply:
+    sexy net-ipv4 apply --all
+    sexy host apply --all
+    
+    Start VM on $vmhost: ssh $vmhost /opt/local.ch/sys/kvm/vm/$fqdn/start
+    eof
+
+
+### Delete a VM
+
+Run the script **remove-host**, which essentially does the following:
+
+ * Remove various monitoring / backup configurations
+ * Detect if it is a VM, if so
+  * Stop it
+  * Remove it from the host
+  * Add mac address to the list of free mac addresses
+ * Delete host from the networks
+ * Delete host from sexy database
+
+
+### Move VM to another server
+
+To move one VM to another host, the following steps are necessary:
+
+ * sexy host vm-host-set ... # to new host
+ * stop vm
+ * scp/rsync directory from old host to new host
+ * sexy host apply --all # record db change
+ * start vm on new host
+
+
+[[!tag cdist localch net sexy unix]]
