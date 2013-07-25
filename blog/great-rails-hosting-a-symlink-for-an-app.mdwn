@@ -2,15 +2,12 @@
 
 ## Introduction
 
-As the [[!ungleich]]
-focusses on educated customers, we meet pretty cool
-infrastructures from time to time.
-
+As [[!ungleich]] focusses on educated customers, 
+we meet pretty cool infrastructures from time to time.
 In some sense I count [[!localch]]
 as a customer: they supported me with one day off
-per week so I was able to found the ungleich GmbH
+per week so I was able to found [[!ungleich]]
 and acquire first customers.
-
 This article is dedicated to local.ch and describes
 a very elegant solution for Ruby on Rails hosting.
 
@@ -28,7 +25,8 @@ together in an elegant way:
 ## Nginx
 
 The great trick of the setup is that nginx is used to forward requests 
-to a unix socket that depends on the **hostname**. The following
+to a unix socket that depends on the **hostname**, which is
+exposed as **$host** by nginx. The following
 configuration snippet contains the important parts:
 
     server {
@@ -40,6 +38,10 @@ configuration snippet contains the important parts:
             [...]
         
         location ~ "^/assets/.*-[a-z0-9]{32}.\w+" {
+            root /var/nginx/$host/current/public;
+            [...]
+
+        location ~ ^/assets/ {
             root /var/nginx/$host/current/public;
             [...]
 
@@ -66,11 +68,11 @@ as setup by nginx.
 ## Application Deployment
 
 Applications are deployed under their project name below
-**/var/nginx** (like ws-locomotive.dev-deploy or ws-locomotive.master).
+**/var/nginx** 
+(like **ws-locomotive.dev-deploy** or **ws-locomotive.master**).
 As you can see from the naming, developers can deploy one application
 from different branches easily (dev-deploy and master branches is this
 case).
-
 Developers can use [[!capistrano]] to deploy their applications
 and don't need to interact (reload/restart) with nginx, as it is
 already configured to accept any hostname.
@@ -78,8 +80,9 @@ already configured to accept any hostname.
 ## Name Server Configuration
 
 As you can imagine, it would be quite cumbersome for developers to
-reach a host named **ws-locomotive.dev-deploy**, a wildcard domain
-is configured that points to the box running nginx:
+reach a host named **ws-locomotive.dev-deploy**.
+That is why a wildcard domain is configured to point
+to the host running nginx:
 
     *.play.intra.local.ch. CNAME rails-dev-vm-snr01.intra.local.ch.  
 
@@ -104,12 +107,13 @@ with:
 The setup is pretty elegant, because it allows developers to
 create new development environments without interacting with any
 sysadmin to configure nginx, bind or whatsoever.
-
 There is a security drawback though:
 An attacker could try to use hostnames like
 **../../../../etc/** and request the file **passwd**.
-
-And that is the reasion why service is not exposed to the outside world...
+That is the reasion why this service is not exposed 
+to the outside world directly, but all external requests
+are filtered (whitelisting) by a load balancer in front
+of the rails hosts.
 
 
 [[!tag net unix foss ungleich localch]]
