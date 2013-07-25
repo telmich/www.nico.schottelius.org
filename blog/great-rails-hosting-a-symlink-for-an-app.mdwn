@@ -1,0 +1,115 @@
+[[!meta title="Great Real Life Rails Hosting: A symlink for an app"]]
+
+## Introduction
+
+As the [ungleich GmbH](http://www.ungleich.ch)
+focusses on educated customers, we meet pretty cool
+infrastructures from time to time.
+
+In some sense I count [local.ch](http://www.local.ch)
+as a customer: they supported me with one day off
+per week so I was able to found the ungleich GmbH
+and acquire first customers.
+
+This article is dedicated to local.ch and describes
+a very elegant solution for Ruby on Rails hosting.
+
+## Overview
+
+The setup consists of the following services, glued
+together in an elegant way:
+
+ * [nginx](http://nginx.org/)
+ * [unicorn](http://unicorn.bogomips.org/)
+ * [bind](https://www.isc.org/downloads/bind/)
+ * [[!capistrano]]
+ * Symlinks
+
+## Nginx
+
+The great trick of the setup is that nginx is used to forward requests 
+to a unix socket that depends on the **hostname**. The following
+configuration snippet contains the important parts:
+
+    server {
+        listen 80;
+
+        location @error_page {
+            root /var/nginx/$host/current/public;
+            internal;
+            [...]
+        
+        location ~ "^/assets/.*-[a-z0-9]{32}.\w+" {
+            root /var/nginx/$host/current/public;
+            [...]
+
+        root /var/nginx/$host/current/public;
+        location @unicorn {
+            proxy_pass http://unix:/var/nginx/$host/unicorn.sock;
+
+            # Forward original host name to be seen in unicorn
+            proxy_set_header Host $host;
+            
+            # Server name and address like being available in PHP
+            proxy_set_header SERVER_NAME $server_name;
+            proxy_set_header SERVER_ADDR $server_addr;
+            
+            # The real client IP address - header has ben setup by Zeus
+            proxy_set_header X-Real-IP   $http_x_cluster_client_ip;
+            
+            # Needed second header for rails - See SYS-1587
+            proxy_set_header X_FORWARDED_FOR $http_x_cluster_client_ip;
+
+As you can see, all paths are dependent on the actual hostname
+as setup by nginx.
+
+## Application Deployment
+
+Applications are deployed under their project name below
+**/var/nginx** (like ws-locomotive.dev-deploy or ws-locomotive.master).
+As you can see from the naming, developers can deploy one application
+from different branches easily (dev-deploy and master branches is this
+case).
+
+Developers can use [[!capistrano]] to deploy their applications
+and don't need to interact (reload/restart) with nginx, as it is
+already configured to accept any hostname.
+
+## Name Server Configuration
+
+As you can imagine, it would be quite cumbersome for developers to
+reach a host named **ws-locomotive.dev-deploy**, a wildcard domain
+is configured that points to the box running nginx:
+
+    *.play.intra.local.ch. CNAME rails-dev-vm-snr01.intra.local.ch.  
+
+## Give the application a name
+
+A new hostname can be assigned to an application simply by symlinking
+it to the application:
+
+    % cd /var/nginx
+    % ln -s ws-locomotive.dev-deploy my-fancy-name.play.intra.local.ch
+
+This way, developers can use **any name** below 
+play.intra.local.ch for their application. Some applications
+actually behave differently depending on the name they are accessed
+with:
+
+    info.ws-locomotive.master.play.intra.local.ch -> ws-locomotive.master
+    hp.ws-locomotive.master.play.intra.local.ch -> ws-locomotive.master
+
+## Conclusions
+
+The setup is pretty elegant, because it allows developers to
+create new development environments without interacting with any
+sysadmin to configure nginx, bind or whatsoever.
+
+There is a security drawback though:
+An attacker could try to use hostnames like
+**../../../../etc/** and request the file **passwd**.
+
+And that is the reasion why service is not exposed to the outside world...
+
+
+[[!tag net unix foss ungleich localch]]
