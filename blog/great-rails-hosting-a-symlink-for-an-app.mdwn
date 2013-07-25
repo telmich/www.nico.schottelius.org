@@ -116,4 +116,4 @@ are filtered (whitelisting) by a load balancer in front
 of the rails hosts.
 
 
-[[!tag net unix foss ungleich localch]]
+[[!tag net unix foss ungleich localch rails]]
