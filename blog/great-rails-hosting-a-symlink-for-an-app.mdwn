@@ -8,7 +8,7 @@ In some sense I count [[!localch]]
 as a customer: they supported me with one day off
 per week so I was able to found [[!ungleich]]
 and acquire first customers.
-This article is dedicated to local.ch and describes
+This article is dedicated to [[!localch]] and describes
 a very elegant solution for Ruby on Rails hosting.
 
 ## Overview
