@@ -1,12 +1,12 @@
-[[!meta title="Great Real Life Rails Hosting: A symlink for an app"]]
+[[!meta title="Great Rails Hosting: A symlink for an app"]]
 
 ## Introduction
 
-As the [ungleich GmbH](http://www.ungleich.ch)
+As the [[!ungleich]]
 focusses on educated customers, we meet pretty cool
 infrastructures from time to time.
 
-In some sense I count [local.ch](http://www.local.ch)
+In some sense I count [[!localch]]
 as a customer: they supported me with one day off
 per week so I was able to found the ungleich GmbH
 and acquire first customers.
@@ -19,9 +19,9 @@ a very elegant solution for Ruby on Rails hosting.
 The setup consists of the following services, glued
 together in an elegant way:
 
- * [nginx](http://nginx.org/)
- * [unicorn](http://unicorn.bogomips.org/)
- * [bind](https://www.isc.org/downloads/bind/)
+ * [[!nginx]]
+ * [[!unicorn]]
+ * [[!bind]]
  * [[!capistrano]]
  * Symlinks
 
