@@ -1,0 +1,13 @@
+[[!meta title="Cdist 2.3.1 released"]]
+
+Here's a short overview about the changes found in version 2.3.1:
+
+	* Core: Support relative paths for configuration directories
+	* Core: Code cleanup (removed context class, added log class)
+	* Documentation: Add more best practises
+	* Documentation: Add troubleshooting chapter
+	* Type __key_value:Fix quoting problem (Steven Armstrong)
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag cdist config unix]]
