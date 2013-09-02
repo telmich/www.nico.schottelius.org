@@ -4,6 +4,8 @@
 * [[!shortcut name=capistrano desc="Capistrano" url="https://github.com/capistrano/capistrano/wiki"]]
 * [[!shortcut name=nginx desc="nginx" url="http://nginx.org/"]]
 * [[!shortcut name=unicorn desc="unicorn" url="http://unicorn.bogomips.org/"]]
+* [[!shortcut name=iptables desc="iptables" url="http://www.netfilter.org/"]]
 * [[!shortcut name=bind desc="ISC Bind" url="https://www.isc.org/downloads/bind/"]]
 * [[!shortcut name=localch desc="local.ch" url="http://www.local.ch"]]
+* [[!shortcut name=panter desc="panter" url="http://www.panter.ch"]]
 * [[!shortcut name=ungleich desc="ungleich" url="http://www.ungleich.ch"]]
