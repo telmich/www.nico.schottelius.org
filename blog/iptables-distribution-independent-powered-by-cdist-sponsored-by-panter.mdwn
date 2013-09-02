@@ -1,0 +1,55 @@
+[[!meta title="Linux distribution independent iptables setup powered by cdist sponsored by panter"]]
+
+## Introduction
+
+As a sysadmin, you may have encountered several different 
+Linux distributions in your life. You may also have found
+out that configuring [[!iptables]]
+permanently differs from distribution to distribution.
+
+Fortunately you can stop caring about this problem:
+In the [[cdist|software/cdist]] source tree you find
+two new types to handle this problem universally, independent
+of the Linux distribution.
+
+These types are a result of work done at [[!ungleich]] 
+for our customer [[!panter]]. Panter does not only
+allow us to publish the code freely, but also encourages
+us to do so - many thanks!
+
+## How to use it
+
+First of all, ensure you have cdist installed on your source host.
+Then create the directory ~/.cdist/manifest and then the file
+~/.cdist/manifest/init with the following content:
+
+    case "$__target_host" in
+        insert-your-target-host-name-here)
+            __iptables_rule policy-in  --rule "-P INPUT DROP"
+            __iptables_rule policy-out  --rule "-P OUTPUT ACCEPT"
+            __iptables_rule policy-fwd  --rule "-P FORWARD DROP"
+
+            __iptables_rule established  --rule "-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT"
+            __iptables_rule http  --rule "-A INPUT -p tcp --dport 80 -j ACCEPT"
+            __iptables_rule ssh   --rule "-A INPUT -p tcp --dport 80 -j ACCEPT"
+        ;;
+    esac
+
+Running
+
+    % cdist config insert-your-target-host-name-here
+
+applies the configuration. That's it, really! Log on to your
+server and do ***iptables -L -n*** to see the result!
+
+## What did cdist do?
+
+The cdist types \_\_iptables\_rule and \_\_iptables\_apply
+take care of the necessary steps. In detail they
+
+ * create the necessary files and directory
+ * create and setup an init-script that loads / unloads the rules
+ * apply the rules
+
+
+[[!tag net unix foss ungleich panter]]
