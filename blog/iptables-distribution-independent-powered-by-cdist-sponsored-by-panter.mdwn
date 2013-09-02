@@ -25,13 +25,13 @@ Then create the directory ~/.cdist/manifest and then the file
 
     case "$__target_host" in
         insert-your-target-host-name-here)
-            __iptables_rule policy-in  --rule "-P INPUT DROP"
+            __iptables_rule policy-in   --rule "-P INPUT DROP"
             __iptables_rule policy-out  --rule "-P OUTPUT ACCEPT"
             __iptables_rule policy-fwd  --rule "-P FORWARD DROP"
 
-            __iptables_rule established  --rule "-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT"
-            __iptables_rule http  --rule "-A INPUT -p tcp --dport 80 -j ACCEPT"
-            __iptables_rule ssh   --rule "-A INPUT -p tcp --dport 80 -j ACCEPT"
+            __iptables_rule established --rule "-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT"
+            __iptables_rule http        --rule "-A INPUT -p tcp --dport 80 -j ACCEPT"
+            __iptables_rule ssh         --rule "-A INPUT -p tcp --dport 80 -j ACCEPT"
         ;;
     esac
 
