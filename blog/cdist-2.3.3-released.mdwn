@@ -1,0 +1,11 @@
+[[!meta title="Cdist 2.3.3 released"]]
+
+Here's a short overview about the changes found in version 2.3.3:
+
+	* Core: Add support for default values of optional parameters (Steven Armstrong)
+	* Type __start_on_boot: Bugfix for systemd (Steven Armstrong)
+
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag cdist config unix]]
