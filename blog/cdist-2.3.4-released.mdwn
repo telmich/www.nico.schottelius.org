@@ -1,0 +1,17 @@
+[[!meta title="Cdist 2.3.4 released"]]
+
+Here's a short overview about the changes found in version 2.3.4:
+
+	* Core: Add missing bits to support dry run (Steven Armstrong)
+	* Core: Make unit test remote copy more compatible with scp (Steven Armstrong)
+	* New Type: __postfix (Steven Armstrong)
+	* New Type: __postfix_master (Steven Armstrong)
+	* New Type: __postfix_postconf (Steven Armstrong)
+	* New Type: __postfix_postmap (Steven Armstrong)
+	* New Type: __postfix_reload (Steven Armstrong)
+	* Type __line: Ensure regex does not contain / 
+	* Type __ssh_authorized_keys: Bugfix: Preserve ownership (Steven Armstrong)
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag cdist config unix]]
