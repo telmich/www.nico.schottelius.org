@@ -1,10 +1,10 @@
-[[!meta title="uc - manage a UNIX company"]]
+[[!meta title="cuc - manage a UNIX company"]]
 
 [[!toc levels=2]]
 
 ## Introduction
 
-uc is a shell orientated management tool for Unix gurus running
+cuc is a shell orientated management tool for Unix gurus running
 geeky Unix companies. It is intented to be run by geeks and requires
 **git** and **shell**.
 
@@ -16,10 +16,10 @@ Use **uc help me**.
 
 cdist should run on any Posix alike OS.
 
-## Getting uc
+## Getting cuc
 
-    git clone git://git.schottelius.org/uc
-    cd uc
+    git clone git://git.schottelius.org/cuc
+    cd cuc
     export PATH=$PATH:$(pwd -P)/bin
 
 ### Update
