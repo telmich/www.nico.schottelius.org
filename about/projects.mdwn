@@ -4,6 +4,8 @@ The following is an incomplete list of projects I'm working on:
 
  * [carbon / corpus](http://git.schottelius.org/?p=cLinux/carbon.git): Package management
  * [cconf / chamelon](http://unix.schottelius.org/cconf/): autoconf replacements
+ * [[cdist|software/cdist]]: a usable configuration management system
+ * [[ceof|software/ceof]]: the secure, peer-to-peer (p2p), decentralised anonymous chat network
  * [ccollaborate](http://unix.schottelius.org/ccollaborate/): web application framework
  * [cinit](http://unix.schottelius.org/cinit/):
    a fast, small and simple init with support for profiles. 
