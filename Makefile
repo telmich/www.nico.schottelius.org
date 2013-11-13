@@ -4,6 +4,8 @@ BROWSER=conkeror
 #IKIWIKI=ikiwikitest.sh
 IKIWIKI=ikiwiki
 
+pub:
+	git push --mirror
 all:
 	$(IKIWIKI) --refresh --setup ikiwiki.setup
 
@@ -22,8 +24,6 @@ view:
 clean: all
 	rm -rf ${DESTDIR}
 
-pub:
-	git push --mirror
 
 #public: ask public-f
 
