@@ -5,7 +5,7 @@
 As you can guess, my name is Nico [[Schottelius|schottelius]].
 I'm living in Switzerland and work for the
 [ungleich GmbH](http://www.ungleich.ch).
-I am a [[FOSS developer|foss]], with [[several interests|interests]].
+I am a [[FOSS hacker|foss]] with [[several interests|interests]].
 
 To get an impression of what I do and who I am, you can have a look at
 [[some press articles|press]],
