@@ -4,11 +4,8 @@
 
 As you can guess, my name is Nico [[Schottelius|schottelius]].
 I'm living in Switzerland and work for the
-[ETH Zurich](http://www.systems.ethz.ch/people/nicosc).
+[ungleich GmbH](http://www.ungleich.ch).
 I am a [[FOSS developer|foss]], with [[several interests|interests]].
-
-I personally do not think it's wise to publish detailled personal
-information in the internet, because they are personal (versus public).
 
 To get an impression of what I do and who I am, you can have a look at
 [[some press articles|press]],
