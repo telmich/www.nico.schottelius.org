@@ -1,0 +1,24 @@
+[[!meta title="LXC still insecure (since 2011)"]]
+
+For a customer of mine I was researching whether
+we could use [LXC](http://linuxcontainers.org/) for
+virtualisation. 
+The customer is migrating to Debian 7, 
+[which does not contain OpenVZ anymore](https://wiki.debian.org/OpenVz).
+
+Although the 
+[Debian template bug](http://permalink.gmane.org/gmane.linux.kernel.containers.lxc.general/5102) is still not fixed, I first thought it would still
+be usable when writing our own templates. But it turns
+out that LXC still allows to
+[execute code as root on the host since 2011](http://blog.bofh.it/debian/id_413).
+
+More background information for those of you who are currently considering
+LXC:
+
+   * [Ubuntu / User Namespaces in Linux](https://wiki.ubuntu.com/UserNamespace)
+   * [Gentoo Wiki](https://wiki.gentoo.org/wiki/LXC#MAJOR_Temporary_Problems_with_LXC_-_READ_THIS)
+   * [Debian Bug Report](http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=680469)
+
+So for the moment my recommendation is [QEMU](http://wiki.qemu.org/Main_Page) (KVM has been merged back into QEMU!).
+
+[[!tag lxc vm unix]]
