@@ -1,0 +1,9 @@
+[[!meta title="ungleich is blogging"]]
+
+A pointer for everyone reading this blog:
+We started to blog at [[!ungleich]] -
+crazy sysadmin topics can now be found
+in the [ungleich blog](http://www.ungleich.ch/blog/)
+as well!
+
+[[!tag ungleich]]
