@@ -1,0 +1,61 @@
+[[!meta title="cinv - the Swiss Army Knife for inventory management"]]
+
+[[!toc levels=3]]
+
+## Preamble
+
+Cinv was formerly known under name the of **sexy**.
+
+## Introduction
+
+Cinv is the Swiss Army Knife for inventory management.
+It allows you to manage hosts and network with a simple command
+line interface.
+
+Cinv stores inventory information in a **cconfig database** and
+adapts to your environment by supporting custom backends.
+
+In short, cinv can create and remove hosts and configure networks -
+depending on your backend this means:
+
+ * cinv manages Virtual Machines
+ * cinv generates IPv4 address allocation (DHCP)
+ * cinv sets up your domain name system (DNS)
+
+
+## Status
+
+The release process for cinv version 2.0 has started and is planned
+to happen in November 2012.
+
+## Installation
+
+Download cinv from git ([gitweb](http://git.schottelius.org/?p=cinv;a=summary)):
+
+    % git clone git://git.schottelius.org/cinv
+
+Afterwards ensure that the **bin** directory is in your PATH and that you have python3
+installed:
+
+    % which python3
+    /usr/bin/python3
+    % cd cinv
+    % export PATH=$PATH:$(pwd -P)/bin
+
+Now you should be able to display the current cinv version:
+
+    % cinv -V
+    cinv 1.9.11-1-g837532c
+
+### Mirrors
+
+ * git://github.com/telmich/cinv.git ([github](https://github.com/telmich/cinv))
+
+## Support
+
+### IRC
+
+You can join the development ***IRC channel***
+[#cstar on irc.freenode.net](irc://irc.freenode.org/#cstar).
+
+[[!tag cinv unix]]
