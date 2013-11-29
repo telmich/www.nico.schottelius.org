@@ -1,0 +1,10 @@
+[[!meta title="Sexy is being renamed to cinv"]]
+
+You may have noticed that searching
+for the magnificent tool named **sexy** on a search engine of your
+choice did not easily lead you to the Swiss Army Knife for inventory management.
+
+To fix this problem, sexy is currently being renamed to 
+[[cinv|software/cinv]].
+
+[[!tag cinv net sexy unix]]
