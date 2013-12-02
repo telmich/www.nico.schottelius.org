@@ -1,0 +1,14 @@
+[[!meta title="Cdist 2.3.7 released"]]
+
+Here's a short overview about the changes found in version 2.3.7:
+
+	* Type __file: Secure the file transfer by using mktemp (Steven Armstrong)
+	* Type __file: Only remove file when state is absent (Steven Armstrong)
+	* Type __link: Only remove link when state is absent (Steven Armstrong)
+	* Type __directory: Only remove directory when state is absent (Steven Armstrong)
+	* Type __package_zypper: Fix explorer and parameter issue (Daniel Heule)
+	* Core: Fix backtrace when cache cannot be deleted
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag cdist config unix]]
