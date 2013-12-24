@@ -2,7 +2,7 @@
 
 The major new feature we introduced into this
 release is the 
-[messaging support](../software/cdist/man/3.0.0/man7/cdist-messaging.html) - enjoy it!
+[messaging support](/software/cdist/man/3.0.0/man7/cdist-messaging.html) - enjoy it!
 
 Here's a short overview about the changes found in version 3.0.0:
 
