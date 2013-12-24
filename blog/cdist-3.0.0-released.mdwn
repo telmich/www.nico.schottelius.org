@@ -2,7 +2,7 @@
 
 Here's a short overview about the changes found in version 3.0.0:
 
-	* Core: Added messaging support
+	* Core: [Added messaging support](../software/cdist/man/3.0.0/man7/cdist-messaging.html)
 	* Core: Removed unused "changed" attribute of objects 
 	* Core: Support default values for multiple parameters (Steven Armstrong)
 	* Core: Ensure Object Parameter file contains \n (Steven Armstrong)
