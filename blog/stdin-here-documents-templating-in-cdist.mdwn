@@ -1,4 +1,4 @@
-[[!meta title="Using stdin and here documents in cdist for templating"]]
+[[!meta title="How to use stdin and here documents for templating in cdist"]]
 
 ## Introduction
 
