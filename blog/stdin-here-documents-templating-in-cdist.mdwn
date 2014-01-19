@@ -1,0 +1,144 @@
+[[!meta title="Using stdin and here documents in cdist for templating"]]
+
+## Introduction
+
+In the shell you can see the use of
+[here documents](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_07_04) from time to time. They are very practical if you want to
+feed in some data with line breaks (also referred to as
+"document") into another programm at the current position
+("here") in the shell.
+
+[[cdist|software/cdist]] allows you to make use of stdin and thus
+also of here documents in your types. This article gives you some 
+examples on how you can use them.
+
+## Here documents in short
+
+For those who have found this page, but are not familiar with here documents,
+here is a short example of how you can use them:
+
+    cat << eof
+    Hello world,
+    this is a here document.
+    eof
+
+The interesting part of here documents is that you can
+use parameter expansion, command substitution, and arithmetic expansion
+(as described in the **here documents** article linked above - opengroup
+offers a great reference for shell coders/users):
+
+    name="Nico"
+    cat << eof
+    Hello $name,
+
+    1+1 = $((1+1))
+
+    ls ~ = $(ls ~)
+
+    eof
+
+## Here documents and stdin in cdist
+
+Whenever you execute a type in a manifest in cdist like this:
+
+    __file /tmp/testfile
+
+cdist also reads stdin that is supplied to the type. 
+Not every type that is shipped with cdist makes use
+of stdin, but [__file](/software/cdist/man/latest/man7/cdist-type__file.html)
+does (always check the manpage of our types - if a type makes
+use of stdin, it is documented in there).
+
+Indeed, if **\_\_file** sees that you use "-" as the value for the
+**source** parameter, it will use stdin for the content of the file
+that it maintains:
+
+    echo "Hello file" | __file /tmp/testfile --source -
+
+Instead of using echo, we could also use the previously mentioned here document:
+
+    __file /tmp/testfile --source - << eof
+    Hello world,
+    this is a here document.
+    eof
+
+Beware, you could use cat like this
+
+    cat << eof | __file /tmp/testfile --source -
+    Hello world,
+    this is a here document.
+    eof
+
+but it is a
+([useless use of cat (UUOC)](https://en.wikipedia.org/wiki/Cat_(Unix)#Useless_use_of_cat).
+
+## Templating using here documents in cdist
+
+Here documents are very powerful and they are very useful for templating. 
+Indeed, the **__ungleich_nginx_site** type uses a template like this in its manifest:
+
+    template_in=$__type/files/nginx-template
+    template_out=$__object/files/nginx-template
+
+    export www_dir="$base_dir/www"
+    export log_dir="$base_dir/logs"
+
+    ... (including more exports)
+
+    mkdir "$__object/files"
+    sh -e "$template_in" > "$template_out"
+
+
+The following code shows the template (**$__type/files/nginx-template**):
+
+    cat << eof
+
+    #
+    # Do not change this file. Changes will be overwritten by cdist.
+    #
+
+    server {
+       # Only bind on the reserved IP address
+       listen $listen;
+
+    eof
+
+    servername="$name"
+
+    for a in $alias; do
+        servername="$servername $a"
+    done
+    servername="$servername"
+
+    cat <<eof
+
+        server_name $servername;
+
+        location / {
+            root $www_dir;
+    eof
+
+    if [ -f "$__object/parameter/locationopt" ]; then
+        echo "    # User given location parameters"
+        while read line; do
+            echo "        $line"
+        done < "$__object/parameter/locationopt"
+    fi
+
+    cat <<eof
+        }
+
+        access_log $log_dir/access.log;
+
+    }
+
+    eof
+
+
+## Had fun?
+
+The shell is indeed very powerful, you just need to know how to use it. 
+This is why cdist was even originally written in shell script and is 
+still configured in shell script (and will continue to be so).
+
+[[!tag cdist config unix]]
