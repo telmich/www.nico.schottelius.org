@@ -4,7 +4,7 @@
 
 In the shell you can see the use of
 [here documents](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_07_04) from time to time. They are very practical if you want to
-feed in some data with line breaks (also referred to as
+feed some data with line breaks (also referred to as
 "document") into another programm at the current position
 ("here") in the shell.
 
@@ -37,6 +37,9 @@ offers a great reference for shell coders/users):
 
     eof
 
+Just try it - copy and paste the above code into your shell and it will
+display the result of 1+1 and the contents of your home directory.
+
 ## Here documents and stdin in cdist
 
 Whenever you execute a type in a manifest in cdist like this:
@@ -46,7 +49,7 @@ Whenever you execute a type in a manifest in cdist like this:
 cdist also reads stdin that is supplied to the type. 
 Not every type that is shipped with cdist makes use
 of stdin, but [__file](/software/cdist/man/latest/man7/cdist-type__file.html)
-does (always check the manpage of our types - if a type makes
+does (always check the manpage of the cdist types - if a type makes
 use of stdin, it is documented in there).
 
 Indeed, if **\_\_file** sees that you use "-" as the value for the
@@ -70,12 +73,12 @@ Beware, you could use cat like this
     eof
 
 but it is a
-([useless use of cat (UUOC)](https://en.wikipedia.org/wiki/Cat_(Unix)#Useless_use_of_cat).
+[useless use of cat (UUOC)](https://en.wikipedia.org/wiki/Cat_(Unix)#Useless_use_of_cat).
 
 ## Templating using here documents in cdist
 
 Here documents are very powerful and they are very useful for templating. 
-Indeed, the **__ungleich_nginx_site** type uses a template like this in its manifest:
+Indeed, the [__ungleich_nginx_site type](https://github.com/ungleich/cdist-examples/tree/master/type/__ungleich_nginx_site) uses a template like this in its manifest:
 
     template_in=$__type/files/nginx-template
     template_out=$__object/files/nginx-template
@@ -141,4 +144,7 @@ The shell is indeed very powerful, you just need to know how to use it.
 This is why cdist was even originally written in shell script and is 
 still configured in shell script (and will continue to be so).
 
-[[!tag cdist config unix]]
+If you are shell junkie, you may find more addictive drugs
+[[in this blog|blog]].
+
+[[!tag cdist config shell unix]]
