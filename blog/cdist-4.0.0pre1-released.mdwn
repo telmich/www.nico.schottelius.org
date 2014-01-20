@@ -5,6 +5,29 @@ Here's a short overview about the changes found in version 4.0.0pre1:
 	* Core: Integrate initial install support
 	* Core: Integrate initial preos support
 
+## Note for this release:
+
+4.0-pre-not-stable is an experimental branch containing features for the
+next big thing: cdist 4.
+
+As you can see above, we have worked on cdist to allow not only
+configuration of machines, but also installation of machines.
+
+These features are poorly documented, the install
+types are not cleaned up and there are many more ugly things.
+
+Still, we wanted to give eager people access to our codebase, 
+to play around with it.
+
+A minimal introduction for those keen on trying it out:
+                                                       
+ * host boots preos (you generate this by using "cdist preos")
+ * host gets installed using "cdist install"                  
+ * types that begin with **__install**_are by convention used for installing sytems
+ * install types contain the (empty) file "install"
+
+More to come soon - planned release for cdist 4 is mid 2014.
+
 For more information visit the [[cdist homepage|software/cdist]].
 
 [[!tag cdist config unix]]
