@@ -1,0 +1,10 @@
+[[!meta title="Cdist 4.0.0pre1 released"]]
+
+Here's a short overview about the changes found in version 4.0.0pre1:
+
+	* Core: Integrate initial install support
+	* Core: Integrate initial preos support
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag cdist config unix]]
