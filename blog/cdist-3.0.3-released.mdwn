@@ -1,0 +1,18 @@
+[[!meta title="Cdist 3.0.3 released"]]
+
+Here's a short overview about the changes found in version 3.0.3:
+
+	* Core: Enhance error message when requirement is missing object id
+	* Core: Add environment variable to select shell for executing scripts (Daniel Heule)
+	* Explorer hostname: Return host name by using uname -n
+	* New Type: __hostname (Steven Armstrong)
+	* Type __cdist: Use default paremeters (Daniel Heule)
+	* Type __key_value: Use default paremeters (Daniel Heule)
+	* Type __line: Use printf instead of echo for printing user input
+	* Type __qemu_img: Use default paremeters (Daniel Heule)
+	* Type __zypper_repo: Use default paremeters (Daniel Heule)
+	* Type __zypper_service: Use default paremeters (Daniel Heule)
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag cdist config unix]]
