@@ -1,0 +1,12 @@
+[[!meta title="Cdist 3.0.5 released"]]
+
+Here's a short overview about the changes found in version 3.0.5:
+
+	* Core: Introduce override concept (Daniel Heule)
+	* Type __process: Make --state absent work (Steven Armstrong)
+	* Documentation: Update documentation for environment variables
+
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag cdist config unix]]
