@@ -1,0 +1,9 @@
+[[!meta title="Cdist 3.0.7 released"]]
+
+Here's a short overview about the changes found in version 3.0.7:
+
+	* Core: Add support for in order execution (Daniel Heule)
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag cdist config unix]]
