@@ -2,7 +2,8 @@
 
 Here's a short overview about the changes found in version 3.0.7:
 
-	* Core: Add support for in order execution (Daniel Heule)
+	* Core: Allow dependencies to be created based execution order (Daniel Heule)
+	* Core: Add tests for override (Daniel Heule)
 
 For more information visit the [[cdist homepage|software/cdist]].
 
