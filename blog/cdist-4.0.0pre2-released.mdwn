@@ -1,0 +1,9 @@
+[[!meta title="Cdist 4.0.0pre2 released"]]
+
+Here's a short overview about the changes found in version 4.0.0pre2:
+
+	* Core: Remove archives from generated preos (Steven Armstrong)
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag cdist config unix]]
