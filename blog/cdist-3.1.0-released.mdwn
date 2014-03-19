@@ -1,0 +1,16 @@
+[[!meta title="Cdist 3.1.0 released"]]
+
+Here's a short overview about the changes found in version 3.1.0:
+
+	* New Type: __rbenv
+	* Type __file: Enhance OpenBSD Support (og)
+	* Type __git: Pass onwer/group/mode values to __directory
+	* Type __iptable_rule: Fix example documentation (Antoine Catton)
+	* Type __key_value: Add messaging support
+	* Type __package_pkg_openbsd: Allow to change PKG_PATH (og)
+	* Type __ssh_authorized_keys: Allow managing existing keys (Steven Armstrong)
+	* Type __user: Enhance OpenBSD Support (og)
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag cdist config unix]]
