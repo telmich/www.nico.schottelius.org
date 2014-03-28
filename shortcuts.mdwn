@@ -9,3 +9,7 @@
 * [[!shortcut name=localch desc="local.ch" url="http://www.local.ch"]]
 * [[!shortcut name=panter desc="panter" url="http://www.panter.ch"]]
 * [[!shortcut name=ungleich desc="ungleich" url="http://www.ungleich.ch"]]
+* [[!shortcut name=qemu desc="qemu" url="http://www.qemu.org"]]
+* [[!shortcut name=cdist desc="cdist" url="http://www.nico.schottelius.org/software/cdist/"]]
+* [[!shortcut name=cinv desc="cinv" url="http://www.nico.schottelius.org/software/cinv/"]]
+* [[!shortcut name=monit desc="monit" url="http://mmonit.com/monit/"]]
