@@ -33,10 +33,10 @@ What about their IP addresses? Where to store, define and assign them?
 What are the virtual properties of the VM? How many disks, how much memory and
 how many cpu (cores) are utilised?
 To solve these problems, specialised tools like
-[[!libvirt]], [![openstack]] and many other are deployed. 
+[[!libvirt]], [[!openstack]] and many other are deployed. 
 Problem solved?
 
-## Problem invented: (D)RY
+## Problem created: (D)RY
 
 Interestingly, au contraire de common belief, with inventing tools specific to
 virtualisation management, new problems have been created: 
@@ -63,14 +63,15 @@ Some of you may now be wondering, ...
 
 In my opinion (I believe in the [[!kiss]]), managing large scale infrastructures can be as easy
 as managing small infrastructures - given you take the right approach. From a technical
-point of view, manage an infrastucture you need
+point of view, to manage an infrastucture you need
 
- * an inventory management tool (like [[cinv|software/cinv]])
-  * that is the central tool to record all your hosts
-  * that defines IP address mapppings (mac<->ip, f.i. [[!dhcp]] and ip<->name, like [[!dns]])
+  * an inventory management tool (like [[cinv|software/cinv]])
+    * that is the central tool to record all your hosts
+    * that defines IP address mapppings (mac<->ip, f.i. [[!dhcp]] and ip<->name, like [[!dns]])
+    * assists you with lifecycle management of your hosts
  * a configuration management system (like [[cdist|software/cdist]])
-  * that realises your centrally defined configurations
-  * that manages all your configurations (including VMs!)
+    * that realises your centrally defined configurations
+    * that manages all your configurations (including VMs!)
 
 ## Summary
 
@@ -79,9 +80,10 @@ We at [[!ungleich]] take this approach for every infrastructure of our customers
 and so far succeed very well with this approach. We do in fact eat our own dogfood
 and manage the inventories of our customers (HW and VM!) with [[cinv|software/cinv]]
 and configure their infrastructures with [[cdist|software/cdist]]. 
-To support multiple customers, we keep their configurations in
-different branches using [[!git]] (logically, if you follow the
-[[!unixphilosophy]]).
+To support multiple customers, we keep their configurations under version
+control in different branches using [[!git]] (Logically cdist and
+cdist don't support this, because git can do it much better - we
+follow the [[!unixphilosophy]] when developing software).
 
 ## Future
 
