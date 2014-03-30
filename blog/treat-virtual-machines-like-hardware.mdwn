@@ -75,7 +75,8 @@ point of view, to manage an infrastucture you need
 
 ## Summary
 
-VM and hardware can easily be managed the same way. 
+So why treat virtual machines like hardware? Because they can easily be managed the same way
+and they are supposed to very very similar.
 We at [[!ungleich]] take this approach for every infrastructure of our customers
 and so far succeed very well with this approach. We do in fact eat our own dogfood
 and manage the inventories of our customers (HW and VM!) with [[cinv|software/cinv]]
