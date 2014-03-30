@@ -1,0 +1,90 @@
+[[!meta title="Treat Virtual Machines like Hardware"]]
+
+## Appeal
+
+Treat virtual machines like hardware - this is an appeal to every 
+virtualisation provider and a report from my sysadmin view on
+a sensible way to run small to large infrastructures: Consistent.
+
+Before I go into detail, let me first explain you the situation.
+
+## Once upon a time...
+
+... virtualisation was new and slow. [[!qemu]] was the only
+emulator that was kind of usable. Slow, but working. Then,
+some time later, the CPU vendors began to add support for virtualisation
+in hardware and soon virtual machines were kind of running smoothly.
+Xen and VMWare appeared and took their share in the market, while qemu
+had its closed source driver, kqemu.
+
+Then light virtualisation began its time with software like
+[[!uml]] and OpenVZ. All of sudden somebody propagated the buzzword
+cloud and with it the use of virtualisation spread. And with it the 
+problem I am adressing in this article:
+
+## Virtualisation is treated differently to hardware
+
+With mass building virtual machines, new problems have risen: 
+How to manage those virtual machines? How to manage the networks?
+What about their IP addresses? Where to store, define and assign them?
+What are the virtual properties of the VM? How many disks, how much memory and
+how many cpu (cores) are utilised?
+
+So to solve these problems tools like
+[libvirt](http://www.libvirt.org) or [openstack](https://www.openstack.org/)
+are deployed. Problem solved?
+
+## Problem invented: (D)RY
+
+Interestingly, au contraire de common belief, with inventing tools specific to
+virtualisation management, new problems were in the sysadmin world have been
+created: The domain specific tools can only be used for management of VMs
+(sic!) and thus require the sysadmin to learn a new tool with different
+characteristics from existing tools to manage hardware (I am excluding the effort to run
+and maintain a second tool, because I assume in a automated environment this is negligible).
+
+You may claim that virtual machines are different from hardware, but ...
+
+## ... Virtual machines are made to closely resemble hardare
+
+Indeed, the idea of virtual machines is that 
+***a virtual machine should behave like its hardware equivalent***.
+As such I postulate
+
+    Treat virtual machines like real machines
+
+Some of you may now be wondering, ...
+
+
+## ... How to treat VMs and hardware the same
+
+In my opinion (I believe in the [[!kiss]]), managing large scale infrastructures can be as easy
+as managing small infrastructures - given you take the right approach. From a technical
+point of view, manage an infrastucture you need
+
+ * an inventory management tool (like [[cinv|software/cinv]])
+  * that is the central tool to record all your hosts
+  * that defines IP address mapppings (mac<->ip, f.i. [[!dhcp]] and ip<->name, like [[!dns]])
+ * a configuration management system (like [[cdist|software/cdist]])
+  * that realises your centrally defined configurations
+  * that manages all your configurations (including VMs!)
+
+## Summary
+
+VM and hardware can easily be managed the same way. 
+We at [[!ungleich]] take this approach for every infrastructure of our customers
+and so far succeed very well with this approach. We do in fact eat our own dogfood
+and manage the inventories of our customers (HW and VM!) with [[cinv|software/cinv]]
+and configure their infrastructures with [[cdist|software/cdist]]. 
+To support multiple customers, we keep their configurations in
+different branches using [[!git]] (logically, if you follow the
+[[!unixphilosophy]]).
+
+## Future
+
+There is a lot of work going on at ungleich in the area of virtualisation using
+cdist and cinv. We plan to publish more [!!cdistexamples]] and documentation about
+this soon - so stay tuned if you are interested in seeing the 
+***world's simplest virtualisation infrastructure [tm]*** soon.
+
+[[!tag ungleich vm unix]]
