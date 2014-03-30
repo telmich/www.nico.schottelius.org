@@ -1,10 +1,13 @@
 [[!meta title="Treat Virtual Machines like Hardware"]]
 
+This report is based on my experiences as a system engineer,
+who learned a sensible way to run small to large infrastructures: 
+Consistent.
+
 ## Appeal
 
-Treat virtual machines like hardware - this is an appeal to every 
-virtualisation provider and a report from my sysadmin view on
-a sensible way to run small to large infrastructures: Consistent.
+Treat virtual machines like hardware - this is an appeal to everyone
+in the virtualisation area (providers, vendors, sysadmins, name it).
 
 Before I go into detail, let me first explain you the situation.
 
