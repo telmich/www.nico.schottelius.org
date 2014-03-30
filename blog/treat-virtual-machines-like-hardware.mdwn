@@ -22,7 +22,7 @@ had its closed source driver, kqemu.
 
 Then light virtualisation began its time with software like
 [[!uml]] and OpenVZ. All of sudden somebody propagated the buzzword
-cloud and with it the use of virtualisation spread. And with it the 
+cloud and with it the use of virtualisation spread, as well as the 
 problem I am adressing in this article:
 
 ## Virtualisation is treated differently to hardware
@@ -32,21 +32,22 @@ How to manage those virtual machines? How to manage the networks?
 What about their IP addresses? Where to store, define and assign them?
 What are the virtual properties of the VM? How many disks, how much memory and
 how many cpu (cores) are utilised?
-
-So to solve these problems tools like
-[libvirt](http://www.libvirt.org) or [openstack](https://www.openstack.org/)
-are deployed. Problem solved?
+To solve these problems, specialised tools like
+[[!libvirt]], [![openstack]] and many other are deployed. 
+Problem solved?
 
 ## Problem invented: (D)RY
 
 Interestingly, au contraire de common belief, with inventing tools specific to
-virtualisation management, new problems were in the sysadmin world have been
-created: The domain specific tools can only be used for management of VMs
+virtualisation management, new problems have been created: 
+The domain specific tools can only be used for management of VMs
 (sic!) and thus require the sysadmin to learn a new tool with different
 characteristics from existing tools to manage hardware (I am excluding the effort to run
 and maintain a second tool, because I assume in a automated environment this is negligible).
 
-You may claim that virtual machines are different from hardware, but ...
+So instead of using the existing tools, the [[!dry]] was violated.
+You may claim that virtual machines are different from hardware and thus require
+a different utility, but ...
 
 ## ... Virtual machines are made to closely resemble hardare
 
@@ -57,7 +58,6 @@ As such I postulate
     Treat virtual machines like real machines
 
 Some of you may now be wondering, ...
-
 
 ## ... How to treat VMs and hardware the same
 

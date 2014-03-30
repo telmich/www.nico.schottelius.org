@@ -21,3 +21,6 @@
 * [[!shortcut name=foss desc="FOSS" url="https://en.wikipedia.org/wiki/Free_and_Open_Source_Software"]]
 * [[!shortcut name=cdistexamples desc="cdist examples" url="https://github.com/ungleich/cdist-examples"]]
 * [[!shortcut name=unixphilosophy desc="UNIX philosophy" url="http://en.wikipedia.org/wiki/Unix_philosophy"]]
+* [[!shortcut name=libvirt desc="libvirt" url="http://www.libvirt.org"]]
+* [[!shortcut name=openstack desc="openstack" url="https://www.openstack.org/"]]
+* [[!shortcut name=dry desc="DRY principle" url="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself"]]
