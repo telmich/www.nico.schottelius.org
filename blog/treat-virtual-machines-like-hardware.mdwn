@@ -65,13 +65,13 @@ In my opinion (I believe in the [[!kiss]]), managing large scale infrastructures
 as managing small infrastructures - given you take the right approach. From a technical
 point of view, to manage an infrastucture you need
 
-  * an inventory management tool (like [[cinv|software/cinv]])
-    * that is the central tool to record all your hosts
-    * that defines IP address mapppings (mac<->ip, f.i. [[!dhcp]] and ip<->name, like [[!dns]])
+  * an inventory management tool (like [[cinv|software/cinv]]) that
+    * is the central tool to record all your hosts
+    * defines IP address mapppings (mac<->ip, f.i. [[!dhcp]] and ip<->name, like [[!dns]])
     * assists you with lifecycle management of your hosts
- * a configuration management system (like [[cdist|software/cdist]])
-    * that realises your centrally defined configurations
-    * that manages all your configurations (including VMs!)
+ * a configuration management system (like [[cdist|software/cdist]]) that
+    * realises your centrally defined configurations
+    * manages all your configurations (including VMs!)
 
 ## Summary
 
