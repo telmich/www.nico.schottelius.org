@@ -1,0 +1,12 @@
+[[!meta title="Cdist 3.1.2 released"]]
+
+Here's a short overview about the changes found in version 3.1.2:
+
+	* Documentation: Add missing environment variables to reference
+	* Type __qemu_img: size is optional, if state is not present
+	* Type __key_value: Rewrite using awk (Daniel Heule)
+	* New Type: __dog_vdi
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag cdist config unix]]
