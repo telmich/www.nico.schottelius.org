@@ -1,0 +1,10 @@
+[[!meta title="Cdist 3.1.5 released"]]
+
+Here's a short overview about the changes found in version 3.1.5:
+
+	* Type __zypper_repo: Automatically import gpg keys (Daniel Heule)
+	* Type __zypper_service: Automatically import gpg keys (Daniel Heule)
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag cdist config unix]]
