@@ -31,7 +31,7 @@ Then create the directory ~/.cdist/manifest and then the file
 
             __iptables_rule established --rule "-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT"
             __iptables_rule http        --rule "-A INPUT -p tcp --dport 80 -j ACCEPT"
-            __iptables_rule ssh         --rule "-A INPUT -p tcp --dport 80 -j ACCEPT"
+            __iptables_rule ssh         --rule "-A INPUT -p tcp --dport 22 -j ACCEPT"
         ;;
     esac
 
