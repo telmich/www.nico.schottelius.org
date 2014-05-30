@@ -18,7 +18,7 @@
 
 .sidebar, .pagecloud {
    background: #ffffff;
-   border: 2px solid #500000;
+   border: 1px dotted #c0c0c0;
    font-size: 80%;
    font-family: 'Open Sans', sans-serif;
    color: #00000;
