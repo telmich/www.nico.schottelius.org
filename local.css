@@ -84,13 +84,11 @@ pre {
 }
 
 .feedbutton { 
-    background: #ffffff !important;
-    color: #000000;
+    background: #ffffff;
+    color: #000000 !important;
 }
 
 .feedbutton:hover { 
-    background: #ffffff !important;
-    color: #000000;
     border: 1px dotted #c0c0c0;
 }
 
