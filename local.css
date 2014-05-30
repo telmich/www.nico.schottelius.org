@@ -21,7 +21,7 @@
    border: 2px solid #500000;
    font-size: 80%;
    font-family: 'Open Sans', sans-serif;
-   color: #c0c0c0 !important;
+   color: #ffffff;
 }
 
 .sidebar {
@@ -54,21 +54,21 @@ body {
    border: 1px dotted #c0c0c0;
    padding: 10px;
    font-family: 'Open Sans', sans-serif;
-   color: #acacac
+   color: #ffffff;
 }
 
 h1 {
            font-size: 150%;
-           color: #e6deee;
+           color: #000000;
 }
 
 h2 {
            font-size: 130%;
-           color: #e6deee;
+           color: #000000;
 }
 
 a {
-	   color: #efefef;
+	   color: #3cacb8;
 	   border-bottom: 1px dashed;
 	   text-decoration: none;
 }
@@ -83,10 +83,10 @@ pre {
            font-size: 110%;
 }
 
-.feedbutton { background: #ff0000; }
+.feedbutton { background: #ffffff; }
 
 .header {
-   background: #800000;
+   background: #ffffff;
    border: 2px solid #500000;
    padding: 10px;
    color: #efefef;
@@ -95,7 +95,7 @@ pre {
 
 .header a {
    margin-right: 1ex;
-   color: #efefef;
+   color: #3cacb8;
    font-family: 'Open Sans', sans-serif;
 }
 
@@ -103,12 +103,12 @@ pre {
    background: #640000;
    border: 2px solid #500000;
    margin: 2px;
-   color: #efefef;
+   color: #00000;
    font-family: 'Open Sans', sans-serif;
 }
 
 .tags {
-   color: yellow;
+   color: #000000;
 }
 
 /* pagedate is even less interesting, make it even smaller */
