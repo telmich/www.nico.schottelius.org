@@ -120,6 +120,11 @@ pre {
    font-size: 80%;
 }
 
+#pageinfo {
+    margin: 1em 0px;
+    border-top: 1px dotted #c0c0c0;
+}
+
 .selflink { background: #ffffff; color: black }
 .actions ul { background: #ffffff; border: none; padding-bottom: 0px; font-family: 'Open Sans', sans-serif;}
 .actions a  { margin-right: 1ex; color: #dfdfdf; font-family: 'Open Sans', sans-serif;}
