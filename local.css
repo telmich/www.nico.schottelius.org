@@ -20,7 +20,7 @@
    background: #800000;
    border: 2px solid #500000;
    font-size: 80%;
-   font-family: sans-serif;
+   font-family: 'Open Sans', sans-serif;
    color: #c0c0c0 !important;
 }
 
@@ -53,7 +53,7 @@ body {
    margin-left: 21ex;
    border: 1px dotted #c0c0c0;
    padding: 10px;
-   font-family: sans-serif;
+   font-family: 'Open Sans', sans-serif;
    color: #acacac
 }
 
@@ -90,13 +90,13 @@ pre {
    border: 2px solid #500000;
    padding: 10px;
    color: #efefef;
-   font-family: sans-serif;
+   font-family: 'Open Sans', sans-serif;
 }
 
 .header a {
    margin-right: 1ex;
    color: #efefef;
-   font-family: sans-serif;
+   font-family: 'Open Sans', sans-serif;
 }
 
 .tags, #backlinks {
@@ -104,7 +104,7 @@ pre {
    border: 2px solid #500000;
    margin: 2px;
    color: #efefef;
-   font-family: sans-serif;
+   font-family: 'Open Sans', sans-serif;
 }
 
 .tags {
@@ -121,12 +121,12 @@ pre {
 }
 
 .selflink { background: yellow; color: black }
-.actions ul { background: #640000; border: none; padding-bottom: 0px; font-family: sans-serif;}
-.actions a  { margin-right: 1ex; color: #dfdfdf; font-family: sans-serif;}
-#footer { border: none; font-family: sans-serif;}
+.actions ul { background: #640000; border: none; padding-bottom: 0px; font-family: 'Open Sans', sans-serif;}
+.actions a  { margin-right: 1ex; color: #dfdfdf; font-family: 'Open Sans', sans-serif;}
+#footer { border: none; font-family: 'Open Sans', sans-serif;}
 
 /* elements at the bottom should be a bit smaller in general */
 .pagefooter {
-   font-family: sans-serif;
+   font-family: 'Open Sans', sans-serif;
    font-size: 80%;
 }
