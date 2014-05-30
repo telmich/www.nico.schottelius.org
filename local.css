@@ -13,6 +13,9 @@
  * css for dummies: # = id, . = class
  */
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic);
+
+
 .sidebar, .pagecloud {
    background: #800000;
    border: 2px solid #500000;
