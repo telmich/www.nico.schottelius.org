@@ -101,7 +101,7 @@ pre {
 
 .tags, #backlinks {
    background: #ffffff;
-   border: 1px dotted #c0c0c0;
+   border: none;
    margin: 2px;
    color: #00000;
    font-family: 'Open Sans', sans-serif;
