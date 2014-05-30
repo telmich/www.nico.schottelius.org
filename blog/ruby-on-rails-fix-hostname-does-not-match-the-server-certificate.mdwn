@@ -1,0 +1,23 @@
+[[!meta title="Ruby on Rails: Fix the hostname does not match the server certificate error"]]
+
+## The problem
+
+If you encounter this problem when running Ruby on Rails:
+
+    OpenSSL::SSL::SSLError (hostname "localhost" does not match the server certificate)
+
+it is likely due to 
+[ActionMailer](http://api.rubyonrails.org/classes/ActionMailer/Base.html) 
+using the **smtp** as the ***delivery_method*** and
+your local mail server supporting TLS/SSL, 
+but not having a correct/valid certificate.
+
+## The solution
+
+You can add a valid certificate, but if the server is just used 
+for sending out mails, this may not be suited.
+In that case, you can change the ***delivery_method*** to
+**sendmail**, which makes ActionMailer use the sendmail
+binary directly.
+
+[[!tag net unix foss ungleich rails]]
