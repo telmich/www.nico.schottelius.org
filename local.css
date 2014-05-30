@@ -83,7 +83,10 @@ pre {
            font-size: 110%;
 }
 
-.feedbutton { background: #ffffff; }
+.feedbutton { 
+    background: #ffffff; 
+    color: #000000;
+}
 
 .header {
    background: #ffffff;
