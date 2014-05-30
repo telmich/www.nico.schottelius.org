@@ -17,11 +17,11 @@
 
 
 .sidebar, .pagecloud {
-   background: #800000;
+   background: #ffffff;
    border: 2px solid #500000;
    font-size: 80%;
    font-family: 'Open Sans', sans-serif;
-   color: #ffffff;
+   color: #00000;
 }
 
 .sidebar {
@@ -44,17 +44,17 @@
 
 
 body { 
-           background: #474747;
+           background: #ffffff;
 }
 
 #content {
-   background: #333333;
+   background: #ffffff;
    margin: 10px 0px;
    margin-left: 21ex;
    border: 1px dotted #c0c0c0;
    padding: 10px;
    font-family: 'Open Sans', sans-serif;
-   color: #ffffff;
+   color: #00000;
 }
 
 h1 {
