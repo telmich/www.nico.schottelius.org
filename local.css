@@ -100,7 +100,7 @@ pre {
 }
 
 .tags, #backlinks {
-   background: #640000;
+   background: #ffffff;
    border: 2px solid #500000;
    margin: 2px;
    color: #00000;
@@ -113,15 +113,15 @@ pre {
 
 /* pagedate is even less interesting, make it even smaller */
 .pagedate {
-   background: #474747;
+   background: #ffffff;
    border: none;
    padding: 4px;
-   color: #efefef;
+   color: #00000;
    font-size: 80%;
 }
 
-.selflink { background: yellow; color: black }
-.actions ul { background: #640000; border: none; padding-bottom: 0px; font-family: 'Open Sans', sans-serif;}
+.selflink { background: #ffffff; color: black }
+.actions ul { background: #ffffff; border: none; padding-bottom: 0px; font-family: 'Open Sans', sans-serif;}
 .actions a  { margin-right: 1ex; color: #dfdfdf; font-family: 'Open Sans', sans-serif;}
 #footer { border: none; font-family: 'Open Sans', sans-serif;}
 
