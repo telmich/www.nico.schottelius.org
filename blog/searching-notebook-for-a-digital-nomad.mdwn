@@ -14,7 +14,7 @@ It is as easy as this:
   * 12 to 14 inch screen
     * Preferred something that does not have senseless big borders
     * Size should be less or equal than 30cm x 17cm
-  * Resoultion at least 1600x900 
+  * Resolution at least 1600x900 
     * 1600x900 allows three terminals next to each other
     * 3200x1800 is ok as well, but needs some high dpi tunings under Linux
   * Screen should be readable in sun light
