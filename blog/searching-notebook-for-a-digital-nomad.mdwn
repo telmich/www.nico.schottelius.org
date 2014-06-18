@@ -56,6 +56,7 @@ none so far
 ## Call for help
 
 If you know or own any device that may fit the given description, please
-[[contact me|about]].
+[[contact me|about]] or leave a comment on
+[hackernews](https://news.ycombinator.com/item?id=7911658).
 
 [[!tag net geek hardware]]
