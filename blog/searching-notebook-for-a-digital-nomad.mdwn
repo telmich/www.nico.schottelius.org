@@ -47,7 +47,7 @@ none so far
     * Resolution is 1400x900
   * Lenovo X1 Carbon
     * Broken keyboard, no capslock key
-      * I need capslock for the [[Neo Keyboard Layout]](http://neo-layout.org/index_en.html)
+      * I need capslock for the [Neo Keyboard Layout](http://neo-layout.org/index_en.html)
     * Old Models: SSD up to 256G only
   * Lenovo Yoga 2 Pro
     * Unreadable in sun light
