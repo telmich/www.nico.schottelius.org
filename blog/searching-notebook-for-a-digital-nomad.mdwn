@@ -1,0 +1,37 @@
+[[!meta title="Searching a notebook for a digital nomad"]]
+
+## Who I am
+
+Dear reader of this post, my name is Nico Schottelius, I am digital nomad searching
+for a great notebook. 
+My requirements are (in my opinion) simple, but I struggle to find any vendor marketing
+a notebook that fulfils my needs.
+
+## What I search
+
+It is as easy as this:
+
+  * 12 to 14 inch screen
+    * Preferred something that does not have senseless big borders
+  * Resoultion at least 1600x900 
+    * 1600x900 allows three terminals next to each other
+    * 3200x1800 is ok as well, but needs some high dpi tunings under Linux
+  * Screen should be readable in sun light
+    * Bright enough
+    * Not reflecting too much (like the Lenovo Yoga 2 Pro!)
+  * At least 8G RAM
+    * 16 GiB RAM is ok as well
+  * At least 512 GB SSD 
+    * 1TB ok as well
+    * I store pictures on the notebook
+  * Good keyboard
+    * I know, very subjective, but something that let's me type hours without problems in my hands
+    * Thinkpads are usually fine, Mac stuff usually as well
+
+
+## Call for help
+
+If you know or own any device that may fit the given description, please
+[[contact me|about]].
+
+[[!tag net geek hardware]]
