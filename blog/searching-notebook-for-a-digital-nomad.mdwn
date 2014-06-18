@@ -24,6 +24,9 @@ It is as easy as this:
   * At least 512 GB SSD 
     * 1TB ok as well
     * I store pictures on the notebook
+  * Battery lifetime >= 6h
+    * Real 6 hours, not vendor claimed 6 hours
+    * Preferred 12+ hours, so I can stay without power a day long
   * Good keyboard
     * I know, very subjective, but something that let's me type hours without problems in my hands
     * Thinkpads are usually fine, Mac stuff usually as well
