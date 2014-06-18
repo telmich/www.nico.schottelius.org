@@ -5,7 +5,7 @@
 Dear reader of this post, my name is Nico Schottelius, I am digital nomad searching
 for a great notebook. 
 My requirements are (in my opinion) simple, but I struggle to find any vendor marketing
-a notebook that fulfils my needs.
+a notebook that fulfills my needs.
 
 ## What I search
 
@@ -13,6 +13,7 @@ It is as easy as this:
 
   * 12 to 14 inch screen
     * Preferred something that does not have senseless big borders
+    * Size should be less or equal than 30cm x 17cm
   * Resoultion at least 1600x900 
     * 1600x900 allows three terminals next to each other
     * 3200x1800 is ok as well, but needs some high dpi tunings under Linux
@@ -27,10 +28,28 @@ It is as easy as this:
   * Battery lifetime >= 6h
     * Real 6 hours, not vendor claimed 6 hours
     * Preferred 12+ hours, so I can stay without power a day long
+  * Linux supported
+    * Not needed to be certified, but Linux should be easily installable to it
+    * Reference distributions: Archlinux and Debian
   * Good keyboard
     * I know, very subjective, but something that let's me type hours without problems in my hands
     * Thinkpads are usually fine, Mac stuff usually as well
+  * Weight: Less than 2 KG (4.4 lbs)
+    * Would be great to be in the range of 1.0 KG (2.2 lbs)
 
+## Suitable devices
+
+none so far
+
+## Unsuitable devices (tested)
+
+  * Mac Book Air 13": Resolution is 1400x900
+  * Lenovo X1 Carbon : Broken keyboard, no capslock key
+   * I need capslock for the [[Neo Keyboard Layout]](http://neo-layout.org/index_en.html)
+   * Old Models: SSD up to 256G only
+  * Lenovo Yoga 2 Pro
+   * Unreadable in sun light
+   * Poor keyboard
 
 ## Call for help
 
