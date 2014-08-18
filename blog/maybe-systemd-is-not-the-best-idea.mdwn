@@ -1,0 +1,10 @@
+[[!meta title="Maybe systemd is not the best idea"]]
+
+    [189135.535385] systemd[515]: segfault at 7f75cc68a160 ip 00007f75cf24782d sp 00007fff0ad54040 error 4 in systemd[7f75cf20f000+123000]
+
+Maybe, an init system should be small and robust and focus on
+***initialising*** the operating system.
+
+I have plans for a change - just follow this blog for updates.
+
+[[!tag linux init net]]
