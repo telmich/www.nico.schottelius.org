@@ -1,0 +1,53 @@
+[[!meta title="The power of vim: mail editing"]]
+
+In this article I will show you some of the mappings I use within
+vim for mail editing.
+
+## Background
+
+I am a console centric person, using 
+[mutt](http://www.mutt.org/) and 
+[vim](http://www.vim.org/) for mails.
+I use one e-mail address per person or situation
+(i.e. you can reach me at nico-thepowerofvim at schottelius.org).
+to be able to filter or delete e-mail addresses easily.
+
+## Macros / Mappings
+
+One of the really nice things of vim is being able to use macros
+([map](http://vimdoc.sourceforge.net/htmldoc/usr_05.html#05.3) in
+vim slang).
+
+### Replace Mail Address (static)
+
+Many times I would like to replace the mail address mutt selected
+for sending with my company address. For this I use a mapping assigned to F2:
+
+    map <F2> G$/^From:<CR>/<<CR>lc/><CR>nico.schottelius --AT-- ungleich.ch<ESC>/^$<CR>
+
+This essentially finds the first From: line, removes everything betwenn < and > and inserts my company mail address.
+
+
+### Replace Mail Address (dynamic)
+
+In most cases however, I use a mail address in the style
+**nico-something@schottelius.org** (there is no catch all, if you were thinking about this). I have mutt setup to use 
+**nico-something@schottelius.org** as the from address and have a 
+macro mapped to F3 that allows me to replace the part after 
+**nico-** until the **@** easily:
+
+    <F3> G$/^From:<CR>/<nico-<CR>wwlc/@<CR>
+
+### Replace everything until the signature
+
+Quite often I am done with replying to an email, but have 
+leftovers from the original mail. To be able to delete everything
+easily until the end of the mail (i.e. until -- and a space),
+I use F4:
+
+    map <F4> c/^-- <CR>
+
+
+
+
+[[!tag net unix]]
