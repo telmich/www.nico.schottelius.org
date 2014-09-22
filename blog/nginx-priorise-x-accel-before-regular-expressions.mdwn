@@ -1,0 +1,56 @@
+[[!meta title="Nginx: Use X-Accel with conflicting regular expressions"]]
+
+## Background
+
+At [[!ungleich]] we use [[!nginx]] for [[!rails]] 
+hostings of our customers. Nginx is configured to
+deliver static files using [[!xaccel]]. 
+We also want to have a longer expiry time for static files, 
+which is configured seperately in nginx.
+
+## Configuration Options
+
+To support X-Accel, we have added this configuration block into nginx:
+
+    # Support for X-Accel
+    location /protected/ {
+        internal;
+        root   /home/app/app/shared;
+    }
+
+
+To support longer expiry times, we have added this configuration
+block:
+
+    location ~* \.(ico|css|js|gif|jpe?g|png)(\?[0-9]+)?$ {
+        expires 1y;
+
+        # Need to enable proxying in this location as well
+        try_files $uri @unicorn;
+    }
+
+
+## The Problem
+
+Using the configuration as stated above, we encounter the problem that
+if an application wants to send a JPEG using X-Accel, the regular
+expression block is selected (it has higher priority and matches
+the .jpeg ending) and thus the application delivers it, instead of nginx
+directly.
+
+## The Solution
+
+Luckily though, [nginx supports giving the prefix based
+location block precedence](http://nginx.org/en/docs/http/ngx_http_core_module.html#location):
+Instead of using **location /protected/**, we can use **location ^~**. Thus our
+previous block can be rephrased to:
+
+    location ^~ /protected/ {
+        internal;
+        root   /home/app/app/shared;
+    }
+
+And now the application can serve JPEG files via X-Accel.
+
+
+[[!tag hosting nginx rubyonrails ungleich]]

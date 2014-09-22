@@ -24,3 +24,4 @@
 * [[!shortcut name=libvirt desc="libvirt" url="http://www.libvirt.org"]]
 * [[!shortcut name=openstack desc="openstack" url="https://www.openstack.org/"]]
 * [[!shortcut name=dry desc="DRY principle" url="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself"]]
+* [[!shortcut name=rails desc="Ruby on Rails" url="http://rubyonrails.org/"]]
