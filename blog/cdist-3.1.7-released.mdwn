@@ -1,0 +1,14 @@
+[[!meta title="Cdist 3.1.7 released"]]
+
+Here's a short overview about the changes found in version 3.1.7:
+
+	* Type __cdistmarker: Fix typo (Ricardo Catalinas Jiménez)
+	* Core: Bugfix: Export messaging to manifests (Ricardo Catalinas Jiménez)
+	* Explorer cpu_cores, cpu_sockets, memory: Add Mac OS X support (Manuel Hutter)
+	* Type __ssh_authorized_keys: Ensure keys are correctly added (Steven Armstrong)
+	* New Type: __ssh_authorized_key (Steven Armstrong)
+	* New Type: __package_pkgng_freebsd (Jake Guffey)
+
+For more information visit the [[cdist homepage|software/cdist]].
+
+[[!tag cdist config unix]]
