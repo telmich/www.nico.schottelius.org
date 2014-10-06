@@ -2,8 +2,8 @@
 
 It is a sunny day in the mountains, 
 [Glarus](https://www.google.ch/maps/place/Glarus/@46.9998482,9.0581153,21037m/data=!3m1!1e3!4m2!3m1!1s0x4785318a3a76c851:0x823354d3ed5144b2?hl=en).
-I am on the train, reading what is going on in the Internet,
-reading my private, self aggregated "newspaper".
+I am on the train, reading what is going on in the Internet.
+Reading my private, self aggregated "newspaper".
 [Lennart is complaining](https://plus.google.com/app/basic/stream/z13rdjryqyn1xlt3522sxpugoz3gujbhh04) 
 about how bad the FOSS community is [to him], which made me feel sad 
 for him. This blog post is devoted for him and everyone who
@@ -12,7 +12,7 @@ is feeling being traited unjust in the FOSS community.
 ## A short word about me
 
 You may have not heard much about me, as I used to keep out of public 
-discussions so far, especially when they are not 
+discussions for a long time, especially when they are not 
 [fruitful (2nd meaning)](http://en.wiktionary.org/wiki/fruitful).
 
 I am the maintainer (co-author) of 
@@ -30,12 +30,16 @@ In short: I love the FOSS community, because they do good to me.
 
 ## The FOSS community 
 
-The FOSS community in my opinion is very friendly, open minded
-and helpful. Very geeky, sometimes a more active, sometimes less.
+In my opinion the FOSS community is very friendly, open minded
+and helpful. It consists of many geeky people, 
+introverted and extroverted, developers, sysadmins and 
+also the users.
 
 There are many great tools being developed, beer being drunken
 and also heated discussions led, when it comes to 
 **personal opinions**.
+
+### How I experience the FOSS communit
 
 I receive pull requests for the software I have written on a daily basis,
 discuss how to integrate them, into which direction we should develop. 
