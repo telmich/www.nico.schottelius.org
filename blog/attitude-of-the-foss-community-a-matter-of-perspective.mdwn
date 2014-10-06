@@ -1,0 +1,126 @@
+[[!meta title="Attitude of the FOSS community - a matter of perspective"]]
+
+It is a sunny day in the mountains, 
+[Glarus](https://www.google.ch/maps/place/Glarus/@46.9998482,9.0581153,21037m/data=!3m1!1e3!4m2!3m1!1s0x4785318a3a76c851:0x823354d3ed5144b2?hl=en).
+I am on the train, reading what is going on in the Internet,
+reading my private, self aggregated "newspaper".
+[Lennart is complaining](https://plus.google.com/app/basic/stream/z13rdjryqyn1xlt3522sxpugoz3gujbhh04) 
+about how bad the FOSS community is [to him], which made me feel sad 
+for him. This blog post is devoted for him and everyone who
+is feeling being traited unjust in the FOSS community.
+
+## A short word about me
+
+You may have not heard much about me, as I used to keep out of public 
+discussions so far, especially when they are not 
+[fruitful (2nd meaning)](http://en.wiktionary.org/wiki/fruitful).
+
+I am the maintainer (co-author) of 
+[[gpm|software/gpm]], an [[init system|software/cinit]],
+a [[backup utility|software/ccollect]],
+a [[configuration management system|software/cdist]] and
+some [[more software|software]]. I am the CEO of
+[[!ungleich]] and have been active in the FOSS community since 1998.
+
+People who use my software have shining eyes, usually
+contribute the software in form of ideas, code or even
+better: in form of praise, which motivates any FOSS coder.
+
+In short: I love the FOSS community, because they do good to me.
+
+## The FOSS community 
+
+The FOSS community in my opinion is very friendly, open minded
+and helpful. Very geeky, sometimes a more active, sometimes less.
+
+There are many great tools being developed, beer being drunken
+and also heated discussions led, when it comes to 
+**personal opinions**.
+
+I receive pull requests for the software I have written on a daily basis,
+discuss how to integrate them, into which direction we should develop. 
+(Virtual) friends pass interesting links to me, we compare software and 
+find out which architecture is superior in which regards to another.
+
+Questions from newbies are mostly answered by the community around
+me and our newbies turn into gurus and begin to answer questions to
+newbies (read [[!howtobecomeahacker]] and [[!howtoasksmartquestions]]
+to understand how it works).
+
+The alert reader may have noticed I am not talking about
+the Linux community as Lennart does. Why not?
+
+Because there is **much more than just Linux** in the FOSS community.
+
+## Linux is a small part of the existing FOSS
+
+Linux is **one** successful FOSS project, but everyone being in the
+FOSS community knows that there is much more than just Linux.
+The BSDs are developing pretty cool architectures and great 
+software (like [[!openssh]]) and in my opinion there is a 
+great potential to work more closely together. I am not going to name
+all great software here, however if you are coming from a Linux only world,
+it may be helpful to know there are other worlds that form the FOSS community.
+
+Everytime I develop software, I have take care of how to make it portable
+to other Unices. I think it is rather closed minded to focus on Linux 
+only software, especially when a great (I mean it) standard 
+([[!posix]]) exists that allows us to easily write portable software.
+
+## What goes around, comes around
+
+You probably have heard of the idiom **What goes around, comes around**,
+it is rather old (wikipedians: cite needed) and it means "the way
+you behave towards other people will be reflected by them and it is how
+they behave towards you".
+
+So if you are yelling at someone, trying to force someone to do something
+or rant about other's software, you are likely to experience this as well.
+
+## A question of life and attitude
+
+Dear reader, did you ever have a (car) accident? Or have you watched one?
+Maybe you will have noticed that the two involved parties usually have a
+completly different picture of what just happened. 
+
+This is true for every situation in life, how you see a situation depends
+on your point of view, on your situation. So a lot of how your world *is*
+depends on your view.
+
+It is also important to note that 
+**there are two sides to every question** and it is about you how you interpret
+it.
+
+## A pinch of spirituality and scout behaviour
+
+I will not go into beliefs here, but if you have met spiritual people in
+your life you may have noticed a lot of them being positively. You may
+have asked yourself if it is it because of drugs or the way the live?
+
+If you have been a scout, you may remember the maxim
+**do a good deed every day** - imagine everyone does this, there is a high
+chance somebody will do something good to you, every day.
+
+## Summary and suggestions
+
+So why do people love software I have written and don't collect money
+for hitman to go after me? Maybe I am brilliant and they felt so deep in love
+with the design that they don't think about it - maybe it is because I do not
+(try to) force anyone to use it.
+
+I am happy to learn from critics and the way I am, I attract positively thinking people.
+
+So anyone who is unhappy with how you are treated (by the FOSS community),
+here are some suggestions for you:
+
+ * Be friendly - and the echo will be the same
+ * Have an opinion, but don't force it to someone else
+ * Think twice about what you write, especially if it can be interpreted offensive
+ * Don't be ignorant, treat people with respect
+
+## Comments
+
+As usual, please leave your comments on hackernews.
+
+
+[[!tag net foss unix]]
