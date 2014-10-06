@@ -68,7 +68,7 @@ it may be helpful to know there are other worlds that form the FOSS community.
 
 Everytime I develop software, I have take care of how to make it portable
 to other Unices. I think it is rather closed minded to focus on Linux 
-only software, especially when a great (I mean it) standard 
+only software, especially when a great standard 
 ([[!posix]]) exists that allows us to easily write portable software.
 
 So in short, if you consider Linux being the only plattform
@@ -90,14 +90,12 @@ or rant about other's software, you are likely to experience this as well.
 Dear reader, did you ever have a (car) accident? Or have you watched one?
 Maybe you will have noticed that the two involved parties usually have a
 completly different picture of what just happened. 
-
 This is true for every situation in life, how you see a situation depends
 on your point of view, on your situation. So a lot of how your world *is*
 depends on your view.
-
 It is also important to note that 
-**there are two sides to every question** and it is about you how you interpret
-it.
+**there are two sides to every question** and it is about you, your
+attitude and experience to see the right side.
 
 ## A pinch of spirituality and scout behaviour
 
