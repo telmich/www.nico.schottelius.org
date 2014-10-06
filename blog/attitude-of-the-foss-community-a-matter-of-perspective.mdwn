@@ -58,7 +58,7 @@ Because there is **much more than just Linux** in the FOSS community.
 
 ## Linux is a small part of the existing FOSS
 
-Linux is **one** successful FOSS project, but everyone being in the
+Linux is one successful FOSS project, but everyone being in the
 FOSS community knows that there is much more than just Linux.
 The BSDs are developing pretty cool architectures and great 
 software (like [[!openssh]]) and in my opinion there is a 
@@ -70,6 +70,10 @@ Everytime I develop software, I have take care of how to make it portable
 to other Unices. I think it is rather closed minded to focus on Linux 
 only software, especially when a great (I mean it) standard 
 ([[!posix]]) exists that allows us to easily write portable software.
+
+So in short, if you consider Linux being the only plattform
+to develop for and do not respect the work of others (there is
+a reason for Posix), people may not respect you either.
 
 ## What goes around, comes around
 
